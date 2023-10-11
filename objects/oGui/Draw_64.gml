@@ -51,9 +51,6 @@ if (room == rInicio) {
 #region Character Select Room
 var str = ""; var offset = 0;
 if (room == rCharacterSelect or room == rAchievements) {
-	#region triangles
-	
-	#endregion
 	#region Lines
 	var linesoff = 0;
 	if (alarm_get(0) == -1) {
@@ -68,171 +65,181 @@ if (room == rCharacterSelect or room == rAchievements) {
 if (room == rCharacterSelect) {
 	NAME=CHARACTERS[selectedCharacter][?"name"];
 	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
+	draw_set_alpha(0.5);
+	draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
+	draw_sprite_ext(sPhaseIcon, 0, 32, 32, .35, .35, 0, c_white, 1);
+	draw_rectangle_color(0,0, 8, 64, c_white, c_white, c_white, c_white, false);
+	var gens = ["Origins"];
+	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
 	#region Character window
-	var _x = GW / 50;
-	var _y = GH / 5.97;
-	var _xx = GW / 3.38;
-	var _yy = GH / 1.07;
-	var _titleY = GH/4.24;
-	var _titlePos = 18.50;
-	var _fontSize = 2;
-	drawWindow(_x,_y,_xx,_yy,string_upper(_isUnlocked ? global.name : ""), _titleY, _titlePos, _fontSize, 0.15);
-	draw_sprite_ext(CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
-	drawStatsSelect(CHARACTERS[_isUnlocked ? selectedCharacter : 0]);
-	draw_set_valign(fa_middle);
-	draw_set_halign(fa_center);
-	draw_text_transformed_color(_xx - 105, _yy - 40, $"G. RANK: {Granks[CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"id"]]}", 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-	draw_set_valign(fa_top);
-	draw_set_halign(fa_left);
+	//var _x = GW / 50;
+	//var _y = GH / 5.97;
+	//var _xx = GW / 3.38;
+	//var _yy = GH / 1.07;
+	//var _titleY = GH/4.24;
+	//var _titlePos = 18.50;
+	//var _fontSize = 2;
+	//drawWindow(_x,_y,_xx,_yy,string_upper(_isUnlocked ? global.name : ""), _titleY, _titlePos, _fontSize, 0.15);
+	//draw_sprite_ext(CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
+	//drawStatsSelect(CHARACTERS[_isUnlocked ? selectedCharacter : 0]);
+	//draw_set_valign(fa_middle);
+	//draw_set_halign(fa_center);
+	//draw_text_transformed_color(_xx - 105, _yy - 40, $"G. RANK: {Granks[CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"id"]]}", 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
+	//draw_set_valign(fa_top);
+	//draw_set_halign(fa_left);
 	#endregion
 	#region CharacterList
 	if (!characterSelected) {
 		str="CHOOSE YOUR IDOL";
 		draw_set_valign(fa_middle);
 		draw_set_halign(fa_center);
-		draw_text_transformed(GW/2, 60, str, 4.30, 4.30, 0);
+		draw_text_transformed(GW/9.70, GH/4.5, str, 4.30, 4.30, 0);
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);
 		draw_set_color(c_white);
-		//draw_text_transformed(GW/3.12, GH/5.82,"MYTH",2,2,0);
-		//draw_line(GW/3.12, GH/5, GW/1.46,GH/5);
-		offset=0;
-		_x = GW/2.81;
-		_y = GH/4.59;
-		//mouseOnButton(_x,_y, GW/oGui.a, sAmePortrait, 2, 2, array_create(Characters.Lenght, 0),"selectedCharacter", "horizontal");
+		var _offset = 0;
+		var _yoffset = 0;
+		_x = GW/oGui.e;
+		_y = GH/oGui.b;
 		for (var i=1; i < Characters.Lenght; i++) {
-			if (point_in_rectangle(TouchX1, TouchY1, _x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38)) {
-			    selectedCharacter = i;
-			}
-			draw_rectangle(_x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38, true);
+			//if (point_in_rectangle(TouchX1, TouchY1, _x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38)) {
+			//    selectedCharacter = i;
+			//}
+			//draw_rectangle(_x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38, true);
 			if (UnlockableCharacters[CHARACTERS[i][?"id"]]) {
-			    draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x - 2 + offset,_y - 1, 2, 2, 0, c_white, 1);
+			    draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 1, 1, 0, c_white, 1);
 			}
 			if (selectedCharacter == i) {
-				draw_sprite_ext(sMenuCharSelectCursor,-1,_x - 2 + offset, _y,2,2,0,c_white,1);
+				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + offset, _y + _yoffset,1,1,0,c_white,1);
 			}
-			offset+=92;
+			offset+=oGui.f;
+			if (i == 5) {
+			    _yoffset += 10;
+				_offset = 0;
+			}
 		}
 	}
 	#endregion	
 	#region Outfit
-	if (selectingOutfit) {
-	    _x = GW/3.27;
-		_y = 0;
-		_xx = GW/1.43;
-		_yy = GH;
-		draw_set_color(c_black);
-		draw_set_alpha(.25);
-		draw_rectangle(_x, _y, _xx, _yy, false);
-		draw_set_color(c_white);
-		draw_set_alpha(1);
-		str="Outfits";
-		_x = GW/2;
-		_y = GH/2;
-		draw_set_halign(fa_center);
-		draw_set_valign(fa_top);
-		draw_sprite_ext(sCharacterselected, 0, _x, _y, 6, 6, 0, c_white, 1);
-		draw_text_transformed(_x, _y - (sprite_get_height(sCharacterselected) * 6) / 2, str, 4.50, 4.50, 0);		
-		draw_set_halign(fa_left);
-		outfitIdleAnimation[1] = sprite_get_number(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"]);
-		outfitIdleSpeed = sprite_get_speed(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"]);
-		if (outfitIdleAnimation[0] < outfitIdleAnimation[1]) {
-			outfitIdleAnimation[0] += outfitIdleSpeed / game_get_speed(gamespeed_fps) * Delta;
-		}
-		else{ outfitIdleAnimation[0] = 0; }
-		var _spr = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"];
-		var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "unlocked"] ? c_white : c_black;
-		draw_sprite_ext(_spr, outfitIdleAnimation[0], _x, _y + sprite_get_height(_spr) * 3, 6, 6, 0, _isUnlocked, 1);
-	}
+	//if (selectingOutfit) {
+	//    _x = GW/3.27;
+	//	_y = 0;
+	//	_xx = GW/1.43;
+	//	_yy = GH;
+	//	draw_set_color(c_black);
+	//	draw_set_alpha(.25);
+	//	draw_rectangle(_x, _y, _xx, _yy, false);
+	//	draw_set_color(c_white);
+	//	draw_set_alpha(1);
+	//	str="Outfits";
+	//	_x = GW/2;
+	//	_y = GH/2;
+	//	draw_set_halign(fa_center);
+	//	draw_set_valign(fa_top);
+	//	draw_sprite_ext(sCharacterselected, 0, _x, _y, 6, 6, 0, c_white, 1);
+	//	draw_text_transformed(_x, _y - (sprite_get_height(sCharacterselected) * 6) / 2, str, 4.50, 4.50, 0);		
+	//	draw_set_halign(fa_left);
+	//	outfitIdleAnimation[1] = sprite_get_number(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"]);
+	//	outfitIdleSpeed = sprite_get_speed(CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"]);
+	//	if (outfitIdleAnimation[0] < outfitIdleAnimation[1]) {
+	//		outfitIdleAnimation[0] += outfitIdleSpeed / game_get_speed(gamespeed_fps) * Delta;
+	//	}
+	//	else{ outfitIdleAnimation[0] = 0; }
+	//	var _spr = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "sprite"];
+	//	var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "unlocked"] ? c_white : c_black;
+	//	draw_sprite_ext(_spr, outfitIdleAnimation[0], _x, _y + sprite_get_height(_spr) * 3, 6, 6, 0, _isUnlocked, 1);
+	//}
 	#endregion
 	#region Stage
-	if (characterSelected and outfitSelected) {
-		_x = GW/3.27;
-		_y = 0;
-		_xx = GW/1.43;
-		_yy = GH;
-		draw_set_color(c_black);
-		draw_set_alpha(.25);
-		draw_rectangle(_x, _y, _xx, _yy, false);
-		draw_set_color(c_white);
-		draw_set_alpha(1);
-		str="CHOOSE MODE";
-		draw_set_halign(fa_center);
-		draw_text_transformed(GW/2,GH/22.50,str, 4.50, 4.50, 0);
-		draw_set_halign(fa_left);
-		_x = GW/2;
-		_y = GH/3.14;
-		if (!stageSelected) {
-			offset = 0;
-			draw_set_halign(fa_center);
-			for (var i = 0; i < array_length(stageModes); ++i) {
-				draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
-				draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
-				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
-				draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 2.5, 2.5, 0);
-				if (i == selected) {
-					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
-				}
-			offset += 160;
-			}
-		}
-		if (stageSelected) {
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_middle);
-			draw_text_transformed(GW/2, GH/3.61, string_upper(stages[0].name), 4, 4, 0);
-			draw_sprite_ext(stages[0].port, 0, GW/2, GH/2, 2.30, 2.30, 0 ,c_white, 1);
-			draw_sprite_ext(sHudButton, 1, GW/2, GH/1.40, 1, 2, 0, c_white, 1);
-			draw_set_color(c_black);
-			draw_text_transformed(GW/2, GH/1.40, "GO!", 2, 2, 0);
-			draw_set_color(c_white);
-		}
-		draw_set_valign(fa_top);
-		draw_set_halign(fa_left);
-	}
+	//if (characterSelected and outfitSelected) {
+	//	_x = GW/3.27;
+	//	_y = 0;
+	//	_xx = GW/1.43;
+	//	_yy = GH;
+	//	draw_set_color(c_black);
+	//	draw_set_alpha(.25);
+	//	draw_rectangle(_x, _y, _xx, _yy, false);
+	//	draw_set_color(c_white);
+	//	draw_set_alpha(1);
+	//	str="CHOOSE MODE";
+	//	draw_set_halign(fa_center);
+	//	draw_text_transformed(GW/2,GH/22.50,str, 4.50, 4.50, 0);
+	//	draw_set_halign(fa_left);
+	//	_x = GW/2;
+	//	_y = GH/3.14;
+	//	if (!stageSelected) {
+	//		offset = 0;
+	//		draw_set_halign(fa_center);
+	//		for (var i = 0; i < array_length(stageModes); ++i) {
+	//			draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
+	//			draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
+	//			draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
+	//			draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 2.5, 2.5, 0);
+	//			if (i == selected) {
+	//				draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
+	//			}
+	//		offset += 160;
+	//		}
+	//	}
+	//	if (stageSelected) {
+	//		draw_set_halign(fa_center);
+	//		draw_set_valign(fa_middle);
+	//		draw_text_transformed(GW/2, GH/3.61, string_upper(stages[0].name), 4, 4, 0);
+	//		draw_sprite_ext(stages[0].port, 0, GW/2, GH/2, 2.30, 2.30, 0 ,c_white, 1);
+	//		draw_sprite_ext(sHudButton, 1, GW/2, GH/1.40, 1, 2, 0, c_white, 1);
+	//		draw_set_color(c_black);
+	//		draw_text_transformed(GW/2, GH/1.40, "GO!", 2, 2, 0);
+	//		draw_set_color(c_white);
+	//	}
+	//	draw_set_valign(fa_top);
+	//	draw_set_halign(fa_left);
+	//}
 	#endregion
 	#region Weapon window
-	_x = GW / 1.42;
-	_y = GH / 5.95;
-	_xx = GW / 1.02;
-	_yy = GH / 1.88;
-	_titleY = GH/4.22;
-	_titlePos = 18;
-	_fontSize = 2;
-	drawWindow(_x,_y,_xx,_yy,"ATTACK", _titleY, _titlePos, _fontSize);
-	if (_isUnlocked) {
-		var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
-		var weaponSprite = weaponID[1][$ "thumb"];
-		draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
-		draw_set_valign(fa_middle); draw_set_color(c_white);
-		draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".name"), 2.50, 2.50, 0);
-		//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
-		drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".1") , 350, 2);
-	}
-	draw_set_valign(0);
+	//_x = GW / 1.42;
+	//_y = GH / 5.95;
+	//_xx = GW / 1.02;
+	//_yy = GH / 1.88;
+	//_titleY = GH/4.22;
+	//_titlePos = 18;
+	//_fontSize = 2;
+	//drawWindow(_x,_y,_xx,_yy,"ATTACK", _titleY, _titlePos, _fontSize);
+	//if (_isUnlocked) {
+	//	var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
+	//	var weaponSprite = weaponID[1][$ "thumb"];
+	//	draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
+	//	draw_set_valign(fa_middle); draw_set_color(c_white);
+	//	draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".name"), 2.50, 2.50, 0);
+	//	//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
+	//	drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".1") , 350, 2);
+	//}
+	//draw_set_valign(0);
 	#endregion
 	#region Special window
-	_x = GW / 1.42;
-	_y = GH / 1.88;
-	_xx = GW / 1.02;
-	_yy = GH / 1.07;
-	_titleY = GH/1.67;
-	_titlePos = 18;
-	_fontSize = 2;
-	drawWindow(_x,_y,_xx,_yy,"SPECIAL", _titleY, _titlePos, _fontSize);
-	_x = GW/1.37;
-	_y = GH/1.55;
-	if (_isUnlocked) {
-		var specialID = CHARACTERS[selectedCharacter][?"special"];
-		var specialSprite = SPECIAL_LIST[specialID][$ "thumb"];
-		var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".name");
-		var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".desc");
-		draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
-		draw_set_valign(fa_middle); draw_set_color(c_white);
-		draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
-		drawDesc(_x - 19, _y + 35, specialDesc, _x + 1, 2);
-	}
-	draw_set_valign(0);
+	//_x = GW / 1.42;
+	//_y = GH / 1.88;
+	//_xx = GW / 1.02;
+	//_yy = GH / 1.07;
+	//_titleY = GH/1.67;
+	//_titlePos = 18;
+	//_fontSize = 2;
+	//drawWindow(_x,_y,_xx,_yy,"SPECIAL", _titleY, _titlePos, _fontSize);
+	//_x = GW/1.37;
+	//_y = GH/1.55;
+	//if (_isUnlocked) {
+	//	var specialID = CHARACTERS[selectedCharacter][?"special"];
+	//	var specialSprite = SPECIAL_LIST[specialID][$ "thumb"];
+	//	var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".name");
+	//	var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".desc");
+	//	draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
+	//	draw_set_valign(fa_middle); draw_set_color(c_white);
+	//	draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
+	//	drawDesc(_x - 19, _y + 35, specialDesc, _x + 1, 2);
+	//}
+	//draw_set_valign(0);
 	#endregion
+	
 }
 #endregion
 #region Inside Stage
