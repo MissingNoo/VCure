@@ -17,23 +17,6 @@ switch (upg[$ "id"]) {
 	//		//alarm[0]=10;
 	//	//}
 	//	break;
-	case Weapons.GuraTrident:
-		//if (shoots > 1) {			
-			inst = spawnUpgrade();
-			inst.diroffset=offset;
-			offset+=32;			
-		    //shoots-=1;			
-			//alarm[0]=1;
-		//}
-		break;
-	case Weapons.InaTentacle:
-		//if (shoots > 1) {			
-			inst = spawnUpgrade();
-			inst.diroffset=irandom_range(0,360);
-		    //shoots-=1;			
-			////alarm[0]=1;
-		//}
-		break;
 	case Weapons.CuttingBoard:
 		shoots = -1;
 		inst = spawnUpgrade();
@@ -127,17 +110,7 @@ switch (upg[$ "id"]) {
 			//alarm[0]=1;
 		//}
 		break;}
-	case Weapons.PowerofAtlantis:{
-		//if (shoots > 1) {			
-			spawnUpgrade();
-			random_set_seed(current_time);
-			x = oPlayer.x + irandom_range(-200,200);
-			random_set_seed(current_time);
-			y = oPlayer.y + irandom_range(-200,200);
-		    //shoots-=1;
-			//alarm[0]=1;
-		//}
-		break;}
+
 	case Weapons.HoloBomb:{
 		//if (shoots > 1) {			
 			spawnUpgrade();

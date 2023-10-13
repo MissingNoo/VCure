@@ -45,11 +45,7 @@ function create_perk(_data){
 		//Amelia
 		FpsMastery,
 		DetectiveEye,//TODO: critical
-		Bubba,//TODO: Everythingq
-		ShortSize,
-		PowerofAtlantis,
-		SharkBite,
-		//Modded
+		Bubba,//TODO: Everything
 		HeavyArtillery,
 		MoldySoul,
 		SodaFueled,
@@ -68,15 +64,15 @@ function populate_perks(){
 						weight : 1,
 						thumb : sFpsMastery,
 						cooldown : 1,
-						characterid : Characters.Amelia,
+						characterid : Characters.Uruka,
 						bonus : true,
 						bonustype : BonusType.Damage,
 						bonusvalue : [1, 1.20, 1.40, 1.60]
 					});
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 0, 3, 1, sFpsMastery, 1, "Do nothing.", Characters.Amelia);
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal [20%] more damage.", Characters.Amelia);
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 2, 3, 1, sFpsMastery, 1, "Weapons deal [40%] more damage.", Characters.Amelia);
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 3, 3, 1, sFpsMastery, 1, "Weapons deal [60%] more damage and fire [10%] faster.", Characters.Amelia);
+					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 0, 3, 1, sFpsMastery, 1, "Do nothing.", Characters.Uruka);
+					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal [20%] more damage.", Characters.Uruka);
+					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 2, 3, 1, sFpsMastery, 1, "Weapons deal [40%] more damage.", Characters.Uruka);
+					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 3, 3, 1, sFpsMastery, 1, "Weapons deal [60%] more damage and fire [10%] faster.", Characters.Uruka);
 				#endregion
 				
 				#region Detective Eye
@@ -87,15 +83,15 @@ function populate_perks(){
 						weight : 1,
 						thumb : sDetectiveEye,
 						cooldown : 1,
-						characterid : Characters.Amelia,
+						characterid : Characters.Uruka,
 						bonus : true,
 						bonustype : BonusType.Critical,
 						bonusvalue : [0, 1.10, 1.20, 1.30]
 					});
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 0, 3, 1, sDetectiveEye, 1, "Do nothing.", Characters.Amelia);
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [10%].", Characters.Amelia);
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 2, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [20%].", Characters.Amelia);
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 3, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Amelia);
+					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 0, 3, 1, sDetectiveEye, 1, "Do nothing.", Characters.Uruka);
+					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [10%].", Characters.Uruka);
+					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 2, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [20%].", Characters.Uruka);
+					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 3, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Uruka);
 				#endregion
 				
 				#region Bubba
@@ -106,79 +102,18 @@ function populate_perks(){
 						weight : 1,
 						thumb : sBubba,
 						cooldown : 1,
-						characterid : Characters.Amelia,						
+						characterid : Characters.Uruka,						
 					});
-					//create_perk(PerkIds.Bubba, "Bubba", 0, 3, 1, sBubba, 1, "Do nothing.", Characters.Amelia);
-					//create_perk(PerkIds.Bubba, "Bubba", 1, 3, 1, sBubba, 1, "Gain a dog companion that attacks random targets, dealing [100%] of your base damage per hit.", Characters.Amelia);
-					//create_perk(PerkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Amelia);
-					//create_perk(PerkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Amelia);
+					//create_perk(PerkIds.Bubba, "Bubba", 0, 3, 1, sBubba, 1, "Do nothing.", Characters.Uruka);
+					//create_perk(PerkIds.Bubba, "Bubba", 1, 3, 1, sBubba, 1, "Gain a dog companion that attacks random targets, dealing [100%] of your base damage per hit.", Characters.Uruka);
+					//create_perk(PerkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Uruka);
+					//create_perk(PerkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Uruka);
 				#endregion
-				global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
 			#endregion
 	
-			#region Gura Perks
-				#region ShortSize
-				create_perk({
-						id : PerkIds.ShortSize,
-						name : "Short Size",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sShortHeight,
-						cooldown : 1,
-						characterid : Characters.Gura
-					});
-					//create_perk(PerkIds.ShortSize, "Short Size", 0, 3, 1, sShortHeight, 1, "Do Nothing.", Characters.Gura);
-					//create_perk(PerkIds.ShortSize, "Short Size", 1, 3, 1, sShortHeight, 1, "Grants a [15%] chance to dodge an attack. After dodging, increase movement speed by [30%] and stay invulnerable for [0.5] second.", Characters.Gura);
-					//create_perk(PerkIds.ShortSize, "Short Size", 2, 3, 1, sShortHeight, 1, "Grants a [25%] chance to dodge an attack. After dodging, increase movement speed by [40%] and stay invulnerable for [0.5] second.", Characters.Gura);
-					//create_perk(PerkIds.ShortSize, "Short Size", 3, 3, 1, sShortHeight, 1, "Grants a [35%] chance to dodge an attack. After dodging, increase movement speed by [50%] and stay invulnerable for [0.5] second.", Characters.Gura);
-
-				#endregion
-				
-				#region PowerofAtlantis
-				create_perk({
-						id : PerkIds.PowerofAtlantis,
-						name : "Power of Atlantis",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sPowerofAtlantisThumb,
-						cooldown : 600,
-						characterid : Characters.Gura,
-						upgrade: true,
-						upgradeid : Weapons.PowerofAtlantis
-					});
-					//create_perk(PerkIds.PowerofAtlantis, "Power of Atlantis", 0, 3, 1, sPowerofAtlantisThumb, 1, "Do nothing.", Characters.Gura);
-					//create_perk(PerkIds.PowerofAtlantis, "Power of Atlantis", 1, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [15%] more damage, lasting 6 seconds and deals [30%] damage every [0.5] seconds.", Characters.Gura);
-					//create_perk(PerkIds.PowerofAtlantis, "Power of Atlantis", 2, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [30%] more damage, lasting 6 seconds and deals [40%] damage every [0.5] seconds.", Characters.Gura);
-					//create_perk(PerkIds.PowerofAtlantis, "Power of Atlantis", 3, 3, 1, sPowerofAtlantisThumb, 600, "Every [10] seconds, create a whirlpool that draws in targets and takes [50%] more damage, lasting 6 seconds and deals [50%] damage every [0.5] seconds.", Characters.Gura);
-				#endregion
-				
-				#region SharkBite //TODO: add animation again
-				create_perk({
-						id : PerkIds.SharkBite,
-						name : "Shark Bite",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sSharkBite,
-						cooldown : 1,
-						characterid : Characters.Gura,
-					});
-					//create_perk(PerkIds.SharkBite, "Shark Bite", 0, 3, 1, sSharkBite, 1, "Do nothing.", Characters.Gura);
-					//create_perk(PerkIds.SharkBite, "Shark Bite", 1, 3, 1, sSharkBite, 600, "Attacks have a [10%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [6%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
-					//create_perk(PerkIds.SharkBite, "Shark Bite", 2, 3, 1, sSharkBite, 600, "Attacks have a [15%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [9%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
-					//create_perk(PerkIds.SharkBite, "Shark Bite", 3, 3, 1, sSharkBite, 600, "Attacks have a [20%] chance to place 1 'Bite Mark' (max 5). Per stack, Target takes [12%] more damage, and a [20%] chance to heal you [1%] when defeated.", Characters.Gura);
-					global.characterPerks[Characters.Gura] = [PERK_LIST[PerkIds.ShortSize][0], PERK_LIST[PerkIds.PowerofAtlantis][0], PERK_LIST[PerkIds.SharkBite][0]];
-				#endregion		
-
-			#endregion
-	
-			#region Ina Perks
-				#region 
 			
-				#endregion
-				global.characterPerks[Characters.Ina] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
-			#endregion
-			#region Modded
-			#region Pipkin Pippa
+			
 			create_perk({
 						id : PerkIds.HeavyArtillery,
 						name : "Heavy Artillery",
@@ -217,8 +152,7 @@ function populate_perks(){
 			//create_perk(PerkIds.SodaFueled, "Soda Fueled", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
 			//create_perk(PerkIds.SodaFueled, "Soda Fueled", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
 			global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
-			#endregion
-			#endregion
+			
 		#endregion
 	#endregion
 }

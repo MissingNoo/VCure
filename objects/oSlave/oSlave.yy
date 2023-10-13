@@ -30,10 +30,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"socket","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
   ],
   "solid": false,
-  "spriteId": {
-    "name": "sInaIdle",
-    "path": "sprites/sInaIdle/sInaIdle.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

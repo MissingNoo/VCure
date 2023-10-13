@@ -63,61 +63,61 @@ if (room == rCharacterSelect or room == rAchievements) {
 #endregion
 }
 if (room == rCharacterSelect) {
+	draw_rectangle_color(0, 0, GW, GH, #19181d, #19181d, #19181d, #19181d, false);
 	NAME=CHARACTERS[selectedCharacter][?"name"];
 	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
 	draw_set_alpha(0.5);
 	draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
-	draw_sprite_ext(sPhaseIcon, 0, 32, 32, .35, .35, 0, c_white, 1);
-	draw_rectangle_color(0,0, 8, 64, c_white, c_white, c_white, c_white, false);
+	draw_sprite_ext(sPhaseIcon, 0, 32, 32, .35, .35, 0, #add8e6, 1);
+	draw_rectangle_color(0,0, 8, 64, #add8e6, #add8e6, #add8e6, #add8e6, false);
 	var gens = ["Origins"];
 	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
-	#region Character window
-	//var _x = GW / 50;
-	//var _y = GH / 5.97;
-	//var _xx = GW / 3.38;
-	//var _yy = GH / 1.07;
-	//var _titleY = GH/4.24;
-	//var _titlePos = 18.50;
-	//var _fontSize = 2;
-	//drawWindow(_x,_y,_xx,_yy,string_upper(_isUnlocked ? global.name : ""), _titleY, _titlePos, _fontSize, 0.15);
-	//draw_sprite_ext(CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"sprite"], sprindex,GW/6.18, GH/1.79, 4, 4, 0,c_white,1);
-	//drawStatsSelect(CHARACTERS[_isUnlocked ? selectedCharacter : 0]);
-	//draw_set_valign(fa_middle);
-	//draw_set_halign(fa_center);
-	//draw_text_transformed_color(_xx - 105, _yy - 40, $"G. RANK: {Granks[CHARACTERS[_isUnlocked ? selectedCharacter : 0][?"id"]]}", 3, 3, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
-	//draw_set_valign(fa_top);
-	//draw_set_halign(fa_left);
-	#endregion
 	#region CharacterList
 	if (!characterSelected) {
 		str="CHOOSE YOUR IDOL";
 		draw_set_valign(fa_middle);
 		draw_set_halign(fa_center);
-		draw_text_transformed(GW/9.70, GH/4.5, str, 4.30, 4.30, 0);
+		draw_text_transformed(GW/4, GH/8, str, 4.30, 4.30, 0);
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);
 		draw_set_color(c_white);
 		var _offset = 0;
 		var _yoffset = 0;
-		_x = GW/oGui.e;
-		_y = GH/oGui.b;
+		_x = GW/10;
+		_y = GH/4;
+		draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
+		draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
 		for (var i=1; i < Characters.Lenght; i++) {
-			//if (point_in_rectangle(TouchX1, TouchY1, _x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38)) {
-			//    selectedCharacter = i;
-			//}
-			//draw_rectangle(_x - 44 + offset, _y - 38, _x + 44 + offset, _y + 38, true);
+			var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
+			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
+			if (point_in_rectangle(TouchX1, TouchY1, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) {
+			    selectedCharacter = i;
+			}			
+			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2, _x + _pW + 2 + _offset, _y + _pH + 2, false);
 			if (UnlockableCharacters[CHARACTERS[i][?"id"]]) {
-			    draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 1, 1, 0, c_white, 1);
+			    draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
 			}
 			if (selectedCharacter == i) {
-				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + offset, _y + _yoffset,1,1,0,c_white,1);
+				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
 			}
-			offset+=oGui.f;
+			_offset += 95;
 			if (i == 5) {
 			    _yoffset += 10;
 				_offset = 0;
 			}
+		}		
+		draw_text_ext_transformed(GW/1.48, GH/7.31, string_upper(CHARACTERS[selectedCharacter][?"name"]), string_height("W"), 50, 7, 7, 0);		
+		draw_sprite_ext(CHARACTERS[selectedCharacter][?"sprite"], 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
+		select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special");
+		draw_sprite_ext(SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb, 0, GW/1.09, GH/1.21, 3, 3, 0, c_white, 1);
+		select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack");
+		draw_sprite_ext(CHARACTERS[selectedCharacter][?"weapon"][1].thumb, 0, GW/1.19, GH/1.14, 3, 3, 0, c_white, 1);
+		select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills");
+		_offset = 0;
+		for (var i = 0; i < 3; ++i) {
+		    draw_sprite_ext(global.characterPerks[selectedCharacter][i].thumb, 0, GW/1.20 + _offset, GH/1.43, 3, 3, 0, c_white, 1);
+			_offset += 75;
 		}
 	}
 	#endregion	

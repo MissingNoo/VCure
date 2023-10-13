@@ -104,7 +104,7 @@ global.debug=false;
 canspawn=true;
 global.gamePaused=false;
 gamePausedImageSpeed =0;
-//global.player=global.characters[Characters.Amelia];
+//global.player=global.characters[Characters.Uruka];
 reset_pool();
 reset_timer();
 global.strafe = false;

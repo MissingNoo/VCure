@@ -53,8 +53,8 @@
   },
   "origin": 7,
   "parent": {
-    "name": "Amelia",
-    "path": "folders/Sprites/Characters/Amelia.yy",
+    "name": "Uruka",
+    "path": "folders/Sprites/Characters/Uruka.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

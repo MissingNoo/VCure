@@ -272,9 +272,6 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 							}							
 						}
 					    switch (Buffs[i][$ "id"]) {
-						    case BuffNames.ShortHeight:
-						        PerkBonuses[BonusType.Speed][PerkIds.ShortSize] = 0;
-						        break;
 							case BuffNames.Sake:
 								if (Buffs[i][$ "count"] < Buffs[i][$ "maxCount"]) {
 								    Buffs[i][$ "count"] += 1;

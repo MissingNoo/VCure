@@ -51,16 +51,8 @@ gachas = [
 		prizes : [
 			{
 				type : PrizeType.Character,
-				character : Characters.Amelia
+				character : Characters.Uruka
 			},
-			{
-				type : PrizeType.Character,
-				character : Characters.Gura
-			},
-			{
-				type : PrizeType.Character,
-				character : Characters.Ina
-			}
 		]
 	}
 ];

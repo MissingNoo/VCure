@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sAmeSpecial",
-  "bbox_bottom": 19,
-  "bbox_left": 0,
-  "bbox_right": 17,
-  "bbox_top": 0,
+  "bbox_bottom": 16,
+  "bbox_left": 1,
+  "bbox_right": 18,
+  "bbox_top": 1,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,20 +13,20 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ecf39519-f00d-4223-b18e-d50200e48288",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1afce5d4-8740-455a-bf25-f34377b41622",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 20,
+  "height": 18,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"4ebcb515-decd-42cb-884c-09a0ea21ef38","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ec8d8a96-8f2b-48b6-a4dc-214661f4159b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Amelia",
-    "path": "folders/Sprites/Characters/Amelia.yy",
+    "name": "Uruka",
+    "path": "folders/Sprites/Characters/Uruka.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ecf39519-f00d-4223-b18e-d50200e48288","path":"sprites/sAmeSpecial/sAmeSpecial.yy",},},},"Disabled":false,"id":"9d2ad467-38e8-436c-b11c-985cc90dd513","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"1afce5d4-8740-455a-bf25-f34377b41622","path":"sprites/sAmeSpecial/sAmeSpecial.yy",},},},"Disabled":false,"id":"ec161f70-4c1b-4e15-bd9e-697c5adaf6c1","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 18,
+  "width": 20,
 }

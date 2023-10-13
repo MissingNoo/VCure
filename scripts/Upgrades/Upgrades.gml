@@ -144,9 +144,9 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 
 enum Weapons{
 	AmePistol,
-	GuraTrident,
-	PowerofAtlantis, //TODO: water area, more damage
-	InaTentacle, //TODO: add knockback
+	//GuraTrident,
+	//PowerofAtlantis, //TODO: water area, more damage
+	//InaTentacle, //TODO: add knockback
 	BlBook, //TODO: area, knockback
 	BounceBall,
 	CEOTears,
@@ -210,87 +210,12 @@ function populate_upgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
-				characterid : Characters.Amelia
+				characterid : Characters.Uruka
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 		#endregion	
 	
-		#region Gura Perks
-			#region GuraTrident 
-				//TODO: add snd_woosh and snd_woosh2
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",1, sGuraTridentShoot, sGuraTrident,11,21,70,100,20,true,0,999, "red", 1,"Mid ranged stab attack in front.");
-				createUpgradeP2(Weapons.GuraTrident, 1, 7, 0, 0, 1, Characters.Gura);
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",2, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,100,20,true,0,999, "red", 1,"Increase damage by 20%. ");
-				createUpgradeP2(Weapons.GuraTrident, 2, 7, 0, 0, 1, Characters.Gura);
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",3, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70,100,20,true,0,999, "red", 2,"Stab one extra time, forming a V shape. ");
-				createUpgradeP2(Weapons.GuraTrident, 3, 7, 0, 0, 1, Characters.Gura);
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",4, sGuraTridentShoot, sGuraTrident,11*1.20,21*1.20,70*0.85,100,20,true,0,999, "red", 2,"Reduce the time between attacks by 15%. ");
-				createUpgradeP2(Weapons.GuraTrident, 4, 7, 0, 0, 1, Characters.Gura);
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",5, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 2,"Increase damage by 40%. ");
-				createUpgradeP2(Weapons.GuraTrident, 5, 7, 0, 0, 1, Characters.Gura);
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",6, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 2,"Increase attack area by 25%. ");
-				createUpgradeP2(Weapons.GuraTrident, 6, 7, 0, 0, 1, Characters.Gura);
-				createUpgrade(Weapons.GuraTrident,"GuraTrident",7, sGuraTridentShoot, sGuraTrident,11*1.20*1.40,21*1.20*1.40,70*0.85,100,20,true,0,999, "red", 3,"Thrust 3 times, in a fork-like shape. ");
-				createUpgradeP2(Weapons.GuraTrident, 7, 7, 0, 0, 1, Characters.Gura);
-			#endregion
-			
-			#region PowerofAtlantis
-				//var pdmg = global.player[?"atk"];				
-				newCreateUpgrade({
-				id : Weapons.PowerofAtlantis,
-				name : "Power of Atlantis",
-				maxlevel : 3,
-				sprite : sWaterPoolStart,
-				thumb : sPowerofAtlantisThumb,
-				mindmg : 6,
-				maxdmg : 10,
-				cooldown : 600,
-				duration : 360,
-				hitCooldown : 45,
-				canBeHasted : true,
-				speed : 0,
-				hits : 999,
-				type : "red",
-				shoots : [1, 2, 3],
-				desc : [
-				"Every 10 seconds, create a whirlpool that draws in targets and takes 15% more damage, lasting 6 seconds and deals 30% damage every 0.5 seconds.",
-				"Every 10 seconds, create a whirlpool that draws in targets and takes 30% more damage, lasting 6 seconds and deals 40% damage every 0.5 seconds.",
-				"Every 10 seconds, create a whirlpool that draws in targets and takes 50% more damage, lasting 6 seconds and deals 50% damage every 0.5 seconds."
-				],
-				knockbackSpeed : 0,
-				knockbackDuration : 0,
-				perk : true,
-				characterid : Characters.Lenght
-			});
-			#endregion
-		#endregion
-	
-		#region Ina Perks
-			#region Ina tentacle
-			newCreateUpgrade({
-				id : Weapons.InaTentacle,
-				name : "Summon Tentacle",
-				maxlevel : 7,
-				sprite : sInaTentacleShoot,
-				thumb : sInaTentacle,
-				mindmg : [10, 12, 12, 12, 19, 19, 19],
-				maxdmg : [14, 16, 16, 16, 24, 24, 24],
-				cooldown : [90, 90, 78, 78, 78, 78, 78],
-				duration : 120,
-				hitCooldown : 20,
-				canBeHasted : true,
-				speed : 0,
-				hits : 999,
-				type : "red",
-				shoots : [1, 1, 1, 1, 1, 1, 3],
-				knockbackSpeed : 0,
-				knockbackDuration : 0,
-				perk : true,
-				characterid : Characters.Ina,
-			}, [snd_tailswipe]);
-	#endregion
-		#endregion
-	#endregion
+		
 	#region Shockwave
 	newCreateUpgrade({ //Shockwave
 				id : Weapons.Shockwave,

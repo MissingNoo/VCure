@@ -84,7 +84,7 @@ function initializePlayer(_p){
 
 global.characters=[];
 #macro CHARACTERS global.characters
-function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
+function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
 {
 	if (_unlocked) {
 	    UnlockableCharacters[_id] = _unlocked;
@@ -94,6 +94,7 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 	ds_map_add(m, "id", _id);
 	ds_map_add(m, "name", _name);
 	ds_map_add(m, "portrait", _portrait);
+	ds_map_add(m, "bigArt", _bigArt);
 	ds_map_add(m, "sprite", _sprite);
 	ds_map_add(m, "runningsprite", _runningsprite);
 	ds_map_add(m, "hp", _hp);
@@ -107,9 +108,9 @@ function createCharacter(_id, _name, _portrait, _sprite, _runningsprite, _hp, _s
 }
 
 enum BuffNames{
-	ShortHeight,
-	SharkBite,
-	Slowness,
+	//ShortHeight,
+	//SharkBite,
+	//Slowness,
 	Sake,
 	SakeFood,
 	testbuff
@@ -123,26 +124,21 @@ enum BuffNames{
 //Murasaki Shion IconMurasaki Shion
 
 function populate_characters(){
-	createCharacter(Characters.null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.AmePistol], false, false);
-	createCharacter(Characters.Amelia,"Amelia Watson",sAmePortrait,sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol], false, true);
-	createCharacter(Characters.Gura,"Gawr Gura",sGuraPortrait,sGuraIdle,sGuraRunning,65,1.40,1.10,1.05, 1, u[Weapons.GuraTrident], true, false);
-	createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90, 1.01, 1,u[Weapons.InaTentacle], true, true);
-	#region Modded
-	#region Pipkin Pippa
-	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait,sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
-	#endregion
-	#endregion
+	createCharacter(Characters.null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
+	createCharacter(Characters.Uruka,"Fujikura Uruka",sAmePortrait, sUrukaArt, sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol], false, true);
+	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	
-	Buffs[BuffNames.ShortHeight] = {
-		id : BuffNames.ShortHeight,
-		name : "Short Height",
-		icon : sShortHeight,
-		enabled : false,
-		baseCooldown : 2,
-		cooldown : 0,
-		chance : [0,15,25,35],
-		bonus : [0,1.3,1.4,1.5]
-	}
+	
+	//Buffs[BuffNames.ShortHeight] = {
+	//	id : BuffNames.ShortHeight,
+	//	name : "Short Height",
+	//	icon : sShortHeight,
+	//	enabled : false,
+	//	baseCooldown : 2,
+	//	cooldown : 0,
+	//	chance : [0,15,25,35],
+	//	bonus : [0,1.3,1.4,1.5]
+	//}
 	Buffs[BuffNames.testbuff] = {
 		id : BuffNames.testbuff,
 		name : "Test Buff",
@@ -174,37 +170,33 @@ function populate_characters(){
 		cooldown : 0,
 	}
 		
-	Buffs[BuffNames.SharkBite] = {
-		id : BuffNames.SharkBite,
-		name : "Shark Bite",
-		icon : sSharkBite,
-		maxMarks : 5,
-		marks : 1,
-		level : 1,
-		damage : [1,1.6,1.9,1.12],
-		chance : [0,10,15,20]
-	}
-	Buffs[BuffNames.Slowness] = {
-		id : BuffNames.Slowness,
-		name : "Slowness",
-		icon : sShortHeight, //TODO: add slow speed icon
-		time : 15,
-	}
+	//Buffs[BuffNames.SharkBite] = {
+	//	id : BuffNames.SharkBite,
+	//	name : "Shark Bite",
+	//	icon : sSharkBite,
+	//	maxMarks : 5,
+	//	marks : 1,
+	//	level : 1,
+	//	damage : [1,1.6,1.9,1.12],
+	//	chance : [0,10,15,20]
+	//}
+	//Buffs[BuffNames.Slowness] = {
+	//	id : BuffNames.Slowness,
+	//	name : "Slowness",
+	//	icon : sShortHeight, //TODO: add slow speed icon
+	//	time : 15,
+	//}
 	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
 	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
-	NAME=CHARACTERS[Characters.Amelia][?"name"];
+	NAME=CHARACTERS[Characters.Uruka][?"name"];
 }
 
 
 enum Characters {
 	null,
-	Amelia,
-	Gura,
-	Ina,
-	//Kiara,
-	//Calli,
 	Pippa,
+	Uruka,	
 	Lenght
 }
 

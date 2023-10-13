@@ -24,11 +24,11 @@ function outfit_add(_character, _id, _sprite, _runningSprite, _unlocked)
 }
 
 function populate_outfits(){
-	outfit_add(Characters.Amelia,		Outfits.Amelia,			sAmeIdle,				sAmeRunning,			true);
-	outfit_add(Characters.Amelia,		Outfits.AmeliaO1,		sAmeIdleO1,			sAmeRunningO1,		false);
-	outfit_add(Characters.Amelia,		Outfits.AmeliaO2,		sAmeIdleO2,			sAmeRunningO2,		false);
-	outfit_add(Characters.Gura,			Outfits.Gura,				sGuraIdle,				sGuraRunning,			true);
-	outfit_add(Characters.Ina,				Outfits.Ina,					sInaIdle,					sInaRunning,				true);
+	outfit_add(Characters.Uruka,		Outfits.Amelia,			sAmeIdle,				sAmeRunning,			true);
+	//outfit_add(Characters.Uruka,		Outfits.AmeliaO1,		sAmeIdleO1,			sAmeRunningO1,		false);
+	//outfit_add(Characters.Uruka,		Outfits.AmeliaO2,		sAmeIdleO2,			sAmeRunningO2,		false);
+	//outfit_add(Characters.Gura,			Outfits.Gura,				sGuraIdle,				sGuraRunning,			true);
+	//outfit_add(Characters.Ina,				Outfits.Ina,					sInaIdle,					sInaRunning,				true);
 	outfit_add(Characters.Pippa,		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
 }
 

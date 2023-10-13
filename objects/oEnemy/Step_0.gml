@@ -50,13 +50,7 @@ if(global.gamePaused == false and instance_exists(target)){
 	}
 	var nearupgrade;
 		if (instance_exists(oUpgrade) and instance_exists(target)) {
-			nearupgrade = instance_nearest(x,y,oUpgrade);
-			if (instance_exists(oUpgrade) and nearupgrade.upg[$ "id"] == Weapons.PowerofAtlantis and distance_to_object(nearupgrade) < 100) {
-			    var _is_colliding = collision_point(x,y, oUpgrade,false, true)
-				if (_is_colliding != noone and _is_colliding.upg[$ "id"] == Weapons.PowerofAtlantis) {
-				    direction=point_direction(x,y,_is_colliding.x,_is_colliding.y + (sprite_get_height(sWaterPoolStart) / 2));
-				}	
-			}else {
+		
 				if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;} //TODO: remove?
 				if (followPlayer) {
 					direction=point_direction(x,y,target.x,target.y);
@@ -72,7 +66,7 @@ if(global.gamePaused == false and instance_exists(target)){
 					}
 				}
 			}
-		}	
+			
 		
 		if (customSpawn and distance_to_point(dieX, y) < 10) {
 			dropxp = false;
@@ -129,9 +123,9 @@ if(global.gamePaused == false and instance_exists(target)){
 	
 	var debuffLenght = array_length(debuffs);
 	for (var i = 0; i < debuffLenght; ++i) {
-	    if (debuffs[i].id == BuffNames.Slowness) {
-		    speed = (speed * 0.2)  * Delta;
-		}
+	    //if (debuffs[i].id == BuffNames.Slowness) {
+		//    speed = (speed * 0.2)  * Delta;
+		//}
 	}
 	
 	#region debuff cooldown

@@ -95,33 +95,6 @@ image_speed = 0;
 			//alarm[0] = 10;
 			image_angle = arrowDir;
 			break;}
-		case Weapons.GuraTrident:{
-			image_angle = arrowDir + diroffset;
-			//defaultBehaviour();			
-			if (upg[$ "level"] >= 6) {
-			    var dirr = (image_xscale > 0) ? .25 : -.25;
-				image_xscale += dirr;
-			}
-			//alarm[0] = 1;
-			break;}
-		case Weapons.InaTentacle:{
-			if (shoots > 1) {
-				for (var i = 0; i < shoots; ++i) {
-				    spawnUpgrade();
-				}
-			}
-			if (shoots > 0) {
-			    image_angle = arrowDir;
-			}else{
-				image_angle=random(360);
-			}
-			
-			if (upg[$ "level"] >= 4) {
-			    var dirr = (image_xscale > 0) ? .25 : -.25;
-				image_xscale += dirr;
-			}
-			dAlarm[0]=1;
-			break;}
 		case Weapons.PlugAsaCoco:{
 			originaly=y;
 			image_alpha = .99;
@@ -201,15 +174,7 @@ image_speed = 0;
 			//	image_yscale = image_yscale * 1.40;
 			//}
 			break;}
-		case Weapons.PowerofAtlantis:{	
-			random_set_seed(current_time);
-			x = owner.x + irandom_range(-200,200);
-			random_set_seed(current_time);
-			y = owner.y + (irandom_range(-200,200)*-1);
-			//alarm[0] = 1;
-			image_xscale = 1.3;
-			image_yscale = 1.3;
-			break;}
+
 		case Weapons.CEOTears:{
 			if (instance_exists(oEnemy)) {
 				// random_set_seed(current_time * global.upgradeCooldown[0]);

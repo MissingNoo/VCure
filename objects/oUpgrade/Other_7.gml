@@ -1,15 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 switch (upg[$ "id"]) {
-    case Weapons.GuraTrident:
-		image_alpha=0;
-		if (shoots==1) {
-		    instance_destroy();
-		}
-        break;
-	case Weapons.InaTentacle:
-		instance_destroy();
-		break;
 	case Weapons.EliteLavaBucket:{
 		if (sprite_index == sLavaPoolStart) {
 			subImg = 0;

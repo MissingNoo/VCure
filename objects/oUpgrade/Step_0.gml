@@ -67,16 +67,6 @@ if (!global.gamePaused) {
 	}
 	
 	switch (upg[$ "id"]) {
-		case Weapons.GuraTrident:{
-			x=owner.x;
-			y=owner.y-8;
-			break;}
-		case Weapons.InaTentacle:{
-			//var dirr = (image_xscale > 0) ? 32 : -32;
-			//x=owner.x+dirr;
-			x=owner.x;
-			y=owner.y-8;
-			break;}
 		case Weapons.PlugAsaCoco:{
 			//if (alarm_get(1) > 0) {
 			if (dAlarm[1] > 0) {

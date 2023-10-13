@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sFpsMastery",
-  "bbox_bottom": 20,
-  "bbox_left": 0,
-  "bbox_right": 20,
-  "bbox_top": 0,
+  "bbox_bottom": 18,
+  "bbox_left": 2,
+  "bbox_right": 18,
+  "bbox_top": 1,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,20 +13,20 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"18b92169-d1d5-4101-9359-1480f799f2f7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f5726232-d242-45bb-be7b-fc71a84ed50e",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 21,
+  "height": 20,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"84af3d4b-a576-4a84-b8b9-8324862c1a8a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6e4d177a-b16f-4fb6-aeac-a52bfbd7b5cb","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Amelia",
-    "path": "folders/Sprites/Characters/Amelia.yy",
+    "name": "Uruka",
+    "path": "folders/Sprites/Characters/Uruka.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"18b92169-d1d5-4101-9359-1480f799f2f7","path":"sprites/sFpsMastery/sFpsMastery.yy",},},},"Disabled":false,"id":"91f1c5d5-3866-40cd-9358-74ee4526c3b8","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f5726232-d242-45bb-be7b-fc71a84ed50e","path":"sprites/sFpsMastery/sFpsMastery.yy",},},},"Disabled":false,"id":"d1410303-09e4-48a9-834f-8bd4108f75a2","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 21,
+  "width": 20,
 }
