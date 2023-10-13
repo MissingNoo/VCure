@@ -89,11 +89,12 @@ image_speed = 0;
 		default:{
 			defaultBehaviour();
 			break;}
-		case Weapons.AmePistol:{
+		case Weapons.UrukaNote:{
 			defaultBehaviour();
 			direction = arrowDir;
 			//alarm[0] = 10;
 			image_angle = arrowDir;
+			sprite_index = choose(sFullNote, sHalfNote, sQuarterNote, sEightNote);
 			break;}
 		case Weapons.PlugAsaCoco:{
 			originaly=y;

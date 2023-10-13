@@ -112,6 +112,6 @@ global.minutesPast30 = 0;
 global.hoursPast1= 0 ;
 global.arrowDir=0;
 //gameWindow();
-//show_message(string(global.upgradesAvaliable[Weapons.AmePistol][1][?"name"]));
+//show_message(string(global.upgradesAvaliable[Weapons.UrukaNote][1][?"name"]));
 
 

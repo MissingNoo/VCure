@@ -113,6 +113,7 @@ enum BuffNames{
 	//Slowness,
 	Sake,
 	SakeFood,
+	Spaghetti,
 	testbuff
 }
 
@@ -125,7 +126,7 @@ enum BuffNames{
 
 function populate_characters(){
 	createCharacter(Characters.null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
-	createCharacter(Characters.Uruka,"Fujikura Uruka",sAmePortrait, sUrukaArt, sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.AmePistol], false, true);
+	createCharacter(Characters.Uruka,"Fujikura Uruka",sAmePortrait, sUrukaArt, sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
 	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	
 	
@@ -169,6 +170,14 @@ function populate_characters(){
 		baseCooldown : 5,
 		cooldown : 0,
 	}
+	Buffs[BuffNames.Spaghetti] = {
+		id : BuffNames.Spaghetti,
+		name : "Spaghetti",
+		icon : sSpaghetti,
+		enabled : false,
+		baseCooldown : 3,
+		cooldown : 0,
+	}
 		
 	//Buffs[BuffNames.SharkBite] = {
 	//	id : BuffNames.SharkBite,
@@ -187,8 +196,8 @@ function populate_characters(){
 	//	time : 15,
 	//}
 	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
-	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
-	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.AmePistol]);
+	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
+	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	NAME=CHARACTERS[Characters.Uruka][?"name"];
 }
 

@@ -1,4 +1,7 @@
 event_inherited();
+#region Spaghetti
+spaghettiEaten = false;
+#endregion
 weaponHaste = 0;
 justBandageHealing = 0;
 haveBandage = false;

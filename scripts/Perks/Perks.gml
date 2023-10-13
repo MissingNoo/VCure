@@ -44,7 +44,7 @@ function create_perk(_data){
 	{
 		//Amelia
 		FpsMastery,
-		DetectiveEye,//TODO: critical
+		TrashBear,//TODO: critical
 		Bubba,//TODO: Everything
 		HeavyArtillery,
 		MoldySoul,
@@ -77,21 +77,21 @@ function populate_perks(){
 				
 				#region Detective Eye
 				create_perk({
-						id : PerkIds.DetectiveEye,
-						name : "Detective Eye",
+						id : PerkIds.TrashBear,
+						name : "Trash Bear",
 						maxlevel : 3, 
 						weight : 1,
-						thumb : sDetectiveEye,
+						thumb : sTrashBear,
 						cooldown : 1,
 						characterid : Characters.Uruka,
 						bonus : true,
 						bonustype : BonusType.Critical,
 						bonusvalue : [0, 1.10, 1.20, 1.30]
 					});
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 0, 3, 1, sDetectiveEye, 1, "Do nothing.", Characters.Uruka);
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 1, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [10%].", Characters.Uruka);
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 2, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [20%].", Characters.Uruka);
-					//create_perk(PerkIds.DetectiveEye, "Detective Eye", 3, 3, 1, sDetectiveEye, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Uruka);
+					//create_perk(PerkIds.TrashBear, "Detective Eye", 0, 3, 1, sTrashBear, 1, "Do nothing.", Characters.Uruka);
+					//create_perk(PerkIds.TrashBear, "Detective Eye", 1, 3, 1, sTrashBear, 1, "Increases critical hit chance by [10%].", Characters.Uruka);
+					//create_perk(PerkIds.TrashBear, "Detective Eye", 2, 3, 1, sTrashBear, 1, "Increases critical hit chance by [20%].", Characters.Uruka);
+					//create_perk(PerkIds.TrashBear, "Detective Eye", 3, 3, 1, sTrashBear, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Uruka);
 				#endregion
 				
 				#region Bubba
@@ -109,7 +109,7 @@ function populate_perks(){
 					//create_perk(PerkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Uruka);
 					//create_perk(PerkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Uruka);
 				#endregion
-				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.Bubba][0]];
 			#endregion
 	
 			
@@ -183,16 +183,16 @@ function tick_perks()
 			//			        break;
 			//			}						
 			//		break;}
-			//	case PerkIds.DetectiveEye:{
+			//	case PerkIds.TrashBear:{
 			//			switch (PLAYER_PERKS[i][$ "level"]) {
 			//			    case 1:
-			//			        PerkBonuses[BonusType.Critical][PerkIds.DetectiveEye] = 1.10;
+			//			        PerkBonuses[BonusType.Critical][PerkIds.TrashBear] = 1.10;
 			//			        break;
 			//			    case 2:
-			//			        PerkBonuses[BonusType.Critical][PerkIds.DetectiveEye] = 1.20;
+			//			        PerkBonuses[BonusType.Critical][PerkIds.TrashBear] = 1.20;
 			//			        break;
 			//				case 3:
-			//			        PerkBonuses[BonusType.Critical][PerkIds.DetectiveEye] = 1.30;
+			//			        PerkBonuses[BonusType.Critical][PerkIds.TrashBear] = 1.30;
 			//			        break;
 			//			}						
 			//		break;}

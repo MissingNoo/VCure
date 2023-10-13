@@ -104,7 +104,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	dmg = dmg + bdmg;
 	if (global.player == CHARACTERS[Characters.Uruka]) {
 	    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		    if (PLAYER_PERKS[i][$ "id"] == PerkIds.DetectiveEye and PLAYER_PERKS[i][$ "level"] == 3) {
+		    if (PLAYER_PERKS[i][$ "id"] == PerkIds.TrashBear and PLAYER_PERKS[i][$ "level"] == 3) {
 				randomize();
 				if (irandom_range(0, 100) <= 2) {
 				    dmg = dmg * 999;
@@ -142,6 +142,9 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		//	dmg * global.player[?"atk"] * _critMultiplier));
 	}
 	dmg = dmg * global.player[?"atk"] * _critMultiplier;
+	if (oPlayer.spaghettiEaten) {
+	    dmg = dmg * 1.25;
+	}
 	other.hp-= dmg;
 	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
@@ -152,9 +155,9 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	//other.alarm[1]=15;
 	other.damagedAlarm=15;
 	switch (upg[$ "id"]) {
-	    case Weapons.AmePistol:
-	        if (hits == 1 and !amePistolLastHit and upg[$ "level"] >= 4) {
-			    amePistolLastHit=true;
+	    case Weapons.UrukaNote:
+	        if (hits == 1 and !UrukaNoteLastHit and upg[$ "level"] >= 4) {
+			    UrukaNoteLastHit=true;
 				hits+=5;
 				direction = random(360);
 				//switch (direction) {

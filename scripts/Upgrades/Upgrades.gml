@@ -143,7 +143,7 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 }
 
 enum Weapons{
-	AmePistol,
+	UrukaNote,
 	//GuraTrident,
 	//PowerofAtlantis, //TODO: water area, more damage
 	//InaTentacle, //TODO: add knockback
@@ -188,15 +188,15 @@ enum Weapons{
 
 function populate_upgrades(){
 	#region Character Perks
-		#region Amelia Perks
-			#region AmePistol 
+		#region Uruka Perks
+			#region UrukaNote 
 			newCreateUpgrade({
-				id : Weapons.AmePistol,
-				name : "Pistol Shot",
+				id : Weapons.UrukaNote,
+				name : "Music Note",
 				maxlevel : 7,
 				sprite : sAmeShoot,
 				attackdelay : 10,
-				thumb : sAmePistol,
+				thumb : sUrukaNote,
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
 				cooldown : [80, 80, 80, 80, 80*0.75, 80*0.75, 80*0.75],
@@ -210,7 +210,8 @@ function populate_upgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
-				characterid : Characters.Uruka
+				characterid : Characters.Uruka,
+				travelWidth : [64, 64, 80, 64, 64, 64, 64]
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 		#endregion	

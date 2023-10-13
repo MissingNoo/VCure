@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "AmePistol",
-    "path": "folders/Sprites/Powers/CharacterPerks/AmePistol.yy",
+    "name": "UrukaNote",
+    "path": "folders/Sprites/Powers/CharacterPerks/UrukaNote.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

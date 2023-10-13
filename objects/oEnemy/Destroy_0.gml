@@ -37,6 +37,14 @@ if (dropxp and hp < 0) {
 //show_message(_dropChanceBuff)
 //var dropchance = 1 / 200 * (1 - _dropChanceBuff);
 //show_message(dropchance)
+for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+    if (PLAYER_PERKS[i].id == PerkIds.TrashBear and PLAYER_PERKS[i].level > 0) {
+	    var _spaghettiChance = irandom_range(0, 100);
+		if (_spaghettiChance >= 75) {
+		    instance_create_depth(x,y, depth, oSpaghetti);
+		}
+	}
+}
 var _dropchance = 1;
 for (var i = 0; i < global.shopUpgrades[$ "FoodDrop"][$ "level"]; ++i) {
     _dropchance = _dropchance * 1.04;
@@ -44,7 +52,7 @@ for (var i = 0; i < global.shopUpgrades[$ "FoodDrop"][$ "level"]; ++i) {
 if (Bonuses[BonusType.UberSheep][ItemIds.UberSheep] != 0) {
     _dropchance = _dropchance * Bonuses[BonusType.UberSheep][ItemIds.UberSheep];
 }
-if (random_range(1,200) <= _dropchance) {
+if (random_range(0,200) <= _dropchance) {
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 // randomize;

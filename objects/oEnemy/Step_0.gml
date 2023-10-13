@@ -115,6 +115,9 @@ if(global.gamePaused == false and instance_exists(target)){
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
 	if (canwalk) {
 	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * Delta;
+		if (oPlayer.spaghettiEaten) {
+		    speed = speed * .50;
+		}
 	}
 	else{
 		speed = 0;

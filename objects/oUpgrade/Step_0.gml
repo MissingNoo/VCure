@@ -187,6 +187,12 @@ if (!global.gamePaused) {
 		case Weapons.IdolSong:{
 			x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], idolStartX);
 			break;}
+		case Weapons.UrukaNote:{
+			//x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartX);
+			//x = sine_wave(current_time  / 1000, 1, upg[$ "travelWidth"], noteStartX);
+			//y = cose_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartY);
+			//y = cose_wave(current_time  / 1000, -1, upg[$ "travelWidth"], noteStartY);
+			break;}
 		case Weapons.BounceBall:{
 			//if (direction != 270) {
 			//    direction += 15 * (direction > 270) ? 1 : -1 ;

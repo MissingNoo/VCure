@@ -1,4 +1,8 @@
 //event_inherited();
+#region Uruka Note
+noteStartX = x;
+noteStartY = y;
+#endregion
 #region EliteCooking
 poolSize = 20;
 #endregion
@@ -56,7 +60,7 @@ originalspeed = speed;
 a=0;
 //alarm[1]=200;
 dAlarm[1]=200;
-amePistolLastHit=false;
+UrukaNoteLastHit=false;
 diroffset=0;
 //image_xscale=oPlayer.image_xscale;
 offset=-16;

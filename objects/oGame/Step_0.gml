@@ -259,6 +259,9 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 						    case BuffNames.SakeFood:
 								Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
 								break;
+							case BuffNames.Spaghetti:{
+								oPlayer.spaghettiEaten = true;
+								break;}
 						    default:
 						        // code here
 						        break;
@@ -283,6 +286,9 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 							case BuffNames.SakeFood:
 								Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
 								break;
+							case BuffNames.Spaghetti:{
+								oPlayer.spaghettiEaten = false;
+								break;}
 						}
 					}
 				}

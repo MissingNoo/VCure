@@ -10,7 +10,7 @@
 //	default:
 //		spawnUpgrade();
 //		break;
-//	//case Weapons.AmePistol:
+//	//case Weapons.UrukaNote:
 //	//	//if (shoots > 1) {			
 //	//		spawnUpgrade();
 //	//	    //shoots-=1;
