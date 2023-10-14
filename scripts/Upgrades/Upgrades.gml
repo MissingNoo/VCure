@@ -144,9 +144,7 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 
 enum Weapons{
 	UrukaNote,
-	//GuraTrident,
-	//PowerofAtlantis, //TODO: water area, more damage
-	//InaTentacle, //TODO: add knockback
+	RestNote,
 	BlBook, //TODO: area, knockback
 	BounceBall,
 	CEOTears,
@@ -213,6 +211,30 @@ function populate_upgrades(){
 				characterid : Characters.Uruka,
 				travelWidth : [32, 32, 64, 64, 64, 64, 64]
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
+			#endregion
+			#region UrukaNote 
+			newCreateUpgrade({
+				id : Weapons.RestNote,
+				name : "Rest Note",
+				maxlevel : 1,
+				sprite : sRestNote,
+				attackdelay : 10,
+				thumb : sRestNote,
+				mindmg : 1,
+				maxdmg : 2,
+				cooldown : 1,
+				duration : 120, 
+				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
+				canBeHasted : true,
+				speed : 3,
+				hits : 1,
+				type : "red",
+				shoots : 1,
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Uruka,
+			});
 			#endregion
 		#endregion	
 	

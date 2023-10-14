@@ -1,7 +1,3 @@
-
-/// @description 
-
-
 if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.gamePaused) {
 	other.canattack=false;
 	//other.alarm[0]=25;
@@ -17,27 +13,49 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	}
 	//damaged=true;
 	audio_play_sound(snd_hurt,0,0);
+	#region Uruka Weak Bones
+	var bonusdmg = 0;
+	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		if (PLAYER_PERKS[i].id == PerkIds.WeakBones) {
+			switch (PLAYER_PERKS[i].level) {
+				case 0:
+					bonusdmg = 2;
+					break;
+				case 1:
+					bonusdmg = 3;
+					break;
+				case 2:
+					bonusdmg = 4;
+					break;
+				case 3:
+					bonusdmg = 5;
+					break;
+				}
+				var _angles = [0, 45, 315, 135, 180, 225];
+				for (var j = 0; j < array_length(_angles); ++j) {
+					var _w = WEAPONS_LIST[Weapons.RestNote][1];
+					var instancecreated = instance_create_layer(self.x, self.y-8,"Upgrades",oUpgrade,{
+						upg : _w,
+						speed : _w.speed,
+						hits : _w.hits,
+						shoots : _w.shoots,
+						mindmg : _w.mindmg,
+						maxdmg : _w.maxdmg,
+						sprite_index : _w.sprite,
+						a : 0,
+						owner : self,
+						direction : _angles[j]
+					});
+				}
+			}			
+		}
+		//show_debug_message(string($"d:{damage} + {bonusdmg} = {damage+bonusdmg}"));
+		damage += bonusdmg;
+		#endregion
 	if (Shield > 0) {
 	    Shield -= damage;
 	}
 	else {
-		if (global.player == CHARACTERS[Characters.Uruka]) {
-			var bonusdmg = 0;
-			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-			    if (PLAYER_PERKS[i].id == PerkIds.) {
-				    // code here
-				}
-			}
-			switch (expression) {
-			    case constant:
-			        // code here
-			        break;
-			    default:
-			        // code here
-			        break;
-			}
-			damage += 	
-		}
 	    HP -= damage;
 		if (haveBandage) {
 			switch (bandageLevel) {

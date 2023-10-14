@@ -42,10 +42,9 @@ function create_perk(_data){
 
 	enum PerkIds
 	{
-		//Amelia
 		FpsMastery,
-		TrashBear,//TODO: critical
-		Bubba,//TODO: Everything
+		TrashBear,
+		WeakBones,
 		HeavyArtillery,
 		MoldySoul,
 		SodaFueled,
@@ -94,13 +93,13 @@ function populate_perks(){
 					//create_perk(PerkIds.TrashBear, "Detective Eye", 3, 3, 1, sTrashBear, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Uruka);
 				#endregion
 				
-				#region Bubba
+				#region WeakBones
 				create_perk({
-						id : PerkIds.Bubba,
-						name : "Bubba",
+						id : PerkIds.WeakBones,
+						name : "WeakBones",
 						maxlevel : 3, 
 						weight : 1,
-						thumb : sBubba,
+						thumb : sWeakBones,
 						cooldown : 1,
 						characterid : Characters.Uruka,						
 					});
@@ -109,7 +108,7 @@ function populate_perks(){
 					//create_perk(PerkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Uruka);
 					//create_perk(PerkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Uruka);
 				#endregion
-				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.Bubba][0]];
+				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 			#endregion
 	
 			

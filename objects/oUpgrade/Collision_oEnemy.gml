@@ -174,20 +174,29 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	other.damagedAlarm=15;
 	switch (upg[$ "id"]) {
 	    case Weapons.UrukaNote:
-	        if (hits == 1 and !UrukaNoteLastHit and upg[$ "level"] >= 4) {
-			    UrukaNoteLastHit=true;
-				hits+=5;
-				direction = random(360);
-				//switch (direction) {
-				//    case 0:
-				//        direction = 180;
-				//        break;
-				//    case 180:
-				//        direction = 0;
-				//        break;
-				//}
-			}
+	        //if (hits == 1 and !UrukaNoteLastHit and upg[$ "level"] >= 4) {
+			//    UrukaNoteLastHit=true;
+			//	hits+=5;
+			//	direction = random(360);
+			//	//switch (direction) {
+			//	//    case 0:
+			//	//        direction = 180;
+			//	//        break;
+			//	//    case 180:
+			//	//        direction = 0;
+			//	//        break;
+			//	//}
+			//}
 	        break;
+		case Weapons.RestNote:
+				array_push(other.debuffs, copy_struct(Buffs[BuffNames.Paralyzed]));
+				for (var i = 0; i < array_length(other.debuffs); ++i) {
+				    if (other.debuffs[i].id == BuffNames.Paralyzed) {
+					    other.debuffs[i].enabled = true;
+						other.debuffs[i].cooldown = other.debuffs[i].baseCooldown;
+					}
+				}
+			break;
 		case Weapons.ENsCurse:
 			var chance = irandom_range(0, 100);
 			if (chance < upg[$ "chance"]) {

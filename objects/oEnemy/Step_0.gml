@@ -118,30 +118,35 @@ if(global.gamePaused == false and instance_exists(target)){
 		if (oPlayer.spaghettiEaten) {
 		    speed = speed * .50;
 		}
+		for (var i = 0; i < array_length(debuffs); ++i) {
+		    if (other.debuffs[i].id == BuffNames.Paralyzed) {
+			    speed = 0;
+			}
+		}
 	}
 	else{
 		speed = 0;
 	}
 	
 	
-	var debuffLenght = array_length(debuffs);
-	for (var i = 0; i < debuffLenght; ++i) {
-	    //if (debuffs[i].id == BuffNames.Slowness) {
-		//    speed = (speed * 0.2)  * Delta;
-		//}
-	}
-	
+	var debuffLenght = array_length(debuffs);	
 	#region debuff cooldown
+	var _toDelete = [];
+	if (debuffLenght > 0) {	
 		for (var i = 0; i < debuffLenght; ++i) {
-			if (!variable_struct_exists(debuffs[i], "time")) { break; }
-		    if (debuffs[i].time > 0) {
-			    debuffs[i].time -= 1/60 * Delta;
-				//show_message(debuffs[i].cooldown);
+			if (!variable_struct_exists(debuffs[i], "cooldown")) { break; }
+		    if (debuffs[i].cooldown > 0) {
+			    debuffs[i].cooldown -= 1/60 * Delta;
 			}
-			else {
+		}
+		for (var i = debuffLenght; i == 0; --i) {
+			if (!variable_struct_exists(debuffs[i], "cooldown")) { break; }
+		    if (debuffs[i].cooldown <= 0) {
 			    array_delete(debuffs, i, 1);
 			}
 		}
+	}
+	
 	#endregion
 	
 }

@@ -114,6 +114,7 @@ enum BuffNames{
 	Sake,
 	SakeFood,
 	Spaghetti,
+	Paralyzed,
 	testbuff
 }
 
@@ -174,6 +175,14 @@ function populate_characters(){
 		id : BuffNames.Spaghetti,
 		name : "Spaghetti",
 		icon : sSpaghetti,
+		enabled : false,
+		baseCooldown : 3,
+		cooldown : 0,
+	}
+	Buffs[BuffNames.Paralyzed] = {
+		id : BuffNames.Paralyzed,
+		name : "Paralyzed",
+		icon : sBlank,
 		enabled : false,
 		baseCooldown : 3,
 		cooldown : 0,

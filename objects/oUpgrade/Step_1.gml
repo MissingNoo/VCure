@@ -89,6 +89,8 @@ image_speed = 0;
 		default:{
 			defaultBehaviour();
 			break;}
+		case Weapons.RestNote:
+			break;
 		case Weapons.UrukaNote:{
 			if (idolDir == 90) {
 			    idolDir = 270;

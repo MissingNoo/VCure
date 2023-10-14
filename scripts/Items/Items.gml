@@ -136,7 +136,7 @@ function newCreateItem(_data){
 		EnergyDrinkHpMinus,
 		Healing,
 		WeaponSize,
-		Bubba,
+		WeakBones,
 		UberSheep,
 		PickupRange,
 		XPBonus,
