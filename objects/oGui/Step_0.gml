@@ -39,9 +39,9 @@ if (device_mouse_check_button_released(0, mb_left)) {
 }
 #endregion
 #region Title Screen
-if (instance_number(oTitleRunning) == 0 and room == rInicio) {
-    instance_create_layer(0,0, "Instances", oTitleRunning);
-}	
+//if (instance_number(oTitleRunning) == 0 and room == rInicio) {
+//    instance_create_layer(0,0, "Instances", oTitleRunning);
+//}	
 if (room == rInicio and instance_exists(oClient)) {
     instance_destroy(oClient);//feather disable once GM2017
 	global.IsHost = true;
@@ -551,11 +551,10 @@ if (keyboard_check_pressed(vk_end)) {
 	b:{1}
 	c:{2}
 	d:{3}
-	e:{4}
-	"
+	e:{4}"
 	, a, b, c, d, e);
 }
-if(keyboard_check(ord("L"))) {global.singleplayer = false; show_message("Client");}
+
 	if (global.debug) {
 		
 		//if(keyboard_check(ord("Q"))) a -=1;

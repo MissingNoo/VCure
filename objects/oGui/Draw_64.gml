@@ -27,6 +27,8 @@ if (room == rInicio) {
 		var offset = 0;
 		var thiss=0;
 		var scale;
+		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Store", "Quit"];
+		var buttons = [sStartButton, sMultiplayerButton, sArmoryButton, sAchievementsButton, sStoreButton, sQuitButton];
 		for (var i = 0; i < array_length(menuOptions); i++) {
 		    if (i == selected) { draw_set_color(c_black); thiss = 1; scale = 0.35;}
 		    else {draw_set_color(c_white); thiss=0; scale = 0;}
@@ -34,7 +36,8 @@ if (room == rInicio) {
 			var menuY = GW/6;
 			draw_set_valign(fa_middle);
 			draw_set_halign(fa_center);
-			draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
+			//draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
+			draw_sprite_ext(buttons[i],thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
 			mouse_on_button(menuX, menuY + offset, sHudButton, i, 1.75 + scale, 1.5);
 		    draw_text_transformed(
 		        menuX,
@@ -57,7 +60,7 @@ if (room == rCharacterSelect or room == rAchievements) {
 		alarm[0]=1;
 	}
 	for (var i = 0; i < 130; ++i) {
-		draw_sprite_ext(sMenuCharselectBar,0,oGame.linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
+		//draw_sprite_ext(sMenuCharselectBar,0,oGame.linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
 		linesoff +=16;
 	}	
 #endregion

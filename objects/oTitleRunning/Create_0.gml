@@ -1,4 +1,4 @@
-
+instance_destroy();
 // randomize;
 image_xscale = 3.75;
 image_yscale = 3.75;
@@ -13,4 +13,3 @@ speed = irandom_range(3,5);
 oSpeed = speed;
 oImageSpeed = image_speed;
 alarm[0] = irandom_range(1,100);
-
