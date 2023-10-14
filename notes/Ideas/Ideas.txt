@@ -13,3 +13,4 @@ I think I have of an idea for the "bone skill"
 Weak Bones: Uruka may take 8 extra points of damage from enemy attacks. When hit, 6 rests (projectiles) will be shot vertically, horizontally, and diagonally from Uruka. Rests disappear after making contact with an enemy, 
 but also cause any hit enemy to be temporarily frozen (for around like, 3 seconds). 
 Upgrades to this skill simply reduce the extra damage taken by 2 points per upgrade, going down to 2 extra damage at max level.
+more paralyze time with higher level, cooldown for rest notes
