@@ -160,6 +160,15 @@ function mouse_on_button(_x, _y, _sprite, _index, _xscale = 1, _yscale = 1, _var
 	}
 		
 }
+function mouse_on_button_triangle(_x, _y, _x2, _y2, _x3, _y3, _index, _variable = "selected"){
+	if (point_in_triangle(oGui.x, oGui.y, _x, _y, _x2, _y2, _x3, _y3)) {
+		variable_instance_set(self, _variable, _index);
+	}	
+	if (global.debug) {
+	    draw_triangle(_x, _y, _x2, _y2, _x3, _y3, true);
+	}
+		
+}
 
 function draw_set_hvaling(_h, _v){
 	draw_set_valign(_v);

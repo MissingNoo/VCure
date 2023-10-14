@@ -97,6 +97,7 @@
     {"name":"Perks","order":11,"path":"folders/Sprites/Items/Perks.yy",},
     {"name":"Maps","order":5,"path":"folders/Sprites/Maps.yy",},
     {"name":"Menu","order":2,"path":"folders/Sprites/Menu.yy",},
+    {"name":"MenuButtons","order":1,"path":"folders/Sprites/Menu/MenuButtons.yy",},
     {"name":"Monsters","order":3,"path":"folders/Sprites/Monsters.yy",},
     {"name":"Stage 1","order":12,"path":"folders/Sprites/Monsters/Stage 1.yy",},
     {"name":"SmolAme","order":27,"path":"folders/Sprites/Monsters/Stage 1/SmolAme.yy",},
@@ -112,7 +113,6 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
-    {"name":"MenuButtons","order":1,"path":"folders/Sprites/Menu/MenuButtons.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},

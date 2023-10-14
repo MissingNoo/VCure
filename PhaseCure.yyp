@@ -112,6 +112,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Perks","folderPath":"folders/Sprites/Items/Perks.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Maps","folderPath":"folders/Sprites/Maps.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Menu","folderPath":"folders/Sprites/Menu.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"MenuButtons","folderPath":"folders/Sprites/Menu/MenuButtons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Monsters","folderPath":"folders/Sprites/Monsters.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stage 1","folderPath":"folders/Sprites/Monsters/Stage 1.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SmolAme","folderPath":"folders/Sprites/Monsters/Stage 1/SmolAme.yy",},
@@ -128,7 +129,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"MenuButtons","folderPath":"folders/Sprites/Menu/MenuButtons.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},

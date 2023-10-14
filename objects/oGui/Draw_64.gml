@@ -24,28 +24,26 @@ if (room == rInicio) {
 	if (!global.gamePaused) {
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 		draw_text_transformed(20,GH-50,"version 0.? remake by Airgeadlamh", 1, 1, 0);
-		var offset = 0;
-		var thiss=0;
-		var scale;
 		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Store", "Quit"];
-		var buttons = [sStartButton, sMultiplayerButton, sArmoryButton, sAchievementsButton, sStoreButton, sQuitButton];
+		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
+		var buttons = [[sStartButton, 1.68, 5.15, 7, 2.5, 
+									[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
+									[sMultiplayerButton, 1.76, 2.29, 3.5, -0.65,
+									[[GW/1.82,GH/2.53, GW/1.41, GH/1.83],[GW/1.41, GH/2.54],[GW/1.82, GH/1.86]]],
+									[sArmoryButton, 1.34, 2.39, 4, 0,
+									[[GW/1.39,GH/2.54, GW/1.10, GH/1.79],[GW/1.10, GH/2.57],[GW/1.39,GH/1.83]]],
+									[sAchievementsButton, 1.56, 1.72, 5, -3.95,
+									[[GW/1.70, GH/1.79, GW/1.07, GH/1.32],[GW/1.07, GH/1.71],[GW/1.70,GH/1.42]]],
+									[sStoreButton, 1.67, 1.32, 4, -5.60,									
+									[[GW/1.77,GH/1.40, GW/1.42, GH/1.12],[GW/1.42, GH/1.36],[GW/1.77,GH/1.17]]],
+									[sQuitButton, 1.32, 1.29, 5, -5.45,
+									[[GW/1.40,GH/1.35, GW/1.15, GH/1.07],[GW/1.15, GH/1.30],[GW/1.40,GH/1.12]]]];
 		for (var i = 0; i < array_length(menuOptions); i++) {
-		    if (i == selected) { draw_set_color(c_black); thiss = 1; scale = 0.35;}
-		    else {draw_set_color(c_white); thiss=0; scale = 0;}
-			var menuX = GW/1.25;
-			var menuY = GW/6;
-			draw_set_valign(fa_middle);
-			draw_set_halign(fa_center);
-			//draw_sprite_ext(sHudButton,thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
-			draw_sprite_ext(buttons[i],thiss,menuX, menuY+offset,1.75+scale, 1.5,0,c_white,1);
-			mouse_on_button(menuX, menuY + offset, sHudButton, i, 1.75 + scale, 1.5);
-		    draw_text_transformed(
-		        menuX,
-		        menuY + offset,
-		        menuOptions[i],1.85, 1.85,0);
-		    offset += 55;	
-			draw_set_valign(fa_top);
-			draw_set_halign(fa_left);
+			draw_sprite_ext(buttons[i][0], selected == i ? 1 : 0 , 0, 0, 1, 1, 0, c_white, 1);
+			var _color = selected == i ? c_black : c_white;
+			draw_text_transformed_color(GW/buttons[i][1], GH/buttons[i][2], menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
+			mouse_on_button_triangle(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
+			mouse_on_button_triangle(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
 		}
 	}
 	#endregion
