@@ -90,10 +90,22 @@ image_speed = 0;
 			defaultBehaviour();
 			break;}
 		case Weapons.UrukaNote:{
+			if (idolDir == 90) {
+			    idolDir = 270;
+				idolStartX= oPlayer.x + 20;
+				direction = idolDir;
+			}else{
+				idolDir = 90;
+				idolStartX= oPlayer.x - 20;
+				//xstart = xstart - 20;
+				direction = idolDir;
+				//image_xscale = image_xscale * -1;
+			}
+			
 			defaultBehaviour();
-			direction = arrowDir;
+			//direction = arrowDir;
 			//alarm[0] = 10;
-			image_angle = arrowDir;
+			//image_angle = arrowDir;
 			sprite_index = choose(sFullNote, sHalfNote, sQuarterNote, sEightNote);
 			break;}
 		case Weapons.PlugAsaCoco:{

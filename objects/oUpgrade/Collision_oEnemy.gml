@@ -145,6 +145,24 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	if (oPlayer.spaghettiEaten) {
 	    dmg = dmg * 1.25;
 	}
+	#region Uruka Note Multiplier
+	switch (sprite_index) {
+	    case sFullNote:
+	        break;
+	    case sHalfNote:
+			dmg = dmg / 2;
+	        break;
+	    case sQuarterNote:
+			dmg = dmg / 4;
+	        break;
+	    case sEightNote:
+			dmg = dmg / 8;
+	        break;
+	    default:
+	        // code here
+	        break;
+	}
+	#endregion
 	other.hp-= dmg;
 	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);

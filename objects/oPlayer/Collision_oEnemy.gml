@@ -21,6 +21,23 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	    Shield -= damage;
 	}
 	else {
+		if (global.player == CHARACTERS[Characters.Uruka]) {
+			var bonusdmg = 0;
+			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+			    if (PLAYER_PERKS[i].id == PerkIds.) {
+				    // code here
+				}
+			}
+			switch (expression) {
+			    case constant:
+			        // code here
+			        break;
+			    default:
+			        // code here
+			        break;
+			}
+			damage += 	
+		}
 	    HP -= damage;
 		if (haveBandage) {
 			switch (bandageLevel) {

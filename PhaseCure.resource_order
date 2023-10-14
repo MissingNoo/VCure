@@ -746,6 +746,7 @@
     {"name":"lexicon_language_set","order":5,"path":"scripts/lexicon_language_set/lexicon_language_set.yy",},
     {"name":"sXPotatoExplosion","order":43,"path":"sprites/sXPotatoExplosion/sXPotatoExplosion.yy",},
     {"name":"snd_tailswipe","order":27,"path":"sounds/snd_tailswipe/snd_tailswipe.yy",},
+    {"name":"sUrukaNote298","order":6,"path":"sprites/sUrukaNote298/sUrukaNote298.yy",},
     {"name":"__input_source_relinquish","order":17,"path":"scripts/__input_source_relinquish/__input_source_relinquish.yy",},
     {"name":"Feather","order":34,"path":"scripts/Feather/Feather.yy",},
     {"name":"sDeathHeart","order":15,"path":"sprites/sDeathHeart/sDeathHeart.yy",},

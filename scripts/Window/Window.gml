@@ -172,8 +172,8 @@ function draw_set_reset(){
 	draw_set_alpha(1);
 }
 	
-function select_screen_window(_x, _y, _xx, _yy, _title){
-	draw_set_alpha(0.5);
+function select_screen_window(_x, _y, _xx, _yy, _title, _alpha = 0.5){
+	draw_set_alpha(_alpha);
 	draw_rectangle_color(_x, _y, _xx, _yy, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_set_valign(fa_top);

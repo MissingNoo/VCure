@@ -194,7 +194,7 @@ function populate_upgrades(){
 				id : Weapons.UrukaNote,
 				name : "Music Note",
 				maxlevel : 7,
-				sprite : sAmeShoot,
+				sprite : sEightNote,
 				attackdelay : 10,
 				thumb : sUrukaNote,
 				mindmg : [7, 7, 7*1.25, 7*1.25, 7*1.25, 7*1.25*1.40, 7*1.25*1.40],
@@ -203,15 +203,15 @@ function populate_upgrades(){
 				duration : [120, 120, 120, 120, 120, 120, 120], 
 				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
 				canBeHasted : true,
-				speed : [5, 5, 5, 5, 5, 5, 5],
-				hits : [1, 2, 2, 2, 3, 3, 3],
+				speed : 3,
+				hits : [10, 10, 10, 10, 10, 10, 10],
 				type : "red",
-				shoots : [3, 4, 4, 4, 4, 4, 6],
+				shoots : [1, 1, 2, 2, 2, 2, 3],
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
 				characterid : Characters.Uruka,
-				travelWidth : [64, 64, 80, 64, 64, 64, 64]
+				travelWidth : [32, 32, 64, 64, 64, 64, 64]
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 		#endregion	

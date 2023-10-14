@@ -865,6 +865,7 @@
     {"id":{"name":"sXPotatoExplosion","path":"sprites/sXPotatoExplosion/sXPotatoExplosion.yy",},},
     {"id":{"name":"sAmeShoot","path":"sprites/sAmeShoot/sAmeShoot.yy",},},
     {"id":{"name":"snd_tailswipe","path":"sounds/snd_tailswipe/snd_tailswipe.yy",},},
+    {"id":{"name":"sUrukaNote298","path":"sprites/sUrukaNote298/sUrukaNote298.yy",},},
     {"id":{"name":"__input_source_relinquish","path":"scripts/__input_source_relinquish/__input_source_relinquish.yy",},},
     {"id":{"name":"Feather","path":"scripts/Feather/Feather.yy",},},
     {"id":{"name":"sDeathHeart","path":"sprites/sDeathHeart/sDeathHeart.yy",},},

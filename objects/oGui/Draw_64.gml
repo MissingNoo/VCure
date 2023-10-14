@@ -110,14 +110,36 @@ if (room == rCharacterSelect) {
 		draw_text_ext_transformed(GW/1.48, GH/7.31, string_upper(CHARACTERS[selectedCharacter][?"name"]), string_height("W"), 50, 7, 7, 0);		
 		draw_sprite_ext(CHARACTERS[selectedCharacter][?"sprite"], 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
 		select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special");
-		draw_sprite_ext(SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb, 0, GW/1.09, GH/1.21, 3, 3, 0, c_white, 1);
+		var _speX = GW/1.09;
+		var _speY = GH/1.21;
+		var _speSpr = SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb;
+		var _speSprW = sprite_get_width(_speSpr);
+		var _speSprH = sprite_get_height(_speSpr);
+		draw_sprite_ext(_speSpr, 0, _speX, _speY, 3, 3, 0, c_white, 1);
 		select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack");
-		draw_sprite_ext(CHARACTERS[selectedCharacter][?"weapon"][1].thumb, 0, GW/1.19, GH/1.14, 3, 3, 0, c_white, 1);
+		var _atkSpr = CHARACTERS[selectedCharacter][?"weapon"][1].thumb;
+		var _atkX = GW/1.19;
+		var _atkY = GH/1.14;
+		var _atkSprW = sprite_get_width(_atkSpr);
+		var _atkSprH = sprite_get_height(_atkSpr);
+		draw_sprite_ext(_atkSpr, 0, _atkX, _atkY, 3, 3, 0, c_white, 1);
 		select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills");
 		_offset = 0;
 		for (var i = 0; i < 3; ++i) {
 		    draw_sprite_ext(global.characterPerks[selectedCharacter][i].thumb, 0, GW/1.20 + _offset, GH/1.43, 3, 3, 0, c_white, 1);
 			_offset += 75;
+		}
+		if (point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3))) {
+		    select_screen_window(GW/1.43, GH/1.80, GW/1.02, GH/1.08, "Special", 0.75);
+			draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
+			draw_text_transformed(GW/1.29, GH/1.59, SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name, 2.5, 2.5, 0);
+			drawDesc(GW/1.40, GH/1.41, lexicon_text(SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc"), GW/3.90, 2);
+		}
+		if (point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2))) {
+		    select_screen_window(GW/1.43, GH/1.80, GW/1.02, GH/1.08, "Attack", 0.75);
+			draw_sprite_ext(_atkSpr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
+			draw_text_transformed(GW/1.29, GH/1.59, CHARACTERS[selectedCharacter][?"weapon"][1].name, 2.5, 2.5, 0);
+			drawDesc(GW/1.40, GH/1.41, lexicon_text(CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc"), GW/3.90, 2);
 		}
 	}
 	#endregion	

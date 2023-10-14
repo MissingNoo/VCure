@@ -54,7 +54,7 @@ if (global.debug) {
 	//draw_text(x, y - 20, upgID);
 	//draw_text(x,y-30, string(alarm_get(1)));
 	//draw_text(x,y-60, string(upg[?"duration"]));
-	//draw_text(x,y-30, string(direction));
+	draw_text(x,y-30, string(direction));
 	//draw_text(x,y-50, string(image_xscale));
 	//draw_text(x,y-70, string(image_yscale));
 	//draw_text(x,y-90, string(shoots));
