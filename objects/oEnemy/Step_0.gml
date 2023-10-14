@@ -131,22 +131,20 @@ if(global.gamePaused == false and instance_exists(target)){
 	
 	var debuffLenght = array_length(debuffs);	
 	#region debuff cooldown
-	var _toDelete = [];
 	if (debuffLenght > 0) {	
 		for (var i = 0; i < debuffLenght; ++i) {
 			if (!variable_struct_exists(debuffs[i], "cooldown")) { break; }
 		    if (debuffs[i].cooldown > 0) {
 			    debuffs[i].cooldown -= 1/60 * Delta;
+				//show_message(debuffs[i].cooldown);
 			}
-		}
-		for (var i = debuffLenght; i == 0; --i) {
-			if (!variable_struct_exists(debuffs[i], "cooldown")) { break; }
-		    if (debuffs[i].cooldown <= 0) {
+			else {
 			    array_delete(debuffs, i, 1);
+				i--;
+				debuffLenght-=1;
 			}
 		}
 	}
-	
 	#endregion
 	
 }
