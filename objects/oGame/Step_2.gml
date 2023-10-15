@@ -17,3 +17,6 @@ if (input_check_pressed("pause") and !global.upgrade and !ANVIL and !GoldenANVIL
 	        break;
 	}
 }
+if (global.mouseDown) {
+    global.mouseDown = false;
+}

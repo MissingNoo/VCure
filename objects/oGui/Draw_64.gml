@@ -23,7 +23,9 @@ if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
-		draw_text_transformed(20,GH-50,"version 0.? remake by Airgeadlamh", 1, 1, 0);
+		draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
+		draw_sprite_ext(sMenuTalents, 0, GW/3.47, GH/1.94, 0.8, 0.8, 0, c_white, 1);
+		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
 		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Store", "Quit"];
 		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
 		var buttons = [[sStartButton, 1.68, 5.15, 7, 2.5, 
@@ -39,8 +41,11 @@ if (room == rInicio) {
 									[sQuitButton, 1.32, 1.29, 5, -5.45,
 									[[GW/1.40,GH/1.35, GW/1.15, GH/1.07],[GW/1.15, GH/1.30],[GW/1.40,GH/1.12]]]];
 		for (var i = 0; i < array_length(menuOptions); i++) {
-			draw_sprite_ext(buttons[i][0], selected == i ? 1 : 0 , 0, 0, 1, 1, 0, c_white, 1);
+			//draw_sprite_ext(buttons[i][0], selected == i ? 1 : 0 , 0, 0, 1, 1, 0, c_white, 1);
 			var _color = selected == i ? c_black : c_white;
+			var _bgcolor = selected == i ? #d2d2d2 : #a9a9a9;
+			draw_triangle_color(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
+			draw_triangle_color(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
 			draw_text_transformed_color(GW/buttons[i][1], GH/buttons[i][2], menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
 			mouse_on_button_triangle(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
 			mouse_on_button_triangle(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);

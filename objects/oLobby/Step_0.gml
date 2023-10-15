@@ -7,7 +7,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 	if (input_check_pressed("cancel") or input_check_pressed("pause")) {
 	    room_goto(rInicio);
 	}
-	if (point_in_rectangle(oGui.x, oGui.y, createx1, createy1, createx2, createy2) or keyboard_check_pressed(ord("C"))) {
+	if (point_in_rectangle(oGui.x, oGui.y, createx1, createy1, createx2, createy2) and global.mouseDown or keyboard_check_pressed(ord("C"))) {
 		roomname = "";
 		password = "";
 		keyboard_string = "";
@@ -26,7 +26,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 		}
 	}
 
-	if ((point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2)  or input_check_pressed("accept")) and array_length(rooms) > 0) {
+	if ((point_in_rectangle(oGui.x, oGui.y, joinx1, createy1, joinx2, createy2) and global.mouseDown or input_check_pressed("accept")) and array_length(rooms) > 0) {
 		global.roomname = rooms[selectedroom][$ "name"];
 		if (rooms[selectedroom][$ "password"] == "") {
 		    sendMessage({
@@ -38,7 +38,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 		else{keyboard_string = ""; passwordselected = 0; typepassword = true; }
 	}
 	
-	if (point_in_rectangle(oGui.x, oGui.y, reloadx1, createy1, reloadx2, createy2)) {
+	if (point_in_rectangle(oGui.x, oGui.y, reloadx1, createy1, reloadx2, createy2) and global.mouseDown) {
 		sendMessage({ command : Network.ListRooms });
 	}
 }
@@ -54,8 +54,7 @@ if (creatingroom) {
 	    if (creatingselected < 2) {
 		    creatingselected++;
 			if (creatingselected == 1) {
-			    keyboard_string = password;
-				
+			    keyboard_string = password;				
 			}
 		}
 	}
@@ -177,7 +176,7 @@ if (joinedRoom) {
 	if (array_length(oLobby.chatmessages) > 10) {
 		array_shift(oLobby.chatmessages);
 	}
-	if ((gui_button_click(chatSend) or keyboard_check_pressed(vk_enter)) and chattext != "") {
+	if ((gui_button_click(chatSend) and global.mouseDown or keyboard_check_pressed(vk_enter)) and chattext != "") {
 	    sendMessage({
 			command : Network.ChatMessage,
 			text : chattext,
@@ -190,11 +189,11 @@ if (joinedRoom) {
 	//feather disable once GM2017
 	global.IsHost = ishost;
 	sprites += .15;
-	if (gui_button_click(leaveButton)) {
+	if (gui_button_click(leaveButton) and global.mouseDown) {
 	    room_goto(rInicio);
 	}
 	
-	if (ishost and gui_button_click(startButton)) {
+	if (ishost and gui_button_click(startButton) and global.mouseDown) {
 		sendMessage({command : Network.StartGame});			
 	}
 		
@@ -210,7 +209,7 @@ if (joinedRoom) {
 			for (var i = 0; i < array_length(options); ++i) {
 				_yo += 22;
 				var _sy = _yo + 3.50;
-				if (point_in_rectangle(oGui.x, oGui.y, _xx - 45, _sy, _xx - 5, _sy + 17)) {
+				if (point_in_rectangle(oGui.x, oGui.y, _xx - 45, _sy, _xx - 5, _sy + 17) and global.mouseDown) {
 					oGui.x = 0;
 					oGui.y = 0;					
 					variable_instance_set(self, options[i][1], !variable_instance_get(self, options[i][1]));

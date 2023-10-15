@@ -1,4 +1,5 @@
 imguigml_activate();
+global.mouseDown = false;
 if (os_type != os_android) {
     window_set_size(1280, 720);
 }

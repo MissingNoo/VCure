@@ -91,7 +91,7 @@ if (creatingroom) {
 	_color = (creatingselectedyesno == 1) ? c_yellow : c_white;
 	if (creatingselected != 2) { _color = c_white;}
 	draw_rectangle_color(ax - as, cy - 14.5, ax + as, cy + 14.5, _color, _color, _color, _color, true);
-	if (point_in_rectangle(oGui.x, oGui.y,ax - as, cy - 14.5, ax + as, cy + 14.5)) {
+	if (point_in_rectangle(oGui.x, oGui.y,ax - as, cy - 14.5, ax + as, cy + 14.5) and global.mouseDown) {
 		    if (roomname != "") {
 				creatingroom = false;
 			    sendMessage({

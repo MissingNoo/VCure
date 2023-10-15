@@ -126,7 +126,7 @@ enum BuffNames{
 //Murasaki Shion IconMurasaki Shion
 
 function populate_characters(){
-	createCharacter(Characters.null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
+	createCharacter(Characters.Null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
 	createCharacter(Characters.Uruka,"Fujikura Uruka",sAmePortrait, sUrukaArt, sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
 	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	
@@ -212,7 +212,7 @@ function populate_characters(){
 
 
 enum Characters {
-	null,
+	Null,
 	Pippa,
 	Uruka,	
 	Lenght

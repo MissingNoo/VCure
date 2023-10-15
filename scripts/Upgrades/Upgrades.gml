@@ -233,7 +233,7 @@ function populate_upgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
-				characterid : Characters.Uruka,
+				characterid : Characters.Null,
 			});
 			#endregion
 		#endregion	
