@@ -20,15 +20,12 @@ global.specialBonuses[0] = 0;
 
 	enum SpecialIds
 	{
-		Amelia, //TODO: speed bonus for weapon
-		Gura,
-		Ina,
-		//Modded
+		Uruka,
 		WalmartForm
 	}
 #endregion
 function populate_specials(){
-	create_special(SpecialIds.Amelia, "Slow Time", sAmeSpecial, 60, "Slows all target movement by 80% while Pistol Shot shoots 50% faster for 15 seconds.", Characters.Uruka, seq_SlowTime);
+	create_special(SpecialIds.Uruka, "MONSTER", sAmeSpecial, 60, "", Characters.Uruka, undefined);
 
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
 
@@ -38,16 +35,20 @@ function populate_specials(){
 function use_special(_special)
 {
 	skilltimer = 0;
-	global.lastsequence = layer_sequence_create("Specials", x, y, _special.seq);
+	if (_special.seq != undefined) {
+	    global.lastsequence = layer_sequence_create("Specials", x, y, _special.seq);
+	}	
 	switch (_special.id) {
-	    //case SpecialIds.Amelia:
-		//	if (!instance_exists(oEnemy)) { break; }
-	    //    with (oEnemy) {
-		//	    // Feather disable once GM1041
-		//	    array_push(debuffs, copy_struct(Buffs[BuffNames.Slowness]));
-		//		//show_message(Buffs[BuffNames.Slowness]);
-		//	}
-	    //    break;
+	    case SpecialIds.Uruka:
+			oPlayer.monsterUsed = true;
+			oPlayer.monsterTimer = 10;
+			//if (!instance_exists(oEnemy)) { break; }
+	        //with (oEnemy) {
+			//    // Feather disable once GM1041
+			//    array_push(debuffs, copy_struct(Buffs[BuffNames.Slowness]));
+			//	//show_message(Buffs[BuffNames.Slowness]);
+			//}
+	        break;
 	        
 	    //case SpecialIds.Gura:
 	    //	redgura = true;

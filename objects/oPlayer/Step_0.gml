@@ -79,6 +79,16 @@ if (!global.gamePaused) {
 			event_user(i);
 		}
 	}
+	#region Specials
+	#region Monster
+	if (monsterUsed) {
+	    monsterTimer -= 1/60*Delta;
+		if (monsterTimer <= 0) {
+		    monsterUsed = false;
+		}
+	}
+	#endregion
+	#endregion
 	if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
 	//if (skilltimer < special.cooldown + 10) { skilltimer+=100; }
 	tickPowers();

@@ -92,6 +92,17 @@ image_speed = 0;
 		case Weapons.RestNote:
 			break;
 		case Weapons.UrukaNote:{
+			if (oPlayer.monsterUsed) {
+				hits = 9999;
+				tempKnockback = 15;
+				mindmg = mindmg / 2;
+				maxdmg = maxdmg / 2;
+				image_xscale = 0.1;
+				image_yscale = 0.1;
+			    sprite_index = sMonsterPulse;
+				speed=0;
+				break;
+			}
 			if (idolDir == 90) {
 			    idolDir = 270;
 				idolStartX= oPlayer.x + 20;
@@ -109,6 +120,20 @@ image_speed = 0;
 			//alarm[0] = 10;
 			//image_angle = arrowDir;
 			sprite_index = choose(sFullNote, sHalfNote, sQuarterNote, sEightNote);
+			switch (sprite_index) {
+			    case sFullNote:
+					hits = 3;
+			        break;
+			    case sHalfNote:
+					hits = 5;
+			        break;
+			    case sQuarterNote:
+					hits = 7;
+			        break;
+			    case sEightNote:
+					hits = 9999;
+			        break;
+			}
 			break;}
 		case Weapons.PlugAsaCoco:{
 			originaly=y;
@@ -550,5 +575,4 @@ image_speed = 0;
 		//}
 	}	
 }
-
 #endregion

@@ -42,7 +42,7 @@ function create_perk(_data){
 
 	enum PerkIds
 	{
-		FpsMastery,
+		DirtyMind,
 		TrashBear,
 		WeakBones,
 		HeavyArtillery,
@@ -57,16 +57,14 @@ function populate_perks(){
 			#region Amelia Perks
 				#region FPS Mastery
 					create_perk({
-						id : PerkIds.FpsMastery,
-						name : "FPS Mastery",
+						id : PerkIds.DirtyMind,
+						name : "Dirty Mind",
 						maxlevel : 3, 
 						weight : 1,
-						thumb : sFpsMastery,
+						thumb : sDirtyMind,
 						cooldown : 1,
 						characterid : Characters.Uruka,
-						bonus : true,
-						bonustype : BonusType.Damage,
-						bonusvalue : [1, 1.20, 1.40, 1.60]
+						dodgeChance: [0, 15, 20, 25]
 					});
 					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 0, 3, 1, sFpsMastery, 1, "Do nothing.", Characters.Uruka);
 					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal [20%] more damage.", Characters.Uruka);
@@ -83,9 +81,8 @@ function populate_perks(){
 						thumb : sTrashBear,
 						cooldown : 1,
 						characterid : Characters.Uruka,
-						bonus : true,
-						bonustype : BonusType.Critical,
-						bonusvalue : [0, 1.10, 1.20, 1.30]
+						dropChance : [0, 10, 11, 12],
+						spdDebuff : [0, 0.95, 0.92, 0.90]
 					});
 					//create_perk(PerkIds.TrashBear, "Detective Eye", 0, 3, 1, sTrashBear, 1, "Do nothing.", Characters.Uruka);
 					//create_perk(PerkIds.TrashBear, "Detective Eye", 1, 3, 1, sTrashBear, 1, "Increases critical hit chance by [10%].", Characters.Uruka);
@@ -96,7 +93,7 @@ function populate_perks(){
 				#region WeakBones
 				create_perk({
 						id : PerkIds.WeakBones,
-						name : "WeakBones",
+						name : "Brittle Bones",
 						maxlevel : 3, 
 						weight : 1,
 						thumb : sWeakBones,
@@ -108,7 +105,7 @@ function populate_perks(){
 					//create_perk(PerkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Uruka);
 					//create_perk(PerkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Uruka);
 				#endregion
-				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
+				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 			#endregion
 	
 			

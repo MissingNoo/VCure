@@ -1,6 +1,9 @@
 if (!gotknocked) {
     gotknocked = true;
 	var _push = other.upg[$ "knockbackSpeed"];
+	if (variable_instance_exists(other, "tempKnockback")) {
+		_push = other.tempKnockback;
+	}	
 	var _dir = point_direction(other.x, other.y, x, y);
 	var _hspd = lengthdir_x(_push, _dir);
 	var _vspd = lengthdir_y(_push, _dir); 

@@ -1,11 +1,11 @@
 var damage;
 switch (global.player[?"special"]) {
-    case SpecialIds.Gura:
-        damage = (UPGRADES[0][$ "mindmg"] * 500) / 100;
-        break;
-    case SpecialIds.Ina:
-        damage = (UPGRADES[0][$ "mindmg"] * 150) / 100;
-        break;		
+    //case SpecialIds.Gura:
+    //    damage = (UPGRADES[0][$ "mindmg"] * 500) / 100;
+    //    break;
+    //case SpecialIds.Ina:
+    //    damage = (UPGRADES[0][$ "mindmg"] * 150) / 100;
+    //    break;		
     default:
         // code here
         break;

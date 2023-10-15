@@ -13,44 +13,58 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	}
 	//damaged=true;
 	audio_play_sound(snd_hurt,0,0);
-	#region Uruka Weak Bones
+	#region Uruka
 	var bonusdmg = 0;
+	var _dirtyDodge = irandom_range(0, 100);
+	var _dirtyChance = 0;
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		if (PLAYER_PERKS[i].id == PerkIds.WeakBones) {
-			switch (PLAYER_PERKS[i].level) {
-				case 0:
-					bonusdmg = 2;
-					break;
-				case 1:
-					bonusdmg = 3;
-					break;
-				case 2:
-					bonusdmg = 4;
-					break;
-				case 3:
-					bonusdmg = 5;
-					break;
-				}
-				var _angles = [0, 45, 315, 135, 180, 225];
-				for (var j = 0; j < array_length(_angles); ++j) {
-					var _w = WEAPONS_LIST[Weapons.RestNote][1];
-					var instancecreated = instance_create_layer(self.x, self.y-8,"Upgrades",oUpgrade,{
-						upg : _w,
-						speed : _w.speed,
-						hits : _w.hits,
-						shoots : _w.shoots,
-						mindmg : _w.mindmg,
-						maxdmg : _w.maxdmg,
-						sprite_index : _w.sprite,
-						a : 0,
-						owner : self,
-						direction : _angles[j]
-					});
-				}
-			}			
+		switch (PLAYER_PERKS[i].id) {
+			case (PerkIds.WeakBones):{
+				switch (PLAYER_PERKS[i].level) {
+					case 0:
+						bonusdmg = 0;
+						break;
+					case 1:
+						bonusdmg = 2;
+						break;
+					case 2:
+						bonusdmg = 3;
+						break;
+					case 3:
+						bonusdmg = 4;
+						break;
+					}
+					if (PLAYER_PERKS[i].level > 0) {
+					    var _angles = [0, 45, 315, 135, 180, 225];
+						for (var j = 0; j < array_length(_angles); ++j) {
+							var _w = WEAPONS_LIST[Weapons.RestNote][1];
+							var instancecreated = instance_create_layer(self.x, self.y-8,"Upgrades",oUpgrade,{
+								upg : _w,
+								speed : _w.speed,
+								hits : _w.hits,
+								shoots : _w.shoots,
+								mindmg : _w.mindmg,
+								maxdmg : _w.maxdmg,
+								sprite_index : _w.sprite,
+								a : 0,
+								owner : self,
+								direction : _angles[j]
+							});
+						}
+					}
+					break;}
+			case (PerkIds.DirtyMind):{
+				_dirtyChance = PLAYER_PERKS[i].dodgeChance;
+				break;}
+			}
 		}
 		//show_debug_message(string($"d:{damage} + {bonusdmg} = {damage+bonusdmg}"));
 		damage += bonusdmg;
+		if (_dirtyDodge <= _dirtyChance) {
+			show_debug_message("dirty dodge");
+			heal_player(damage/2);
+		    damage = 0;
+		}
 		#endregion
 	if (Shield > 0) {
 	    Shield -= damage;

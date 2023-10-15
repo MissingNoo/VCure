@@ -146,6 +146,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	    dmg = dmg * 1.25;
 	}
 	#region Uruka Note Multiplier
+	//the whole note hits 3 targets, half hits 5, quarter hits 7, and 1/8th has unlimited pierce (explosion for the first three would just happen when they reach their pierce limit or hit the edge of screen)
 	switch (sprite_index) {
 	    case sFullNote:
 	        break;
@@ -190,10 +191,17 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	        break;
 		case Weapons.RestNote:
 				array_push(other.debuffs, copy_struct(Buffs[BuffNames.Paralyzed]));
+				var _time = 0;
+				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+					if (PLAYER_PERKS[i].id == PerkIds.WeakBones) {
+						_time = 2 + PLAYER_PERKS[i].level;
+					}
+				}
 				for (var i = 0; i < array_length(other.debuffs); ++i) {
 				    if (other.debuffs[i].id == BuffNames.Paralyzed) {
 					    other.debuffs[i].enabled = true;
-						other.debuffs[i].cooldown = other.debuffs[i].baseCooldown;
+						//other.debuffs[i].cooldown = other.debuffs[i].baseCooldown;
+						other.debuffs[i].cooldown = _time;
 					}
 				}
 			break;

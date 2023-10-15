@@ -1,6 +1,9 @@
 event_inherited();
-#region Spaghetti
+
+#region Uruka
 spaghettiEaten = false;
+monsterUsed = false;
+monsterTimer = 0;
 #endregion
 weaponHaste = 0;
 justBandageHealing = 0;

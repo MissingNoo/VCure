@@ -188,6 +188,9 @@ if (!global.gamePaused) {
 			x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], idolStartX);
 			break;}
 		case Weapons.UrukaNote:{
+			if (sprite_index == sMonsterPulse) {
+			    break;
+			}
 			//x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartX);
 			//x = sine_wave(current_time  / 1000, 1, upg[$ "travelWidth"], noteStartX);
 			y = cose_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartY);

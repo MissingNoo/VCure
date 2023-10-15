@@ -116,7 +116,12 @@ if(global.gamePaused == false and instance_exists(target)){
 	if (canwalk) {
 	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * Delta;
 		if (oPlayer.spaghettiEaten) {
-		    speed = speed * .50;
+			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+			    if (PLAYER_PERKS[i].id == PerkIds.TrashBear) {
+				    speed = speed * PLAYER_PERKS[i].spdDebuff;
+				}
+			}
+		    
 		}
 		for (var i = 0; i < array_length(debuffs); ++i) {
 		    if (other.debuffs[i].id == BuffNames.Paralyzed) {

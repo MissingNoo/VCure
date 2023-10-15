@@ -118,6 +118,7 @@ if (room == rInicio and !global.gamePaused) {
 				activeMenu = PMenus.Settings;
 				break;}
 			case "Shop":{
+				global.holocoins = 99999;
 				keyboard_clear(ord("Z"));
 				room_goto(rShop);
 				break;}

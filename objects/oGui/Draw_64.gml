@@ -26,7 +26,7 @@ if (room == rInicio) {
 		draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
 		draw_sprite_ext(sMenuTalents, 0, GW/3.47, GH/1.94, 0.8, 0.8, 0, c_white, 1);
 		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
-		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Store", "Quit"];
+		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Shop", "Quit"];
 		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
 		var buttons = [[sStartButton, 1.68, 5.15, 7, 2.5, 
 									[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
