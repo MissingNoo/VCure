@@ -1,6 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 switch (upg[$ "id"]) {
+	case Weapons.UrukaNote:{
+		if (sprite_index == sBombExplosion) {
+		    instance_destroy();
+		}
+		break;}
 	case Weapons.EliteLavaBucket:{
 		if (sprite_index == sLavaPoolStart) {
 			subImg = 0;

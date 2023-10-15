@@ -188,16 +188,23 @@ if (!global.gamePaused) {
 			x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], idolStartX);
 			break;}
 		case Weapons.UrukaNote:{
-			if (sprite_index == sMonsterPulse) {
+			if (sprite_index == sMonsterPulse or sprite_index == sBombExplosion) {
 			    break;
 			}
 			//x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartX);
 			//x = sine_wave(current_time  / 1000, 1, upg[$ "travelWidth"], noteStartX);
-			y = cose_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartY);
+			//y = cose_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartY);
+			y = cose_wave(current_time  / 1000, 1 * upDown, upg[$ "travelWidth"], noteStartY);
 			if (image_xscale < 0) {
 			    image_xscale = image_xscale * -1;
 			}
 			//y = cose_wave(current_time  / 1000, -1, upg[$ "travelWidth"], noteStartY);
+			if (upg.level >= 4) {
+				var _sizeGain = 0.003;
+			    image_xscale += _sizeGain;
+			    image_yscale += _sizeGain;
+				sizeGained = image_xscale;
+			}
 			break;}
 		case Weapons.BounceBall:{
 			//if (direction != 270) {

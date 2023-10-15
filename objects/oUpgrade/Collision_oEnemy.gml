@@ -159,6 +159,9 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	    case sEightNote:
 			dmg = dmg / 8;
 	        break;
+		case sBombExplosion:{
+			dmg = (dmg * 2) + (sizeGained / 10);
+			break;}
 	    default:
 	        // code here
 	        break;
@@ -175,6 +178,9 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	other.damagedAlarm=15;
 	switch (upg[$ "id"]) {
 	    case Weapons.UrukaNote:
+	        if (hits == 1 and upg.level == 7) {
+				noteExplosion();
+			}
 	        //if (hits == 1 and !UrukaNoteLastHit and upg[$ "level"] >= 4) {
 			//    UrukaNoteLastHit=true;
 			//	hits+=5;
