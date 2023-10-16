@@ -910,7 +910,9 @@ if (os_type == os_android)
 x = 0;
 y = 0;
 #region Info on screen
-draw_set_halign(fa_right);
-draw_text_transformed(GW/1, GH/1.05, "CONFIRM: Z | CANCEL: X / ESC", 2.5, 2.5, 0);
-draw_set_halign(fa_left);
+if (room == rCharacterSelect or room == rInicio) {
+	draw_set_halign(fa_right);
+	draw_text_transformed(GW/1, GH/1.05, "CONFIRM: Z | CANCEL: X / ESC", 2.5, 2.5, 0);
+	draw_set_halign(fa_left);
+}
 #endregion
