@@ -28,17 +28,17 @@ if (room == rInicio) {
 		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
 		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Shop", "Quit"];
 		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
-		var buttons = [[sStartButton, 1.68, 5.15, 7, 2.5, 
+		var buttons = [[0, 1.68, 5.15, 7, 2.5, 
 									[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
-									[sMultiplayerButton, 1.76, 2.29, 3.5, -0.65,
+									[0, 1.76, 2.29, 3.5, -0.65,
 									[[GW/1.82,GH/2.53, GW/1.41, GH/1.83],[GW/1.41, GH/2.54],[GW/1.82, GH/1.86]]],
-									[sArmoryButton, 1.34, 2.39, 4, 0,
+									[0, 1.34, 2.39, 4, 0,
 									[[GW/1.39,GH/2.54, GW/1.10, GH/1.79],[GW/1.10, GH/2.57],[GW/1.39,GH/1.83]]],
-									[sAchievementsButton, 1.56, 1.72, 5, -3.95,
+									[0, 1.56, 1.72, 5, -3.95,
 									[[GW/1.70, GH/1.79, GW/1.07, GH/1.32],[GW/1.07, GH/1.71],[GW/1.70,GH/1.42]]],
-									[sStoreButton, 1.67, 1.32, 4, -5.60,									
+									[0, 1.67, 1.32, 4, -5.60,									
 									[[GW/1.77,GH/1.40, GW/1.42, GH/1.12],[GW/1.42, GH/1.36],[GW/1.77,GH/1.17]]],
-									[sQuitButton, 1.32, 1.29, 5, -5.45,
+									[0, 1.32, 1.29, 5, -5.45,
 									[[GW/1.40,GH/1.35, GW/1.15, GH/1.07],[GW/1.15, GH/1.30],[GW/1.40,GH/1.12]]]];
 		for (var i = 0; i < array_length(menuOptions); i++) {
 			//draw_sprite_ext(buttons[i][0], selected == i ? 1 : 0 , 0, 0, 1, 1, 0, c_white, 1);
@@ -909,3 +909,8 @@ if (os_type == os_android)
 #endregion
 x = 0;
 y = 0;
+#region Info on screen
+draw_set_halign(fa_right);
+draw_text_transformed(GW/1, GH/1.05, "CONFIRM: Z | CANCEL: X / ESC", 2.5, 2.5, 0);
+draw_set_halign(fa_left);
+#endregion
