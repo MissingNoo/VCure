@@ -2,7 +2,7 @@
 // You can write your code in this editor
 switch (upg[$ "id"]) {
 	case Weapons.UrukaNote:{
-		if (sprite_index == sBombExplosion) {
+		if (sprite_index == sNoteExplosion) {
 		    instance_destroy();
 		}
 		break;}

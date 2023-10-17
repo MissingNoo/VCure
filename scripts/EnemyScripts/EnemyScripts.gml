@@ -51,7 +51,7 @@ function create_enemy(_id, _name, _sprite, _hp, _speed, _atk, _exp, _weight = 1,
 }
 enum Enemies
 {
-	Shrimp,
+	Urufugang,
 	DarkShrimp,
 	MegaShrimp,
 	MegaDarkShrimp,
@@ -107,8 +107,8 @@ enum Enemies
 }
 #region Create Enemies
 	#region Stage 1
-		create_enemy(Enemies.Shrimp, "Shrimp", sShrimp, 8, .35, 2, 6, 1);
-		create_enemy(Enemies.MegaShrimp, "MegaShrimp", sShrimp, 600,.5,6,150,1, true);
+		create_enemy(Enemies.Urufugang, "Urufu", sUrufu, 8, .35, 2, 6, 1, false, 0.75, 0.75, false);
+		create_enemy(Enemies.MegaShrimp, "MegaShrimp", sUrufu, 600,.5,6,150,1, true);
 		create_enemy(Enemies.DarkShrimp,"DarkShrimp",sDarkShrimp,125,.6,5,12,1);		
 		create_enemy(Enemies.MegaDarkShrimp,"MegaDarkShrimp",sDarkShrimp,2500,.9,10,1000,1, true);
 		create_enemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,40,.4,4,7,1);
@@ -145,7 +145,7 @@ enum Enemies
 		create_enemy(Enemies.ThiccBubba, "Thicc Bubba", sThiccBubba, 1000, 0.85, 12, 20);
 		create_enemy(Enemies.SmolAme, "Smol Ame", sSmolAme, 25000, 1.2, 20, 5000);
 		#region Endless
-		create_enemy(Enemies.EndlessShrimp, "Endless", sShrimp, 5000, 1, 15, 25);
+		create_enemy(Enemies.EndlessShrimp, "Endless", sUrufu, 5000, 1, 15, 25);
 		create_enemy(Enemies.EndlessDeadBeat, "Endless", sQDeadBeat, 5000, 1, 15, 25);
 		create_enemy(Enemies.EndlessTakodachi, "Endless", sTakodachi, 5000, 1, 15, 25);
 		create_enemy(Enemies.EndlessEmployee, "Endless", sDisgruntledEmployee, 5000, 1, 15, 25);
@@ -182,7 +182,7 @@ function remove_enemy_from_pool(e){
 function reset_pool()
 {
 	ds_list_clear(EnemyPool);
-	ds_list_add(EnemyPool, EnemyList[Enemies.Shrimp]); //start pool with the first mob
+	ds_list_add(EnemyPool, EnemyList[Enemies.Urufugang]); //start pool with the first mob
 }
 #endregion
 

@@ -14,7 +14,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 5 and Minutes == 0 and event) {
 		event = false;
 		//alarm[0] = 60;
-		spawn_event(Enemies.Shrimp,Patterns.Cluster,"-", "-", "-", "-", "-", 15);
+		spawn_event(Enemies.Urufugang,Patterns.Cluster,"-", "-", "-", "-", "-", 15);
 		
 	}
 
@@ -61,7 +61,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		//alarm[0] = 60;	
 		//remove shrimp
 		//deadbeat takodachi
-		remove_enemy_from_pool(Enemies.Shrimp);
+		remove_enemy_from_pool(Enemies.Urufugang);
 		add_enemy_to_pool(Enemies.Takodachi);
 	}
 	
@@ -151,7 +151,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 	if (_seconds == 0 and Minutes == 7 and event) {
 		event = false;
 		//alarm[0] = 60;	
-		spawn_event(Enemies.Shrimp, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
+		spawn_event(Enemies.Urufugang, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
 		//INFO: should be 120 shrimps, but anyway?
 	}
 	
@@ -331,7 +331,7 @@ if (instance_exists(oPlayer) and enable) { //TODO: finish adding stage 1 events
 		event = false;
 		//alarm[0] = 60;	
 		reset_pool();
-		remove_enemy_from_pool(Enemies.Shrimp);
+		remove_enemy_from_pool(Enemies.Urufugang);
 		for (var i = Enemies.EndlessShrimp; i <= Enemies.EndlessSanallite; ++i) {
 		    add_enemy_to_pool(i);
 		}

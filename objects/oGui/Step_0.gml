@@ -351,6 +351,30 @@ if (room == rCharacterSelect or room == rAchievements) {
 }
 #region Select Character room
 if (room == rCharacterSelect) {
+	#region Character sprite
+	characterSubImage[1] = sprite_get_number(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"]);
+	characterSubImage[2] = sprite_get_speed(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"]);
+	if (characterSubImage[0] < characterSubImage[1]) {
+		characterSubImage[0] += ((1/60) * characterSubImage[2]) * Delta;
+	}
+	if (characterSubImage[0] > characterSubImage[1]) {
+		characterSubImage[0] = 0;
+	}
+	if (spriteChangeTimer > 0) {
+	    spriteChangeTimer -= 1/60 * Delta;
+	}
+	if (spriteChangeTimer < 0) {
+	    spriteChangeTimer = 3;
+		switch (currentSprite) {
+		    case 0:
+		        currentSprite = 1;
+		        break;
+		    case 1:
+		        currentSprite = 0;
+		        break;
+		}
+	}
+	#endregion
 	if (selectingOutfit) {
 		if (xKey) {
 			selectingOutfit = false;

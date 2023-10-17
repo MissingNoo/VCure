@@ -69,7 +69,7 @@ if (room == rCharacterSelect or room == rAchievements) {
 #endregion
 }
 if (room == rCharacterSelect) {
-	draw_rectangle_color(0, 0, GW, GH, #19181d, #19181d, #19181d, #19181d, false);
+	//draw_rectangle_color(0, 0, GW, GH, #19181d, #19181d, #19181d, #19181d, false);
 	NAME=CHARACTERS[selectedCharacter][?"name"];
 	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
 	draw_set_alpha(0.5);
@@ -114,7 +114,20 @@ if (room == rCharacterSelect) {
 			}
 		}		
 		draw_text_ext_transformed(GW/1.48, GH/7.31, string_upper(CHARACTERS[selectedCharacter][?"name"]), string_height("W"), 50, 7, 7, 0);		
-		draw_sprite_ext(CHARACTERS[selectedCharacter][?"sprite"], 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
+		draw_sprite_ext(sCharShadow, 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 0.8);
+		draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
+		var _charInfo = CHARACTERS[selectedCharacter];
+		var _info = [[sHudHPIcon, _charInfo[?"hp"], ""], [sHudAtkIcon, _charInfo[?"atk"], "x"], [sHudSpdIcon,_charInfo[?"speed"], "x"], [sHudCrtIcon,_charInfo[?"crit"], "%"]];
+		var _yoffset = 0;
+		for (var i = 0; i < array_length(_info); ++i) {
+		    draw_sprite_ext(_info[i][0], 0, GW/1.49, GH/1.37 + _yoffset, 1.5, 1.5, 0, c_white, 1);
+			draw_set_alpha(0.25);
+			draw_rectangle_color(GW/1.46, GH/1.39 + _yoffset, GW/1.35, GH/1.34 + _yoffset, c_black, c_black, c_black, c_black, false);
+			draw_set_alpha(1);
+			draw_text_transformed(GW/1.49 + 25, GH/1.39 + _yoffset, string($"{_info[i][1]}{_info[i][2]}"), 1.5, 1.5, 0);
+			_yoffset += 35;
+		}
+		//draw_sprite_ext(sSelectScreenThingy, 0, GW/a, GH/b, e, e, 0, c_white, 1);
 		select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special");
 		var _speX = GW/1.09;
 		var _speY = GH/1.21;
@@ -132,19 +145,41 @@ if (room == rCharacterSelect) {
 		select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills");
 		_offset = 0;
 		for (var i = 0; i < 3; ++i) {
-		    draw_sprite_ext(global.characterPerks[selectedCharacter][i].thumb, 0, GW/1.20 + _offset, GH/1.43, 3, 3, 0, c_white, 1);
+			var _xx = GW/1.20 + _offset;
+			var _yy = GH/1.43;
+			var _perk = global.characterPerks[selectedCharacter][i]
+			var _spr = _perk.thumb;
+			var _sprW = sprite_get_width(_spr) * 3 / 2;
+			var _sprH = sprite_get_height(_spr) * 3 / 2;
+		    draw_sprite_ext(_spr, 0, _xx, _yy, 3, 3, 0, c_white, 1);
+			_offset += 75;
+		}
+		_offset = 0;
+		for (var i = 0; i < 3; ++i) {
+			var _xx = GW/1.20 + _offset;
+			var _yy = GH/1.43;
+			var _perk = global.characterPerks[selectedCharacter][i]
+			var _spr = _perk.thumb;
+			var _sprW = sprite_get_width(_spr) * 3 / 2;
+			var _sprH = sprite_get_height(_spr) * 3 / 2;
+			if (point_in_rectangle(TouchX1, TouchY1, _xx - _sprW, _yy - _sprH, _xx + _sprW, _yy + _sprH)) {
+			    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Skill", 0.75);
+				draw_sprite_ext(_spr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
+				draw_text_transformed(GW/1.29, GH/1.59, lexicon_text(_perk.name + ".name"), 2.5, 2.5, 0);
+				drawDesc(GW/1.40, GH/1.41, lexicon_text(_perk.name + ".desc"), GW/3.90, 2);
+			}
 			_offset += 75;
 		}
 		if (point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3))) {
-		    select_screen_window(GW/1.43, GH/1.80, GW/1.02, GH/1.08, "Special", 0.75);
+		    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Special", 0.75);
 			draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
-			draw_text_transformed(GW/1.29, GH/1.59, SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name, 2.5, 2.5, 0);
+			draw_text_transformed(GW/1.29, GH/1.59, lexicon_text(SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name"), 2.5, 2.5, 0);
 			drawDesc(GW/1.40, GH/1.41, lexicon_text(SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc"), GW/3.90, 2);
 		}
 		if (point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2))) {
-		    select_screen_window(GW/1.43, GH/1.80, GW/1.02, GH/1.08, "Attack", 0.75);
+		    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Attack", 0.75);
 			draw_sprite_ext(_atkSpr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
-			draw_text_transformed(GW/1.29, GH/1.59, CHARACTERS[selectedCharacter][?"weapon"][1].name, 2.5, 2.5, 0);
+			draw_text_transformed(GW/1.29, GH/1.59, lexicon_text(CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name"), 2.5, 2.5, 0);
 			drawDesc(GW/1.40, GH/1.41, lexicon_text(CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc"), GW/3.90, 2);
 		}
 	}

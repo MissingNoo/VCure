@@ -10,7 +10,7 @@ while (upDown == 0) {
 function noteExplosion(){
 	hits = 9999;
 	speed = 0;
-	sprite_index = sBombExplosion;
+	sprite_index = sNoteExplosion;
 	maxImg = sprite_get_number(sprite_index);
 	sprSpeed = sprite_get_speed(sprite_index);
 	sprSpeedType = sprite_get_speed_type(sprite_index);

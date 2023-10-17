@@ -1,3 +1,6 @@
+characterSubImage = [0, 0, 0];
+spriteChangeTimer = 3;
+currentSprite = 0;
 mousePrevious = [0,0];
 gAnvilWeapon1 = global.null;
 gAnvilWeapon2 = global.null;
