@@ -81,9 +81,15 @@ function initializePlayer(_p){
 	gy =0;
 	pimanLevel = 0;
 }
-
 global.characters=[];
 #macro CHARACTERS global.characters
+enum Characters {
+	Null,
+	Pippa,
+	Uruka,
+	Lia,
+	Lenght
+}
 function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
 {
 	if (_unlocked) {
@@ -106,7 +112,6 @@ function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite
 	ds_map_add(m, "crit", _crt);
 	ds_map_add(m, "outfits", []);
 }
-
 enum BuffNames{
 	//ShortHeight,
 	//SharkBite,
@@ -117,14 +122,6 @@ enum BuffNames{
 	Paralyzed,
 	testbuff
 }
-
-//List of Flat Characters
-//Gawr Gura IconGawr Gura
-//Ninomae Ina'nis IconNinomae Ina'nis
-//Hoshimachi Suisei IconHoshimachi Suisei
-//Natsuiro Matsuri IconNatsuiro Matsuri
-//Murasaki Shion IconMurasaki Shion
-
 function populate_characters(){
 	createCharacter(Characters.Null,"",sBlank,sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
 	createCharacter(Characters.Uruka,"Fujikura Uruka",sAmePortrait, sUrukaArt, sAmeIdle,sAmeRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
@@ -210,17 +207,6 @@ function populate_characters(){
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	NAME=CHARACTERS[Characters.Uruka][?"name"];
 }
-
-
-enum Characters {
-	Null,
-	Pippa,
-	Uruka,
-	Lia,
-	Lenght
-}
-
-
 function Movement()
 {
 if (canMove == true){
