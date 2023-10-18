@@ -10,6 +10,7 @@ switch (upg[$ "id"]) {
 	}
 	case Weapons.UrukaNote:{
 		if (upg.level == 7) {
+		    // Feather disable once GM2016
 		    noteExplosion();
 		}
 		break;}

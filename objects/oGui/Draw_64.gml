@@ -1,5 +1,7 @@
 // Feather disable GM1041
 #region Start variables
+var _x = 0;
+var _y = 0;
 draw_set_alpha(1);
 draw_set_color(c_white);
 var header;
@@ -118,7 +120,7 @@ if (room == rCharacterSelect) {
 		draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
 		var _charInfo = CHARACTERS[selectedCharacter];
 		var _info = [[sHudHPIcon, _charInfo[?"hp"], ""], [sHudAtkIcon, _charInfo[?"atk"], "x"], [sHudSpdIcon,_charInfo[?"speed"], "x"], [sHudCrtIcon,_charInfo[?"crit"], "%"]];
-		var _yoffset = 0;
+		_yoffset = 0;
 		for (var i = 0; i < array_length(_info); ++i) {
 		    draw_sprite_ext(_info[i][0], 0, GW/1.49, GH/1.37 + _yoffset, 1.5, 1.5, 0, c_white, 1);
 			draw_set_alpha(0.25);
@@ -313,7 +315,8 @@ if (instance_exists(oPlayer))
 	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
 	draw_text_transformed(GW/1.18, GH/7.60, string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")}"), 2, 2, 0);
 	#region Character Portrait
-	var _x = GW/25.10, _y = GH/10.59;
+	_x = GW/25.10
+	_y = GH/10.59;
 	var _portraithalf = sprite_get_height(sUiPortraitFrame);
 	draw_set_alpha(global.debug ? .5 : 1);
 	if (global.showhpui) {
@@ -471,7 +474,8 @@ if (instance_exists(oPlayer))
 					break;}
 			}
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
-			draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name
+			//draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name //UNUSED
+			draw_text_transformed(_xx - 348, _yy - 64 + offset, _name, 2, 2, 0); // draw the name
 			var style = ""; 
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
@@ -485,10 +489,11 @@ if (instance_exists(oPlayer))
 					break;}
 			}
 			draw_set_halign(fa_right);
-			draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade
+			//draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade //UNUSED
+			draw_text_transformed(_xx + 340, _yy - 64 + offset, string(style), 2, 2, 0);  // draw type of upgrade 
 			draw_set_halign(fa_left);
-			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
-			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322 + guiOffset, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
+			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
+			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
 			var foundup = false;
 			var foundlv = 0;
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade

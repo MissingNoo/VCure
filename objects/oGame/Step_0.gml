@@ -206,7 +206,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 }
 #endregion
 #region Time
-if (global.gamePaused == false) {
+if (global.gamePaused == false and instance_exists(oPlayer)) {
 	global.seconds+=(1/60) * Delta ;
 	#region Skills Cooldown		
 	#region cooldownamount

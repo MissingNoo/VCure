@@ -1,8 +1,11 @@
 xpreviousprevious = x - (x - xprevious);
 ypreviousprevious = y - (y - yprevious);
-if (global.testvar == "") {
-    global.testvar = upg;
-}
+#region unused
+//if (global.testvar == "") {
+//    global.testvar = upg;
+//}
+#endregion
+
 if (socket == oPlayer.socket) {
     owner = instance_nearest(x,y,oPlayer);
 }else{
@@ -299,7 +302,6 @@ if (hits <= 0 and upg[$ "id"] != Weapons.Glowstick) {
 	image_alpha=0;
 }
 
-//if (socket == oPlayer.socket) {
 sendMessage({
 	command : Network.UpdateUpgrade,
 	socket,
@@ -314,13 +316,3 @@ sendMessage({
 	image_yscale,	
 	afterimg : json_stringify(afterimage)
 });
-//	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-//	buffer_write(oClient.clientBuffer, buffer_u8, Network.UpdateUpgrade);
-//	buffer_write(oClient.clientBuffer, buffer_u8, oPlayer.socket);
-//	buffer_write(oClient.clientBuffer, buffer_u16, upgID);
-//	buffer_write(oClient.clientBuffer, buffer_u16, x);
-//	buffer_write(oClient.clientBuffer, buffer_u16, y);
-//	buffer_write(oClient.clientBuffer, buffer_u16, image_alpha);
-//	buffer_write(oClient.clientBuffer, buffer_u16, image_angle);
-//	network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
-//}

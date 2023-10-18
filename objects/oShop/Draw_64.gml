@@ -23,7 +23,7 @@ draw_sprite_ext(sHolocoin, holocoinsubimage, _x - 195, _y, 4, 4, 0, c_white, 1);
 draw_sprite_ext(sHudButton, 0, _x, _y, 1.72, 1.8, 0, c_white, 1);
 draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
-draw_text_transformed(_x + 138 - oGui.guiOffset, _y - 3, global.holocoins, 5, 5, 0);
+draw_text_transformed(_x + 138, _y - 3, global.holocoins, 5, 5, 0);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 #endregion
@@ -159,7 +159,7 @@ if (!onMenu) {
 			draw_text_transformed(_xx - 385, _yy - 59.50 , string(selectedThing[?"name"]), 1, 1, 0); // draw the name
 			draw_sprite_ext(selectedThing[$ "sprite"],0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb
 			draw_sprite_ext(sItemType, 0, _xx - 350, _yy, 2, 2,0,c_white,1); // item thumb type	
-			drawDesc(_xx - 290,_yy - 35, selectedThing[$ "desc"], GW/2 - oGui.guiOffset, 2);
+			drawDesc(_xx - 290,_yy - 35, selectedThing[$ "desc"], GW/2, 2);
 			//feather disable once GM2017
 			var LEVEL = selectedThing[$ "level"];
 			//feather disable once GM2017

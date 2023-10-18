@@ -58,7 +58,7 @@ lexicon_language_set("English");
 //if (!variable_global_exists("mode")) {
 //	global.mode = "menu";
 //}
-//global.gPnum = 0;
+global.gPnum = 0;
 #endregion
 #region Stages
 enum StageTypes{

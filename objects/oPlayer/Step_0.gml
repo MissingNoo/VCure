@@ -67,10 +67,16 @@ if (immortal) {
 }
 if (!global.gamePaused) {
 	#region drops
-	var _drop = collision_circle(x, y, pickupRadius, oDropParent, false, true);
-	if (_drop != noone) {
-	    _drop.direction = point_direction(_drop.x, _drop.y,oPlayer.x,oPlayer.y - 16);
-		_drop.speed = (spd * 1.3) * Delta;
+	var _list = ds_list_create();
+	var _num = collision_circle_list(x, y, pickupRadius, oDropParent, false, true, _list, true);
+	var _drop = noone;
+	if (_num > 0) {
+		for (var i = 0; i < _num; ++i) {
+		    _drop = _list[| i];
+			_drop.direction = point_direction(_drop.x, _drop.y,oPlayer.x,oPlayer.y - 16);
+			_drop.speed = (spd * 1.3) * Delta;
+			_drop.onArea = true;
+		}
 	}
 	#endregion
 	#region Menhera

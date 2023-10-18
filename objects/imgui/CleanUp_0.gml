@@ -10,16 +10,16 @@ if (variable_instance_exists(self, "Textures")) {
 	}
 }
 global.__imguigml = noone;
-if (buffer_exists(Render_buffer)) {
-    buffer_delete(Render_buffer[0]);
-	buffer_delete(Render_buffer[1]);
-}
-buffer_delete(Input_buffer);
-buffer_delete(Wrapper_buffer);
-buffer_delete(Debug_buffer);
+//if (buffer_exists(Render_buffer)) {
+//    buffer_delete(Render_buffer[0]);
+//	buffer_delete(Render_buffer[1]);
+//}
+//buffer_delete(Input_buffer);
+//buffer_delete(Wrapper_buffer);
+//buffer_delete(Debug_buffer);
 
-vertex_format_delete(Imgui_vertex_fmt);
-ds_map_destroy(memory);
+//vertex_format_delete(Imgui_vertex_fmt);
+//ds_map_destroy(memory);
 rousr_callstack_clean_up();
 _extImguiGML_texteditors_cleanup();
 _extImguiGML_shutdown();
