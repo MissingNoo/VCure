@@ -64,7 +64,7 @@ if (imguigml_ready()) {
 						}
 						if (global.upgrade) {
 						    _button = imguigml_button("Rerrol");
-							if (_button) { randomUpgrades(); }
+							if (_button) { random_upgrades(); }
 							imguigml_same_line();
 						}
 						var _input = imguigml_checkbox("Immortal", oPlayer.immortal);

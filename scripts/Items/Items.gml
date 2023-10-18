@@ -567,7 +567,7 @@ function populate_items(){
 	#endregion
 }
 
-function tickItems(){
+function tick_items(){
 	var _player = instance_find(oPlayer, 0);
 	for (var i = 0; i < array_length(playerItems); ++i) {
 		if (playerItems[i] != global.nullitem and global.itemCooldown[playerItems[i][$ "id"]] <= 0) {

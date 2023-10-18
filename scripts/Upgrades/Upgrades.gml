@@ -1,5 +1,5 @@
 #region model
-//newCreateUpgrade({ 
+//new_create_upgrade({ 
 //				id : Weapons.,
 //				weight : 0,
 //				name : "",
@@ -73,7 +73,7 @@ enum ShotTypes {
  * @param {Array<Asset.GMSound>} [_sounds]=[] Description
  */
  //feather disable once GM1045
-function newCreateUpgrade(_data, _sounds = ""){
+function new_create_upgrade(_data, _sounds = ""){
 	global.upgradesAvaliable[_data.id][0] = global.null;
 	_data.z = "z";
 	//show_message(_data);
@@ -108,7 +108,7 @@ function newCreateUpgrade(_data, _sounds = ""){
 	}
 }
 
-function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type, _shoots, _desc = "")
+function create_upgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _cooldown, _duration, _hitCooldown, _canBeHasted, _speed, _hits, _type, _shoots, _desc = "")
 {
 	global.upgradesAvaliable[_id][0]=global.null;
 	global.upgradesAvaliable[_id][_level]={};
@@ -132,7 +132,7 @@ function createUpgrade(_id, _name, _level, _sprite, _thumb, _mindmg, _maxdmg, _c
 	variable_struct_set(m, "style", ItemTypes.Weapon);	
 	global.upgradeCooldown[_id] = 0;
 }
-function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = -1)
+function create_upgrade_p2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDuration, _perk = 0, _character = -1)
 {
 	var m = global.upgradesAvaliable[_id][_level];
 	variable_struct_set(m, "knockbackSpeed", _knockbackSpeed);
@@ -190,7 +190,7 @@ function populate_upgrades(){
 	#region Character Perks
 		#region Uruka Perks
 			#region UrukaNote 
-			newCreateUpgrade({
+			new_create_upgrade({
 				id : Weapons.UrukaNote,
 				name : "Music Note",
 				maxlevel : 7,
@@ -215,7 +215,7 @@ function populate_upgrades(){
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 			#region UrukaNote 
-			newCreateUpgrade({
+			new_create_upgrade({
 				id : Weapons.RestNote,
 				name : "Rest Note",
 				maxlevel : 1,
@@ -240,7 +240,7 @@ function populate_upgrades(){
 			#endregion
 		#endregion	
 		#region Lia
-		newCreateUpgrade({
+		new_create_upgrade({
 				id : Weapons.LiaBolt,
 				name : "Lightning Bolt",
 				maxlevel : 7,
@@ -262,7 +262,7 @@ function populate_upgrades(){
 				perk : true,
 				characterid : Characters.Lia,
 			});
-		newCreateUpgrade({
+		new_create_upgrade({
 				id : Weapons.ElectricPulse,
 				name : "Electric Pulse",
 				maxlevel : 7,
@@ -288,7 +288,7 @@ function populate_upgrades(){
 	
 		
 	#region Shockwave
-	newCreateUpgrade({ //Shockwave
+	new_create_upgrade({ //Shockwave
 				id : Weapons.Shockwave,
 				weight : 0,
 				name : "Shockwave",
@@ -316,7 +316,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region BLBook
-		newCreateUpgrade({
+		new_create_upgrade({
 				id : Weapons.BlBook,
 				weight : 3,
 				name : "BL Book",
@@ -344,7 +344,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Bounce Ball //TODO: knockback depends on character
-		newCreateUpgrade({ 
+		new_create_upgrade({ 
 				id : Weapons.BounceBall,
 				weight : 4,
 				name : "Bounce Ball",
@@ -372,7 +372,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Cutting Board
-	newCreateUpgrade({
+	new_create_upgrade({
 				id : Weapons.CuttingBoard,
 				name : "Cutting Board",
 				maxlevel : 7,
@@ -397,7 +397,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Fan Beam
-	newCreateUpgrade({
+	new_create_upgrade({
 				id : Weapons.FanBeam,
 				name : "Fan Beam",
 				weight : 3,
@@ -423,7 +423,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region CEO Tears
-	newCreateUpgrade({
+	new_create_upgrade({
 				id : Weapons.CEOTears,
 				weight : 2,
 				name : "CEO's Tears",
@@ -451,7 +451,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region EliteLavaBucket
-		newCreateUpgrade({ 
+		new_create_upgrade({ 
 				id : Weapons.EliteLavaBucket,
 				weight : 3,
 				name : "Elite Lava Bucket",
@@ -479,7 +479,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region EN's Curse
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 			id : Weapons.ENsCurse,
 			weight : 2,
 			name : "EN's Curse",
@@ -508,7 +508,7 @@ function populate_upgrades(){
 		});
 	#endregion
 	#region Holobomb
-	newCreateUpgrade({
+	new_create_upgrade({
 				id : Weapons.HoloBomb,
 				name : "Holo Bomb",
 				maxlevel : 7,
@@ -549,7 +549,7 @@ function populate_upgrades(){
 		//Level MAX 	Throw 3 bombs. 
 	#endregion
 	#region asacoco
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.PlugAsaCoco,
 				weight : 4,
 				name : "Plug Type Asacoco",
@@ -579,7 +579,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region SpiderCooking
-		newCreateUpgrade({
+		new_create_upgrade({
 				id : Weapons.SpiderCooking,
 				name : "Spider Cooking",
 				maxlevel : 7,
@@ -604,7 +604,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Glowstick
-			newCreateUpgrade({
+			new_create_upgrade({
 				id : Weapons.Glowstick,
 				name : "Glowstick",
 				weight : 4,
@@ -631,7 +631,7 @@ function populate_upgrades(){
 			});
 			#endregion
 	#region Idol Song //TODO FIX THIS
-			newCreateUpgrade({
+			new_create_upgrade({
 				id : Weapons.IdolSong,
 				name : "Idol Song",
 				afterimage : true,
@@ -660,7 +660,7 @@ function populate_upgrades(){
 			});
 			#endregion
 	#region Psycho Axe
-			newCreateUpgrade({
+			new_create_upgrade({
 				id : Weapons.PsychoAxe,
 				name : "Psycho Axe",
 				maxlevel : 7,
@@ -687,7 +687,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Wamy Water
-			newCreateUpgrade({
+			new_create_upgrade({
 				id : Weapons.WamyWater,
 				name : "Wamy Water",
 				maxlevel : 7,
@@ -712,7 +712,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region XPotato
-	newCreateUpgrade({
+	new_create_upgrade({
 				id : Weapons.XPotato,
 				weight : 2,
 				name : "X-Potato",
@@ -740,7 +740,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
-	newCreateUpgrade({
+	new_create_upgrade({
 				id : Weapons.XPotatoExplosion,
 				name : "XPotatoExplosion",
 				maxlevel : 7,
@@ -765,7 +765,7 @@ function populate_upgrades(){
 	#endregion
 	#region Collabs
 	#region MiComet
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.MiComet,
 				collab : true,
 				weight : 0,
@@ -791,7 +791,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Ranged,
 				perk : false,
 			});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.MiCometMeteor,
 				collab : true,
 				weight : 0,
@@ -817,7 +817,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Ranged,
 				perk : false,
 			});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.MiCometPool,
 				collab : true,
 				weight : 0,
@@ -845,7 +845,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region BLFujoshi
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BLFujoshi,
 				collab : true,
 				weight : 0,
@@ -871,7 +871,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Melee,
 				perk : false,
 			});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BLFujoshiAxe,
 				collab : true,
 				weight : 0,
@@ -899,7 +899,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Melee,
 				perk : false,
 			});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BLFujoshiBook,
 				collab : true,
 				weight : 0,
@@ -929,7 +929,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Bone Bros
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BoneBros,
 				collab : true,
 				weight : 0,
@@ -955,7 +955,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BoneBrosSlash,
 				collab : true,
 				weight : 0,
@@ -983,7 +983,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Multishot,
 				perk : false,
 			});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BoneBrosBullet,
 				collab : true,
 				weight : 0,
@@ -1013,7 +1013,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Eldritch Horror
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.EldritchHorror,
 				collab : true,
 				weight : 0,
@@ -1041,7 +1041,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Absolute Wall
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.AbsoluteWall,
 				collab : true,
 				weight : 0,
@@ -1071,7 +1071,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Breathe-in Type Asacoco
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 				id : Weapons.BreatheInTypeAsacoco,
 				weight : 0,
 				collab : true,
@@ -1099,7 +1099,7 @@ function populate_upgrades(){
 			});
 	#endregion
 	#region Elite Cooking
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 		id : Weapons.EliteCooking,
 		weight : 0,
 		collab : true,
@@ -1127,7 +1127,7 @@ function populate_upgrades(){
 	});
 	#endregion
 	#region Ring of Fitness
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 		id : Weapons.RingOfFitness,
 		weight : 0,
 		collab : true,
@@ -1155,7 +1155,7 @@ function populate_upgrades(){
 	});
 	#endregion
 	#region Stream of Tears
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 		id : Weapons.StreamOfTears,
 		weight : 0,
 		collab : true,
@@ -1185,7 +1185,7 @@ function populate_upgrades(){
 	});
 	#endregion
 	#region I'm Die
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 		id : Weapons.ImDie,
 		weight : 0,
 		collab : true,
@@ -1211,7 +1211,7 @@ function populate_upgrades(){
 		shotType : ShotTypes.Ranged,
 		perk : false,
 	});
-	newCreateUpgrade({ 
+	new_create_upgrade({ 
 		id : Weapons.ImDieExplosion,
 		weight : 0,
 		collab : true,
@@ -1241,7 +1241,7 @@ function populate_upgrades(){
 	#endregion
 	#region Modded
 	#region Pipkin Pippa
-	newCreateUpgrade({
+	new_create_upgrade({
 		id : Weapons.PipiPilstol,
 		name : "PiPiPilstols",
 		maxlevel : 6,
@@ -1263,7 +1263,7 @@ function populate_upgrades(){
 		perk : true,
 		characterid : Characters.Pippa
 	},[snd_bullet, snd_bullet2, snd_bullet3]);
-	newCreateUpgrade({
+	new_create_upgrade({
 		id : Weapons.HeavyArtillery,
 		name : "Heavy Artillery",
 		maxlevel : 3,
@@ -1322,15 +1322,15 @@ function populate_collabs(){
 }
 #endregion
 //generate random list of possible upgrades
-function randomUpgrades(){
+function random_upgrades(){
 	random_set_seed(current_time);
 	name="";
 	
 	#region Generate the lists
 		//function generateLists() {
-		weapons_list = [];
-		items_list = [];
-		perks_list = [];
+		weaponsList = [];
+		itemsList = [];
+		perksList = [];
 	
 		#region Weapons List
 			//show_message(UPGRADES[5][$ "name"]);	
@@ -1357,13 +1357,13 @@ function randomUpgrades(){
 					}	    
 					if (found) {
 					    if (!maxed) {
-						    array_push(weapons_list, WEAPONS_LIST[i]);
+						    array_push(weaponsList, WEAPONS_LIST[i]);
 						}
 					} else {
 						//if (WEAPONS_LIST[i][1][$ "characterid"] == -1 or WEAPONS_LIST[i][1][$ "characterid"] == global.player[?"id"]) {
 						if (!variable_struct_exists(WEAPONS_LIST[i][1], "characterid") or WEAPONS_LIST[i][1][$ "characterid"] == -1 or WEAPONS_LIST[i][1][$ "characterid"] == global.player[?"id"]) {
 							//show_message("test");
-						    array_push(weapons_list, WEAPONS_LIST[i]);
+						    array_push(weaponsList, WEAPONS_LIST[i]);
 						}
 					}
 				}
@@ -1372,7 +1372,7 @@ function randomUpgrades(){
 				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 				    if (UPGRADES[i][$ "level"] != UPGRADES[i][$ "maxlevel"] and UPGRADES[i] != global.null) {
-					    array_push(weapons_list, WEAPONS_LIST[UPGRADES[i][$ "id"]]);
+					    array_push(weaponsList, WEAPONS_LIST[UPGRADES[i][$ "id"]]);
 						
 						//str = str + ":" + UPGRADES[i][$ "name"];
 					}
@@ -1403,12 +1403,12 @@ function randomUpgrades(){
 					if (found) {
 					    if (!maxed) {
 							for (var k = 0; k < ItemList[i][1][$ "weight"]; ++k) {
-							    array_push(items_list, ItemList[i]);
+							    array_push(itemsList, ItemList[i]);
 							}				    
 						}
 					} else {
 						for (var k = 0; k < ItemList[i][1][$ "weight"]; ++k) {
-							    array_push(items_list, ItemList[i]);
+							    array_push(itemsList, ItemList[i]);
 							}
 						}
 				}
@@ -1421,7 +1421,7 @@ function randomUpgrades(){
 				for (var i = 0; i < array_length(playerItems); ++i) {
 				    if (playerItems[i][$ "level"] != playerItems[i][$ "maxlevel"]) {
 					    for (var k = 0; k < ItemList[playerItems[i][$ "id"]][1][$ "weight"]; ++k) {
-							    array_push(items_list, ItemList[playerItems[i][$ "id"]]);
+							    array_push(itemsList, ItemList[playerItems[i][$ "id"]]);
 						}
 					}
 				}
@@ -1447,9 +1447,9 @@ function randomUpgrades(){
 					}	    
 					if (found) {
 					    if (!maxed) {
-						    array_push(perks_list, PERK_LIST[i]);	
+						    array_push(perksList, PERK_LIST[i]);	
 						}
-					} else {array_push(perks_list, PERK_LIST[i]);}
+					} else {array_push(perksList, PERK_LIST[i]);}
 					//show_debug_message("Added: " + string( PERK_LIST[i][0][$ "name"]));
 				}	    
 			}
@@ -1457,67 +1457,67 @@ function randomUpgrades(){
 		
 	#endregion
 	#region Generate the options
-		is_what = "";
-		var can_be_item;
-		var can_be_weapon;
-		var can_be_perk;
+		isWhat = "";
+		var canBeItem;
+		var canBeWeapon;
+		var canBePerk;
 		#region 1&2
 			function slotRandomizer12() {
 				// randomize;
-				is_what = "";
-				can_be_weapon = false;
+				isWhat = "";
+				canBeWeapon = false;
 				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][$ "level"] != UPGRADES[i][$ "maxlevel"] or UPGRADES[i] == global.null) {
-						can_be_weapon = true;
+						canBeWeapon = true;
 					}
 				}
 				
-				can_be_item = false;
+				canBeItem = false;
 				for (var i = 0; i < array_length(playerItems); ++i) {
 					//show_message(string(playerItems[i][$ "level"]) + ":" + string(playerItems[i][$ "maxlevel"]));
 					if (playerItems[i][$ "level"] != playerItems[i][$ "maxlevel"] or playerItems[i] == global.nullitem) {
-						can_be_item = true;
+						canBeItem = true;
 					}
 				}
 				
-				can_be_perk = false;
+				canBePerk = false;
 				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 					if (PLAYER_PERKS[i][$ "level"] != PLAYER_PERKS[i][$ "maxlevel"]) {
-						can_be_perk = true;
+						canBePerk = true;
 					}
 				}
 				
 				do {
 					if (irandom_range(1,9) <= 4) {
-					    is_what = ItemTypes.Weapon;
+					    isWhat = ItemTypes.Weapon;
 					}else if (irandom_range(1,9) == 1) {
-					    is_what = ItemTypes.Item;
+					    isWhat = ItemTypes.Item;
 					}else if (irandom_range(1,18) == 1) {
-							     is_what = ItemTypes.Item; //TODO: change to stat-up
+							     isWhat = ItemTypes.Item; //TODO: change to stat-up
 					}else if (irandom_range(1,18) <= 7) {
-							     is_what = ItemTypes.Perk;
+							     isWhat = ItemTypes.Perk;
 					}
-				} until (is_what != "");
+				} until (isWhat != "");
 				// show_debug_message("type: {0}, weapon : {1}, array : {2}", is_what, can_be_weapon, array_length(weapons_list));
-				if (is_what == ItemTypes.Weapon and !can_be_weapon or is_what == ItemTypes.Weapon and array_length(weapons_list) == 0) {
-				    is_what = ItemTypes.Item;
+				if (isWhat == ItemTypes.Weapon and !canBeWeapon or isWhat == ItemTypes.Weapon and array_length(weaponsList) == 0) {
+				    isWhat = ItemTypes.Item;
 				}
-				if (is_what == ItemTypes.Item and !can_be_item or is_what == ItemTypes.Item and array_length(items_list) == 0) {
-					is_what = "null";
+				if (isWhat == ItemTypes.Item and !canBeItem or isWhat == ItemTypes.Item and array_length(itemsList) == 0) {
+					isWhat = "null";
 				    //TODO: change item type to statup
 				}
-				if (is_what == ItemTypes.Perk and !can_be_perk) {
-				is_what = "null";
+				if (isWhat == ItemTypes.Perk and !canBePerk) {
+				isWhat = "null";
 			    //TODO: change item type to statup
 				}
 				var str = "Weapons";
-				for (var i = 0; i < array_length(weapons_list); ++i) { str = str + " : " + weapons_list[i][1][$ "name"]; }
+				for (var i = 0; i < array_length(weaponsList); ++i) { str = str + " : " + weaponsList[i][1][$ "name"]; }
 				str = str + "\n\nItems"; 
-				for (var i = 0; i < array_length(items_list); ++i) { str = str + " : " + items_list[i][1][$ "name"]; }
+				for (var i = 0; i < array_length(itemsList); ++i) { str = str + " : " + itemsList[i][1][$ "name"]; }
 				str = str + "\n\nPerks"; 
-				for (var i = 0; i < array_length(perks_list); ++i) { str = str + " : " + perks_list[i][1][$ "name"]; }
-				str = str + "\n\ncanbe: weapon:" + string(can_be_weapon) + " item:" + string(can_be_item) + " perk:" + string(can_be_perk); 
+				for (var i = 0; i < array_length(perksList); ++i) { str = str + " : " + perksList[i][1][$ "name"]; }
+				str = str + "\n\ncanbe: weapon:" + string(canBeWeapon) + " item:" + string(canBeItem) + " perk:" + string(canBePerk); 
 				if (keyboard_check(ord("G"))) {
 				    show_message(str);
 				}
@@ -1528,30 +1528,30 @@ function randomUpgrades(){
 				var m = 0;
 				repeat (2) {
 				    slotRandomizer12();
-					switch (is_what) {
+					switch (isWhat) {
 					    case ItemTypes.Weapon:{
-							rdn = irandom_range(0,array_length(weapons_list)-1);
-					        global.upgradeOptions[m] = weapons_list[rdn][1];
-							array_delete(weapons_list, rdn, 1);
+							rdn = irandom_range(0,array_length(weaponsList)-1);
+					        global.upgradeOptions[m] = weaponsList[rdn][1];
+							array_delete(weaponsList, rdn, 1);
 					        break;}
 						case ItemTypes.Item:{
-							rdn = irandom_range(0,array_length(items_list)-1);
-					        global.upgradeOptions[m] = items_list[rdn][1];
-							var item_name = items_list[rdn][1][$ "id"];
-							var maxI = array_length(items_list);
+							rdn = irandom_range(0,array_length(itemsList)-1);
+					        global.upgradeOptions[m] = itemsList[rdn][1];
+							var item_name = itemsList[rdn][1][$ "id"];
+							var maxI = array_length(itemsList);
 							for (var i = 0; i < maxI; ++i) {
-							    if (items_list[i][1][$ "id"] == item_name) {
-								    array_delete(items_list, i, 1);
-									maxI = array_length(items_list);
+							    if (itemsList[i][1][$ "id"] == item_name) {
+								    array_delete(itemsList, i, 1);
+									maxI = array_length(itemsList);
 									i=0;
 								}
 							}
 					        break;}
 						case ItemTypes.Perk:{
-							if (array_length(perks_list) > 0) {
-							    rdn = irandom_range(0,array_length(perks_list)-1);
-								global.upgradeOptions[m] = perks_list[rdn][1];
-								array_delete(perks_list, rdn, 1);
+							if (array_length(perksList) > 0) {
+							    rdn = irandom_range(0,array_length(perksList)-1);
+								global.upgradeOptions[m] = perksList[rdn][1];
+								array_delete(perksList, rdn, 1);
 							}else{
 								global.upgradeOptions[m] = global.null; //TODO Change to statup
 							}
@@ -1568,53 +1568,53 @@ function randomUpgrades(){
 		#region 3
 			function slotRandomizer3() {
 				// randomize;
-				is_what = "";
-				can_be_weapon = false;
+				isWhat = "";
+				canBeWeapon = false;
 				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][$ "level"] != UPGRADES[i][$ "maxlevel"] or UPGRADES[i] == global.null) {
-						can_be_weapon = true;
+						canBeWeapon = true;
 					}
 				}
 				
-				can_be_item = false;
+				canBeItem = false;
 				for (var i = 0; i < array_length(playerItems); ++i) {
 					if (playerItems[i][$ "level"] != playerItems[i][$ "maxlevel"] or playerItems[i] == global.nullitem) {
-						can_be_item = true;
+						canBeItem = true;
 					}
 				}
 				
-				can_be_perk = false;
+				canBePerk = false;
 				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 					if (PLAYER_PERKS[i][$ "level"] != PLAYER_PERKS[i][$ "maxlevel"]) {
-						can_be_perk = true;
+						canBePerk = true;
 					}
 				}
 				repeat (5) {
 				    do {
 						if (irandom_range(1,5) <= 2) {
-						    is_what = ItemTypes.Weapon;
+						    isWhat = ItemTypes.Weapon;
 						}else if (irandom_range(1,2) == 1) {
-						    is_what = ItemTypes.Item;
+						    isWhat = ItemTypes.Item;
 						}else if (irandom_range(1,10) == 1) {
-								     is_what = ItemTypes.Perk;
+								     isWhat = ItemTypes.Perk;
 						}
-					} until (is_what != "");
-					if (is_what == ItemTypes.Weapon and !can_be_weapon or array_length(weapons_list) == 0) {
-					    is_what = ItemTypes.Item;
+					} until (isWhat != "");
+					if (isWhat == ItemTypes.Weapon and !canBeWeapon or array_length(weaponsList) == 0) {
+					    isWhat = ItemTypes.Item;
 					}
-					if (is_what == ItemTypes.Item and !can_be_item or array_length(items_list) == 0) {
-						is_what = ItemTypes.Perk;
+					if (isWhat == ItemTypes.Item and !canBeItem or array_length(itemsList) == 0) {
+						isWhat = ItemTypes.Perk;
 					}
-					if (is_what == ItemTypes.Perk and !can_be_perk) {
-					is_what = "null";
+					if (isWhat == ItemTypes.Perk and !canBePerk) {
+					isWhat = "null";
 					}
-					if (is_what != "null") {
+					if (isWhat != "null") {
 					    break;
 					}
 				}
-				if (is_what == "null") {
-				    is_what = "food";
+				if (isWhat == "null") {
+				    isWhat = "food";
 				}
 			}
 			rdn = 0;
@@ -1622,30 +1622,30 @@ function randomUpgrades(){
 			#region fill slot 3
 			//is_what = ItemTypes.Item;
 			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(is_what));
-				switch (is_what) {
+				switch (isWhat) {
 				    case ItemTypes.Weapon:{
-						rdn = irandom_range(0,array_length(weapons_list)-1);
-				        global.upgradeOptions[2] = weapons_list[rdn][1];
-						array_delete(weapons_list, rdn, 1);
+						rdn = irandom_range(0,array_length(weaponsList)-1);
+				        global.upgradeOptions[2] = weaponsList[rdn][1];
+						array_delete(weaponsList, rdn, 1);
 				        break;}
 					case ItemTypes.Item:{
-				        rdn = irandom_range(0,array_length(items_list)-1);
-				        global.upgradeOptions[2] = items_list[rdn][1];
-						var item_name = items_list[rdn][1][$ "id"];
-							var maxI = array_length(items_list);
+				        rdn = irandom_range(0,array_length(itemsList)-1);
+				        global.upgradeOptions[2] = itemsList[rdn][1];
+						var item_name = itemsList[rdn][1][$ "id"];
+							var maxI = array_length(itemsList);
 							for (var i = 0; i < maxI; ++i) {
-							    if (items_list[i][1][$ "id"] == item_name) {
-								    array_delete(items_list, i, 1);
-									maxI = array_length(items_list);
+							    if (itemsList[i][1][$ "id"] == item_name) {
+								    array_delete(itemsList, i, 1);
+									maxI = array_length(itemsList);
 									i=0;
 								}
 							}
 				        break;}
 					case ItemTypes.Perk:{
-				        if (array_length(perks_list) > 0) {
-							    rdn = irandom_range(0,array_length(perks_list)-1);
-								global.upgradeOptions[2] = perks_list[rdn][1];
-								array_delete(perks_list, rdn, 1);
+				        if (array_length(perksList) > 0) {
+							    rdn = irandom_range(0,array_length(perksList)-1);
+								global.upgradeOptions[2] = perksList[rdn][1];
+								array_delete(perksList, rdn, 1);
 							}else{
 								global.upgradeOptions[2] = ItemList[ItemIds.Hamburguer][1];
 							}
@@ -1660,42 +1660,42 @@ function randomUpgrades(){
 		#region 4
 			function slotRandomizer4() {
 				// randomize;
-				is_what = "";
-				can_be_weapon = false;
+				isWhat = "";
+				canBeWeapon = false;
 				// feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
 					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null or playerItems[i] == global.nullitem) {
-						can_be_weapon = true;
+						canBeWeapon = true;
 					}
 				}
 				
-				can_be_item = false;
+				canBeItem = false;
 				// feather disable once GM1041
 				for (var i = 0; i < array_length(playerItems); ++i) {
 					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
-						can_be_item = true;
+						canBeItem = true;
 					}
 				}
 				repeat (5) {
 				    do {
 						if (irandom_range(1,2) == 1) {
-						    is_what = ItemTypes.Weapon;
+						    isWhat = ItemTypes.Weapon;
 						}else if (irandom_range(1,2) == 1) {
-						    is_what = ItemTypes.Item;
+						    isWhat = ItemTypes.Item;
 						}
-					} until (is_what != "");
-					if (is_what == ItemTypes.Weapon and !can_be_weapon or array_length(weapons_list) == 0) {
-					    is_what = ItemTypes.Item;
+					} until (isWhat != "");
+					if (isWhat == ItemTypes.Weapon and !canBeWeapon or array_length(weaponsList) == 0) {
+					    isWhat = ItemTypes.Item;
 					}
-					if (is_what == ItemTypes.Item and !can_be_item or array_length(items_list) == 0) {
-						is_what = "null";
+					if (isWhat == ItemTypes.Item and !canBeItem or array_length(itemsList) == 0) {
+						isWhat = "null";
 					}
-					if (is_what != "null") {
+					if (isWhat != "null") {
 					    break;
 					}
 				}
-				if (is_what == "null") {
-				    is_what = "holocoin";
+				if (isWhat == "null") {
+				    isWhat = "holocoin";
 				}
 			}
 			rdn = 0;
@@ -1703,21 +1703,21 @@ function randomUpgrades(){
 			#region fill slot 4
 			//is_what = ItemTypes.Item;
 			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(is_what));
-				switch (is_what) {
+				switch (isWhat) {
 				    case ItemTypes.Weapon:{
-						rdn = irandom_range(0,array_length(weapons_list)-1);
-				        global.upgradeOptions[3] = weapons_list[rdn][1];
-						array_delete(weapons_list, rdn, 1);
+						rdn = irandom_range(0,array_length(weaponsList)-1);
+				        global.upgradeOptions[3] = weaponsList[rdn][1];
+						array_delete(weaponsList, rdn, 1);
 				        break;}
 					case ItemTypes.Item:{
-				        rdn = irandom_range(0,array_length(items_list)-1);
-				        global.upgradeOptions[3] = items_list[rdn][1];
-						var item_name = items_list[rdn][1][?"id"];
-							var maxI = array_length(items_list);
+				        rdn = irandom_range(0,array_length(itemsList)-1);
+				        global.upgradeOptions[3] = itemsList[rdn][1];
+						var item_name = itemsList[rdn][1][?"id"];
+							var maxI = array_length(itemsList);
 							for (var i = 0; i < maxI; ++i) {
-							    if (items_list[i][1][?"id"] == item_name) {
-								    array_delete(items_list, i, 1);
-									maxI = array_length(items_list);
+							    if (itemsList[i][1][?"id"] == item_name) {
+								    array_delete(itemsList, i, 1);
+									maxI = array_length(itemsList);
 									i=0;
 								}
 							}
@@ -1738,8 +1738,8 @@ function randomUpgrades(){
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 }	
-
-function tickPowers(){
+#endregion
+function tick_powers(){
 	if (attacktick == true and UPGRADES[0][$ "name"]!="") {
 		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
@@ -1760,7 +1760,7 @@ function tickPowers(){
 	}
 }
 
-function defaultBehaviour(){
+function default_behaviour(){
 	if (owner.image_xscale==1) 
 	{
 		direction = point_direction(x,y,x+100,y+diroffset);
@@ -1774,7 +1774,7 @@ function defaultBehaviour(){
 	image_alpha=1;
 }
 
-function spawnUpgrade(_upg = upg, _speed = upg[$ "speed"], _hits = upg[$ "hits"], _shoots = shoots, _mindmg = upg[$ "mindmg"], _maxdmg = upg[$ "maxdmg"], _sprite = upg[$ "sprite"], _arrowDir = arrowDir){
+function spawn_upgrade(_upg = upg, _speed = upg[$ "speed"], _hits = upg[$ "hits"], _shoots = shoots, _mindmg = upg[$ "mindmg"], _maxdmg = upg[$ "maxdmg"], _sprite = upg[$ "sprite"], _arrowDir = arrowDir){
 	if (_upg[$ "id"] != Weapons.PipiPilstol) { _shoots = -1; }
 	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
 					upg : _upg,

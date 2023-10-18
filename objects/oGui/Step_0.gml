@@ -59,9 +59,9 @@ zKey = input_check_pressed("accept");
 xKey = input_check_pressed("cancel");
 eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");
-if (button_click(minusButton)) { leftKey = true; }
+if (buttonClick(minusButton)) { leftKey = true; }
 rightKey = input_check_pressed("right");
-if (button_click(plusButton)) { rightKey = true; }
+if (buttonClick(plusButton)) { rightKey = true; }
 upKey = input_check_pressed("up");
 downKey = input_check_pressed("down");
 //feather enable GM1044
@@ -143,7 +143,7 @@ if (global.upgrade) // after level up
 		if (selected == 4) {
 			if (global.rerolls > 0) {
 				//feather disable once GM2016
-				randomUpgrades();
+				random_upgrades();
 				global.rerolls--;
 			}
 			return;				

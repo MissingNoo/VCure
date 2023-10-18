@@ -172,6 +172,7 @@ global.strafe = pressed;
 #endregion
 #region Spawn
 if (!instance_exists(oEvents)) {instance_create_layer(0,0,"Instances",oEvents);}
+// Feather disable once GM2017
 if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.spawnEnemies == 1 and global.IsHost) {
 	var place = irandom_range(1,4);
 	var _x = oPlayer.x;

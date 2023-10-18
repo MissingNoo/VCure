@@ -19,9 +19,9 @@ switch (upg[$ "id"]) {
 	//	break;
 	case Weapons.CuttingBoard:
 		shoots = -1;
-		inst = spawnUpgrade();
+		inst = spawn_upgrade();
 		inst.diroffset += 90;
-		inst = spawnUpgrade();
+		inst = spawn_upgrade();
 		inst.diroffset -= 90;
 		break;
 	//case Weapons.PlugAsaCoco:{
@@ -29,7 +29,7 @@ switch (upg[$ "id"]) {
 	//	break;}
 	case Weapons.BlBook:{
 		//if (shoots > 1) {			
-			inst = spawnUpgrade();
+			inst = spawn_upgrade();
 			inst.orbitPlace = orbitoffset;
 			inst.orbitLength = orbitLength;
 			switch (upg[$ "level"]) {
@@ -84,7 +84,7 @@ switch (upg[$ "id"]) {
 				        _off = 0;
 				        break;
 				}			
-			inst = spawnUpgrade();
+			inst = spawn_upgrade();
 			inst.orbitPlace = _off - (_off + (orbitPlace * 6));
 			inst.orbitLength = orbitLength;
 		    //shoots-=1;			
@@ -92,7 +92,7 @@ switch (upg[$ "id"]) {
 		//}
 		break;}
 	case Weapons.BLFujoshiAxe:{
-			inst = spawnUpgrade();
+			inst = spawn_upgrade();
 			inst.orbitPlace = 180 - (180 + (orbitPlace * 15));
 			inst.orbitLength = orbitLength;
 		    //shoots-=1;			
@@ -124,7 +124,7 @@ switch (upg[$ "id"]) {
 		break;}
 	case Weapons.IdolSong:{
 		//if (shoots > 1) {			
-			inst = spawnUpgrade();
+			inst = spawn_upgrade();
 			if (shoots % 2) {
 			//    //alarm[0]=1;
 			//	idolDir = 0;
@@ -151,7 +151,7 @@ switch (upg[$ "id"]) {
 	case Weapons.PipiPilstol:{
 			//if (shoots > 1) {			
 				//shoots-=1;
-				inst = spawnUpgrade();
+				inst = spawn_upgrade();
 				if (shoots % 2) {
 					inst.shoots = -2;
 				}
@@ -165,7 +165,7 @@ switch (upg[$ "id"]) {
 		}
 	case Weapons.AbsoluteWall:{
 		//if (shoots > 1) {			
-				inst = spawnUpgrade();
+				inst = spawn_upgrade();
 				inst.wallNumber = wallNumber + 1;
 				wallNumber++;
 			//}

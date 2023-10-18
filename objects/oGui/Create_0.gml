@@ -251,7 +251,7 @@ function share_weapon(i){
 	}
 }
 #endregion
-function button_click(pos){
+function buttonClick(pos){
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
 		result = true;

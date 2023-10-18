@@ -100,9 +100,7 @@ if (!global.gamePaused) {
 	#endregion
 	#region Specials
 	if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
-	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
-	    use_special(special);
-	}
+	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) { use_special(special);	}
 	#region Monster
 	if (monsterUsed) {
 	    monsterTimer -= 1/60*Delta;
@@ -112,8 +110,8 @@ if (!global.gamePaused) {
 	}
 	#endregion
 	#endregion
-	tickPowers();
-	tickItems();
+	tick_powers();
+	tick_items();
 	tick_perks();
 	Movement();
 	if (x != xprevious or y != yprevious) {
@@ -151,7 +149,7 @@ if (!global.gamePaused) {
 		global.level += 1;
 		global.xp-=neededxp;
 		neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*2.1);
-		randomUpgrades();
+		random_upgrades();
 		keyboard_clear(ord("Z"));
 		audio_play_sound(snd_lvl_up,0,0);
 		global.upgrade=1;

@@ -15,6 +15,7 @@ if (!instance_exists(oCam)) {
 }
 reset_timer();
 reset_pool();
+// Feather disable once GM2017
 global.rerolls = global.shopUpgrades.Reroll.level;
 critChance = 0;
 oImageSpeed = image_speed;

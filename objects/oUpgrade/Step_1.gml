@@ -87,7 +87,7 @@ image_speed = 0;
 	//show_message(string(image_xscale));
 	switch (upg[$ "id"]) {
 		default:{
-			defaultBehaviour();
+			default_behaviour();
 			break;}
 		case Weapons.RestNote:
 			break;
@@ -115,7 +115,7 @@ image_speed = 0;
 				//image_xscale = image_xscale * -1;
 			}
 			
-			defaultBehaviour();
+			default_behaviour();
 			//direction = arrowDir;
 			//alarm[0] = 10;
 			//image_angle = arrowDir;
@@ -179,7 +179,7 @@ image_speed = 0;
 			//alarm[0]=1;
 			break;}
 		case Weapons.BounceBall:{
-			//defaultBehaviour();
+			//default_behaviour();
 			direction = point_direction(x,y,x,y+10);
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
 				image_xscale = image_xscale * 1.10;
@@ -285,7 +285,7 @@ image_speed = 0;
 				direction = point_direction(x,y,ce.x, ce.y);
 				image_angle = point_direction(x,y,ce.x, ce.y);
 				if (shoots>0) {
-					for (var i = 1; i < shoots; ++i) { spawnUpgrade(); }
+					for (var i = 1; i < shoots; ++i) { spawn_upgrade(); }
 				}
 			} else instance_destroy();
 			break;}
@@ -311,7 +311,7 @@ image_speed = 0;
 			break;}
 		#region modded
 		case Weapons.PipiPilstol:{
-			defaultBehaviour();
+			default_behaviour();
 			direction = arrowDir;
 			image_angle = arrowDir;
 			//alarm[0] = 10;
@@ -332,7 +332,7 @@ image_speed = 0;
 			break;
 		}
 		case Weapons.HeavyArtillery:{
-			defaultBehaviour();
+			default_behaviour();
 			var closest = instance_nearest(oPlayer.x ,oPlayer.y, oEnemy);
 			x=closest.x;
 			y=closest.y;
