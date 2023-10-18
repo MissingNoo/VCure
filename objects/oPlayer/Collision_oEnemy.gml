@@ -133,4 +133,3 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	}
 	#endregion
 }
-
