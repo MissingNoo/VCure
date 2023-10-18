@@ -1,9 +1,9 @@
+/// @description Pause Game
 // Feather disable GM1044
 if (input_check_pressed("pause") and !global.upgrade and !ANVIL and !GoldenANVIL) {
 	if (global.gamePaused and room == rInicio) {
 	    pause_game();
 	}
-	
 	switch (room) {
 	    case rCharacterSelect:
 	        room_goto(rInicio);
@@ -17,6 +17,4 @@ if (input_check_pressed("pause") and !global.upgrade and !ANVIL and !GoldenANVIL
 	        break;
 	}
 }
-if (global.mouseDown) {
-    global.mouseDown = false;
-}
+if (global.mouseDown) { global.mouseDown = false; }

@@ -1,4 +1,5 @@
-global.gamePad = false;
+randomize();
+#region ShopUpgrades
 if (!variable_global_exists("ShopUpgrades")) {
     global.shopUpgrades = {
 		Hp : {
@@ -148,19 +149,15 @@ if (!variable_global_exists("ShopUpgrades")) {
 	}
 }
 global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
+#endregion
 global.holocoins = 0;
 Load_Data_Structs();
 global.holocoins ??= 0;
-//if (os_type != os_android) {
-	//font_add_enable_aa(false);
-	global.newFont = font_add("pixelade.ttf", 10, false, false, 32, 128);
-	draw_set_font(global.newFont);
-	
-	//global.Font = font_add_sprite(sPixelFont, ord("!"), false, 2);
-    //draw_set_font(global.Font);
-//}
-////draw_set_font(global.Font); //draw_set_font(fnt_font1);
-randomize();
+#region Font
+global.newFont = font_add("pixelade.ttf", 10, false, false, 32, 128);
+draw_set_font(global.newFont);
+#endregion
+#region Populate Items
 populate_items();
 populate_upgrades();
 populate_collabs();
@@ -175,28 +172,26 @@ try{
 catch (err){
 	//ignore
 }
-
-#region name here
-
-		//feather disable GM2017
-		global.shopUpgrades.Hp.sprite = sHudHPIcon;
-		global.shopUpgrades.Atk.sprite =sHudAtkIcon;
-		global.shopUpgrades.Spd.sprite =sHudSpdIcon;
-		global.shopUpgrades.Crit.sprite =sHudCrtIcon;
-		global.shopUpgrades.PickUp.sprite =sHudPickupIcon;
-		global.shopUpgrades.Haste.sprite =sHudCooldownIcon;
-		global.shopUpgrades.Regeneration.sprite =sHudRegenerationIcon;
-		global.shopUpgrades.SpecialAtk.sprite =sHudSpecialUnlockIcon;
-		global.shopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
-		global.shopUpgrades.Growth.sprite =sHudGrowthIcon;
-		global.shopUpgrades.ExpGain.sprite =sXP;
-		global.shopUpgrades.FoodDrop.sprite =sHamburger;
-		global.shopUpgrades.MoneyGain.sprite =sHolocoin;
-		global.shopUpgrades.Reroll.sprite =sHudRerollIcon;
-		global.shopUpgrades.EnhacementRate.sprite =sHudHPIcon;
-		global.shopUpgrades.Defense.sprite =sHudDefenseIcon;
-		global.shopUpgrades.GRankOff.sprite =sHudHPIcon;
-		global.shopUpgrades.Hardcore.sprite =sHudHPIcon;
-		//feather enable GM2017
-
+#endregion
+#region Fix shop icons in case they're fucking broken
+//feather disable GM2017
+global.shopUpgrades.Hp.sprite = sHudHPIcon;
+global.shopUpgrades.Atk.sprite =sHudAtkIcon;
+global.shopUpgrades.Spd.sprite =sHudSpdIcon;
+global.shopUpgrades.Crit.sprite =sHudCrtIcon;
+global.shopUpgrades.PickUp.sprite =sHudPickupIcon;
+global.shopUpgrades.Haste.sprite =sHudCooldownIcon;
+global.shopUpgrades.Regeneration.sprite =sHudRegenerationIcon;
+global.shopUpgrades.SpecialAtk.sprite =sHudSpecialUnlockIcon;
+global.shopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
+global.shopUpgrades.Growth.sprite =sHudGrowthIcon;
+global.shopUpgrades.ExpGain.sprite =sXP;
+global.shopUpgrades.FoodDrop.sprite =sHamburger;
+global.shopUpgrades.MoneyGain.sprite =sHolocoin;
+global.shopUpgrades.Reroll.sprite =sHudRerollIcon;
+global.shopUpgrades.EnhacementRate.sprite =sHudHPIcon;
+global.shopUpgrades.Defense.sprite =sHudDefenseIcon;
+global.shopUpgrades.GRankOff.sprite =sHudHPIcon;
+global.shopUpgrades.Hardcore.sprite =sHudHPIcon;
+//feather enable GM2017
 #endregion
