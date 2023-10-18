@@ -62,13 +62,13 @@ if (instance_exists(oPlayer) and ANVIL) {
 }
 #endregion
 
-if (room == rCharacterSelect) {
-	var _sprspd = sprite_get_speed(CHARACTERS[selectedCharacter][?"sprite"]);
-    if (sprindex < sprite_get_number(CHARACTERS[selectedCharacter][?"sprite"])) {
-		sprindex+= _sprspd / game_get_speed(gamespeed_fps) * Delta;
-	}
-	else sprindex=0;
-}
+//if (room == rCharacterSelect) {
+//	var _sprspd = sprite_get_speed(CHARACTERS[selectedCharacter][?"sprite"]);
+//    if (sprindex < sprite_get_number(CHARACTERS[selectedCharacter][?"sprite"])) {
+//		sprindex+= _sprspd / game_get_speed(gamespeed_fps) * Delta;
+//	}
+//	else sprindex=0;
+//}
 
 #region PausedMenu
 if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {

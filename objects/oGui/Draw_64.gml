@@ -942,8 +942,6 @@ if (os_type == os_android)
 	}
 }
 #endregion
-x = 0;
-y = 0;
 #region Info on screen
 if (room == rCharacterSelect or room == rInicio) {
 	draw_set_halign(fa_right);
@@ -951,3 +949,5 @@ if (room == rCharacterSelect or room == rInicio) {
 	draw_set_halign(fa_left);
 }
 #endregion
+//x = 0;
+//y = 0;
