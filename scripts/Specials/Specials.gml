@@ -21,12 +21,13 @@ global.specialBonuses[0] = 0;
 	enum SpecialIds
 	{
 		Uruka,
+		Lia,
 		WalmartForm
 	}
 #endregion
 function populate_specials(){
 	create_special(SpecialIds.Uruka, "MONSTER", sAmeSpecial, 60, "", Characters.Uruka, undefined);
-
+	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, "", Characters.Lia, undefined);
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
 
 	
@@ -49,6 +50,10 @@ function use_special(_special)
 			//	//show_message(Buffs[BuffNames.Slowness]);
 			//}
 	        break;
+		case SpecialIds.Lia:{
+			oPlayer.menhera = true;
+			oPlayer.menheraTimer = 30;
+			break;}
 	        
 	    //case SpecialIds.Gura:
 	    //	redgura = true;

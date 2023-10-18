@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sAmeIdle",
-  "bbox_bottom": 26,
+  "bbox_bottom": 27,
   "bbox_left": 7,
   "bbox_right": 19,
   "bbox_top": 8,

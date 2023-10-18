@@ -1,9 +1,13 @@
 event_inherited();
-
 #region Uruka
 spaghettiEaten = false;
 monsterUsed = false;
 monsterTimer = 0;
+#endregion
+#region Lia
+menhera = false;
+menheraTimer = 0;
+menheraKills = 0;
 #endregion
 weaponHaste = 0;
 justBandageHealing = 0;

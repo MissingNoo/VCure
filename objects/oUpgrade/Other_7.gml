@@ -6,6 +6,11 @@ switch (upg[$ "id"]) {
 		    instance_destroy();
 		}
 		break;}
+	case Weapons.LiaBolt:{
+		if (sprite_index == sLiaBoltShock) {
+		    instance_destroy();
+		}
+		break;}
 	case Weapons.EliteLavaBucket:{
 		if (sprite_index == sLavaPoolStart) {
 			subImg = 0;

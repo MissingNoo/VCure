@@ -1,7 +1,6 @@
 if (!global.gamePaused) {
 	if (onArea) {
-		direction = point_direction(x,y,oPlayer.x,oPlayer.y);
-		speed = oPlayer.spd*1.3 * Delta;
+		
 	}
 	else{
 		speed = 0;

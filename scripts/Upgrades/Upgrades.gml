@@ -145,6 +145,8 @@ function createUpgradeP2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDura
 enum Weapons{
 	UrukaNote,
 	RestNote,
+	LiaBolt,
+	ElectricPulse,
 	BlBook, //TODO: area, knockback
 	BounceBall,
 	CEOTears,
@@ -209,7 +211,7 @@ function populate_upgrades(){
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
 				characterid : Characters.Uruka,
-				travelWidth : [32, 32, 64, 64, 64, 64, 64]
+				travelWidth : 32
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 			#region UrukaNote 
@@ -237,6 +239,52 @@ function populate_upgrades(){
 			});
 			#endregion
 		#endregion	
+		#region Lia
+		newCreateUpgrade({
+				id : Weapons.LiaBolt,
+				name : "Lightning Bolt",
+				maxlevel : 7,
+				sprite : sBolt,
+				attackdelay : 10,
+				thumb : sLiaBolt,
+				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
+				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
+				cooldown : [80, 80, 80*0.90, 80*0.90, 80*0.90, 80*0.90, 80*0.90],
+				duration : 200, 
+				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
+				canBeHasted : true,
+				speed : 3,
+				hits : 1,
+				type : "red",
+				shoots : 1,
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Lia,
+			});
+		newCreateUpgrade({
+				id : Weapons.ElectricPulse,
+				name : "Electric Pulse",
+				maxlevel : 7,
+				sprite : sEletricPulse,
+				attackdelay : 10,
+				thumb : sBolt,
+				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
+				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
+				cooldown : [80, 80, 80*0.90, 80*0.90, 80*0.90, 80*0.90, 80*0.90],
+				duration : 300, 
+				hitCooldown : 50,
+				canBeHasted : true,
+				speed : 0,
+				hits : 9999,
+				type : "red",
+				shoots : 1,
+				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+				perk : true,
+				characterid : Characters.Lia,
+			});
+		#endregion
 	
 		
 	#region Shockwave

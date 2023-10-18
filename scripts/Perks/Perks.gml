@@ -45,6 +45,9 @@ function create_perk(_data){
 		DirtyMind,
 		TrashBear,
 		WeakBones,
+		Lick,
+		Viral, 
+		EletricPulse,
 		HeavyArtillery,
 		MoldySoul,
 		SodaFueled,
@@ -54,59 +57,86 @@ function create_perk(_data){
 function populate_perks(){
 	#region Item Creation
 		#region Character Perks
-			#region Amelia Perks
-				#region FPS Mastery
-					create_perk({
-						id : PerkIds.DirtyMind,
-						name : "Dirty Mind",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sDirtyMind,
-						cooldown : 1,
-						characterid : Characters.Uruka,
-						dodgeChance: [0, 15, 20, 25]
-					});
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 0, 3, 1, sFpsMastery, 1, "Do nothing.", Characters.Uruka);
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 1, 3, 1, sFpsMastery, 1, "Weapons deal [20%] more damage.", Characters.Uruka);
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 2, 3, 1, sFpsMastery, 1, "Weapons deal [40%] more damage.", Characters.Uruka);
-					//create_perk(PerkIds.FpsMastery, "FPS Mastery", 3, 3, 1, sFpsMastery, 1, "Weapons deal [60%] more damage and fire [10%] faster.", Characters.Uruka);
-				#endregion
-				
-				#region Detective Eye
-				create_perk({
-						id : PerkIds.TrashBear,
-						name : "Trash Bear",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sTrashBear,
-						cooldown : 1,
-						characterid : Characters.Uruka,
-						dropChance : [0, 10, 11, 12],
-						spdDebuff : [0, 0.95, 0.92, 0.90]
-					});
-					//create_perk(PerkIds.TrashBear, "Detective Eye", 0, 3, 1, sTrashBear, 1, "Do nothing.", Characters.Uruka);
-					//create_perk(PerkIds.TrashBear, "Detective Eye", 1, 3, 1, sTrashBear, 1, "Increases critical hit chance by [10%].", Characters.Uruka);
-					//create_perk(PerkIds.TrashBear, "Detective Eye", 2, 3, 1, sTrashBear, 1, "Increases critical hit chance by [20%].", Characters.Uruka);
-					//create_perk(PerkIds.TrashBear, "Detective Eye", 3, 3, 1, sTrashBear, 1, "Increases critical hit chance by [30%] with a [2%] chance to defeat a target in [1] hit.", Characters.Uruka);
-				#endregion
-				
-				#region WeakBones
-				create_perk({
-						id : PerkIds.WeakBones,
-						name : "Brittle Bones",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sWeakBones,
-						cooldown : 1,
-						characterid : Characters.Uruka,						
-					});
-					//create_perk(PerkIds.Bubba, "Bubba", 0, 3, 1, sBubba, 1, "Do nothing.", Characters.Uruka);
-					//create_perk(PerkIds.Bubba, "Bubba", 1, 3, 1, sBubba, 1, "Gain a dog companion that attacks random targets, dealing [100%] of your base damage per hit.", Characters.Uruka);
-					//create_perk(PerkIds.Bubba, "Bubba", 2, 3, 1, sBubba, 1, "Bubba deals [150%] of your base damage per hit.", Characters.Uruka);
-					//create_perk(PerkIds.Bubba, "Bubba", 3, 3, 1, sBubba, 1, "Bubba deals [200%] of your base damage per hit and stuns targets for [2] seconds on hit.", Characters.Uruka);
-				#endregion
-				global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
-			#endregion
+		#region Amelia Perks
+		#region FPS Mastery
+		create_perk({
+			id : PerkIds.DirtyMind,
+			name : "Dirty Mind",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sDirtyMind,
+			cooldown : 1,
+			characterid : Characters.Uruka,
+			dodgeChance: [0, 15, 20, 25]
+		});
+		#endregion
+		#region Detective Eye
+		create_perk({
+			id : PerkIds.TrashBear,
+			name : "Trash Bear",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sTrashBear,
+			cooldown : 1,
+			characterid : Characters.Uruka,
+			dropChance : [0, 10, 11, 12],
+			spdDebuff : [0, 0.95, 0.92, 0.90]
+		});
+		#endregion
+		#region WeakBones
+		create_perk({
+			id : PerkIds.WeakBones,
+			name : "Brittle Bones",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sWeakBones,
+			cooldown : 1,
+			characterid : Characters.Uruka,						
+		});
+		#endregion
+		global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
+		#endregion
+		
+		#region Lia
+		#region EletricPulse
+		create_perk({
+			id : PerkIds.EletricPulse,
+			name : "Electric Pulse",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sEletricPulseThumb,
+			cooldown : 600,
+			characterid : Characters.Lia,
+			upgrade : true,
+			upgradeid : Weapons.ElectricPulse,
+		});
+		#endregion
+		#region Lick
+		create_perk({
+			id : PerkIds.Lick,
+			name : "Lick",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sLick,
+			cooldown : 300,
+			characterid : Characters.Lia,
+			lickArea : [0, 60, 90, 120]
+		});
+		#endregion
+		#region EletricPulse
+		create_perk({
+			id : PerkIds.Viral,
+			name : "Viral",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sViral,
+			cooldown : 1,
+			characterid : Characters.Lia,
+		});
+		#endregion
+		global.characterPerks[Characters.Lia] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
+		#endregion
+			
 	
 			
 			
@@ -165,7 +195,18 @@ function tick_perks()
 			if (variable_struct_exists(PLAYER_PERKS[i], "upgrade")) {
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][PLAYER_PERKS[i][$ "level"]]});
 			}
-			//switch (PLAYER_PERKS[i][$ "id"]) {
+			switch (PLAYER_PERKS[i][$ "id"]) {
+				case PerkIds.Lick:{
+					var _list = ds_list_create();
+					var _num = collision_circle_list(oPlayer.x, oPlayer.y - 16, PLAYER_PERKS[i].lickArea, oEnemy, false, true, _list, false);
+					for (var j = 0; j < _num; ++j) {
+						var _heal = ceil(MAXHP/100);
+					    heal_player(_heal);
+						show_debug_message("healed:" + string(_heal));
+					}
+					ds_list_destroy(_list);
+					break;}
+			}
 			//	case PerkIds.FpsMastery:{
 			//			switch (PLAYER_PERKS[i][$ "level"]) {
 			//			    case 1:

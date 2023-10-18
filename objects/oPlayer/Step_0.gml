@@ -61,15 +61,27 @@ if (down < 0) {
 weaponHaste = down;
 #endregion
 image_speed = oImageSpeed * Delta;
-//oCam.x = oPlayer.x;
-//oCam.y = oPlayer.y;
 socket = global.socket;
 if (immortal) {
     HP = MAXHP;
 }
-// Feather disable GM201
-//HP=MAXHP;
 if (!global.gamePaused) {
+	#region drops
+	var _drop = collision_circle(x, y, pickupRadius, oDropParent, false, true);
+	if (_drop != noone) {
+	    _drop.direction = point_direction(_drop.x, _drop.y,oPlayer.x,oPlayer.y - 16);
+		_drop.speed = (spd * 1.3) * Delta;
+	}
+	#endregion
+	#region Menhera
+	if (menheraTimer > 0) {
+	    menheraTimer -= 1/60 * Delta;
+	}
+	if (menheraTimer <= 0) {
+	    menhera = false;
+	}
+	#endregion
+	#region Delta Alarms
 	for (var i = 0; i < array_length(dAlarm); ++i) {
 	    if (dAlarm[i] != -1) {
 		    dAlarm[i] -= 1 * Delta;
@@ -79,7 +91,12 @@ if (!global.gamePaused) {
 			event_user(i);
 		}
 	}
+	#endregion
 	#region Specials
+	if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
+	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
+	    use_special(special);
+	}
 	#region Monster
 	if (monsterUsed) {
 	    monsterTimer -= 1/60*Delta;
@@ -89,51 +106,41 @@ if (!global.gamePaused) {
 	}
 	#endregion
 	#endregion
-	if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
-	//if (skilltimer < special.cooldown + 10) { skilltimer+=100; }
 	tickPowers();
 	tickItems();
 	tick_perks();
 	Movement();
-	
-	if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
-	//if (keyboard_check_pressed(ord("X"))) {
-	    use_special(special);
-	}
-	#region RedGura
-	if(redgura){
-		//feather disable once GM2017
-		part_red ??= part_system_create(part_GuraRed);
-		//feather disable once GM2017
-		part_system_position(part_red, x, y);
-		// show_debug_message(time_source_get_time_remaining(redtime));
-		var _timestate = time_source_get_state(redtime);
-		if(_timestate == time_source_state_initial or _timestate == time_source_state_stopped){
-			time_source_start(redtime);
-		}
-	}
+	if (x != xprevious or y != yprevious) {
+	    sendMessage({
+			command : Network.Move,
+			socket : socket,
+			x : x,
+			y : y, 
+			image_xscale : image_xscale,
+			sprite : sprite_index,
+			});
+	}	
+	#region RedGura //UNUSED
+	//if(redgura){
+	//	//feather disable once GM2017
+	//	part_red ??= part_system_create(part_GuraRed);
+	//	//feather disable once GM2017
+	//	part_system_position(part_red, x, y);
+	//	// show_debug_message(time_source_get_time_remaining(redtime));
+	//	var _timestate = time_source_get_state(redtime);
+	//	if(_timestate == time_source_state_initial or _timestate == time_source_state_stopped){
+	//		time_source_start(redtime);
+	//	}
+	//}
 	#endregion
-	
 	if (global.lastsequence != undefined) {
 	    layer_sequence_x(global.lastsequence, oPlayer.x);
 	    layer_sequence_y(global.lastsequence, oPlayer.y);
 	}
-	
-	sendMessage({
-		command : Network.Move,
-		socket : socket,
-		x : x,
-		y : y, 
-		image_xscale : image_xscale,
-		sprite : sprite_index,
-		
-	});
-	
-	#region XP Range
-		var inRange = collision_circle(x,y-16,pickupRadius, oXP, false, true);
-		if (inRange != noone) { inRange.onArea = true; }
-	#endregion
-	
+	#region XP Check	
+	if (global.xp<0) {
+	    global.xp = 0;
+	}
 	if (global.xp >= neededxp) {
 		global.level += 1;
 		global.xp-=neededxp;
@@ -141,13 +148,16 @@ if (!global.gamePaused) {
 		randomUpgrades();
 		keyboard_clear(ord("Z"));
 		audio_play_sound(snd_lvl_up,0,0);
-		//if (instance_exists(oJoystick)) { global.mode = "menu"; }
-		global.upgrade=1;	
+		global.upgrade=1;
 		oGui.selected=0;
 		pause_game();
 	}
-	
-	if (global.hp <= 0) {
+	#endregion
+	#region Life Checks
+	if (HP > MAXHP) {
+	    HP=MAXHP;
+	}
+	if (HP <= 0) {
 		if (revives <= 0 and !dead) {
 			canMove = false;
 			dead = true;
@@ -159,9 +169,7 @@ if (!global.gamePaused) {
 				var inst = instance_create_depth(x,y,depth, oDeathHeart,{direction : heartOff});
 				heartOff += 45;
 			}
-			//if (alarm_get(3) == -1) {
 			if (dAlarm[3] == -1) {
-			    //alarm[3] = 60;
 			    dAlarm[3] = 60;
 			}
 		    //game_restart();
@@ -175,8 +183,8 @@ if (!global.gamePaused) {
 			   }
 			}
 		}
-		
 	}
+	#endregion
 	#region heal every five seconds if shop upgrade
 	if (global.shopUpgrades[$ "Regeneration"][$ "level"] > 0 and !global.gamePaused) {
 	    healSeconds+=1/60 * Delta;
@@ -205,16 +213,6 @@ if (!global.gamePaused) {
 		}
 	}
 	#endregion
-	
-}
-if (global.debug) {
-    HP=999999;
-}
-if (global.xp<0) {
-    global.xp = 0;
-}
-if (HP > MAXHP) {
-    HP=MAXHP;
 }
 #region spd calc
 	calc = 0;
@@ -244,7 +242,6 @@ if (HP > MAXHP) {
 		//show_message(shopBonus);
 	//}
 #endregion
-
 #region pickup calc
 	calc = 1;
 	for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {

@@ -19,12 +19,12 @@ if (socket == oPlayer.socket) {
 // Feather disable GM2016
 if (a==0) {	
 speed=upg[$ "speed"];
-if (!variable_instance_exists(self, "mindmg")) {
+//if (!variable_instance_exists(self, "mindmg")) {
 	mindmg = upg[$ "mindmg"];
-}
-if (!variable_instance_exists(self, "maxdmg")) {
+//}
+//if (!variable_instance_exists(self, "maxdmg")) {
 	maxdmg = upg[$ "maxdmg"];
-}
+//}
 hits=upg[$ "hits"];
 if (variable_struct_exists(upg, "size")) {
 	    image_xscale = upg[$ "size"];

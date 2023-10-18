@@ -1,12 +1,12 @@
-//show_debug_message(string(input_profile_get(0)));
-//global.deltaTime = (delta_time / 1000000) * game_get_speed(gamespeed_fps);
-//feather disable once GM2016 
+#region Gamepad detection
 if (input_profile_get(0) == "gamepad") {
     global.gamePad = true;
 }
 else{
 	global.gamePad = false;
 }
+#endregion
+#region Unused
 //if (keyboard_check(vk_home)) {
 //	for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
 //	    UnlockableWeapons[i] = true;
@@ -73,7 +73,7 @@ else{
 //		}
 //	}
 //}
-
+#endregion
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
 	//if (keyboard_check_pressed(ord("I"))) { oPlayer.y = 610 - oGui.a; }
@@ -153,7 +153,7 @@ if (instance_exists(oPlayer)) {
 	}
 }
 #endregion
-// Apply shake
+#region Screen Shake
 if (layer_exists("ShakeLayer")) {
     shakeFx = layer_get_fx("ShakeLayer");
 	fx_set_single_layer(shakeFx, false);
@@ -165,137 +165,118 @@ if (shakeMagnitude > 0)
 {
 	shakeMagnitude -= 0.2;
 }
+#endregion
+#region Strafe
 var pressed = (input_check("accept") and !global.gamePaused) ? true : false;
-//if (global.GamePad) {
-    //pressed = (input_check("accept") and !global.gamePaused) ? true : false
-//}else{ pressed = (keyboard_check(ord("Z")) and !global.gamePaused) ? true : false}
-	
-	global.strafe = pressed;
+global.strafe = pressed;
+#endregion
 #region Spawn
-if (!instance_exists(oEvents)) {
-	    instance_create_layer(0,0,"Instances",oEvents);
-	}	
-	//feather disable once GM2017
+if (!instance_exists(oEvents)) {instance_create_layer(0,0,"Instances",oEvents);}
 if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.spawnEnemies == 1 and global.IsHost) {
-	
-	//var a = irandom_range(-1,1)
-	//if (a=0) a = 1;
-	//var b = irandom_range(-1,1)
-	//if (b=0) b = 1;
 	var place = irandom_range(1,4);
 	var _x = oPlayer.x;
 	var _y = oPlayer.y;
-	if (place == 1) {
-		_y -= 300;
-	    _x += random_range(0, view_wport[0]);
+	switch (place) {
+	    case 1:
+	        _y -= 300;
+			_x += random_range(0, view_wport[0]);
+	        break;
+	    case 2:
+	        _y += 300;
+			_x += random_range(0, view_wport[0]);
+	        break;
+	    case 3:
+	        _x -= 400;
+			_y += random_range(0, view_hport[0]);
+	        break;
+	    case 4:
+	        _x += 400;
+			_y += random_range(0, view_hport[0]);
+	        break;
 	}
-	if (place == 2) {
-		_y += 300;
-	    _x += random_range(0, view_wport[0]);
-	}
-	if (place== 3) {
-		_x -= 400;
-	    _y += random_range(0, view_hport[0]);
-	}
-	if (place == 4) {
-		_x += 400;
-	    _y += random_range(0, view_hport[0]);
-	}
-	
-	//random_set_seed(current_time);
     canspawn=false;
-	alarm[0]=60;
-	instance_create_layer(
-	_x,
-	_y,
-	"Instances",
-	oEnemy	
-	);
+	var _spawnTimer = 60;
+	#region Spawn Timer modifiers
+	if (oPlayer.menhera) {
+	    _spawnTimer = 10;
+	}
+	#endregion
+	alarm[0] = _spawnTimer;
+	instance_create_layer(_x, _y, "Instances", oEnemy);
 }
 #endregion
-
 #region Time
-	if (global.gamePaused == false) {
-	    global.seconds+=(1/60) * Delta ;
-		#region Skills Cooldown		
-			#region cooldownamount
-				var down = 1;
-				//for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
-				//	if (Bonuses[BonusType.Haste][i] != 0) {
-				//	    down = 1 * Bonuses[BonusType.Haste][i];
-				//	}
-				//}
-				//for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
-				//    down = down + ((down * 4) / 100);
-				//}
-			#endregion
-			for (var i = 0; i < array_length(global.perkCooldown); ++i) {
-				global.perkCooldown[i] -= .5 * Delta;
-			}
-			//feather disable once GM1041
-			for (var i = 0; i < array_length(UPGRADES); ++i) {
-				if (UPGRADES[i] != global.null) {
-					//if (UPGRADES[i][$"canBeHasted"] == true) {
-					//    global.upgradeCooldown[UPGRADES[i][$"id"]] -= down * Delta;
-					//	//show_message(string(round(UPGRADES[i][?"cooldown"] / (1 + (1.50/100)))))
-					//}   
-					//else{
-						global.upgradeCooldown[UPGRADES[i][$ "id"]] -= 1 * Delta;
-					//}
-				}
-			}
-			for (var i = 0; i < array_length(global.itemCooldown); ++i) {
-				if (global.itemCooldown[i] > 0) {
-				    global.itemCooldown[i] -= (1/60) * Delta;
-				}   
-			}
-		#endregion
-		#region buff coldown
-			for (var i = 0; i < array_length(Buffs); ++i) {
-				if (Buffs[i][$ "enabled"] and variable_struct_exists(Buffs[i], "cooldown")) {
-					if (Buffs[i].cooldown > 0) {
-					    Buffs[i].cooldown -= 1/60;
-						switch (Buffs[i][$ "id"]) {
-						    case BuffNames.SakeFood:
-								Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
-								break;
-							case BuffNames.Spaghetti:{
-								oPlayer.spaghettiEaten = true;
-								break;}
-						    default:
-						        // code here
-						        break;
-						}
-					}
-					if (Buffs[i].cooldown <= 0) {
-						if (!variable_struct_exists(Buffs[i], "permanent")) {
-						    Buffs[i].enabled = false;
-							if (variable_struct_exists(Buffs[i], "count")) {
-							    Buffs[i][$ "count"] = 0;
-							}							
-						}
-					    switch (Buffs[i][$ "id"]) {
-							case BuffNames.Sake:
-								if (Buffs[i][$ "count"] < Buffs[i][$ "maxCount"]) {
-								    Buffs[i][$ "count"] += 1;
-								}
-								var _amount = (Buffs[BuffNames.Sake][$ "count"] < 10) ? "1.0{0}" : "1.{0}";
-								Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, Buffs[BuffNames.Sake][$ "count"]));
-								Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
-								break;
-							case BuffNames.SakeFood:
-								Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
-								break;
-							case BuffNames.Spaghetti:{
-								oPlayer.spaghettiEaten = false;
-								break;}
-						}
-					}
-				}
-				
-			}
-		#endregion
+if (global.gamePaused == false) {
+	global.seconds+=(1/60) * Delta ;
+	#region Skills Cooldown		
+	#region cooldownamount
+	var down = 1;
+	//for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
+	//	if (Bonuses[BonusType.Haste][i] != 0) {
+	//	    down = 1 * Bonuses[BonusType.Haste][i];
+	//	}
+	//}
+	//for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
+	//    down = down + ((down * 4) / 100);
+	//}
+	#endregion
+	for (var i = 0; i < array_length(global.perkCooldown); ++i) {
+		global.perkCooldown[i] -= .5 * Delta;
 	}
+	//feather disable once GM1041
+	for (var i = 0; i < array_length(UPGRADES); ++i) {
+		if (UPGRADES[i] != global.null) {
+			global.upgradeCooldown[UPGRADES[i][$ "id"]] -= 1 * Delta;
+		}
+	}
+	for (var i = 0; i < array_length(global.itemCooldown); ++i) {
+		if (global.itemCooldown[i] > 0) {
+			global.itemCooldown[i] -= (1/60) * Delta;
+		}   
+	}
+	#endregion
+	#region buff coldown
+	for (var i = 0; i < array_length(Buffs); ++i) {
+		if (Buffs[i][$ "enabled"] and variable_struct_exists(Buffs[i], "cooldown")) {
+			if (Buffs[i].cooldown > 0) {
+				Buffs[i].cooldown -= 1/60;
+				switch (Buffs[i][$ "id"]) {
+					case BuffNames.SakeFood:{
+						Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
+						break;}
+					case BuffNames.Spaghetti:{
+						oPlayer.spaghettiEaten = true;
+						break;}
+				}
+			}
+			if (Buffs[i].cooldown <= 0) {
+				if (!variable_struct_exists(Buffs[i], "permanent")) {
+					Buffs[i].enabled = false;
+					if (variable_struct_exists(Buffs[i], "count")) {
+						Buffs[i][$ "count"] = 0;
+					}
+				}
+				switch (Buffs[i][$ "id"]) {
+					case BuffNames.Sake:{
+						if (Buffs[i][$ "count"] < Buffs[i][$ "maxCount"]) {
+							Buffs[i][$ "count"] += 1;
+						}
+						var _amount = (Buffs[BuffNames.Sake][$ "count"] < 10) ? "1.0{0}" : "1.{0}";
+						Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, Buffs[BuffNames.Sake][$ "count"]));
+						Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
+						break;}
+					case BuffNames.SakeFood:{
+						Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
+						break;}
+					case BuffNames.Spaghetti:{
+						oPlayer.spaghettiEaten = false;
+						break;}
+					}
+				}
+			}	
+		}
+	#endregion
+}
 
 	if (global.seconds > 59) {
 		global.seconds=0;	
@@ -314,29 +295,8 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	global.timeA = max(0, Minutes - 23) + 37 * Hours;
 	global.timeB = global.minutesPast30 + 60 * global.hoursPast1;
 #endregion
-
-//if (keyboard_check_pressed(ord("V"))) {
-//    window_set_size(640,360);
-//}
-//if (keyboard_check_pressed(ord("B"))) {
-//    window_set_size(1280,720);
-//}
-//if (keyboard_check_pressed(ord("N"))) {
-//    window_set_size(1920,1080);
-//}
-
-
-
-if (keyboard_check(vk_control) and global.debug) {
-	Seconds+=1;
-}
-
 #region in stage
-	//if (instance_exists(oPlayer)) {
-	//    if (room == Room1) {
-	if (global.musicPlaying != undefined) {
-	    audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
-	}		    
-	//	}
-	//}
+if (global.musicPlaying != undefined) {
+	audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
+}
 #endregion

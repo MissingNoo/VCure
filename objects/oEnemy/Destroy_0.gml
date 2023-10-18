@@ -81,3 +81,8 @@ if (irandom_range(1,3000) == 1) {
 if (thisEnemy == Enemies.FubuZilla) {
     Achievements[AchievementIds.FuburaIsComing][$ "unlocked"] = true;
 }
+#region Lia
+if (oPlayer.menhera) {
+    oPlayer.menheraKills++;
+}
+#endregion

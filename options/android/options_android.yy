@@ -10,7 +10,7 @@
   "option_android_build_tools": "",
   "option_android_compile_sdk": "33",
   "option_android_device_support": 1,
-  "option_android_display_name": "PhaseSurvivors",
+  "option_android_display_name": "PhaseCure",
   "option_android_facebook_app_display_name": "",
   "option_android_facebook_id": "",
   "option_android_gamepad_support": true,

@@ -177,25 +177,12 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	//other.alarm[1]=15;
 	other.damagedAlarm=15;
 	switch (upg[$ "id"]) {
-	    case Weapons.UrukaNote:
+	    case Weapons.UrukaNote:{
 	        if (hits == 1 and upg.level == 7) {
 				noteExplosion();
 			}
-	        //if (hits == 1 and !UrukaNoteLastHit and upg[$ "level"] >= 4) {
-			//    UrukaNoteLastHit=true;
-			//	hits+=5;
-			//	direction = random(360);
-			//	//switch (direction) {
-			//	//    case 0:
-			//	//        direction = 180;
-			//	//        break;
-			//	//    case 180:
-			//	//        direction = 0;
-			//	//        break;
-			//	//}
-			//}
-	        break;
-		case Weapons.RestNote:
+	        break;}
+		case Weapons.RestNote:{
 				array_push(other.debuffs, copy_struct(Buffs[BuffNames.Paralyzed]));
 				var _time = 0;
 				for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
@@ -210,7 +197,16 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 						other.debuffs[i].cooldown = _time;
 					}
 				}
-			break;
+			break;}
+		case Weapons.LiaBolt:{
+			if (hits == 1) {
+				hits = 999;
+				speed = 0;
+				mindmg = mindmg * 1.20;
+				maxdmg = maxdmg * 1.20;
+				sprite_index = sLiaBoltShock;
+			}
+			break;}
 		case Weapons.ENsCurse:
 			var chance = irandom_range(0, 100);
 			if (chance < upg[$ "chance"]) {

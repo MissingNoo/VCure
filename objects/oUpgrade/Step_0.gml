@@ -19,6 +19,10 @@ if (!global.gamePaused) {
 	}
 	#region broadcasts
 	switch (upg[$ "id"]) {
+		case Weapons.ElectricPulse:{
+			x = owner.x;
+			y = owner.y;
+			break;}
 	    case Weapons.MiCometMeteor:
 	        if (floor(subImg) == 2 and !summoned) {
 			    summoned = true;
