@@ -8,11 +8,11 @@
 var inst = noone;
 switch (upg[$ "id"]) {
 	default:
-		spawnUpgrade();
+		spawn_upgrade();
 		break;
 	//case Weapons.UrukaNote:
 	//	//if (shoots > 1) {			
-	//		spawnUpgrade();
+	//		spawn_upgrade();
 	//	    //shoots-=1;
 	//		//alarm[0]=10;
 	//	//}
@@ -25,7 +25,7 @@ switch (upg[$ "id"]) {
 		inst.diroffset -= 90;
 		break;
 	//case Weapons.PlugAsaCoco:{
-	//	//spawnUpgrade();
+	//	//spawn_upgrade();
 	//	break;}
 	case Weapons.BlBook:{
 		//if (shoots > 1) {			
@@ -101,7 +101,7 @@ switch (upg[$ "id"]) {
 		break;}
 	case Weapons.EliteLavaBucket:{
 		//if (shoots > 1) {			
-			spawnUpgrade();
+			spawn_upgrade();
 			random_set_seed(current_time);
 			x = oPlayer.x + irandom_range(-200,200);
 			random_set_seed(current_time);
@@ -113,7 +113,7 @@ switch (upg[$ "id"]) {
 
 	case Weapons.HoloBomb:{
 		//if (shoots > 1) {			
-			spawnUpgrade();
+			spawn_upgrade();
 			//random_set_seed(current_time);
 			x = owner.x + irandom_range(-50,50);
 			//random_set_seed(current_time);
@@ -172,7 +172,7 @@ switch (upg[$ "id"]) {
 		}
 		//case Weapons.HeavyArtillery:{
 		//	//if (shoots > 1) {
-		//		spawnUpgrade();
+		//		spawn_upgrade();
 		//		//shoots-=1;
 		//		//}
 		//	break;

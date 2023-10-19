@@ -229,7 +229,7 @@ image_speed = 0;
 				//}
 				if (shoots>0) {
 					for (var i = 1; i < shoots; ++i) {
-						spawnUpgrade();
+						spawn_upgrade();
 						//alarm[0]=1;
 						dAlarm[0]=1;
 					}
@@ -244,7 +244,7 @@ image_speed = 0;
 			}
 			if (shoots>0) {
 				for (var i = 1; i < shoots; ++i) {
-					spawnUpgrade();
+					spawn_upgrade();
 					//alarm[0]=1;
 					dAlarm[0]=1;
 				}
