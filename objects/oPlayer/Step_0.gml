@@ -113,8 +113,9 @@ if (!global.gamePaused) {
 	tick_powers();
 	tick_items();
 	tick_perks();
+	var previousSprite = sprite_index;
 	Movement();
-	if (x != xprevious or y != yprevious) {
+	if (x != xprevious or y != yprevious or previousSprite != sprite_index) {
 	    sendMessage({
 			command : Network.Move,
 			socket : socket,
