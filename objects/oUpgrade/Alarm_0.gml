@@ -8,18 +8,18 @@
 //var inst = noone;
 //switch (upg[$ "id"]) {
 //	default:
-//		spawnUpgrade();
+//		spawn_upgrade();
 //		break;
 //	//case Weapons.UrukaNote:
 //	//	//if (shoots > 1) {			
-//	//		spawnUpgrade();
+//	//		spawn_upgrade();
 //	//	    //shoots-=1;
 //	//		//alarm[0]=10;
 //	//	//}
 //	//	break;
 //	case Weapons.GuraTrident:
 //		//if (shoots > 1) {			
-//			inst = spawnUpgrade();
+//			inst = spawn_upgrade();
 //			inst.diroffset=offset;
 //			offset+=32;			
 //		    //shoots-=1;			
@@ -28,7 +28,7 @@
 //		break;
 //	case Weapons.InaTentacle:
 //		//if (shoots > 1) {			
-//			inst = spawnUpgrade();
+//			inst = spawn_upgrade();
 //			inst.diroffset=irandom_range(0,360);
 //		    //shoots-=1;			
 //			////alarm[0]=1;
@@ -36,17 +36,17 @@
 //		break;
 //	case Weapons.CuttingBoard:
 //		shoots = -1;
-//		inst = spawnUpgrade();
+//		inst = spawn_upgrade();
 //		inst.diroffset += 90;
-//		inst = spawnUpgrade();
+//		inst = spawn_upgrade();
 //		inst.diroffset -= 90;
 //		break;
 //	//case Weapons.PlugAsaCoco:{
-//	//	//spawnUpgrade();
+//	//	//spawn_upgrade();
 //	//	break;}
 //	case Weapons.BlBook:{
 //		//if (shoots > 1) {			
-//			inst = spawnUpgrade();
+//			inst = spawn_upgrade();
 //			inst.orbitPlace = orbitoffset;
 //			inst.orbitLength = orbitLength;
 //			switch (upg[$ "level"]) {
@@ -78,7 +78,7 @@
 //		break;}
 //	case Weapons.EliteLavaBucket:{
 //		//if (shoots > 1) {			
-//			spawnUpgrade();
+//			spawn_upgrade();
 //			random_set_seed(current_time);
 //			x = oPlayer.x + irandom_range(-200,200);
 //			random_set_seed(current_time);
@@ -89,7 +89,7 @@
 //		break;}
 //	case Weapons.PowerofAtlantis:{
 //		//if (shoots > 1) {			
-//			spawnUpgrade();
+//			spawn_upgrade();
 //			random_set_seed(current_time);
 //			x = oPlayer.x + irandom_range(-200,200);
 //			random_set_seed(current_time);
@@ -100,7 +100,7 @@
 //		break;}
 //	case Weapons.HoloBomb:{
 //		//if (shoots > 1) {			
-//			spawnUpgrade();
+//			spawn_upgrade();
 //			//random_set_seed(current_time);
 //			x = owner.x + irandom_range(-50,50);
 //			//random_set_seed(current_time);
@@ -111,7 +111,7 @@
 //		break;}
 //	case Weapons.IdolSong:{
 //		//if (shoots > 1) {			
-//			inst = spawnUpgrade();
+//			inst = spawn_upgrade();
 //			if (shoots % 2) {
 //			//    //alarm[0]=1;
 //			//	idolDir = 0;
@@ -138,7 +138,7 @@
 //		case Weapons.PipiPilstol:{
 //			//if (shoots > 1) {			
 //				//shoots-=1;
-//				inst = spawnUpgrade();
+//				inst = spawn_upgrade();
 //				if (shoots % 2) {
 //					inst.shoots = -2;
 //				}
@@ -152,7 +152,7 @@
 //		}
 //		//case Weapons.HeavyArtillery:{
 //		//	//if (shoots > 1) {
-//		//		spawnUpgrade();
+//		//		spawn_upgrade();
 //		//		//shoots-=1;
 //		//		//}
 //		//	break;
