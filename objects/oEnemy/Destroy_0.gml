@@ -85,4 +85,7 @@ if (thisEnemy == Enemies.FubuZilla) {
 if (oPlayer.menhera) {
     oPlayer.menheraKills++;
 }
+if (infected) {
+    oPlayer.liaLikers -= 1;
+}
 #endregion

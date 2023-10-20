@@ -3,11 +3,17 @@
 //}
 draw_set_alpha(image_alpha);
 draw_set_color(critical ? c_yellow : c_white);
+var _str = "";
 if (dmg != 0) {
-    draw_text_transformed(x,y,string(dmg), 1.25, 1.25, 0);
+    _str = string(dmg);
 }
 else{
 	draw_set_color(c_white);
-	draw_text_transformed(x,y,string("MISS"), 1.25, 1.25, 0);
+	_str = "MISS";
 }
+if (infected) {
+	draw_set_color(c_red);
+    _str = "INFECTED";
+}
+draw_text_transformed(x,y, _str, 1.25, 1.25, 0);
 draw_set_color(c_white);

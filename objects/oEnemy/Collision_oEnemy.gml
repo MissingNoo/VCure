@@ -1,7 +1,13 @@
-/// @description 
-
-//x -= dcos(point_direction(x, y, other.x, other.y))
-//y += dsin(point_direction(x, y, other.x, other.y))
+if (other.id == target and infectedAttackTimer < 0) {
+    other.hp-= atk;
+	other.damaged = true;
+	infectedAttackTimer = 25;
+	if (global.damageNumbers) {
+	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
+		_inst.dmg = round(atk);
+		_inst.critical = false;
+	}
+}
 var canCollide = true;
 switch (pattern) {
     case Patterns.Cluster:

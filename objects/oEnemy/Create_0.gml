@@ -98,3 +98,7 @@ if (global.IsHost and !global.singleplayer) {
 }
 dropxp = true;
 oImageSpeed = image_speed;
+#region Lia
+infected = false;
+infectedAttackTimer = 10;
+#endregion

@@ -4,7 +4,7 @@ switch (sprite_index) {
         canhit = false;
         break;
 }
-if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit) {
+if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit and !other.infected) {
 	if (upg[$ "id"] == Weapons.BounceBall or upg[$ "id"] == Weapons.RingOfFitness) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
@@ -117,6 +117,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	var _critChance = oPlayer.critChance;	
 	var _critMultiplier = 1;
 	var _wasCrit = false;
+	var _virusInfected = false;
 	if (_rnd <= _critChance) {
 	    _critMultiplier = 1.5;
 		var _critCalc = 0;
@@ -126,20 +127,24 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 			}
 		}
 		_critMultiplier += _critCalc;
-		//show_message(_critCalc);
 		_wasCrit = true;
-		//show_message(string(@"
-		//	damage : {0}
-		//	playermultiplier : {1}
-		//	crit multiplier : {2}
-		//	step 1 : {3}
-		//	step 2 : {4}
-		//	", 
-		//	dmg, 
-		//	global.player[?"atk"], 
-		//	_critMultiplier, 
-		//	dmg * global.player[?"atk"], 
-		//	dmg * global.player[?"atk"] * _critMultiplier));
+		if (global.player[?"id"] == Characters.Lia) {
+		    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+			    if (PLAYER_PERKS[i].id == PerkIds.Viral) {
+					var _infectChance = PLAYER_PERKS[i].chance;
+					var _rnd = irandom_range(1, 100);
+					if (_rnd <= _infectChance and oPlayer.liaLikers < PLAYER_PERKS[i].maxInfected) {
+					    other.infected = true;
+						_virusInfected = true;
+						//other.speed = other.speed * global.player[?"speed"];
+						other.baseSPD = other.baseSPD* global.player[?"speed"];
+						other.hp = other.baseHP;
+						oPlayer.liaLikers += 1;
+						dmg = 0;
+					}				    
+				}
+			}
+		}
 	}
 	dmg = dmg * global.player[?"atk"] * _critMultiplier;
 	if (oPlayer.spaghettiEaten) {
@@ -172,6 +177,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = round(dmg);
 		_inst.critical = _wasCrit;
+		_inst.infected = _virusInfected;
 	}
 	
 	//other.alarm[1]=15;

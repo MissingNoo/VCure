@@ -54,6 +54,7 @@ monsterTimer = 0;
 menhera = false;
 menheraTimer = 0;
 menheraKills = 0;
+liaLikers = 0;
 #endregion
 #endregion
 #region Multiplayer

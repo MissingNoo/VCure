@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor                         
 //draw_text(x,y-60, enemyID);
+
 if (fanbeamFiring > 0) {
 	if (alphaGoingUp) {
 		if (warningAlpha < .25) {
@@ -30,13 +31,20 @@ if (damaged) {
 	gpu_set_fog(false,c_white,0,0);
 }
 else{
-	draw_self();
+	//draw_self();
+	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, infected == false ? c_white : c_purple, image_alpha);
+	if (infected and hp > 0) {
+		draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((hp / baseHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);
+	}
 	if (carryingBomb) {
 	    draw_sprite(sImDie, 0, x, y - (sprite_get_height(sprite_index) / 2));
 	}
 }
-var _vars = ["speed", "atk", "hp", "image_xscale"];
+var _vars = ["speed", "atk", "hp", "image_xscale", "infected", "target"];
 if (global.debug and distance_to_point(mouse_x, mouse_y) < 10) {
+	if (instance_exists(target)) {
+	    draw_line(x,y,target.x, target.y);
+	}
 	for (var i = 0; i < array_length(_vars); ++i) {
 		if (variable_instance_exists(self, _vars[i])) {
 		    draw_text(x - 20, y - 30 + (i * 10),_vars[i] + ": " +  string(variable_instance_get(self, _vars[i])));

@@ -1,4 +1,4 @@
-if (!gotknocked) {
+if (!gotknocked and !infected) {
     gotknocked = true;
 	var _push = other.upg[$ "knockbackSpeed"];
 	if (variable_instance_exists(other, "tempKnockback")) {

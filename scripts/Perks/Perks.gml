@@ -132,6 +132,8 @@ function populate_perks(){
 			thumb : sViral,
 			cooldown : 1,
 			characterid : Characters.Lia,
+			chance : [0, 20, 27, 33],
+			maxInfected : [0, 5, 10, 15]
 		});
 		#endregion
 		global.characterPerks[Characters.Lia] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];

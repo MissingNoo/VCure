@@ -1,9 +1,27 @@
+if (!instance_exists(target)) { target = noone; }
+if (infected and target == oPlayer) { target = noone; }
+if (infected and variable_instance_exists(target, "infected") and target.infected) { target = noone; }
+if (infected and target == noone) {
+	var _list = ds_list_create();
+	var _num = collision_circle_list(x,y, 1000, oEnemy, false, true, _list, true);
+	for (var i = 0; i < ds_list_size(_list); ++i) {
+		if (variable_instance_get(_list[| i], "infected") == false) {
+			target = _list[| i];
+			break;
+		}
+	}
+	ds_list_destroy(_list);
+}
 // Feather disable GM2017
 if (justSpawned and thisEnemy == Enemies.FubuZilla) {
 	justSpawned = false;
     fanbeamAlarm = fanbeamCooldown;
 }
 if(global.gamePaused == false and instance_exists(target)){
+	if (infected) {
+	    hp -= baseHP / 5000;
+		infectedAttackTimer--;
+	}
 	if (damagedAlarm > 0) {
 	    damagedAlarm-= 1*Delta;
 	}
@@ -50,7 +68,6 @@ if(global.gamePaused == false and instance_exists(target)){
 	}
 	var nearupgrade;
 		if (instance_exists(oUpgrade) and instance_exists(target)) {
-		
 				if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;} //TODO: remove?
 				if (followPlayer) {
 					direction=point_direction(x,y,target.x,target.y);
@@ -66,8 +83,10 @@ if(global.gamePaused == false and instance_exists(target)){
 					}
 				}
 			}
-			
 		
+		//if (infected and (!instance_exists(target) or distance_to_object(target) > 100) or (variable_instance_exists(target, "infected") and target.infected)) {
+		//    target = noone;
+		//}		
 		if (customSpawn and distance_to_point(dieX, y) < 10) {
 			dropxp = false;
 		    hp = 0;			
@@ -151,11 +170,5 @@ if(global.gamePaused == false and instance_exists(target)){
 		}
 	}
 	#endregion
-	
 }
 var pausedamaged = false;
-
-
-
-
-
