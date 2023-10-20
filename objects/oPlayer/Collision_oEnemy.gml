@@ -15,7 +15,7 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 	audio_play_sound(snd_hurt,0,0);
 	#region Uruka
 	var bonusdmg = 0;
-	var _dirtyDodge = irandom_range(0, 100);
+	var _dirtyDodge = irandom_range(1, 100);
 	var _dirtyChance = 0;
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		switch (PLAYER_PERKS[i].id) {
@@ -60,8 +60,7 @@ if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.
 		}
 		//show_debug_message(string($"d:{damage} + {bonusdmg} = {damage+bonusdmg}"));
 		damage += bonusdmg;
-		if (_dirtyDodge <= _dirtyChance) {
-			show_debug_message("dirty dodge");
+		if (_dirtyDodge <= _dirtyChance and global.player[?"id"] == Characters.Uruka) {
 			heal_player(damage/2);
 		    damage = 0;
 		}
