@@ -313,6 +313,6 @@ sendMessage({
 	image_alpha,
 	image_angle,
 	image_xscale,
-	image_yscale,	
+	image_yscale,
 	afterimg : json_stringify(afterimage)
 });

@@ -28,7 +28,8 @@ enum Network {
 	ChatMessage,
 	SpawnAnvil,
 	UpdateAnvil,
-	AddItem
+	AddItem,
+	InfectMob
 }
 function clientReceivedPacket2(_response)
 {
@@ -242,6 +243,23 @@ function clientReceivedPacket2(_response)
 			if (r[$ "type"] == "item") {
 			    playerItems[r[$ "pos"]] = ItemList[r[$ "id"]][r[$ "level"]];
 			}
+			break;}
+			
+		case Network.InfectMob:{
+			var _id = r[$ "id"];
+			var _target = r[$ "target"];
+			var _newtarget = noone;
+			with (oEnemy) {
+			    if (enemyID == _target) {
+				    _newtarget = id;
+				}
+			}
+			with (oEnemy) {
+			    if (enemyID == _id) {
+				    target = _newtarget;
+					infected = true;
+				}
+			}			
 			break;}
 		
 	    default:

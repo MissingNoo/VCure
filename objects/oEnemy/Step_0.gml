@@ -1,12 +1,19 @@
 if (!instance_exists(target)) { target = noone; }
 if (infected and target == oPlayer) { target = noone; }
 if (infected and variable_instance_exists(target, "infected") and target.infected) { target = noone; }
-if (infected and target == noone) {
+if (infected and target == noone) { //TODO multiplayer
 	var _list = ds_list_create();
 	var _num = collision_circle_list(x,y, 1000, oEnemy, false, true, _list, true);
 	for (var i = 0; i < ds_list_size(_list); ++i) {
 		if (variable_instance_get(_list[| i], "infected") == false) {
 			target = _list[| i];
+			if (instance_exists(target)) {
+				sendMessage({
+					command : Network.InfectMob,
+					id : enemyID,
+					target : target.enemyID
+				});
+			}
 			break;
 		}
 	}

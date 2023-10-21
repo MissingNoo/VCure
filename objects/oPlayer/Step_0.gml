@@ -1,3 +1,4 @@
+HP = MAXHP;
 #region critChance
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));

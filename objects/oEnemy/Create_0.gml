@@ -79,7 +79,7 @@ if (room != rInicio) {
 	canattack=true;
 }
 deathSent = false;
-enemyID = irandom(9999);
+enemyID = irandom(99999);
 //feather disable once GM2017
 if (global.IsHost and !global.singleplayer) {
 	var _chance = irandom_range(0, 1);
