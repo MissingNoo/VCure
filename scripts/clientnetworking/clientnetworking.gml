@@ -152,7 +152,12 @@ function clientReceivedPacket2(_response)
 				for (var i = 0; i < variable_struct_names_count(enemyvars); ++i) {
 				    variable_instance_set(_enemy, enemyvarnames[i], variable_struct_get(enemyvars, enemyvarnames[i]));
 				}
-				_enemy.target = instance_nearest(x,y,oSlave);
+				_enemy.target = _enemy.target == oPlayer ? oSlave : oPlayer;
+				//if (_enemy.target == oPlayer) {
+				    
+				//}33d74eef94
+				
+				//_enemy.target = instance_nearest(x,y,oSlave);
 				with (_enemy) {
 					try{
 						initiate_enemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));

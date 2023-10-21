@@ -82,6 +82,8 @@ deathSent = false;
 enemyID = irandom(9999);
 //feather disable once GM2017
 if (global.IsHost and !global.singleplayer) {
+	var _chance = irandom_range(0, 1);
+	target = _chance  == 0 ? oPlayer : oSlave;
 	vars = variable_instance_get_names(self);
 	savedvars = {};
 	for (var i = 0; i < array_length(vars); ++i) {
@@ -93,8 +95,8 @@ if (global.IsHost and !global.singleplayer) {
 		socket : oClient.connected,
 		x,
 		y,
-		sendvars,		
-	});
+		sendvars
+		});
 }
 dropxp = true;
 oImageSpeed = image_speed;

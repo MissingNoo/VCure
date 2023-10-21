@@ -187,7 +187,9 @@ if (room == rCharacterSelect) {
 	}
 	#endregion	
 	#region Outfit
-	//if (selectingOutfit) {
+	if (selectingOutfit) {
+		draw_text(GW/2, GH/2, "Press Z");
+	}
 	//    _x = GW/3.27;
 	//	_y = 0;
 	//	_xx = GW/1.43;
@@ -217,7 +219,9 @@ if (room == rCharacterSelect) {
 	//}
 	#endregion
 	#region Stage
-	//if (characterSelected and outfitSelected) {
+	if (characterSelected and outfitSelected) {
+		draw_text(GW/2, GH/2, "Press Z again");
+	}
 	//	_x = GW/3.27;
 	//	_y = 0;
 	//	_xx = GW/1.43;

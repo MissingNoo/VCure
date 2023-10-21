@@ -33,6 +33,9 @@ if (damaged) {
 else{
 	//draw_self();
 	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, infected == false ? c_white : c_purple, image_alpha);
+	//var _tgtc = target == oPlayer ? c_blue : c_red;
+	//var _tgt = target == oPlayer ? "host" : "client";
+	//draw_text_color(x, y-16, _tgt, _tgtc, _tgtc, _tgtc, _tgtc, 1);
 	if (infected and hp > 0) {
 		draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((hp / baseHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);
 	}
