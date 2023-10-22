@@ -1,3 +1,4 @@
+lobbyClick = false;
 clicked = false;
 joinedRoom = false;
 roomname = "";

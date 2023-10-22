@@ -26,7 +26,14 @@ if (justSpawned and thisEnemy == Enemies.FubuZilla) {
 	justSpawned = false;
     fanbeamAlarm = fanbeamCooldown;
 }
-if(global.gamePaused == false and !global.singleplayer and instance_exists(target)){
+var _canmove = true;
+if (global.gamePaused and !global.singleplayer) {
+    _canmove = true;
+}
+if (global.gamePaused and global.singleplayer) {
+    _canmove = false;
+}
+if(_canmove and instance_exists(target)){
 	if (infected) {
 	    hp -= baseHP / 5000;
 		infectedAttackTimer--;

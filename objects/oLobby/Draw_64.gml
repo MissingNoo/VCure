@@ -84,14 +84,14 @@ if (creatingroom) {
 	_color = (creatingselectedyesno == 0) ? c_yellow : c_white;
 	if (creatingselected != 2) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
-	if (point_in_rectangle(mouse_x, mouse_y, cx - cs, cy - 14.5, cx + cs, cy + 14.5) and input_check_pressed("click")) {
+	if (point_in_rectangle(mouse_x, mouse_y, cx - cs, cy - 14.5, cx + cs, cy + 14.5) and lobbyClick) {
 	    creatingroom = false;
 	}
 	draw_text_transformed(cx, cy, "Cancel", 2, 2, 0);
 	_color = (creatingselectedyesno == 1) ? c_yellow : c_white;
 	if (creatingselected != 2) { _color = c_white;}
 	draw_rectangle_color(ax - as, cy - 14.5, ax + as, cy + 14.5, _color, _color, _color, _color, true);
-	if (point_in_rectangle(mouse_x, mouse_y, ax - as, cy - 14.5, ax + as, cy + 14.5) and input_check_pressed("click")) {
+	if (point_in_rectangle(mouse_x, mouse_y, ax - as, cy - 14.5, ax + as, cy + 14.5) and lobbyClick) {
 		    if (roomname != "") {
 				creatingroom = false;
 			    sendMessage({
@@ -143,14 +143,14 @@ if (typepassword) {
 	_color = (passwordselectedyesno == 0) ? c_yellow : c_white;
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
-	if (point_in_rectangle(mouse_x, mouse_y,ax - as, cy - 14.5, ax + as, cy + 14.5) and input_check_pressed("click")) {
+	if (point_in_rectangle(mouse_x, mouse_y,ax - as, cy - 14.5, ax + as, cy + 14.5) and lobbyClick) {
 		typepassword = false;
 	}
 	draw_text_transformed(cx, cy, "Cancel", 2, 2, 0);
 	_color = (passwordselectedyesno == 1) ? c_yellow : c_white;
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(ax - as, cy - 14.5, ax + as, cy + 14.5, _color, _color, _color, _color, true);
-	if (point_in_rectangle(mouse_x, mouse_y,ax - as, cy - 14.5, ax + as, cy + 14.5) and input_check_pressed("click")) {
+	if (point_in_rectangle(mouse_x, mouse_y,ax - as, cy - 14.5, ax + as, cy + 14.5) and lobbyClick) {
 		if (rooms[selectedroom][$ "password"] == password) {
 			typepassword = false;
 			global.roomname = rooms[selectedroom][$ "name"];
