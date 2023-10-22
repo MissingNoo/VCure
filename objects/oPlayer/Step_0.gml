@@ -1,4 +1,4 @@
-#region critChance
+#region critChance //TODO: Rework
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));
 for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
@@ -37,7 +37,7 @@ if (global.shopUpgrades[$ "Crit"].level > 0) {
 }
 critChance = calc;
 #endregion
-#region Haste
+#region Haste //TODO: Rework
 var down = 0;
 for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
 	if (Bonuses[BonusType.Haste][i] != 0) {
@@ -226,31 +226,32 @@ if (!global.gamePaused) {
 	#endregion
 }
 #region spd calc
-	
+	newspd = ospd;
 	calc = 0;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
 		if (Bonuses[BonusType.Speed][i] != 0) {
-		    calc += Bonuses[BonusType.Speed][i];
+			newspd = newspd * Bonuses[BonusType.Speed][i];
 		}    
 	}
 	for (var i = 0; i < array_length(PerkBonuses[BonusType.Speed]); ++i) {
 		if (PerkBonuses[BonusType.Speed][i] != 0) {
-		    calc += PerkBonuses[BonusType.Speed][i];
-		}    
+		    newspd = newspd * PerkBonuses[BonusType.Speed][i];
+		}
 	}
 	for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
-	    calc = calc + ((calc * 6) / 100);
+	    newspd= newspd+ ((newspd* 6) / 100);
 	}
-	if (calc == 0) {
-	    calc = 1;
-	}
-	var shopBonus = ospd;
-	for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
-	    shopBonus = shopBonus + ((shopBonus* 6) / 100);
-	}
-	shopBonus = shopBonus - ospd;
+	//if (calc == 0) {
+	//    calc = 1;
+	//}
+	//var shopBonus = ospd;
+	//for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
+	//    shopBonus = shopBonus + ((shopBonus* 6) / 100);
+	//}
+	//shopBonus = shopBonus - ospd;
 	//if (calc != 0) {
-	    spd = (ospd + shopBonus) * calc;
+	    //spd = (ospd + shopBonus) * calc;
+	    spd = newspd;
 		//show_message(shopBonus);
 	//}
 #endregion
