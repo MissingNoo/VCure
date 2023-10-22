@@ -161,7 +161,8 @@ function clientReceivedPacket2(_response)
 				//_enemy.target = instance_nearest(x,y,oSlave);
 				with (_enemy) {
 					try{
-						initiate_enemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
+						//initiate_enemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
+						initiate_enemy(global.enemies[variable_struct_get(enemyvars, "thisEnemy")]);
 					}
 					catch(error){
 						initiate_enemy(ds_list_find_value(global.enemyPool, 0));
@@ -258,6 +259,8 @@ function clientReceivedPacket2(_response)
 			    if (enemyID == _id) {
 				    target = _newtarget;
 					infected = true;
+					hp = r[$ "hp"];
+					baseSPD = r[$ "baseSPD"];
 				}
 			}			
 			break;}

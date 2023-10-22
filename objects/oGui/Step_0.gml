@@ -55,7 +55,7 @@ if (room == rStage1 and !instance_exists(oClient)) {
 #endregion	
 #region Input
 //feather disable GM1044
-zKey = input_check_pressed("accept");
+zKey = input_check_pressed("accept") or input_check_pressed("click");
 xKey = input_check_pressed("cancel");
 eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");

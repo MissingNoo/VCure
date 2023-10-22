@@ -25,7 +25,7 @@ return {
         house: input_binding_key(vk_home),
         
         //No aiming verbs since we use the mouse for that (see below for aiming verb examples)
-        shoot: input_binding_mouse_button(mb_left),
+        click: input_binding_mouse_button(mb_left),
         
         pause: input_binding_key(vk_escape),
     },
@@ -59,6 +59,7 @@ return {
         right: input_binding_virtual_button(),
         
         accept:  input_binding_virtual_button(),
+        click:  input_binding_virtual_button(),
         cancel:  input_binding_virtual_button(),
         action:  input_binding_virtual_button(),
         special: input_binding_virtual_button(),

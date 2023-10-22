@@ -326,7 +326,7 @@ function open_keyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr =
 		draw_set_color(c_white);
 		draw_set_alpha(1);
 	}
-	if (point_in_rectangle(oGui.x, oGui.y, _sx, _sy, _ex, _ey)) {
+	if (point_in_rectangle(mouse_x, mouse_y, _sx, _sy, _ex, _ey) and input_check_pressed("click")) {
 		if (_varr != "") {
 		    keyboard_string = variable_instance_get(self, _varr);
 		}

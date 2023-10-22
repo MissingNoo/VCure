@@ -132,7 +132,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			    if (PLAYER_PERKS[i].id == PerkIds.Viral) {
 					var _infectChance = PLAYER_PERKS[i].chance;
-					var _rnd = irandom_range(1, 100);
+					_rnd = irandom_range(1, 100);
 					if (_rnd <= _infectChance and oPlayer.liaLikers < PLAYER_PERKS[i].maxInfected) {
 					    other.infected = true;
 						_virusInfected = true;

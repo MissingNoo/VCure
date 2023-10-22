@@ -1,4 +1,3 @@
-HP = MAXHP;
 #region critChance
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));
@@ -21,10 +20,10 @@ for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
 				}
 				else{
 					calc -= (1 - Bonuses[BonusType.Critical][i][j]) * 100;
-				}							
+				}
 			}
 		}
-	}						
+	}
 }
 for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
 	if (PerkBonuses[BonusType.Critical][i] != 0) {

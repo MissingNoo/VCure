@@ -11,7 +11,9 @@ if (infected and target == noone) { //TODO multiplayer
 				sendMessage({
 					command : Network.InfectMob,
 					id : enemyID,
-					target : target.enemyID
+					target : target.enemyID,
+					hp,
+					baseSPD,
 				});
 			}
 			break;
@@ -24,7 +26,7 @@ if (justSpawned and thisEnemy == Enemies.FubuZilla) {
 	justSpawned = false;
     fanbeamAlarm = fanbeamCooldown;
 }
-if(global.gamePaused == false and instance_exists(target)){
+if(global.gamePaused == false and !global.singleplayer and instance_exists(target)){
 	if (infected) {
 	    hp -= baseHP / 5000;
 		infectedAttackTimer--;
