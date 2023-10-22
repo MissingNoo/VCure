@@ -117,7 +117,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},
-    {"name":"oBurguer","order":4,"path":"objects/oBurguer/oBurguer.yy",},
+    {"name":"oBurguer","order":2,"path":"objects/oBurguer/oBurguer.yy",},
     {"name":"lexicon_text_struct","order":7,"path":"scripts/lexicon_text_struct/lexicon_text_struct.yy",},
     {"name":"oDebuffAnimation","order":4,"path":"objects/oDebuffAnimation/oDebuffAnimation.yy",},
     {"name":"__input_class_trigger_effect_weapon","order":13,"path":"scripts/__input_class_trigger_effect_weapon/__input_class_trigger_effect_weapon.yy",},
@@ -201,6 +201,7 @@
     {"name":"__input_keyboard_key","order":3,"path":"scripts/__input_keyboard_key/__input_keyboard_key.yy",},
     {"name":"sMiComet","order":1,"path":"sprites/sMiComet/sMiComet.yy",},
     {"name":"fnt_example","order":6,"path":"fonts/fnt_example/fnt_example.yy",},
+    {"name":"oSoda","order":1,"path":"objects/oSoda/oSoda.yy",},
     {"name":"test_color_inputs","order":1,"path":"objects/test_color_inputs/test_color_inputs.yy",},
     {"name":"rShop","order":3,"path":"rooms/rShop/rShop.yy",},
     {"name":"oShiranuiEmployee54","order":2,"path":"objects/oShiranuiEmployee54/oShiranuiEmployee54.yy",},

@@ -22,6 +22,7 @@ if (global.debug) {
 	draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
 	draw_text(x,y-120, "FPS: " + string(fps));
 	draw_text(x,y-140, "FPSR: " + string(fps_real));
+	draw_text(x,y-160, "Bonus: " + string(Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus]));
 	draw_circle(x,y-16,pickupRadius,true);
 }
 draw_self();

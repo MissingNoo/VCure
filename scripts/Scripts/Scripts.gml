@@ -14,7 +14,35 @@ function reset_timer(){
 #macro Hours global.hours
 //#macro Hours global.hours
 	
-	
+function food_spawn(){
+	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+	    if (PLAYER_PERKS[i].id == PerkIds.SodaFueled and PLAYER_PERKS[i].level > 0) {
+		    var _chance = 33;
+			var _rnd = irandom_range(1, 100);
+			if (_rnd <= _chance) {
+			    instance_change(oSoda, false);
+			}
+		}
+	}	
+}
+function food_item(_healAmount = 0){
+	heal_player(_healAmount);
+	if (Buffs[BuffNames.Sake][$ "enabled"]) {
+	    Buffs[BuffNames.SakeFood][$ "enabled"] = true;
+	    Buffs[BuffNames.SakeFood][$ "cooldown"] = Buffs[BuffNames.SakeFood][$ "baseCooldown"];
+	}
+	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+	    if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level > 0) {
+			var _chance = 33;
+			var _rnd = irandom_range(1, 100);
+			if (_rnd <= _chance) {
+			    Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus] += 0.03;
+			}
+		}
+	}
+	instance_destroy();
+}
+
 function pause_game(){
 	if (instance_exists(oGameOver)) {
 	    return;

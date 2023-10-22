@@ -366,18 +366,20 @@ function drawStats(){
 	draw_sprite_stretched(sHudCooldownIcon, 0, GW/11, GH/2.15 + stats_offset, 25, 25);
 	draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "Haste", 1.5, 1.5, 0);
 	draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
-	calc = 0;
-	for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
-		if (Bonuses[BonusType.Haste][i] != 0) {
-			calc += real(string_replace(string(Bonuses[BonusType.Haste][i]), "1.", ""));
-		}
-	}
-	//for (var i = 0; i < array_length(PerkBonuses[BonusType.Haste]); ++i) {
-	//	if (PerkBonuses[BonusType.Haste][i] != 0) {
-	//	    calc += real(string_replace(string(PerkBonuses[BonusType.Haste][i]), "1.", ""));
+	calc = oPlayer.weaponHaste;
+	//for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
+	//	if (Bonuses[BonusType.Haste][i] != 0) {
+	//		calc += real(string_replace(string(Bonuses[BonusType.Haste][i]), "1.", ""));
 	//	}
-	//}//TODO: if there is a Haste bonus perk
-	str = ((calc > 0) ? "+" : "") + string_replace(string(calc), ".00", "") + "%";
+	//}
+	////for (var i = 0; i < array_length(PerkBonuses[BonusType.Haste]); ++i) {
+	////	if (PerkBonuses[BonusType.Haste][i] != 0) {
+	////	    calc += real(string_replace(string(PerkBonuses[BonusType.Haste][i]), "1.", ""));
+	////	}
+	////}//TODO: if there is a Haste bonus perk
+	calc = string_replace(string(calc), "1.0", "");
+	calc = string_replace(string(calc), "1.", "");
+	str = ((calc > 0) ? "+" : "") + string(calc) + "%";
 	draw_set_halign(fa_right);
 	draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);
 	draw_set_halign(fa_center);

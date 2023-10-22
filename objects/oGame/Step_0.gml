@@ -240,13 +240,28 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	for (var i = 0; i < array_length(Buffs); ++i) {
 		if (Buffs[i][$ "enabled"] and variable_struct_exists(Buffs[i], "cooldown")) {
 			if (Buffs[i].cooldown > 0) {
-				Buffs[i].cooldown -= 1/60;
+				Buffs[i].cooldown -= 1/60 * Delta;
 				switch (Buffs[i][$ "id"]) {
 					case BuffNames.SakeFood:{
 						Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
 						break;}
 					case BuffNames.Spaghetti:{
 						oPlayer.spaghettiEaten = true;
+						break;}
+					case BuffNames.Soda:{
+						var _spd = 1.03;
+						var _crt = 1.03;
+						var _haste = 1.03;
+						for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
+						    if (PLAYER_PERKS[j].id == PerkIds.SodaFueled and PLAYER_PERKS[j].level == 3) {
+							    _spd = 1.09;
+								_crt = 1.09;
+								_haste = 1.09;
+							}
+						}
+						PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
+						PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
+						PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
 						break;}
 				}
 			}
@@ -271,6 +286,14 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 						break;}
 					case BuffNames.Spaghetti:{
 						oPlayer.spaghettiEaten = false;
+						break;}
+					case BuffNames.Soda:{
+						var _spd = 0;
+						var _crt = 0;
+						var _haste = 0;
+						PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
+						PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
+						PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
 						break;}
 					}
 				}

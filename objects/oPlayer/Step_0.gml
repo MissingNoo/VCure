@@ -49,6 +49,12 @@ for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
 		}
 	}
 }
+for (var i = 0; i < array_length(PerkBonuses[BonusType.Haste]); ++i) {
+	if (PerkBonuses[BonusType.Haste][i] != 0) {
+		//down += real("." + string_replace(Bonuses[BonusType.Haste][i], "1.", ""));
+		down += real("." + string_replace(string(PerkBonuses[BonusType.Haste][i]), "1.", ""));
+	}
+}
 for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
 	down = down + ((down * 4) / 100);
 }
@@ -220,6 +226,7 @@ if (!global.gamePaused) {
 	#endregion
 }
 #region spd calc
+	
 	calc = 0;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
 		if (Bonuses[BonusType.Speed][i] != 0) {

@@ -164,7 +164,9 @@ function populate_perks(){
 						weight : 1,
 						thumb : sMoldySoul,
 						cooldown : 1,
-						characterid : Characters.Pippa
+						characterid : Characters.Pippa,
+						upgradeid : Weapons.Mold,
+						chance : 33
 					});
 			//create_perk(PerkIds.MoldySoul, "Moldy Soul", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
 			//create_perk(PerkIds.MoldySoul, "Moldy Soul", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);

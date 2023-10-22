@@ -52,6 +52,7 @@ function initializePlayer(_p){
 				Bonuses[i]=0;
 			}
 		}
+		Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus] = 1;
 		if(variable_global_exists("pig") and time_source_exists(global.pig)) {time_source_destroy(global.pig);}
 	#endregion
 	
@@ -120,6 +121,7 @@ enum BuffNames{
 	SakeFood,
 	Spaghetti,
 	Paralyzed,
+	Soda,
 	testbuff
 }
 function populate_characters(){
@@ -181,6 +183,14 @@ function populate_characters(){
 		id : BuffNames.Paralyzed,
 		name : "Paralyzed",
 		icon : sBlank,
+		enabled : false,
+		baseCooldown : 3,
+		cooldown : 0,
+	}
+	Buffs[BuffNames.Soda] = {
+		id : BuffNames.Soda,
+		name : "Soda",
+		icon : sSodaFueled,
 		enabled : false,
 		baseCooldown : 3,
 		cooldown : 0,

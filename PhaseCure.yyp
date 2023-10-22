@@ -248,6 +248,7 @@
     {"id":{"name":"sMiComet","path":"sprites/sMiComet/sMiComet.yy",},},
     {"id":{"name":"input_vibrate_adsr","path":"scripts/input_vibrate_adsr/input_vibrate_adsr.yy",},},
     {"id":{"name":"fnt_example","path":"fonts/fnt_example/fnt_example.yy",},},
+    {"id":{"name":"oSoda","path":"objects/oSoda/oSoda.yy",},},
     {"id":{"name":"test_color_inputs","path":"objects/test_color_inputs/test_color_inputs.yy",},},
     {"id":{"name":"rShop","path":"rooms/rShop/rShop.yy",},},
     {"id":{"name":"oShiranuiEmployee54","path":"objects/oShiranuiEmployee54/oShiranuiEmployee54.yy",},},

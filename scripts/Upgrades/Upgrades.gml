@@ -147,6 +147,7 @@ enum Weapons{
 	RestNote,
 	LiaBolt,
 	ElectricPulse,
+	Mold,
 	BlBook, //TODO: area, knockback
 	BounceBall,
 	CEOTears,
@@ -195,7 +196,7 @@ function populate_upgrades(){
 				name : "Music Note",
 				maxlevel : 7,
 				sprite : sEightNote,
-				attackdelay : 10,
+				attackdelay : 20,
 				thumb : sUrukaNote,
 				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
@@ -1269,8 +1270,8 @@ function populate_upgrades(){
 		maxlevel : 3,
 		sprite : sBombExplosion,
 		thumb : sRifle,
-		mindmg : (7*333)/100,
-		maxdmg : (13*333)/100,
+		mindmg : 0,
+		maxdmg : 0,
 		cooldown : [180, 174, 174],
 		duration : 100, 
 		attackdelay : 20,
@@ -1283,7 +1284,29 @@ function populate_upgrades(){
 		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 		perk : true,
-		characterid : Characters.Lenght
+		characterid : Characters.Null
+	});
+	new_create_upgrade({
+		id : Weapons.Mold,
+		name : "mold",
+		maxlevel : 1,
+		sprite : sMoldSpread,
+		thumb : sRifle,
+		mindmg : 0,
+		maxdmg : 0,
+		cooldown : [180, 174, 174],
+		duration : 100, 
+		attackdelay : 20,
+		hitCooldown : 10, 
+		canBeHasted : true,
+		speed : 0,
+		hits : 100,
+		type : "red",
+		shoots : 1,
+		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+		perk : true,
+		characterid : Characters.Null
 	});
 	#endregion
 	#endregion
@@ -1338,7 +1361,7 @@ function random_upgrades(){
 			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
 				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 					if ((variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$ "unlocked"]) or variable_struct_exists(WEAPONS_LIST[i][1], "collab")) {
-					    break;
+					    continue;
 					}
 					var maxed = false;
 					var found = false;
@@ -1379,7 +1402,12 @@ function random_upgrades(){
 				}	
 				//show_message(str);
 			}
-			
+			for (var i = 0; i < array_length(weaponsList); ++i) {
+			    if (variable_struct_exists(weaponsList[i][1], "characterid") and weaponsList[i][1].characterid != global.player[?"id"]) {
+				    array_delete(weaponsList, i, 1);					
+					i = 0;
+				}
+			}
 		#endregion
 	
 		#region Items

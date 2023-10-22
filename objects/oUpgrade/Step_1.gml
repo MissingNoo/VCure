@@ -333,12 +333,17 @@ image_speed = 0;
 		}
 		case Weapons.HeavyArtillery:{
 			default_behaviour();
+			mindmg = (UPGRADES[0].mindmg*333)/100;
+			maxdmg = (UPGRADES[0].maxdmg*333)/100;
 			var closest = instance_nearest(oPlayer.x ,oPlayer.y, oEnemy);
 			x=closest.x;
 			y=closest.y;
-			if (shoots>0) {
-				//alarm[0] = 20;
-			}
+			break;
+		}
+		case Weapons.Mold:{
+			default_behaviour();
+			mindmg = (UPGRADES[0].mindmg*33)/100;
+			maxdmg = (UPGRADES[0].maxdmg*33)/100;
 			break;
 		}
 		#endregion

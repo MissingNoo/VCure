@@ -483,7 +483,7 @@ function clientReceivedPacket(_buffer)
 				
 			case Network.PlayerDisconnect:{
 				var _socket = buffer_read(_buffer, buffer_u8);
-				show_message(_socket);
+				//show_message(_socket);
 				instance_destroy(ds_map_find_value(socketToInstanceID, _socket));
 				break;}
 				

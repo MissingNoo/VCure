@@ -113,15 +113,17 @@ function newCreateItem(_data){
 		UberSheep,
 		Holocoin,
 		Hamburguer,
-		Length
+		Length,
+		MoldySoulBonus,
+		MaxLength
 	}
 	global.bonuses[0] = 0;
-	for (var i = 0; i < ItemIds.Length; ++i) {
+	for (var i = 0; i < ItemIds.MaxLength; ++i) {
 		for (var j = 0; j < BonusType.Lenght; ++j) {
 		    Bonuses[i][j] = 0;
 		}
 	}
-	
+	Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus] = 1;
 	Bonuses[BonusType.Critical][ItemIds.Sake] = [0,0];
 	
 	enum BonusType{

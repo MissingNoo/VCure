@@ -6,6 +6,9 @@ switch (upg[$ "id"]) {
 		    instance_destroy();
 		}
 		break;}
+	case Weapons.Mold:{
+		instance_destroy();
+		break;}
 	case Weapons.LiaBolt:{
 		if (sprite_index == sLiaBoltShock) {
 		    instance_destroy();
