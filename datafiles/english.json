@@ -203,6 +203,7 @@
             },
             "PiPiPilstols":{
             "name":"PiPiPistols",
+			"desc": "One pistol shoots in aimed direction, another at random targets",
             "1": "One pistol shoots in aimed direction, another at random targets",
             "2": "Shoot 1 additional shot from each pistol",
             "3": "Increase damage by 25%, and each bullet can pierce +1 times.",
@@ -398,18 +399,21 @@
 		"Perks": {
 			"Heavy Artillery" : {
 				"name": "Heavy Artillery",
+				"desc" : "Every 3 seconds, fire a naval gun, dealing 333% damage.",
 				"1":"Every 3 seconds, fire a naval gun, dealing 333% damage.",
 				"2":"Naval guns fire 33% more often.",
 				"3":"Naval guns fire +1 times."
 				},
 			"Moldy Soul": {
 				"name": "Moldy Soul",
+				"desc": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage",
 				"1": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage",
 				"2": "Critical hits with your main weapon have a 33% chance to spawn Mold that hits nearby targets for 33% damage.",
 				"3": "Extra Crit Damage afftects Mold critical hits 3 times."
 			},
 			"Soda Fueled": {
 				"name": "Soda Fueled",
+				"desc": "Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.",
 				"1": "Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.",
 				"2": "Soda lasts 3 times longer.",
 				"3": "All soda buffs are 3 times stronger."
