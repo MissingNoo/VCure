@@ -406,8 +406,8 @@
 				},
 			"Moldy Soul": {
 				"name": "Moldy Soul",
-				"desc": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage",
-				"1": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage",
+				"desc": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage.",
+				"1": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage.",
 				"2": "Critical hits with your main weapon have a 33% chance to spawn Mold that hits nearby targets for 33% damage.",
 				"3": "Extra Crit Damage afftects Mold critical hits 3 times."
 			},
@@ -417,6 +417,27 @@
 				"1": "Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.",
 				"2": "Soda lasts 3 times longer.",
 				"3": "All soda buffs are 3 times stronger."
+			},
+			"Dirty Mind": {
+				"name": "Dirty Mind",
+				"desc": "Gives Uruka a ?% chance to negate received damage, and turns half of it into Healing.",
+				"1": "Gives Uruka a ?% chance to negate received damage, and turns half of it into Healing.",
+				"2": "Increase negate chance to 20%.",
+				"3": "Increase negate chance to 25%."
+			},
+			"Brittle Bones": {
+				"name": "Brittle Bones",
+				"desc": "Take more damage, spawn Rest Notes when taking damage.",
+				"1": "Take +2 damage, spawn Rest Notes when taking damage.",
+				"2": "Take +3 dmg.",
+				"3": "Take +4 dmg."
+			},
+			"Trash Bear": {
+				"name": "Trash Bear",
+				"desc": "Chance to drop spaghetti from enemies killed.",
+				"1": "10% Chance to drop spaghetti from enemies killed.",
+				"2": "Increase drop chance to 11%.",
+				"3": "Increase drop chance to 12%."
 			}
 		}
     }
