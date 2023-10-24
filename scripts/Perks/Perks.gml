@@ -202,7 +202,8 @@ function tick_perks()
 			switch (PLAYER_PERKS[i][$ "id"]) {
 				case PerkIds.Lick:{
 					var _list = ds_list_create();
-					var _num = collision_circle_list(oPlayer.x, oPlayer.y - 16, PLAYER_PERKS[i].lickArea, oEnemy, false, true, _list, false);
+					var _y = oPlayer.y - (sprite_get_height(global.player[?"sprite"]) / 3);
+					var _num = collision_circle_list(oPlayer.x, _y, PLAYER_PERKS[i].lickArea, oEnemy, false, true, _list, false);
 					for (var j = 0; j < _num; ++j) {
 						var _heal = ceil(MAXHP/100);
 					    heal_player(_heal);

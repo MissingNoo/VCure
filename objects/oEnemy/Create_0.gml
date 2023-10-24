@@ -103,4 +103,6 @@ oImageSpeed = image_speed;
 #region Lia
 infected = false;
 infectedAttackTimer = 10;
+lightningMarked = false;
+lightningTimer = 10;
 #endregion

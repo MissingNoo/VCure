@@ -38,6 +38,12 @@ if(_canmove and instance_exists(target)){
 	    hp -= baseHP / 5000;
 		infectedAttackTimer--;
 	}
+	if (lightningTimer > 0) {
+		lightningTimer -= 1*Delta;
+	}
+	else{
+		lightningMarked = false;
+	}
 	if (damagedAlarm > 0) {
 	    damagedAlarm-= 1*Delta;
 	}

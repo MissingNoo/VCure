@@ -13,7 +13,6 @@ for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	}
 }
 #endregion
-
 if (global.debug) {
 	draw_text(x,y-90, $"healSeconds: {bandageHealSeconds}, haveBandage: {haveBandage}, remaining: {justBandageHealing}");
 	draw_text(x,y-70, $"d: {spd * Delta}");
@@ -38,7 +37,8 @@ draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrowDir,c_white,1);
 switch (global.player[?"id"]) {
     case Characters.Lia:
         if (lickArea > 0) {
-		    draw_circle_color(x, y - 16, lickArea, c_white, c_white, true);
+			var _y = y - (sprite_get_height(sprite_index) / 3);
+		    draw_circle_color(x, _y, lickArea, c_white, c_white, true);
 		}
         break;
     default:

@@ -4,7 +4,7 @@
   "name": "sMenuTitle",
   "bbox_bottom": 127,
   "bbox_left": 0,
-  "bbox_right": 946,
+  "bbox_right": 740,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -20,7 +20,7 @@
   "height": 128,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d4798109-d97c-4ec0-b0fe-622ea3c67c88","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"cae05d3f-df7a-42f4-8745-1f22cfa415ed","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -59,7 +59,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 473,
+    "xorigin": 370,
     "yorigin": 64,
   },
   "swatchColours": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 947,
+  "width": 741,
 }

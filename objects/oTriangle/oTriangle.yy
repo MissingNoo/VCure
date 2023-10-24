@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sTriangle",
-    "path": "sprites/sTriangle/sTriangle.yy",
+    "name": "sPhaseIcon",
+    "path": "sprites/sPhaseIcon/sPhaseIcon.yy",
   },
   "spriteMaskId": null,
   "visible": true,

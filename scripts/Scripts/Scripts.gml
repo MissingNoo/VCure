@@ -364,3 +364,88 @@ function open_keyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr =
 	    keyboard_virtual_show(kbv_type_default, kbv_returnkey_default, kbv_autocapitalize_none, false);
 	}
 }
+function draw_lightning(_x, _y, _x2, _y2, _branches, _color){
+//x = x of the bolt's start
+//y = y of the bolt's start
+//x2 = x of the bolt's end
+//y2 = y of the bolt's end
+//branches = true or false, if the lightning bolt branches into multiple smaller ones
+//colour = colour of the glow
+var dir = point_direction(_x,_y,_x2,_y2);
+var length = point_distance(_x,_y,_x2,_y2);
+var colour = _color;
+
+//make different segments
+var i = 0;
+var i2 = 1;
+var point;
+point[0] = 0;
+do
+    {
+    i++;
+    if random(1) < .06
+        {
+        point[i2] = i;
+        i2++;
+        }
+    }
+until i >= length
+point[i2] = length;
+var points = array_length_1d(point);
+
+//draw segments
+var i = 0;
+var i2 = 1
+var difx = 0;
+var difx2 = 0;
+var dify = 0;
+var dify2 = 0;
+
+do //loop through and draw all the segments
+    {
+    difx = random_range(-7,7)
+    dify = random_range(-7,7)
+    
+    var xx = _x + lengthdir_x(point[i2 - 1],dir);
+    var yy = _y + lengthdir_y(point[i2 - 1],dir);
+    var xx2 = _x + lengthdir_x(point[i2],dir);
+    var yy2 = _y + lengthdir_y(point[i2],dir);
+    
+    //create a branch
+    if random(1) < .15 && _branches
+        {
+        var bdir = dir + choose(random_range(-45,-25),random_range(45,25));
+        var blength = random_range(5,30);
+        draw_lightning(xx + difx2, yy + dify2, xx + difx2 + lengthdir_x(blength,bdir), yy + dify2 + lengthdir_y(blength,bdir), false,colour)
+        }
+    
+    var size = random_range(.1,1);
+    //draw the glow of the lightning
+    draw_set_alpha(.1)
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 5,colour,colour);
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 3,c_white,c_white);
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 1,c_white,c_white);
+    draw_set_alpha(1)
+    //draw the white center of the lightning
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size,c_white,c_white);
+    
+    i2++;
+    difx2 = difx;
+    dify2 = dify;
+    }
+until i2 = points
+
+//draw a glowing circle
+if _branches
+    {
+    var size = random_range(1,2)
+    draw_set_alpha(.1)
+    draw_circle_colour(_x,_y,size + 2.5,colour,colour,false);
+    draw_circle_colour(_x,_y,size + 1.5,colour,colour,false);
+    draw_circle_colour(_x,_y,size + .5,colour,colour,false);
+    draw_set_alpha(1)
+    draw_circle_colour(_x,_y,size,c_white,c_white,false);
+    }
+
+
+}

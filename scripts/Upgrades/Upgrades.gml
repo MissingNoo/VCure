@@ -251,10 +251,10 @@ function populate_upgrades(){
 				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
 				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
 				cooldown : [80, 80, 80*0.90, 80*0.90, 80*0.90, 80*0.90, 80*0.90],
-				duration : 200, 
+				duration : 50, 
 				hitCooldown : [10, 10, 10, 10, 10, 10, 10], 
 				canBeHasted : true,
-				speed : 3,
+				speed : 0,
 				hits : 1,
 				type : "red",
 				shoots : 1,
@@ -283,7 +283,8 @@ function populate_upgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
-				characterid : Characters.Lia,
+				size : 0.5,
+				characterid : Characters.Null,
 			});
 		#endregion
 	

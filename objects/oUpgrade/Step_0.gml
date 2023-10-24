@@ -162,6 +162,14 @@ if (!global.gamePaused) {
 			y = owner.y - 16;
 			image_xscale = image_yscale + 0.5;
 			break;}
+		case Weapons.LiaBolt:{
+			image_xscale = 0.1;
+			image_yscale = 0.1;
+			if (lightningTarget != noone and instance_exists(lightningTarget)) {
+			    x = lightningTarget.x;
+				y = lightningTarget.y;
+			}
+			break;}
 		case Weapons.PsychoAxe:{
 			//part_type_sprite(part, upg[$ "sprite"], false, false, image_index);
 			x = xstart + lengthdir_x(round(orbitLength), round(orbitPlace));

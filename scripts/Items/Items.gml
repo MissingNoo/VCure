@@ -23,7 +23,7 @@ global.itemCooldown[0] = 0;
 #endregion
 
 #region Item Functions
-function newCreateItem(_data){
+function new_create_item(_data){
 	ItemList[_data.id][0] = global.nullitem;	
 	for (var i = 1; i <= _data.maxlevel; ++i) {
 		ItemList[_data.id][i] = {};
@@ -152,7 +152,7 @@ function newCreateItem(_data){
 function populate_items(){
 	#region Item Creation
 		#region Items
-			newCreateItem({//Blacksmith's Gear
+			new_create_item({//Blacksmith's Gear
 				id : ItemIds.BlacksmithsGear,
 				name : "Blacksmith's Gear",
 				maxlevel : 3,
@@ -162,7 +162,7 @@ function populate_items(){
 				perk : false,
 			});
 			#region BodyPillow
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Body_Pillow,
 				name : "Body Pillow",
 				maxlevel : 5,
@@ -177,7 +177,7 @@ function populate_items(){
 				//Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
 			#endregion
-			newCreateItem({//Breasplate
+			new_create_item({//Breasplate
 				id : ItemIds.Breastplate,
 				name : "Breastplate",
 				maxlevel : 3,
@@ -189,7 +189,7 @@ function populate_items(){
 				reflectChance : [50, 60, 70],
 				reflectDamage : [2, 2.5, 3],
 				perk : false});			
-			newCreateItem({//Devil Hat
+			new_create_item({//Devil Hat
 				id : ItemIds.DevilHat,
 				name : "Devil Hat",
 				maxlevel : 3,
@@ -200,7 +200,7 @@ function populate_items(){
 				perk : false});
 			#region Holocoin
 			
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Holocoin,
 				name : "Holocoin",
 				maxlevel : 1,
@@ -216,7 +216,7 @@ function populate_items(){
 			#endregion
 			
 			#region Hamburger
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Hamburguer,
 				name : "Hamburguer",
 				maxlevel : 1,
@@ -232,7 +232,7 @@ function populate_items(){
 			#endregion
 		
 			#region Chicken's Feather
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Chicken_Feather,
 				name : "Chicken's Feather",
 				maxlevel : 3,
@@ -244,7 +244,7 @@ function populate_items(){
 			#endregion
 			
 			#region Credit Card
-			newCreateItem(
+			new_create_item(
 			{
 				id : ItemIds.CreditCard,
 				name : "Credit Card",
@@ -262,7 +262,7 @@ function populate_items(){
 			#endregion
 		
 			#region GWS Pill 
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.GWS_Pill,
 				name : "GWS Pill",
 				maxlevel : 3,
@@ -274,7 +274,7 @@ function populate_items(){
 			#endregion
 			
 			#region Just Bandage 
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Just_Bandage,
 				name : "Just Bandage",
 				maxlevel : 3,
@@ -285,7 +285,7 @@ function populate_items(){
 			#endregion
 			
 			#region Limiter
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Limiter,
 				name : "Limiter",
 				maxlevel : 3,
@@ -299,7 +299,7 @@ function populate_items(){
 			#endregion
 			
 			#region Super Chatto Time
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Super_Chatto_Time,
 				name : "Super Chatto Time",
 				maxlevel : 5,
@@ -314,7 +314,7 @@ function populate_items(){
 			#endregion
 			
 			#region Stolen Piggy Bank
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Stolen_Piggy_Bank,
 				name : "Stolen Piggy Bank",
 				maxlevel : 1,
@@ -325,7 +325,7 @@ function populate_items(){
 			#endregion
 		
 			#region Sake
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Sake,
 				name : "Sake",
 				maxlevel : 3,
@@ -337,7 +337,7 @@ function populate_items(){
 			#endregion
 			
 			#region Plushie
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Plushie,
 				name : "Plushie",
 				maxlevel : 3,
@@ -348,7 +348,7 @@ function populate_items(){
 			#endregion
 			
 			#region Piki Piki Piman
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Piki_Piki_Piman,
 				name : "Piki Piki Piman",
 				maxlevel : 3,
@@ -361,7 +361,7 @@ function populate_items(){
 			#endregion
 			
 			#region Membership
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Membership,
 				name : "Membership",
 				maxlevel : 3,
@@ -374,7 +374,7 @@ function populate_items(){
 			#endregion
 			
 			#region Halu 
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Halu,
 				name : "Halu",
 				maxlevel : 5,
@@ -388,7 +388,7 @@ function populate_items(){
 				*/
 			#endregion
 		
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Hope_Soda,
 				name : "Hope Soda",
 				maxlevel : 5,
@@ -404,7 +404,7 @@ function populate_items(){
 			//Bonuses[BonusType.CriticalDamage][ItemIds.Hope_Soda] = 0;
 		
 			#region Idol Costume
-				newCreateItem({
+				new_create_item({
 					id : ItemIds.Idol_Costume,
 					name : "Idol Costume",
 					maxlevel : 5,
@@ -418,7 +418,7 @@ function populate_items(){
 			#endregion
 		
 			#region Energy Drink
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Energy_Drink,
 				name : "Energy Drink",
 				maxlevel : 3,
@@ -434,7 +434,7 @@ function populate_items(){
 			#endregion
 		
 			#region Face Mask
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Face_Mask,
 				name : "Face Mask",
 				maxlevel : 1,
@@ -450,7 +450,7 @@ function populate_items(){
 			#endregion
 		
 			#region Full Meal
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.FullMeal,
 				name : "Full Meal",
 				maxlevel : 1,
@@ -462,7 +462,7 @@ function populate_items(){
 			#endregion
 		
 			#region Gorilla's Paw
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Gorilla_Paw,
 				name : "Gorilla's Paw",
 				maxlevel : 3,
@@ -478,7 +478,7 @@ function populate_items(){
 			#endregion
 			
 			#region Headphones
-			newCreateItem(
+			new_create_item(
 			{
 				id : ItemIds.Headphones,
 				name : "Headphones",
@@ -492,7 +492,7 @@ function populate_items(){
 			#endregion
 		
 			#region Injection Type Asacoco
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Injection_Type_Asacoco,
 				name : "Injection Type Asacoco",
 				maxlevel : 3,
@@ -507,7 +507,7 @@ function populate_items(){
 			#endregion
 		
 			#region Knightly Milk
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.Knightly_Milk,
 				name : "Knightly Milk",
 				maxlevel : 3,
@@ -523,7 +523,7 @@ function populate_items(){
 			#endregion
 		
 			#region Nurse's Horn
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.NurseHorn,
 				name : "Nurse's Horn",
 				maxlevel : 3,
@@ -534,7 +534,7 @@ function populate_items(){
 			#endregion		
 			
 			#region Study Glasses
-			newCreateItem(
+			new_create_item(
 			{
 				id : ItemIds.Study_Glasses,
 				name : "Study Glasses",
@@ -551,7 +551,7 @@ function populate_items(){
 			#endregion
 		
 			#region UberSheep
-			newCreateItem({
+			new_create_item({
 				id : ItemIds.UberSheep,
 				name : "Uber Sheep",
 				maxlevel : 5,

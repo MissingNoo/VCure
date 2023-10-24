@@ -133,7 +133,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 			    if (PLAYER_PERKS[i].id == PerkIds.Viral) {
 					var _infectChance = PLAYER_PERKS[i].chance;
 					_rnd = irandom_range(1, 100);
-					if (_rnd <= _infectChance and oPlayer.liaLikers < PLAYER_PERKS[i].maxInfected) {
+					if (_rnd <= _infectChance and oPlayer.liaLikers < PLAYER_PERKS[i].maxInfected and !other.boss) {
 					    other.infected = true;
 						_virusInfected = true;
 						//other.speed = other.speed * global.player[?"speed"];

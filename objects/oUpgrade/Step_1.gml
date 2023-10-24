@@ -491,6 +491,20 @@ image_speed = 0;
 			//    image_xscale = image_xscale*-1;
 			//}
 			break;}
+		case Weapons.LiaBolt:{
+			var _list = ds_list_create();
+			var _num = collision_circle_list(x,y, 150, oEnemy, false, true, _list, true);
+			if (_num > 0) {
+				for (var i = 0; i < _num; ++i) {
+				    if (!_list[| i].lightningMarked and !_list[| i].infected) {
+					    lightningTarget = _list[| i];
+						_list[| i].lightningMarked = true;
+						_list[| i].lightningTimer = 10;						
+						break;
+					}
+				}			    
+			}			
+			break;}
 		case Weapons.RingOfFitness:{
 			//ringDir = 0;
 			for (var i = 0; i < global.player[?"ballsize"]; ++i) {
@@ -533,7 +547,10 @@ image_speed = 0;
 	if (sprite_index==sBlank and !variable_struct_exists(upg, "collab")) {
 			instance_destroy();
 	}
-	
+	if (variable_struct_exists(upg, "size")) {
+	    image_xscale = upg[$ "size"];
+	    image_yscale = upg[$ "size"];
+	}
 	originalSize = [image_xscale, image_yscale];	
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$ "id"] != Weapons.HoloBomb) {

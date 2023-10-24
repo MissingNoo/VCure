@@ -16,6 +16,10 @@ function noteExplosion(){
 	sprSpeedType = sprite_get_speed_type(sprite_index);
 }
 #endregion
+#region Lia
+drawLighting = true;
+lightningTarget = noone;
+#endregion
 #region EliteCooking
 poolSize = 20;
 #endregion

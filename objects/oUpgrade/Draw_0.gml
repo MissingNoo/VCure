@@ -13,6 +13,11 @@ if (variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] and image_
 
 
 switch (upg[$ "id"]) {
+	case Weapons.LiaBolt:{
+		if (lightningTarget != noone and instance_exists(lightningTarget)) {
+		    draw_lightning(owner.x,owner.y, lightningTarget.x, lightningTarget.y, false, c_blue);
+		}
+		break;}
     case Weapons.SpiderCooking:
         draw_set_color(c_purple);
 		draw_set_alpha(.35);
