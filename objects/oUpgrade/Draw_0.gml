@@ -15,7 +15,8 @@ if (variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] and image_
 switch (upg[$ "id"]) {
 	case Weapons.LiaBolt:{
 		if (lightningTarget != noone and instance_exists(lightningTarget)) {
-		    draw_lightning(owner.x,owner.y, lightningTarget.x, lightningTarget.y, false, c_blue);
+			var _newowner = variable_instance_exists(self, "newowner");
+		    draw_lightning(!_newowner ? owner.x : startX, (!_newowner ? owner.y : startY) - (sprite_get_height(owner.sprite_index) / 2), lightningTarget.x, lightningTarget.y - (sprite_get_height(lightningTarget.sprite_index) / 2), false, lightningColor);
 		}
 		break;}
     case Weapons.SpiderCooking:

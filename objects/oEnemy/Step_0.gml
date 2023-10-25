@@ -88,31 +88,26 @@ if(_canmove and instance_exists(target)){
 	    //alarm[3] = lifetime * 60;
 	    lifetimeAlarm = lifetime * 60;
 	}
-	var nearupgrade;
-		if (instance_exists(oUpgrade) and instance_exists(target)) {
-				if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;} //TODO: remove?
-				if (followPlayer) {
-					direction=point_direction(x,y,target.x,target.y);
-					if (boss) {
-						if(target.x < x) image_xscale=-2;
-						if(target.x > x) image_xscale=2;
-						image_yscale = 2;
-					}
-					else{
-						if(target.x < x) image_xscale= xscale * -1;
-						if(target.x > x) image_xscale=xscale;
-						image_yscale = yscale;
-					}
-				}
+	if (instance_exists(target)) {
+		if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;} //TODO: remove?
+		if (followPlayer) {
+			direction=point_direction(x,y,target.x,target.y);
+			if (boss) {
+				if(target.x < x) image_xscale=-2;
+				if(target.x > x) image_xscale=2;
+				image_yscale = 2;
 			}
-		
-		//if (infected and (!instance_exists(target) or distance_to_object(target) > 100) or (variable_instance_exists(target, "infected") and target.infected)) {
-		//    target = noone;
-		//}		
-		if (customSpawn and distance_to_point(dieX, y) < 10) {
-			dropxp = false;
-		    hp = 0;			
+			else{
+				if(target.x < x) image_xscale= xscale * -1;
+				if(target.x > x) image_xscale=xscale;
+				image_yscale = yscale;
+			}
 		}
+	}
+	if (customSpawn and distance_to_point(dieX, y) < 10) {
+		dropxp = false;
+		hp = 0;
+	}
 	
 	if (hp<=0) {
 		if (!saved) {

@@ -422,9 +422,9 @@ do //loop through and draw all the segments
     var size = random_range(.1,1);
     //draw the glow of the lightning
     draw_set_alpha(.1)
-    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 5,colour,colour);
-    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 3,c_white,c_white);
-    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 1,c_white,c_white);
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 7,colour,colour);
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 5,c_white,c_white);
+    draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size + 2,c_white,c_white);
     draw_set_alpha(1)
     //draw the white center of the lightning
     draw_line_width_colour(xx + difx2,yy + dify2,xx2 + difx,yy2 + dify, size,c_white,c_white);

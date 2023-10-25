@@ -30,6 +30,9 @@ if (variable_struct_exists(upg, "size")) {
 	    image_xscale = upg[$ "size"];
 	    image_yscale = upg[$ "size"];
 	}
+if (variable_struct_exists(upg, "bolts")) {
+    bolts = bolts == -1 ? upg[$ "bolts"] : -1;
+}
 if (shoots == 0) {
     shoots = upg[$ "shoots"];
 }
@@ -499,11 +502,29 @@ image_speed = 0;
 				    if (!_list[| i].lightningMarked and !_list[| i].infected) {
 					    lightningTarget = _list[| i];
 						_list[| i].lightningMarked = true;
-						_list[| i].lightningTimer = 10;						
+						_list[| i].lightningTimer = 20;
 						break;
 					}
-				}			    
-			}			
+				}
+			}
+			if (variable_instance_exists(self, "newbolts")) {
+			    bolts = newbolts;
+			    lightningColor = newboltcolor;
+				startX = newowner.x;
+				startY = newowner.y;
+			}
+			if (bolts > 1 and lightningTarget != noone) {
+				var _inst = instance_create_layer(lightningTarget.x, lightningTarget.y, "Upgrades",oUpgrade,{
+					upg,
+					hits,
+					mindmg,
+					maxdmg,
+					sprite_index : sLiaBolt
+				});
+				_inst.newbolts = bolts - 1;
+				_inst.newboltcolor = lightningColor;
+				_inst.newowner = id;
+			}
 			break;}
 		case Weapons.RingOfFitness:{
 			//ringDir = 0;

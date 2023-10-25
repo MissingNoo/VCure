@@ -114,6 +114,9 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
+    {"name":"Iori","order":7,"path":"folders/Sprites/Characters/Iori.yy",},
+    {"name":"Nasa","order":8,"path":"folders/Sprites/Characters/Nasa.yy",},
+    {"name":"Michiru","order":9,"path":"folders/Sprites/Characters/Michiru.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_gamepad_check_released","order":2,"path":"scripts/input_gamepad_check_released/input_gamepad_check_released.yy",},
@@ -437,6 +440,7 @@
     {"name":"bgtest264","order":25,"path":"sprites/bgtest264/bgtest264.yy",},
     {"name":"input_mouse_check_released","order":2,"path":"scripts/input_mouse_check_released/input_mouse_check_released.yy",},
     {"name":"input_gamepad_check_pressed","order":1,"path":"scripts/input_gamepad_check_pressed/input_gamepad_check_pressed.yy",},
+    {"name":"sTenmaArt","order":5,"path":"sprites/sTenmaArt/sTenmaArt.yy",},
     {"name":"sHeadPhones","order":15,"path":"sprites/sHeadPhones/sHeadPhones.yy",},
     {"name":"sGachaLogo","order":1,"path":"sprites/sGachaLogo/sGachaLogo.yy",},
     {"name":"imguigml_functions","order":2,"path":"scripts/imguigml_functions/imguigml_functions.yy",},

@@ -19,6 +19,9 @@ function noteExplosion(){
 #region Lia
 drawLighting = true;
 lightningTarget = noone;
+lightningColor = choose(c_red, c_blue, c_yellow);
+startX = x;
+startY = y;
 #endregion
 #region EliteCooking
 poolSize = 20;

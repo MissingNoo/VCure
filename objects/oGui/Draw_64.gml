@@ -26,7 +26,22 @@ if (room == rInicio) {
 	if (!global.gamePaused) {
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 		draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
-		draw_sprite_ext(sMenuTalents, 0, GW/3.47, GH/1.94, 0.8, 0.8, 0, c_white, 1);
+		//draw_sprite_ext(sMenuTalents, 0, GW/3.47, GH/1.94, 0.8, 0.8, 0, c_white, 1);
+		var _talents = [
+			[sIoriArt, #e7eeea, 8.99, 1.88],
+			[sUrukaArt, #455b82, 6.13, 1.71],
+			[sTenmaArt, #e3dee4, 4.74, 1.54],
+			[sMichiruArt, #703e6e, 2.38, 1.88],
+			[sNasaArt, #fadf9e, 2.80, 1.91],
+			[sPippaArt, #f7bcb3, 3.18, 1.69],
+			[sLiaArt, #fce1ae, 3.96, 1.88]			
+		]
+		for (var i = 0; i < array_length(_talents); ++i) {
+		    gpu_set_fog(true, _talents[i][1],0,0);
+			var _sine = i % 2 ? sine_wave(current_time  / 1000, 10, 10, GH/_talents[i][3]) : cose_wave(current_time  / 1000, 10, 10, GH/_talents[i][3]);
+			draw_sprite_ext(_talents[i][0], 0, GW/_talents[i][2], _sine, 0.3, 0.3, 0, c_white, 1);
+		}
+		gpu_set_fog(false,c_white,0,0);
 		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
 		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Shop", "Quit"];
 		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
