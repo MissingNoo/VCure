@@ -226,7 +226,7 @@ if (!global.gamePaused) {
 	#endregion
 }
 #region spd calc
-	newspd = ospd;
+	var newspd = ospd;
 	calc = 0;
 	for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
 		if (Bonuses[BonusType.Speed][i] != 0) {
@@ -267,7 +267,7 @@ if (!global.gamePaused) {
 	//	    calc += PerkBonuses[BonusType.PickupRange][i];
 	//	}    
 	//}//TODO: if there is a pickuprange bonus perk
-	shopBonus = originalPickupRadius;
+	var shopBonus = originalPickupRadius;
 	for (var i = 0; i < global.shopUpgrades[$ "PickUp"][$ "level"]; ++i) {
 	    shopBonus = shopBonus + ((shopBonus* 10) / 100);
 	}

@@ -163,8 +163,8 @@ if (!global.gamePaused) {
 			image_xscale = image_yscale + 0.5;
 			break;}
 		case Weapons.LiaBolt:{
-			image_xscale = 0.1;
-			image_yscale = 0.1;
+			image_xscale = 0.2;
+			image_yscale = 0.2;
 			if (lightningTarget != noone and instance_exists(lightningTarget)) {
 			    x = lightningTarget.x;
 				y = lightningTarget.y;

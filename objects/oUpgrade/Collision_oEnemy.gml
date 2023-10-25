@@ -149,7 +149,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		if (global.player[?"id"] == Characters.Pippa) {
 			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			    if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level >= 2) {
-				    var _rnd = irandom_range(1, 100);
+				    _rnd = irandom_range(1, 100);
 					var _chance = PLAYER_PERKS[i].chance;
 					if (_rnd <= _chance) {
 					    instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][1]});

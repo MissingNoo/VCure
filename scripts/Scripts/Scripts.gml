@@ -391,11 +391,12 @@ do
     }
 until i >= length
 point[i2] = length;
+// Feather disable once GM1017
 var points = array_length_1d(point);
 
 //draw segments
-var i = 0;
-var i2 = 1
+i = 0;
+i2 = 1
 var difx = 0;
 var difx2 = 0;
 var dify = 0;

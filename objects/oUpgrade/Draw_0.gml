@@ -17,6 +17,7 @@ switch (upg[$ "id"]) {
 		if (lightningTarget != noone and instance_exists(lightningTarget)) {
 			var _newowner = variable_instance_exists(self, "newowner");
 		    draw_lightning(!_newowner ? owner.x : startX, (!_newowner ? owner.y : startY) - (sprite_get_height(owner.sprite_index) / 2), lightningTarget.x, lightningTarget.y - (sprite_get_height(lightningTarget.sprite_index) / 2), false, lightningColor);
+			draw_rectangle(sprite_get_bbox_left(sprite_index), sprite_get_bbox_top(sprite_index), sprite_get_bbox_right(sprite_index), sprite_get_bbox_bottom(sprite_index), false);
 		}
 		break;}
     case Weapons.SpiderCooking:

@@ -5,4 +5,20 @@ if (haveafterimage) {
 		_alpha += .10
 	}
 }
-draw_self();
+if (variable_struct_exists(extraInfo, "upg")) {
+    switch (extraInfo.upg) {
+	    case Weapons.LiaBolt:
+			if (x == xstart and y == ystart) {
+			    break;
+			}
+	        draw_lightning(xstart, ystart, x, y, false, extraInfo.lightningColor);
+	        //draw_lightning(extraInfo.startX, extraInfo.startY, x, y, false, extraInfo.lightningColor);
+	        break;
+	    default:
+	        draw_self();
+	        break;
+	}
+}
+else{
+	draw_self();
+}

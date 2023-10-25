@@ -65,8 +65,8 @@
   "swatchColours": null,
   "swfPrecision": 2.525,
   "textureGroupId": {
-    "name": "texgroup1",
-    "path": "texturegroups/texgroup1",
+    "name": "Thumbs",
+    "path": "texturegroups/Thumbs",
   },
   "type": 0,
   "VTile": false,

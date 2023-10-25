@@ -1,6 +1,7 @@
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
 sprSpeedType = sprite_get_speed_type(sprite_index);
+var _extrainfo = {};
 //if (instance_number(oEnemy) == 0) {
 //    instance_destroy();
 //}
@@ -525,6 +526,7 @@ image_speed = 0;
 				_inst.newboltcolor = lightningColor;
 				_inst.newowner = id;
 			}
+			_extrainfo = {upg : upg[$"id"], lightningColor, startX, startY};
 			break;}
 		case Weapons.RingOfFitness:{
 			//ringDir = 0;
@@ -606,7 +608,8 @@ image_speed = 0;
 				//sendvars,
 				//upg : upg[$ "id"],
 				upgID,
-				haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false
+				haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false,
+				extraInfo : json_stringify(_extrainfo)
 			});
 		}
 		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];

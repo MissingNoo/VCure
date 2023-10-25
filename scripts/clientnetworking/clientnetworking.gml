@@ -105,6 +105,7 @@ function clientReceivedPacket2(_response)
 			_upg.direction = r[$ "direction"];
 			_upg.image_angle = r[$ "image_angle"];
 			_upg.haveafterimage = r[$ "haveafterimage"];
+			_upg.extraInfo= json_parse(r[$ "extraInfo"]);
 			_upg.speed = 0;
 			break;
 		}
