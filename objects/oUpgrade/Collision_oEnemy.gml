@@ -96,11 +96,11 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		//	}
 		//}
 	}
-	
+	#region Shop atk bonus
 	for (var i = 0; i < global.shopUpgrades[$ "Atk"][$ "level"]; ++i) {
 	    bdmg = bdmg + ((bdmg * 6) / 100);
 	}
-
+	#endregion
 	dmg = dmg + bdmg;
 	if (global.player == CHARACTERS[Characters.Uruka]) {
 	    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
@@ -228,7 +228,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		case Weapons.ENsCurse:
 			var chance = irandom_range(0, 100);
 			if (chance < upg[$ "chance"]) {
-				var near = instance_nearest(x,y, oEnemy);
+				var near = collision_circle(x, y, upg[$ "range"], oEnemy, false, true);
 			    if (distance_to_object(near) < upg[$ "range"]) {
 				    hits = 2;
 					image_angle = point_direction(x,y, near.x, near.y - 8);

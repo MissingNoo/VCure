@@ -7,7 +7,7 @@ if (global.shopUpgrades.MoneyGain.level > 0) {
 	//feather disable once GM2017
 	//show_message(global.shopUpgrades.MoneyGain.level);
 	//feather disable once GM2017
-    for (var i = 0; i < global.shopUpgrades.MoneyGain.level; ++i) { //TODO: Is this working?
+    for (var i = 0; i < global.shopUpgrades.MoneyGain.level; ++i) {
 	    coins = coins + ((coins * 20) / 100);
 	}
 }

@@ -56,12 +56,14 @@ image_speed = 0;
 
 	var randomEnemy;
 	//feather disable once GM2017
+	#region Growth damage bonus
 	if (upg[$ "perk"] and global.shopUpgrades.Growth.level == 1) {
 	    for (var i = 0; i < global.level; ++i) {
 		    mindmg = mindmg + (mindmg* 2 / 100);
 			maxdmg = maxdmg+ (maxdmg* 2 / 100);
 		}
 	}
+	#endregion
 	var cooldown = upg[$ "cooldown"];
 	if (upg[$ "canBeHasted"] == true and oPlayer.weaponHaste != 0) {
 	    cooldown -= (cooldown * oPlayer.weaponHaste) - cooldown;

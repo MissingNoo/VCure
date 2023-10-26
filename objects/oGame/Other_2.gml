@@ -74,7 +74,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			maxlevel : 5,
 			costs : [500, 1250, 3000, 6900, 15000 ]
 		},
-		Growth : {//TODO: Special attacks
+		Growth : {
 			name:"Growth",
 			desc : "Increase the damage of Character Main Weapons and Special Attacks by 2% per in-game level. ",
 			sprite : sHudGrowthIcon,
