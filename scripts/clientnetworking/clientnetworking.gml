@@ -1,3 +1,5 @@
+global.serverip = "140.238.187.191";
+global.port = 64198;
 // Feather disable GM2044
 // Feather disable GM2017
 enum Network {

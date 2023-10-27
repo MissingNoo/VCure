@@ -89,7 +89,7 @@ if(_canmove and instance_exists(target)){
 	    lifetimeAlarm = lifetime * 60;
 	}
 	if (instance_exists(target)) {
-		if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;} //TODO: remove?
+		if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;}
 		if (followPlayer) {
 			direction=point_direction(x,y,target.x,target.y);
 			if (boss) {

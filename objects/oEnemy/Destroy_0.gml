@@ -56,14 +56,15 @@ if (random_range(0,200) <= _dropchance) {
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 // randomize;
+var _spawnCoin = true;
 if (irandom_range(1, 90) == 1) {
 	for (var i = 0; i < array_length(Bonuses[BonusType.SuperChattoTime]); ++i) {
 	    if(Bonuses[BonusType.SuperChattoTime][i] > 0){
-			spawnCoin = false;
+			_spawnCoin = false;
 			global.newcoins += round(10 * Bonuses[BonusType.SuperChattoTime][i]);
 		}
 	}
-	if (spawnCoin) {
+	if (_spawnCoin) {
 	    instance_create_layer(x,y,"Instances", oHolocoin);
 	}
 }

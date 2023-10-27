@@ -18,7 +18,7 @@
   "exportToGame": true,
   "extensionVersion": "1.100.5",
   "files": [
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"","constants":[],"copyToTargets":35184372089026,"filename":"Imguigml.dll","final":"","functions":[
+    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"Imguigml.dll","constants":[],"copyToTargets":35184372089026,"filename":"Imguigml.dll","final":"","functions":[
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"_extImguiGML_init","argCount":0,"args":[],"documentation":"","externalName":"Init","help":"initialze imguigml (_display_width, _display_height)","hidden":false,"kind":1,"returnType":2,},
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"_extImguiGML_shutdown","argCount":0,"args":[],"documentation":"","externalName":"Shutdown","help":"Shutdown imguigml","hidden":false,"kind":1,"returnType":2,},
         {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"_extImguiGML_set_wrapper_buffer","argCount":0,"args":[
