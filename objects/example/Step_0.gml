@@ -20,7 +20,7 @@ if (imguigml_ready()) {
 		imguigml_set_next_window_size(540, 350, EImGui_Cond.Once);
 		
 		var ret = imguigml_begin("OpenCure", ShowTestWindow);
-		ShowTestWindow = ret[1]; 
+		ShowTestWindow = ret[1];
 		if (ret[0] && ret[1]) {
 			imguigml_text(string("FPS: {0}/{1}", fps, fps_real));
 			var _header = imguigml_collapsing_header("Values");

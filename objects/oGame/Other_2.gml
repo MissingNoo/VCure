@@ -8,6 +8,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudHPIcon,
 			level : 0,
 			maxlevel : 10,
+			tab : GlobalShopTabs.Stats,
 			costs : [200, 500, 1200, 2750, 6000, 12000, 18000, 24000, 30000, 36000]
 		},
 		Atk : {
@@ -16,6 +17,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudAtkIcon,
 			level : 0,
 			maxlevel : 10,
+			tab : GlobalShopTabs.Stats,
 			costs : [300, 750, 1800, 4100, 9100, 18000, 25000, 31000, 37000, 43000 ]
 		},
 		Spd : {
@@ -24,6 +26,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudSpdIcon,
 			level : 0,
 			maxlevel : 10,
+			tab : GlobalShopTabs.Stats,
 			costs : [200, 500, 1200, 2750, 6000, 12000, 18000, 24000, 30000, 36000]
 		},
 		Crit : {
@@ -32,6 +35,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudCrtIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [300, 750, 1800, 4100, 9100 ]
 		},
 		PickUp : {
@@ -40,6 +44,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudPickupIcon,
 			level : 0,
 			maxlevel : 10,
+			tab : GlobalShopTabs.Stats,
 			costs : [200, 500, 1200, 2750, 6000, 12000, 18000, 24000, 30000, 36000 ]
 		},
 		Haste : {
@@ -48,6 +53,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudCooldownIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [400, 1000, 2400, 5500, 12000 ]
 		},
 		Regeneration : {
@@ -56,6 +62,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudRegenerationIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [200, 500, 1200, 2750, 6000]
 		},
 		SpecialAtk : {
@@ -64,6 +71,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudSpecialUnlockIcon,
 			level : 0,
 			maxlevel : 1,
+			tab : GlobalShopTabs.Enhancements,
 			costs : [500]
 		},
 		SpecialCooldown : {
@@ -72,6 +80,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudSpecialCooldownIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [500, 1250, 3000, 6900, 15000 ]
 		},
 		Growth : {
@@ -80,6 +89,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudGrowthIcon,
 			level : 0,
 			maxlevel : 1,
+			tab : GlobalShopTabs.Enhancements,
 			costs : [1000]
 		},
 		ExpGain : {
@@ -88,6 +98,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sXP,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [300, 750, 1800, 4100, 9100 ]
 		},
 		FoodDrop : {
@@ -96,6 +107,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHamburger,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [150, 375, 900, 2000, 4500 ]
 		},
 		MoneyGain : {
@@ -104,6 +116,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHolocoin,
 			level : 0,
 			maxlevel : 10,
+			tab : GlobalShopTabs.Stats,
 			costs : [400, 1000, 2400, 5500, 12000, 20000, 30000, 40000, 50000, 60000 ]
 		},
 		Reroll : {
@@ -112,6 +125,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudRerollIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Enhancements,
 			costs : [2500, 5000, 7500, 10000, 12500 ]
 		},
 		EnhacementRate : {//TODO: yeah....
@@ -120,6 +134,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudHPIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [300, 750, 1800, 4100, 9100 ]
 		},
 		Defense : {
@@ -128,6 +143,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudDefenseIcon,
 			level : 0,
 			maxlevel : 5,
+			tab : GlobalShopTabs.Stats,
 			costs : [500, 1250, 3000, 6900, 15000 ]
 		},
 		GRankOff : {//TODO: maybe implement G-ranks before...
@@ -136,6 +152,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudHPIcon,
 			level : 0,
 			maxlevel : 1,
+			tab : GlobalShopTabs.Others,
 			costs : [0]
 		},
 		Hardcore : {//TODO: score system and bonus score
@@ -144,6 +161,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 			sprite : sHudHPIcon,
 			level : 0,
 			maxlevel : 1,
+			tab : GlobalShopTabs.Others,
 			costs : [0]
 		},
 	}
