@@ -24,7 +24,7 @@ if (selectingTab) {
 	}
 }
 
-if (!selectingTab) {
+if (!selectingTab and !interacting) {
 	if (_leftright > 0) {
 	    nextItem();
 	}
@@ -49,6 +49,57 @@ if (!selectingTab) {
 	    selectingTab = true;
 		selected = -1;
 		return;
+	}
+	if (zKey) {
+		if (global.shopUpgrades[$ ups[selected]].level == global.shopUpgrades[$ ups[selected]].maxlevel) {
+			interactOption = 1;
+		}
+		if (global.shopUpgrades[$ ups[selected]].level == 0) {
+			interactOption = 0;
+		}
+	    interacting = true;
+		return;
+	}
+}
+
+if (interacting) {
+	interactOption += _leftright;
+	if (interactOption < 0) { interactOption = 1; }
+	if (interactOption > 1) { interactOption = 0; }
+    if (xKey) {
+	    interacting = false;
+		return;
+	}
+	if (zKey) {
+		var _upg = global.shopUpgrades[$ ups[selected]];
+		var _level = _upg.level;
+		var _maxlevel = _upg.maxlevel;
+		var _cost = _upg.costs[_level - _level == _maxlevel ? 1 : 0];
+		switch (interactOption) {
+		    case 0:
+		        if (global.holocoins > _cost and _level < _maxlevel) {
+				    global.holocoins -= _cost;
+					global.shopUpgrades[$ ups[selected]].level += 1;
+					interacting = false;
+				}
+		        break;
+		    case 1:
+		        if (_level > 0) {
+				    global.holocoins += _cost;
+					global.shopUpgrades[$ ups[selected]].level -= 1;
+				}
+				interacting = false;
+		        break;
+		}
+		
+	    //			    if (selectedThing[$ "level"] > 0) {
+//					var upgradecost = selectedThing[$ "costs"][selectedThing[$ "level"] - 1];
+//					if (selectedThing[$ "level"] == selectedThing[$ "maxlevel"]) {
+//					    upgradecost = selectedThing[$ "costs"][selectedThing[$ "maxlevel"] - 1];
+//					}
+//					global.holocoins += upgradecost;
+//					selectedThing[$ "level"] -= 1;
+//				}
 	}
 }
 

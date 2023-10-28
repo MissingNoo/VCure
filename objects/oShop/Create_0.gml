@@ -29,6 +29,8 @@ lastItem = function(){
 		}
 	}
 }
+interacting = false;
+interactOption = 0;
 
 
 

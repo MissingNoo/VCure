@@ -54,6 +54,11 @@ for (var i = 0; i < array_length(ups); ++i) {
 	    draw_rectangle_color(_recx, _recy, _recx + 10, _recy + 10, _color, _color, _color, _color, false);
 		_recOffsetX += 15;
 	}
+	var _upg = global.shopUpgrades[$ ups[i]];
+	var _level = _upg.level;
+	var _maxlevel = _upg.maxlevel;
+	var _cost = _level == _maxlevel ? "SOLD!" : _upg.costs[_level];
+	draw_text_transformed_color(_xx + _offset + 75, _yy + _yoffset + 30, _cost, 2.5, 2.5, 0, c_yellow, c_yellow, c_yellow, c_yellow, 1);
 	if (selected == i and !selectingTab) {
 	    draw_sprite_ext(sShopSelected, 0, _xx - 4 + _offset, _yy - 4 + _yoffset, _scale + 4.75, _scale + 1.45, 0, c_white, 1);
 	}
@@ -66,7 +71,29 @@ _xx += 18;
 _yy += 30;
 draw_rectangle_color(_xx, _yy, GW/1.06, _yy + 3, c_white, c_white, c_white, c_white, false);
 if (selected != -1) {
+	var _scale = 2;
+	var _sprWH = [(sprite_get_width(sItemSquare)/2) * _scale, (sprite_get_height(sItemSquare)/2) * _scale];
     draw_text_transformed(_xx, _yy - 30, lexicon_text($"Shop.{global.shopUpgrades[$ ups[selected]].name}.name"), 2.5, 2.5, 0);
+	draw_sprite_ext(sItemSquare, 0, _xx + 18 +_sprWH[0], _yy + 25 +_sprWH[1], _scale, _scale, 0, c_white, 1);
+	draw_sprite_ext(global.shopUpgrades[$ ups[selected]].sprite, 0, _xx + 18 +_sprWH[0], _yy + 25 +_sprWH[1], _scale, _scale, 0, c_white, 1);
+	if (!interacting) {
+	    drawDesc(_xx + 100, _yy + 2, lexicon_text($"Shop.{global.shopUpgrades[$ ups[selected]].name}.desc"), GW/2.20, 2);
+	}
+	else {
+		var _options = ["Buy", "Refund"];
+		_offset = 0;
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		for (var i = 0; i < array_length(_options); ++i) {
+		    draw_sprite_ext(sHudButton, interactOption == i ? 1 : 0, _xx + 300 + _offset, _yy + 50, 1, 1.5, 0, c_white, 1);
+			var _color = interactOption == i ? c_black : c_white;
+			draw_text_transformed_color(_xx + 300 + _offset, _yy + 50, _options[i], 2, 2, 0, _color, _color, _color, _color, 1);
+			_offset = 200;
+		}
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+	}
+	
 }
 
 
