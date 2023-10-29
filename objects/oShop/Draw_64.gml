@@ -83,7 +83,8 @@ _yy = GH/1.55;
 draw_sprite_ext(sHudArea, 0, _xx, _yy, 31, 7, 0, c_white, 1);
 _xx += 18;
 _yy += 30;
-draw_rectangle_color(_xx, _yy, GW/1.06, _yy + 3, c_white, c_white, c_white, c_white, false);
+
+draw_rectangle_color(_xx, _yy, _xx + 700, _yy + 3, c_white, c_white, c_white, c_white, false);
 if (selected != -1) {
 	var _scale = 2;
 	var _sprWH = [(sprite_get_width(sItemSquare)/2) * _scale, (sprite_get_height(sItemSquare)/2) * _scale];
@@ -117,22 +118,22 @@ if (selected != -1) {
 
 
 #region Holocoins
-//if (!variable_instance_exists(self, "holocoinsubimage")) {
-//   holocoinsubimage= 0;
-//}
-//if (holocoinsubimage < 8) {
-//    holocoinsubimage += 12/game_get_speed(gamespeed_fps);
-//}
-//else{holocoinsubimage = 0;}
-//var _x = GW/1.16;
-//var _y = GH/13.10;
-//draw_sprite_ext(sHolocoin, holocoinsubimage, _x - 195, _y, 4, 4, 0, c_white, 1);
-//draw_sprite_ext(sHudButton, 0, _x, _y, 1.72, 1.8, 0, c_white, 1);
-//draw_set_halign(fa_right);
-//draw_set_valign(fa_middle);
-//draw_text_transformed(_x + 138, _y - 3, global.holocoins, 5, 5, 0);
-//draw_set_halign(fa_left);
-//draw_set_valign(fa_top);
+if (!variable_instance_exists(self, "holocoinsubimage")) {
+   holocoinsubimage= 0;
+}
+if (holocoinsubimage < 8) {
+    holocoinsubimage += 12/game_get_speed(gamespeed_fps);
+}
+else{holocoinsubimage = 0;}
+var _x = GW/1.16;
+var _y = GH/13.10;
+draw_sprite_ext(sHolocoin, holocoinsubimage, _x - 195, _y, 4, 4, 0, c_white, 1);
+draw_sprite_ext(sHudButton, 0, _x, _y, 1.72, 1.8, 0, c_white, 1);
+draw_set_halign(fa_right);
+draw_set_valign(fa_middle);
+draw_text_transformed(_x + 138, _y - 3, global.holocoins, 5, 5, 0);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 #endregion
 
 #region Menu

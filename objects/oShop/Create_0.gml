@@ -50,7 +50,7 @@ interactOption = 0;
 //	}
 //	return result;
 //}
-//holocoinsubimage = 0;
+holocoinsubimage = 0;
 depth = oGui.depth + 1;
 //selected = 0;
 //interact = false;
