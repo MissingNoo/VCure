@@ -67,6 +67,14 @@ if (interacting) {
 	interactOption += _leftright;
 	if (interactOption < 0) { interactOption = 1; }
 	if (interactOption > 1) { interactOption = 0; }
+	if (global.shopUpgrades[$ ups[selected]].level == global.shopUpgrades[$ ups[selected]].maxlevel) {
+		interactOption = 1;
+		forcedChange = true;
+	}
+	if (global.shopUpgrades[$ ups[selected]].level == 0) {
+		interactOption = 0;
+		forcedChange = true;
+	}
     if (xKey) {
 	    interacting = false;
 		return;

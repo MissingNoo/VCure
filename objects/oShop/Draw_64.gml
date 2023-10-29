@@ -101,7 +101,7 @@ if (selected != -1) {
 		var _width = sprite_get_width(sHudButton) / 2;
 		var _height= (sprite_get_height(sHudButton) * 1.5) / 2;
 		for (var i = 0; i < array_length(_options); ++i) {
-			if (point_in_rectangle(oGui.x, oGui.y, _xx + 300 + _offset - _width, _yy + 50 - _height, _xx + 300 + _offset  + _width, _yy + 50 + _height)) {
+			if (point_in_rectangle(oGui.x, oGui.y, _xx + 300 + _offset - _width, _yy + 50 - _height, _xx + 300 + _offset  + _width, _yy + 50 + _height) and !forcedChange) {
 				interactOption = i;
 			}
 		    draw_sprite_ext(sHudButton, interactOption == i ? 1 : 0, _xx + 300 + _offset, _yy + 50, 1, 1.5, 0, c_white, 1);
