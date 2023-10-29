@@ -90,6 +90,9 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.x = 3170;
 		oCam.x = oPlayer.x + xx;
+		for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+		    oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
+		}
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
@@ -106,6 +109,9 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.x = 610;
 		oCam.x = oPlayer.x + xx;
+		for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+		    oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
+		}
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
@@ -124,6 +130,9 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.y = 3170;
 		oCam.y = oPlayer.y + yy;
+		for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+		    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
+		}
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;
@@ -141,6 +150,9 @@ if (instance_exists(oPlayer)) {
 		py = oPlayer.y;
 	    oPlayer.y = 610;
 		oCam.y = oPlayer.y + yy;
+		for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+		    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
+		}
 		for (var i = 0; i < array_length(insts); ++i) {
 		    with (insts[i]) {
 			    xx = x - px;

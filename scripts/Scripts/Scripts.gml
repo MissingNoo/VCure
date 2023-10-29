@@ -320,6 +320,17 @@ function prop_draw(){
 	var sprw = sprite_width / 2;
 	var sprh = sprite_height;
 	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1;
+	var _offset = 0;
+	switch (sprite_index) {
+	    case sTree:
+	        _offset = 16;
+	        break;
+	    default:
+	        // code here
+	        break;
+	}
+	
+	draw_sprite_ext(sprite_index, 0, x, y + _offset, 1, -0.75, 0, c_black, 0.25);
 	draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, alpha);
 }
 

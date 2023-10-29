@@ -1,3 +1,11 @@
+for (var i = 0; i < array_length(clouds); ++i) {
+	if (global.gamePaused) { return; }
+    clouds[i][0] += clouds[i][2];
+}
+while (array_length(clouds) > 10) {
+    array_shift(clouds);
+}
+
 //feather disable GM2017
 if (keyboard_check_pressed(vk_home) and global.debug) {
 	Minutes = 9;
