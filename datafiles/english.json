@@ -11,7 +11,6 @@
 		"HouseItems" : {
 			"Bookshelf": "Bookshelf"
 		},
-        "dialogue.NPCBob.Greeting": "Hello there %player%!",
         "Anvil" : {
 			"Enhance":{
 				"0":"Increase base attack by 2",

@@ -237,7 +237,8 @@ if (haveBandage and justBandageHealing > 0) {
 		}
 	}
 	for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
-	    newspd= newspd+ ((newspd* 6) / 100);
+	    //newspd= newspd+ ((newspd* 6) / 100);
+	    newspd = newspd * 1.06;
 	}
 	//if (calc == 0) {
 	//    calc = 1;

@@ -1,11 +1,12 @@
+mouseDown = global.mouseDown;
 var _updown = - input_check_pressed("up") + input_check_pressed("down");
 var _leftright = - input_check_pressed("left") + input_check_pressed("right");
 var _left = input_check_pressed("left");
 var _right = input_check_pressed("right");
 var _up = input_check_pressed("up");
 var _down = input_check_pressed("down");
-var xKey = input_check_pressed("cancel");
-var zKey= input_check_pressed("accept");
+var xKey = oGui.xKey;
+var zKey= oGui.zKey;
 
 #region shop
 if (selectingTab) {

@@ -1,4 +1,7 @@
 // Feather disable GM1041
+if (global.debug) {
+    draw_circle(x,y,5,false);
+}
 #region Start variables
 var _x = 0;
 var _y = 0;

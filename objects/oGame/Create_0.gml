@@ -1,4 +1,4 @@
-imguigml_activate();
+//imguigml_activate();
 if (os_type != os_android) {
     window_set_size(1280, 720);
 }
@@ -50,10 +50,6 @@ global.singleplayer = false;
 global.roomname="";
 #endregion
 #endregion
-#region Lexicon Initialization
-lexicon_index_declare_from_json("english.json");
-lexicon_language_set("English");
-#endregion
 #region Unused
 //if (!variable_global_exists("mode")) {
 //	global.mode = "menu";
@@ -79,3 +75,7 @@ for (var i = 0; i < array_length(variables); ++i) {
 #endregion
 reset_pool();
 reset_timer();
+#region Lexicon Initialization
+lexicon_index_declare_from_json("english.json");
+lexicon_language_set("English");
+#endregion

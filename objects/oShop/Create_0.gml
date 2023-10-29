@@ -1,3 +1,4 @@
+mouseDown = false;
 ups = variable_struct_get_names(global.shopUpgrades);
 array_sort(ups, true);
 isFirstItem = false;

@@ -10,11 +10,21 @@ draw_set_valign(fa_middle);
 var _categories = ["Enhacements", "Stat Upgrades", "Others"];
 var _offset = 0;
 for (var i = 0; i < array_length(_categories); ++i) {
+	var _scale = 3;
+	var _width = (string_width(_categories[i]) * _scale) / 2;
+	var _height= (string_height(_categories[i]) * _scale) / 2;
+	if (global.debug) {
+	    draw_rectangle(_xx + 120 + _offset - _width, _yy + 25 - _height,  _xx + 120 + _offset + _width, _yy + 25 + _height, true);
+	}
+	if (point_in_rectangle(oGui.x, oGui.y,  _xx + 120 + _offset - _width, _yy + 25 - _height,  _xx + 120 + _offset + _width, _yy + 25 + _height) and mouseDown and !interacting) {
+	    selectedTab = i;
+		selectingTab = true;
+	}
 	var _color = c_white;
 	if (selectedTab == i and selectingTab) {
 		_color = c_yellow;
 	}
-    draw_text_transformed_color(_xx + 120 + _offset, _yy + 25, _categories[i], 3, 3, 0, _color, _color, _color, _color, selectedTab == i ? 1 : 0.5);
+    draw_text_transformed_color(_xx + 120 + _offset, _yy + 25, _categories[i], _scale, _scale, 0, _color, _color, _color, _color, selectedTab == i ? 1 : 0.5);
 	_offset += 275;
 }
 draw_set_halign(fa_left);
@@ -25,7 +35,7 @@ _offset = 0;
 var _yoffset = 0;
 for (var i = 0; i < array_length(ups); ++i) {
 	if (global.shopUpgrades[$ ups[i]].tab != selectedTab) { continue; }
-	if (_xx + _offset > GW/1.07) {
+	if (_xx + _offset > GW/1.19) {
 	    _offset = 0;
 		_yoffset += 80;
 	}
@@ -34,6 +44,10 @@ for (var i = 0; i < array_length(ups); ++i) {
 	draw_set_alpha(0.5);
 	draw_set_color(c_black);
     draw_rectangle(_xx + _offset, _yy + _yoffset, (_xx +_sprWH[0]) + _offset + 120, (_yy +_sprWH[1] * 2) + _yoffset, false);
+	if (point_in_rectangle(oGui.x, oGui.y,  _xx + _offset, _yy + _yoffset, (_xx +_sprWH[0]) + _offset + 120, (_yy +_sprWH[1] * 2) + _yoffset) and !interacting) {
+	    selected = i;
+		selectingTab = false;
+	}
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 	draw_sprite_ext(sItemSquare, 0, (_xx +_sprWH[0]) + _offset, (_yy +_sprWH[1]) + _yoffset, _scale, _scale, 0, c_white, 1);
@@ -84,7 +98,12 @@ if (selected != -1) {
 		_offset = 0;
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
+		var _width = sprite_get_width(sHudButton) / 2;
+		var _height= (sprite_get_height(sHudButton) * 1.5) / 2;
 		for (var i = 0; i < array_length(_options); ++i) {
+			if (point_in_rectangle(oGui.x, oGui.y, _xx + 300 + _offset - _width, _yy + 50 - _height, _xx + 300 + _offset  + _width, _yy + 50 + _height)) {
+				interactOption = i;
+			}
 		    draw_sprite_ext(sHudButton, interactOption == i ? 1 : 0, _xx + 300 + _offset, _yy + 50, 1, 1.5, 0, c_white, 1);
 			var _color = interactOption == i ? c_black : c_white;
 			draw_text_transformed_color(_xx + 300 + _offset, _yy + 50, _options[i], 2, 2, 0, _color, _color, _color, _color, 1);
