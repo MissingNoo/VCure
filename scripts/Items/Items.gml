@@ -205,7 +205,7 @@ function populate_items(){
 				name : "Holocoin",
 				maxlevel : 1,
 				weight : 0,
-				thumb : sHolocoin,
+				thumb : sPhaseCoin,
 				cooldown : 15,
 				desc : [
 				"Gain 50 Holocoins.",

@@ -405,7 +405,7 @@
 				},
 			"Moldy Soul": {
 				"name": "Moldy Soul",
-				"desc": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage.",
+				"desc": "Every time a food item is consumed, 33% chance to gain  3% Crit Damage.",
 				"1": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage.",
 				"2": "Critical hits with your main weapon have a 33% chance to spawn Mold that hits nearby targets for 33% damage.",
 				"3": "Extra Crit Damage afftects Mold critical hits 3 times."
@@ -437,6 +437,33 @@
 				"1": "10% Chance to drop spaghetti from enemies killed.",
 				"2": "Increase drop chance to 11%.",
 				"3": "Increase drop chance to 12%."
+			},
+			"Electric Pulse" : {
+				"name": "Eletric Pulse",
+				"desc": "Summons a electric pulse around Lia",
+				"1": "Every 6 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
+				"2": "Every 5 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
+				"3": "Every 4 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage."
+			},
+			"Viral" : {
+				"name": "Viral",
+				"desc": "Small chance on crits to convert a enemy into a Liker",
+				"1": "On a crit, there is a 20% chance to Infect the target (Max 5) to your side and help for 8 seconds. Target gain Lia's ATK and SPD.",
+				"2": "Increase chance to 27% and max infected to 10.",
+				"3": "Increase chance to 33% and max infected to 15."
+			},
+			"Lick" : {
+				"name": "Lick",
+				"desc": "Heals HP every few seconds based on how many enemies are close to Lia",
+				"1": "LIA heals 1% of health per every enemy in a small radius around her every 5 seconds.",
+				"2": "Increase radius and lower time to 4 seconds.",
+				"3": "Increase radius and lower time to 3 seconds."
+			},
+			"" : {
+				"name": "",
+				"1": "",
+				"2": "",
+				"3": ""
 			}
 		}
     }

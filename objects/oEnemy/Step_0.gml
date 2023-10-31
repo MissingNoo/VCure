@@ -21,7 +21,6 @@ if (infected and target == noone) { //TODO multiplayer
 	}
 	ds_list_destroy(_list);
 }
-// Feather disable GM2017
 if (justSpawned and thisEnemy == Enemies.FubuZilla) {
 	justSpawned = false;
     fanbeamAlarm = fanbeamCooldown;
@@ -141,7 +140,7 @@ if(_canmove and instance_exists(target)){
 		image_alpha-=.05 * Delta;
 		x-=image_xscale;
 		if (boss and global.screenShake == 1) {
-			oGame.shake_magnitude=6;
+			oGame.shakeMagnitude=6;
 		}
 		if (image_alpha <= 0) {
 		    instance_destroy();

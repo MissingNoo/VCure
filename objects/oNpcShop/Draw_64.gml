@@ -27,7 +27,7 @@ for (var i = 0; i < array_length(shopOptions); ++i) {
 draw_sprite_ext(sHudArea, 0, GW/1.20, GH/21.34, 8, 2, 0, c_white, 1);
 //coins
 draw_sprite_ext(sHudArea, 0, GW/1.20 - 250, GH/21.34, 8, 2, 0, c_white, 1);
-draw_sprite_ext(sHolocoin, 0, GW/1.20 -250 + 30, GH/21.34 + 18, 2, 2, 0, c_white, 1);
+draw_sprite_ext(sPhaseCoin, 0, GW/1.20 -250 + 30, GH/21.34 + 18, 2, 2, 0, c_white, 1);
 //draw_set_valign(fa_center);
 draw_set_halign(fa_right);
 draw_text_transformed(GW/1.20 - 250 + 185, GH/21.34 + 16, global.holocoins, 3, 3, 0);

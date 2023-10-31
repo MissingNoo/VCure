@@ -122,7 +122,9 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 		    xt = -10.5;
 		}
 	    draw_text_transformed(_xx+xt, _yy+yt, char, _size, _size, 0);
-		xt+=10.5;
+		//xt+=10.5;
+		var _space = string_copy(_string, i + 1, 1);
+		xt+=string_width(_space == " " ? "m" : _space) * _size;
 		if (newline) {
 		    xt = -5.5;
 			yt+=20;

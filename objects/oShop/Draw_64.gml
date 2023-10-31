@@ -121,13 +121,13 @@ if (selected != -1) {
 if (!variable_instance_exists(self, "holocoinsubimage")) {
    holocoinsubimage= 0;
 }
-if (holocoinsubimage < 8) {
-    holocoinsubimage += 12/game_get_speed(gamespeed_fps);
+if (holocoinsubimage < 15) {
+    holocoinsubimage += 8/game_get_speed(gamespeed_fps);
 }
 else{holocoinsubimage = 0;}
 var _x = GW/1.16;
 var _y = GH/13.10;
-draw_sprite_ext(sHolocoin, holocoinsubimage, _x - 195, _y, 4, 4, 0, c_white, 1);
+draw_sprite_ext(sPhaseCoin, holocoinsubimage, _x - 195, _y, 3, 3, 0, c_white, 1);
 draw_sprite_ext(sHudButton, 0, _x, _y, 1.72, 1.8, 0, c_white, 1);
 draw_set_halign(fa_right);
 draw_set_valign(fa_middle);

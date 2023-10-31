@@ -113,7 +113,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 		MoneyGain : {
 			name:"Money Gain Up",
 			desc : "Increases the amount of HoloCoins gained by 20% per level. (Max 200%) ",
-			sprite : sHolocoin,
+			sprite : sPhaseCoin,
 			level : 0,
 			maxlevel : 10,
 			tab : GlobalShopTabs.Stats,
@@ -205,7 +205,7 @@ global.shopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
 global.shopUpgrades.Growth.sprite =sHudGrowthIcon;
 global.shopUpgrades.ExpGain.sprite =sXP;
 global.shopUpgrades.FoodDrop.sprite =sHamburger;
-global.shopUpgrades.MoneyGain.sprite =sHolocoin;
+global.shopUpgrades.MoneyGain.sprite =sPhaseCoin;
 global.shopUpgrades.Reroll.sprite =sHudRerollIcon;
 global.shopUpgrades.EnhacementRate.sprite =sHudHPIcon;
 global.shopUpgrades.Defense.sprite =sHudDefenseIcon;

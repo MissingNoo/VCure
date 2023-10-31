@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sHolocoin",
-    "path": "sprites/sHolocoin/sHolocoin.yy",
+    "name": "sPhaseCoin",
+    "path": "sprites/sPhaseCoin/sPhaseCoin.yy",
   },
   "spriteMaskId": null,
   "visible": true,
