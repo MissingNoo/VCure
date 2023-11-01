@@ -234,7 +234,7 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	//}
 	#endregion
 	for (var i = 0; i < array_length(global.perkCooldown); ++i) {
-		global.perkCooldown[i] -= .5 * Delta;
+		global.perkCooldown[i] -= (1/60) * Delta;
 	}
 	//feather disable once GM1041
 	for (var i = 0; i < array_length(UPGRADES); ++i) {

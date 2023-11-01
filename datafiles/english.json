@@ -441,9 +441,9 @@
 			"Electric Pulse" : {
 				"name": "Eletric Pulse",
 				"desc": "Summons a electric pulse around Lia",
-				"1": "Every 6 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
-				"2": "Every 5 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
-				"3": "Every 4 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage."
+				"1": "Every 10 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
+				"2": "Every 8 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
+				"3": "Every 6 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage."
 			},
 			"Viral" : {
 				"name": "Viral",

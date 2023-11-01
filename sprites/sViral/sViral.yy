@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "sViral",
   "bbox_bottom": 18,
-  "bbox_left": 0,
-  "bbox_right": 19,
-  "bbox_top": 1,
+  "bbox_left": 1,
+  "bbox_right": 18,
+  "bbox_top": 2,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c4736cd2-7b7d-4325-9e28-8f214f22a65f",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bb059b96-4562-4024-8b87-8e7294dbf15e",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 20,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1377dc74-4a34-4094-b18a-7ab572a57e0d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3e391323-8f58-414f-a6b7-72168958b70a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c4736cd2-7b7d-4325-9e28-8f214f22a65f","path":"sprites/sViral/sViral.yy",},},},"Disabled":false,"id":"30dcb1b6-d4a1-488c-8f4a-02c7db41adc6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bb059b96-4562-4024-8b87-8e7294dbf15e","path":"sprites/sViral/sViral.yy",},},},"Disabled":false,"id":"a39fb106-f903-4e94-8614-0bdf78545bac","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

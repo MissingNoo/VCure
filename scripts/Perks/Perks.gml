@@ -105,7 +105,7 @@ function populate_perks(){
 			maxlevel : 3, 
 			weight : 1,
 			thumb : sEletricPulseThumb,
-			cooldown : [0, 600, 500, 400],
+			cooldown : [0, 10, 8, 6],
 			characterid : Characters.Lia,
 			upgrade : true,
 			upgradeid : Weapons.ElectricPulse,
@@ -118,7 +118,7 @@ function populate_perks(){
 			maxlevel : 3, 
 			weight : 1,
 			thumb : sLick,
-			cooldown : [0, 500, 400, 300],
+			cooldown : [0, 5, 4, 3],
 			characterid : Characters.Lia,
 			lickArea : [0, 60, 90, 120]
 		});
@@ -148,7 +148,7 @@ function populate_perks(){
 						maxlevel : 3, 
 						weight : 1,
 						thumb : sHeavyArtillery,
-						cooldown : [180, 180, 174, 174],
+						cooldown : [3, 3, 2.01, 2.01],
 						characterid : Characters.Pippa,
 						upgrade: true,
 						upgradeid : Weapons.HeavyArtillery

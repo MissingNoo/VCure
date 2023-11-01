@@ -21,7 +21,7 @@ function outfit_add(_character, _id, _sprite, _runningSprite, _unlocked)
 
 function populate_outfits(){
 	outfit_add(Characters.Uruka,		Outfits.Amelia,			sUrukaIdle,				sUrukaRunning,			true);
-	outfit_add(Characters.Lia,				Outfits.Lia,					sLiaIdle,					sLiaRunning,				true);
+	outfit_add(Characters.Lia,				Outfits.Lia,					sLiaIdle,					sLiaRunningOld,				true);
 	outfit_add(Characters.Pippa,		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
 }
 
