@@ -101,7 +101,7 @@ function populate_perks(){
 		#region EletricPulse
 		create_perk({
 			id : PerkIds.EletricPulse,
-			name : "Electric Pulse",
+			name : "Power Strike",
 			maxlevel : 3, 
 			weight : 1,
 			thumb : sEletricPulseThumb,
