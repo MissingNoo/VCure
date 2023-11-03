@@ -2,7 +2,7 @@ for (var i = 0; i < array_length(clouds); ++i) {
 	if (global.gamePaused) { return; }
     clouds[i][0] += clouds[i][2];
 }
-while (array_length(clouds) > 10) {
+while (array_length(clouds) > 15) {
     array_shift(clouds);
 }
 

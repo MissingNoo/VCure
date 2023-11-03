@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns if a source is available i.e. hasn't been assigned to a player yet
 /// @param   source
 

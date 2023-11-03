@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns whether the given mouse button is currently activated.
 /// @param   binding
 
@@ -6,7 +6,9 @@ function input_mouse_check(_binding)
 {
     __INPUT_GLOBAL_STATIC_LOCAL  //Set static _global
     
-    if (!_global.__mouse_allowed_on_platform || _global.__window_focus_block_mouse)
+    if (!_global.__mouse_allowed 
+    ||  !_global.__game_input_allowed 
+    ||   _global.__window_focus_block_mouse)
     {
         return (_binding == mb_none);
     }

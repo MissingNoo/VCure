@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 function __input_global()
 {
     __input_initialize();

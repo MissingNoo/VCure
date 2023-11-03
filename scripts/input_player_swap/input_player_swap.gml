@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Swaps the player indexes over, including profiles, connected devices, and verb state
 /// @param   playerIndexA
 /// @param   playerIndexB

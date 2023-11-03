@@ -90,7 +90,7 @@ function __input_class_cursor() constructor
         var _can_use_mouse = (__player.__mouse_enabled && __player.__source_contains(INPUT_MOUSE)); //Automatically remapped to INPUT_TOUCH where appropriate
         
         //Mouse and touch
-        if ((__global.__pointer_moved || __using_mouse) && _can_use_mouse && __global.__mouse_allowed_on_platform)
+        if ((__global.__pointer_moved || __using_mouse) && _can_use_mouse && __global.__mouse_allowed)
         {
             __using_mouse = true;
                 
@@ -107,7 +107,10 @@ function __input_class_cursor() constructor
         }
         
         //Don't update the cursor if the mouse recently moved or we're rebinding controls
-        if (__global.__cursor_verbs_valid && (!__global.__pointer_moved || !_can_use_mouse) && (__player.__rebind_state <= 0))
+        if (__global.__game_input_allowed
+        &&  __global.__cursor_verbs_valid
+        && (!__global.__pointer_moved || !_can_use_mouse) 
+        && (__player.__rebind_state <= 0))
         {
             //Gyro
             if (__player.__gyro_enabled)
@@ -116,7 +119,7 @@ function __input_class_cursor() constructor
                 if (is_struct(_motion_data))
                 {
                     var _gyro_value_x = undefined;
-                    switch (__player.__gyro_axis_x)
+                    switch(__player.__gyro_axis_x)
                     {
                         case INPUT_GYRO.AXIS_PITCH: _gyro_value_x = _motion_data.angular_velocity_x; break;
                         case INPUT_GYRO.AXIS_YAW:   _gyro_value_x = _motion_data.angular_velocity_y; break;
@@ -124,7 +127,7 @@ function __input_class_cursor() constructor
                     }
 
                     var _gyro_value_y = undefined;
-                    switch (__player.__gyro_axis_y)
+                    switch(__player.__gyro_axis_y)
                     {
                         case INPUT_GYRO.AXIS_PITCH: _gyro_value_y = _motion_data.angular_velocity_x; break;
                         case INPUT_GYRO.AXIS_YAW:   _gyro_value_y = _motion_data.angular_velocity_y; break;

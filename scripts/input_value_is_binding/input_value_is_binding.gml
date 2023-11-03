@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns if the given value is a valid Input binding
 /// @param   value
 

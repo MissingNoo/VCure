@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Draws a visualisation aid for virtual buttons
 ///          N.B.  This should be called in a Draw GUI event for accurate results
 

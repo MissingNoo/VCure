@@ -11,7 +11,7 @@ function __input_class_gamepad_motion(_gamepad_index) constructor
 
     static __tick = function()
     {
-        var _cleared = __global.__cleared || !input_window_has_focus();
+        var _cleared = __global.__cleared || !__global.__game_input_allowed;
         if (!_cleared && (__global.__frame <= __motion_frame))
         {
             return __get_data();
@@ -27,7 +27,7 @@ function __input_class_gamepad_motion(_gamepad_index) constructor
 
         switch(os_type)
         {
-            case (os_switch):
+            case os_switch:
                 var _axis_x = switch_controller_axis_x;
                 var _axis_z = switch_controller_axis_y;
                 var _sign_x = 1;
@@ -71,8 +71,8 @@ function __input_class_gamepad_motion(_gamepad_index) constructor
                 __gyro_z = _sign_z * degtorad(switch_controller_angular_velocity(__index, _axis_z, _sensor)/5) * 570.6;
             break;            
 
-            case (os_ps4):
-            case (os_ps5):
+            case os_ps4:
+            case os_ps5:
                 __accel_x =  gamepad_axis_value(__index, gp_axis_acceleration_x);
                 __accel_y = -gamepad_axis_value(__index, gp_axis_acceleration_y);
                 __accel_z = -gamepad_axis_value(__index, gp_axis_acceleration_z);
@@ -82,8 +82,8 @@ function __input_class_gamepad_motion(_gamepad_index) constructor
                 __gyro_z = -gamepad_axis_value(__index, gp_axis_angular_velocity_z) / pi;
             break;
 
-            case (os_windows):
-            case (os_linux):
+            case os_windows:
+            case os_linux:
                 var _steam_handle = __global.__gamepads[__index].__steam_handle;
                 if (is_numeric(_steam_handle))
                 {                    

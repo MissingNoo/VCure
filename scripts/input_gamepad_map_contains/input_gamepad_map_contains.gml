@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns if the indicated buttons/axes are mapped for the current gamepad
 /// @param   gamepadIndex
 /// @param   GMconstant/array

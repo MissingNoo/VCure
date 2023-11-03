@@ -5,7 +5,7 @@
   "bbox_bottom": 133,
   "bbox_left": 128,
   "bbox_right": 371,
-  "bbox_top": 66,
+  "bbox_top": 65,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -39,7 +39,7 @@
     "highlightColour": 1728023040,
     "highlightStyle": 0,
     "left": 141,
-    "right": 133,
+    "right": 134,
     "tileMode": [
       0,
       0,

@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns whether the window is focused on desktop platforms
 
 function input_window_has_focus()

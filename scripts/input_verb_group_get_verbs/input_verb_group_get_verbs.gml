@@ -1,4 +1,5 @@
-//feather disable all
+// Feather disable all
+
 /// @desc    Returns an array of verbs in the given group
 /// @param   verbGroup
 

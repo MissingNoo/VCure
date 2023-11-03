@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns the human-readable name of the virtual button/axis constant
 /// @param   GMconstant
 

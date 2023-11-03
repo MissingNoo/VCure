@@ -7,12 +7,18 @@ function __input_finalize_default_profiles()
     
     if (!is_struct(_global.__default_profile_dict))
     {
-        __input_error("__input_config_verbs() must contain a struct (was ", typeof(_global.__default_profile_dict), ")\nDocumentation on __input_config_verbs() can be found offline in __input_config_verbs_and_bindings()\nOnline documentation can be found at https://jujuadams.github.io/Input");
+        __input_error("__input_config_verbs() must contain a struct (was ", typeof(_global.__default_profile_dict), ")\nDocumentation on __input_config_verbs() can be found offline in __input_config_verbs()\nOnline documentation can be found at https://jujuadams.github.io/Input");
     }
     
     if (variable_struct_names_count(_global.__default_profile_dict) <= 0)
     {
        __input_error("__input_config_verbs() must contain at least one profile");
+    }
+    
+    //Ensure touch profile on touch platform configurations
+    if (_global.__touch_allowed && !_global.__any_touch_binding_defined)
+    {       
+        _global.__default_profile_dict[$ INPUT_AUTO_PROFILE_FOR_TOUCH] = {};
     }
     
     //Put strict mode on, this'll cause Input to throw errors if the player does anything dumb
@@ -92,23 +98,6 @@ function __input_finalize_default_profiles()
                         case __INPUT_SOURCE.MOUSE:    _global.__any_mouse_binding_defined    = true; break;
                         case __INPUT_SOURCE.TOUCH:    _global.__any_touch_binding_defined    = true; break;
                         case __INPUT_SOURCE.GAMEPAD:  _global.__any_gamepad_binding_defined  = true; break;
-                    }
-                }
-                
-                if (_global.__swap_ab)
-                {
-                    if (_binding.type == __INPUT_BINDING_GAMEPAD_BUTTON)
-                    {
-                        if (_binding.value == gp_face1)
-                        {
-                            __input_trace("Swapping A/X -> B/O for profile \"", _profile_name, "\", verb \"", _verb_name, "\", alternate ", _a);
-                            _binding.value = gp_face2;
-                        }
-                        else if (_binding.value == gp_face2)
-                        {
-                            __input_trace("Swapping B/O -> A/X for profile \"", _profile_name, "\", verb \"", _verb_name, "\", alternate ", _a);
-                            _binding.value = gp_face1;
-                        }
                     }
                 }
                 

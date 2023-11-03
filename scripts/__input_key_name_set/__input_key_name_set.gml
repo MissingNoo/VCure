@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @param key
 /// @param name
 

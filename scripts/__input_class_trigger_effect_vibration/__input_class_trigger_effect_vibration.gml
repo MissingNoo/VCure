@@ -1,5 +1,4 @@
-// Feather disable GM1014
-// Feather disable GM2017
+// Feather disable all
 function __input_class_trigger_effect_vibration(_position, _amplitude, _frequency) constructor
 {
     static __mode_name = "vibration";

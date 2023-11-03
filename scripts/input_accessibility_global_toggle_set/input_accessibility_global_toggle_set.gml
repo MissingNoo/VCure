@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Sets whether momentary toggles should be permitted across the game at all
 /// @param   state
 

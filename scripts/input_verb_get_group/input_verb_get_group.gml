@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns the name of the verb group the verb is in, as defined by __input_config_verb_groups()
 ///          If the verb is in no verb group, this function returns <undefined>
 /// @param   verb

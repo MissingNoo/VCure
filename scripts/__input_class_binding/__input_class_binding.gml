@@ -1,9 +1,8 @@
 // Feather disable all
-// Feather disable GM2047
+
 function __input_class_binding() constructor
 {
     __INPUT_GLOBAL_STATIC_VARIABLE  //Set static __global
-    
     
     __set_empty();
     
@@ -263,7 +262,7 @@ function __input_class_binding() constructor
         {
             if (INPUT_MERGE_CONTROL_KEYS)
             {
-                switch (_key)
+                switch(_key)
                 {
                     //Combine player-bound control keys
                     case vk_lcontrol: case vk_rcontrol:  _key = vk_control; break;
@@ -274,7 +273,7 @@ function __input_class_binding() constructor
         }
         else
         {
-            if ((os_type == os_switch) || (os_type == os_linux) || (os_type == os_macosx))
+            if (__INPUT_ON_SWITCH || __INPUT_ON_LINUX || __INPUT_ON_MACOS)
             {
                 //Fix F11 and F12 constants
                 if      (_key == vk_f11)  _key = 128;
@@ -373,7 +372,7 @@ function __input_class_binding() constructor
     {
         if (_label == undefined)
         {
-            __label = __input_binding_get_label(type, value, axis_negative)
+            __label = __input_binding_get_label(type, value, axis_negative);
         }
         else
         {

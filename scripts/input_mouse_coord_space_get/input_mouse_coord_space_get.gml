@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns the current mouse coordinate space
 
 function input_mouse_coord_space_get()

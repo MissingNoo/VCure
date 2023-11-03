@@ -1,7 +1,7 @@
 // Feather disable all
-// Feather disable GM1003
-#macro __INPUT_VERSION "6.0.1 Beta"
-#macro __INPUT_DATE    "2023-05-11"
+
+#macro __INPUT_VERSION "6.1.3"
+#macro __INPUT_DATE    "2023-11-02"
 #macro __INPUT_DEBUG   false
 
 
@@ -23,6 +23,14 @@
 //This works around Steam sometimes reporting confusing connection/disconnection events on boot
 #macro __INPUT_GAMEPADS_TICK_PREDELAY  10     
 
+//How many frames to wait before considering a gamepad disconnected
+//This works around momentary disconnections such as a jiggled cable or low battery level
+#macro __INPUT_GAMEPADS_DISCONNECTION_TIMEOUT 5
+
+//How many frames to wait after game regains focus before hotswapping on axis
+//This works around resting non-zero axes showing a false-positive delta value when focus changes
+#macro __INPUT_GAMEPADS_FOCUS_TIMEOUT 2
+
 #macro __INPUT_GLOBAL_STATIC_LOCAL     static _global = __input_global();
 #macro __INPUT_GLOBAL_STATIC_VARIABLE  static __global = __input_global();
 
@@ -38,10 +46,11 @@
 #macro __INPUT_BINDING_GAMEPAD_BUTTON    "gamepad button"
 #macro __INPUT_BINDING_GAMEPAD_AXIS      "gamepad axis"
 
-#macro INPUT_KEYBOARD      __input_global().__source_keyboard
-#macro INPUT_MOUSE         __input_global().__source_mouse
-#macro INPUT_GAMEPAD       __input_global().__source_gamepad
-#macro INPUT_TOUCH         __input_global().__source_touch
+#macro INPUT_KEYBOARD  __input_global().__source_keyboard
+#macro INPUT_MOUSE     __input_global().__source_mouse
+#macro INPUT_GAMEPAD   __input_global().__source_gamepad
+#macro INPUT_TOUCH     __input_global().__source_touch
+
 #macro INPUT_MAX_GAMEPADS  12
 
 #macro INPUT_KEYBOARD_LOCALE  __input_global().__keyboard_locale
@@ -50,34 +59,43 @@
 
 #macro INPUT_VIRTUAL_BACKGROUND  __input_global().__virtual_background
 
+
+
 #macro __INPUT_ON_PS       ((os_type == os_ps4)     || (os_type == os_ps5))
 #macro __INPUT_ON_XBOX     ((os_type == os_xboxone) || (os_type == os_xboxseriesxs))
 #macro __INPUT_ON_SWITCH   (os_type == os_switch)
-#macro __INPUT_ON_CONSOLE  (__INPUT_ON_XBOX || __INPUT_ON_PS || __INPUT_ON_SWITCH)
 
 #macro __INPUT_ON_ANDROID  (os_type == os_android)
 #macro __INPUT_ON_IOS      ((os_type == os_ios) || (os_type == os_tvos))
-#macro __INPUT_ON_MOBILE   (__INPUT_ON_ANDROID  || __INPUT_ON_IOS)
 
-#macro __INPUT_ON_DESKTOP  ((os_type == os_macosx) || (os_type == os_linux) || (os_type == os_windows))
-#macro __INPUT_ON_APPLE    ((os_type == os_macosx) || __INPUT_ON_IOS)
+#macro __INPUT_ON_WINDOWS  (os_type == os_windows)
+#macro __INPUT_ON_MACOS    (os_type == os_macosx)
+#macro __INPUT_ON_LINUX    (os_type == os_linux)
+#macro __INPUT_ON_APPLE    (__INPUT_ON_MACOS || __INPUT_ON_IOS)
 
 #macro __INPUT_ON_OPERAGX  (os_type == os_operagx)
-#macro __INPUT_ON_WEB      ((os_browser != browser_not_a_browser) || __INPUT_ON_OPERAGX)
 
-#macro __INPUT_SDL2_SUPPORT               (!__INPUT_ON_WEB && (__INPUT_ON_DESKTOP || __INPUT_ON_ANDROID))
-#macro __INPUT_GAMEPAD_VIBRATION_SUPPORT  (__INPUT_ON_CONSOLE || (!__INPUT_ON_WEB && (os_type == os_windows)))
-#macro __INPUT_KEYBOARD_NORMATIVE         (__INPUT_ON_DESKTOP || __INPUT_ON_WEB || __INPUT_ON_SWITCH)
-#macro __INPUT_KEYBOARD_SUPPORT           (__INPUT_KEYBOARD_NORMATIVE || __INPUT_ON_ANDROID)
-#macro __INPUT_LED_PATTERN_SUPPORT        ((os_type == os_ps5) || __INPUT_ON_SWITCH || __INPUT_ON_IOS || ((os_type == os_windows) && !__INPUT_ON_WEB))
-#macro __INPUT_STEAMWORKS_SUPPORT         (((os_type == os_windows) || (os_type == os_linux)) && !__INPUT_ON_WEB)
-#macro __INPUT_TOUCH_SUPPORT              (__INPUT_ON_MOBILE  || (INPUT_SWITCH_TOUCHSCREEN_ALLOWED && __INPUT_ON_SWITCH) || (INPUT_WINDOWS_TOUCH_ALLOWED && (os_type == os_windows)))
-#macro __INPUT_TOUCH_PRIMARY              (!INPUT_TOUCHSCREEN_USES_MOUSE_SOURCE && (__INPUT_ON_MOBILE || __INPUT_ON_SWITCH || (INPUT_WINDOWS_TOUCH_PRIMARY && (os_type == os_windows))))
+#macro INPUT_ON_MOBILE      __input_global().__on_mobile
+#macro INPUT_ON_PC          __input_global().__on_desktop
+#macro INPUT_ON_STEAM_DECK  __input_global().__on_steam_deck
+#macro INPUT_ON_CONSOLE    (__INPUT_ON_XBOX || __INPUT_ON_PS || __INPUT_ON_SWITCH)
+#macro INPUT_ON_WEB        ((os_browser != browser_not_a_browser) || __INPUT_ON_OPERAGX)
+
+
+
+#macro __INPUT_SDL2_SUPPORT         (!INPUT_ON_WEB && (INPUT_ON_PC || __INPUT_ON_ANDROID))
+#macro __INPUT_DIGITAL_TRIGGER      (__INPUT_ON_SWITCH || (__INPUT_ON_IOS && !INPUT_ON_WEB))
+#macro __INPUT_KEYBOARD_NORMATIVE   (INPUT_ON_PC || INPUT_ON_WEB || __INPUT_ON_SWITCH)
+#macro __INPUT_LED_PATTERN_SUPPORT  ((os_type == os_ps5) || __INPUT_ON_SWITCH || __INPUT_ON_IOS || (__INPUT_ON_WINDOWS && !INPUT_ON_WEB))
+#macro __INPUT_STEAMWORKS_SUPPORT   ((__INPUT_ON_LINUX || __INPUT_ON_WINDOWS) && !INPUT_ON_WEB)
 
 #macro __INPUT_HOLD_THRESHOLD           0.2  //Minimum value from an axis for that axis to be considered activated at the gamepad layer. This is *not* the same as min/max thresholds for players
 #macro __INPUT_DELTA_HOTSWAP_THRESHOLD  0.1  //Minimum (absolute) change in gamepad mapping value between frames to register as new input. This triggers hotswapping
 
 #macro __INPUT_RATE_LIMIT_DURATION  500 //In milliseconds
+
+//Depth the controller object instance is set to
+#macro __INPUT_CONTROLLER_OBJECT_DEPTH  16001
 
 //Valid keycode bounds
 #macro __INPUT_KEYCODE_MIN 8
@@ -122,14 +140,14 @@
 #macro vk_lbracket    219
 #macro vk_rbracket    221
 
-#macro vk_apostrophe (((os_type == os_macosx) && !__INPUT_ON_WEB)? 192 : 222)
-#macro vk_equals     (((os_type == os_macosx) && !__INPUT_ON_WEB)?  24 : 187)
-#macro vk_numlock    ((__INPUT_ON_APPLE && __INPUT_ON_WEB)? 12 : 144)
-#macro vk_hyphen     (((os_type == os_switch) || ((os_type == os_macosx) && !__INPUT_ON_WEB))? 109 : 189)
-#macro vk_rmeta      ((os_type == os_macosx)? ((__INPUT_ON_APPLE && __INPUT_ON_WEB)? 93 : 91) : 92)
-#macro vk_backtick   ((os_type == os_macosx)?  50 : ((os_type == os_linux)? 223 : 192))
-#macro vk_lmeta      ((os_type == os_macosx)?  92 : 91)
-#macro vk_period     ((os_type == os_switch)? 110 : 190)
+#macro vk_apostrophe ((__INPUT_ON_MACOS && !INPUT_ON_WEB)? 192 : 222)
+#macro vk_equals     ((__INPUT_ON_MACOS && !INPUT_ON_WEB)?  24 : 187)
+#macro vk_numlock    ((__INPUT_ON_APPLE &&  INPUT_ON_WEB)?  12 : 144)
+#macro vk_hyphen     ((__INPUT_ON_SWITCH || (__INPUT_ON_MACOS && !INPUT_ON_WEB))? 109 : 189)
+#macro vk_rmeta      (__INPUT_ON_MACOS? ((__INPUT_ON_APPLE && INPUT_ON_WEB)? 93 : 91) : 92)
+#macro vk_backtick   (__INPUT_ON_MACOS?   50 : (__INPUT_ON_LINUX? 223 : 192))
+#macro vk_lmeta      (__INPUT_ON_MACOS?   92 :  91)
+#macro vk_period     (__INPUT_ON_SWITCH? 110 : 190)
 
 // gp_axislh     = 32785             32769 = gp_face1
 // gp_axislv     = 32786             32770 = gp_face2
@@ -184,6 +202,7 @@ enum __INPUT_VERB_TYPE
 {
     __BASIC,
     __CHORD,
+    __COMBO,
 }
 
 enum __INPUT_TRIGGER_EFFECT
@@ -192,6 +211,15 @@ enum __INPUT_TRIGGER_EFFECT
     __TYPE_FEEDBACK,
     __TYPE_WEAPON,
     __TYPE_VIBRATION,
+}
+
+enum __INPUT_COMBO_PHASE
+{
+    __PRESS,
+    __RELEASE,
+    __PRESS_OR_RELEASE,
+    __HOLD,
+    __CHARGE,
 }
 
 //INPUT_STATUS.DISCONNECTED *must* be zero so that array_size() initializes gamepad status to disconnected
@@ -232,7 +260,7 @@ enum INPUT_TRIGGER_STATE
     EFFECT_WEAPON_FIRED      = ps5_gamepad_trigger_effect_state_weapon_fired,
     EFFECT_VIBRATION_STANDBY = ps5_gamepad_trigger_effect_state_vibration_standby,
     EFFECT_VIBRATION_ACTIVE  = ps5_gamepad_trigger_effect_state_vibration_active,
-    EFFECT_INTERCEPTED      = ps5_gamepad_trigger_effect_state_intercepted,
+    EFFECT_INTERCEPTED       = ps5_gamepad_trigger_effect_state_intercepted,
 }
 
 enum INPUT_GYRO
@@ -289,6 +317,7 @@ enum INPUT_VIRTUAL_RELEASE
                                        }
 
 #macro __INPUT_VERIFY_BASIC_VERB_NAME  if (variable_struct_exists(_global.__chord_verb_dict, _verb_name)) __input_error("\"", _verb_name, "\" is a chord verb. Verbs passed to this function must be basic verb");\
+                                       if (variable_struct_exists(_global.__combo_verb_dict, _verb_name)) __input_error("\"", _verb_name, "\" is a combo verb. Verbs passed to this function must be basic verb");\
                                        if (!variable_struct_exists(_global.__basic_verb_dict, _verb_name)) __input_error("Verb \"", _verb_name, "\" not recognised");
                                        
                                        
@@ -299,14 +328,28 @@ enum INPUT_VIRTUAL_RELEASE
                               {\
                                   if (!is_instanceof(_source, __input_class_source))\
                                   {\
-                                      __input_error("Invalid source provided (", _source, ")");\
+                                      if (_source == INPUT_GAMEPAD)\
+                                      {\
+                                          __input_error("Cannot use INPUT_GAMEPAD for a source\nPlease use a specific gamepad e.g. INPUT_GAMEPAD[1]");\
+                                      }\
+                                      else\
+                                      {\
+                                        __input_error("Invalid source provided (", _source, ")");\
+                                      }\
                                   }\
                               }\
                               else\
                               {\
                                   if (instanceof(_source) != "__input_class_source")\
                                   {\
-                                      __input_error("Invalid source provided (", _source, ")");\
+                                      if (_source == INPUT_GAMEPAD)\
+                                      {\
+                                          __input_error("Cannot use INPUT_GAMEPAD for a source\nPlease use a specific gamepad e.g. INPUT_GAMEPAD[1]");\
+                                      }\
+                                      else\
+                                      {\
+                                        __input_error("Invalid source provided (", _source, ")");\
+                                      }\
                                   }\
                               }
 
@@ -316,14 +359,14 @@ enum INPUT_VIRTUAL_RELEASE
                                              {\
                                                  if (!_global.__any_keyboard_binding_defined && !_global.__any_mouse_binding_defined)\
                                                  {\
-                                                    __input_error("Cannot claim ", _source, ", no keyboard or mouse bindings have been created in a default profile (see __input_config_verbs_and_bindings())");\
+                                                    __input_error("Cannot claim ", _source, ", no keyboard or mouse bindings have been created in a default profile (see __input_config_verbs())");\
                                                  }\
                                              }\
                                              else\
                                              {\
                                                  if (!_global.__any_keyboard_binding_defined)\
                                                  {\
-                                                     __input_error("Cannot claim ", _source, ", no keyboard bindings have been created in a default profile (see __input_config_verbs_and_bindings())");\
+                                                     __input_error("Cannot claim ", _source, ", no keyboard bindings have been created in a default profile (see __input_config_verbs())");\
                                                  }\
                                              }\
                                          }\
@@ -331,20 +374,13 @@ enum INPUT_VIRTUAL_RELEASE
                                          {\
                                              if (!_global.__any_mouse_binding_defined)\
                                              {\
-                                                 __input_error("Cannot claim ", _source, ", no mouse bindings have been created in a default profile (see __input_config_verbs_and_bindings())");\
-                                             }\
-                                         }\
-                                         else if (_source == INPUT_TOUCH)\
-                                         {\
-                                             if (!_global.__any_touch_binding_defined)\
-                                             {\
-                                                 __input_error("Cannot claim ", _source, ", no virtual button bindings have been created in a default profile (see __input_config_verbs_and_bindings())");\
+                                                 __input_error("Cannot claim ", _source, ", no mouse bindings have been created in a default profile (see __input_config_verbs())");\
                                              }\
                                          }\
                                          else if (_source.__source == __INPUT_SOURCE.GAMEPAD)\
                                          {\
                                              if (!_global.__any_gamepad_binding_defined)\
                                              {\
-                                                 __input_error("Cannot claim ", _source, ", no gamepad bindings have been created in a default profile (see __input_config_verbs_and_bindings())");\
+                                                 __input_error("Cannot claim ", _source, ", no gamepad bindings have been created in a default profile (see __input_config_verbs())");\
                                              }\
                                          }

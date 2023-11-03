@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @desc    Returns a struct that describes the status of gamepad connectivity
 /// 
 /// N.B. Do not edit the returned struct! You may encounter undefined behaviour if you do

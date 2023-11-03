@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @param source
 
 function __input_source_relinquish(_source)

@@ -1,4 +1,4 @@
-//feather disable all
+// Feather disable all
 /// @param key
 
 function __input_key_is_ignored(_key)
