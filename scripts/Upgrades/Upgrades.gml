@@ -1549,7 +1549,7 @@ function random_upgrades(){
 							var maxI = array_length(weaponsList);
 							var weapon_name = weaponsList[rdn][1][$ "id"];
 							for (var i = 0; i < maxI; ++i) {
-							    if (weaponsList[i][1][$ "id"] == weaponsList) {
+							    if (weaponsList[i][1][$ "id"] == weapon_name) {
 								    array_delete(weaponsList, i, 1);
 									maxI = array_length(weaponsList);
 									i=0;
@@ -1651,7 +1651,7 @@ function random_upgrades(){
 						var maxI = array_length(weaponsList);
 						var weapon_name = weaponsList[rdn][1][$ "id"];
 						for (var i = 0; i < maxI; ++i) {
-							if (weaponsList[i][1][$ "id"] == weaponsList) {
+							if (weaponsList[i][1][$ "id"] == weapon_name) {
 								array_delete(weaponsList, i, 1);
 								maxI = array_length(weaponsList);
 								i=0;
@@ -1740,7 +1740,7 @@ function random_upgrades(){
 						var maxI = array_length(weaponsList);
 						var weapon_name = weaponsList[rdn][1][$ "id"];
 						for (var i = 0; i < maxI; ++i) {
-							if (weaponsList[i][1][$ "id"] == weaponsList) {
+							if (weaponsList[i][1][$ "id"] == weapon_name) {
 								array_delete(weaponsList, i, 1);
 								maxI = array_length(weaponsList);
 								i=0;
