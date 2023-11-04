@@ -1546,7 +1546,15 @@ function random_upgrades(){
 					    case ItemTypes.Weapon:{
 							rdn = irandom_range(0,array_length(weaponsList)-1);
 					        global.upgradeOptions[m] = weaponsList[rdn][1];
-							array_delete(weaponsList, rdn, 1);
+							var maxI = array_length(weaponsList);
+							var weapon_name = weaponsList[rdn][1][$ "id"];
+							for (var i = 0; i < maxI; ++i) {
+							    if (weaponsList[i][1][$ "id"] == weaponsList) {
+								    array_delete(weaponsList, i, 1);
+									maxI = array_length(weaponsList);
+									i=0;
+								}
+							}
 					        break;}
 						case ItemTypes.Item:{
 							rdn = irandom_range(0,array_length(itemsList)-1);
@@ -1640,7 +1648,15 @@ function random_upgrades(){
 				    case ItemTypes.Weapon:{
 						rdn = irandom_range(0,array_length(weaponsList)-1);
 				        global.upgradeOptions[2] = weaponsList[rdn][1];
-						array_delete(weaponsList, rdn, 1);
+						var maxI = array_length(weaponsList);
+						var weapon_name = weaponsList[rdn][1][$ "id"];
+						for (var i = 0; i < maxI; ++i) {
+							if (weaponsList[i][1][$ "id"] == weaponsList) {
+								array_delete(weaponsList, i, 1);
+								maxI = array_length(weaponsList);
+								i=0;
+							}
+						}
 				        break;}
 					case ItemTypes.Item:{
 				        rdn = irandom_range(0,array_length(itemsList)-1);
@@ -1721,7 +1737,15 @@ function random_upgrades(){
 				    case ItemTypes.Weapon:{
 						rdn = irandom_range(0,array_length(weaponsList)-1);
 				        global.upgradeOptions[3] = weaponsList[rdn][1];
-						array_delete(weaponsList, rdn, 1);
+						var maxI = array_length(weaponsList);
+						var weapon_name = weaponsList[rdn][1][$ "id"];
+						for (var i = 0; i < maxI; ++i) {
+							if (weaponsList[i][1][$ "id"] == weaponsList) {
+								array_delete(weaponsList, i, 1);
+								maxI = array_length(weaponsList);
+								i=0;
+							}
+						}
 				        break;}
 					case ItemTypes.Item:{
 				        rdn = irandom_range(0,array_length(itemsList)-1);
@@ -1767,8 +1791,7 @@ function tick_powers(){
 					level : UPGRADES[i][$ "level"],
 					mindmg: UPGRADES[i][$ "mindmg"],
 					maxdmg: UPGRADES[i][$ "maxdmg"]
-				});
-				
+				});				
 			}			
 		}
 	}
