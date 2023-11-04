@@ -212,7 +212,8 @@ function populate_upgrades(){
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
 				characterid : Characters.Uruka,
-				travelWidth : 32
+				travelWidth : 32,
+				weight : 3
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
 			#endregion
 			#region UrukaNote 
@@ -263,6 +264,7 @@ function populate_upgrades(){
 				knockbackDuration : 0,
 				perk : true,
 				characterid : Characters.Lia,
+				weight : 3
 			});
 		new_create_upgrade({
 				id : Weapons.ElectricPulse,
@@ -397,6 +399,7 @@ function populate_upgrades(){
 				knockbackDuration : 20,				
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				weight : 2
 			});
 	#endregion
 	#region Fan Beam
@@ -686,6 +689,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Ranged,
 				afterimage : true,
 				afterimageColor : c_yellow,
+				weight : 3
 				//collabWith : [Weapons.BlBook, Weapons.EliteLavaBucket]
 			});
 	#endregion
@@ -1264,7 +1268,8 @@ function populate_upgrades(){
 		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 		perk : true,
-		characterid : Characters.Pippa
+		characterid : Characters.Pippa,
+		weight : 3
 	},[snd_bullet, snd_bullet2, snd_bullet3]);
 	new_create_upgrade({
 		id : Weapons.HeavyArtillery,
@@ -1358,58 +1363,37 @@ function random_upgrades(){
 		perksList = [];
 	
 		#region Weapons List
-			//show_message(UPGRADES[5][$ "name"]);	
-			// feather disable once GM1041
-			if (UPGRADES[array_length(UPGRADES) -1] == global.null) {
-				for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
-					if ((variable_struct_exists(WEAPONS_LIST[i][1], "unlocked") and !WEAPONS_LIST[i][1][$ "unlocked"]) or variable_struct_exists(WEAPONS_LIST[i][1], "collab")) {
-					    continue;
-					}
-					var maxed = false;
-					var found = false;
-					//feather disable once GM1041
-					for (var j = 0; j < array_length(UPGRADES); ++j) {
-						//show_message("A:" + string(UPGRADES[j][$ "name"]));
-						//show_message("B:" + string(global.upgradesAvaliable[i][1][$ "name"]));
-						if (UPGRADES[j][$ "id"] == WEAPONS_LIST[i][1][$ "id"]) {
-							found = true;
-						    if (UPGRADES[j][$ "level"] != WEAPONS_LIST[i][1][$ "maxlevel"]){
-								maxed = false;
-							}
-							else maxed = true;
-						}
-						//else {array_push(ups, global.upgradesAvaliable[i]);}
-					}	    
-					if (found) {
-					    if (!maxed) {
-						    array_push(weaponsList, WEAPONS_LIST[i]);
-						}
-					} else {
-						//if (WEAPONS_LIST[i][1][$ "characterid"] == -1 or WEAPONS_LIST[i][1][$ "characterid"] == global.player[?"id"]) {
-						if (!variable_struct_exists(WEAPONS_LIST[i][1], "characterid") or WEAPONS_LIST[i][1][$ "characterid"] == -1 or WEAPONS_LIST[i][1][$ "characterid"] == global.player[?"id"]) {
-							//show_message("test");
-						    array_push(weaponsList, WEAPONS_LIST[i]);
-						}
+		var _maxWeapons = array_length(UPGRADES);
+		var _spaceAvaliable = UPGRADES[_maxWeapons -1] == global.null ? true : false;
+		var _maxed, _found, _canBeUnlocked, _unlocked, _isCollab, _currentWeaponOnList, _currentWeapon, _perkWeapon, _belongsToCharacter;
+		if (_spaceAvaliable) {
+			for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+				_currentWeaponOnList = WEAPONS_LIST[i][1];
+				_maxed = false;
+				_found = false;
+				_isCollab = variable_struct_exists(WEAPONS_LIST[i][1], "collab");
+				_belongsToCharacter = false;
+				_perkWeapon = variable_struct_exists(_currentWeaponOnList, "characterid");
+				if (_perkWeapon) { _belongsToCharacter = _currentWeaponOnList.characterid == global.player[? "id"]; }
+				_unlocked = false;
+				_canBeUnlocked = variable_struct_exists(_currentWeaponOnList, "unlocked");
+				if (_canBeUnlocked) { _unlocked = _currentWeaponOnList.unlocked; }
+				if ((_canBeUnlocked and !_unlocked) or (_perkWeapon and !_belongsToCharacter) or _isCollab) { continue; }
+				for (var j = 0; j < _maxWeapons; ++j) {
+					_currentWeapon = UPGRADES[j];
+					_found = _currentWeapon.id == _currentWeaponOnList.id ? true : false;
+					_maxed = _currentWeapon.level == _currentWeapon.maxlevel ? true : false;
+					if (_found) {
+					    break;
 					}
 				}
-			}else{
-				//var str = "";
-				//feather disable once GM1041
-				for (var i = 0; i < array_length(UPGRADES); ++i) {
-				    if (UPGRADES[i][$ "level"] != UPGRADES[i][$ "maxlevel"] and UPGRADES[i] != global.null) {
-					    array_push(weaponsList, WEAPONS_LIST[UPGRADES[i][$ "id"]]);
-						
-						//str = str + ":" + UPGRADES[i][$ "name"];
+				if ((_found and !_maxed) or !_found) {
+					repeat (_currentWeaponOnList.weight) {
+					    array_push(weaponsList, WEAPONS_LIST[i]);
 					}
-				}	
-				//show_message(str);
-			}
-			for (var i = 0; i < array_length(weaponsList); ++i) {
-			    if (variable_struct_exists(weaponsList[i][1], "characterid") and weaponsList[i][1].characterid != global.player[?"id"]) {
-				    array_delete(weaponsList, i, 1);					
-					i = 0;
 				}
 			}
+		}
 		#endregion
 	
 		#region Items
