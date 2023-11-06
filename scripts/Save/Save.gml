@@ -49,16 +49,16 @@ function Save_Reserve () { var Data = {};
             };
     
 function Load_Reserve () {
-    if (file_exists(Reserve)) {
-        var Map = ds_map_secure_load(Reserve);
-        var Json = json_parse( json_encode(Map) );
-            for(var i = 0; i < array_length(global.Data); i++){
-                var Key = global.Data[i];
-                if(variable_global_exists(Key)){
-                    variable_global_set(Key, Json[$ Key] );}}
-          } 
-		  // Feather disable once GM2043
-		  ds_map_destroy(Map);
-     };
-
-
+	if (file_exists(Reserve)) {
+		var Map = ds_map_secure_load(Reserve);
+		var Json = json_parse( json_encode(Map) );
+		for(var i = 0; i < array_length(global.Data); i++){
+			var Key = global.Data[i];
+			if(variable_global_exists(Key)){
+				variable_global_set(Key, Json[$ Key] );
+			}
+		}
+	}
+	// Feather disable once GM2043
+	ds_map_destroy(Map);
+};

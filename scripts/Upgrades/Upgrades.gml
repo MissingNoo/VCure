@@ -1366,34 +1366,33 @@ function random_upgrades(){
 		var _maxWeapons = array_length(UPGRADES);
 		var _spaceAvaliable = UPGRADES[_maxWeapons -1] == global.null ? true : false;
 		var _maxed, _found, _canBeUnlocked, _unlocked, _isCollab, _currentWeaponOnList, _currentWeapon, _perkWeapon, _belongsToCharacter;
-		if (_spaceAvaliable) {
-			for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
-				_currentWeaponOnList = WEAPONS_LIST[i][1];
-				_maxed = false;
-				_found = false;
-				_isCollab = variable_struct_exists(WEAPONS_LIST[i][1], "collab");
-				_belongsToCharacter = false;
-				_perkWeapon = variable_struct_exists(_currentWeaponOnList, "characterid");
-				if (_perkWeapon) { _belongsToCharacter = _currentWeaponOnList.characterid == global.player[? "id"]; }
-				_unlocked = false;
-				_canBeUnlocked = variable_struct_exists(_currentWeaponOnList, "unlocked");
-				if (_canBeUnlocked) { _unlocked = _currentWeaponOnList.unlocked; }
-				if ((_canBeUnlocked and !_unlocked) or (_perkWeapon and !_belongsToCharacter) or _isCollab) { continue; }
-				for (var j = 0; j < _maxWeapons; ++j) {
-					_currentWeapon = UPGRADES[j];
-					_found = _currentWeapon.id == _currentWeaponOnList.id ? true : false;
-					_maxed = _currentWeapon.level == _currentWeapon.maxlevel ? true : false;
-					if (_found) {
-					    break;
-					}
+		for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+			_currentWeaponOnList = WEAPONS_LIST[i][1];
+			_maxed = false;
+			_found = false;
+			_isCollab = variable_struct_exists(WEAPONS_LIST[i][1], "collab");
+			_belongsToCharacter = false;
+			_perkWeapon = variable_struct_exists(_currentWeaponOnList, "characterid");
+			if (_perkWeapon) { _belongsToCharacter = _currentWeaponOnList.characterid == global.player[? "id"]; }
+			_unlocked = false;
+			_canBeUnlocked = variable_struct_exists(_currentWeaponOnList, "unlocked");
+			if (_canBeUnlocked) { _unlocked = _currentWeaponOnList.unlocked; }
+			if ((_canBeUnlocked and !_unlocked) or (_perkWeapon and !_belongsToCharacter) or _isCollab) { continue; }
+			for (var j = 0; j < _maxWeapons; ++j) {
+				_currentWeapon = UPGRADES[j];
+				_found = _currentWeapon.id == _currentWeaponOnList.id ? true : false;
+				_maxed = _currentWeapon.level == _currentWeapon.maxlevel ? true : false;
+				if (_found) {
+					break;
 				}
-				if ((_found and !_maxed) or !_found) {
-					repeat (_currentWeaponOnList.weight) {
-					    array_push(weaponsList, WEAPONS_LIST[i]);
-					}
+			}
+			if ((_found and !_maxed) or (!_found and _spaceAvaliable)) {
+				repeat (_currentWeaponOnList.weight) {
+					array_push(weaponsList, WEAPONS_LIST[i]);
 				}
 			}
 		}
+		
 		#endregion
 	
 		#region Items
@@ -1525,16 +1524,6 @@ function random_upgrades(){
 				isWhat = "null";
 			    //TODO: change item type to statup
 				}
-				var str = "Weapons";
-				for (var i = 0; i < array_length(weaponsList); ++i) { str = str + " : " + weaponsList[i][1][$ "name"]; }
-				str = str + "\n\nItems"; 
-				for (var i = 0; i < array_length(itemsList); ++i) { str = str + " : " + itemsList[i][1][$ "name"]; }
-				str = str + "\n\nPerks"; 
-				for (var i = 0; i < array_length(perksList); ++i) { str = str + " : " + perksList[i][1][$ "name"]; }
-				str = str + "\n\ncanbe: weapon:" + string(canBeWeapon) + " item:" + string(canBeItem) + " perk:" + string(canBePerk); 
-				if (keyboard_check(ord("G"))) {
-				    show_message(str);
-				}
 			}
 			var rdn = 0;
 			
@@ -1548,11 +1537,9 @@ function random_upgrades(){
 					        global.upgradeOptions[m] = weaponsList[rdn][1];
 							var maxI = array_length(weaponsList);
 							var weapon_name = weaponsList[rdn][1][$ "id"];
-							for (var i = 0; i < maxI; ++i) {
+							for (var i = maxI - 1; i >= 0; --i) {
 							    if (weaponsList[i][1][$ "id"] == weapon_name) {
 								    array_delete(weaponsList, i, 1);
-									maxI = array_length(weaponsList);
-									i=0;
 								}
 							}
 					        break;}
@@ -1650,11 +1637,9 @@ function random_upgrades(){
 				        global.upgradeOptions[2] = weaponsList[rdn][1];
 						var maxI = array_length(weaponsList);
 						var weapon_name = weaponsList[rdn][1][$ "id"];
-						for (var i = 0; i < maxI; ++i) {
+						for (var i = maxI - 1; i >= 0; --i) {
 							if (weaponsList[i][1][$ "id"] == weapon_name) {
 								array_delete(weaponsList, i, 1);
-								maxI = array_length(weaponsList);
-								i=0;
 							}
 						}
 				        break;}
@@ -1739,11 +1724,9 @@ function random_upgrades(){
 				        global.upgradeOptions[3] = weaponsList[rdn][1];
 						var maxI = array_length(weaponsList);
 						var weapon_name = weaponsList[rdn][1][$ "id"];
-						for (var i = 0; i < maxI; ++i) {
+						for (var i = maxI - 1; i >= 0; --i) {
 							if (weaponsList[i][1][$ "id"] == weapon_name) {
 								array_delete(weaponsList, i, 1);
-								maxI = array_length(weaponsList);
-								i=0;
 							}
 						}
 				        break;}

@@ -483,6 +483,10 @@ if (instance_exists(oPlayer))
 				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 415, _yy + 2 + offset, 2, 2, 0, c_white, 1); 
 			} 
 			draw_set_halign(fa_left);
+		//	offset += 138;
+		//}
+		//offset = 0;
+		//for (var i = 0; i < array_length(global.upgradeOptions); i++) {
 			var uptype = "";
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
@@ -567,7 +571,13 @@ if (instance_exists(oPlayer))
 		if (global.shopUpgrades.Reroll.level > 0) {
 			var _rerollX = GW/2;
 			var _rerollY = GH/1.05;
+			var _sprW = sprite_get_width(sHudButton);
+			var _sprH = sprite_get_height(sHudButton);
+			if (buttonClick([_rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH])) {
+			    selected = 4;
+			}
 			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);
+			
 			var color = selected == 4 ? c_black : c_white;
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_middle);

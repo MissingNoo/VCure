@@ -1,4 +1,16 @@
 imguigml_activate();
+#region fps mean
+numSeconds = 3;
+stepsPassed = 0;
+fpsAverage = 0;
+movingSum = 0;
+fpsArraySize = 60 * numSeconds;
+fpsArray[fpsArraySize-1] = 0;
+for(var i=0;i<fpsArraySize;i++){
+    fpsArray[i] = 0;
+}
+#endregion
+show_debug_overlay(true);
 if (os_type != os_android) {
     window_set_size(1280, 720);
 }

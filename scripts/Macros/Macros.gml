@@ -11,3 +11,4 @@ global.goldenAnvil = false;
 #macro GoldenANVIL global.goldenAnvil
 #macro Buffs global.buffs
 #macro Delta global.deltaTime
+gml_pragma("UnityBuild", "true");
