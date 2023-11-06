@@ -10,7 +10,7 @@ for(var i=0;i<fpsArraySize;i++){
     fpsArray[i] = 0;
 }
 #endregion
-show_debug_overlay(true);
+//show_debug_overlay(true);
 if (os_type != os_android) {
     window_set_size(1280, 720);
 }
