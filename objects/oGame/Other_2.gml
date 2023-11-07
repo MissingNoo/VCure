@@ -128,6 +128,14 @@ if (!variable_global_exists("ShopUpgrades")) {
 			tab : GlobalShopTabs.Enhancements,
 			costs : [2500, 5000, 7500, 10000, 12500 ]
 		},
+		Enchantment : {
+			name : "Enchantments",
+			sprite : sHudHPIcon,
+			level : 0,
+			maxlevel : 1,
+			tab : GlobalShopTabs.Enhancements,
+			costs : [1000]
+		},
 		EnhacementRate : {//TODO: yeah....
 			name:"Enhancement Rate Up",
 			desc : "Increases the chance of success during enhancements by 3% per level. (Max 15%) ",
@@ -190,26 +198,4 @@ try{
 catch (err){
 	//ignore
 }
-#endregion
-#region Fix shop icons in case they're fucking broken
-//feather disable GM2017
-global.shopUpgrades.Hp.sprite = sHudHPIcon;
-global.shopUpgrades.Atk.sprite =sHudAtkIcon;
-global.shopUpgrades.Spd.sprite =sHudSpdIcon;
-global.shopUpgrades.Crit.sprite =sHudCrtIcon;
-global.shopUpgrades.PickUp.sprite =sHudPickupIcon;
-global.shopUpgrades.Haste.sprite =sHudCooldownIcon;
-global.shopUpgrades.Regeneration.sprite =sHudRegenerationIcon;
-global.shopUpgrades.SpecialAtk.sprite =sHudSpecialUnlockIcon;
-global.shopUpgrades.SpecialCooldown.sprite =sHudSpecialCooldownIcon;
-global.shopUpgrades.Growth.sprite =sHudGrowthIcon;
-global.shopUpgrades.ExpGain.sprite =sXP;
-global.shopUpgrades.FoodDrop.sprite =sHamburger;
-global.shopUpgrades.MoneyGain.sprite =sPhaseCoin;
-global.shopUpgrades.Reroll.sprite =sHudRerollIcon;
-global.shopUpgrades.EnhacementRate.sprite =sHudHPIcon;
-global.shopUpgrades.Defense.sprite =sHudDefenseIcon;
-global.shopUpgrades.GRankOff.sprite =sHudHPIcon;
-global.shopUpgrades.Hardcore.sprite =sHudHPIcon;
-//feather enable GM2017
 #endregion

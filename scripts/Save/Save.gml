@@ -28,7 +28,12 @@ function Load_Data_Structs () {
                     variable_global_set(Key, Json[$ Key] );}}
           ds_map_destroy(Map);} 
 		  if (is_string(global.shopUpgradesJSON)) {
-		      global.shopUpgrades = json_parse(global.shopUpgradesJSON);
+		      //global.shopUpgrades = json_parse(global.shopUpgradesJSON);
+			  var _json = json_parse(global.shopUpgradesJSON);
+			  var _names = struct_get_names(_json);
+			  for (var i = 0; i < array_length(_names); ++i) {
+			      global.shopUpgrades[$ _names[i]].level = _json[$ _names[i]].level;
+			  }
 		  }  
 		  
 		if(array_length(UnlockableItems) < ItemIds.Length) { UnlockableItems[array_length(UnlockableItems)] = false; }
