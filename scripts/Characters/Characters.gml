@@ -78,6 +78,14 @@ function initializePlayer(_p){
 			}
 		}
 	#endregion
+	#region Reset enchantments
+	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+	    WEAPONS_LIST[i][1].enchantment = Enchantments.None;
+	}
+	if (global.shopUpgrades.Enchantment.level > 0) {
+	    apply_enchantments();
+	}	
+	#endregion
 	gx = 0;
 	gy =0;
 	pimanLevel = 0;

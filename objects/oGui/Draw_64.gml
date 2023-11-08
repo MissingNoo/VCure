@@ -491,6 +491,14 @@ if (instance_exists(oPlayer))
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
 					uptype = "Weapons.";
+					var _enchantment = WEAPONS_LIST[global.upgradeOptions[i].id][1].enchantment;
+					var _isEnchanted = _enchantment != Enchantments.None;
+					if (_isEnchanted) {						
+						draw_set_color(#add8e6);
+						draw_set_halign(fa_right);
+						draw_text_transformed(_xx + 365, _yy + 25 + offset, "> " + lexicon_text($"Enchantments.{_enchantment}.desc"), 2, 2, 0);
+						draw_set_halign(fa_left);
+					}					
 					break;}
 				case ItemTypes.Item:{
 					uptype = "Items.";
@@ -502,6 +510,7 @@ if (instance_exists(oPlayer))
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
 			//draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name //UNUSED
 			draw_text_transformed(_xx - 348, _yy - 64 + offset, _name, 2, 2, 0); // draw the name
+			draw_set_color(c_white);
 			var style = ""; 
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{

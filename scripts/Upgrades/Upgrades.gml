@@ -65,7 +65,17 @@ enum ShotTypes {
 	Ranged,
 	Melee
 }
-
+enum Enchantments {
+	None,
+	Damage,
+	Size,
+	Cooldown,
+	HitRate,
+	CritDamage,
+	Knockback,
+	Projectile
+}
+global.enchantmentWeights = [0, 5, 5, 3, 3, 2, 1, 1];
 #region Upgrades
 /**
  * Function Description
@@ -82,6 +92,7 @@ function new_create_upgrade(_data, _sounds = ""){
 		global.upgradesAvaliable[_data.id][i].sound = _sounds;
 		var m = global.upgradesAvaliable[_data.id][i];
 		variable_struct_set(m, "level" ,i);
+		variable_struct_set(m, "enchantment" , Enchantments.None);
 		//variable_struct_set(m, "desc", lexicon_text("Weapons." + _data.name + "." + string(i)));
 		variable_struct_set(m, "style", ItemTypes.Weapon);
 		//variable_struct_set(m, "collabWith", _data[$ "collabWith"]);
@@ -1759,6 +1770,41 @@ function random_upgrades(){
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
 }	
+#endregion
+#region Random Enchantments
+function apply_enchantments(){
+	var _weapon = 0;
+	var _isPerk = false;
+	var _isCollab = false;
+	var _possibleWeapons = [];
+	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+		_weapon = i;
+		_isCollab = variable_struct_exists(WEAPONS_LIST[_weapon][1], "collab");
+		_isPerk = WEAPONS_LIST[_weapon][1].perk;
+		//show_debug_message($"{i}:c{_isCollab}:p{_isPerk}");
+		if (!_isCollab and !_isPerk) {
+			array_push(_possibleWeapons, i);
+		}
+	}
+	var _possibleEnchantments = [];
+	for (var i = 0; i < array_length(global.enchantmentWeights); ++i) {
+	    repeat (global.enchantmentWeights[i]) {
+		    array_push(_possibleEnchantments, i);
+		}
+	}
+	show_debug_message(_possibleEnchantments);
+	//show_debug_message(_possibleWeapons);
+	repeat (5) {
+	    _weapon = 0;
+		var _canBeEnchanted = false;
+		do {
+		    _weapon = irandom_range(0, array_length(_possibleWeapons) - 1);
+			_canBeEnchanted = WEAPONS_LIST[_weapon][1].enchantment == Enchantments.None;
+			//show_debug_message($"{_weapon} : p{_isPerk} : c{_isCollab} : E {_canBeEnchanted}");
+		} until (_canBeEnchanted);
+		WEAPONS_LIST[_weapon][1].enchantment = _possibleEnchantments[irandom_range(0, array_length(_possibleEnchantments) - 1)];
+	}
+}
 #endregion
 function tick_powers(){
 	if (attacktick == true and UPGRADES[0][$ "name"]!="") {

@@ -395,6 +395,15 @@
 				"5":"Every [6] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%]."
             }
         },
+		"Enchantments" : {
+			"1" : { "desc" : "Damage +15%" },
+			"2" : { "desc" : "Size +15%"},
+			"3" : { "desc" : "Cooldown -10%" },
+			"4" : { "desc" : "HitRate +20%" },
+			"5" : { "desc" : "Crit Damage +10%" },
+			"6" : { "desc" : "+Knockback effect" },
+			"7" : { "desc" : "+1 projectile" }
+		},
 		"Perks": {
 			"Heavy Artillery" : {
 				"name": "Heavy Artillery",
