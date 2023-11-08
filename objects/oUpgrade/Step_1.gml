@@ -18,14 +18,17 @@ if (socket == oPlayer.socket) {
 }
 #region Start
 // Feather disable GM2016
-if (a==0) {	
+if (a==0) {
+if (shoots > 0 and WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Projectile) {
+	shoots += 1;
+}
 speed=upg[$ "speed"];
-//if (!variable_instance_exists(self, "mindmg")) {
-	mindmg = upg[$ "mindmg"];
-//}
-//if (!variable_instance_exists(self, "maxdmg")) {
-	maxdmg = upg[$ "maxdmg"];
-//}
+mindmg = upg[$ "mindmg"];
+maxdmg = upg[$ "maxdmg"];
+if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Damage) {
+    mindmg = mindmg * 1.15;
+    maxdmg = maxdmg * 1.15;
+}
 hits=upg[$ "hits"];
 if (variable_struct_exists(upg, "size")) {
 	    image_xscale = upg[$ "size"];
@@ -72,6 +75,9 @@ image_speed = 0;
 	var minCooldown = upg[$ "minimumcooldown"];
 	if (cooldown < minCooldown) {
 	    cooldown = minCooldown;
+	}
+	if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Cooldown) {
+		cooldown = cooldown * 0.9;
 	}
 	global.upgradeCooldown[upg[$ "id"]] = cooldown;
 	dAlarm[1] = upg[$ "duration"];
@@ -576,7 +582,11 @@ image_speed = 0;
 	    image_xscale = upg[$ "size"];
 	    image_yscale = upg[$ "size"];
 	}
-	originalSize = [image_xscale, image_yscale];	
+	if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Size) {
+		image_xscale = image_xscale * 1.15;
+		image_yscale = image_yscale * 1.15;
+	}
+	originalSize = [image_xscale, image_yscale];
 	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	    if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$ "id"] != Weapons.HoloBomb) {
 			if (image_xscale > 0) { 

@@ -93,6 +93,9 @@ function new_create_upgrade(_data, _sounds = ""){
 		var m = global.upgradesAvaliable[_data.id][i];
 		variable_struct_set(m, "level" ,i);
 		variable_struct_set(m, "enchantment" , Enchantments.None);
+		if (variable_struct_exists(_data, "incompatibleEnchantments")) {
+		    variable_struct_set(m, "incompatibleEnchantments", _data.incompatibleEnchantments);
+		}
 		//variable_struct_set(m, "desc", lexicon_text("Weapons." + _data.name + "." + string(i)));
 		variable_struct_set(m, "style", ItemTypes.Weapon);
 		//variable_struct_set(m, "collabWith", _data[$ "collabWith"]);
@@ -100,7 +103,7 @@ function new_create_upgrade(_data, _sounds = ""){
 		//show_message(keys);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
-			//if (k == "collabWith") { continue; }
+			if (k == "incompatibleEnchantments") { continue; }
 		    var v = _data[$ k];
 			if (is_array(v)) {
 			    if (array_length(v) > 1) {
@@ -384,7 +387,8 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Multishot,
 				perk : false,
-				unlocked : false
+				unlocked : false,
+				incompatibleEnchantments : [0, Enchantments.Size]
 			});
 	#endregion
 	#region Cutting Board
@@ -492,6 +496,7 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				incompatibleEnchantments : [0, Enchantments.Projectile]
 				//collabWith : Weapons.PsychoAxe
 			});
 	#endregion
@@ -546,6 +551,7 @@ function populate_upgrades(){
 				knockbackDuration : 0,
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				incompatibleEnchantments : [0, Enchantments.Projectile]
 				//collabWith : Weapons.PlugAsaCoco
 			});
 		//Damage: 	170% (12 – 22)
@@ -592,6 +598,7 @@ function populate_upgrades(){
 				afterimage : true,
 				afterimageColor : c_yellow,
 				perk : false,
+				incompatibleEnchantments : [0, Enchantments.Size]
 				//collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
 			});
 	#endregion
@@ -618,6 +625,7 @@ function populate_upgrades(){
 				perk : false,
 				shotType : ShotTypes.Melee,
 				size : [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
+				incompatibleEnchantments : [0, Enchantments.Cooldown]
 			});
 	#endregion
 	#region Glowstick
@@ -1772,7 +1780,7 @@ function random_upgrades(){
 }	
 #endregion
 #region Random Enchantments
-function apply_enchantments(){
+function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 	var _weapon = 0;
 	var _isPerk = false;
 	var _isCollab = false;
@@ -1786,23 +1794,56 @@ function apply_enchantments(){
 			array_push(_possibleWeapons, i);
 		}
 	}
-	var _possibleEnchantments = [];
-	for (var i = 0; i < array_length(global.enchantmentWeights); ++i) {
-	    repeat (global.enchantmentWeights[i]) {
-		    array_push(_possibleEnchantments, i);
-		}
-	}
-	show_debug_message(_possibleEnchantments);
+	//show_debug_message(_possibleEnchantments);
 	//show_debug_message(_possibleWeapons);
-	repeat (5) {
+	repeat (_repeat) {
 	    _weapon = 0;
+		var _compatible = false;
+		var _possibleEnchantments = [];
+		for (var i = 0; i < array_length(global.enchantmentWeights); ++i) {
+			repeat (global.enchantmentWeights[i]) {
+				array_push(_possibleEnchantments, i);
+			}
+		}
 		var _canBeEnchanted = false;
 		do {
 		    _weapon = irandom_range(0, array_length(_possibleWeapons) - 1);
 			_canBeEnchanted = WEAPONS_LIST[_weapon][1].enchantment == Enchantments.None;
 			//show_debug_message($"{_weapon} : p{_isPerk} : c{_isCollab} : E {_canBeEnchanted}");
 		} until (_canBeEnchanted);
-		WEAPONS_LIST[_weapon][1].enchantment = _possibleEnchantments[irandom_range(0, array_length(_possibleEnchantments) - 1)];
+		if (_specificWeapon != -1) { _weapon = _specificWeapon; }
+		array_delete(_possibleWeapons, _weapon, 1);
+		if (variable_struct_exists(WEAPONS_LIST[_weapon][1], "incompatibleEnchantments")) {
+			//show_debug_message("______________________")
+			//show_debug_message(_possibleEnchantments);
+			//show_debug_message(WEAPONS_LIST[_weapon][1].incompatibleEnchantments);
+			for (var i = 0; i < array_length(WEAPONS_LIST[_weapon][1].incompatibleEnchantments); ++i) {
+				//show_debug_message($"deleting {WEAPONS_LIST[_weapon][1].incompatibleEnchantments[i]}");
+				for (var j = array_length(_possibleEnchantments) - 1; j >= 0; --j) {
+				    if (WEAPONS_LIST[_weapon][1].incompatibleEnchantments[i] == _possibleEnchantments[j]) {
+						//show_debug_message("deleted enchant " + lexicon_text("Enchantments." + string(_possibleEnchantments[j]) + ".desc") + " for weapon " + WEAPONS_LIST[_weapon][1].name);
+					    array_delete(_possibleEnchantments, j, 1);
+					}
+				}
+			}
+			//show_debug_message(_possibleEnchantments);
+		}
+		if (_weapon != Weapons.EliteLavaBucket and _weapon != Weapons.SpiderCooking) {
+		    for (var i = array_length(_possibleEnchantments) - 1; i >= 0 ; --i) {
+			    if (_possibleEnchantments[i] == Enchantments.HitRate) {
+				    array_delete(_possibleEnchantments, i, 1);
+				}
+			}
+		}
+		if (variable_struct_exists(WEAPONS_LIST[_weapon][1], "shotType") and WEAPONS_LIST[_weapon][1].shotType != ShotTypes.Multishot) {
+		    for (var i = array_length(_possibleEnchantments) - 1; i >= 0 ; --i) {
+			    if (_possibleEnchantments[i] == Enchantments.Projectile) {
+				    array_delete(_possibleEnchantments, i, 1);
+				}
+			}
+		}
+		var _selectedEnchant = _possibleEnchantments[irandom_range(0, array_length(_possibleEnchantments) - 1)];
+		WEAPONS_LIST[_weapon][1].enchantment = _selectedEnchant;
 	}
 }
 #endregion

@@ -23,7 +23,14 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		 //    alarm[11] = 20;
 		 //}		 
 	}
-	other.hittedcooldown[upg[$ "id"]] = upg[$ "hitCooldown"];
+	var _hitCooldown = upg[$ "hitCooldown"];
+	if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.HitRate) {
+		_hitCooldown = _hitCooldown * 0.8;
+		if (_hitCooldown < 5) {
+		    _hitCooldown = 5;
+		}
+	}
+	other.hittedcooldown[upg[$ "id"]] = _hitCooldown;
 	other.damaged = true;
 	//random_set_seed(current_time);
 	if (!variable_instance_exists(self, "mindmg")) { mindmg = 0; }	
@@ -114,7 +121,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 	}
 	//show_message(string(originalDamage) + "/" + string(dmg));
 	var _rnd = irandom_range(0, 100);
-	var _critChance = oPlayer.critChance;	
+	var _critChance = oPlayer.critChance;
 	var _critMultiplier = 1;
 	var _wasCrit = false;
 	var _virusInfected = false;
@@ -125,6 +132,9 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		    if (Bonuses[BonusType.CriticalDamage][i] != 0) {
 				_critCalc += real("0." + string(real(string_replace(string(Bonuses[BonusType.CriticalDamage][i]), "1.", ""))));
 			}
+		}
+		if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.CritDamage) {
+			_critCalc += .1;
 		}
 		_critMultiplier += _critCalc;
 		_wasCrit = true;

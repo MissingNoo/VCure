@@ -1,4 +1,5 @@
 can_collab();
+WEAPONS_LIST[Weapons.BlBook][1].enchantment = Enchantments.Size;
 #region critChance
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));
