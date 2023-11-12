@@ -79,7 +79,7 @@ function populate_perks(){
 			cooldown : 1,
 			characterid : Characters.Uruka,
 			dropChance : [0, 10, 11, 12],
-			spdDebuff : [0, 0.95, 0.92, 0.90]
+			spdDebuff : [0, 0.85, 0.80, 0.75]
 		});
 		#endregion
 		#region WeakBones

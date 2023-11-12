@@ -82,6 +82,7 @@ function initializePlayer(_p){
 	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 	    WEAPONS_LIST[i][1].enchantment = Enchantments.None;
 	}
+	//Feather disable once GM2017
 	if (global.shopUpgrades.Enchantment.level > 0) {
 	    apply_enchantments();
 	}	
