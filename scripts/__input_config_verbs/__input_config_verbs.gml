@@ -1,3 +1,4 @@
+//feather disable all
 //Input defines the default profiles as a macro called 
 //This macro is parsed when Input boots up and provides the baseline bindings for your game
 //
