@@ -22,6 +22,6 @@
   "option_operagx_scale": 1,
   "option_operagx_team_id": "794ecb5f-5d23-4c91-8e09-34a6ef9a4bb7",
   "option_operagx_team_name": "Airgeadlamh studio",
-  "option_operagx_texture_page": "4096x4096",
+  "option_operagx_texture_page": "2048x2048",
   "option_operagx_version": "1.0.0.4",
 }

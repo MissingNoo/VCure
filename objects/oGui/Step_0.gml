@@ -231,7 +231,7 @@ if (global.upgrade) // after level up
 		global.xp -= oPlayer.neededxp;
 		global.upgrade = 0;
 		pause_game();
-		
+		upgrades_surface();
 	}
 }
 #endregion

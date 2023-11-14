@@ -432,3 +432,102 @@ function drawStatsSelect(character){
 		}
 }
 #endregion
+
+#region upgrades surface
+itemsSurface = surface_create(window_get_width(), window_get_height());
+function upgrades_surface(){
+	itemsSurface = surface_create(window_get_width(), window_get_height());
+	surface_set_target(itemsSurface);
+	var _x = GW/25.10
+	var _y = GH/10.59;
+	draw_sprite_ext(sItemsArea, 0, _x + 51, _y - 20, 16.45, 6.65, 0, c_white, 1);
+	#region Weapons	
+	var header = sBlank;
+	var digit = sBlank;
+	var offset=0;
+	var yoffset = 0;
+	var _itemsx;
+	var _itemsy;
+	if (global.showhpui) {
+		_itemsx = _x + 76;
+		_itemsy = _y + 4;
+	}
+	else{
+		_itemsx = GW/12;
+		_itemsy = GH/13;
+	}
+	for (var i = 0; i < array_length(UPGRADES); i++){ //for the size of the upgrade arrays
+		draw_sprite_ext(sUiEmptySlotWeapon,0,_itemsx+offset,_itemsy,1.5,1.5,0,c_white,.5); //draw empty slots background
+		if (UPGRADES[i]!=global.null){ //if there is a upgrade in the slot		
+			var awakened = (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) ? 0 : 1; //check if weapon is awakened
+			draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
+			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$ "id"]]));}
+			switch (UPGRADES[i][$ "type"]){ //detect the type of upgrade
+				case "red":{
+					header = sUiLevelHeaderPink;
+					digit = sUiDigitPink;
+					break;}
+				case "yellow":{
+					header = sUiLevelHeaderYellow;
+					digit = sUiDigitYellow;
+					break;}
+				case "white":{
+					header = sUiLevelHeaderWhite;
+					digit = sUiDigitWhite;
+					break;}
+			}
+			draw_sprite_ext(header,0,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw type sprite
+			draw_sprite_ext(digit,UPGRADES[i][$ "level"],_itemsx+5+offset,_itemsy,2,2,0,c_white,1); //draw level
+		}		
+		offset+=50;
+	}
+	#region Items
+	offset=0;			
+	yoffset = 60;
+	for (var i = 0; i < array_length(playerItems); i++){ //for the size of the upgrade arrays
+		draw_sprite_ext(sUiEmptySlotItem,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+		if (playerItems[i]!=global.nullitem) //if there is a upgrade in the slot
+		{
+			var awakened = (playerItems[i][$ "level"] < 7) ? 0 : 1; //check if weapon is awakened
+			draw_sprite_ext(playerItems[i][$ "thumb"],awakened,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw weapon sprite
+			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$ "id"]]));}
+			switch (playerItems[i][$ "type"]) //detect the type of upgrade
+			{
+				case "red":{
+					header = sUiLevelHeaderPink;
+					digit = sUiDigitPink;
+					break;}
+				case "yellow":{
+					header = sUiLevelHeaderYellow;
+					digit = sUiDigitYellow;
+					break;}
+				case "white":{
+					header = sUiLevelHeaderWhite;
+					digit = sUiDigitWhite;
+					break;}
+			}
+			draw_sprite_ext(header,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
+			draw_sprite_ext(digit,playerItems[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level
+		}		
+		offset+=50;
+	}
+	#endregion
+	
+	#region Perks
+	offset=150;
+	yoffset = 120;
+	for (var i = 0; i < array_length(PLAYER_PERKS); i++){ //for the size of the upgrade arrays
+		draw_sprite_ext(sUiEmptySlotItem,0,_itemsx+offset,_itemsy+yoffset,1.5,1.5,0,c_white,.5); //draw empty slots background
+		if (PLAYER_PERKS[i]!=global.nullperk){ //if there is a upgrade in the slot
+			var activated = PLAYER_PERKS[i][$ "level"] > 0  ? 1 : .5;
+			draw_sprite_ext(PLAYER_PERKS[i][$ "thumb"],0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white, activated); //draw weapon sprite
+			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$ "id"]]));}
+			draw_sprite_ext(sUiLevelHeaderPink,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
+			draw_sprite_ext(sUiDigitPink,PLAYER_PERKS[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level					        
+		}		
+		offset+=50;
+	}
+	#endregion
+	surface_reset_target();
+}
+#endregion
