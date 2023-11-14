@@ -1785,13 +1785,12 @@ function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 	var _isPerk = false;
 	var _isCollab = false;
 	var _possibleWeapons = [];
-	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
-		_weapon = i;
+	for (_weapon = 0; _weapon < array_length(WEAPONS_LIST); ++_weapon) {
 		_isCollab = variable_struct_exists(WEAPONS_LIST[_weapon][1], "collab");
 		_isPerk = WEAPONS_LIST[_weapon][1].perk;
 		//show_debug_message($"{i}:c{_isCollab}:p{_isPerk}");
 		if (!_isCollab and !_isPerk) {
-			array_push(_possibleWeapons, i);
+			array_push(_possibleWeapons, _weapon);
 		}
 	}
 	//show_debug_message(_possibleEnchantments);

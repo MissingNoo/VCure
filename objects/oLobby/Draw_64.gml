@@ -144,7 +144,7 @@ if (typepassword) {
 	var ay = cy;
 	var as = cs;
 	
-	//draw_set_valign(fa_center);
+	draw_set_valign(fa_center);
 	_color = (passwordselectedyesno == 0) ? c_yellow : c_white;
 	if (passwordselected != 1) { _color = c_white;}
 	draw_rectangle_color(cx - cs, cy - 14.5, cx + cs, cy + 14.5, _color, _color, _color, _color, true);
@@ -168,7 +168,7 @@ if (typepassword) {
 	}
 	draw_text_transformed(ax, cy, "Accept", 2, 2, 0);
 	
-	//draw_set_valign(fa_top);
+	draw_set_valign(fa_top);
 	//draw_set_halign(fa_left);
 }
 
