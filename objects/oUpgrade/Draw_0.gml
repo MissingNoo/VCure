@@ -21,12 +21,7 @@ switch (upg[$ "id"]) {
 		}
 		break;}
     case Weapons.SpiderCooking:
-        draw_set_color(c_purple);
-		draw_set_alpha(.35);
-		draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,false);
-		draw_set_alpha(1);
-		draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,true);
-		draw_set_color(c_white);
+        draw_spider_cooking();
         break;
 	case Weapons.EliteCooking:
 		draw_set_color(c_purple);

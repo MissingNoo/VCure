@@ -1,7 +1,7 @@
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
 sprSpeedType = sprite_get_speed_type(sprite_index);
-var _extrainfo = {};
+var _extrainfo = {upg : upg[$"id"]};
 //if (instance_number(oEnemy) == 0) {
 //    instance_destroy();
 //}
@@ -599,7 +599,12 @@ image_speed = 0;
 			image_yscale = image_xscale;
 		}
 	}
+	_extrainfo.xscale = image_xscale;
+	_extrainfo.yscale = image_yscale;
 	{ //online code
+		if (variable_struct_exists(upg, "afterimage")) {
+		    _extrainfo.afterimageColor = upg.afterimageColor;
+		}
 		vars = variable_instance_get_names(self);
 		savedvars = {};
 		for (var i = 0; i < array_length(vars); ++i) {

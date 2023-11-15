@@ -1788,8 +1788,9 @@ function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 	for (_weapon = 0; _weapon < array_length(WEAPONS_LIST); ++_weapon) {
 		_isCollab = variable_struct_exists(WEAPONS_LIST[_weapon][1], "collab");
 		_isPerk = WEAPONS_LIST[_weapon][1].perk;
-		//show_debug_message($"{i}:c{_isCollab}:p{_isPerk}");
+		
 		if (!_isCollab and !_isPerk) {
+			//show_debug_message($"{WEAPONS_LIST[_weapon][1].name}:c{_isCollab}:p{_isPerk}");
 			array_push(_possibleWeapons, _weapon);
 		}
 	}
@@ -1806,10 +1807,10 @@ function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 		}
 		var _canBeEnchanted = false;
 		do {
-		    _weapon = irandom_range(0, array_length(_possibleWeapons) - 1);
+		    _weapon = _possibleWeapons[irandom_range(0, array_length(_possibleWeapons) - 1)];
 			_canBeEnchanted = WEAPONS_LIST[_weapon][1].enchantment == Enchantments.None;
-			//show_debug_message($"{_weapon} : p{_isPerk} : c{_isCollab} : E {_canBeEnchanted}");
 		} until (_canBeEnchanted);
+		//show_debug_message($"{WEAPONS_LIST[_weapon][1].name} c{_isCollab} : E {_canBeEnchanted}");
 		if (_specificWeapon != -1) { _weapon = _specificWeapon; }
 		array_delete(_possibleWeapons, _weapon, 1);
 		if (variable_struct_exists(WEAPONS_LIST[_weapon][1], "incompatibleEnchantments")) {
@@ -1924,4 +1925,13 @@ function can_collab(){
 			}
 		}
 	}	
+}
+
+function draw_spider_cooking(){
+	draw_set_color(c_purple);
+	draw_set_alpha(.35);
+	draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,false);
+	draw_set_alpha(1);
+	draw_circle(x,y, (sprite_get_height(sprite_index)/2) * image_yscale,true);
+	draw_set_color(c_white);
 }

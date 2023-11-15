@@ -44,12 +44,14 @@ if (!joinedRoom) {//wrong client secret
 		draw_rectangle_color(GW/54.64, GH/16.35 + _offset, GW/1.02, GH/8.26 + _offset, c_white, c_white, c_white, c_white, true);
 		var _color = selectedroom == i ? c_yellow : c_white;
 		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
 	    draw_text_transformed_color(GW/37.95, GH/13.25 + _offset, rooms[i][$ "name"],2.05, 2.05, 0, _color, _color, _color, _color, 1);
 		draw_set_halign(fa_right);										 
 		if (rooms[i][$ "password"] != "") {
 		    draw_sprite_ext(sLockIcon, 0, GW/1.08, GH/13.25 + _offset, 1, 1, 0, c_white, 1);
 		}
 	    draw_text_transformed_color(GW/1.02, GH/13.25 + _offset, string(rooms[i][$ "totalplayers"]) + "/2",2.05, 2.05, 0, _color, _color, _color, _color, 1);
+		draw_set_valign(fa_center);
 		_offset += 55;		
 	}
 }
