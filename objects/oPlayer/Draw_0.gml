@@ -21,7 +21,11 @@ if (global.debug) {
 	draw_text(x,y-100, "Enemy Count: " + string(instance_number(oEnemy)));
 	draw_text(x,y-120, "FPS: " + string(oGame.fpsAverage));
 	draw_text(x,y-140, "FPSR: " + string(fps_real));
-	draw_text(x,y-160, "Bonus: " + string(Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus]));
+	//draw_text(x,y-160, "Bonus: " + string(Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus]));
+	if (!is_undefined(global._destination)) {
+	    draw_text(x,y-160, $"arrow:{global.arrowDir} : {global.arrowDir - global._destination}");
+	}
+	
 	draw_circle(x,y-16,pickupRadius,true);
 }
 draw_self();

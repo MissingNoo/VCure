@@ -258,14 +258,41 @@ if (canMove == true){
 		if (!global.gamePad) {
 			//TODO: fix
 			if (os_type != os_android) {
-				if (_down) { global.arrowDir=270; }
-				if (_up) { global.arrowDir=90; }
-				if (_right) { global.arrowDir=0; }
-				if (_left) { global.arrowDir=180; }
-				if (_up and _right) { global.arrowDir=45; }
-				if (_up and _left) { global.arrowDir=135; }
-				if (_down and _right) { global.arrowDir=315; }
-				if (_down and _left) { global.arrowDir=225; }
+				var _destination = undefined;
+				var _step = 15;
+				if (_down) { _destination=270; }
+				if (_up) { _destination=90; }
+				if (_right) { 
+					if (global.arrowDir > 179) { _destination=360; }
+					else { _destination = 0; }					
+				}
+				if (_left) { 
+					if (global.arrowDir == 360) {global.arrowDir = 0; _destination=180; }
+					else{ _destination=180; }
+				}
+				if (_up and _right) { _destination=45; }
+				if (_up and _left) { _destination=135; }
+				if (_down and _right) { _destination=315; }
+				if (_down and _left) { _destination=225; }
+				global._destination = _destination;
+				if (_destination != undefined) {
+					var _calc = global.arrowDir - _destination;
+					if (_calc < -180 or _calc > 180) { _calc = _calc *-1; }
+				    if (_calc < 0 and _calc < _step - 1) {
+					    global.arrowDir += _step;
+					}
+					if (_calc > 0 and _calc > _step - 1) {
+						global.arrowDir -= _step;
+					}
+				    if (_calc < 0 and _calc < _step/2 - 1) {
+					    global.arrowDir += _step/2;
+					}
+					if (_calc > 0 and _calc > _step/2 - 1) {
+						global.arrowDir -= _step/2;
+					}
+				}
+				if (global.arrowDir > 360) { global.arrowDir = 0; }
+				if (global.arrowDir < 0) { global.arrowDir = 360; }
 				if (global.arrowDir > 90 and global.arrowDir < 270) {
 					    image_xscale = -1;
 					};
