@@ -435,7 +435,7 @@ function drawStatsSelect(character){
 
 #region upgrades surface
 itemsSurface = surface_create(window_get_width(), window_get_height());
-function upgrades_surface(){
+function upgradesSurface(){
 	itemsSurface = surface_create(window_get_width(), window_get_height());
 	surface_set_target(itemsSurface);
 	var _x = GW/25.10

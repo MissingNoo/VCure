@@ -90,7 +90,7 @@ function initializePlayer(_p){
 	gx = 0;
 	gy =0;
 	pimanLevel = 0;
-	oGui.upgrades_surface();
+	oGui.upgradesSurface();
 }
 global.characters=[];
 #macro CHARACTERS global.characters
