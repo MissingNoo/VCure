@@ -274,7 +274,7 @@ if (canMove == true){
 				if (_up and _left) { _destination=135; }
 				if (_down and _right) { _destination=315; }
 				if (_down and _left) { _destination=225; }
-				global._destination = _destination;
+				
 				if (_destination != undefined) {
 					var _calc = global.arrowDir - _destination;
 					if (_calc < -180 or _calc > 180) { _calc = _calc *-1; }
