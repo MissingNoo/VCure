@@ -1,3 +1,7 @@
+if (keyboard_check_pressed(vk_alt)) {
+    window_set_size(1280/1.5, 720/1.5);
+	window_center();
+}
 #region Gamepad detection
 if (input_profile_get(0) == "gamepad") {
     global.gamePad = true;

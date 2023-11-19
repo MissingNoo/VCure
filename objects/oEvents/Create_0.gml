@@ -1,4 +1,6 @@
-depth = layer_get_depth("Clouds");
+if (instance_exists(oPlayer)) {
+    depth = layer_get_depth("Clouds");
+}
 repeatSource = undefined;
 enable = true;
 var _my_method = function()

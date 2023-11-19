@@ -1,4 +1,5 @@
-if (other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.gamePaused and !other.infected) {
+if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.gamePaused and !other.infected) {
+	invencibilityFrames = 3;
 	other.canattack=false;
 	//other.alarm[0]=25;
 	other.canattackAlarm = 25;

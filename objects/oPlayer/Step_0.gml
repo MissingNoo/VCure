@@ -1,5 +1,5 @@
 can_collab();
-WEAPONS_LIST[Weapons.BlBook][1].enchantment = Enchantments.Size;
+//WEAPONS_LIST[Weapons.BlBook][1].enchantment = Enchantments.Size;
 #region critChance
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));
@@ -72,6 +72,8 @@ image_speed = global.gamePaused ? 0 : oImageSpeed * Delta;
 socket = global.socket;
 if (immortal) { HP = MAXHP; }
 if (global.gamePaused) { return; }
+if (invencibilityFrames > 0) { invencibilityFrames--; }
+
 #region drops
 var _list = ds_list_create();
 var _num = collision_circle_list(x, y, pickupRadius, oDropParent, false, true, _list, true);

@@ -45,6 +45,7 @@ x2 = 0;
 y1 = 0;
 y2 = 0;
 global.lastsequence = undefined;
+invencibilityFrames = 0;
 #region Uruka
 spaghettiEaten = false;
 monsterUsed = false;
