@@ -1,4 +1,5 @@
 imguigml_activate();
+global.currentFrame = 0;
 #region fps mean
 numSeconds = 3;
 stepsPassed = 0;

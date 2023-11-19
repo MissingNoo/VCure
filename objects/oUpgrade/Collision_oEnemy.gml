@@ -4,7 +4,11 @@ switch (sprite_index) {
         canhit = false;
         break;
 }
-if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit and !other.infected) {
+var cooldownOver = false;
+if (other.hittedcooldown[upg.id] < global.currentFrame) {
+    cooldownOver = true;
+}
+if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and ghost == false and canhit and !other.infected) {
 	if (upg[$ "id"] == Weapons.BounceBall or upg[$ "id"] == Weapons.RingOfFitness) {
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
@@ -30,7 +34,7 @@ if (other.hittedcooldown[upg[$ "id"]] <= 0  and !global.gamePaused and other.ima
 		    _hitCooldown = 5;
 		}
 	}
-	other.hittedcooldown[upg[$ "id"]] = _hitCooldown;
+	other.hittedcooldown[upg.id] = global.currentFrame + _hitCooldown;
 	other.damaged = true;
 	//random_set_seed(current_time);
 	if (!variable_instance_exists(self, "mindmg")) { mindmg = 0; }	
