@@ -27,6 +27,10 @@ function initializePlayer(_p){
 	for (var i=0; i<6; i++) {
 		playerItems[i]=global.nullitem;
 	}
+	PLAYER_PERKS = global.characterPerks[global.player[? "id"]];
+	for (var i=0; i<3; i++) {
+		PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i].id][0];
+	}
 	global.upgrade=0;
 	global.xp=0;
 	global.level = 1;

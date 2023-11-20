@@ -418,7 +418,6 @@ if (room == rCharacterSelect) {
 		}
 		if (!characterSelected) {
 			global.player=CHARACTERS[selectedCharacter];
-			PLAYER_PERKS = global.characterPerks[CHARACTERS[selectedCharacter][?"id"]];
 			audio_stop_sound(global.musicPlaying);
 			audio_play_sound(snd_char_selected,0,0);
 			switch (global.singleplayer) {
@@ -495,7 +494,8 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		        break;}
 			case "Quit":{
 				global.mode = "menu";
-		        game_restart();
+				pause_game();
+		        room_goto(rInicio);
 		        break;}
 		}
 		

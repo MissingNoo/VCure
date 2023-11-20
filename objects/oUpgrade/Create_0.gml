@@ -34,10 +34,10 @@ startY = y;
 poolSize = 20;
 #endregion
 #region BreathInAsacoco
-asaDirection = undefined;
-asaRotationSpeed = undefined;
-asaSpeed = undefined;
-asaDuration = undefined;
+asaDirection = random_range(-1,1);
+asaRotationSpeed = irandom_range(-10, 10);
+asaSpeed = irandom_range(1, 8);
+asaDuration = random_range(0.8, 1.2);
 #endregion
 #region Ring of Fitness
 

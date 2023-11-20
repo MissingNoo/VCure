@@ -49,17 +49,19 @@ else{
 //	unlocked_outfits_load();
 //}
 if (keyboard_check_pressed(vk_end)) {
-	instance_create_depth(x,y,depth, oAchNotify);
+	Minutes = 9;
+	Seconds = 59;	
+	//instance_create_depth(x,y,depth, oAchNotify);
 	//for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
 	//    UnlockableWeapons[i] = false;
 	//}
 	//for (var i = 0; i < array_length(UnlockableItems); ++i) {
 	//    UnlockableItems[i] = false;
 	//}
-	for (var i = 0; i < array_length(Achievements); ++i) {
-	    Achievements[i][$"unlocked"] = false;
-	}
-	load_unlocked();
+	//for (var i = 0; i < array_length(Achievements); ++i) {
+	//    Achievements[i][$"unlocked"] = false;
+	//}
+	//load_unlocked();
 	//UnlockableOutfits[Outfits.AmeliaO1] = false;
 	//UnlockableOutfits[Outfits.AmeliaO2] = false;
 	//unlocked_outfits_load();

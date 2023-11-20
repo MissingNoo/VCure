@@ -471,7 +471,8 @@ function populate_items(){
 				cooldown : 1,				
 				perk : false,
 				bonusType : [BonusType.Damage, BonusType.Critical],
-				bonusValue : [[1.30, 1.40, 1.50], [0.8, 0.8, 0.8]]
+				bonusValue : [[1.30, 1.40, 1.50], [0.8, 0.8, 0.8]],
+				unlocked : false,
 			});
 				//Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
 				//Bonuses[BonusType.Critical][ItemIds.Gorilla_Paw] = 0;

@@ -1,3 +1,6 @@
+if (!instance_exists(oEnemy)) {
+    instance_destroy();
+}
 if (global.gamePaused) { exit; }
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);

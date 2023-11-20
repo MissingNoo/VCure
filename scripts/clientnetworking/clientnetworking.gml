@@ -345,7 +345,7 @@ function clientReceivedPacket(_buffer)
 				network_destroy(oClient.client);
 				network_destroy(oClient.connected);
 				instance_destroy(oClient);
-				game_restart();
+				room_goto(rInicio);
 				break;}
 			
 			case Network.SpawnUpgrade:{

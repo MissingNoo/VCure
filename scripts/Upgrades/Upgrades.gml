@@ -440,6 +440,7 @@ function populate_upgrades(){
 				knockbackDuration : 10,
 				shotType : ShotTypes.Ranged,
 				perk : false,
+				unlocked : false
 				//collabWith : Weapons.PlugAsaCoco
 			});
 	#endregion

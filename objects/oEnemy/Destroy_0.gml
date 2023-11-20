@@ -79,9 +79,22 @@ if (irandom_range(1,range) == 1) {
 if (irandom_range(1,3000) == 1) {
     //TODO: code here for exp magnet
 }
-if (thisEnemy == Enemies.FubuZilla) {
-    Achievements[AchievementIds.FuburaIsComing][$ "unlocked"] = true;
+switch (thisEnemy) {
+    case Enemies.FubuZilla:
+        if (!Achievements[AchievementIds.FuburaIsComing].unlocked) {
+			instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.FuburaIsComing})
+		}
+        break;
+    case Enemies.SmolAme:
+        if (!Achievements[AchievementIds.BBBRRRRRREEEEEEEEE].unlocked) {
+			instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.BBBRRRRRREEEEEEEEE})
+		}
+        break;
+    default:
+        // code here
+        break;
 }
+
 #region Lia
 if (oPlayer.menhera) {
     oPlayer.menheraKills++;
