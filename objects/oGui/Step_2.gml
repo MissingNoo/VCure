@@ -43,11 +43,11 @@ if (room == rCharacterSelect) {
 //global.holocoins = 99999;
 
 if (instance_exists(oPlayer) and global.upgrade==1) {
-	var istherererolls = -1;
-	if (global.rerolls > 0) { istherererolls = 1; }
+	var istherererolls = 1;
+	if (global.rerolls > 0) { istherererolls = 0; }
 	selected += _updown;
-    if (selected < 0) { selected = array_length(global.upgradeOptions) + istherererolls; }
-    if (selected > array_length(global.upgradeOptions) + istherererolls) { selected = 0; }
+    if (selected < 0) { selected = array_length(global.upgradeOptions) - istherererolls; }
+    if (selected > array_length(global.upgradeOptions) - istherererolls) { selected = 0; }
 }
 
 #region Anvil

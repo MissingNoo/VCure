@@ -164,6 +164,9 @@ if (global.xp<0) {
 }
 if (global.xp >= neededxp) {
 	global.level += 1;
+	if (global.level >= 50 and !Achievements[AchievementIds.DeckedOut].unlocked) {
+	    instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.DeckedOut})
+	}
 	global.xp-=neededxp;
 	neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*2.1);
 	random_upgrades();

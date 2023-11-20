@@ -1,3 +1,9 @@
+//var _names = variable_struct_get_names(oGame.importedSave);
+//var _str = "";
+//for (var i = 0; i < array_length(_names); ++i) {
+//    _str = _str + "\n" + _names[i];
+//}
+//draw_text(mouse_x, mouse_y, _str);
 // Feather disable GM1041
 if (global.debug) {
     draw_circle(x,y,5,false);
@@ -238,50 +244,44 @@ if (room == rCharacterSelect) {
 	#endregion
 	#region Stage
 	if (characterSelected and outfitSelected) {
-		draw_text(GW/2, GH/2, "Press Z again");
+		_x = round(GW/3.27);
+		_y = 0;
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+		str="CHOOSE MODE";
+		draw_set_halign(fa_center);
+		draw_text_transformed(GW/2,GH/22.50,str, 4.50, 4.50, 0);
+		draw_set_halign(fa_left);
+		_x = GW/2;
+		_y = round(GH/3.14);
+		if (!stageSelected) {
+			offset = 0;
+			draw_set_halign(fa_center);
+			for (var i = 0; i < array_length(stageModes); ++i) {
+				draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
+				draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
+				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
+				draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 2.5, 2.5, 0);
+				if (i == selected) {
+					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
+				}
+			offset += 160;
+			}
+		}
+		if (stageSelected) {
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_middle);
+			draw_text_transformed(GW/2, GH/3.61, string_upper(stages[0].name), 4, 4, 0);
+			draw_sprite_ext(stages[0].port, 0, GW/2, GH/2, 2.30, 2.30, 0 ,c_white, 1);
+			draw_sprite_ext(sHudButton, 1, GW/2, GH/1.40, 1, 2, 0, c_white, 1);
+			draw_set_color(c_black);
+			draw_text_transformed(GW/2, GH/1.40, "GO!", 2, 2, 0);
+			draw_set_color(c_white);
+		}
+		draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
 	}
-	//	_x = GW/3.27;
-	//	_y = 0;
-	//	_xx = GW/1.43;
-	//	_yy = GH;
-	//	draw_set_color(c_black);
-	//	draw_set_alpha(.25);
-	//	draw_rectangle(_x, _y, _xx, _yy, false);
-	//	draw_set_color(c_white);
-	//	draw_set_alpha(1);
-	//	str="CHOOSE MODE";
-	//	draw_set_halign(fa_center);
-	//	draw_text_transformed(GW/2,GH/22.50,str, 4.50, 4.50, 0);
-	//	draw_set_halign(fa_left);
-	//	_x = GW/2;
-	//	_y = GH/3.14;
-	//	if (!stageSelected) {
-	//		offset = 0;
-	//		draw_set_halign(fa_center);
-	//		for (var i = 0; i < array_length(stageModes); ++i) {
-	//			draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
-	//			draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
-	//			draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
-	//			draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 2.5, 2.5, 0);
-	//			if (i == selected) {
-	//				draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
-	//			}
-	//		offset += 160;
-	//		}
-	//	}
-	//	if (stageSelected) {
-	//		draw_set_halign(fa_center);
-	//		draw_set_valign(fa_middle);
-	//		draw_text_transformed(GW/2, GH/3.61, string_upper(stages[0].name), 4, 4, 0);
-	//		draw_sprite_ext(stages[0].port, 0, GW/2, GH/2, 2.30, 2.30, 0 ,c_white, 1);
-	//		draw_sprite_ext(sHudButton, 1, GW/2, GH/1.40, 1, 2, 0, c_white, 1);
-	//		draw_set_color(c_black);
-	//		draw_text_transformed(GW/2, GH/1.40, "GO!", 2, 2, 0);
-	//		draw_set_color(c_white);
-	//	}
-	//	draw_set_valign(fa_top);
-	//	draw_set_halign(fa_left);
-	//}
+	
 	#endregion
 	#region Weapon window
 	//_x = GW / 1.42;
@@ -335,7 +335,7 @@ if (instance_exists(oPlayer))
 	draw_sprite_ext(sPhaseCoin, 0, GW/1.23, GH/15.06, 1, 1, 0, c_white, 1);
 	draw_text_transformed(GW/1.18, GH/16.35, string(global.newcoins), 2, 2, 0);
 	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
-	draw_text_transformed(GW/1.18, GH/7.60, string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")} : {global.score}"), 2, 2, 0);
+	draw_text_transformed(GW/1.18, GH/7.60, string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")}"), 2, 2, 0);
 	#region Character Portrait
 	_x = GW/25.10
 	_y = GH/10.59;
@@ -385,8 +385,8 @@ if (instance_exists(oPlayer))
 		#region UpgradeList
 		offset = 0;
 		for (var i = 0; i < array_length(global.upgradeOptions); i++) {
-			var _xx = GW/1.55;
-			var _yy = GH/4.16;
+			var _xx = round(GW/1.55);
+			var _yy = round(GH/4.16);
 			var _xscale = 2.06;
 			var _yscale = 1.32;
 			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);//upgrade background

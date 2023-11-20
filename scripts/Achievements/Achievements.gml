@@ -28,6 +28,7 @@ enum AchievementIds {
 	TearsOfHappiness,
 	YouHaveBeenCursed,
 	ThousandMileStare,
+	DeckedOut,
 	Length
 }
 Achievements[array_length(Achievements)] = new Achievement(AchievementIds.FirstWin, "First Win", sAchFirstWin, sPhaseCoin, 500);
@@ -36,10 +37,10 @@ Achievements[array_length(Achievements)] = new Achievement(AchievementIds.BBBRRR
 Achievements[array_length(Achievements)] = new Achievement(AchievementIds.TearsOfHappiness, "Tears of Happiness...?", sAchTears, sCeoTearsThumb);
 Achievements[array_length(Achievements)] = new Achievement(AchievementIds.YouHaveBeenCursed, "You have been Cursed", sAchCursed, sENCurseThumb);
 Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
-Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
-Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
-Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
-Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
+Achievements[array_length(Achievements)] = new Achievement(AchievementIds.DeckedOut, "Decked Out", sAchDeckedOut, sStudyGlasses);
+//Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
+//Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
+//Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
 
 //show_message(achievements[0]);
 //achievements[array_length(achievements)] = new Achievement(AchievementIds., "", , );

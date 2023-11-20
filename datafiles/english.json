@@ -366,13 +366,13 @@
 				"2":"Lose [5%] HP every second (until 1 HP remains), but gain [60%] damage.",
 				"3":"Lose [5%] HP every second (until 1 HP remains), but gain [80%] damage."
             },
-            "Knightly Milk" : {
+            "Holy Milk" : {
             "name" : "Knightly Milk",
 				"1":"Increases attack size of weapons by [10%]. Also increase Pick Up Range by [30%].",
 				"2":"Increases attack size of weapons by [15%]. Also increase Pick Up Range by [40%].",
 				"3":"Increases attack size of weapons by [20%]. Also increase Pick Up Range by [50%]."
             },
-            "Nurse's Horn" : {
+            "SuccubusHorn" : {
             "name" : "Nurse's Horn",
 				"1":"When a target is defeated, there is a [30%] chance to heal for [2 HP].",
 				"2":"When a target is defeated, there is a [30%] chance to heal for [4 HP].",

@@ -172,7 +172,7 @@ function populate_items(){
 				perk : false,
 				bonusType : BonusType.Defense,
 				bonusValue : [0.95, 0.90, 0.85, 0.80, 0.75],
-				shield : [15, 20, 25, 30, 35],				
+				shield : [15, 20, 25, 30, 35],
 			});			
 				//Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
 				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
@@ -464,7 +464,7 @@ function populate_items(){
 			#region Gorilla's Paw
 			new_create_item({
 				id : ItemIds.Gorilla_Paw,
-				name : "Gorilla's Paw",
+				name : "GorillasPaw",
 				maxlevel : 3,
 				weight : 3,
 				thumb : sGorillaPaw,
@@ -494,7 +494,7 @@ function populate_items(){
 			#region Injection Type Asacoco
 			new_create_item({
 				id : ItemIds.Injection_Type_Asacoco,
-				name : "Injection Type Asacoco",
+				name : "InjectionAsacoco",
 				maxlevel : 3,
 				weight : 2,
 				thumb : sInjectionAsacoco,
@@ -509,7 +509,7 @@ function populate_items(){
 			#region Knightly Milk
 			new_create_item({
 				id : ItemIds.Knightly_Milk,
-				name : "Knightly Milk",
+				name : "Holy Milk",
 				maxlevel : 3,
 				weight : 1,
 				thumb : sKnightlyMilk,
@@ -525,7 +525,7 @@ function populate_items(){
 			#region Nurse's Horn
 			new_create_item({
 				id : ItemIds.NurseHorn,
-				name : "Nurse's Horn",
+				name : "SuccubusHorn",
 				maxlevel : 3,
 				weight : 3,
 				thumb : sNurseHorn,
@@ -544,7 +544,8 @@ function populate_items(){
 				cooldown : 1,
 				perk : false,
 				bonusType : BonusType.XPBonus,
-				bonusValue : [1.10, 1.15, 1.20, 1.25, 1.30]
+				bonusValue : [1.10, 1.15, 1.20, 1.25, 1.30],
+				unlocked : false
 			}
 			);
 			//Bonuses[BonusType.XPBonus][ItemIds.Study_Glasses] = 0;

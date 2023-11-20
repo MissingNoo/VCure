@@ -1,4 +1,5 @@
 imguigml_activate();
+HP = 0;
 global.currentFrame = 0;
 #region fps mean
 numSeconds = 3;

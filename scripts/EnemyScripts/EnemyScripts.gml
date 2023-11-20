@@ -143,7 +143,7 @@ enum Enemies
 		create_enemy(Enemies.SwarmingKingKronie, "SwarmingKingKronie", sKingKronie, 3000, 0.4, 17, 15);
 		create_enemy(Enemies.SwarmingOvergrownSapling, "SwarmingOvergrownSapling", sSaplingKing, 3000, 0.4, 17, 15);
 		create_enemy(Enemies.ThiccBubba, "Thicc Bubba", sThiccBubba, 1000, 0.85, 12, 20);
-		create_enemy(Enemies.SmolAme, "Smol Ame", sSmolAme, 25000, 1.2, 20, 5000);
+		create_enemy(Enemies.SmolAme, "Smol Ame", sSmolAme, 25000, 1.2, 20, 5000, 1, true);
 		#region Endless
 		create_enemy(Enemies.EndlessShrimp, "Endless", sUrufu, 5000, 1, 15, 25);
 		create_enemy(Enemies.EndlessDeadBeat, "Endless", sQDeadBeat, 5000, 1, 15, 25);
