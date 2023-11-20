@@ -6,14 +6,19 @@
 function initializePlayer(_p){
 	attacktick=true;
 	global.newcoins = 0;
+	global.minibossDefeated = 0;
+	global.defeatedEnemies = 0;
+	global.bossDefeated = 0;
+	global.score = 0;
 	blacksmithLevel = 0;
 	#region shop hp upgrade
 	var _hpBonus = 4 * global.shopUpgrades[$ "Hp"][$ "level"];
 	#endregion
 	HP=_p[?"hp"] + _hpBonus;
 	MAXHP=_p[?"hp"] + _hpBonus;
-	if (global.shopUpgrades[$ "Hardcore"][$ "level"] == 1) {
-		MAXHP=1;
+	if (global.shopUpgrades.Hardcore.level == 1) {
+		MAXHP = 1;
+		HP = 1;
 	}
 	NAME=_p[?"name"];
 	for (var i=0; i<6; i++) {

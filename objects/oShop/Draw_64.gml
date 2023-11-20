@@ -127,7 +127,7 @@ if (holocoinsubimage < 15) {
 else{holocoinsubimage = 0;}
 var _x = GW/1.16;
 var _y = GH/13.10;
-draw_sprite_ext(sPhaseCoin, holocoinsubimage, _x - 195, _y - 10.5, 1, 1, 0, c_white, 1);
+draw_sprite_ext(sPhaseCoin, holocoinsubimage, _x - 195 + 7, _y + 7, 3, 3, 0, c_white, 1);
 draw_sprite_ext(sHudButton, 0, _x, _y, 1.72, 1.8, 0, c_white, 1);
 draw_set_halign(fa_right);
 draw_set_valign(fa_middle);

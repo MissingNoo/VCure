@@ -335,7 +335,7 @@ if (instance_exists(oPlayer))
 	draw_sprite_ext(sPhaseCoin, 0, GW/1.23, GH/15.06, 1, 1, 0, c_white, 1);
 	draw_text_transformed(GW/1.18, GH/16.35, string(global.newcoins), 2, 2, 0);
 	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
-	draw_text_transformed(GW/1.18, GH/7.60, string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")}"), 2, 2, 0);
+	draw_text_transformed(GW/1.18, GH/7.60, string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")} : {global.score}"), 2, 2, 0);
 	#region Character Portrait
 	_x = GW/25.10
 	_y = GH/10.59;

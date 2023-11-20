@@ -1,4 +1,10 @@
 can_collab();
+var baseScore = (global.defeatedEnemies * 75) + (global.minibossDefeated * 428) + (global.bossDefeated * 2251) + (max(0, global.minutes - 30) * 20126) + (min(59, global.minutes) * 126) + (min(59, global.seconds) * 10) + (global.level * 1219);
+var hardcoreBonus = 0;
+if (global.shopUpgrades.Hardcore.level == 1) {
+	hardcoreBonus = floor(baseScore * (global.minutes * 0.01 + global.hours* 1.2));
+}
+global.score = floor(baseScore + hardcoreBonus);
 //WEAPONS_LIST[Weapons.BlBook][1].enchantment = Enchantments.Size;
 #region critChance
 var calc = 0;
