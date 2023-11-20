@@ -11,5 +11,4 @@ with (oDepthParent) {
 		yy++;
 	}
 }
-
 ds_grid_sort(grid, 1, true);
