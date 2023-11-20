@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sStudyGlasses",
-  "bbox_bottom": 13,
-  "bbox_left": 0,
-  "bbox_right": 23,
+  "bbox_bottom": 12,
+  "bbox_left": 2,
+  "bbox_right": 22,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"dffc620f-ee42-4e6e-95a0-b8b28637172a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3875debe-9c2b-4c76-9b36-af8e8b578ea9",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 14,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"992fd042-aa54-458b-9b67-9fbbc68d086d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ca17a536-6ecb-41b5-9c18-1d70f9f394ac","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"dffc620f-ee42-4e6e-95a0-b8b28637172a","path":"sprites/sStudyGlasses/sStudyGlasses.yy",},},},"Disabled":false,"id":"d82eefe3-d7ab-4e29-b1c1-710f149bae67","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3875debe-9c2b-4c76-9b36-af8e8b578ea9","path":"sprites/sStudyGlasses/sStudyGlasses.yy",},},},"Disabled":false,"id":"858ef668-1019-4289-8682-20baa2a20a67","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
