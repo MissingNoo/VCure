@@ -5,7 +5,7 @@ ds_grid_resize(grid, 2 , count);
 var g = grid;
 var yy = 0;
 with (oDepthParent) {
-	if (!variable_instance_exists(self, "saved") or (variable_instance_exists(self, "saved") and point_in_rectangle(x ,y, oPlayer.x - 500, oPlayer.y - 500, oPlayer.x + 500, oPlayer.x + 500))) { 
+	if (!variable_instance_exists(self, "saved") or (variable_instance_exists(self, "saved") and distance_to_object(oPlayer) < oPlayer.renderDistance)) {
 	    g[# 0, yy] = id;
 		g[# 1, yy] = y;
 		yy++;
