@@ -1,3 +1,4 @@
+if (!instance_exists(oPlayer)) { exit; }
 for (var i = 0; i < array_length(clouds); ++i) {
 	if (global.gamePaused) { return; }
     clouds[i][0] += clouds[i][2];
