@@ -1,3 +1,4 @@
+draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
 //var _str = "";
 //for (var i = 0; i < array_length(_names); ++i) {

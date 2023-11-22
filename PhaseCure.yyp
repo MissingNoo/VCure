@@ -154,7 +154,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.1100.0.441",
+    "IDEVersion": "2023.1100.0.444",
   },
   "resources": [
     {"id":{"name":"input_icons_gamepad","path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},},

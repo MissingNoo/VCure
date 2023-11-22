@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sMenhera",
-  "bbox_bottom": 20,
+  "bbox_bottom": 21,
   "bbox_left": 0,
-  "bbox_right": 20,
+  "bbox_right": 22,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e64b67d6-831c-4be4-9555-00bdfad3e12f",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bdd7a9d3-5e4f-40cb-a5e4-3347e2927ffe",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 21,
+  "height": 22,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0b5c0688-b363-4d6c-a251-fd101bfa9988","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"438ce846-e1d9-4ddd-b00b-1c3fe69e3a4e","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e64b67d6-831c-4be4-9555-00bdfad3e12f","path":"sprites/sMenhera/sMenhera.yy",},},},"Disabled":false,"id":"92e80e4f-ed9a-4e0c-ade4-4dfddcd998f3","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"bdd7a9d3-5e4f-40cb-a5e4-3347e2927ffe","path":"sprites/sMenhera/sMenhera.yy",},},},"Disabled":false,"id":"caf2ead1-b29a-4702-9cb6-0202d98e4990","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 21,
+  "width": 23,
 }
