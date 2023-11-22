@@ -1,11 +1,3 @@
-#macro net_res_folder game_save_id + "NetGm2Resources"
-directory_create(net_res_folder);
-var _name = "datatxt";
-var _path = net_res_folder + "/" + _name;
-var file = file_bin_open(_path + ".bin", 2);
-show_message_async(file);
-var _sz = file_bin_size(file);
-show_message_async(_sz);
 #region Locals Initialization
 mousePrevious = [0,0];
 released=false;
@@ -440,7 +432,6 @@ function drawStatsSelect(character){
 		}
 }
 #endregion
-
 #region upgrades surface
 itemsSurface = surface_create(window_get_width(), window_get_height());
 function upgradesSurface(){
@@ -538,4 +529,5 @@ function upgradesSurface(){
 	#endregion
 	surface_reset_target();
 }
+#endregion
 #endregion
