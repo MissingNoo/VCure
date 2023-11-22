@@ -142,6 +142,7 @@ if (x != xprevious or y != yprevious or previousSprite != sprite_index) {
 		y : y, 
 		image_xscale : image_xscale,
 		sprite : sprite_index,
+		spd
 	});
 }
 #endregion

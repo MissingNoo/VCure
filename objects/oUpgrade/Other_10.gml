@@ -54,7 +54,7 @@ switch (upg[$ "id"]) {
 					case 7:
 				        orbitoffset -= 60;
 				        break;
-				}			
+				}
 		    //shoots-=1;			
 			//alarm[0]=1;
 		//}

@@ -1,4 +1,8 @@
 //event_inherited();
+sincounter = current_time;
+coscounter = current_time;
+cansend = true;
+sendend = true;
 #region Uruka Note
 noteStartX = x;
 noteStartY = y;

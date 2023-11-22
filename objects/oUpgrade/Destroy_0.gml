@@ -2,8 +2,7 @@
 // You can write your code in this editor
 sendMessage({
 	command: Network.DestroyUpgrade,
-	upgID,
-	
+	upgID,	
 });
 if (ps != undefined) {
     part_system_destroy(ps);

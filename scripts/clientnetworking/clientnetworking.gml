@@ -86,6 +86,7 @@ function clientReceivedPacket2(_response)
 			var _spr = r[$ "sprite"];
 			var _scale = r[$ "image_xscale"];
 			var _sock = r[$ "socket"];
+			var _spd = r[$ "spd"];
 			
 			if (!instance_exists(oSlave)) {
 				instance_create_layer(0,0, "Instances", oSlave,{socket : _sock});
@@ -93,8 +94,9 @@ function clientReceivedPacket2(_response)
 			
 			//show_debug_message("S:{0} X: {1} Y:{2}", _s, _x, _y);
 			if (instance_exists(oPlayer) and _sock != oClient.connected and instance_exists(oSlave)) {
-				oSlave.x = _x;
-				oSlave.y = _y;
+				oSlave.xx = _x;
+				oSlave.yy = _y;
+				oSlave.spd = _spd;
 				oSlave.sprite_index = _spr;
 				oSlave.image_xscale = _scale;
 			}
@@ -107,33 +109,36 @@ function clientReceivedPacket2(_response)
 			_upg.sprite_index = r[$ "sprite_index"];
 			_upg.direction = r[$ "direction"];
 			_upg.image_angle = r[$ "image_angle"];
-			_upg.haveafterimage = r[$ "haveafterimage"];
+			//_upg.haveafterimage = r[$ "haveafterimage"];
 			_upg.extraInfo= json_parse(r[$ "extraInfo"]);
-			_upg.speed = 0;
+			_upg.speed = _upg.extraInfo.speed;
 			break;
 		}
 		
 		case Network.UpdateUpgrade:{
-			var total = instance_number(oSlaveUpgrade);
-				for (var i = 0; i < total; ++i) {
-					var ftotal = instance_number(oSlaveUpgrade);
-					if (ftotal != total) {
-					    i = 0;
-						total = ftotal;
-					}
-				    var inst = instance_find(oSlaveUpgrade, i);
-					if (inst.upgID == r[$ "upgID"]) {
-					    inst.x = r[$ "x"];
-						inst.y = r[$ "y"];
-						inst.image_alpha = r[$ "image_alpha"];
-						inst.sprite_index = r[$ "sprite_index"];
-						inst.image_angle = r[$ "image_angle"];
-						inst.image_xscale = r[$ "image_xscale"];
-						inst.image_yscale = r[$ "image_yscale"];
-						inst.afterimage = json_parse(r[$ "afterimg"]);
-						inst.direction= r[$ "direction"];
+			var extra = json_parse(r[$ "extraInfo"]);
+			with (oSlaveUpgrade) {
+			    if (upgID == r[$ "upgID"]) {					
+					for (var i = 0, _names = variable_struct_get_names(extra); i < array_length(_names); ++i) {
+					    extraInfo[$ _names[i]] = extra[$ _names[i]];
 					}
 				}
+			}
+			//var total = instance_number(oSlaveUpgrade);
+			//	for (var i = 0; i < total; ++i) {
+			//		var ftotal = instance_number(oSlaveUpgrade);
+			//		if (ftotal != total) {
+			//		    i = 0;
+			//			total = ftotal;
+			//		}
+			//	    var inst = instance_find(oSlaveUpgrade, i);
+			//		if (inst.upgID == r[$ "upgID"]) {
+			//			var extraInfo = json_parse(r[$ "extraInfo"]);
+			//			for (var i = 0, _names = variable_struct_get_names(extraInfo); i < array_length(_names); ++i) {
+			//			    inst.extraInfo[$ _names[i]] = extraInfo[$ _names[i]];
+			//			}
+			//		}
+			//	}
 			break;
 		}
 		

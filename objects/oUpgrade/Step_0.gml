@@ -1,3 +1,6 @@
+var _extra = {};
+var _oldspeed = speed;
+var _olddir = direction;
 xpreviousprevious = x - (x - xprevious);
 ypreviousprevious = y - (y - yprevious);
 #region unused
@@ -58,26 +61,13 @@ if (!global.gamePaused) {
 	if (speed > 0 and upg[$ "id"] != Weapons.CuttingBoard) {
 	    speed=upg[$ "speed"] * Delta;
 	}
-	if (afterimagecount < 0.30) {
-	    afterimagecount += 1 * Delta;
-	}
-	else{
-		afterimagecount = 0;
-		array_push(afterimage[0],x);
-		array_push(afterimage[1],y);
-		array_push(afterimage[2],round(subImg));
-		if (array_length(afterimage[0]) > 4) {
-		    array_shift(afterimage[0]);
-		    array_shift(afterimage[1]);
-		    array_shift(afterimage[2]);
-		}
-	}
-	
+	afterimage_step();	
 	switch (upg[$ "id"]) {
 		case Weapons.PlugAsaCoco:{
 			//if (alarm_get(1) > 0) {
 			if (dAlarm[1] > 0) {
 			    y-=1.75;
+				_extra.asay = y;
 				// feather disable once GM1041
 				if (instance_exists(ce)) {
 					direction = point_direction(x,y,ce.x, ce.y);
@@ -86,23 +76,13 @@ if (!global.gamePaused) {
 			}else {image_alpha = 1;}		
 			break;}
 		case Weapons.BlBook:{
-			x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
-			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
-			orbitPlace-=3 * Delta;
+			blbook_step();
 			break;}
 		case Weapons.BLFujoshiBook:{
-			orbitLength = 100;
-			x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
-			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
-			orbitPlace -= 8 * Delta;
-			//orbitPlace = oGui.f;
+			blfujoshibook_step();
 			break;}
 		case Weapons.BLFujoshiAxe:{
-			orbitLength = 190;
-			x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
-			y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
-			orbitPlace -= 10 * Delta;
-			//orbitPlace = oGui.f;
+			blfujoshiaxe_step();
 			break;}
 		case Weapons.BoneBros:{
 			slashTimer += 1 * Delta;
@@ -139,18 +119,18 @@ if (!global.gamePaused) {
 		case Weapons.AbsoluteWall:{
 			var _offset = 0;
 			switch (wallNumber) {
-			    case 0:
-			        _offset = 0;
-			        break;
-			    case 1:
-			        _offset = 90;
-			        break;
-			    case 2:
-			        _offset = 180;
-			        break;
-			    case 3:
-			        _offset = 270;
-			        break;
+				case 0:
+				    _offset = 0;
+				    break;
+				case 1:
+				    _offset = 90;
+				    break;
+				case 2:
+				    _offset = 180;
+				    break;
+				case 3:
+				    _offset = 270;
+				    break;
 			}
 			//orbitPlace = _offset;
 			//orbitLength = 100;
@@ -161,6 +141,11 @@ if (!global.gamePaused) {
 			//y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
 			y = owner.y - 16;
 			image_xscale = image_yscale + 0.5;
+			_extra.x = x;
+			_extra.y = y;
+			_extra.image_angle = image_angle;
+			_extra.image_xscale = image_xscale;
+			_extra.image_yscale = image_yscale;
 			break;}
 		case Weapons.LiaBolt:{
 			image_xscale = 0.2;
@@ -168,15 +153,12 @@ if (!global.gamePaused) {
 			if (lightningTarget != noone and instance_exists(lightningTarget)) {
 			    x = lightningTarget.x;
 				y = lightningTarget.y;
+				_extra.lx = x;
+				_extra.ly = y;
 			}
 			break;}
 		case Weapons.PsychoAxe:{
-			//part_type_sprite(part, upg[$ "sprite"], false, false, image_index);
-			x = xstart + lengthdir_x(round(orbitLength), round(orbitPlace));
-			y = ystart + lengthdir_y(round(orbitLength), round(orbitPlace));
-			orbitPlace -= 4 * Delta;
-			orbitLength += 0.75 * Delta;
-			//part_particles_create_colour(partSystem, xprevious, yprevious, part, c_yellow, 1);
+			psycho_axe_step();
 			break;}
 		case Weapons.CuttingBoard:{
 			if (distance_to_point(xstart, ystart) > 5) {
@@ -209,7 +191,7 @@ if (!global.gamePaused) {
 			//x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartX);
 			//x = sine_wave(current_time  / 1000, 1, upg[$ "travelWidth"], noteStartX);
 			//y = cose_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], noteStartY);
-			y = cose_wave(current_time  / 1000, 1 * upDown, upg[$ "travelWidth"], noteStartY);
+			y = cose_wave(coscounter / 1000, 1 * upDown, upg[$ "travelWidth"], noteStartY);
 			if (image_xscale < 0) {
 			    image_xscale = image_xscale * -1;
 			}
@@ -267,24 +249,18 @@ if (!global.gamePaused) {
 			y += vspd * Delta;
 			x += (asaSpeed * asaDirection) * Delta;
 			break;}
+		case Weapons.EliteLavaBucket:{
+			_extra.lx = x;
+			_extra.ly = y;
+			break;}
 		case Weapons.EliteCooking:{
 			if (poolSize != 1) {
 			    poolSize -= 1;
+				_extra.poolSize = poolSize;
 			}			
 			break;}
 		case Weapons.StreamOfTears:{
-			if (shoots == -1) {
-			    x = owner.x + lengthdir_x(16, round(orbitPlace));
-				y = owner.y + lengthdir_y(16, round(orbitPlace));
-				orbitPlace += 2 * Delta;
-				image_angle = point_direction(owner.x, owner.y, x, y);
-			}
-			else{
-				x = owner.x - lengthdir_x(16, round(orbitPlace));
-				y = owner.y - lengthdir_y(16, round(orbitPlace));
-				orbitPlace += 2 * Delta;
-				image_angle = point_direction(owner.x, owner.y, x, y);
-			}
+			stream_of_tears();
 			break;}
 			case Weapons.ImDieExplosion:{
 				explosionSize += .10;
@@ -309,18 +285,48 @@ if (!global.gamePaused) {
 if (hits <= 0 and upg[$ "id"] != Weapons.Glowstick) {
 	image_alpha=0;
 }
+//exit;
+//cansend += 1/60;
+if (image_alpha == 0 and cansend) {
+    cansend = false;
+	sendMessage({
+		command: Network.DestroyUpgrade,
+		upgID,	
+	});
+}
+if (sendend) {
+	sendend = false;
+	sendMessage({
+		command : Network.UpdateUpgrade,
+		socket,
+		upgID,
+		extrainfo : json_stringify({orbitPlace, orbitLength, speed, image_angle, direction})
+	});
+}
+
+if (_oldspeed != speed) { _extra.speed = speed; }
+if (_olddir != speed) { _extra.direction = direction;  _extra.image_angle = image_angle; }
 
 sendMessage({
-	command : Network.UpdateUpgrade,
-	socket,
-	upgID,
-	sprite_index,
-	direction,
-	x,
-	y,
-	image_alpha,
-	image_angle,
-	image_xscale,
-	image_yscale,
-	afterimg : json_stringify(afterimage)
-});
+		command : Network.UpdateUpgrade,
+		socket,
+		upgID,
+		extrainfo : json_stringify(_extra)
+	});
+//else { exit; }
+
+//sendMessage({
+//	command : Network.UpdateUpgrade,
+//	socket,
+//	upgID,
+//	sprite_index,
+//	direction,
+//	x,
+//	y,
+//	image_alpha,
+//	image_angle,
+//	image_xscale,
+//	image_yscale,
+//	afterimg : json_stringify(afterimage),
+//	extrainfo : ""
+//});

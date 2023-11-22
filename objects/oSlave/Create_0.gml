@@ -7,3 +7,5 @@ with (oSlave)
         instance_destroy();
     }
 }
+xx = x;
+yy = y;

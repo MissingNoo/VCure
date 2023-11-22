@@ -122,6 +122,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"input_icons_gamepad","order":3,"path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},
+    {"name":"WeaponScripts","order":18,"path":"scripts/WeaponScripts/WeaponScripts.yy",},
     {"name":"__input_finalize_verb_groups","order":3,"path":"scripts/__input_finalize_verb_groups/__input_finalize_verb_groups.yy",},
     {"name":"oBurguer","order":2,"path":"objects/oBurguer/oBurguer.yy",},
     {"name":"input_check_quick_pressed","order":10,"path":"scripts/input_check_quick_pressed/input_check_quick_pressed.yy",},

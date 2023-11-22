@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+var _oldsprite = sprite_index;
+var _oldsub = subImg;
 switch (upg[$ "id"]) {
 	case Weapons.UrukaNote:{
 		if (sprite_index == sNoteExplosion) {
@@ -94,7 +94,7 @@ switch (upg[$ "id"]) {
 		    sprite_index = sLavaPoolLoop;
 		}
 		if (sprite_index == sLavaPoolEnd) {
-			instance_destroy();
+			image_alpha = 0;
 		}
 		break;}
 	#endregion
@@ -113,3 +113,11 @@ switch (upg[$ "id"]) {
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
 sprSpeedType = sprite_get_speed_type(sprite_index);
+if (sprite_index != _oldsprite) {
+sendMessage({
+		command : Network.UpdateUpgrade,
+		socket,
+		upgID,
+		extrainfo : json_stringify({sprite_index, image_index : _oldsub})
+	});
+}

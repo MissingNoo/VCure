@@ -5,7 +5,6 @@ if (global.gamePaused) { exit; }
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
 sprSpeedType = sprite_get_speed_type(sprite_index);
-var _extrainfo = {upg : upg[$"id"]};
 //if (instance_number(oEnemy) == 0) {
 //    instance_destroy();
 //}
@@ -23,6 +22,7 @@ if (socket == oPlayer.socket) {
 #region Start
 // Feather disable GM2016
 if (a==0) {
+	var _extrainfo = {upg : upg[$"id"]};
 if (shoots > 0 and WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Projectile) {
 	shoots += 1;
 }
@@ -150,6 +150,10 @@ image_speed = 0;
 					hits = 9999;
 			        break;
 			}
+			_extrainfo.coscounter = coscounter;
+			_extrainfo.upDown = upDown;
+			_extrainfo.travelWidth = upg[$ "travelWidth"];
+			_extrainfo.noteStartY = noteStartY;
 			break;}
 		case Weapons.PlugAsaCoco:{
 			originaly=y;
@@ -208,11 +212,13 @@ image_speed = 0;
 			break;
 		}
 		case Weapons.EliteLavaBucket:{	
+			visible = false;
 			level = upg[$ "level"];
 			random_set_seed(current_time);
 			x = owner.x + irandom_range(-100,100);
 			random_set_seed(current_time);
 			y = owner.y + (irandom_range(-100,100)*-1);
+			visible = true;
 			//alarm[0] = 1;
 			depth=owner.depth;
 			//for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
@@ -603,20 +609,30 @@ image_speed = 0;
 			image_yscale = image_xscale;
 		}
 	}
-	_extrainfo.xscale = image_xscale;
-	_extrainfo.yscale = image_yscale;
 	{ //online code
+		_extrainfo.uid = upg.id;
+		if (speed != 0) {
+		    _extrainfo.speed = speed;
+		}
+		if (image_xscale != 1) {
+		    _extrainfo.xscale = image_xscale;
+		}
+		if (image_yscale != 1) {
+		    _extrainfo.yscale = image_yscale;
+		}
+		_extrainfo.speed = speed;
+		_extrainfo.shoots = shoots;
 		if (variable_struct_exists(upg, "afterimage")) {
 		    _extrainfo.afterimageColor = upg.afterimageColor;
 		}
-		vars = variable_instance_get_names(self);
-		savedvars = {};
-		for (var i = 0; i < array_length(vars); ++i) {
-		    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
-		}
-		sendvars = json_stringify(savedvars);
-		//show_message(sendvars);
+		//vars = variable_instance_get_names(self);
+		//savedvars = {};
+		//for (var i = 0; i < array_length(vars); ++i) {
+		//    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
+		//}
+		//sendvars = json_stringify(savedvars);
 		if (!variable_instance_exists(self, "sent")) {
+			sent = true;
 			sendMessage({
 				command : Network.SpawnUpgrade,
 				socket : oClient.connected,
@@ -625,21 +641,11 @@ image_speed = 0;
 				sprite_index,
 				direction,
 				image_angle,
-				//speed,
-				//sendvars,
-				//upg : upg[$ "id"],
 				upgID,
-				haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false,
+				//haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false,
 				extraInfo : json_stringify(_extrainfo)
 			});
 		}
-		//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
-		//for (var i = 0; i < array_length(sidevars); ++i) {
-		//    buffer_write(oClient.clientBuffer, buffer_s16, variable_instance_get(self, sidevars[i]));
-		//}
-		//if (global.debug) {
-		//    show_message(sendvars);
-		//}
 	}	
 }
 #endregion

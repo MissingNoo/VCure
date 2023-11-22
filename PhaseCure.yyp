@@ -158,6 +158,7 @@
   },
   "resources": [
     {"id":{"name":"input_icons_gamepad","path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},},
+    {"id":{"name":"WeaponScripts","path":"scripts/WeaponScripts/WeaponScripts.yy",},},
     {"id":{"name":"oPillar","path":"objects/oPillar/oPillar.yy",},},
     {"id":{"name":"__input_finalize_verb_groups","path":"scripts/__input_finalize_verb_groups/__input_finalize_verb_groups.yy",},},
     {"id":{"name":"oBurguer","path":"objects/oBurguer/oBurguer.yy",},},

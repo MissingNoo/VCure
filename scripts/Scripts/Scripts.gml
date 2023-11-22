@@ -335,9 +335,15 @@ function prop_draw(){
 }
 
 function sine_wave(time, period, amplitude, midpoint) {
+	if (variable_instance_exists(self, "sincounter")) {
+	    sincounter+=15;
+	}
     return sin(time * 2 * pi / period) * amplitude + midpoint;
 }
 function cose_wave(time, period, amplitude, midpoint) {
+	if (variable_instance_exists(self, "coscounter")) {
+	    coscounter+=15;
+	}
     return cos(time * 2 * pi / period) * amplitude + midpoint;
 }
 
@@ -460,3 +466,22 @@ if _branches
 
 
 }
+function afterimage_step(){
+	if (!variable_instance_exists(self, "afterimage")) { afterimage = []; }
+	if (!variable_instance_exists(self, "afterimagecount")) { afterimagecount = 0; }
+	if (afterimagecount < 0.30) {
+	    afterimagecount += 1 * Delta;
+	}
+	else{
+		afterimagecount = 0;
+		array_push(afterimage[0],x);
+		array_push(afterimage[1],y);
+		array_push(afterimage[2],round(object_index == oUpgrade ? subImg : image_index));
+		if (array_length(afterimage[0]) > 4) {
+		    array_shift(afterimage[0]);
+		    array_shift(afterimage[1]);
+		    array_shift(afterimage[2]);
+		}
+	}
+}
+	
