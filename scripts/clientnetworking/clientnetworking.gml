@@ -1,4 +1,5 @@
 global.serverip = "140.238.187.191";
+//global.serverip = "192.168.0.103";
 global.port = 64198;
 // Feather disable GM2044
 // Feather disable GM2017
