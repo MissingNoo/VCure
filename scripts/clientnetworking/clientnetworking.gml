@@ -45,7 +45,7 @@ function clientReceivedPacket2(_response)
 			//show_debug_message(r[$"socket"]);
 	        break;
 			
-		case Network.JoinRoom:
+		case Network.JoinRoom:{
 			//show_debug_message(r);
 			oLobby.roomname = r[$ "roomname"];
 			oLobby.players = json_parse(r[$ "players"]);
@@ -55,16 +55,17 @@ function clientReceivedPacket2(_response)
 			keyboard_string = "";
 			oLobby.chatmessages = [];
 			break;
+		}
 		
-		case Network.StartGame:
+		case Network.StartGame:{
 			//for (var i = 0; i < array_length(oLobby.options); ++i) {
 			//	// Feather disable once GM1044
 			//	variable_global_set(oLobby.options[i][1], variable_instance_get(oLobby, oLobby.options[i][1]));
 			//}
 			room_goto(rStage1);
-			break;
+			break;}
 			
-		 case Network.PlayerJoined:
+		 case Network.PlayerJoined:{
 				reset_timer();
 				reset_pool();
 				with (oEnemy) {
@@ -75,9 +76,9 @@ function clientReceivedPacket2(_response)
 				ds_map_add(socketToInstanceID, _sockett, _slave.id);
 				//show_message(_socket);
 				_slave.socket = _sockett;
-				break;
+				break;}
 				
-		case Network.PlayerMoved:
+		case Network.PlayerMoved:{
 			//show_debug_message(r);
 			var _s = r[$ "socket"];
 			var _x = r[$ "x"];
@@ -100,9 +101,9 @@ function clientReceivedPacket2(_response)
 				oSlave.image_xscale = _scale;
 			}
 			break;
+		}
 		
-		
-		case Network.SpawnUpgrade:
+		case Network.SpawnUpgrade:{
 			var _upg = instance_create_layer(r[$ "x"], r[$ "y"], "Instances", oSlaveUpgrade);
 			_upg.upgID = r[$ "upgID"];
 			_upg.sprite_index = r[$ "sprite_index"];
@@ -112,9 +113,9 @@ function clientReceivedPacket2(_response)
 			_upg.extraInfo= json_parse(r[$ "extraInfo"]);
 			_upg.speed = _upg.extraInfo.speed;
 			break;
+		}
 		
-		
-		case Network.UpdateUpgrade:
+		case Network.UpdateUpgrade:{
 			var extra = json_parse(r[$ "extraInfo"]);
 			with (oSlaveUpgrade) {
 			    if (upgID == r[$ "upgID"]) {					
@@ -139,9 +140,9 @@ function clientReceivedPacket2(_response)
 			//		}
 			//	}
 			break;
+		}
 		
-		
-		case Network.DestroyUpgrade:
+		case Network.DestroyUpgrade:{
 				var total = instance_number(oSlaveUpgrade);
 				for (var i = 0; i < total; ++i) {
 					var ftotal = instance_number(oSlaveUpgrade);
@@ -152,9 +153,9 @@ function clientReceivedPacket2(_response)
 				    var inst = instance_find(oSlaveUpgrade, i);
 					if (inst.upgID == r[$ "upgID"]) { instance_destroy(inst); }
 				}
-				break;
+				break;}
 				
-		 case Network.Spawn:
+		 case Network.Spawn:{
 				var enemyvars = json_parse(r[$ "sendvars"]);
 				var enemyvarnames = variable_struct_get_names(enemyvars);
 				var _enemy = instance_create_layer(r[$ "x"], r[$ "y"], "Instances", oEnemy);
@@ -177,9 +178,9 @@ function clientReceivedPacket2(_response)
 					}				
 				}
 				//}
-				break;
+				break;}
 		
-		case Network.Destroy:
+		case Network.Destroy:{
 			//show_debug_message(string(r[$"owner"]) + ":" + string(oSlave.socket))
 			//var candrop = true;
 			//if (r[$"owner"] == oSlave.socket and global.shareXP) {
@@ -197,9 +198,9 @@ function clientReceivedPacket2(_response)
 				}
 			}
 			break;
+		}
 		
-		
-		case Network.UpdateRoom:
+		case Network.UpdateRoom:{
 			if (instance_exists(oLobby)) {
 			    if (r[$ "roomname"] == global.roomname) {
 				    oLobby.players = json_parse(r[$ "players"]);
@@ -207,54 +208,54 @@ function clientReceivedPacket2(_response)
 				}
 			}
 			break;
+		}
 		
-		
-		case Network.UpdateOptions:
+		case Network.UpdateOptions:{
 			if (r[$ "roomname"] == global.roomname) {
 				// Feather disable once GM1041
 				variable_instance_set(oLobby, r[$ "option"], r[$ "value"]);
 			}
 			break;
+		}
 		
-		
-		case Network.ShareXP:
+		case Network.ShareXP:{
 			if (r[$ "roomname"] == global.roomname) {
 				global.xp += r[$ "xp"];
 			}
 			break;
+		}
 		
-		
-		case Network.ChatMessage:
+		case Network.ChatMessage:{
 			var _msg = [r[$ "username"], r[$ "text"]];
 			array_push(oLobby.chatmessages, _msg);
 			break;
+		}
 		
-		
-		case Network.SpawnAnvil:
+		case Network.SpawnAnvil:{
 			if (r[$ "owner"] != global.socket) {
 			    instance_create_depth(r[$ "x"], r[$ "y"], oPlayer.depth, oAnvil,{anvilid : r[$ "anvilid"], maxuses : r[$ "maxuses"], dontsend : true});
 			}			
-			break;
+			break;}
 			
-		case Network.UpdateAnvil:
+		case Network.UpdateAnvil:{
 			if (!instance_exists(oAnvil)) { return; }
 			with (oAnvil) {
 			    if (anvilid == r[$ "anvilid"]) {
 				    maxuses = r[$ "maxuses"];
 				}
 			}
-			break;
+			break;}
 			
-		case Network.AddItem:
+		case Network.AddItem:{
 			if (r[$ "type"] == "weapon") {
 			    UPGRADES[r[$ "pos"]] = global.upgradesAvaliable[r[$ "id"]][r[$ "level"]];
 			}
 			if (r[$ "type"] == "item") {
 			    playerItems[r[$ "pos"]] = ItemList[r[$ "id"]][r[$ "level"]];
 			}
-			break;
+			break;}
 			
-		case Network.InfectMob:
+		case Network.InfectMob:{
 			var _id = r[$ "id"];
 			var _target = r[$ "target"];
 			var _newtarget = noone;
@@ -271,13 +272,263 @@ function clientReceivedPacket2(_response)
 					baseSPD = r[$ "baseSPD"];
 				}
 			}			
-			break;
+			break;}
 		
 	    default:
 	        // code here
 	        break;
 	}
 }
+function clientReceivedPacket(_buffer)
+{
+	if (!global.singleplayer) {
+		var msgid = buffer_read(_buffer, buffer_u8);
+	
+		switch (msgid) {
+			case Network.Destroy:{
+				var _id = buffer_read(_buffer, buffer_u16);
+				var total = instance_number(oEnemy);
+				for (var i = 0; i < total; ++i) {
+					var ftotal = instance_number(oEnemy);
+					if (ftotal != total) {
+					    i = 0;
+						total = ftotal;
+					}
+				    var inst = instance_find(oEnemy, i);
+					if (inst.enemyID == _id) {
+						//show_message("destroyed");
+					    //instance_destroy(inst);
+						inst.hp = 0;
+					}
+				}
+				break;}
+				
+			case Network.DestroyUpgrade:{
+				var _id = buffer_read(_buffer, buffer_u16);
+				var total = instance_number(oSlaveUpgrade);
+				for (var i = 0; i < total; ++i) {
+					var ftotal = instance_number(oSlaveUpgrade);
+					if (ftotal != total) {
+					    i = 0;
+						total = ftotal;
+					}
+				    var inst = instance_find(oSlaveUpgrade, i);
+					if (inst.upgID == _id) {
+						//show_message("destroyed");
+					    instance_destroy(inst);
+					}
+				}
+				break;}
+			
+			case Network.UpdateUpgrade:{
+				var _owner = buffer_read(_buffer, buffer_u8);
+				if (instance_exists(oPlayer) and oPlayer.socket == _owner) { break; }
+				var _id = buffer_read(_buffer, buffer_u16);
+				var _x = buffer_read(_buffer, buffer_u16);
+				var _y = buffer_read(_buffer, buffer_u16);
+				var _dir = buffer_read(_buffer, buffer_u16);
+				var _angle = buffer_read(_buffer, buffer_u16);
+				var total = instance_number(oUpgrade);
+				for (var i = 0; i < total; ++i) {
+					var ftotal = instance_number(oSlaveUpgrade);
+					if (ftotal != total) {
+					    i = 0;
+						total = ftotal;
+					}
+				    var inst = instance_find(oSlaveUpgrade, i);
+					if (inst.upgID == _id) {
+						//show_message("destroyed");
+					    inst.x = _x;
+						inst.y = _y;
+						inst.speed=0;
+						inst.image_alpha = _dir;
+						inst.image_angle = _angle;
+					}
+				}
+				break;}
+			
+			case Network.HostDisconnected:{
+				network_destroy(oClient.client);
+				network_destroy(oClient.connected);
+				instance_destroy(oClient);
+				room_goto(rInicio);
+				break;}
+			
+			case Network.SpawnUpgrade:{
+				var _s = buffer_read(_buffer, buffer_u8);
+				var _x = buffer_read(_buffer, buffer_u16);
+				var _y = buffer_read(_buffer, buffer_u16);
+				var _spr = buffer_read(_buffer, buffer_u16);
+				//var _spd = buffer_read(_buffer, buffer_u16);
+				var _dir = buffer_read(_buffer, buffer_s16);
+				var _angle = buffer_read(_buffer, buffer_s16);
+				var _speed = buffer_read(_buffer, buffer_u8);
+				var _vars = buffer_read(_buffer, buffer_string);
+				var _upgid = buffer_read(_buffer, buffer_u8);
+				if (_s != oClient.connected) {
+					//show_message(_vars);
+					var upgvars = json_parse(_vars);
+					//show_message(upgvars[$"upg"]);
+					//show_debug_message(upgvars[]);
+					var upgvarnames = variable_struct_get_names(upgvars);
+					var _upg = instance_create_layer(_x, _y, "Instances", oSlaveUpgrade);
+					for (var i = 0; i < variable_struct_names_count(upgvars); ++i) {
+						if (upgvarnames[i] != "id") {
+							variable_instance_set(_upg, upgvarnames[i], variable_struct_get(upgvars, upgvarnames[i]));
+						}
+					}
+					_upg.sprite_index = _spr;
+					//_upg.speed = _spd;
+					_upg.direction = _dir;
+					_upg.image_angle = _angle;
+					_upg.speed = _speed;
+					_upg.ghost = true;
+					//_upg.upg = global.upgradesAvaliable[_upgid];
+					//var sidevars = ["upg", "speed", "hits", "sprite_index", "level", "mindmg", "maxdmg"];
+					//for (var i = 0; i < array_length(sidevars); ++i) {
+					//	variable_instance_set(_upg, sidevars[i], buffer_read(_buffer, buffer_u16));
+					//}
+					//_upg.target = instance_nearest(x,y,oSlave);
+					with (_upg) {
+						try{
+							a = 0;
+							sent = true;
+							alarm[1]=200;
+							shoots = 0;
+							//show_message(_upg);
+							//show_message(json_parse(_upginfo));
+							
+							//upg = json_parse(_upginfo);
+						
+							event_perform(ev_step, ev_step_begin);
+						}
+						catch(error){
+							show_debug_message("error");
+						}
+					
+					}
+				}
+				break;}
+		
+		    case Network.Spawn:{
+				var _s = buffer_read(_buffer, buffer_u8);
+				var _x = buffer_read(_buffer, buffer_u16);
+				var _y = buffer_read(_buffer, buffer_u16);
+				var _vars = buffer_read(_buffer, buffer_string);
+				//if (_s != oClient.connected) {
+					var enemyvars = json_parse(_vars);
+					var enemyvarnames = variable_struct_get_names(enemyvars);
+					var _enemy = instance_create_layer(_x, _y, "Instances", oEnemy);
+					for (var i = 0; i < variable_struct_names_count(enemyvars); ++i) {
+					    variable_instance_set(_enemy, enemyvarnames[i], variable_struct_get(enemyvars, enemyvarnames[i]));
+					}
+					_enemy.target = instance_nearest(x,y,oSlave);
+					with (_enemy) {
+						try{
+							initiate_enemy(ds_list_find_value(global.enemyPool, variable_struct_get(enemyvars, "enemynum")));
+						}
+						catch(error){
+							initiate_enemy(ds_list_find_value(global.enemyPool, 0));
+						}
+					
+					}
+				//}
+				break;}
+				
+		    case Network.PlayerConnect:{
+				reset_timer();
+				var _socket = buffer_read(_buffer, buffer_u8);
+				instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer, {socket : _socket});
+				break;}
+				
+		    case Network.PlayerJoined:{
+				reset_timer();
+				reset_pool();
+				with (oEnemy) {
+				    instance_destroy();
+				}
+				var _sockett = buffer_read(_buffer, buffer_u8);
+				var _slave = instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oSlave);
+				ds_map_add(socketToInstanceID, _sockett, _slave.id);
+				//show_message(_socket);
+				_slave.socket = _sockett;
+				break;}
+				
+			case Network.Message:{
+				var _s = buffer_read(_buffer, buffer_u8);
+				var message = buffer_read(_buffer, buffer_string);
+				show_message(message + string(_s));
+				break;}
+				
+			case Network.PlayerMoved:{
+				var _s = buffer_read(_buffer, buffer_u8);
+				var _x = buffer_read(_buffer, buffer_u16);
+				var _y = buffer_read(_buffer, buffer_u16);
+				var _spr = buffer_read(_buffer, buffer_u16);
+				var _scale = buffer_read(_buffer, buffer_s8);
+				var _sock = buffer_read(_buffer, buffer_u8);
+			
+				if (!instance_exists(oSlave)) {
+				    instance_create_layer(0,0, "Instances", oSlave,{socket : _sock});
+				}
+			
+				//show_debug_message("S:{0} X: {1} Y:{2}", _s, _x, _y);
+				if (instance_exists(oPlayer) and _sock != oClient.connected and instance_exists(oSlave)) {
+				    oSlave.x = _x;
+					oSlave.y = _y;
+					oSlave.sprite_index = _spr;
+					oSlave.image_xscale = _scale;
+				}
+			
+			
+				//with (oSlave) {
+					//show_message(string(socket) + " : " + string(_socket));
+				//    //if (socket == _s) {
+				//	    x = _x;
+				//		y = _y;
+				//	}
+				//}
+				break;}
+				
+			case Network.PlayerDisconnect:{
+				var _socket = buffer_read(_buffer, buffer_u8);
+				//show_message(_socket);
+				instance_destroy(ds_map_find_value(socketToInstanceID, _socket));
+				break;}
+				
+			case Network.IsHost:{
+				var _host = buffer_read(_buffer, buffer_string);
+				//show_message_async(_host);
+				oLobby.ishost = _host;
+				break;}
+			
+			case Network.LobbyConnect:{
+				var _json = buffer_read(_buffer, buffer_string);
+				oLobby.players = json_parse(_json);
+				//show_message_async("socket:" + string(_socket) + " username:" + string(_username) + " id:" + string(_playerID));
+				break;}
+				
+			case Network.StartGame:{
+				room_goto(rStage1);
+				break;}
+				
+			case Network.ListRooms:{
+				var _json = buffer_read(_buffer, buffer_string);
+				oLobby.rooms = json_parse(_json);
+				break;
+			}
+			
+			case Network.JoinRoom:{
+				oLobby.roomname = buffer_read(_buffer, buffer_string);
+				oLobby.players = json_parse(buffer_read(_buffer, buffer_string));
+				oLobby.ishost = buffer_read(_buffer, buffer_u8);
+				oLobby.joinedRoom = true;
+				break;
+			}
+		}
+	}
+}
+
 
 /// @function                sendMessage(data)
 /// @description             Data to send server

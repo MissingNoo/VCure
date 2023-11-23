@@ -150,7 +150,7 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 	//    xp = EnemyList[enemy][? "exp"];
 	//}
 	switch (type) {
-		case Patterns.WallLeftRight:
+		case Patterns.WallLeftRight:{
 			var _wh = view_wport[0] / 2 + offset;
 			aa = oPlayer.x + _wh;
 			var ab = oPlayer.x - _wh;
@@ -181,8 +181,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
 				bb += wallSprOffset;
 			}
-		    break;
-		case Patterns.WallTopBottom:
+		    break;}
+		case Patterns.WallTopBottom:{
 			var _vh = view_hport[0] / 2 + offset;
 			aa = oPlayer.x;
 			var ba = oPlayer.y - _vh;
@@ -207,8 +207,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
 				aa += wallSprOffset;
 			}
-		    break;
-		case Patterns.Ring:
+		    break;}
+		case Patterns.Ring:{
 			var circle = irandom_range(0, 360);
 			repeat(quantity) {
 				var _x = oPlayer.x + lengthdir_x(r, circle);
@@ -216,8 +216,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				instance_create_layer(_x, _y, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				circle += quantity / offset;
 			}
-			break;
-		case Patterns.StampedeRight:
+			break;}
+		case Patterns.StampedeRight:{
 			var _y = oPlayer.y;
 			var _h = (sprite_get_height(monster[?"sprite"]) * monster[?"yscale"]) * 2;
 			if (offset == 2) {
@@ -231,8 +231,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_y += _h;
 			}
 			break;
-		
-		case Patterns.StampedeLeft:
+		}
+		case Patterns.StampedeLeft:{
 			var _y = oPlayer.y;
 			var _h = (sprite_get_height(monster[?"sprite"]) * monster[?"yscale"]) * 2;
 			if (offset == 2) {
@@ -246,8 +246,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_y += _h;
 			}
 			break;
-		
-		case Patterns.StampedeTop:
+		}
+		case Patterns.StampedeTop:{
 			var _x = oPlayer.x;
 			var _w = (sprite_get_width(monster[?"sprite"]) * monster[?"xscale"]) * 2;
 			if (offset == 2) {
@@ -261,8 +261,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_x += _w;
 			}
 			break;
-		
-		case Patterns.StampedeDown:
+		}
+		case Patterns.StampedeDown:{
 			var _x = oPlayer.x;
 			var _w = (sprite_get_width(monster[?"sprite"]) * monster[?"xscale"]) * 2;
 			if (offset == 2) {
@@ -276,7 +276,7 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_x += _w;
 			}
 			break;
-		
+		}		
 		default:
 			var a = oPlayer.x + choose(-400, 400);
 			var b = oPlayer.y + choose(-400, 400);
@@ -312,20 +312,16 @@ function heal_player(amount){
 		HP += amount;
 	}
 }
-/// @function                prop_draw(data)
-/// @description             draw stage prop
-/// @param {Asset.GMSprite}     spr Sprite index
-/// @param {Real}     _x x
-/// @param {Real}     _y y
-function prop_draw(_spr, _x, _y){
+	
+function prop_draw(){
 	if (!instance_exists(oPlayer)) {
 	    return;
 	}
-	var sprw = sprite_get_width(_spr) / 2;
-	var sprh = sprite_get_height(_spr);
-	var alpha = oPlayer.y < _y and collision_rectangle(_x - sprw, _y - sprh, _x + sprw, _y, oPlayer, false, false) ? 0.35 : 1;
+	var sprw = sprite_width / 2;
+	var sprh = sprite_height;
+	var alpha = oPlayer.y < y and collision_rectangle(x- sprw,y - sprh, x + sprw, y, oPlayer, false, false) ? 0.35 : 1;
 	var _offset = 0;
-	switch (_spr) {
+	switch (sprite_index) {
 	    case sTree:
 	        _offset = 16;
 	        break;
@@ -334,8 +330,8 @@ function prop_draw(_spr, _x, _y){
 	        break;
 	}
 	
-	draw_sprite_ext(_spr, 0, _x, _y + _offset, 1, -0.75, 0, c_black, 0.25);
-	draw_sprite_ext(_spr, 0, _x, _y, 1, 1, 0, c_white, alpha);
+	draw_sprite_ext(sprite_index, 0, x, y + _offset, 1, -0.75, 0, c_black, 0.25);
+	draw_sprite_ext(sprite_index, 0, x, y, 1, 1, 0, c_white, alpha);
 }
 
 function sine_wave(time, period, amplitude, midpoint) {
