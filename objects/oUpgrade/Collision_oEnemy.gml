@@ -1,4 +1,7 @@
 var canhit = true;
+if (upg.mindmg == -1) {
+    canhit = false;
+}
 switch (sprite_index) {
     case sBreathAsacoco:
         canhit = false;

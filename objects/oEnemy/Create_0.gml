@@ -17,6 +17,13 @@ warningAlpha = 0;
 alphaGoingUp = true;
 justSpawned = true;
 #endregion
+#region Smol Ame
+groundPoundTimer = 10;
+goingDownTimer = 0;
+groundPounding = false;
+goingDown = false;
+ametp = true;
+#endregion
 //TODO: add multiplayer random target
 if (room != rInicio) {
 	    random_set_seed(current_time);

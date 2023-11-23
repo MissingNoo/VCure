@@ -81,6 +81,46 @@ if(_canmove and instance_exists(target)){
 		fanbeamFiring = 200;
 	}
 	#endregion
+	#region Smol Ame
+	if (thisEnemy == Enemies.SmolAme) {
+		if (sprite_index == sSmolAmeGroundpound) {
+		    speed = 0;
+			canwalk = false;
+		}
+		else{ canwalk = true; }
+		if (groundPounding) {
+		    image_alpha = .99;
+		}
+		else { image_alpha = 1;}
+	    if (groundPoundTimer > 0) {
+		    groundPoundTimer -= 1/60 * Delta;
+		}
+		if (groundPoundTimer < 0) {
+			groundPoundTimer = 0;
+			goingDownTimer = 10;
+			groundPounding = true;
+			image_index = 0;
+			sprite_index = sSmolAmeJump;
+			ametp = true;
+			goingDownTimer = 4;
+			goingDown = true;
+		}
+		if (goingDownTimer > 0) {
+		    goingDownTimer -= 1/60 * Delta;
+		}
+		//if (groundPounding and !goingDown) {
+		//	ameY -= oGui.e;
+		//	if (goingDownTimer > 0) {
+		//		goingDownTimer -= 1/60 * Delta;
+		//	}
+		//	else { goingDown = true; sprite_index = sSmolAmeGroundpound}
+		//}
+		//if (goingDown) {
+		//    ameY += oGui.e;
+		//}
+		
+	}
+	#endregion
 	image_speed = oImageSpeed * Delta;
 	//if (lifetime != "-" and lifetime > 0 and alarm[3] == -1) {
 	if (lifetime != "-" and lifetime > 0 and lifetimeAlarm == 0) {
@@ -150,6 +190,9 @@ if(_canmove and instance_exists(target)){
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
 	if (canwalk) {
 	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * Delta;
+		if (groundPounding) {
+		    speed = speed / 1.5;
+		}
 		if (oPlayer.spaghettiEaten) {
 			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			    if (PLAYER_PERKS[i].id == PerkIds.TrashBear) {

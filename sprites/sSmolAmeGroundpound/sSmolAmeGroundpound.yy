@@ -40,7 +40,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"f817841b-7947-4ae2-b4d5-53edbe37b149","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 7,
   "parent": {
     "name": "SmolAme",
     "path": "folders/Sprites/Monsters/Stage 1/SmolAme.yy",
@@ -94,7 +94,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 50,
-    "yorigin": 50,
+    "yorigin": 100,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

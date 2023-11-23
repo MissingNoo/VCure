@@ -52,8 +52,8 @@ else{
 //	unlocked_outfits_load();
 //}
 if (keyboard_check_pressed(vk_end)) {
-	Minutes = 9;
-	Seconds = 59;	
+	Minutes = 19;
+	Seconds = 58;	
 	//instance_create_depth(x,y,depth, oAchNotify);
 	//for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
 	//    UnlockableWeapons[i] = false;
@@ -123,7 +123,7 @@ if (instance_exists(oPlayer)) {
 	var px;
 	var py;
 	//yy = oCam.y - oPlayer.y;
-	var insts = [oEnemy, oXP, oAnvil, oBurguer, oUpgrade, oHolocoin];
+	var insts = [oEnemy, oAnvil, oUpgrade, oDropParent];
     if (oPlayer.x < 610) {
 		xx = oCam.x - oPlayer.x;
 		px = oPlayer.x;

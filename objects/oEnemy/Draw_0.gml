@@ -25,12 +25,42 @@ if (fanbeamFiring > 0) {
     draw_rectangle_color(x + (35 * image_xscale), y - 10, x + (view_wport[0] * image_xscale), y-100, c_white, c_white, c_white, c_white, true);	
 }
 
-if (damaged) {
+switch (thisEnemy) {
+	    case Enemies.SmolAme:
+			if (groundPounding and image_index > 17) {
+				draw_set_alpha(.25);
+				draw_set_color(c_black);
+			    draw_circle(x,y, 80, false);
+				draw_set_color(c_white);
+				draw_set_alpha(1);
+			}
+			draw_self();
+			//draw_text(x, y + 20, image_index);
+			//draw_text(x, y + 40, groundPoundTimer);
+			//draw_text(x, y + 60, goingDownTimer);
+			
+			//else {
+			//	if (!goingDown) {
+			//		if (image_index > 7 and ameY - y < oGui.f) {
+			//		    image_index = 7;
+			//		}
+			//	    draw_sprite_ext(sprite_index, image_index, x, ameY, image_xscale, image_yscale, 0, c_white, 1);
+			//	}
+			//	if (goingDown) {
+			//		if (image_index > 3 and ameY - y > oGui.f) {
+			//		    image_index = 3;
+			//		}
+			//	    draw_sprite_ext(sprite_index, image_index, x, ameY, image_xscale, image_yscale, 0, c_white, 1);
+			//	}
+			//}
+	        break;
+}
+if (damaged and thisEnemy != Enemies.SmolAme) {
 	gpu_set_fog(true,c_white,0,0);
-    draw_self();
+	draw_self();    
 	gpu_set_fog(false,c_white,0,0);
 }
-else{
+else if (thisEnemy != Enemies.SmolAme){
 	//draw_self();
 	draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, 0, infected == false ? c_white : c_purple, image_alpha);
 	//var _tgtc = target == oPlayer ? c_blue : c_red;

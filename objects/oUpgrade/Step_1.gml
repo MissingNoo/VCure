@@ -529,8 +529,13 @@ image_speed = 0;
 			if (variable_instance_exists(self, "newbolts")) {
 			    bolts = newbolts;
 			    lightningColor = newboltcolor;
-				startX = newowner.x;
-				startY = newowner.y;
+				if (instance_exists(newowner)) {
+				    startX = newowner.x;
+					startY = newowner.y;
+				}
+				else{
+					instance_destroy();
+				}
 			}
 			if (bolts > 1 and lightningTarget != noone) {
 				var _inst = instance_create_layer(lightningTarget.x, lightningTarget.y, "Upgrades",oUpgrade,{

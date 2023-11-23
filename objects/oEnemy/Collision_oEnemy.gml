@@ -35,6 +35,9 @@ switch (pattern) {
         canCollide = true;
         break;
 }
+if (thisEnemy == Enemies.SmolAme) {
+    canCollide = false;
+}
 if (canwalk and canCollide and other.pattern == pattern and other.infected == infected) {
 	//if (pattern == Patterns.Cluster and other.pattern == Patterns.Cluster or pattern != Patterns.Cluster and other.pattern != Patterns.Cluster ) {
 		var _push = .5;
