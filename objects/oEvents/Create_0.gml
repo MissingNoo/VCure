@@ -25,3 +25,4 @@ time_source_start(_time_source);
 _cloud = time_source_create(time_source_game, 10, time_source_units_seconds, spawnCloud,[], -1);
 time_source_start(_cloud);
 event = true;
+lastsecond = 0;
