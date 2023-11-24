@@ -862,6 +862,7 @@
     {"id":{"name":"lexicon_locale_get","path":"scripts/lexicon_locale_get/lexicon_locale_get.yy",},},
     {"id":{"name":"sKFPEmployee","path":"sprites/sKFPEmployee/sKFPEmployee.yy",},},
     {"id":{"name":"sBreathAsacoco","path":"sprites/sBreathAsacoco/sBreathAsacoco.yy",},},
+    {"id":{"name":"StageInfo","path":"scripts/StageInfo/StageInfo.yy",},},
     {"id":{"name":"oUpgradeSlave","path":"objects/oUpgradeSlave/oUpgradeSlave.yy",},},
     {"id":{"name":"oSpaghetti","path":"objects/oSpaghetti/oSpaghetti.yy",},},
     {"id":{"name":"input_vibrate_get_strength","path":"scripts/input_vibrate_get_strength/input_vibrate_get_strength.yy",},},

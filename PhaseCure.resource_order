@@ -744,6 +744,7 @@
     {"name":"lexicon_locale_get","order":8,"path":"scripts/lexicon_locale_get/lexicon_locale_get.yy",},
     {"name":"sKFPEmployee","order":9,"path":"sprites/sKFPEmployee/sKFPEmployee.yy",},
     {"name":"sBreathAsacoco","order":16,"path":"sprites/sBreathAsacoco/sBreathAsacoco.yy",},
+    {"name":"StageInfo","order":19,"path":"scripts/StageInfo/StageInfo.yy",},
     {"name":"oUpgradeSlave","order":11,"path":"objects/oUpgradeSlave/oUpgradeSlave.yy",},
     {"name":"input_vibrate_get_strength","order":4,"path":"scripts/input_vibrate_get_strength/input_vibrate_get_strength.yy",},
     {"name":"__input_gamepad_value_internal","order":15,"path":"scripts/__input_gamepad_value_internal/__input_gamepad_value_internal.yy",},
