@@ -450,6 +450,7 @@
     {"id":{"name":"sHudAtkIcon","path":"sprites/sHudAtkIcon/sHudAtkIcon.yy",},},
     {"id":{"name":"sKronieA","path":"sprites/sKronieA/sKronieA.yy",},},
     {"id":{"name":"sGoldenAnvil","path":"sprites/sGoldenAnvil/sGoldenAnvil.yy",},},
+    {"id":{"name":"oStageCreator","path":"objects/oStageCreator/oStageCreator.yy",},},
     {"id":{"name":"__lexicon_parse_json","path":"scripts/__lexicon_parse_json/__lexicon_parse_json.yy",},},
     {"id":{"name":"__input_config_keyboard","path":"scripts/__input_config_keyboard/__input_config_keyboard.yy",},},
     {"id":{"name":"sItemsArea","path":"sprites/sItemsArea/sItemsArea.yy",},},
@@ -629,6 +630,7 @@
     {"id":{"name":"input_keyboard_check","path":"scripts/input_keyboard_check/input_keyboard_check.yy",},},
     {"id":{"name":"sWhiteBack","path":"sprites/sWhiteBack/sWhiteBack.yy",},},
     {"id":{"name":"sFubuzilla","path":"sprites/sFubuzilla/sFubuzilla.yy",},},
+    {"id":{"name":"rStageCreator","path":"rooms/rStageCreator/rStageCreator.yy",},},
     {"id":{"name":"sHoloHouseFloorWoodB","path":"sprites/sHoloHouseFloorWoodB/sHoloHouseFloorWoodB.yy",},},
     {"id":{"name":"input_binding_scan_abort","path":"scripts/input_binding_scan_abort/input_binding_scan_abort.yy",},},
     {"id":{"name":"snd_hit2","path":"sounds/snd_hit2/snd_hit2.yy",},},
@@ -1020,6 +1022,7 @@
     {"roomId":{"name":"rm_example","path":"rooms/rm_example/rm_example.yy",},},
     {"roomId":{"name":"rMap","path":"rooms/rMap/rMap.yy",},},
     {"roomId":{"name":"rAchievements","path":"rooms/rAchievements/rAchievements.yy",},},
+    {"roomId":{"name":"rStageCreator","path":"rooms/rStageCreator/rStageCreator.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

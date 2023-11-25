@@ -122,7 +122,7 @@ global.stage = {
 		},		
 		"m05s00" : {
 			"addEnemy" : [Enemies.DarkShrimp, Enemies.Bloom, Enemies.Gloom],
-			"delEnemy" : [Enemies.DeadBeat, sTakodachi]
+			"delEnemy" : [Enemies.DeadBeat, Enemies.Takodachi]
 			//	spawn_event(Enemies.KFPEmployee,Patterns.Horde, 25, "-", 3, "-", "-", 100);
 		},
 		"m05s05" : {

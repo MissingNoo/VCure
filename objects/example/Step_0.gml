@@ -37,6 +37,9 @@ if (imguigml_ready()) {
 			    global.guiScale = oGui.e; 
 				gui_set();
 			}
+			if (imguigml_button("Stage Creator")) {
+				room_goto(rStageCreator);
+			}
 			
 			if (instance_exists(oPlayer)) {
 				var _header = imguigml_collapsing_header("Player and Stage");

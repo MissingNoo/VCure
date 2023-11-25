@@ -863,7 +863,7 @@ if (keyboard_check_pressed(ord("M"))) {
 	}
 	else global.debug=true;
 }
-draw_text(10,10,global.debug);
+//draw_text(10,10,global.debug);
 var debugy=170;
 offset = 0;
 if (global.debug) {
