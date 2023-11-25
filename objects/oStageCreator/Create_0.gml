@@ -17,3 +17,14 @@ window = function (_x, _y, w, h, title){
 	draw_rectangle(_x - _sizeW, _y - _sizeH, _x + _sizeW, _y +_sizeH, true);
 	draw_rectangle(_x - _sizeW, _y - _sizeH, _x + _sizeW, _y - _sizeH + 30, true);
 }
+
+mouseOnText = function (x, y, text, scale){
+	var result = false;
+	if (global.debug) {
+	    draw_rectangle(x, y, x + (string_width(text) * scale), y + (string_height(text) * scale), true);
+	}
+	if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x, y, x + string_width(text) * scale, y + string_height(text) * scale)) {
+		result = true;
+	}
+	return result;
+}
