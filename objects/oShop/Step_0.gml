@@ -7,6 +7,9 @@ var _up = input_check_pressed("up");
 var _down = input_check_pressed("down");
 var xKey = oGui.xKey;
 var zKey= oGui.zKey;
+if (input_check_pressed("pause")) {
+    room_goto(rInicio);
+}
 
 #region shop
 if (selectingTab) {

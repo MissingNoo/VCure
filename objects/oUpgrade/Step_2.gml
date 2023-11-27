@@ -1,3 +1,4 @@
+if (global.pauseGame) { exit; }
 switch (upg[$ "id"]) {
     case Weapons.UrukaNote:{
 		if (sprite_index == sMonsterPulse) {

@@ -474,6 +474,124 @@
 				"2": "",
 				"3": ""
 			}
+		},
+		"Shop" : {
+			"ATK Up" : {
+				"name" : "ATK Up",
+				"desc" : "Increase all damage by 6% per level. (Max 60%)"
+			},
+			"Crit Up" : {
+				"name" : "Crit Up",
+				"desc" : "Increase critical hit chance by 2% per level. (max 10%)"
+			},
+			"Defense Up" : {
+				"name" : "Defense Up",
+				"desc" : "Increases defense, reducing damage taken by 3% per level. (Max 15%)"
+			},
+			"Enhancement Rate Up" : {
+				"name" : "Enhancement Rate Up",
+				"desc" : "Increases the chance of success during enhancements by 3% per level. (Max 15%)"
+			},
+			"EXP Gain Up" : {
+				"name" : "EXP Gain Up",
+				"desc" : "Increases the amount of EXP gained by 4% per level. (max 20%)"
+			},
+			"Food Drops Up" : {
+				"name" : "Food Drops",
+				"desc" : "Increases the rate that food is dropped by 4% per level. (max 20%)"
+			},
+			"Haste Up" : {
+				"name" : "Haste",
+				"desc" : "Increase attack speed by 4% per level. (Max 20%)"
+			},
+			"Max HP Up" : {
+				"name" : "Max HP",
+				"desc" : "Increase Max HP by 4% per level. (Max 40%)"
+			},
+			"Money Gain Up" : {
+				"name" : "Money Gain",
+				"desc" : "Increases the amount of HoloCoins gained by 20% per level. (Max 200%)"
+			},
+			"Pick Up Range" : {
+				"name" : "Pick-Up Range",
+				"desc" : "Increase base pick up range by 10% per level. (Max 100%)"
+			},
+			"Regeneration" : {
+				"name" : "Regeneration",
+				"desc" : "Slowly heals 1 HP every 5 seconds. +1 HP per level. (Max 5 HP/ 5 seconds)"
+			},
+			"SPD Up" : {
+				"name" : "Speed",
+				"desc" : "Increase movement speed by 6% per level. (Max 60%)"
+			},
+			"Special Cooldown Reduction" : {
+				"name" : "Special Cooldown Reduction",
+				"desc" : "Reduces the cooldown time of special attack by 3% per level. (Max 15%)"
+			},
+			"Skill Up" : {
+				"name" : "Skill Up",
+				"desc" : "Increase the damage of Skill attacks by 4% per level. (Max 40%)"
+			},
+			"Hardcore" : {
+				"name" : "Hardcore",
+				"desc" : "Ultimate challenge! HP is set to 1. Gain massive bonus score the longer you survive in Endless Mode."
+			},
+			"G Rank Off" : {
+				"name" : "G-Rank off",
+				"desc" : "Turn off bonuses gained from G Ranks on all characters."
+			},
+			"Supers Ban" : {
+				"name" : "Supers Ban",
+				"desc" : "Super Items will not drop."
+			},
+			"Collab Ban" : {
+				"name" : "Collab Ban",
+				"desc" : "No collabs can be created."
+			},
+			"Item Limit" : {
+				"name" : "Item Limit",
+				"desc" : "Limit the max number of items that may be gained in a game. (From 6 down to 0.)"
+			},
+			"Weapon Limit" : {
+				"name" : "Weapon Limit",
+				"desc" : "Limit the max number of weapons that may be gained in a game. (From 5 down to 0.)"
+			},
+			"Marketing" : {
+				"name" : "Marketing",
+				"desc" : "Increase the number of fan spawns by 1 per level. This will increase the difficulty of the game."
+			},
+			"Enchantments" : {
+				"name" : "Enchantments",
+				"desc" : "Unlock Weapon Enchantments. General weapons may gain enchantments."
+			},
+			"Growth" : {
+				"name" : "Growth",
+				"desc" : "Increase the damage of Character Main Weapons and Special Attacks by 1% per in-game level."
+			},
+			"Special Attack" : {
+				"name" : "Special Attack",
+				"desc" : "Unlocks the Special Attack for all characters. Press the secondary button (default: X) to use."
+			},
+			"Reroll" : {
+				"name" : "Reroll",
+				"desc" : "Grants a use of Reroll when leveling up."
+			},
+			"Eliminate" : {
+				"name" : "Eliminate",
+				"desc" : "Grants a use of Eliminate on options when leveling up."
+			},
+			"Stamps" : {
+				"name" : "Stamps",
+				"desc" : "Unlocks the Stamps system. Stamps may be dropped by targets which can modify the main weapon."
+			},
+			"Fandom" : {
+				"name" : "Fandom",
+				"desc" : "Unlock Fandoms, where characters gain bonuses based on accomplishments. Check the Achievements Menu for more info!"
+			},
+			"" : {
+				"name" : "",
+				"desc" : ""
+			},
 		}
     }
 }
