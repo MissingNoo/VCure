@@ -1,4 +1,4 @@
-if (distance_to_point(xx, yy) > 2) {
+if (distance_to_point(xx, yy) > 3) {
     direction = point_direction(x, y, xx, yy);
 	speed = spd;
 }

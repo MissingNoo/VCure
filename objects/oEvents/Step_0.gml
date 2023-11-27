@@ -16,7 +16,7 @@ while (array_length(clouds) > 15) {
 //    time_source_reset(_time_source);
 //	time_source_start(_time_source);
 //}
-if (lastsecond == round(Seconds) + 1) {
+if (lastsecond < round(Seconds)) {
     event = true;
 }
 if (instance_exists(oPlayer) and enable) {
