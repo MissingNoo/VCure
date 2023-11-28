@@ -31,6 +31,11 @@ for (var i = 0; i < array_length(_events); ++i) {
 			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
+		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x + _xoffset, _y, "+", 2)) {
+			addToList = true;
+			editing = _events[i];
+			listToAdd = "addEnemy";
+		}
 		_yoffset += 30;
 	}
 	if (_event[$ "delEnemy"] != undefined) {
@@ -44,6 +49,11 @@ for (var i = 0; i < array_length(_events); ++i) {
 			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
+		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x + _xoffset, _y, "+", 2)) {
+			addToList = true;
+			editing = _events[i];
+			listToAdd = "delEnemy";
+		}
 		_yoffset += 30;
 	}
 	if (_event[$ "event"] != undefined) {
@@ -57,6 +67,11 @@ for (var i = 0; i < array_length(_events); ++i) {
 			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
+		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x + _xoffset, _y, "+", 2)) {
+			//addToList = true;
+			//editing = _events[i];
+			//listToAdd = "event";
+		}
 		_yoffset += 30;
 	}
 	_yoffset += 30;
@@ -144,5 +159,59 @@ if (addEventEvent) {
 			addEventEvent = false;
 		}
 		_x += _textW + 10;
+	}
+}
+	
+if (addToList) {
+    var _x = GW/2;
+    var _xx = GW/2;
+	var _y = GH/2;
+	var _w = 75;
+	_xx += _w + 10;
+	var _h = 57;
+	window(_x, _y, _w, _h, $"Add to {listToAdd} on {editing}");
+	_x = _x - _w + 10;
+	_y = _y - _h + 30 + 10;
+	_xoffset = 64;
+	_yoffset = 64;
+	
+	draw_sprite_stretched(EnemyList[selectedEnemy][? "sprite"], enemySubimg[0],  _x, _y, _xoffset, _yoffset);
+	draw_rectangle(_x, _y, _x + _xoffset, _y + _yoffset, true);
+	if (mouse_check_button_pressed(mb_left) and point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _x, _y, _x + _xoffset, _y + _yoffset)) {
+		selectingEnemy = true;
+	}
+	_x += _xoffset + 10;
+	if (create_button(_x, _y, "Add", 2)) {
+		array_push(stage[$ editing][$ listToAdd], selectedEnemy);
+		addToList = false;
+	}
+	_y+=30;
+	if (create_button(_x, _y, "Cancel", 2)) {
+		addToList = false;
+	}
+}
+
+if (selectingEnemy) {
+    var _x = GW/2 + 250;
+	var _y = GH/2;
+	var _w = 150;
+	var _h = 155;
+	window(_x, _y, _w, _h, "Enemies");
+	_x = _x - _w + 10;
+	_y = _y - _h + 30 + 10;
+	var _yoffset = 0;
+	if (enemyEnd >= Enemies.Lenght) { enemyEnd = Enemies.Lenght - 1; enemyStart = enemyEnd - 10;}
+	if (enemyStart <= 0) { enemyStart = 0; enemyEnd = 10}
+	for (var i = enemyStart; i <= enemyEnd; ++i) {
+		var _name = EnemyList[i][? "name"];
+		if (_name == undefined) {
+		    continue;
+		}
+	    draw_text_transformed(_x, _y + _yoffset, _name, 2, 2, 0);
+		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x, _y + _yoffset, _name, 2)) {
+			selectedEnemy = i;
+			selectingEnemy = false;
+		}
+		_yoffset += string_height(_name) + 10;
 	}
 }
