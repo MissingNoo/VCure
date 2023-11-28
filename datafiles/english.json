@@ -172,8 +172,8 @@
             },
             "Psycho Axe":{
             "name":"Spit Bottle",
-				"1":"Throw an axe that spirals outward from the player.",
-				"2":"Increase size of axe by 20%. Increase damage of axe by 20%.",
+				"1":"Throw an bottle that spirals outward from the player.",
+				"2":"Increase size of the bottle by 20%. Increase damage by 20%.",
 				"3":"Reduce delay between attacks by 20%.",
 				"4":"Increase damage by 33%, and size by 20%.",
 				"5":"Remove hit limit, and lasts 1 second longer.",
@@ -587,11 +587,7 @@
 			"Fandom" : {
 				"name" : "Fandom",
 				"desc" : "Unlock Fandoms, where characters gain bonuses based on accomplishments. Check the Achievements Menu for more info!"
-			},
-			"" : {
-				"name" : "",
-				"desc" : ""
-			},
+			}
 		}
     }
 }
