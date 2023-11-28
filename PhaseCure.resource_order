@@ -833,6 +833,7 @@
     {"name":"sWhitePetal","order":7,"path":"sprites/sWhitePetal/sWhitePetal.yy",},
     {"name":"shd_imgui_depth","order":1,"path":"shaders/shd_imgui_depth/shd_imgui_depth.yy",},
     {"name":"oDeathHeart","order":5,"path":"objects/oDeathHeart/oDeathHeart.yy",},
+    {"name":"oSpecialEffect","order":10,"path":"objects/oSpecialEffect/oSpecialEffect.yy",},
     {"name":"sPippaTitle","order":3,"path":"sprites/sPippaTitle/sPippaTitle.yy",},
     {"name":"__input_class_trigger_effect_weapon","order":15,"path":"scripts/__input_class_trigger_effect_weapon/__input_class_trigger_effect_weapon.yy",},
     {"name":"sEldricthFX3","order":8,"path":"sprites/sEldricthFX3/sEldricthFX3.yy",},

@@ -1,7 +1,7 @@
 var _events = variable_struct_get_names(stage);
 array_sort(_events, true);
 var _xoffset = 0;
-var _yoffset = 0;
+var _yoffset = scrollOffset;
 for (var i = 0; i < array_length(_events); ++i) {
 	var _time = string_replace(string_replace(_events[i], "m", ""), "s", ":");
 	var _x = 10;
@@ -28,7 +28,7 @@ for (var i = 0; i < array_length(_events); ++i) {
 		for (var j = 0; j < array_length(stage[$ _events[i]][$ "addEnemy"]); ++j) {
 			var _enemy = EnemyList[stage[$ _events[i]][$ "addEnemy"][j]];
 		    draw_sprite_ext(_enemy[? "sprite"], 0, _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
-			_xoffset += sprite_get_width(_enemy[? "sprite"]);
+			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
 		_yoffset += 30;
@@ -41,7 +41,7 @@ for (var i = 0; i < array_length(_events); ++i) {
 		for (var j = 0; j < array_length(_event[$ "delEnemy"]); ++j) {
 			var _enemy = EnemyList[_event[$ "delEnemy"][j]];
 		    draw_sprite_ext(_enemy[? "sprite"], 0, _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
-			_xoffset += sprite_get_width(_enemy[? "sprite"]);
+			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
 		_yoffset += 30;
@@ -54,7 +54,7 @@ for (var i = 0; i < array_length(_events); ++i) {
 		for (var j = 0; j < array_length(_event[$ "event"]); ++j) {
 			var _enemy = EnemyList[_event[$ "event"][j][$ "id"]];
 			draw_sprite_ext(_enemy[? "sprite"], 0, _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
-			_xoffset += sprite_get_width(_enemy[? "sprite"]);
+			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
 		_yoffset += 30;

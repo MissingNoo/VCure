@@ -127,6 +127,15 @@ if (monsterUsed) {
 	}
 }
 #endregion
+#region Monster
+if (wallMart) {
+	wallmartTimer -= 1/60*Delta;
+	if (wallmartTimer <= 0) {
+		wallMart = false;
+		instance_destroy(oSpecialEffect);
+	}
+}
+#endregion
 #endregion
 tick_powers();
 tick_items();
@@ -264,6 +273,7 @@ if (haveBandage and justBandageHealing > 0) {
 	//shopBonus = shopBonus - ospd;
 	//if (calc != 0) {
 	    //spd = (ospd + shopBonus) * calc;
+		if (wallMart) { newspd = newspd * 0.25; }
 	    spd = newspd;
 		//show_message(shopBonus);
 	//}

@@ -1,4 +1,5 @@
 file = working_directory + "stage.json";
+scrollOffset = 0;
 stage = global.stage[$ "Stage1"];
 selected = 0;
 minutes = 0;

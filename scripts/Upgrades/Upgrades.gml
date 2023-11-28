@@ -661,7 +661,7 @@ function populate_upgrades(){
 				id : Weapons.IdolSong,
 				name : "Idol Song",
 				afterimage : true,
-				afterimageColor : c_blue,
+				afterimageColor : #ADD8E6,
 				maxlevel : 7,
 				weight : 3,
 				sprite : sIdolSong,

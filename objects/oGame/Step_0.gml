@@ -279,7 +279,11 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	//feather disable once GM1041
 	for (var i = 0; i < array_length(UPGRADES); ++i) {
 		if (UPGRADES[i] != global.null) {
-			global.upgradeCooldown[UPGRADES[i][$ "id"]] -= 1 * Delta;
+			var _bonus = 1;
+			if (oPlayer.wallMart) {
+			    _bonus = 7;
+			}
+			global.upgradeCooldown[UPGRADES[i][$ "id"]] -= (1 * _bonus) * Delta;
 		}
 	}
 	for (var i = 0; i < array_length(global.itemCooldown); ++i) {

@@ -57,6 +57,10 @@ menheraTimer = 0;
 menheraKills = 0;
 liaLikers = 0;
 #endregion
+#region Pippa
+wallMart = false;
+wallmartTimer = 0;
+#endregion
 #endregion
 #region Multiplayer
 socket = 1;

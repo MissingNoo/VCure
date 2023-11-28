@@ -4,7 +4,7 @@ global.specialBonuses[0] = 0;
 
 #region Item Functions
 
-	function create_special(_id, _name, _sprite, _cooldown, _desc, _character, _sequence)
+	function create_special(_id, _name, _sprite, _cooldown, _character, _sequence)
 	{
 		SPECIAL_LIST[_id]={};
 		var item = SPECIAL_LIST[_id];
@@ -12,7 +12,6 @@ global.specialBonuses[0] = 0;
 		variable_struct_set(item, "name", _name);
 		variable_struct_set(item, "thumb", _sprite);
 		variable_struct_set(item, "cooldown", _cooldown);
-		variable_struct_set(item, "desc", _desc);
 		variable_struct_set(item, "characterid", _character);
 		variable_struct_set(item, "seq", _sequence);
 		ds_map_add(global.characters[_character], "special", _id);
@@ -26,9 +25,9 @@ global.specialBonuses[0] = 0;
 	}
 #endregion
 function populate_specials(){
-	create_special(SpecialIds.Uruka, "MONSTER", sUrukaSpecial, 60, "", Characters.Uruka, undefined);
-	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, "", Characters.Lia, undefined);
-	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, "Summons 8 tentacles around Ina, then spins rapidly around her, dealing 150% damage and knockback to all targets.", Characters.Pippa, pointer_null);
+	create_special(SpecialIds.Uruka, "MONSTER", sUrukaSpecial, 60, Characters.Uruka, undefined);
+	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, Characters.Lia, undefined);
+	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Pippa, undefined);
 
 	
 }
@@ -54,7 +53,12 @@ function use_special(_special)
 			oPlayer.menhera = true;
 			oPlayer.menheraTimer = 30;
 			break;}
-	        
+		case SpecialIds.WalmartForm:
+			oPlayer.wallMart = true;
+			oPlayer.wallmartTimer = 10;
+			instance_create_depth(x, y, depth, oSpecialEffect);
+			break;
+	    
 	    //case SpecialIds.Gura:
 	    //	redgura = true;
 	    //	break;

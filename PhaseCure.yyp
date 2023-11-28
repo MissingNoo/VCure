@@ -961,6 +961,7 @@
     {"id":{"name":"sWhitePetal","path":"sprites/sWhitePetal/sWhitePetal.yy",},},
     {"id":{"name":"shd_imgui_depth","path":"shaders/shd_imgui_depth/shd_imgui_depth.yy",},},
     {"id":{"name":"oDeathHeart","path":"objects/oDeathHeart/oDeathHeart.yy",},},
+    {"id":{"name":"oSpecialEffect","path":"objects/oSpecialEffect/oSpecialEffect.yy",},},
     {"id":{"name":"sPippaTitle","path":"sprites/sPippaTitle/sPippaTitle.yy",},},
     {"id":{"name":"__input_class_trigger_effect_weapon","path":"scripts/__input_class_trigger_effect_weapon/__input_class_trigger_effect_weapon.yy",},},
     {"id":{"name":"sEldricthFX3","path":"sprites/sEldricthFX3/sEldricthFX3.yy",},},
