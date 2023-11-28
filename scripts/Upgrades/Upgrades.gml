@@ -708,7 +708,7 @@ function populate_upgrades(){
 				perk : false,
 				shotType : ShotTypes.Ranged,
 				afterimage : true,
-				afterimageColor : c_yellow,
+				afterimageColor : #ADD8E6,
 				weight : 3
 				//collabWith : [Weapons.BlBook, Weapons.EliteLavaBucket]
 			});
