@@ -307,6 +307,15 @@ if (selectingEnemy) {
 	}
 }
 
+if (create_button(GW - string_width("Export") * 2, GH - string_height("Export") * 2, "Export", 2)) {
+	file_text_write_string(f, string(json_stringify(stage, true)));
+	file_text_close(f);
+	var _fs = file_text_open_write(savedFile);
+	file_text_write_string(_fs, json_stringify(stage));
+	file_text_close(_fs);
+	show_message_async($"Exported to {file}");
+}
+
 //if (false) {
 //    var _x = GW/2;
 //	var _y = GH/2;

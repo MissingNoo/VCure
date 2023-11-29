@@ -180,8 +180,12 @@ global.holocoins = 0;
 Load_Data_Structs();
 global.holocoins ??= 0;
 #region Font
-global.newFont = font_add("pixelade.ttf", 10, false, false, 32, 128);
-draw_set_font(global.newFont);
+//global.newFont = font_add("pixelade.ttf", 10, false, false, 32, 128);
+//global.newFont = font_add("Silver.ttf", 32, false, false, 32, 128);
+fstr = "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^~`abcdefghijklmnopqrstuvwxyz{|}~";
+global.newFont[1] = font_add_sprite_ext(sPixelFont, fstr, true, 1);
+global.newFont[2] = font_add_sprite_ext(sPixelFont, fstr, true, 2);
+draw_set_font(global.newFont[1]);
 #endregion
 #region Populate Items
 populate_items();

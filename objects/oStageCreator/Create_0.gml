@@ -1,6 +1,17 @@
-file = working_directory + "stage.json";
+file = game_save_id + "stage.json";
+f = file_text_open_write(file);
+savedFile = game_save_id + "stage.bin";
+if (file_exists(savedFile)) {
+	fs = file_text_open_read(savedFile);
+	var _json = file_text_read_string(fs);
+	file_text_close(fs);
+	stage = json_parse(_json);
+}
+else{
+	stage = {};
+}
 scrollOffset = 0;
-stage = global.stage[$ "Stage1"];
+
 //stage = {};
 selected = 0;
 minutes = 0;

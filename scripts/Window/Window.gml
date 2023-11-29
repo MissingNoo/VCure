@@ -69,6 +69,8 @@ view_hport[0] = max_h;
 surface_resize(application_surface, view_wport[0], view_hport[0]);
 }
 function drawDesc(_xx, _yy, _string, maxX, _size = 1){
+	_xx = floor(_xx);
+	_yy = floor(_yy);
 	//_originalSize = font_get_size(global.Font); 
 	//if (os_type != os_android) {
 	    //draw_set_font(global.Font); //draw_set_font(fnt_font1);
@@ -97,9 +99,10 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 					break;
 				}
 			}
-			if (_xx + xt + totalx >= _xx + maxX) {
-				xt = -10.5;
+			if (_xx + xt + totalx + 20 >= _xx + maxX) {
+				xt = 0;
 				yt+=20;
+				continue;
 			}
 		}
 		switch (char) {
@@ -119,14 +122,15 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 		}
 		char = string_copy(_string, i, 1);
 		if (xt == 0 and char == " ") {
-		    xt = -10.5;
+		    xt = 0;
+			continue;
 		}
 	    draw_text_transformed(_xx+xt, _yy+yt, char, _size, _size, 0);
 		//xt+=10.5;
 		var _space = string_copy(_string, i + 1, 1);
 		xt+=string_width(_space == " " ? "m" : _space) * _size;
 		if (newline) {
-		    xt = -5.5;
+		    xt = 0;
 			yt+=20;
 		}
 	}

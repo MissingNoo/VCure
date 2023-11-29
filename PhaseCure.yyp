@@ -149,6 +149,7 @@
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"pixel04b24.ttf","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"pixelade.ttf","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"sdl2.txt","CopyToMask":-1,"filePath":"datafiles",},
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"Silver.ttf","CopyToMask":-1,"filePath":"datafiles",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"sprite_add_test.png","CopyToMask":-1,"filePath":"datafiles",},
   ],
   "isEcma": false,

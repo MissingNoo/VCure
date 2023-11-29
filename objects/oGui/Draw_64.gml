@@ -31,6 +31,7 @@ if (GoldenANVIL or global.upgrade == 1 or global.gamePaused and room != rInicio 
 }
 #endregion
 #region Menu room
+draw_set_font(global.newFont[1]);
 if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
@@ -80,6 +81,7 @@ if (room == rInicio) {
 	}
 	#endregion
 }
+draw_set_font(global.newFont[2]);
 #endregion
 #region Character Select Room
 var str = ""; var offset = 0;
@@ -412,7 +414,7 @@ if (instance_exists(oPlayer))
 					if (_isEnchanted) {						
 						draw_set_color(#add8e6);
 						draw_set_halign(fa_right);
-						draw_text_transformed(_xx + 365, _yy + 25 + offset, "> " + lexicon_text($"Enchantments.{_enchantment}.desc"), 2, 2, 0);
+						draw_text_transformed(_xx + 365, _yy + 35 + offset, "> " + lexicon_text($"Enchantments.{_enchantment}.desc"), 2, 2, 0);
 						draw_set_halign(fa_left);
 					}					
 					break;}
@@ -425,7 +427,7 @@ if (instance_exists(oPlayer))
 			}
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
 			//draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name //UNUSED
-			draw_text_transformed(_xx - 348, _yy - 64 + offset, _name, 2, 2, 0); // draw the name
+			draw_text_transformed(_xx - 348, _yy - 55 + offset, _name, 2, 2, 0); // draw the name
 			draw_set_color(c_white);
 			var style = ""; 
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
@@ -441,7 +443,7 @@ if (instance_exists(oPlayer))
 			}
 			draw_set_halign(fa_right);
 			//draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade //UNUSED
-			draw_text_transformed(_xx + 340, _yy - 64 + offset, string(style), 2, 2, 0);  // draw type of upgrade 
+			draw_text_transformed(_xx + 340, _yy - 55 + offset, string(style), 2, 2, 0);  // draw type of upgrade 
 			draw_set_halign(fa_left);
 			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
 			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
