@@ -1,3 +1,4 @@
+draw_set_font(global.newFont[1]);
 var _events = variable_struct_get_names(stage);
 array_sort(_events, true);
 var _xoffset = 0;
@@ -306,14 +307,32 @@ if (selectingEnemy) {
 		_yoffset += string_height(_name) + 10;
 	}
 }
-
-if (create_button(GW - string_width("Export") * 2, GH - string_height("Export") * 2, "Export", 2)) {
+var _text = "Export";
+var _x = GW - 2;
+var _y = GH - string_height(_text) * 2 - 3;
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
 	file_text_write_string(f, string(json_stringify(stage, true)));
 	file_text_close(f);
 	var _fs = file_text_open_write(savedFile);
 	file_text_write_string(_fs, json_stringify(stage));
 	file_text_close(_fs);
 	show_message_async($"Exported to {file}");
+}
+_text = "Load";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	if (file_exists(savedFile)) {
+		fs = file_text_open_read(savedFile);
+		var _json = file_text_read_string(fs);
+		file_text_close(fs);
+		stage = json_parse(_json);
+	}
+}
+_text = "New";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	stage = {};
 }
 
 //if (false) {
@@ -325,3 +344,4 @@ if (create_button(GW - string_width("Export") * 2, GH - string_height("Export") 
 //	_x = _x - _w + 10;
 //	_y = _y - _h + 30 + 10;
 //}
+draw_set_font(global.newFont[2]);
