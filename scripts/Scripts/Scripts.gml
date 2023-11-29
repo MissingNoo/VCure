@@ -136,8 +136,10 @@ enum Patterns{
 	Wave,
 	Airdrop,
 	Fastball,
-	Ambush
+	Ambush,
+	Length
 }
+global.patternNames = ["Null", "Cluster", "Horde", "Ring", "WallRight", "WallLeft", "WallLeftRight", "WallTop", "WallBottom", "WallTopBottom", "StampedeRight", "StampedeLeft", "StampedeTop", "StampedeDown", "Wave", "Airdrop", "Fastball", "Ambush"];
 
 function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
 	show_debug_message($"spawned {monster}, amount {quantity}");

@@ -1,12 +1,27 @@
 file = working_directory + "stage.json";
 scrollOffset = 0;
 stage = global.stage[$ "Stage1"];
+//stage = {};
 selected = 0;
 minutes = 0;
 seconds = 0;
 addEvent = false;
 addEventEvent = false;
 editing = "";
+editIndex = 0;
+isEnemyEvent = false;
+//type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
+#region event
+hp = 0;
+atk = 0;
+spd = 0;
+xp = 0;
+amount = 0;
+followPlayer = 0;
+offset = 0;
+pattern = 0;
+#endregion
+eventstats = [[sHudHPIcon, "hp"], [sHudAtkIcon, "atk"], [sHudSpdIcon, "spd"], [sXP, "xp"], ["amount", "amount"], ["follow player", "followPlayer"], ["offset", "offset"], ["pattern", "pattern"]]
 selectedEnemy = 0;
 selectingEnemy = false;
 addToList = false;
@@ -14,6 +29,18 @@ listToAdd = "";
 enemyStart = 0;
 enemyEnd = 10;
 enemySubimg = [0, 0, 0];
+enemySubImgs = [];
+for (var i = 0; i < Enemies.Lenght; ++i) {
+	var _enemy = EnemyList[i][? "sprite"];
+	if (_enemy == undefined) {
+	    enemySubImgs[i] = "error";
+		continue;
+	}
+	var maxSubImg = sprite_get_number(_enemy);
+	var spdSubImg = sprite_get_speed(_enemy);
+    enemySubImgs[i] = [0, maxSubImg, spdSubImg];
+}
+editEnemy = false;
 window = function (_x, _y, w, h, title){
 	var _sizeW = w;
 	var _sizeH = h;

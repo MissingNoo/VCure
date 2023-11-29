@@ -37,10 +37,14 @@ if (imguigml_ready()) {
 			    global.guiScale = oGui.e; 
 				gui_set();
 			}
+			imguigml_same_line();
 			if (imguigml_button("Stage Creator")) {
 				room_goto(rStageCreator);
 			}
-			
+			imguigml_same_line();
+			if (imguigml_button("Start")) {
+				room_goto(rInicio);
+			}
 			if (instance_exists(oPlayer)) {
 				var _header = imguigml_collapsing_header("Player and Stage");
 				if(_header[0]){

@@ -20,57 +20,75 @@ for (var i = 0; i < array_length(_events); ++i) {
 	var _y = 10 + _yoffset;
 	_xoffset = 0;
 	var _event = stage[$ _events[i]];
-	if (_event[$ "addEnemy"] != undefined) {
-		_y += 30;
-		_text = "Add Enemies: ";
+	var _eventNames = variable_struct_get_names(_event);
+	for (var j = 0; j < array_length(_eventNames); ++j) {
+	    _y += 30;
+		_text = $"{_eventNames[j]}: ";
 	    draw_text_transformed(_x, _y, _text, 2, 2, 0);
 		_xoffset = string_width(_text) * 2;
-		for (var j = 0; j < array_length(stage[$ _events[i]][$ "addEnemy"]); ++j) {
-			var _enemy = EnemyList[stage[$ _events[i]][$ "addEnemy"][j]];
-		    draw_sprite_ext(_enemy[? "sprite"], 0, _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
-			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
+		for (var k = 0; k < array_length(_event[$ _eventNames[j]]); ++k) {
+			var _enemy = 0;
+			var _enemyId = 0;
+			var _isEvent = false;
+			switch (_eventNames[j]) {
+				default:
+					_enemyId = _event[$ _eventNames[j]][k];
+			        break;
+			    case "event":
+					_isEvent = true;
+					_enemyId = _event[$ _eventNames[j]][k][$ "id"];
+			        break;
+			}
+			_enemy = EnemyList[_enemyId];
+			var _sprite = _enemy[? "sprite"];
+			draw_sprite_ext(_sprite, enemySubImgs[_enemyId][0], _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
+			var _xx = _x + _xoffset - (sprite_get_width(_sprite) * 0.75) / 2;
+			var _xxx = _x + _xoffset + (sprite_get_width(_sprite) * 0.75) / 2;
+			var _yy = _y + sprite_get_height(_enemy[? "sprite"]) * 0.85;
+			var _yyy = _y;
+			if (point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _xx, _yy) < 15 or point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _xxx, _yyy) < 15) {
+			    draw_rectangle(_xx, _yy, _xxx, _yyy, true);
+			//}
+			//if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _xx, _yy, _xxx, _yyy)) {
+			    if (mouse_check_button_pressed(mb_left)) {
+					    selectedEnemy = _enemyId;
+						editing = _events[i];
+						listToAdd = _eventNames[j];
+						editIndex = k;
+						editEnemy = true;
+						addToList = true;
+						isEnemyEvent = _isEvent;
+						//hp = _event[$ _eventNames[j]][k][$ "id"];
+						//atk = 0;
+						//spd = 0;
+						//xp = 0;
+						//quantity = 0;
+						followPlayer = true;
+						//off = 0;
+						//show_debug_message(_event[$ _eventNames[j]]);
+						for (var l = 0; l < array_length(eventstats); ++l) {
+							variable_instance_set(self, eventstats[k][1], 0);
+						}
+						for (var l = 0; l < array_length(eventstats); ++l) {
+							if (variable_struct_get(_event[$ _eventNames[j]][k], eventstats[l][1]) != undefined) {
+							    variable_instance_set(self, eventstats[l][1], variable_struct_get(_event[$ _eventNames[j]][k], eventstats[l][1]));
+							}
+						}
+						//_event[$ _eventNames[j]][k][$ "followPlayer"];
+				}
+			}
+			_xoffset += sprite_get_width(_sprite);
 		}
 		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
 		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x + _xoffset, _y, "+", 2)) {
+			selectedEnemy = 0;
 			addToList = true;
 			editing = _events[i];
-			listToAdd = "addEnemy";
-		}
-		_yoffset += 30;
-	}
-	if (_event[$ "delEnemy"] != undefined) {
-		_y += 30;
-		_text = "Delete Enemies: ";
-	    draw_text_transformed(_x, _y, _text, 2, 2, 0);
-		_xoffset = string_width(_text) * 2;
-		for (var j = 0; j < array_length(_event[$ "delEnemy"]); ++j) {
-			var _enemy = EnemyList[_event[$ "delEnemy"][j]];
-		    draw_sprite_ext(_enemy[? "sprite"], 0, _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
-			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
-		}
-		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
-		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x + _xoffset, _y, "+", 2)) {
-			addToList = true;
-			editing = _events[i];
-			listToAdd = "delEnemy";
-		}
-		_yoffset += 30;
-	}
-	if (_event[$ "event"] != undefined) {
-		_y += 30;
-		_text = "Event: ";
-	    draw_text_transformed(_x, _y, _text, 2, 2, 0);
-		_xoffset = string_width(_text) * 2;
-		for (var j = 0; j < array_length(_event[$ "event"]); ++j) {
-			var _enemy = EnemyList[_event[$ "event"][j][$ "id"]];
-			draw_sprite_ext(_enemy[? "sprite"], 0, _x + _xoffset, _y + sprite_get_height(_enemy[? "sprite"]) * 0.85, .75, .75, 0, c_white, 1);
-			_xoffset += sprite_get_width(_enemy[? "sprite"]) * .75;
-		}
-		draw_text_transformed_color(_x + _xoffset, _y, "+", 2, 2, 0, c_green, c_green, c_green, c_green, 1);
-		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x + _xoffset, _y, "+", 2)) {
-			//addToList = true;
-			//editing = _events[i];
-			//listToAdd = "event";
+			listToAdd = _eventNames[j];
+			isEnemyEvent = _eventNames[j] == "event";
+			for (var k = 0; k < array_length(eventstats); ++k) {
+				variable_instance_set(self, eventstats[k][1], 0);
+			}
 		}
 		_yoffset += 30;
 	}
@@ -166,52 +184,135 @@ if (addToList) {
     var _x = GW/2;
     var _xx = GW/2;
 	var _y = GH/2;
-	var _w = 75;
+	var _w = isEnemyEvent ? 80 : 75;
 	_xx += _w + 10;
-	var _h = 57;
+	var _h = isEnemyEvent ? 150 : 57;
 	window(_x, _y, _w, _h, $"Add to {listToAdd} on {editing}");
 	_x = _x - _w + 10;
 	_y = _y - _h + 30 + 10;
 	_xoffset = 64;
 	_yoffset = 64;
 	
-	draw_sprite_stretched(EnemyList[selectedEnemy][? "sprite"], enemySubimg[0],  _x, _y, _xoffset, _yoffset);
+	draw_sprite_stretched(EnemyList[selectedEnemy][? "sprite"], enemySubImgs[selectedEnemy][0],  _x, _y, _xoffset, _yoffset);
 	draw_rectangle(_x, _y, _x + _xoffset, _y + _yoffset, true);
 	if (mouse_check_button_pressed(mb_left) and point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _x, _y, _x + _xoffset, _y + _yoffset)) {
+		enemyStart = 0;
+		enemyEnd = 10;
 		selectingEnemy = true;
+	}
+	var _ey = _y + _yoffset + 10;
+	var _eyOffset = 0;
+	var _text = "";
+	if (isEnemyEvent) { 
+		var _x2 = GW/2 + 180;
+		var _y2 = GH/2;
+		var _w2 = 80;
+		var _h2 = 205;
+		window(_x2, _y2, _w2, _h2, $"Add to {listToAdd} on {editing}");
+		_x2 = _x2 - _w2 + 10;
+		_y2 = _y2 - _h2 + 30 + 10;
+		var _y2offset = 0;
+		for (var i = 0; i < Patterns.Length; ++i) {
+			var _color = pattern == i ? c_yellow : c_white;
+		    draw_text_transformed_color(_x2, _y2 + _y2offset, global.patternNames[i], 2, 2, 0, _color, _color, _color, _color, 1);
+			if (mouse_check_button_pressed(mb_left) and mouseOnText(_x2, _y2 + _y2offset, global.patternNames[i], 2)) {
+			    pattern = i;
+			}
+			_y2offset += 20;
+		}
+	}
+	for (var i = 0; i < array_length(eventstats) - 1; ++i) {
+		if (!isEnemyEvent) { break; }
+		var _tempOffset = 0;
+	    if (is_string(eventstats[i][0])) {
+			_text = $"{eventstats[i][0]}:{variable_instance_get(self, eventstats[i][1])}";
+		    draw_text_transformed(_x, _ey + _eyOffset, _text, 2, 2, 0);
+		}
+		else {
+			draw_sprite_ext(eventstats[i][0], 0, _x + _tempOffset + sprite_get_width(eventstats[i][0]) / 2, _ey + _eyOffset + (sprite_get_height(eventstats[i][0]) / 2), 2, 2, 0, c_white, 1);
+			_text = variable_instance_get(self, eventstats[i][1]);
+			_tempOffset = sprite_get_width(eventstats[i][0]) * 2.5;
+			draw_text_transformed(_x + _tempOffset, round(_ey + _eyOffset), _text, 2, 2, 0);
+		}
+		var _mult = keyboard_check(vk_shift) ? 0.05 : 1;
+		var _updown = mouse_wheel_up() - mouse_wheel_down();
+		if (mouseOnText(_x + _tempOffset, _ey + _eyOffset, _text, 2) and _updown != 0) {
+			variable_instance_set(self, eventstats[i][1], variable_instance_get(self, eventstats[i][1]) + _updown * _mult);
+			if (variable_instance_get(self, eventstats[i][1]) < 0) {
+			    variable_instance_set(self, eventstats[i][1], 0);
+			}
+		}
+		_eyOffset += 25;
 	}
 	_x += _xoffset + 10;
 	if (create_button(_x, _y, "Add", 2)) {
-		array_push(stage[$ editing][$ listToAdd], selectedEnemy);
+		if (editEnemy) {
+			if (isEnemyEvent) {
+				for (var i = 0; i < array_length(eventstats); ++i) {
+					if (variable_instance_get(self, eventstats[i][1]) != 0) {
+					    variable_struct_set(stage[$ editing][$ listToAdd][editIndex], eventstats[i][1], variable_instance_get(self, eventstats[i][1]));
+					}
+				}
+			    stage[$ editing][$ listToAdd][editIndex][$ "id"] = selectedEnemy;
+				editEnemy = false;
+			}
+			else {
+				stage[$ editing][$ listToAdd][editIndex] = selectedEnemy;
+				editEnemy = false;
+			}		    
+		}
+		else {
+			if (isEnemyEvent) {
+				array_push(stage[$ editing][$ listToAdd], {id : selectedEnemy});
+			    for (var i = 0; i < array_length(eventstats); ++i) {
+					if (variable_instance_get(self, eventstats[i][1]) != 0) {
+					    variable_struct_set(stage[$ editing][$ listToAdd][array_length(stage[$ editing][$ listToAdd]) - 1], eventstats[i][1], variable_instance_get(self, eventstats[i][1]));
+					}
+				}
+			}
+			else {
+				array_push(stage[$ editing][$ listToAdd], selectedEnemy);
+			}
+		}
+		selectingEnemy = false;
 		addToList = false;
+		isEnemyEvent = false;
 	}
 	_y+=30;
 	if (create_button(_x, _y, "Cancel", 2)) {
 		addToList = false;
+		isEnemyEvent = false;
 	}
 }
 
 if (selectingEnemy) {
-    var _x = GW/2 + 250;
+    var _x = (GW/2 + 250) + (isEnemyEvent ? 180 : 0);
 	var _y = GH/2;
 	var _w = 150;
 	var _h = 155;
 	window(_x, _y, _w, _h, "Enemies");
 	_x = _x - _w + 10;
 	_y = _y - _h + 30 + 10;
-	var _yoffset = 0;
+	_yoffset = 0;
 	if (enemyEnd >= Enemies.Lenght) { enemyEnd = Enemies.Lenght - 1; enemyStart = enemyEnd - 10;}
 	if (enemyStart <= 0) { enemyStart = 0; enemyEnd = 10}
 	for (var i = enemyStart; i <= enemyEnd; ++i) {
 		var _name = EnemyList[i][? "name"];
-		if (_name == undefined) {
-		    continue;
-		}
-	    draw_text_transformed(_x, _y + _yoffset, _name, 2, 2, 0);
-		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x, _y + _yoffset, _name, 2)) {
+		draw_text_transformed(_x, _y + _yoffset, _name, 2, 2, 0);
+		if (mouse_check_button_pressed(mb_left) and mouseOnText(_x, _y + _yoffset, _name, 2) and _name != undefined) {
 			selectedEnemy = i;
 			selectingEnemy = false;
 		}
 		_yoffset += string_height(_name) + 10;
 	}
 }
+
+//if (false) {
+//    var _x = GW/2;
+//	var _y = GH/2;
+//	var _w = 150;
+//	var _h = 155;
+//	window(_x, _y, _w, _h, "Edit");
+//	_x = _x - _w + 10;
+//	_y = _y - _h + 30 + 10;
+//}
