@@ -102,7 +102,7 @@ if (addEvent) {
 	var _textScale = 2;
 	var _text = "";
 	var _textsize = 0;
-	var _w = 70;
+	var _w = 80;
 	var _h = 40;
 	window(_x, _y, _w, _h, "Add Event");
 	_x = _x - _w + 10;

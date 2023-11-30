@@ -82,10 +82,10 @@ create_button = function(_x, _y, text, textscale, bgalpha = 0.25) {
 	var h = string_height(text) * textscale;	
 	draw_set_color(c_black);
 	draw_set_alpha(bgalpha);
-	draw_rectangle(_x - 3, _y - 2, _x + w + 2, _y + h + 2, false);
+	draw_rectangle(_x - 3, _y - 4, _x + w + 2, _y + h + 4, false);
 	draw_set_color(c_white);
 	draw_set_alpha(1);
-	draw_rectangle(_x - 3, _y - 2, _x + w + 2, _y + h + 2, true);
+	draw_rectangle(_x - 3, _y - 4, _x + w + 2, _y + h + 4, true);
 	draw_text_transformed(_x, _y, text, textscale, textscale, 0);
 	if (mouse_check_button_pressed(mb_left) and point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _x, _y, _x + w, _y + h)) {
 		_clicked = true;
