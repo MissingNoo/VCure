@@ -190,6 +190,9 @@ if(_canmove and instance_exists(target)){
 	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
 	if (canwalk) {
 	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * Delta;
+		if (distance_to_point(target.x, target.y - 8) < 3) {
+		    speed = 0;
+		}
 		if (groundPounding) {
 		    speed = speed / 1.5;
 		}
