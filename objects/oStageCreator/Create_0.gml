@@ -1,7 +1,8 @@
 file = game_save_id + "stage.json";
-f = file_text_open_write(file);
+//f = file_text_open_write(file);
 savedFile = game_save_id + "stage.bin";
 stage = {};
+filter = "";
 //if (file_exists(savedFile)) {
 //	fs = file_text_open_read(savedFile);
 //	var _json = file_text_read_string(fs);
@@ -31,8 +32,9 @@ amount = 0;
 followPlayer = 0;
 offset = 0;
 pattern = 0;
+lifetime = 0;
 #endregion
-eventstats = [[sHudHPIcon, "hp"], [sHudAtkIcon, "atk"], [sHudSpdIcon, "spd"], [sXP, "xp"], ["amount", "amount"], ["follow player", "followPlayer"], ["offset", "offset"], ["pattern", "pattern"]]
+eventstats = [[sHudHPIcon, "hp"], [sHudAtkIcon, "atk"], [sHudSpdIcon, "spd"], [sXP, "xp"], ["amount", "amount"], ["follow player", "followPlayer"], ["offset", "offset"], ["lifetime", "lifetime"], ["pattern", "pattern"]];
 selectedEnemy = 0;
 selectingEnemy = false;
 addToList = false;

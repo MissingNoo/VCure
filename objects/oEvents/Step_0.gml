@@ -8,10 +8,10 @@ while (array_length(clouds) > 15) {
 }
 
 //feather disable GM2017
-//if (keyboard_check_pressed(vk_home) and global.debug) {
-//	Minutes = 9;
-//	Seconds = 58;
-//}
+if (keyboard_check_pressed(vk_home) and global.debug) {
+	Minutes = 3;
+	Seconds = 39;
+}
 //if (event == false and time_source_get_state(_time_source) == time_source_state_stopped) {
 //    time_source_reset(_time_source);
 //	time_source_start(_time_source);
@@ -36,7 +36,9 @@ if (instance_exists(oPlayer) and enable) {
 				var _spd = _time[$ "event"][i][$ "spd"] == undefined ? "-" : _time[$ "event"][i][$ "spd"];
 				var _xp = _time[$ "event"][i][$ "xp"] == undefined ? "-" : _time[$ "event"][i][$ "xp"];
 				var _lifetime = _time[$ "event"][i][$ "lifetime"] == undefined ? "-" : _time[$ "event"][i][$ "lifetime"];
-				spawn_event(_time[$ "event"][i][$ "id"], _time[$ "event"][i][$ "pattern"], _hp, _atk, _spd, _xp, _lifetime, _time[$ "event"][i][$ "amount"]);
+				var _followplayer = _time[$ "event"][i][$ "followPlayer"] == undefined ? "false" : _time[$ "event"][i][$ "followPlayer"];
+				var _offset = _time[$ "event"][i][$ "offset"] == undefined ? 0 : _time[$ "event"][i][$ "offset"];
+				spawn_event(_time[$ "event"][i][$ "id"], _time[$ "event"][i][$ "pattern"], _hp, _atk, _spd, _xp, _lifetime, _time[$ "event"][i][$ "amount"], undefined, undefined, bool(_followplayer), _offset);
 			}
 		}
 		if (_time[$ "addEnemy"] != undefined) {

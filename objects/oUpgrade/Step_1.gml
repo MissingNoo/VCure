@@ -1,6 +1,4 @@
-if (!instance_exists(oEnemy)) {
-    instance_destroy();
-}
+if (!instance_exists(oEnemy)) { instance_destroy(); }
 if (global.gamePaused) { exit; }
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
@@ -358,6 +356,7 @@ image_speed = 0;
 			mindmg = (UPGRADES[0].mindmg*333)/100;
 			maxdmg = (UPGRADES[0].maxdmg*333)/100;
 			var closest = instance_nearest(oPlayer.x ,oPlayer.y, oEnemy);
+			if (!instance_exists(closest)) { instance_destroy(); }
 			x=closest.x;
 			y=closest.y;
 			break;

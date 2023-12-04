@@ -56,9 +56,9 @@ if (room == rInicio) {
 		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
 		menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Shop", "Quit"];
 		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
-		var buttons = [[0, 1.68, 5.15, 7, 2.5, 
+		var buttons = [[0, 1.68 + 0.035, 5.15, 7, 2.5, 
 									[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
-									[0, 1.76, 2.29, 3.5, -0.65,
+									[0, 1.76 + 0.035, 2.29, 3.5, -0.65,
 									[[GW/1.82,GH/2.53, GW/1.41, GH/1.83],[GW/1.41, GH/2.54],[GW/1.82, GH/1.86]]],
 									[0, 1.34, 2.39, 4, 0,
 									[[GW/1.39,GH/2.54, GW/1.10, GH/1.79],[GW/1.10, GH/2.57],[GW/1.39,GH/1.83]]],
@@ -74,7 +74,7 @@ if (room == rInicio) {
 			var _bgcolor = selected == i ? #d2d2d2 : #a9a9a9;
 			draw_triangle_color(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
 			draw_triangle_color(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
-			draw_text_transformed_color(GW/buttons[i][1], GH/buttons[i][2], menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
+			draw_text_transformed_color(floor(GW/buttons[i][1]), floor(GH/buttons[i][2]), menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
 			mouse_on_button_triangle(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
 			mouse_on_button_triangle(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
 		}
@@ -264,7 +264,7 @@ if (room == rCharacterSelect) {
 				draw_sprite_ext(sUpgradeBackground, 0, _x, _y + offset, 1.495, 1.35, 0, c_black, .75);
 				draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
 				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
-				draw_text_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 2.5, 2.5, 0);
+				draw_text_ext_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 13, 180, 2.5, 2.5, 0);
 				if (i == selected) {
 					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
 				}
@@ -427,7 +427,7 @@ if (instance_exists(oPlayer))
 			}
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
 			//draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name //UNUSED
-			draw_text_transformed(_xx - 348, _yy - 55 + offset, _name, 2, 2, 0); // draw the name
+			draw_text_transformed(_xx - 348, _yy - 57 + offset, _name, 2, 2, 0); // draw the name
 			draw_set_color(c_white);
 			var style = ""; 
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
@@ -443,7 +443,7 @@ if (instance_exists(oPlayer))
 			}
 			draw_set_halign(fa_right);
 			//draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade //UNUSED
-			draw_text_transformed(_xx + 340, _yy - 55 + offset, string(style), 2, 2, 0);  // draw type of upgrade 
+			draw_text_transformed(_xx + 340, _yy - 57 + offset, string(style), 2, 2, 0);  // draw type of upgrade 
 			draw_set_halign(fa_left);
 			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
 			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type

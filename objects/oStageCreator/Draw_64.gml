@@ -4,6 +4,17 @@ array_sort(_events, true);
 var _xoffset = 0;
 var _yoffset = scrollOffset;
 for (var i = 0; i < array_length(_events); ++i) {
+	//if (filter != "") {
+	//	if (stage[$ _events[i]][$ filter] == undefined) {
+	//		continue;
+			//if (stage[$ _events[i]][$ "addEnemy"] == undefined and stage[$ _events[i]][$ "delEnemy"] == undefined and stage[$ _events[i]][$ "event"] == undefined) {
+			//    //nothing
+			//}	
+			//else{
+			//	continue;
+			//}
+	//	}
+	//}
 	var _time = string_replace(string_replace(_events[i], "m", ""), "s", ":");
 	var _x = 10;
     draw_text_transformed(_x, 10 + _yoffset, $"{_time}: ", 2, 2, 0);
@@ -23,7 +34,13 @@ for (var i = 0; i < array_length(_events); ++i) {
 	var _event = stage[$ _events[i]];
 	var _eventNames = variable_struct_get_names(_event);
 	for (var j = 0; j < array_length(_eventNames); ++j) {
+		if (filter != "") {
+		    if (filter != _eventNames[j]) {
+			    continue;
+			}
+		}
 	    _y += 30;
+		
 		_text = $"{_eventNames[j]}: ";
 	    draw_text_transformed(_x, _y, _text, 2, 2, 0);
 		_xoffset = string_width(_text) * 2;
@@ -49,8 +66,15 @@ for (var i = 0; i < array_length(_events); ++i) {
 			var _yyy = _y;
 			if (point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _xx, _yy) < 15 or point_distance(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _xxx, _yyy) < 15) {
 			    draw_rectangle(_xx, _yy, _xxx, _yyy, true);
+				draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _enemy[? "name"]);
 			//}
 			//if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _xx, _yy, _xxx, _yyy)) {
+			    if (mouse_check_button_pressed(mb_right)) {
+					editing = _events[i];
+					listToAdd = _eventNames[j];
+					editIndex = k;
+					array_delete(stage[$ editing][$ listToAdd], editIndex, 1);
+				}
 			    if (mouse_check_button_pressed(mb_left)) {
 					    selectedEnemy = _enemyId;
 						editing = _events[i];
@@ -59,16 +83,22 @@ for (var i = 0; i < array_length(_events); ++i) {
 						editEnemy = true;
 						addToList = true;
 						isEnemyEvent = _isEvent;
-						//hp = _event[$ _eventNames[j]][k][$ "id"];
-						//atk = 0;
-						//spd = 0;
-						//xp = 0;
-						//quantity = 0;
 						followPlayer = true;
-						//off = 0;
-						//show_debug_message(_event[$ _eventNames[j]]);
 						for (var l = 0; l < array_length(eventstats); ++l) {
-							variable_instance_set(self, eventstats[k][1], 0);
+							variable_instance_set(self, eventstats[l][1], 0);
+						}
+						for (var l = 0; l < array_length(eventstats); ++l) {
+							if (variable_struct_get(_event[$ _eventNames[j]][k], eventstats[l][1]) != undefined) {
+							    variable_instance_set(self, eventstats[l][1], variable_struct_get(_event[$ _eventNames[j]][k], eventstats[l][1]));
+							}
+						}
+						//_event[$ _eventNames[j]][k][$ "followPlayer"];
+				}
+			    if (mouse_check_button_pressed(mb_middle)) {
+					    selectedEnemy = _enemyId;
+						followPlayer = true;
+						for (var l = 0; l < array_length(eventstats); ++l) {
+							variable_instance_set(self, eventstats[l][1], 0);
 						}
 						for (var l = 0; l < array_length(eventstats); ++l) {
 							if (variable_struct_get(_event[$ _eventNames[j]][k], eventstats[l][1]) != undefined) {
@@ -235,7 +265,13 @@ if (addToList) {
 			_tempOffset = sprite_get_width(eventstats[i][0]) * 2.5;
 			draw_text_transformed(_x + _tempOffset, round(_ey + _eyOffset), _text, 2, 2, 0);
 		}
-		var _mult = keyboard_check(vk_shift) ? 0.05 : 1;
+		var _mult = 1;
+		if (keyboard_check(vk_shift)) {
+		    _mult = 0.05;
+		}
+		if (keyboard_check(vk_alt)) {
+		    _mult = 10;
+		}
 		var _updown = mouse_wheel_up() - mouse_wheel_down();
 		if (mouseOnText(_x + _tempOffset, _ey + _eyOffset, _text, 2) and _updown != 0) {
 			variable_instance_set(self, eventstats[i][1], variable_instance_get(self, eventstats[i][1]) + _updown * _mult);
@@ -249,6 +285,7 @@ if (addToList) {
 	if (create_button(_x, _y, "Add", 2)) {
 		if (editEnemy) {
 			if (isEnemyEvent) {
+				stage[$ editing][$ listToAdd][editIndex] = {};
 				for (var i = 0; i < array_length(eventstats); ++i) {
 					if (variable_instance_get(self, eventstats[i][1]) != 0) {
 					    variable_struct_set(stage[$ editing][$ listToAdd][editIndex], eventstats[i][1], variable_instance_get(self, eventstats[i][1]));
@@ -312,6 +349,7 @@ var _x = GW - 2;
 var _y = GH - string_height(_text) * 2 - 3;
 _x -= string_width(_text) * 2 + 9;
 if (create_button(_x, _y, _text, 2)) {
+	f = file_text_open_write(file);
 	file_text_write_string(f, string(json_stringify(stage, true)));
 	file_text_close(f);
 	var _fs = file_text_open_write(savedFile);
@@ -333,6 +371,36 @@ _text = "New";
 _x -= string_width(_text) * 2 + 9;
 if (create_button(_x, _y, _text, 2)) {
 	stage = {};
+}
+_text = "Add Timer";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	addEvent = true;
+}
+_text = "Stage1";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	stage = global.stage[$ "Stage1"];
+}
+_text = "Events";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	filter = "event";
+}
+_text = "delEnemy";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	filter = "delEnemy";
+}
+_text = "addEnemy";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	filter = "addEnemy";
+}
+_text = "Clear Filter";
+_x -= string_width(_text) * 2 + 9;
+if (create_button(_x, _y, _text, 2)) {
+	filter = "";
 }
 
 //if (false) {

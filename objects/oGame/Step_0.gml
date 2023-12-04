@@ -23,10 +23,10 @@ if (global.debug and keyboard_check_pressed(vk_home)) {
 	#endregion
 }
 
-if (keyboard_check_pressed(vk_alt)) {
-    window_set_size(1280/1.5, 720/1.5);
-	window_center();
-}
+//if (keyboard_check_pressed(vk_alt)) {
+//    window_set_size(1280/1.5, 720/1.5);
+//	window_center();
+//}
 #region Gamepad detection
 if (input_profile_get(0) == "gamepad") {
     global.gamePad = true;
@@ -140,6 +140,10 @@ if (instance_exists(oPlayer)) {
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
 				xstart = xstart + xx;
+				if (variable_instance_exists(self, "xxstart")) {
+				    xxstart = xxstart + xx;
+				    yystart = yystart + yy;
+				}
 			}
 		}
 	}
@@ -160,6 +164,10 @@ if (instance_exists(oPlayer)) {
 				y = oPlayer.y + yy;
 				xstart = xstart - xx;
 				ystart = ystart + yy;
+				if (variable_instance_exists(self, "xxstart")) {
+				    xxstart = xxstart + xx;
+				    yystart = yystart + yy;
+				}
 			}
 		}
 	}
@@ -180,6 +188,10 @@ if (instance_exists(oPlayer)) {
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
 				ystart = ystart + yy;
+				if (variable_instance_exists(self, "xxstart")) {
+				    xxstart = xxstart + xx;
+				    yystart = yystart + yy;
+				}
 			}
 		}
 	}
@@ -200,6 +212,10 @@ if (instance_exists(oPlayer)) {
 				x = oPlayer.x + xx;
 				y = oPlayer.y + yy;
 				ystart = ystart - yy;
+				if (variable_instance_exists(self, "xxstart")) {
+				    xxstart = xxstart + xx;
+				    yystart = yystart + yy;
+				}
 			}
 		}
 	}

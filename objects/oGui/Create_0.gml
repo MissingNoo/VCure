@@ -210,15 +210,18 @@ startOption = 0;
 	stageModes = [
 	{
 		name : "STAGE MODE", 
-		desc : "Defeat the last boss to \ncomplete the stage!"
+		//desc : "Defeat the last boss to \ncomplete the stage!"
+		desc : "Defeat the last boss to complete the stage!"
 	},
 	{
 		name : "ENDLESS MODE", 
-		desc : "Survive for as long as \nyou can and reach the top \nof the leaderboards!"
+		//desc : "Survive for as long as \nyou can and reach the top \nof the leaderboards!"
+		desc : "Survive for as long as you can and reach the top of the leaderboards!"
 	},
 	{
 		name : "TIME MODE",
-		desc : "Defeat 5000 targets as \nsoon as possible! \nShop upgrades are standardized"
+		desc : "Defeat 5000 targets as soon as possible! Shop upgrades are standardized"
+		//desc : "Defeat 5000 targets as \nsoon as possible! \nShop upgrades are standardized"
 	}];
 	stages = [{name: "Stage 1", port : sStage1Port, roomname : rStage1}];
 	selectedStage = 0;
@@ -435,6 +438,9 @@ function drawStatsSelect(character){
 #region upgrades surface
 itemsSurface = surface_create(window_get_width(), window_get_height());
 function upgradesSurface(){
+	if (surface_exists(itemsSurface)) {
+	    surface_free(itemsSurface);
+	}
 	itemsSurface = surface_create(window_get_width(), window_get_height());
 	surface_set_target(itemsSurface);
 	var _x = GW/25.10

@@ -1,8 +1,9 @@
 function psycho_axe_step(){
-	x = xstart + lengthdir_x(round(orbitLength), round(orbitPlace));
-	y = ystart + lengthdir_y(round(orbitLength), round(orbitPlace));
+	x = xxstart + lengthdir_x(round(orbitLength), round(orbitPlace));
+	y = yystart + lengthdir_y(round(orbitLength), round(orbitPlace));
 	orbitPlace -= 4;
 	orbitLength += 0.75;
+	image_angle += 10;
 }
 function blbook_step(){
 	x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));

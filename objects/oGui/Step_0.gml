@@ -341,6 +341,7 @@ if (GoldenANVIL) {
 		gAnvilWeapon2Position = 0;
 		canCollab = false;
 		pause_game();
+		upgradesSurface();
 		return;
 	}
 	if (xKey) {

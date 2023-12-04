@@ -1,4 +1,6 @@
 //event_inherited();
+xxstart = xstart;
+yystart = ystart;
 sincounter = current_time;
 coscounter = current_time;
 cansend = true;
@@ -69,7 +71,7 @@ imageSpeedOriginal = 0;
 hspd = 0;
 vspd = 0;
 upg??=global.null;
-afterimage = [[], [], []];
+afterimage = [[], [], [], []];
 afterimagecount = 0;
 //alarm[11] = 1;
 partSystem = part_system_create();
