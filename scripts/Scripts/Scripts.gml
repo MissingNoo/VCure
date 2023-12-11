@@ -366,13 +366,13 @@ function sine_between(time, period, minimum, maximum) {
  * @param {real} _value Description
  */
 function open_keyboard(_sx, _sy, _ex, _ey, _var = "nullvar", _value = 0, _varr = ""){
-	if (global.debug) {
+	DEBUG
 		draw_set_alpha(.3);
 		draw_set_color(c_purple);
 	    draw_rectangle(_sx, _sy, _ex, _ey, false);
 		draw_set_color(c_white);
 		draw_set_alpha(1);
-	}
+	ENDDEBUG
 	if (point_in_rectangle(mouse_x, mouse_y, _sx, _sy, _ex, _ey) and lobbyClick) {
 		if (_varr != "") {
 		    keyboard_string = variable_instance_get(self, _varr);

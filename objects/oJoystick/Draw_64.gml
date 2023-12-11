@@ -9,7 +9,7 @@ draw_set_alpha(.5);
 #macro TouchY2 device_mouse_y_to_gui(1)
 #region Stage mode
 	if (mode == "stage") {
-		if (global.debug) {
+		DEBUG
 			//limit
 			draw_set_color(c_white);    
 			draw_circle(JoystickCenterX,JoystickCenterY-limit,10,false);//top
@@ -33,7 +33,7 @@ draw_set_alpha(.5);
 			draw_circle(Joystick2CenterX+ativation,Joystick2CenterY,10,false);//right
 			draw_circle(Joystick2CenterX-ativation,Joystick2CenterY,10,false);//left
 			draw_set_color(c_white);    
-		}
+		ENDDEBUG
 
 		#region Left Joystick 
 			if (TouchY1 > JoystickLimitUp and TouchY1 < JoystickLimitDown and TouchX1 > JoystickLimitLeft and TouchX1 < JoystickLimitRight and device_mouse_check_button(0,mb_left) and TouchX1 < GW/2 and TouchY1 > GH/2) {

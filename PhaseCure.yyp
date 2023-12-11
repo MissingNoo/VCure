@@ -6,7 +6,10 @@
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
   ],
   "configs": {
-    "children": [],
+    "children": [
+      {"children":[],"name":"Debug",},
+      {"children":[],"name":"Release",},
+    ],
     "name": "Default",
   },
   "defaultScriptType": 1,
@@ -533,6 +536,7 @@
     {"id":{"name":"sHoloHouseFloorWoodBIcon","path":"sprites/sHoloHouseFloorWoodBIcon/sHoloHouseFloorWoodBIcon.yy",},},
     {"id":{"name":"sHudSpecial","path":"sprites/sHudSpecial/sHudSpecial.yy",},},
     {"id":{"name":"bgtest264","path":"sprites/bgtest264/bgtest264.yy",},},
+    {"id":{"name":"sUpgradeBackgroundWH","path":"sprites/sUpgradeBackgroundWH/sUpgradeBackgroundWH.yy",},},
     {"id":{"name":"sTenmaArt","path":"sprites/sTenmaArt/sTenmaArt.yy",},},
     {"id":{"name":"sHeadPhones","path":"sprites/sHeadPhones/sHeadPhones.yy",},},
     {"id":{"name":"sGachaLogo","path":"sprites/sGachaLogo/sGachaLogo.yy",},},

@@ -219,9 +219,9 @@ function damage_calculation(baseDmg)
 		}
 	}
 	
-	if (global.debug) {
+	DEBUG
 	    show_debug_message("baseDmg:" + string(baseDmg) + " after calculation: " + string(damage));
-	}	
+	ENDDEBUG
 	return damage;
 }
 

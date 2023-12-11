@@ -9,7 +9,7 @@ if (xp > 100 and xp < 199) {img = 4;}
 if (xp > 200) {color=img = 5;}
 draw_sprite_ext(sXP, img, x,y,1,1,0,color,1);
 
-if (global.debug) {
+DEBUG
 	draw_text(x,y-20, string(xp));
     draw_circle(x,y,30,true);
-}
+ENDDEBUG

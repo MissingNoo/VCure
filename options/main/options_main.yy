@@ -2,6 +2,9 @@
   "resourceType": "GMMainOptions",
   "resourceVersion": "1.4",
   "name": "Main",
+  "ConfigValues": {
+    "Release": {"option_gameguid":"40e43617-98d9-4988-bc2b-1a86be309055",},
+  },
   "option_author": "",
   "option_collision_compatibility": false,
   "option_copy_on_write_enabled": false,

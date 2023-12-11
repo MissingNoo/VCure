@@ -109,12 +109,12 @@ if (creatingroom) {
 			}
 	}
 	draw_text_transformed(ax, cy, "Accept", 2, 2, 0);
-	if (global.debug) {
+	DEBUG
 		draw_set_color(c_red);
 	    draw_rectangle(cx - cs, cy - 14.5, cx + cs, cy + 14.5, true);
 	    draw_rectangle(ax - as, cy - 14.5, ax + as, cy + 14.5, true);
 		draw_set_color(c_white);
-	}
+	ENDDEBUG
 	//draw_set_valign(fa_top);
 	//draw_set_halign(fa_left);
 }

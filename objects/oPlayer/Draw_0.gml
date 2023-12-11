@@ -13,7 +13,7 @@ for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	}
 }
 #endregion
-if (global.debug) {
+DEBUG
 	draw_text(x,y-90, $"healSeconds: {bandageHealSeconds}, haveBandage: {haveBandage}, remaining: {justBandageHealing}");
 	draw_text(x,y-70, $"d: {spd * Delta}");
 	draw_text(x,y-50, $"X: {x}");
@@ -23,7 +23,7 @@ if (global.debug) {
 	draw_text(x,y-140, "FPSR: " + string(fps_real));
 	//draw_text(x,y-160, "Bonus: " + string(Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus]));	
 	draw_circle(x,y-16,pickupRadius,true);
-}
+ENDDEBUG
 draw_self();
 if (HP > 0) {
     draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);

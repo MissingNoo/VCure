@@ -466,7 +466,7 @@ function upgradesSurface(){
 		if (UPGRADES[i]!=global.null){ //if there is a upgrade in the slot		
 			var awakened = (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) ? 0 : 1; //check if weapon is awakened
 			draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
-			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$ "id"]]));}
+			DEBUG draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$ "id"]])); ENDDEBUG
 			switch (UPGRADES[i][$ "type"]){ //detect the type of upgrade
 				case "red":{
 					header = sUiLevelHeaderPink;
@@ -495,7 +495,7 @@ function upgradesSurface(){
 		{
 			var awakened = (playerItems[i][$ "level"] < 7) ? 0 : 1; //check if weapon is awakened
 			draw_sprite_ext(playerItems[i][$ "thumb"],awakened,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw weapon sprite
-			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$ "id"]]));}
+			DEBUG draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$ "id"]])); ENDDEBUG
 			switch (playerItems[i][$ "type"]) //detect the type of upgrade
 			{
 				case "red":{
@@ -526,7 +526,7 @@ function upgradesSurface(){
 		if (PLAYER_PERKS[i]!=global.nullperk){ //if there is a upgrade in the slot
 			var activated = PLAYER_PERKS[i][$ "level"] > 0  ? 1 : .5;
 			draw_sprite_ext(PLAYER_PERKS[i][$ "thumb"],0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white, activated); //draw weapon sprite
-			if (global.debug) {draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$ "id"]]));}
+			DEBUG draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.perkCooldown[PLAYER_PERKS[i][$ "id"]])); ENDDEBUG
 			draw_sprite_ext(sUiLevelHeaderPink,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
 			draw_sprite_ext(sUiDigitPink,PLAYER_PERKS[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level					        
 		}		

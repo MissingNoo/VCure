@@ -2,6 +2,7 @@ file = game_save_id + "stage.json";
 //f = file_text_open_write(file);
 savedFile = game_save_id + "stage.bin";
 stage = {};
+stage = global.stage.Stage1;
 filter = "";
 //if (file_exists(savedFile)) {
 //	fs = file_text_open_read(savedFile);
@@ -68,9 +69,9 @@ window = function (_x, _y, w, h, title){
 
 mouseOnText = function (x, y, text, scale){
 	var result = false;
-	if (global.debug) {
+	DEBUG
 	    draw_rectangle(x, y, x + (string_width(text) * scale), y + (string_height(text) * scale), true);
-	}
+	ENDDEBUG
 	if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x, y, x + string_width(text) * scale, y + string_height(text) * scale)) {
 		result = true;
 	}

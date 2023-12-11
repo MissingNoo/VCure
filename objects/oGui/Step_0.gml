@@ -95,6 +95,7 @@ if (room == rInicio and !global.gamePaused) {
 	    switch (menuOptions[selected]) {
 			case  "Map":{
 				global.player=CHARACTERS[irandom_range(1, array_length(CHARACTERS) - 1)];
+				//room_goto(rDungeon);
 				room_goto(rMap);
 				audio_stop_sound(global.musicPlaying);
 				break;}
@@ -109,6 +110,10 @@ if (room == rInicio and !global.gamePaused) {
 	            room_goto(rCharacterSelect);
 	            break;}
 			case "Multiplayer":{
+				if (os_type == os_gxgames) {
+				    show_message_async("Incompatible with browser versions");
+					break;
+				}
 				global.singleplayer = false;
 				//instance_create_layer(0, 0, "Instances", oClient);
 				characterSelected = false;					
@@ -589,7 +594,7 @@ if (keyboard_check_pressed(vk_end)) {
 	, a, b, c, d, e);
 }
 
-	if (global.debug) {
+	DEBUG
 		
 		//if(keyboard_check(ord("Q"))) a -=1;
 		if(keyboard_check_pressed(ord("Q"))) a -=1;
@@ -622,5 +627,5 @@ if (keyboard_check_pressed(vk_end)) {
 		    event= oEvents.event;
 		}
 		
-	}
+	ENDDEBUG
 #endregion

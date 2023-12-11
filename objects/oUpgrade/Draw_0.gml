@@ -47,7 +47,7 @@ else{
 	
 }
 
-if (global.debug) {
+DEBUG
 	if (upg[$ "id"] == Weapons.AbsoluteWall and variable_instance_exists(self, "wallNumber")) {
 		draw_text(x + 20, y - 20, wallNumber);
 	}
@@ -62,7 +62,7 @@ if (global.debug) {
 	//draw_text(x,y-70, string(image_yscale));
 	//draw_text(x,y-90, string(shoots));
 	//draw_text(x,y-110, string($ "{subImg}/{maxImg}"));
-}		
+ENDDEBUG
 //		break
 //}
 

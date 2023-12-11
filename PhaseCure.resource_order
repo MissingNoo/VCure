@@ -459,6 +459,7 @@
     {"name":"sHoloHouseFloorWoodBIcon","order":1,"path":"sprites/sHoloHouseFloorWoodBIcon/sHoloHouseFloorWoodBIcon.yy",},
     {"name":"sHudSpecial","order":18,"path":"sprites/sHudSpecial/sHudSpecial.yy",},
     {"name":"bgtest264","order":25,"path":"sprites/bgtest264/bgtest264.yy",},
+    {"name":"sUpgradeBackgroundWH","order":2,"path":"sprites/sUpgradeBackgroundWH/sUpgradeBackgroundWH.yy",},
     {"name":"sTenmaArt","order":5,"path":"sprites/sTenmaArt/sTenmaArt.yy",},
     {"name":"sHeadPhones","order":15,"path":"sprites/sHeadPhones/sHeadPhones.yy",},
     {"name":"sGachaLogo","order":1,"path":"sprites/sGachaLogo/sGachaLogo.yy",},

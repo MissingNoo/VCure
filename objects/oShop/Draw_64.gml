@@ -13,9 +13,9 @@ for (var i = 0; i < array_length(_categories); ++i) {
 	var _scale = 3;
 	var _width = (string_width(_categories[i]) * _scale) / 2;
 	var _height= (string_height(_categories[i]) * _scale) / 2;
-	if (global.debug) {
+	DEBUG
 	    draw_rectangle(_xx + 120 + _offset - _width, _yy + 25 - _height,  _xx + 120 + _offset + _width, _yy + 25 + _height, true);
-	}
+	ENDDEBUG
 	if (point_in_rectangle(oGui.x, oGui.y,  _xx + 120 + _offset - _width, _yy + 25 - _height,  _xx + 120 + _offset + _width, _yy + 25 + _height) and mouseDown and !interacting) {
 	    selectedTab = i;
 		selectingTab = true;

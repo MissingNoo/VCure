@@ -6,9 +6,9 @@
 //}
 //draw_text(mouse_x, mouse_y, _str);
 // Feather disable GM1041
-if (global.debug) {
+DEBUG
     draw_circle(x,y,5,false);
-}
+ENDDEBUG
 #region Start variables
 var _x = 0;
 var _y = 0;
@@ -265,6 +265,14 @@ if (room == rCharacterSelect) {
 				draw_sprite_ext(sUpgradeBackground, 2, _x, _y - 19 + offset, 1.47, 1, 0, c_white, .75);
 				draw_text_transformed(_x, _y - 67 + offset, stageModes[i][$ "name"], 2.50, 2.50, 0);
 				draw_text_ext_transformed(_x, _y - 35 + offset, stageModes[i][$ "desc"], 13, 180, 2.5, 2.5, 0);
+				var _sprW = sprite_get_width(sUpgradeBackgroundWH);
+				var _sprH = sprite_get_height(sUpgradeBackgroundWH);
+				DEBUG
+				    draw_rectangle(_x - _sprW, _y + offset - _sprH, _x + _sprW, _y + offset + _sprH, true);
+				ENDDEBUG
+				if (point_in_rectangle(oGui.x, oGui.y, _x - _sprW, _y + offset - _sprH, _x + _sprW, _y + offset + _sprH)) {
+				    selected = i;
+				}
 				if (i == selected) {
 					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
 				}
@@ -794,16 +802,16 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and HP > 0
 	3, 3, 0);
 	var mOffset = 0;
 	draw_set_valign(fa_middle);
-	if (global.debug) {
-		draw_text(300, 200,
-		"totaloptions = " + string(array_length(pauseMenu[activeMenu][PM.Options])) +
-		" \n totalOptionsNow= " + string(totaloptions) +
-		" \n startOption= " + string(startOption) +
-		" \n selected= " + string(selected) +
-		" \n t-s= " + string(totaloptions - startOption) +
-		" \n totaloptions = " + string("a")	
-		);
-	}
+	//if (global.debug) {
+	//	draw_text(300, 200,
+	//	"totaloptions = " + string(array_length(pauseMenu[activeMenu][PM.Options])) +
+	//	" \n totalOptionsNow= " + string(totaloptions) +
+	//	" \n startOption= " + string(startOption) +
+	//	" \n selected= " + string(selected) +
+	//	" \n t-s= " + string(totaloptions - startOption) +
+	//	" \n totaloptions = " + string("a")	
+	//	);
+	//}
 	var bigString = 0;
 	for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
 		if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
@@ -859,12 +867,15 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and HP > 0
 	}
 #endregion
 #region Debug
-if (keyboard_check_pressed(ord("M"))) {
-	if (global.debug) {
-		global.debug = false;
-	}
-	else global.debug=true;
-}
+//if (keyboard_check_pressed(ord("M"))) {
+//	if (global.debug) {
+//		global.debug = false;
+//	}
+//	else global.debug=true;
+//}
+DEBUG
+	global.debug = true;
+ENDDEBUG
 //draw_text(10,10,global.debug);
 var debugy=170;
 offset = 0;
