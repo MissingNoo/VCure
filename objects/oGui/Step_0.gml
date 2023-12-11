@@ -100,6 +100,7 @@ if (room == rInicio and !global.gamePaused) {
 				audio_stop_sound(global.musicPlaying);
 				break;}
 	        case "Singleplayer":{
+				stageSelected = false;
 				characterSelected = false;
 				global.singleplayer = true;
 				selected=0;

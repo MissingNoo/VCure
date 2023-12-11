@@ -37,7 +37,13 @@ if (instance_exists(oPlayer) and enable) {
 				var _xp = _time[$ "event"][i][$ "xp"] == undefined ? "-" : _time[$ "event"][i][$ "xp"];
 				var _lifetime = _time[$ "event"][i][$ "lifetime"] == undefined ? "-" : _time[$ "event"][i][$ "lifetime"];
 				var _followplayer = _time[$ "event"][i][$ "followPlayer"] == undefined ? 0 : _time[$ "event"][i][$ "followPlayer"];
-				var _offset = _time[$ "event"][i][$ "offset"] == undefined ? 1 : _time[$ "event"][i][$ "offset"];
+				var _offset = 1;
+				if (_time[$ "event"][i][$ "offset"] == undefined) {
+				    _offset = 1;
+				}
+				if (_time[$ "event"][i][$ "offset"] == 1) {
+				    _offset = 2;
+				}
 				spawn_event(_time[$ "event"][i][$ "id"], _time[$ "event"][i][$ "pattern"], _hp, _atk, _spd, _xp, _lifetime, _time[$ "event"][i][$ "amount"], undefined, undefined, _followplayer, _offset);
 			}
 		}
