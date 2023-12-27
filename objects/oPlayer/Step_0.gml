@@ -1,4 +1,10 @@
 can_collab();
+if (device_mouse_check_button_pressed(0, mb_left)) {
+    mouseAim = !mouseAim;
+	if (!mouseAim) {
+	    global.arrowDir = 0;
+	}
+}
 var baseScore = (global.defeatedEnemies * 75) + (global.minibossDefeated * 428) + (global.bossDefeated * 2251) + (max(0, global.minutes - 30) * 20126) + (min(59, global.minutes) * 126) + (min(59, global.seconds) * 10) + (global.level * 1219);
 var hardcoreBonus = 0;
 if (global.shopUpgrades.Hardcore.level == 1) {

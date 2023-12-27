@@ -4,6 +4,7 @@
 #macro MAXHP global.maxhp
 #macro NAME global.name
 function initializePlayer(_p){
+	mouseAim = false;
 	attacktick=true;
 	global.newcoins = 0;
 	global.minibossDefeated = 0;
@@ -302,6 +303,9 @@ if (canMove == true){
 				}
 				if (global.arrowDir > 360) { global.arrowDir = 0; }
 				if (global.arrowDir < 0) { global.arrowDir = 360; }
+				if (oPlayer.mouseAim) {
+				    global.arrowDir = point_direction(oPlayer.x, oPlayer.y, mouse_x, mouse_y + 16);
+				}
 				if (global.arrowDir > 90 and global.arrowDir < 270) {
 					    image_xscale = -1;
 					};

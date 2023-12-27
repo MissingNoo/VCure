@@ -926,3 +926,13 @@ if (room == rCharacterSelect or room == rInicio) {
 #endregion
 //x = 0;
 //y = 0;
+var _drawMouse = true;
+if (instance_exists(oPlayer) and oPlayer.mouseAim) {
+    _drawMouse = false;
+	if (ANVIL or GoldenANVIL or global.upgrade){
+		_drawMouse = true;
+	}
+}
+if (_drawMouse) {
+	draw_sprite_ext(sMouse, 0, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 2, 2, 0, c_white, 1);
+}

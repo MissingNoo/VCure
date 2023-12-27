@@ -32,7 +32,12 @@ if (Shield > 0 and HP > 0) {
     draw_healthbar((x - 13), ((y - 19) - 20), (x + 13), ((y - 19) - 23), ((Shield / MaxShield) * 100), c_red, c_blue, c_blue, 0, 1, 0);
 }
 var strafing = global.strafe ? 1 : 0;
-draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrowDir,c_white,1);
+var _color = c_white;
+if (mouseAim) {
+    _color = c_purple;
+	draw_sprite_ext(sMouseAim, 0, mouse_x, mouse_y, 1, 1, 0, c_white, 1);
+}
+draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrowDir, _color, 1);
 #region Lia
 switch (global.player[?"id"]) {
     case Characters.Lia:
