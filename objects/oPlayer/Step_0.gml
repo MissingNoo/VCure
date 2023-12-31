@@ -138,6 +138,7 @@ if (wallMart) {
 	wallmartTimer -= 1/60*Delta;
 	if (wallmartTimer <= 0) {
 		wallMart = false;
+		Buffs[BuffNames.WallmartDefense][$ "enabled"] = false;
 		instance_destroy(oSpecialEffect);
 	}
 }

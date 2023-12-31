@@ -56,6 +56,7 @@ function use_special(_special)
 		case SpecialIds.WalmartForm:
 			oPlayer.wallMart = true;
 			oPlayer.wallmartTimer = 10;
+			Buffs[BuffNames.WallmartDefense][$ "enabled"] = true;
 			instance_create_depth(x, y, depth, oSpecialEffect);
 			break;
 	    

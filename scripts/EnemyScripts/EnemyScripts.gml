@@ -218,6 +218,9 @@ function damage_calculation(baseDmg)
 			}
 		}
 	}
+	if (Buffs[BuffNames.WallmartDefense][$ "enabled"]) {
+	    damage = damage * 0.50;
+	}
 	
 	DEBUG
 	    show_debug_message("baseDmg:" + string(baseDmg) + " after calculation: " + string(damage));

@@ -142,7 +142,8 @@ enum BuffNames{
 	Spaghetti,
 	Paralyzed,
 	Soda,
-	testbuff
+	testbuff,
+	WallmartDefense
 }
 function populate_characters(){
 	createCharacter(Characters.Null,"",sBlank,sBlank, sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
@@ -213,6 +214,15 @@ function populate_characters(){
 		icon : sSodaFueled,
 		enabled : false,
 		baseCooldown : 3,
+		cooldown : 0,
+	}
+	Buffs[BuffNames.WallmartDefense] = {
+		id : BuffNames.WallmartDefense,
+		name : "Wallmart",
+		icon : sWalmart,
+		enabled : false,
+		permanent : true,
+		baseCooldown : 1,
 		cooldown : 0,
 	}
 		
