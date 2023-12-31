@@ -1,5 +1,5 @@
 can_collab();
-if (device_mouse_check_button_pressed(0, mb_left)) {
+if (device_mouse_check_button_pressed(0, mb_left) and os_type != os_android) {
     mouseAim = !mouseAim;
 	if (!mouseAim) {
 	    global.arrowDir = 0;
@@ -120,7 +120,7 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 #endregion
 #region Specials
 if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
-if (keyboard_check_pressed(ord("X")) and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) { use_special(special);	}
+if (input_check_pressed("cancel") and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) { use_special(special);	}
 if (global.lastsequence != undefined) {
 	layer_sequence_x(global.lastsequence, oPlayer.x);
 	layer_sequence_y(global.lastsequence, oPlayer.y);
