@@ -11,4 +11,11 @@ with (oDepthParent) {
 		yy++;
 	}
 }
+//with (oMapAssetParent) {
+//	if (!variable_instance_exists(self, "saved") or (variable_instance_exists(self, "saved") and distance_to_object(oPlayer) < oPlayer.renderDistance)) {
+//	    g[# 0, yy] = id;
+//		g[# 1, yy] = y;
+//		yy++;
+//	}
+//}
 ds_grid_sort(grid, 1, true);

@@ -23,7 +23,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c00152c8-f9db-4f6b-8fcd-98e9eb5ee8e4","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "Bushes",
     "path": "folders/Objects/MapItems/Bushes.yy",
@@ -60,7 +60,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 13,
-    "yorigin": 9,
+    "yorigin": 17,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
