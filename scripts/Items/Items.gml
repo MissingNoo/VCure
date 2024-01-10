@@ -92,7 +92,7 @@ function new_create_item(_data){
 		Energy_Drink,
 		Face_Mask,
 		FullMeal,
-		Gorilla_Paw, 
+		GorillaPaw, 
 		GWS_Pill, 
 		Halu,//TODO: add all effects
 		Headphones,
@@ -108,7 +108,7 @@ function new_create_item(_data){
 		Plushie, //TODO: add all effects
 		Sake,
 		Stolen_Piggy_Bank,
-		Study_Glasses, 
+		StudyGlasses, 
 		Super_Chatto_Time,
 		UberSheep,
 		Holocoin,
@@ -463,7 +463,7 @@ function populate_items(){
 		
 			#region Gorilla's Paw
 			new_create_item({
-				id : ItemIds.Gorilla_Paw,
+				id : ItemIds.GorillaPaw,
 				name : "GorillasPaw",
 				maxlevel : 3,
 				weight : 3,
@@ -537,7 +537,7 @@ function populate_items(){
 			#region Study Glasses
 			new_create_item(
 			{
-				id : ItemIds.Study_Glasses,
+				id : ItemIds.StudyGlasses,
 				name : "Study Glasses",
 				maxlevel : 5,
 				weight : 3,

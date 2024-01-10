@@ -349,7 +349,7 @@ var _x = GW - 2;
 var _y = GH - string_height(_text) * 2 - 3;
 _x -= string_width(_text) * 2 + 9;
 if (create_button(_x, _y, _text, 2)) {
-	f = file_text_open_write(file);
+	var f = file_text_open_write(file);
 	file_text_write_string(f, string(json_stringify(stage, true)));
 	file_text_close(f);
 	var _fs = file_text_open_write(savedFile);
@@ -361,7 +361,7 @@ _text = "Load";
 _x -= string_width(_text) * 2 + 9;
 if (create_button(_x, _y, _text, 2)) {
 	if (file_exists(savedFile)) {
-		fs = file_text_open_read(savedFile);
+		var fs = file_text_open_read(savedFile);
 		var _json = file_text_read_string(fs);
 		file_text_close(fs);
 		stage = json_parse(_json);

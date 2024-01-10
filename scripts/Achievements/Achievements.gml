@@ -41,11 +41,11 @@ enum AchievementIds {
 }
 Achievements[0] = new Achievement(AchievementIds.FirstWin, "First Win", sAchFirstWin, sPhaseCoin, Rewards.Coins, undefined, 500);
 Achievements[1] = new Achievement(AchievementIds.FuburaIsComing, "Fubura is coming", sAchFubura, sFanBeamThumb, Rewards.Weapon, Weapons.FanBeam);
-Achievements[2] = new Achievement(AchievementIds.BBBRRRRRREEEEEEEEE, "BBBRRRRRREEEEEEEEE", sAchFirstBoss, sGorillaPaw, Rewards.Item, ItemIds.Gorilla_Paw);
-//Achievements[array_length(Achievements)] = new Achievement(AchievementIds.TearsOfHappiness, "Tears of Happiness...?", sAchTears, sCeoTearsThumb);
+Achievements[2] = new Achievement(AchievementIds.BBBRRRRRREEEEEEEEE, "BBBRRRRRREEEEEEEEE", sAchFirstBoss, sGorillaPaw, Rewards.Item, ItemIds.GorillaPaw);
+//Achievements[array_length(Achievements)] = new Achievement(AchievementIds.TearsOfHappiness, "Tears of Happiness...?", sAchTears, sCeoTearsThumb)
 //Achievements[array_length(Achievements)] = new Achievement(AchievementIds.YouHaveBeenCursed, "You have been Cursed", sAchCursed, sENCurseThumb);
 //Achievements[array_length(Achievements)] = new Achievement(AchievementIds.ThousandMileStare, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
-Achievements[3] = new Achievement(AchievementIds.DeckedOut, "Decked Out", sAchDeckedOut, sStudyGlasses, Rewards.Item, ItemIds.Study_Glasses);
+Achievements[3] = new Achievement(AchievementIds.DeckedOut, "Decked Out", sAchDeckedOut, sStudyGlasses, Rewards.Item, ItemIds.StudyGlasses);
 Achievements[4] = new Achievement(AchievementIds.Test, "Thousand Mile Stare", sAchStare, sPhaseCoin, Rewards.Coins, undefined, 10000);
 //Achievements[array_length(Achievements)] = new Achievement(AchievementIds.Test, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);
 //Achievements[array_length(Achievements)] = new Achievement(AchievementIds.Test, "Thousand Mile Stare", sAchStare, sPhaseCoin, 10000);

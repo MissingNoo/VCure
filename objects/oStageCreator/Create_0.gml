@@ -2,6 +2,7 @@ file = game_save_id + "stage.json";
 //f = file_text_open_write(file);
 savedFile = game_save_id + "stage.bin";
 stage = {};
+//feather disable once GM2017
 stage = global.stage.Stage1;
 filter = "";
 //if (file_exists(savedFile)) {
