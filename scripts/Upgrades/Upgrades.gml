@@ -1699,7 +1699,7 @@ function random_upgrades(){
 				canBeWeapon = false;
 				// feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
-					if (UPGRADES[i][?"level"] != UPGRADES[i][?"maxlevel"] or UPGRADES[i] == global.null or playerItems[i] == global.nullitem) {
+					if (UPGRADES[i][$ "level"] != UPGRADES[i][$ "maxlevel"] or UPGRADES[i] == global.null or playerItems[i] == global.nullitem) {
 						canBeWeapon = true;
 					}
 				}
@@ -1707,7 +1707,7 @@ function random_upgrades(){
 				canBeItem = false;
 				// feather disable once GM1041
 				for (var i = 0; i < array_length(playerItems); ++i) {
-					if (playerItems[i][?"level"] != playerItems[i][?"maxlevel"] or playerItems[i] == global.nullitem) {
+					if (playerItems[i][$"level"] != playerItems[i][$"maxlevel"] or playerItems[i] == global.nullitem) {
 						canBeItem = true;
 					}
 				}
@@ -1852,7 +1852,7 @@ function tick_powers(){
 	if (attacktick == true and UPGRADES[0][$ "name"]!="") {
 		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
-			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i][$ "id"]] <= 0) {
+			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i].id] <= 0) {
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 					upg : UPGRADES[i],
 					speed : UPGRADES[i][$ "speed"],
@@ -1904,7 +1904,7 @@ function can_collab(){
 	for (var i = 0; i < totalWeapons; ++i) {
 		if (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) { continue; }
 		if (!variable_struct_exists(UPGRADES[i], "collabWith")) { continue; }
-		var currentId = UPGRADES[i][$ "id"];
+		var currentId = UPGRADES[i].id;
 		var searchFor = UPGRADES[i][$ "collabWith"];
 		for (var j = 0; j < totalWeapons; ++j) {
 			if (UPGRADES[j][$ "level"] < UPGRADES[j][$ "maxlevel"]) { continue; }

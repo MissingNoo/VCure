@@ -65,6 +65,7 @@
     {"name":"Game","order":2,"path":"folders/Objects/Game.yy",},
     {"name":"HoloHouse","order":12,"path":"folders/Objects/HoloHouse.yy",},
     {"name":"Map","order":13,"path":"folders/Objects/Map.yy",},
+    {"name":"MapAssets","order":4,"path":"folders/Objects/Map/MapAssets.yy",},
     {"name":"MapItems","order":14,"path":"folders/Objects/MapItems.yy",},
     {"name":"Bushes","order":5,"path":"folders/Objects/MapItems/Bushes.yy",},
     {"name":"Flowers","order":3,"path":"folders/Objects/MapItems/Flowers.yy",},
@@ -119,7 +120,6 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
-    {"name":"MapAssets","order":4,"path":"folders/Objects/Map/MapAssets.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_icons_gamepad","order":3,"path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},

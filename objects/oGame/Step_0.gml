@@ -309,7 +309,7 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 			if (oPlayer.wallMart) {
 			    _bonus = 7;
 			}
-			global.upgradeCooldown[UPGRADES[i][$ "id"]] -= (1 * _bonus) * Delta;
+			global.upgradeCooldown[UPGRADES[i].id] -= (1 * _bonus) * Delta;
 		}
 	}
 	for (var i = 0; i < array_length(global.itemCooldown); ++i) {

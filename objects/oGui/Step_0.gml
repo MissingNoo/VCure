@@ -177,7 +177,7 @@ if (global.upgrade) // after level up
 				{
 					//show_message(global.upgradesAvaliable[UPGRADES[i][$"id"]]);
 					var newlevel = UPGRADES[i][$ "level"] + 1;
-					UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i][$ "id"]][newlevel];
+					UPGRADES[i] = global.upgradesAvaliable[UPGRADES[i].id][newlevel];
 					share_weapon(i);
 					break;
 				}			

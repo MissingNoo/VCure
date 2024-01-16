@@ -247,7 +247,7 @@ function share_weapon(i){
 		sendMessage({
 			command : Network.AddItem,
 			type : "weapon",
-			id : UPGRADES[i][$ "id"],
+			id : UPGRADES[i].id,
 			level : UPGRADES[i][$ "level"],
 			pos : i
 		});
@@ -466,7 +466,7 @@ function upgradesSurface(){
 		if (UPGRADES[i]!=global.null){ //if there is a upgrade in the slot		
 			var awakened = (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) ? 0 : 1; //check if weapon is awakened
 			draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
-			DEBUG draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i][$ "id"]])); ENDDEBUG
+			DEBUG draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i].id])); ENDDEBUG
 			switch (UPGRADES[i][$ "type"]){ //detect the type of upgrade
 				case "red":{
 					header = sUiLevelHeaderPink;
