@@ -441,7 +441,7 @@
     {"id":{"name":"__input_player_apply_trigger_effects","path":"scripts/__input_player_apply_trigger_effects/__input_player_apply_trigger_effects.yy",},},
     {"id":{"name":"fnt_font1","path":"fonts/fnt_font1/fnt_font1.yy",},},
     {"id":{"name":"input_virtual_create","path":"scripts/input_virtual_create/input_virtual_create.yy",},},
-    {"id":{"name":"sDeadBeat","path":"sprites/sDeadBeat/sDeadBeat.yy",},},
+    {"id":{"name":"sTheo","path":"sprites/sTheo/sTheo.yy",},},
     {"id":{"name":"sBreathAsacocoThumb","path":"sprites/sBreathAsacocoThumb/sBreathAsacocoThumb.yy",},},
     {"id":{"name":"__input_validate_macros","path":"scripts/__input_validate_macros/__input_validate_macros.yy",},},
     {"id":{"name":"input_player_gamepad_type_override_set","path":"scripts/input_player_gamepad_type_override_set/input_player_gamepad_type_override_set.yy",},},

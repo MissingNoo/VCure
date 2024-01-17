@@ -111,7 +111,7 @@ enum Enemies
 		create_enemy(Enemies.MegaShrimp, "MegaShrimp", sUrufu, 600,.5,6,150,1, true);
 		create_enemy(Enemies.DarkShrimp,"DarkShrimp",sDarkShrimp,125,.6,5,12,1);		
 		create_enemy(Enemies.MegaDarkShrimp,"MegaDarkShrimp",sDarkShrimp,2500,.9,10,1000,1, true);
-		create_enemy(Enemies.DeadBeat,"DeadBeat",sDeadBeat,40,.4,4,7,1);
+		create_enemy(Enemies.DeadBeat,"DeadBeat",sTheo,40,.4,4,7,1);
 		create_enemy(Enemies.DeadBeatLV3,"DeadBeatLV3",sDeadBeatLV3,380,.65,5,8,1);
 		create_enemy(Enemies.DeadBatter,"DeadBeatLV2",sDeadBatter,150,.6,7,9,1);
 		create_enemy(Enemies.GiantDeadBatter,"GiantDeadBeatLV2",sDeadBatter,3500,1,11,1500,1, true);

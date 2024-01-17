@@ -359,7 +359,7 @@
     {"name":"lexicon_language_exists","order":3,"path":"scripts/lexicon_language_exists/lexicon_language_exists.yy",},
     {"name":"__input_player_apply_trigger_effects","order":10,"path":"scripts/__input_player_apply_trigger_effects/__input_player_apply_trigger_effects.yy",},
     {"name":"input_virtual_create","order":1,"path":"scripts/input_virtual_create/input_virtual_create.yy",},
-    {"name":"sDeadBeat","order":3,"path":"sprites/sDeadBeat/sDeadBeat.yy",},
+    {"name":"sTheo","order":3,"path":"sprites/sTheo/sTheo.yy",},
     {"name":"sBreathAsacocoThumb","order":15,"path":"sprites/sBreathAsacocoThumb/sBreathAsacocoThumb.yy",},
     {"name":"__input_validate_macros","order":27,"path":"scripts/__input_validate_macros/__input_validate_macros.yy",},
     {"name":"input_player_gamepad_type_override_set","order":5,"path":"scripts/input_player_gamepad_type_override_set/input_player_gamepad_type_override_set.yy",},
