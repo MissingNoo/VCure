@@ -28,8 +28,7 @@ function populate_specials(){
 	create_special(SpecialIds.Uruka, "MONSTER", sUrukaSpecial, 60, Characters.Uruka, undefined);
 	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, Characters.Lia, undefined);
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Pippa, undefined);
-
-	
+	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Tenma, undefined);
 }
 
 function use_special(_special)

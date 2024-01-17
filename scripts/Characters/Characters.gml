@@ -109,6 +109,7 @@ enum Characters {
 	Pippa,
 	Uruka,
 	Lia,
+	Tenma,
 	Lenght
 }
 function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
@@ -150,6 +151,7 @@ function populate_characters(){
 	createCharacter(Characters.Uruka,"Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
 	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	createCharacter(Characters.Lia,"Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
+	createCharacter(Characters.Tenma,"Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.LiaBolt], true, false);
 	
 	
 	//Buffs[BuffNames.ShortHeight] = {

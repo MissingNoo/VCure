@@ -1753,10 +1753,10 @@ function random_upgrades(){
 					case ItemTypes.Item:{
 				        rdn = irandom_range(0,array_length(itemsList)-1);
 				        global.upgradeOptions[3] = itemsList[rdn][1];
-						var item_name = itemsList[rdn][1][?"id"];
+						var item_name = itemsList[rdn][1][$"id"];
 							var maxI = array_length(itemsList);
 							for (var i = 0; i < maxI; ++i) {
-							    if (itemsList[i][1][?"id"] == item_name) {
+							    if (itemsList[i][1][$"id"] == item_name) {
 								    array_delete(itemsList, i, 1);
 									maxI = array_length(itemsList);
 									i=0;

@@ -2,6 +2,7 @@ enum Outfits {
 	Uruka,
 	Lia,
 	Pippa,
+	Tenma,
 	Length
 }
 UnlockableOutfits = array_create(Outfits.Length, false);
@@ -23,6 +24,7 @@ function populate_outfits(){
 	outfit_add(Characters.Uruka,		Outfits.Uruka,			sUrukaIdle,				sUrukaRunning,		true);
 	outfit_add(Characters.Lia,				Outfits.Lia,					sLiaIdle,					sLiaRunningOld,		true);
 	outfit_add(Characters.Pippa,		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
+	outfit_add(Characters.Tenma,		Outfits.Tenma,			sTenmaIdle,			sTenmaRun,				true);
 }
 
 function unlocked_outfits_load(){

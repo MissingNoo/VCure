@@ -94,6 +94,7 @@ function populate_perks(){
 		});
 		#endregion
 		global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
+		global.characterPerks[Characters.Tenma] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		#endregion
 		
 		#region Lia
