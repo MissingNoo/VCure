@@ -198,6 +198,7 @@ enum Weapons{
 	Shockwave,
 	PipiPilstol,
 	HeavyArtillery,
+	Brick,
 	Length
 }
 
@@ -304,7 +305,33 @@ function populate_upgrades(){
 				characterid : Characters.Null,
 			});
 		#endregion
-	
+		#region Tenma
+		#region Brick
+		new_create_upgrade({
+			id : Weapons.Brick,
+			name : "Brick",
+			maxlevel : 7,
+			sprite : sBrickProjectile,
+			attackdelay : 20,
+			thumb : sBrick,
+			mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
+			maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.20, 13*1.20*1.10, 13*1.20*1.10],
+			cooldown : [80, 80, 80*0.90, 80*0.90, 80*0.90, 80*0.90, 80*0.90],
+			duration : 200, 
+			hitCooldown : [20, 20, 20, 20, 20, 20, 20], 
+			canBeHasted : true,
+			speed : [3, 3, 3, 3, 3*1.10, 3*1.10, 3*1.10],
+			hits : [1, 1, 1, 2, 2, 2, 3],
+			type : "red",
+			shoots : [1, 1, 1, 2, 2, 2, 3],
+			knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
+			knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
+			perk : true,
+			characterid : Characters.Tenma,
+			weight : 3
+		},[snd_bullet, snd_bullet2, snd_bullet3]);
+		#endregion
+		#endregion
 		
 	#region Shockwave
 	new_create_upgrade({ //Shockwave

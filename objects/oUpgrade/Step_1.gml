@@ -103,6 +103,10 @@ image_speed = 0;
 		default:{
 			default_behaviour();
 			break;}
+		case Weapons.Brick:
+			default_behaviour();
+			direction = global.arrowDir;
+			break;
 		case Weapons.RestNote:
 			break;
 		case Weapons.UrukaNote:{
