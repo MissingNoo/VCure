@@ -25,7 +25,7 @@ DEBUG
 	draw_circle(x,y-16,pickupRadius,true);
 ENDDEBUG
 draw_self();
-if (HP > 0) {
+if (HP > 0 and HP != MAXHP) {
     draw_healthbar((x - 13), ((y - 16) - 20), (x + 13), ((y - 16) - 23), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);
 }
 if (Shield > 0 and HP > 0) {

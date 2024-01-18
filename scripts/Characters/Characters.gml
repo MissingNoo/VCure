@@ -151,7 +151,7 @@ function populate_characters(){
 	createCharacter(Characters.Uruka,"Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
 	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	createCharacter(Characters.Lia,"Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
-	createCharacter(Characters.Tenma,"Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle2, sTenmaRun2, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
+	createCharacter(Characters.Tenma,"Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	
 	
 	//Buffs[BuffNames.ShortHeight] = {

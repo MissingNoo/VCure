@@ -26,7 +26,7 @@ function populate_outfits(){
 	outfit_add(Characters.Lia,				Outfits.Lia,					sLiaIdle,					sLiaRunningOld,		true);
 	outfit_add(Characters.Pippa,		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
 	//outfit_add(Characters.Tenma,		Outfits.TenmaAlternative,			sTenmaIdle,			sTenmaRun,				true);
-	outfit_add(Characters.Tenma,		Outfits.Tenma,			sTenmaIdle2,			sTenmaRun2,				true);
+	outfit_add(Characters.Tenma,		Outfits.Tenma,			sTenmaIdle,			sTenmaRun,				true);
 }
 
 function unlocked_outfits_load(){
