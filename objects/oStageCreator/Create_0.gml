@@ -35,8 +35,9 @@ followPlayer = 0;
 offset = 0;
 pattern = 0;
 lifetime = 0;
+radius = 0;
 #endregion
-eventstats = [[sHudHPIcon, "hp"], [sHudAtkIcon, "atk"], [sHudSpdIcon, "spd"], [sXP, "xp"], ["amount", "amount"], ["follow player", "followPlayer"], ["offset", "offset"], ["lifetime", "lifetime"], ["pattern", "pattern"]];
+eventstats = [[sHudHPIcon, "hp"], [sHudAtkIcon, "atk"], [sHudSpdIcon, "spd"], [sXP, "xp"], ["amount", "amount"], ["follow player", "followPlayer"], ["offset", "offset"], ["lifetime", "lifetime"], ["radius", "radius"],  ["pattern", "pattern"]];
 selectedEnemy = 0;
 selectingEnemy = false;
 addToList = false;

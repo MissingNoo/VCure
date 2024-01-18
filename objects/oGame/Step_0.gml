@@ -1,6 +1,13 @@
 if (keyboard_check_pressed(vk_f11)) {
     window_set_fullscreen(not window_get_fullscreen());
 }
+if (keyboard_check_pressed(vk_home)) {
+    Minutes = 6;
+	Seconds = 55;
+}
+if (keyboard_check(vk_end)) {
+    spawn_event(Enemies.Urufugang, Patterns.Ring, 500, 5, 0.05, 10, 25, 76, 400, "-", true, 16);
+}
 if (global.debug and keyboard_check_pressed(vk_home)) {
     var importedSave = {};
 	importedSave.unlockedWeapons = [];

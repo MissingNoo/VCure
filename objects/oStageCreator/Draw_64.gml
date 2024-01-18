@@ -84,6 +84,7 @@ for (var i = 0; i < array_length(_events); ++i) {
 						addToList = true;
 						isEnemyEvent = _isEvent;
 						followPlayer = true;
+						radius = 0;
 						for (var l = 0; l < array_length(eventstats); ++l) {
 							variable_instance_set(self, eventstats[l][1], 0);
 						}
