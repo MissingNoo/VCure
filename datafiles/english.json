@@ -2,6 +2,20 @@
     "language": "English",
     "locale": "en-US",
     "text": {
+		"Characters":{
+			"Tenma Maemi" : {
+				"chooseText" : "Choose your perfect idol"
+			},
+			"Pipkin Pippa" : {
+				"chooseText" : "Choose your sad girl"
+			},
+			"Fujikura Uruka" : {
+				"chooseText" : "Choose your musician"
+			},
+			"Rinkou Ashelia" : {
+				"chooseText" : "Choose your YIPPEE"
+			}
+		},
 		"Special" : {
 			"No Multiplayer" :{
 				"name" : "No Multiplayer!",

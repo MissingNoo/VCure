@@ -133,6 +133,7 @@ function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite
 	ds_map_add(m, "flat", _flat);
 	ds_map_add(m, "crit", _crt);
 	ds_map_add(m, "outfits", []);
+	ds_map_add(m, "chooseText", lexicon_text($"Characters.{_name}.chooseText"));
 }
 enum BuffNames{
 	//ShortHeight,

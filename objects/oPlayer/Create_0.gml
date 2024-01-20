@@ -1,5 +1,6 @@
 event_inherited();
 initializePlayer(global.player);
+characterHeight = sprite_get_height(sprite_index);
 #region Variables related to items
 idolCostumeLevel = 0;
 pimanLevel = 0;

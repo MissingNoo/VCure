@@ -110,7 +110,8 @@ if (room == rCharacterSelect) {
 	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
 	#region CharacterList
 	if (!characterSelected) {
-		str="CHOOSE YOUR IDOL";
+		//str="CHOOSE YOUR IDOL";
+		str = CHARACTERS[selectedCharacter][?"chooseText"];
 		draw_set_valign(fa_middle);
 		draw_set_halign(fa_center);
 		draw_text_transformed(GW/4, GH/8, str, 4.30, 4.30, 0);
