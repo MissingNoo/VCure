@@ -127,7 +127,7 @@ if (room == rCharacterSelect) {
 		for (var i=1; i < Characters.Lenght; i++) {
 			var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
-			if (point_in_rectangle(TouchX1, TouchY1, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) {
+			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) {
 			    selectedCharacter = i;
 			}			
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2, _x + _pW + 2 + _offset, _y + _pH + 2, false);

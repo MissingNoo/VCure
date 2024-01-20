@@ -255,6 +255,7 @@ function share_weapon(i){
 }
 #endregion
 function buttonClick(pos){
+	if (os_type != os_android) { exit; }
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
 		result = true;

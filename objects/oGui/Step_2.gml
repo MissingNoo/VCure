@@ -27,7 +27,7 @@ if (room == rCharacterSelect) {
 		if (_leftright != 0) {
 		    NAME=CHARACTERS[selectedCharacter][?"name"];
 			audio_play_sound(snd_char_select_woosh,0,0);
-		}		
+		}
 	}
 	if (selectingOutfit) {
 		selectedOutfit += _leftright;
