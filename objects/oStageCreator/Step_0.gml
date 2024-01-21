@@ -1,3 +1,6 @@
+if (keyboard_check_pressed(vk_home)) {
+	room_goto(rInicio);
+}
 if (addEvent and keyboard_check_pressed(vk_enter)) {
 	var _seconds = string(round(seconds));
 	if (real(_seconds) < 10) { _seconds = $"0{_seconds}"; }

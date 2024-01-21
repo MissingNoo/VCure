@@ -91,7 +91,7 @@ if (xKey and global.gamePaused and !ANVIL and !GoldenANVIL) {
 #endregion
 #region Start Menu
 if (room == rInicio and !global.gamePaused) {
-	if (keyboard_check(vk_home)) {
+	if (keyboard_check_pressed(vk_home)) {
 	    room_goto(rStageCreator);
 	}
 	if (zKey) {
