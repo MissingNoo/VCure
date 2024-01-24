@@ -1,0 +1,10 @@
+show = false;
+x = 100;
+y = 100;
+vara = 1;
+varb = 1;
+maxsize = 0;
+step = 1;
+minimized = false;
+yy = 0;
+screenarea = [x, y, x + 300, minimized ? y + 50 : y + maxsize];

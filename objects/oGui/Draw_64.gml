@@ -875,32 +875,11 @@ if (keyboard_check_pressed(ord("M"))) {
 		global.debug = false;
 	}
 	else global.debug=true;
+	DebugManager.show = global.debug;
 }
 //draw_text(10,10,global.debug);
 var debugy=170;
 offset = 0;
-DEBUG
-	draw_set_color(c_grey);
-	draw_set_alpha(.5);
-	draw_set_color(c_white);
-	//feather disable once GM2017
-	var g = time_source_get_state(oEvents._time_source);
-	var variables = ["a","b","c","d","e", "dir", "revives", "event", "g"];
-	var boxsize=0;
-	for (var i = 0; i < array_length(variables); ++i) {
-		boxsize += 20;
-	}
-	draw_rectangle(5,debugy-5,150,debugy + boxsize,false);
-	draw_set_alpha(1);
-	for (var i = 0; i < array_length(variables); ++i) {
-		if (variable_instance_exists(self,variables[i])) {			
-			draw_set_color(c_red);
-			draw_text(10,debugy+offset,string(variables[i]) + ": " + string(variable_instance_get(self,variables[i])));
-			draw_set_color(c_white);
-			offset += 20;
-		}		    
-	}
-ENDDEBUG
 #endregion	
 #region Android Buttons
 if (os_type == os_android) 
@@ -934,5 +913,9 @@ if (instance_exists(oPlayer) and oPlayer.mouseAim) {
 	}
 }
 if (_drawMouse and os_type != os_android) {
-	draw_sprite_ext(sMouse, 0, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 2, 2, 0, c_white, 1);
+	cursor_sprite = sMouse;
+	//draw_sprite_ext(sMouse, 0, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 2, 2, 0, c_white, 1);
+}
+if (!_drawMouse) {
+    cursor_sprite = sBlank;
 }
