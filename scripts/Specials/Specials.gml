@@ -21,14 +21,15 @@ global.specialBonuses[0] = 0;
 	{
 		Uruka,
 		Lia,
-		WalmartForm
+		WalmartForm,
+		BuffDude
 	}
 #endregion
 function populate_specials(){
 	create_special(SpecialIds.Uruka, "MONSTER", sUrukaSpecial, 60, Characters.Uruka, undefined);
 	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, Characters.Lia, undefined);
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Pippa, undefined);
-	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Tenma, undefined);
+	create_special(SpecialIds.BuffDude, "Buffed Kanpainiki", sWalmart, 60, Characters.Tenma, undefined);
 }
 
 function use_special(_special)
@@ -57,6 +58,9 @@ function use_special(_special)
 			oPlayer.wallmartTimer = 10;
 			Buffs[BuffNames.WallmartDefense][$ "enabled"] = true;
 			instance_create_depth(x, y, depth, oSpecialEffect);
+			break;
+		case SpecialIds.BuffDude:
+			instance_create_depth(x, y, depth, oTenmaDude);
 			break;
 	    
 	    //case SpecialIds.Gura:

@@ -1,3 +1,6 @@
+if (keyboard_check_pressed(vk_end)) {
+    skilltimer = specialcooldown;
+}
 can_collab();
 if (device_mouse_check_button_pressed(0, mb_left) and os_type != os_android) {
     mouseAim = !mouseAim;

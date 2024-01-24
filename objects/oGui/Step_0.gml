@@ -626,10 +626,10 @@ if (keyboard_check_pressed(vk_end)) {
 		//if (keyboard_check_pressed(ord("N"))) {
 		//    display_set_gui_size(1920,1080);
 		//}
-		if (global.debug and instance_exists(oPlayer)) {
+		if (instance_exists(oPlayer)) {
 		    revives = oPlayer.revives;
 		}
-		if (global.debug and instance_exists(oEvents)) {
+		if (instance_exists(oEvents)) {
 		    event= oEvents.event;
 		}
 		

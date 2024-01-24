@@ -7,27 +7,27 @@ if (keyboard_check_pressed(vk_home)) {
 	Seconds = 55;
 }
 ENDDEBUG
-if (global.debug and keyboard_check_pressed(vk_home)) {
-    var importedSave = {};
-	importedSave.unlockedWeapons = [];
-	importedSave.unlockedItems = [];
-	if (!file_exists(working_directory + "save_n.dat")) { exit; }
-	var file = file_text_open_read(working_directory + "save_n.dat");
-	importedSave = json_parse(base64_decode(file_text_readln(file)));
-	#region Items
-	var _unlockedItems = "Unlocked Holocure Items:";
-	for (var i = 0; i < array_length(importedSave.unlockedItems); ++i) {
-		for (var j = 0; j < array_length(ItemList); ++j) {
-			if (importedSave.unlockedItems[i] == string_replace_all(ItemList[j][1].name, " ", "") and variable_struct_exists(ItemList[j][1], "unlocked")) {
-				_unlockedItems += string($"{ItemList[j][1].name} \n");
-				UnlockableItems[ItemList[j][1].id] = true;
-				load_unlocked();
-			}
-		}
-	}
-	show_message(_unlockedItems);
-	#endregion
-}
+//if (global.debug and keyboard_check_pressed(vk_home)) {
+//    var importedSave = {};
+//	importedSave.unlockedWeapons = [];
+//	importedSave.unlockedItems = [];
+//	if (!file_exists(working_directory + "save_n.dat")) { exit; }
+//	var file = file_text_open_read(working_directory + "save_n.dat");
+//	importedSave = json_parse(base64_decode(file_text_readln(file)));
+//	#region Items
+//	var _unlockedItems = "Unlocked Holocure Items:";
+//	for (var i = 0; i < array_length(importedSave.unlockedItems); ++i) {
+//		for (var j = 0; j < array_length(ItemList); ++j) {
+//			if (importedSave.unlockedItems[i] == string_replace_all(ItemList[j][1].name, " ", "") and variable_struct_exists(ItemList[j][1], "unlocked")) {
+//				_unlockedItems += string($"{ItemList[j][1].name} \n");
+//				UnlockableItems[ItemList[j][1].id] = true;
+//				load_unlocked();
+//			}
+//		}
+//	}
+//	show_message(_unlockedItems);
+//	#endregion
+//}
 
 //if (keyboard_check_pressed(vk_alt)) {
 //    window_set_size(1280/1.5, 720/1.5);
@@ -57,9 +57,9 @@ else{
 //	UnlockableOutfits[Outfits.AmeliaO2] = true;
 //	unlocked_outfits_load();
 //}
-if (keyboard_check_pressed(vk_end)) {
-	Minutes = 19;
-	Seconds = 58;	
+//if (keyboard_check_pressed(vk_end)) {
+	//Minutes = 19;
+	//Seconds = 58;	
 	//instance_create_depth(x,y,depth, oAchNotify);
 	//for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
 	//    UnlockableWeapons[i] = false;
@@ -74,7 +74,7 @@ if (keyboard_check_pressed(vk_end)) {
 	//UnlockableOutfits[Outfits.AmeliaO1] = false;
 	//UnlockableOutfits[Outfits.AmeliaO2] = false;
 	//unlocked_outfits_load();
-}
+//}
 
 //if (instance_exists(oPlayer)) {
     

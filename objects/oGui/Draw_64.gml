@@ -378,7 +378,9 @@ if (instance_exists(oPlayer))
 		if (oPlayer.skilltimer > oPlayer.specialcooldown) { draw_text(_sx+oGui.a, _sy + casesize, "READY"); }
 		//draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2.1, 2.1, 0, c_white, 1);
 		draw_sprite_ext(special[$ "thumb"], 0, _sx + 4, _sy, 2, 2, 0, c_white, .5);
-		if (global.debug) { draw_text(_sx + 90, _sy + casesize / 2,string(oPlayer.skilltimer) + "/" + string(oPlayer.specialcooldown)); }			
+		DEBUG 
+			draw_text(_sx + 90, _sy + casesize / 2,string(oPlayer.skilltimer) + "/" + string(oPlayer.specialcooldown)); 
+		ENDDEBUG
 	}
 	#endregion
 	#region Upgrades
@@ -868,19 +870,16 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and HP > 0
 	}
 #endregion
 #region Debug
-//if (keyboard_check_pressed(ord("M"))) {
-//	if (global.debug) {
-//		global.debug = false;
-//	}
-//	else global.debug=true;
-//}
-DEBUG
-	global.debug = true;
-ENDDEBUG
+if (keyboard_check_pressed(ord("M"))) {
+	if (global.debug) {
+		global.debug = false;
+	}
+	else global.debug=true;
+}
 //draw_text(10,10,global.debug);
 var debugy=170;
 offset = 0;
-if (global.debug) {
+DEBUG
 	draw_set_color(c_grey);
 	draw_set_alpha(.5);
 	draw_set_color(c_white);
@@ -901,7 +900,7 @@ if (global.debug) {
 			offset += 20;
 		}		    
 	}
-}
+ENDDEBUG
 #endregion	
 #region Android Buttons
 if (os_type == os_android) 

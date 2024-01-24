@@ -74,7 +74,8 @@ else if (thisEnemy != Enemies.SmolAme){
 	}
 }
 var _vars = ["speed", "atk", "hp", "image_xscale", "infected", "target"];
-if (global.debug and distance_to_point(mouse_x, mouse_y) < 10) {
+DEBUG
+if (distance_to_point(mouse_x, mouse_y) < 10) {
 	if (instance_exists(target)) {
 	    draw_line(x,y,target.x, target.y);
 	}
@@ -84,6 +85,7 @@ if (global.debug and distance_to_point(mouse_x, mouse_y) < 10) {
 		}	    
 	}
 }
+ENDDEBUG
 //draw_text(x,y-32,string(atk));
 var offset = 0;
 for (var i = 0; i < array_length(debuffs); ++i) {

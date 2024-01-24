@@ -11,6 +11,6 @@ global.goldenAnvil = false;
 #macro GoldenANVIL global.goldenAnvil
 #macro Buffs global.buffs
 #macro Delta global.deltaTime
-#macro DEBUG if (os_get_config() == "Debug") {
+#macro DEBUG if (os_get_config() == "Debug" or global.debug) {
 #macro ENDDEBUG }
 //gml_pragma("ityBuild", "true");
