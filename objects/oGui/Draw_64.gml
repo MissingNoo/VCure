@@ -1,3 +1,4 @@
+draw_set_alpha(1);
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
 //var _str = "";
@@ -385,6 +386,7 @@ if (instance_exists(oPlayer))
 	#endregion
 	#region Upgrades
 	if (surface_exists(itemsSurface)) {
+		draw_set_alpha(1);
 	    draw_surface(itemsSurface, 0, 0);
 	}
 	#endregion	

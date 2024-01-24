@@ -59,7 +59,7 @@ function button_updown(x, y, text, variable, step){
 	var w = sprite_get_width(DebugArrowButtonUpDown);
 	var up = button_arrow(3, x, y);
 	var down = button_arrow(1, x, y + h + 1);
-	draw_text_transformed(x + w, y + 5, text, 1.5, 1.5, 0);
+	draw_text_transformed(x + w + 2, y + 5, text, 1.5, 1.5, 0);
 	var result = up - down;
 	variable_instance_set(self, variable, variable_instance_get(self, variable) + (step * result));
 	yy += 50;
@@ -78,4 +78,19 @@ function debug_text_button(x, y, text){
 	draw_text_transformed(x + 2, y + 2, text, 1, 1, 0);
 	yy += 30;
 	return click_on_area(area);	
+}
+	
+function debug_checkbox(x, y, variable, text){
+	draw_rectangle(x, y, x + 16, y + 16, true);
+	if (click_on_area([x, y, x + 16, y + 16])) {
+	    variable_instance_set(self, variable, !variable_instance_get(self, variable));
+	}
+	var foo = variable_instance_get(self, variable);
+	if (foo) {
+	    draw_line(x, y, x + 16, y + 16);
+	    draw_line(x + 16, y, x, y + 16);
+	}
+	draw_text_transformed(x + 18, y - 5, text, 1.25, 1.25, 0);
+	yy += 20;
+	return foo;
 }
