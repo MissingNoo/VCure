@@ -2,6 +2,11 @@
     "language": "English",
     "locale": "en-US",
     "text": {
+		"Hud" : {
+			"Button" : {
+				"Accept" : "Accept"
+			}
+		},
 		"Characters":{
 			"Tenma Maemi" : {
 				"chooseText" : "Choose your perfect idol"

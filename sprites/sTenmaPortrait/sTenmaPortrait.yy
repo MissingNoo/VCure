@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "sTenmaPortrait",
   "bbox_bottom": 37,
-  "bbox_left": 0,
-  "bbox_right": 43,
+  "bbox_left": 2,
+  "bbox_right": 39,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"35fd7dca-2982-4069-bfdc-78ef27032bd1",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d2b05855-d3c4-4f3d-84b2-7abbd8ee5674",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 38,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9a949561-0d46-46e5-9c33-7488a5fbeb4a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"52e58796-10d9-474c-8792-84d5c622f5a9","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"35fd7dca-2982-4069-bfdc-78ef27032bd1","path":"sprites/sTenmaPortrait/sTenmaPortrait.yy",},},},"Disabled":false,"id":"470af6f0-061f-4bc0-a996-207cb8c1be98","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d2b05855-d3c4-4f3d-84b2-7abbd8ee5674","path":"sprites/sTenmaPortrait/sTenmaPortrait.yy",},},},"Disabled":false,"id":"7140f78f-803d-49d0-b724-dee9b8f984d4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -19,10 +19,12 @@ for (var i = 0; i < array_length(vars); ++i) {
 if (instance_exists(oPlayer) and debug_checkbox(x + 10, yy, "immortal", "immortal")) {
     HP = MAXHP;
 }
-if (debug_text_button(x + 10, yy, "testbutton")) {
-    show_debug_message("test");
+if (debug_text_button(x + 10, yy, "box")) {
+    PrizeBox = !PrizeBox;
 }
-if (debug_text_button(x + 10, yy, "button")) {
-    show_message("test2");
+if (debug_text_button(x + 10, yy, "reset box")) {
+	oGui.boxaccept = false;
+    oGui.boxoffset = 700;
+	oGui.chestspr = 0;	
 }
 maxsize = minimized ? y + 50 : yy - y + 10;

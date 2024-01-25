@@ -1,4 +1,45 @@
 draw_set_alpha(1);
+if (PrizeBox) {
+	draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
+	draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, 3, 3, 0, c_white, 1);
+	if (!boxaccept) {
+		part_emitter_destroy_all(coinsSystem);
+	    var w = sprite_get_width(sHudButton) * 0.75;
+		var h = sprite_get_height(sHudButton) * 1.50;
+		var _x = GW/2;
+		var _y = GH/2 + 275;
+		var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
+		draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
+		draw_set_valign(fa_middle);
+		draw_set_halign(fa_center);
+		var _color = mouseIn ? c_black : c_white;
+		draw_text_transformed_color(_x, _y + 5, lexicon_text("Hud.Button.Accept"), 2, 2, 0, _color, _color, _color, _color, 1);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
+		    boxaccept = true;
+			_pemit1 = part_emitter_create(coinsSystem);
+			part_emitter_region(coinsSystem, _pemit1, -32, 32, -32, 32, ps_shape_rectangle, ps_distr_linear);
+			part_emitter_stream(coinsSystem, _pemit1, _ptype1, -3);
+		}
+	}
+	else {
+	    boxitems(boxoffset);
+		//draw_set_alpha(0.5);
+		//GH/2 - 306
+		//draw_set_alpha(1);
+		if (surface_exists(boxsurface)) {
+		    draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+		}
+		part_system_drawit(coinsSystem);
+		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, 3, 3, 0, c_white, 1);
+		if (chestspr < 14) { chestspr += sprite_get_speed(sChest) / 60; }
+		boxoffset -= 15;
+		if (boxoffset <  -3000) { boxoffset = 0; }
+	}
+}
+
+
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
 //var _str = "";
