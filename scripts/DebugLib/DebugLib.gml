@@ -54,18 +54,18 @@ function button_arrow(dir, x, y){
 	return result;
 }
 
-function button_updown(x, y, text, variable, step){
+function button_updown(x, y, text, variable, step, instance = self){
 	var h = sprite_get_height(DebugArrowButtonUpDown);
 	var w = sprite_get_width(DebugArrowButtonUpDown);
 	var up = button_arrow(3, x, y);
 	var down = button_arrow(1, x, y + h + 1);
 	draw_text_transformed(x + w + 2, y + 5, text, 1.5, 1.5, 0);
 	var result = up - down;
-	variable_instance_set(self, variable, variable_instance_get(self, variable) + (step * result));
+	variable_instance_set(instance, variable, variable_instance_get(instance, variable) + (step * result));
 	yy += 50;
 }
 
-function debug_text_button(x, y, text){
+function debug_text_button(x, y, text, func){
 	var textsize = string_width(text) + 4;
 	var textheight= string_height(text) + 4;
 	var area = [x, y, x + textsize, y + textheight];
@@ -77,15 +77,17 @@ function debug_text_button(x, y, text){
 	draw_rectangle(x, y, x + textsize, y + textheight, true);	
 	draw_text_transformed(x + 2, y + 2, text, 1, 1, 0);
 	yy += 30;
-	return click_on_area(area);	
+	if (click_on_area(area)) {
+	    func();
+	}
 }
 	
-function debug_checkbox(x, y, variable, text){
+function debug_checkbox(x, y, variable, text, instance = self){
 	draw_rectangle(x, y, x + 16, y + 16, true);
 	if (click_on_area([x, y, x + 16, y + 16])) {
-	    variable_instance_set(self, variable, !variable_instance_get(self, variable));
+	    variable_instance_set(instance, variable, !variable_instance_get(instance, variable));
 	}
-	var foo = variable_instance_get(self, variable);
+	var foo = variable_instance_get(instance, variable);
 	if (foo) {
 	    draw_line(x, y, x + 16, y + 16);
 	    draw_line(x + 16, y, x, y + 16);
