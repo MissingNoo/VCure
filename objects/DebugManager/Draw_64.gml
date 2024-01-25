@@ -30,7 +30,4 @@ for (var i = 0; i < array_length(variables); ++i) {
 if (instance_exists(oPlayer) and debug_checkbox(x + 10, yy, "immortal", "immortal")) {
     HP = MAXHP;
 }
-debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){PrizeBox = !PrizeBox;});
-debug_add_config("ResetBox", DebugTypes.Button, undefined, undefined, function(){oGui.boxaccept = false; oGui.boxoffset = 700; oGui.chestspr = 0;});
-debug_add_config("test", DebugTypes.Button, undefined, undefined, function(){show_message("teste")});
 maxsize = yy - y + 10;

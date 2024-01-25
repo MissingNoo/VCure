@@ -53,18 +53,16 @@ function button_arrow(dir, x, y){
 	}
 	return result;
 }
-
 function button_updown(x, y, text, variable, step, instance = self){
 	var h = sprite_get_height(DebugArrowButtonUpDown);
 	var w = sprite_get_width(DebugArrowButtonUpDown);
 	var up = button_arrow(3, x, y);
 	var down = button_arrow(1, x, y + h + 1);
-	draw_text_transformed(x + w + 2, y + 5, text, 1.5, 1.5, 0);
+	draw_text_transformed(x + w + 2, y + 5, $"{text}: {variable_instance_get(instance, variable)}", 1.5, 1.5, 0);
 	var result = up - down;
 	variable_instance_set(instance, variable, variable_instance_get(instance, variable) + (step * result));
 	yy += 50;
 }
-
 function debug_text_button(x, y, text, func){
 	var textsize = string_width(text) + 4;
 	var textheight= string_height(text) + 4;
@@ -80,8 +78,7 @@ function debug_text_button(x, y, text, func){
 	if (click_on_area(area)) {
 	    func();
 	}
-}
-	
+}	
 function debug_checkbox(x, y, variable, text, instance = self){
 	draw_rectangle(x, y, x + 16, y + 16, true);
 	if (click_on_area([x, y, x + 16, y + 16])) {

@@ -1,4 +1,7 @@
 draw_set_alpha(1);
+DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){PrizeBox = !PrizeBox;});
+DebugManager.debug_add_config("ResetBox", DebugTypes.Button, undefined, undefined, function(){oGui.boxaccept = false; oGui.boxoffset = 700; oGui.chestspr = 0; oGui.chestresult = false; oGui.chesttimer[0] = 0;});
+DebugManager.debug_add_config("test", DebugTypes.Button, undefined, undefined, function(){show_message("teste")});
 if (PrizeBox) {
 	draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
 	draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, 3, 3, 0, c_white, 1);
@@ -24,12 +27,19 @@ if (PrizeBox) {
 		}
 	}
 	else {
-	    boxitems(boxoffset);
-		//draw_set_alpha(0.5);
-		//GH/2 - 306
-		//draw_set_alpha(1);
-		if (surface_exists(boxsurface)) {
-		    draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+		DebugManager.debug_add_config("Chest Timer", DebugTypes.UpDown, self, "a");
+		if (chesttimer[0] < chesttimer[1]) {
+		    chesttimer[0] += (1/60) * Delta;
+		}
+		else { chestresult = true; part_emitter_destroy_all(coinsSystem); }
+		if (!chestresult) {
+		    boxitems(boxoffset);
+			if (surface_exists(boxsurface)) {
+			    draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+			}
+		}
+		else {
+			draw_sprite_ext(ItemList[5][1].thumb, 0, GW/2, GH/2 + 125, 3, 3, 0, c_white, 1);
 		}
 		part_system_drawit(coinsSystem);
 		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, 3, 3, 0, c_white, 1);

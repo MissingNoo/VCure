@@ -539,6 +539,8 @@ function upgradesSurface(){
 #endregion
 #endregion
 #region upgrades surface
+chesttimer = [0, 3];
+chestresult = false;
 chestspr = 0;
 boxoffset = 700;
 boxaccept = false;
