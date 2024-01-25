@@ -19,7 +19,7 @@ if (PrizeBox) {
 		if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
 		    boxaccept = true;
 			_pemit1 = part_emitter_create(coinsSystem);
-			part_emitter_region(coinsSystem, _pemit1, -32, 32, -32, 32, ps_shape_rectangle, ps_distr_linear);
+			part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
 			part_emitter_stream(coinsSystem, _pemit1, _ptype1, -3);
 		}
 	}
