@@ -695,6 +695,7 @@
     {"name":"sGWSPill","order":14,"path":"sprites/sGWSPill/sGWSPill.yy",},
     {"name":"input_vibrate_pulse","order":5,"path":"scripts/input_vibrate_pulse/input_vibrate_pulse.yy",},
     {"name":"input_cursor_x","order":10,"path":"scripts/input_cursor_x/input_cursor_x.yy",},
+    {"name":"ParticleSystem8","order":7,"path":"particles/ParticleSystem8/ParticleSystem8.yy",},
     {"name":"input_mouse_moved","order":8,"path":"scripts/input_mouse_moved/input_mouse_moved.yy",},
     {"name":"sMenhera","order":5,"path":"sprites/sMenhera/sMenhera.yy",},
     {"name":"lexicon_replace_chr_get","order":3,"path":"scripts/lexicon_replace_chr_get/lexicon_replace_chr_get.yy",},

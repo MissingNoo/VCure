@@ -810,6 +810,7 @@
     {"id":{"name":"sGWSPill","path":"sprites/sGWSPill/sGWSPill.yy",},},
     {"id":{"name":"input_vibrate_pulse","path":"scripts/input_vibrate_pulse/input_vibrate_pulse.yy",},},
     {"id":{"name":"input_cursor_x","path":"scripts/input_cursor_x/input_cursor_x.yy",},},
+    {"id":{"name":"ParticleSystem8","path":"particles/ParticleSystem8/ParticleSystem8.yy",},},
     {"id":{"name":"input_mouse_moved","path":"scripts/input_mouse_moved/input_mouse_moved.yy",},},
     {"id":{"name":"sLiaPortrait","path":"sprites/sLiaPortrait/sLiaPortrait.yy",},},
     {"id":{"name":"sMenhera","path":"sprites/sMenhera/sMenhera.yy",},},

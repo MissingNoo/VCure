@@ -31,7 +31,7 @@ if (PrizeBox) {
 		    boxaccept = true;
 			_pemit1 = part_emitter_create(coinsSystem);
 			part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
-			part_emitter_stream(coinsSystem, _pemit1, _ptype1, coinsAmount);
+			part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
 		}
 	}
 	else {
@@ -46,7 +46,8 @@ if (PrizeBox) {
 			}
 		}
 		else {
-			draw_sprite_ext(ItemList[5][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+			part_system_drawit(shineSystem);
+			draw_sprite_ext(WEAPONS_LIST[Weapons.PipiPilstol][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
 		}
 		part_system_drawit(coinsSystem);
 		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);

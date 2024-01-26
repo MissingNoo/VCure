@@ -7,7 +7,7 @@ if (hold_on_area([x, y, x + 300, y + 45])) {
 depth = -1000;
 screenarea = [x, y, x + 300, minimized ? y + 50 : y + maxsize]
 draw_sprite_stretched(sprite_index, 0, x, y, 300, minimized ? 50 : maxsize);
-if (debug_text_button(x + 257, y + 11, " - ")) { minimized = !minimized; }
+debug_text_button(x + 257, y + 11, " - ", function(){ minimized = !minimized; });
 yy = y + 50;
 if (minimized) { yy = 9999; }
 button_updown(x + 10, yy, "step", "step", .01);
