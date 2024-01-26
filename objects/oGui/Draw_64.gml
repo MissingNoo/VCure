@@ -28,6 +28,8 @@ if (PrizeBox) {
 		draw_set_halign(fa_left);
 		draw_set_valign(fa_top);
 		if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
+			boxcoins = irandom_range(72, 103);
+			temp = irandom(array_length(ItemList) - 1);
 		    boxaccept = true;
 			_pemit1 = part_emitter_create(coinsSystem);
 			part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
@@ -47,7 +49,7 @@ if (PrizeBox) {
 		}
 		else {
 			part_system_drawit(shineSystem);
-			draw_sprite_ext(WEAPONS_LIST[Weapons.PipiPilstol][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+			draw_sprite_ext(ItemList[temp][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
 		}
 		part_system_drawit(coinsSystem);
 		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);

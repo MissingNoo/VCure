@@ -539,6 +539,8 @@ function upgradesSurface(){
 #endregion
 #endregion
 #region upgrades surface
+boxcoins = 0;
+temp = 0;
 upspeed = 15;
 itemdistance = 80;
 itemsize = 2.50;
