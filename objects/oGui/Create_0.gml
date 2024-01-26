@@ -539,7 +539,15 @@ function upgradesSurface(){
 #endregion
 #endregion
 #region upgrades surface
-chesttimer = [0, 3];
+upspeed = 15;
+itemdistance = 80;
+itemsize = 2.50;
+coinsAmount = -2;
+resultY = -30;
+resultSize = 3;
+chestsize = 1.5;
+chesttimer = 0;
+chestmaxtimer = 4;
 chestresult = false;
 chestspr = 0;
 boxoffset = 700;
@@ -551,12 +559,12 @@ function boxitems(offset){
 	surface_set_target(boxsurface);
 	var _yoffset = 0;
 	for (var i = 0; i < array_length(ItemList); ++i) {
-	    draw_sprite_ext(ItemList[i][1][$ "thumb"], 0, 64, 0 - _yoffset + offset, 2, 2, 0, c_white, 1);
-		_yoffset -= 64;
+	    draw_sprite_ext(ItemList[i][1][$ "thumb"], 0, 64, 0 - _yoffset + offset, itemsize, itemsize, 0, c_white, 1);
+		_yoffset -= itemdistance;
 	}
 	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
-	    draw_sprite_ext(WEAPONS_LIST[i][1][$ "thumb"], 0, 64, 0 - _yoffset + offset, 2, 2, 0, c_white, 1);
-		_yoffset -= 64;
+	    draw_sprite_ext(WEAPONS_LIST[i][1][$ "thumb"], 0, 64, 0 - _yoffset + offset, itemsize, itemsize, 0, c_white, 1);
+		_yoffset -= itemdistance;
 	}
 	surface_reset_target();
 }

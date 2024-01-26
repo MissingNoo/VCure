@@ -1,10 +1,18 @@
+//feather disable GM1041
 draw_set_alpha(1);
 DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){PrizeBox = !PrizeBox;});
-DebugManager.debug_add_config("ResetBox", DebugTypes.Button, undefined, undefined, function(){oGui.boxaccept = false; oGui.boxoffset = 700; oGui.chestspr = 0; oGui.chestresult = false; oGui.chesttimer[0] = 0;});
-DebugManager.debug_add_config("test", DebugTypes.Button, undefined, undefined, function(){show_message("teste")});
 if (PrizeBox) {
+	DebugManager.debug_add_config("Restart Box", DebugTypes.Button, undefined, undefined, function(){boxaccept = false; chestresult = false; chesttimer = 0; chestspr = 0; boxoffset = 700;});
+	DebugManager.debug_add_config("Animation time", DebugTypes.UpDown, self, "chestmaxtimer");
+	DebugManager.debug_add_config("Chest Size", DebugTypes.UpDown, self, "chestsize");
+	DebugManager.debug_add_config("Result Size", DebugTypes.UpDown, self, "resultSize");
+	DebugManager.debug_add_config("Result Y", DebugTypes.UpDown, self, "resultY");
+	DebugManager.debug_add_config("Coins amount", DebugTypes.UpDown, self, "coinsAmount");
+	DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
+	DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
+	DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
 	draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
-	draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, 3, 3, 0, c_white, 1);
+	draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
 	if (!boxaccept) {
 		part_emitter_destroy_all(coinsSystem);
 	    var w = sprite_get_width(sHudButton) * 0.75;
@@ -23,13 +31,12 @@ if (PrizeBox) {
 		    boxaccept = true;
 			_pemit1 = part_emitter_create(coinsSystem);
 			part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
-			part_emitter_stream(coinsSystem, _pemit1, _ptype1, -3);
+			part_emitter_stream(coinsSystem, _pemit1, _ptype1, coinsAmount);
 		}
 	}
 	else {
-		DebugManager.debug_add_config("Chest Timer", DebugTypes.UpDown, self, "a");
-		if (chesttimer[0] < chesttimer[1]) {
-		    chesttimer[0] += (1/60) * Delta;
+		if (chesttimer < chestmaxtimer) {
+		    chesttimer += (1/60) * Delta;
 		}
 		else { chestresult = true; part_emitter_destroy_all(coinsSystem); }
 		if (!chestresult) {
@@ -39,16 +46,16 @@ if (PrizeBox) {
 			}
 		}
 		else {
-			draw_sprite_ext(ItemList[5][1].thumb, 0, GW/2, GH/2 + 125, 3, 3, 0, c_white, 1);
+			draw_sprite_ext(ItemList[5][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
 		}
 		part_system_drawit(coinsSystem);
-		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, 3, 3, 0, c_white, 1);
+		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
 		if (chestspr < 14) { chestspr += sprite_get_speed(sChest) / 60; }
-		boxoffset -= 15;
+		boxoffset -= upspeed;
 		if (boxoffset <  -3000) { boxoffset = 0; }
 	}
 }
-
+//feather enable GM1041
 
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);

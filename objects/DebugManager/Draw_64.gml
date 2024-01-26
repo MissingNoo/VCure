@@ -10,7 +10,7 @@ draw_sprite_stretched(sprite_index, 0, x, y, 300, minimized ? 50 : maxsize);
 if (debug_text_button(x + 257, y + 11, " - ")) { minimized = !minimized; }
 yy = y + 50;
 if (minimized) { yy = 9999; }
-button_updown(x + 10, yy, $"step: {step}", "step", .01);
+button_updown(x + 10, yy, "step", "step", .01);
 for (var i = 0; i < array_length(variables); ++i) {
 	switch (variables[i].type) {
 	    case DebugTypes.UpDown:
