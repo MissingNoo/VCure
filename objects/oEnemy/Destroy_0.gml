@@ -1,5 +1,6 @@
 if (boss) {
     audio_play_sound(snd_bossdefeated,0,0);
+	instance_create_depth(x, y, depth, oChest);
 }
 
 if (dropxp and hp < 0) {

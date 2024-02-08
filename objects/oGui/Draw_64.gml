@@ -1,65 +1,4 @@
-//feather disable GM1041
 draw_set_alpha(1);
-DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){PrizeBox = !PrizeBox;});
-if (PrizeBox) {
-	DebugManager.debug_add_config("Restart Box", DebugTypes.Button, undefined, undefined, function(){boxaccept = false; chestresult = false; chesttimer = 0; chestspr = 0; boxoffset = 700;});
-	DebugManager.debug_add_config("Animation time", DebugTypes.UpDown, self, "chestmaxtimer");
-	DebugManager.debug_add_config("Chest Size", DebugTypes.UpDown, self, "chestsize");
-	DebugManager.debug_add_config("Result Size", DebugTypes.UpDown, self, "resultSize");
-	DebugManager.debug_add_config("Result Y", DebugTypes.UpDown, self, "resultY");
-	DebugManager.debug_add_config("Coins amount", DebugTypes.UpDown, self, "coinsAmount");
-	DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
-	DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
-	DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
-	draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
-	draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
-	if (!boxaccept) {
-		part_emitter_destroy_all(coinsSystem);
-	    var w = sprite_get_width(sHudButton) * 0.75;
-		var h = sprite_get_height(sHudButton) * 1.50;
-		var _x = GW/2;
-		var _y = GH/2 + 275;
-		var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
-		draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
-		draw_set_valign(fa_middle);
-		draw_set_halign(fa_center);
-		var _color = mouseIn ? c_black : c_white;
-		draw_text_transformed_color(_x, _y + 5, lexicon_text("Hud.Button.Accept"), 2, 2, 0, _color, _color, _color, _color, 1);
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
-		if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
-			boxcoins = irandom_range(72, 103);
-			temp = irandom(array_length(ItemList) - 1);
-		    boxaccept = true;
-			_pemit1 = part_emitter_create(coinsSystem);
-			part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
-			part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
-		}
-	}
-	else {
-		if (chesttimer < chestmaxtimer) {
-		    chesttimer += (1/60) * Delta;
-		}
-		else { chestresult = true; part_emitter_destroy_all(coinsSystem); }
-		if (!chestresult) {
-		    boxitems(boxoffset);
-			if (surface_exists(boxsurface)) {
-			    draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
-			}
-		}
-		else {
-			part_system_drawit(shineSystem);
-			draw_sprite_ext(ItemList[temp][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
-		}
-		part_system_drawit(coinsSystem);
-		draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
-		if (chestspr < 14) { chestspr += sprite_get_speed(sChest) / 60; }
-		boxoffset -= upspeed;
-		if (boxoffset <  -3000) { boxoffset = 0; }
-	}
-}
-//feather enable GM1041
-
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
 //var _str = "";
@@ -86,7 +25,7 @@ if (keyboard_check(vk_alt)) {
     //draw_sprite_ext(bgtest, 0, 0, 0, 1, 1, 0, c_white, .8);
     draw_sprite_ext(bgtest264, 0, 0, 0, 1, 1, 0, c_white, .8);
 }
-if (GoldenANVIL or global.upgrade == 1 or global.gamePaused and room != rInicio and HP > 0) {
+if (GoldenANVIL or global.upgrade == 1 or PrizeBox or global.gamePaused and room != rInicio and HP > 0) {
 	draw_set_alpha(.75);
 	draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false); // Darken the screen
 	draw_set_alpha(1);
@@ -821,6 +760,66 @@ if (instance_exists(oPlayer))
 		}
 	}
 	#endregion
+	#region Prize Box
+	DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oChest);});
+	if (PrizeBox) {
+		DebugManager.debug_add_config("Restart Box", DebugTypes.Button, undefined, undefined, function(){boxaccept = false; chestresult = false; chesttimer = 0; chestspr = 0; boxoffset = 700;});
+		DebugManager.debug_add_config("Animation time", DebugTypes.UpDown, self, "chestmaxtimer");
+		DebugManager.debug_add_config("Chest Size", DebugTypes.UpDown, self, "chestsize");
+		DebugManager.debug_add_config("Result Size", DebugTypes.UpDown, self, "resultSize");
+		DebugManager.debug_add_config("Result Y", DebugTypes.UpDown, self, "resultY");
+		DebugManager.debug_add_config("Coins amount", DebugTypes.UpDown, self, "coinsAmount");
+		DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
+		DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
+		DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
+		draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
+		draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+		if (!boxaccept) {
+			part_emitter_destroy_all(coinsSystem);
+		    var w = sprite_get_width(sHudButton) * 0.75;
+			var h = sprite_get_height(sHudButton) * 1.50;
+			_x = GW/2;
+			_y = GH/2 + 275;
+			var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
+			draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
+			draw_set_valign(fa_middle);
+			draw_set_halign(fa_center);
+			var _color = mouseIn ? c_black : c_white;
+			draw_text_transformed_color(_x, _y + 5, lexicon_text("Hud.Button.Accept"), 2, 2, 0, _color, _color, _color, _color, 1);
+			draw_set_halign(fa_left);
+			draw_set_valign(fa_top);
+			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
+				boxcoins = irandom_range(72, 103);
+				temp = prize_box_roll();
+			    boxaccept = true;
+				_pemit1 = part_emitter_create(coinsSystem);
+				part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
+				part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
+			}
+		}
+		else {
+			if (chesttimer < chestmaxtimer) {
+			    chesttimer += (1/60) * Delta;
+			}
+			else { chestresult = true; part_emitter_destroy_all(coinsSystem); }
+			if (!chestresult) {
+			    boxitems(boxoffset);
+				if (surface_exists(boxsurface)) {
+				    draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+				}
+			}
+			else {
+				part_system_drawit(shineSystem);
+				draw_sprite_ext(WEAPONS_LIST[temp][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+			}
+			part_system_drawit(coinsSystem);
+			draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+			if (chestspr < 14) { chestspr += sprite_get_speed(sChest) / 60; }
+			boxoffset -= upspeed;
+			if (boxoffset <  -3000) { boxoffset = 0; }
+		}
+	}
+	#endregion
 	#region Timer
 	var time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
 	draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0);
@@ -850,7 +849,7 @@ if (instance_exists(oPlayer))
 }
 #endregion
 #region PauseMenu
-if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and HP > 0 and !instance_exists(oGameOver)) {
+if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !PrizeBox and HP > 0 and !instance_exists(oGameOver)) {
 	draw_set_halign(fa_left);
 	if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
 	var startOption = 0;
@@ -971,7 +970,7 @@ if (room == rCharacterSelect or room == rInicio) {
 var _drawMouse = true;
 if (instance_exists(oPlayer) and oPlayer.mouseAim) {
     _drawMouse = false;
-	if (ANVIL or GoldenANVIL or global.upgrade){
+	if (ANVIL or GoldenANVIL or global.upgrade or PrizeBox){
 		_drawMouse = true;
 	}
 }

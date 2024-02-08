@@ -46,6 +46,8 @@ function pause_game(){
 	if (instance_exists(oGameOver)) {
 	    return;
 	}
+		if (instance_exists(oPlayer)) { oPlayer.wasPausedAim = oPlayer.mouseAim; }
+		
 		oGui.activeMenu=PMenus.Pause;
 		oGui.selected=0;
 		maxselected = 0;
@@ -57,9 +59,11 @@ function pause_game(){
 		}
 		if (!global.gamePaused) {
 		    global.gamePaused = true;
+			mouseAim = false;
 		}
-		else if (global.gamePaused and !ANVIL and !global.upgrade) {
+		else if (global.gamePaused and !ANVIL and !global.upgrade and !PrizeBox and !GoldenANVIL) {
 		    global.gamePaused = false;
+			if (instance_exists(oPlayer)) { oPlayer.mouseAim = oPlayer.wasPausedAim; }
 		}
 		if (global.singleplayer) {
 			if(global.gamePaused)
@@ -117,7 +121,7 @@ function pause_game(){
 		//	//global.pad.dpad("", "left", "right", "up", "down");
 		//}
 }		
-	
+
 enum Patterns{
 	Null,
 	Cluster,
@@ -507,4 +511,68 @@ function prop_start(){
 	        break;
 	}
 	part_system_position(part, x, y - _y);
+}
+	
+function prize_box_roll(){
+	//There is a 7/10 chance for the reward to be a weapon and 3/10 chance for an item.
+	//If the player cannot be offered a weapon (no available slots and fully leveled), the reward will be replaced by an item.
+	//If the player cannot be offered an item, the game will attempt to roll again for a weapon, up to 5 times.
+	//If the previous attempt fails (or both options are simply unavailable), the player will be rewarded additional HoloCoins instead.
+	var _chance = irandom_range(0, 10);
+	//var _rewardType = _chance <= 7 ? Rewards.Weapon : Rewards.Item;
+	var _rewardType = Rewards.Weapon;
+	var _result;
+	//var _validResult = false;
+	switch (_rewardType) {
+		case Rewards.Weapon:
+			//while (!_validResult) {
+			_result = prize_box_roll_weapon();
+			//}
+			break;
+		default:
+			// code here
+			break;
+	}
+	return _result;
+}
+
+function prize_box_roll_weapon(){
+	var _possibleWeapons = [];
+	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
+		var _weapon = WEAPONS_LIST[i][1];
+		if (_weapon[$ "collab"] == true or (_weapon[$ "perk"] and _weapon[$ "characterid"] != global.player[? "id"]) or (_weapon[$ "unlocked"] != undefined and !_weapon[$ "unlocked"])) {
+			continue;
+		}
+		else{
+			array_push(_possibleWeapons, i);
+		}
+	}
+	DEBUG
+	show_debug_message(_possibleWeapons);
+	ENDDEBUG
+	var _weapon;
+	if (UPGRADES[array_length(UPGRADES) - 1] == global.null) {
+		DEBUG
+		show_debug_message("Weapon slot free:");
+		ENDDEBUG
+	    _weapon = _possibleWeapons[irandom(array_length(_possibleWeapons)- 1)];
+	}
+	else{
+		DEBUG
+		show_debug_message("Rolling an existing Weapon:");
+		ENDDEBUG
+		_possibleWeapons = [];
+		for (var i = 0; i < array_length(UPGRADES); ++i) {
+		    if (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) {
+			    array_push(_possibleWeapons, UPGRADES[i][$ "id"]);
+			}
+		}
+		if (array_length(_possibleWeapons) > 0) {
+		    _weapon = _possibleWeapons[irandom(array_length(_possibleWeapons) - 1)];
+		}
+		else{
+			_weapon = "item";
+		}
+	}
+	return _weapon;
 }
