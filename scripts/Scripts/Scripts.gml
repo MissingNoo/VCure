@@ -519,24 +519,34 @@ function prize_box_roll(){
 	//If the player cannot be offered an item, the game will attempt to roll again for a weapon, up to 5 times.
 	//If the previous attempt fails (or both options are simply unavailable), the player will be rewarded additional HoloCoins instead.
 	var _chance = irandom_range(0, 10);
-	//var _rewardType = _chance <= 7 ? Rewards.Weapon : Rewards.Item;
-	var _rewardType = Rewards.Weapon;
+	var _rewardType = _chance <= 7 ? Rewards.Weapon : Rewards.Item;
+	//var _rewardType = Rewards.Weapon;
 	var _result;
 	//var _validResult = false;
-	switch (_rewardType) {
-		case Rewards.Weapon:
-			//while (!_validResult) {
-			_result = prize_box_roll_weapon();
-			//}
-			break;
-		default:
-			// code here
-			break;
+	if (_rewardType == Rewards.Weapon) {
+	    _result = [Rewards.Weapon, prize_box_roll_weapon()];
+		if (_result[1] == "item") {
+		    _rewardType = Rewards.Item;
+		}
 	}
+	if (_rewardType == Rewards.Item) {
+	    _result = [Rewards.Item, prize_box_roll_item()];
+		if (_result[1] == "weapon") {
+		    repeat (5) {
+				_rewardType = Rewards.Weapon;
+			    _result = [Rewards.Weapon, prize_box_roll_weapon()];
+			}
+			if (_result[1] == "item") {
+				_rewardType = Rewards.Item;
+			    _result = [Rewards.Item, ItemIds.Holocoin];
+			}
+		}
+	}	
 	return _result;
 }
 
 function prize_box_roll_weapon(){
+	var _existing;
 	var _possibleWeapons = [];
 	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 		var _weapon = WEAPONS_LIST[i][1];
@@ -548,19 +558,17 @@ function prize_box_roll_weapon(){
 		}
 	}
 	DEBUG
-	show_debug_message(_possibleWeapons);
+	//show_debug_message(_possibleWeapons);
 	ENDDEBUG
 	var _weapon;
 	if (UPGRADES[array_length(UPGRADES) - 1] == global.null) {
+		_weapon = _possibleWeapons[irandom(array_length(_possibleWeapons)- 1)];
 		DEBUG
 		show_debug_message("Weapon slot free:");
+		show_debug_message($"	Rolled: {WEAPONS_LIST[_weapon][1][$ "name"]}");
 		ENDDEBUG
-	    _weapon = _possibleWeapons[irandom(array_length(_possibleWeapons)- 1)];
 	}
 	else{
-		DEBUG
-		show_debug_message("Rolling an existing Weapon:");
-		ENDDEBUG
 		_possibleWeapons = [];
 		for (var i = 0; i < array_length(UPGRADES); ++i) {
 		    if (UPGRADES[i][$ "level"] < UPGRADES[i][$ "maxlevel"]) {
@@ -569,10 +577,54 @@ function prize_box_roll_weapon(){
 		}
 		if (array_length(_possibleWeapons) > 0) {
 		    _weapon = _possibleWeapons[irandom(array_length(_possibleWeapons) - 1)];
+			DEBUG
+			show_debug_message("Rolling an existing Weapon:");
+			show_debug_message($"	Rolled: {WEAPONS_LIST[_weapon][1][$ "name"]}");
+			ENDDEBUG
 		}
 		else{
 			_weapon = "item";
 		}
 	}
 	return _weapon;
+}
+
+function prize_box_roll_item(){
+	var _possibleItems= [];
+	for (var i = 0; i < array_length(ItemList); ++i) {
+		var _item = ItemList[i][1];
+		if ((_item[$ "perk"] != undefined and _item[$ "perk"]) and (_item[$ "unlocked"] != undefined and !_item[$ "unlocked"])) {
+			continue;
+		}
+		else{
+			array_push(_possibleItems, i);
+		}
+	}
+	var _item;
+	if (playerItems[array_length(playerItems) - 1] == global.nullitem) {
+		_item = _possibleItems[irandom(array_length(_possibleItems)- 1)];
+		DEBUG
+		show_debug_message("Item slot free:");
+		show_debug_message($"	Rolled: {ItemList[_item][1][$ "name"]}");
+		ENDDEBUG
+	}
+	else{
+		_possibleItems= [];
+		for (var i = 0; i < array_length(playerItems); ++i) {
+		    if (playerItems[i][$ "level"] < playerItems[i][$ "maxlevel"]) {
+			    array_push(_possibleItems, playerItems[i][$ "id"]);
+			}
+		}
+		if (array_length(_possibleItems) > 0) {
+		    _item = _possibleItems[irandom(array_length(_possibleItems) - 1)];
+			DEBUG
+			show_debug_message("Rolling an existing Item:");
+			show_debug_message($"	Rolled: {ItemList[_item][1][$ "name"]}");
+			ENDDEBUG
+		}
+		else{
+			_item = "weapon";
+		}
+	}
+	return _item;
 }

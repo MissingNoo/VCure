@@ -791,6 +791,33 @@ if (instance_exists(oPlayer))
 			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
 				boxcoins = irandom_range(72, 103);
 				temp = prize_box_roll();
+				switch (temp[0]) {
+				    case Rewards.Weapon:
+				        for (var i = 0; i < array_length(UPGRADES); ++i) {
+						    if (UPGRADES[i][$ "id"] == temp[1]) {
+							    UPGRADES[i] = WEAPONS_LIST[UPGRADES[i][$ "id"]][UPGRADES[i][$ "level"] + 1];
+								break;
+							}
+							if (UPGRADES[i] == global.null) {
+							    UPGRADES[i] = WEAPONS_LIST[temp[1]][1];
+								break;
+							}
+						}
+				        break;
+				    case Rewards.Item:
+				        for (var i = 0; i < array_length(playerItems); ++i) {
+						    if (playerItems[i][$ "id"] == temp[1]) {
+							    playerItems[i] = ItemList[playerItems[i][$ "id"]][playerItems[i][$ "level"] + 1];
+								break;
+							}
+							if (playerItems[i] == global.nullitem) {
+							    playerItems[i] = ItemList[temp[1]][1];
+								break;
+							}
+						}
+				        break;
+				}
+				upgradesSurface();
 			    boxaccept = true;
 				_pemit1 = part_emitter_create(coinsSystem);
 				part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
@@ -810,7 +837,8 @@ if (instance_exists(oPlayer))
 			}
 			else {
 				part_system_drawit(shineSystem);
-				draw_sprite_ext(WEAPONS_LIST[temp][1].thumb, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+				var _type = temp[0] == Rewards.Weapon ? WEAPONS_LIST[temp[1]][1].thumb : ItemList[temp[1]][1].thumb;
+				draw_sprite_ext(_type, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
 			}
 			part_system_drawit(coinsSystem);
 			draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
