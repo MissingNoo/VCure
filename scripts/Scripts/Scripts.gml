@@ -519,7 +519,7 @@ function prize_box_roll(){
 	//If the player cannot be offered an item, the game will attempt to roll again for a weapon, up to 5 times.
 	//If the previous attempt fails (or both options are simply unavailable), the player will be rewarded additional HoloCoins instead.
 	var _chance = irandom_range(0, 10);
-	var _rewardType = _chance <= 7 ? Rewards.Weapon : Rewards.Item;
+	var _rewardType = _chance < 7 ? Rewards.Weapon : Rewards.Item;
 	//var _rewardType = Rewards.Weapon;
 	var _result;
 	//var _validResult = false;
@@ -554,7 +554,20 @@ function prize_box_roll_weapon(){
 			continue;
 		}
 		else{
-			array_push(_possibleWeapons, i);
+			var _haveWeapon = false;
+			for (var j = 0; j < array_length(UPGRADES); ++j) {
+			    if (UPGRADES[j][$ "id"] == i) {
+				    _haveWeapon = true;
+				}
+			}
+			if (_haveWeapon) {
+			    repeat(10) {
+					array_push(_possibleWeapons, i);
+				}
+			}
+			else {
+				array_push(_possibleWeapons, i);
+			}
 		}
 	}
 	DEBUG
@@ -597,7 +610,20 @@ function prize_box_roll_item(){
 			continue;
 		}
 		else{
-			array_push(_possibleItems, i);
+			var _haveItem= false;
+			for (var j = 0; j < array_length(playerItems); ++j) {
+			    if (playerItems[j][$ "id"] == i) {
+				    _haveItem= true;
+				}
+			}
+			if (_haveItem) {
+			    repeat(10) {
+					array_push(_possibleItems, i);
+				}
+			}
+			else {
+				array_push(_possibleItems, i);
+			}
 		}
 	}
 	var _item;

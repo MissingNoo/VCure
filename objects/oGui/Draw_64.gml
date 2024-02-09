@@ -772,6 +772,7 @@ if (instance_exists(oPlayer))
 		DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
 		DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
 		DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
+		DebugManager.debug_add_config("Accept/Refuse X", DebugTypes.UpDown, self, "chestAcceptRefuseX");
 		draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
 		draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
 		if (!boxaccept) {
@@ -791,33 +792,6 @@ if (instance_exists(oPlayer))
 			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
 				boxcoins = irandom_range(72, 103);
 				temp = prize_box_roll();
-				switch (temp[0]) {
-				    case Rewards.Weapon:
-				        for (var i = 0; i < array_length(UPGRADES); ++i) {
-						    if (UPGRADES[i][$ "id"] == temp[1]) {
-							    UPGRADES[i] = WEAPONS_LIST[UPGRADES[i][$ "id"]][UPGRADES[i][$ "level"] + 1];
-								break;
-							}
-							if (UPGRADES[i] == global.null) {
-							    UPGRADES[i] = WEAPONS_LIST[temp[1]][1];
-								break;
-							}
-						}
-				        break;
-				    case Rewards.Item:
-				        for (var i = 0; i < array_length(playerItems); ++i) {
-						    if (playerItems[i][$ "id"] == temp[1]) {
-							    playerItems[i] = ItemList[playerItems[i][$ "id"]][playerItems[i][$ "level"] + 1];
-								break;
-							}
-							if (playerItems[i] == global.nullitem) {
-							    playerItems[i] = ItemList[temp[1]][1];
-								break;
-							}
-						}
-				        break;
-				}
-				upgradesSurface();
 			    boxaccept = true;
 				_pemit1 = part_emitter_create(coinsSystem);
 				part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
@@ -839,6 +813,66 @@ if (instance_exists(oPlayer))
 				part_system_drawit(shineSystem);
 				var _type = temp[0] == Rewards.Weapon ? WEAPONS_LIST[temp[1]][1].thumb : ItemList[temp[1]][1].thumb;
 				draw_sprite_ext(_type, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+				#region Accept/Refuse
+				var w = sprite_get_width(sHudButton) * 0.75;
+				var h = sprite_get_height(sHudButton) * 1.50;
+				_x = GW/2 + chestAcceptRefuseX;
+				_y = GH/2 + 275;
+				var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
+				draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
+				draw_set_valign(fa_middle);
+				draw_set_halign(fa_center);
+				var _color = mouseIn ? c_black : c_white;
+				draw_text_transformed_color(_x, _y + 5, lexicon_text("Hud.Button.Accept"), 2, 2, 0, _color, _color, _color, _color, 1);
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+				if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
+					switch (temp[0]) {
+					    case Rewards.Weapon:
+					        for (var i = 0; i < array_length(UPGRADES); ++i) {
+							    if (UPGRADES[i][$ "id"] == temp[1]) {
+								    UPGRADES[i] = WEAPONS_LIST[UPGRADES[i][$ "id"]][UPGRADES[i][$ "level"] + 1];
+									break;
+								}
+								if (UPGRADES[i] == global.null) {
+								    UPGRADES[i] = WEAPONS_LIST[temp[1]][1];
+									break;
+								}
+							}
+					        break;
+					    case Rewards.Item:
+					        for (var i = 0; i < array_length(playerItems); ++i) {
+							    if (playerItems[i][$ "id"] == temp[1]) {
+								    playerItems[i] = ItemList[playerItems[i][$ "id"]][playerItems[i][$ "level"] + 1];
+									break;
+								}
+								if (playerItems[i] == global.nullitem) {
+								    playerItems[i] = ItemList[temp[1]][1];
+									break;
+								}
+							}
+					        break;
+					}
+					upgradesSurface();
+					PrizeBox = false;
+					pause_game();
+				}
+				//refuse
+				_x = GW/2 - chestAcceptRefuseX;
+				_y = GH/2 + 275;
+				mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
+				draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
+				draw_set_valign(fa_middle);
+				draw_set_halign(fa_center);
+				_color = mouseIn ? c_black : c_white;
+				draw_text_transformed_color(_x, _y + 5, lexicon_text("Hud.Button.Refuse"), 2, 2, 0, _color, _color, _color, _color, 1);
+				draw_set_halign(fa_left);
+				draw_set_valign(fa_top);
+				if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
+					PrizeBox = false;
+					pause_game();
+				}
+				#endregion
 			}
 			part_system_drawit(coinsSystem);
 			draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);

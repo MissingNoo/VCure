@@ -554,10 +554,11 @@ chestresult = false;
 chestspr = 0;
 boxoffset = 700;
 boxaccept = false;
-boxsurface = surface_create(128, 512, surface_rgba32float);
+boxsurface = surface_create(128, 512);
+chestAcceptRefuseX = 115;
 function boxitems(offset){
 	if (surface_exists(boxsurface)) { surface_free(boxsurface); }
-	boxsurface = surface_create(128, 512, surface_rgba32float);
+	boxsurface = surface_create(128, 512);
 	surface_set_target(boxsurface);
 	var _yoffset = 0;
 	for (var i = 0; i < array_length(ItemList); ++i) {
