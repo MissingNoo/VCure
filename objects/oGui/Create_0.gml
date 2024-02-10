@@ -556,6 +556,56 @@ boxoffset = 700;
 boxaccept = false;
 boxsurface = surface_create(128, 512);
 chestAcceptRefuseX = 115;
+multiChest = false;
+multiChestX = 165;
+rolledPrizes = [];
+currentPrize = 0;
+testvar = 0;
+testvar2 = 0;
+function nextPrize(){
+	currentPrize++;
+	switch (currentPrize) {
+		case 1:
+			part_system_position(shineSystem, GW/2, GH/2 + resultY);
+			break;
+		case 2:
+			part_system_position(shineSystem, GW/2 + multiChestX, GH/2 + resultY);
+			break;
+		case 3:
+			PrizeBox = false;
+			pause_game();
+			break;
+	}
+}
+function acceptPrize(info){
+	switch (info[0]) {
+		case Rewards.Weapon:
+			for (var i = 0; i < array_length(UPGRADES); ++i) {
+				if (UPGRADES[i][$ "id"] == info[1]) {
+					UPGRADES[i] = WEAPONS_LIST[UPGRADES[i][$ "id"]][UPGRADES[i][$ "level"] + 1];
+					break;
+				}
+				if (UPGRADES[i] == global.null) {
+					UPGRADES[i] = WEAPONS_LIST[info[1]][1];
+					break;
+				}
+			}
+			break;
+		case Rewards.Item:
+			for (var i = 0; i < array_length(playerItems); ++i) {
+				if (playerItems[i][$ "id"] == info[1]) {
+					playerItems[i] = ItemList[playerItems[i][$ "id"]][playerItems[i][$ "level"] + 1];
+					break;
+				}
+				if (playerItems[i] == global.nullitem) {
+					playerItems[i] = ItemList[info[1]][1];
+					break;
+				}
+			}
+			break;
+	}
+	upgradesSurface();
+}
 function boxitems(offset){
 	if (surface_exists(boxsurface)) { surface_free(boxsurface); }
 	boxsurface = surface_create(128, 512);

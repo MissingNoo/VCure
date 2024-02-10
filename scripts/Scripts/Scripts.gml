@@ -513,7 +513,7 @@ function prop_start(){
 	part_system_position(part, x, y - _y);
 }
 	
-function prize_box_roll(){
+function prize_box_roll(boxnumber = 0){
 	//There is a 7/10 chance for the reward to be a weapon and 3/10 chance for an item.
 	//If the player cannot be offered a weapon (no available slots and fully leveled), the reward will be replaced by an item.
 	//If the player cannot be offered an item, the game will attempt to roll again for a weapon, up to 5 times.

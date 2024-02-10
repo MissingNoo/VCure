@@ -772,9 +772,26 @@ if (instance_exists(oPlayer))
 		DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
 		DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
 		DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
-		DebugManager.debug_add_config("Accept/Refuse X", DebugTypes.UpDown, self, "chestAcceptRefuseX");
-		draw_sprite_ext(sMenu, 0, GW/2, GH/2, 3, 3, 0, c_white, 1);
-		draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+		//DebugManager.debug_add_config("Accept/Refuse X", DebugTypes.UpDown, self, "chestAcceptRefuseX");
+		//DebugManager.debug_add_config("multiChestX", DebugTypes.UpDown, self, "multiChestX");
+		DebugManager.debug_add_config("testvar", DebugTypes.UpDown, self, "testvar");
+		DebugManager.debug_add_config("testvar2", DebugTypes.UpDown, self, "testvar2");
+		draw_sprite_ext(sMenu, 0, GW/2, GH/2, !multiChest ? 3 : 4, 3, 0, c_white, 1);
+		if (!multiChest) {
+			draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+		}
+		else {
+			var _offsetSelected = 0 + multiChestX;
+			for (var i = 0; i < 3; ++i) {
+				if (currentPrize == i and boxaccept and chestresult) {
+					gpu_set_fog(true, c_yellow, 0, 0);
+					draw_sprite_ext(sChest, chestspr, GW/2 - _offsetSelected - 0.25, GH/2 + 250 + 3.50, chestsize + 0.05, chestsize + 0.05, 0, c_white, 1);
+					gpu_set_fog(false,c_white,0,0);
+				}
+				draw_sprite_ext(sChest, chestspr, GW/2 - _offsetSelected, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);				
+				_offsetSelected -= multiChestX;
+			}
+		}
 		if (!boxaccept) {
 			part_emitter_destroy_all(coinsSystem);
 		    var w = sprite_get_width(sHudButton) * 0.75;
@@ -792,10 +809,29 @@ if (instance_exists(oPlayer))
 			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
 				boxcoins = irandom_range(72, 103);
 				temp = prize_box_roll();
+				if (multiChest) {
+				    rolledPrizes = [prize_box_roll(0), prize_box_roll(1), prize_box_roll(2)];
+					currentPrize = 0;
+				}
 			    boxaccept = true;
-				_pemit1 = part_emitter_create(coinsSystem);
-				part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
-				part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
+				if (!multiChest) {
+					part_system_position(shineSystem, GW/2, GH/2 + resultY);
+					_pemit1 = part_emitter_create(coinsSystem);
+				    part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
+					part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
+				}
+				else {
+					part_system_position(shineSystem, GW/2 - multiChestX, GH/2 + resultY);
+					_pemit1 = part_emitter_create(coinsSystem);
+				    part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
+					part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
+					_pemit2 = part_emitter_create(coinsSystem);
+				    part_emitter_region(coinsSystem, _pemit2, -32 + multiChestX, 32 + multiChestX, -8, 8, ps_shape_rectangle, ps_distr_linear);
+					part_emitter_stream(coinsSystem, _pemit2, _ctype1, coinsAmount);
+					_pemit3 = part_emitter_create(coinsSystem);
+				    part_emitter_region(coinsSystem, _pemit3, -32 - multiChestX, 32 - multiChestX, -8, 8, ps_shape_rectangle, ps_distr_linear);
+					part_emitter_stream(coinsSystem, _pemit3, _ctype1, coinsAmount);
+				}
 			}
 		}
 		else {
@@ -806,13 +842,40 @@ if (instance_exists(oPlayer))
 			if (!chestresult) {
 			    boxitems(boxoffset);
 				if (surface_exists(boxsurface)) {
-				    draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+					if (!multiChest) {
+						draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+					}
+					else {
+						draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64 - multiChestX, GH/2 - 306);
+						draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64, GH/2 - 306);
+						draw_surface_part(boxsurface, 0, 0, 128, 522, GW/2 - 64 + multiChestX, GH/2 - 306);
+					}
 				}
 			}
 			else {
 				part_system_drawit(shineSystem);
-				var _type = temp[0] == Rewards.Weapon ? WEAPONS_LIST[temp[1]][1].thumb : ItemList[temp[1]][1].thumb;
-				draw_sprite_ext(_type, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+				if (!multiChest) {
+				    var _type = temp[0] == Rewards.Weapon ? WEAPONS_LIST[temp[1]][1].thumb : ItemList[temp[1]][1].thumb;
+					draw_sprite_ext(_type, 0, GW/2, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+				}
+				else {
+					for (var i = 0; i < array_length(rolledPrizes); ++i) {
+					    var _type = rolledPrizes[i][0] == Rewards.Weapon ? WEAPONS_LIST[rolledPrizes[i][1]][1].thumb : ItemList[rolledPrizes[i][1]][1].thumb;
+						var _chestoffset = 0;
+						switch (i) {
+						    case 0:
+						        _chestoffset = 0 - multiChestX;
+						        break;
+						    case 1:
+						        _chestoffset = 0;
+						        break;
+						    case 2:
+						        _chestoffset = 0 + multiChestX;
+						        break;
+						}
+						draw_sprite_ext(_type, 0, GW/2 + _chestoffset, GH/2 + resultY, resultSize, resultSize, 0, c_white, 1);
+					}
+				}
 				#region Accept/Refuse
 				var w = sprite_get_width(sHudButton) * 0.75;
 				var h = sprite_get_height(sHudButton) * 1.50;
@@ -827,35 +890,15 @@ if (instance_exists(oPlayer))
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_top);
 				if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
-					switch (temp[0]) {
-					    case Rewards.Weapon:
-					        for (var i = 0; i < array_length(UPGRADES); ++i) {
-							    if (UPGRADES[i][$ "id"] == temp[1]) {
-								    UPGRADES[i] = WEAPONS_LIST[UPGRADES[i][$ "id"]][UPGRADES[i][$ "level"] + 1];
-									break;
-								}
-								if (UPGRADES[i] == global.null) {
-								    UPGRADES[i] = WEAPONS_LIST[temp[1]][1];
-									break;
-								}
-							}
-					        break;
-					    case Rewards.Item:
-					        for (var i = 0; i < array_length(playerItems); ++i) {
-							    if (playerItems[i][$ "id"] == temp[1]) {
-								    playerItems[i] = ItemList[playerItems[i][$ "id"]][playerItems[i][$ "level"] + 1];
-									break;
-								}
-								if (playerItems[i] == global.nullitem) {
-								    playerItems[i] = ItemList[temp[1]][1];
-									break;
-								}
-							}
-					        break;
+					if (!multiChest) {
+						acceptPrize(temp);
+						PrizeBox = false;
+						pause_game();
 					}
-					upgradesSurface();
-					PrizeBox = false;
-					pause_game();
+					else {
+						acceptPrize(rolledPrizes[currentPrize]);
+						nextPrize();
+					}
 				}
 				//refuse
 				_x = GW/2 - chestAcceptRefuseX;
@@ -869,13 +912,27 @@ if (instance_exists(oPlayer))
 				draw_set_halign(fa_left);
 				draw_set_valign(fa_top);
 				if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
-					PrizeBox = false;
-					pause_game();
+					if (!multiChest) {
+						PrizeBox = false;
+						pause_game();
+					}
+					else {
+						nextPrize();
+					}
 				}
 				#endregion
 			}
 			part_system_drawit(coinsSystem);
-			draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+			if (!multiChest) {
+				draw_sprite_ext(sChestFront, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+			}
+			else {
+				var _offsetSelected = 0 - multiChestX;
+				for (var i = 0; i < 3; ++i) {
+				    draw_sprite_ext(sChestFront, chestspr, GW/2 - _offsetSelected, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
+					_offsetSelected += multiChestX
+				}
+			}
 			if (chestspr < 14) { chestspr += sprite_get_speed(sChest) / 60; }
 			boxoffset -= upspeed;
 			if (boxoffset <  -3000) { boxoffset = 0; }
