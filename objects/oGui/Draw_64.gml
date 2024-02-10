@@ -19,12 +19,6 @@ var header;
 var digit;
 #endregion
 #region black screen below gui
-if (keyboard_check(vk_alt)) {
-	
-	//feather disable once GM2017
-    //draw_sprite_ext(bgtest, 0, 0, 0, 1, 1, 0, c_white, .8);
-    draw_sprite_ext(bgtest264, 0, 0, 0, 1, 1, 0, c_white, .8);
-}
 if (GoldenANVIL or global.upgrade == 1 or PrizeBox or global.gamePaused and room != rInicio and HP > 0) {
 	draw_set_alpha(.75);
 	draw_rectangle_color(0, 0, display_get_gui_width(), display_get_gui_height(), c_black, c_black, c_black, c_black, false); // Darken the screen
@@ -807,20 +801,19 @@ if (instance_exists(oPlayer))
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
 			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
-				boxcoins = irandom_range(72, 103);
 				temp = prize_box_roll();
-				if (multiChest) {
-				    rolledPrizes = [prize_box_roll(0), prize_box_roll(1), prize_box_roll(2)];
-					currentPrize = 0;
-				}
 			    boxaccept = true;
 				if (!multiChest) {
+					boxcoins = irandom_range(72, 103);
 					part_system_position(shineSystem, GW/2, GH/2 + resultY);
 					_pemit1 = part_emitter_create(coinsSystem);
 				    part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);
 					part_emitter_stream(coinsSystem, _pemit1, _ctype1, coinsAmount);
 				}
 				else {
+					boxcoins = irandom_range(126, 252);
+				    rolledPrizes = [prize_box_roll(0), prize_box_roll(1), prize_box_roll(2)];
+					currentPrize = 0;
 					part_system_position(shineSystem, GW/2 - multiChestX, GH/2 + resultY);
 					_pemit1 = part_emitter_create(coinsSystem);
 				    part_emitter_region(coinsSystem, _pemit1, -32, 32, -8, 8, ps_shape_rectangle, ps_distr_linear);

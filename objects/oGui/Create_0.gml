@@ -560,6 +560,7 @@ multiChest = false;
 multiChestX = 165;
 rolledPrizes = [];
 currentPrize = 0;
+chestblacklist = [];
 testvar = 0;
 testvar2 = 0;
 function nextPrize(){

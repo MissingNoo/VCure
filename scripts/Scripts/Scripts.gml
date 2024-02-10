@@ -524,17 +524,17 @@ function prize_box_roll(boxnumber = 0){
 	var _result;
 	//var _validResult = false;
 	if (_rewardType == Rewards.Weapon) {
-	    _result = [Rewards.Weapon, prize_box_roll_weapon()];
+	    _result = [Rewards.Weapon, prize_box_roll_weapon(boxnumber)];
 		if (_result[1] == "item") {
 		    _rewardType = Rewards.Item;
 		}
 	}
 	if (_rewardType == Rewards.Item) {
-	    _result = [Rewards.Item, prize_box_roll_item()];
+	    _result = [Rewards.Item, prize_box_roll_item(boxnumber)];
 		if (_result[1] == "weapon") {
 		    repeat (5) {
 				_rewardType = Rewards.Weapon;
-			    _result = [Rewards.Weapon, prize_box_roll_weapon()];
+			    _result = [Rewards.Weapon, prize_box_roll_weapon(boxnumber)];
 			}
 			if (_result[1] == "item") {
 				_rewardType = Rewards.Item;
@@ -545,7 +545,21 @@ function prize_box_roll(boxnumber = 0){
 	return _result;
 }
 
-function prize_box_roll_weapon(){
+function remove_ids_in_blacklist(type, options){
+	var arr = type == Rewards.Weapon ? 0 : 1;
+	var result = [];
+	array_copy(result, 0, options, 0, array_length(options))
+	for (var i = 0; i < array_length(oGui.chestblacklist[arr]); ++i) {
+		for (var j = array_length(result) - 1; j >= 0 ; --j) {
+			if (oGui.chestblacklist[arr][i] == result[j]) {
+				    array_delete(result, j, 1);
+			}
+		}
+	}
+	return result;
+}
+
+function prize_box_roll_weapon(boxnumber){
 	var _existing;
 	var _possibleWeapons = [];
 	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
@@ -570,11 +584,20 @@ function prize_box_roll_weapon(){
 			}
 		}
 	}
-	DEBUG
-	//show_debug_message(_possibleWeapons);
-	ENDDEBUG
 	var _weapon;
-	if (UPGRADES[array_length(UPGRADES) - 1] == global.null) {
+	var _emptySlots = 0;
+	for (var i = 0; i < array_length(UPGRADES); ++i) {
+	    if (UPGRADES[i] == global.null) {
+		    _emptySlots++;
+		}
+	}
+	var _canGiveNew = true;
+	if ((boxnumber == 1 and _emptySlots == 1) or (boxnumber == 2 and _emptySlots < 2)) {
+	    _canGiveNew = false;
+		show_debug_message($"cant give new weapon box{boxnumber} slots {_emptySlots}");
+	}
+	if (UPGRADES[array_length(UPGRADES) - 1] == global.null and _canGiveNew) {
+		_possibleWeapons = remove_ids_in_blacklist(Rewards.Weapon, _possibleWeapons);
 		_weapon = _possibleWeapons[irandom(array_length(_possibleWeapons)- 1)];
 		DEBUG
 		show_debug_message("Weapon slot free:");
@@ -588,6 +611,7 @@ function prize_box_roll_weapon(){
 			    array_push(_possibleWeapons, UPGRADES[i][$ "id"]);
 			}
 		}
+		_possibleWeapons = remove_ids_in_blacklist(Rewards.Weapon, _possibleWeapons);
 		if (array_length(_possibleWeapons) > 0) {
 		    _weapon = _possibleWeapons[irandom(array_length(_possibleWeapons) - 1)];
 			DEBUG
@@ -599,10 +623,11 @@ function prize_box_roll_weapon(){
 			_weapon = "item";
 		}
 	}
+	array_push(oGui.chestblacklist[0], _weapon);
 	return _weapon;
 }
 
-function prize_box_roll_item(){
+function prize_box_roll_item(boxnumber){
 	var _possibleItems= [];
 	for (var i = 0; i < array_length(ItemList); ++i) {
 		var _item = ItemList[i][1];
@@ -627,7 +652,19 @@ function prize_box_roll_item(){
 		}
 	}
 	var _item;
-	if (playerItems[array_length(playerItems) - 1] == global.nullitem) {
+	var _emptySlots = 0;
+	for (var i = 0; i < array_length(playerItems); ++i) {
+	    if (playerItems[i] == global.nullitem) {
+		    _emptySlots++;
+		}
+	}
+	var _canGiveNew = true;
+	if ((boxnumber == 1 and _emptySlots == 1) or (boxnumber == 2 and _emptySlots < 2)) {
+	    _canGiveNew = false;
+		show_debug_message($"cant give new item box{boxnumber} slots {_emptySlots}");
+	}
+	if (playerItems[array_length(playerItems) - 1] == global.nullitem and _canGiveNew) {
+		_possibleItems = remove_ids_in_blacklist(Rewards.Item, _possibleItems);
 		_item = _possibleItems[irandom(array_length(_possibleItems)- 1)];
 		DEBUG
 		show_debug_message("Item slot free:");
@@ -641,6 +678,7 @@ function prize_box_roll_item(){
 			    array_push(_possibleItems, playerItems[i][$ "id"]);
 			}
 		}
+		_possibleItems = remove_ids_in_blacklist(Rewards.Item, _possibleItems);
 		if (array_length(_possibleItems) > 0) {
 		    _item = _possibleItems[irandom(array_length(_possibleItems) - 1)];
 			DEBUG
@@ -652,5 +690,6 @@ function prize_box_roll_item(){
 			_item = "weapon";
 		}
 	}
+	array_push(oGui.chestblacklist[1], _item);
 	return _item;
 }

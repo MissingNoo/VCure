@@ -1,3 +1,4 @@
+oGui.chestblacklist = [[],[ItemIds.Hamburguer, ItemIds.Holocoin]];
 oGui.boxaccept = false; 
 oGui.chestresult = false; 
 oGui.chesttimer = 0; 
