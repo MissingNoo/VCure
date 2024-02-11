@@ -27,5 +27,8 @@
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,
+  "tags": [
+    "Drop",
+  ],
   "visible": true,
 }

@@ -36,5 +36,8 @@
     "path": "sprites/sSpaghetti/sSpaghetti.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "Drop",
+  ],
   "visible": true,
 }

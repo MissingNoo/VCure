@@ -39,5 +39,8 @@
     "path": "sprites/sXP/sXP.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "Drop",
+  ],
   "visible": true,
 }

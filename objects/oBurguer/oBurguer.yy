@@ -36,5 +36,8 @@
     "path": "sprites/sHamburger/sHamburger.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "Drop",
+  ],
   "visible": true,
 }

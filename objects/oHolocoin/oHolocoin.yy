@@ -35,5 +35,8 @@
     "path": "sprites/sPhaseCoin/sPhaseCoin.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "Drop",
+  ],
   "visible": true,
 }

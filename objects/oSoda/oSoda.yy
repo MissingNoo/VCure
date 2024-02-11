@@ -36,5 +36,8 @@
     "path": "sprites/sSoda/sSoda.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "Drop",
+  ],
   "visible": true,
 }
