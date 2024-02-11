@@ -47,6 +47,7 @@ gAnvilWeapon1Position = 0;
 gAnvilWeapon2Position = 0;
 canCollab = false;
 anvilconfirm = false;
+upgradeCoinValue = 0;
 #endregion
 #region LevelUp
 upgradeconfirm = false;
@@ -134,6 +135,7 @@ function android_gui_button(pos){
 }
 #endregion
 #region Debug
+debuglog = false;
 global.a=1;
 a=2;
 b=2;
@@ -254,8 +256,8 @@ function share_weapon(i){
 	}
 }
 #endregion
-function buttonClick(pos){
-	if (os_type != os_android) { exit; }
+function buttonClick(pos, ignoreSystem = false){
+	if (os_type != os_android and !ignoreSystem) { exit; }
 	var result = false;
 	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
 		result = true;

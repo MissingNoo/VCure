@@ -1,3 +1,7 @@
+#region Debug
+DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});
+DebugManager.debug_add_config("Add 100 coins", DebugTypes.Button, undefined, undefined, function(){global.newcoins+=100;});
+#endregion
 if (keyboard_check_pressed(vk_end)) {
     skilltimer = specialcooldown;
 }

@@ -266,12 +266,14 @@ if (ANVIL) {
 		}	    
 	}
 	if (zKey) {
+		var _finishAnvil = false;
 		if (upgradeconfirm) {
 		    if (anvilSelectedCategory == 0) {
 				if (level < maxlevel) {
 				    UPGRADES[anvilSelected] = global.upgradesAvaliable[UPGRADES[anvilSelected][$ "id"]][UPGRADES[anvilSelected][$ "level"] + 1];
+					_finishAnvil = true;
 				}
-				else{
+				else if (global.newcoins >= upgradeCoinValue) {
 					var _bonusdmg = 0;
 					switch (oPlayer.blacksmithLevel) {
 					    case 0:
@@ -297,17 +299,22 @@ if (ANVIL) {
 						variable_struct_set(UPGRADES[anvilSelected], "bonusLevel", variable_struct_get(UPGRADES[anvilSelected], "bonusLevel") + 1);
 						array_push(UPGRADES[anvilSelected][$ "bonusDamage"], _bonusdmg);
 					}
+					global.newcoins -= upgradeCoinValue;
+					_finishAnvil = true;
 				}
 			}
 			if (anvilSelectedCategory == 1) {
 				if (level < maxlevel) {
 					playerItems[anvilSelected] = global.itemList[playerItems[anvilSelected][$ "id"]][playerItems[anvilSelected][$ "level"] + 1];
+					_finishAnvil = true;
 				}
 			}
-			ANVIL = false;//TODO: Cost money
-			anvilconfirm = false;
-			upgradeconfirm = false;
-			pause_game();
+			if (_finishAnvil) {
+			    ANVIL = false;
+				anvilconfirm = false;
+				upgradeconfirm = false;
+				pause_game();
+			}
 		}	
 		if (!upgradeconfirm and anvilconfirm) {
 		    upgradeconfirm = true;
@@ -320,6 +327,7 @@ if (ANVIL) {
 			    anvilconfirm = true;
 			}
 		}
+		upgradesSurface();
 	}
 }
 #endregion
@@ -590,14 +598,8 @@ if (keyboard_check(ord("N"))) {
 }
 
 if (keyboard_check_pressed(vk_end)) {
-    show_debug_message(@"
-	===========
-	a:{0}
-	b:{1}
-	c:{2}
-	d:{3}
-	e:{4}"
-	, a, b, c, d, e);
+	debuglog = !debuglog;
+    show_debug_log(debuglog)
 }
 
 	DEBUG

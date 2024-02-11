@@ -507,7 +507,7 @@ if (instance_exists(oPlayer))
 			var _rerollY = GH/1.05;
 			var _sprW = sprite_get_width(sHudButton);
 			var _sprH = sprite_get_height(sHudButton);
-			if (buttonClick([_rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH])) {
+			if (buttonClick([_rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH], true)) {
 			    selected = 4;
 			}
 			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);
@@ -534,7 +534,7 @@ if (instance_exists(oPlayer))
 		draw_text_transformed(_x, _y, "UPGRADE!", 5, 5, 0);
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);			
-		#region Weapons		
+		#region Weapons
 		var xoffset = 0;
 		var anvilIsSelected = 0;
 		for (var i = 0; i < array_length(UPGRADES); ++i){
@@ -546,7 +546,7 @@ if (instance_exists(oPlayer))
 			}
 			draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/3, 2, 2, 0, c_white, 1);
 			var _sprHalf = (sprite_get_width(sItemSquare) * 2 ) / 2;
-			if (buttonClick([GW/2.30 - _sprHalf + xoffset, GH/3 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/3 + _sprHalf])) {
+			if (!anvilconfirm and buttonClick([GW/2.30 - _sprHalf + xoffset, GH/3 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/3 + _sprHalf], true)) {
 			    anvilSelected = i;
 				anvilSelectedCategory = 0;
 			}
@@ -566,7 +566,7 @@ if (instance_exists(oPlayer))
 			var _alpha = (playerItems[i][$ "level"] < playerItems[i][$ "maxlevel"]) ? 1 : 0.5;
 			draw_sprite_ext(sItemSquare, anvilIsSelected, GW/2.30 + xoffset, GH/2.30, 2, 2, 0, c_white, 1);
 			var _sprHalf = (sprite_get_width(sItemSquare) * 2 ) / 2;
-			if (buttonClick([GW/2.30 - _sprHalf + xoffset, GH/2.30 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/2.30 + _sprHalf])) {
+			if (!anvilconfirm and buttonClick([GW/2.30 - _sprHalf + xoffset, GH/2.30 - _sprHalf, GW/2.30 + _sprHalf + xoffset, GH/2.30 + _sprHalf], true)) {
 			    anvilSelected = i;
 				anvilSelectedCategory = 1;
 			}
@@ -651,17 +651,19 @@ if (instance_exists(oPlayer))
 				draw_set_halign(fa_center);
 				//draw_set_valign(fa_center);
 				var _chance = 100;
-				var _coinValue = 0;
+				var _confirmstring = "UPGRADE";
 				if (variable_struct_exists(selectedThing, "bonusLevel")) {
+					var _upgradeCoinValue = 0;
 					for (var i = 0; i < selectedThing[$ "bonusLevel"]; ++i) {
-						_coinValue += 50;
+						_upgradeCoinValue += 50;
 						_chance -= 10;
 					}
+					upgradeCoinValue = _upgradeCoinValue;
+					_confirmstring = string("Cost: {0} to UPGRADE", upgradeCoinValue);
 				}
 				if (_chance < 10) {_chance=10;}
 				draw_set_valign(fa_middle);
-				draw_text_transformed_color(_tx, _ty - 40, string("Sucess Rate: {0}%", _chance), 2,2,0,c_white,c_white,c_white,c_white, 1);
-				var _confirmstring = string("Cost: {0} to UPGRADE", _coinValue);
+				draw_text_transformed_color(_tx, _ty - 40, string("Sucess Rate: {0}%", _chance), 2,2,0,c_white,c_white,c_white,c_white, 1);				
 				draw_sprite_ext(sHudButton, 1, _tx, _ty, 2, 1.5, 0, c_white, 1);
 				draw_text_transformed_color(_tx, _ty, _confirmstring, 2,2,0,c_black,c_black,c_black,c_black, 1);
 				draw_set_valign(fa_top);
@@ -704,7 +706,7 @@ if (instance_exists(oPlayer))
 		    draw_sprite_ext(sItemSquare, _isSelected, _x + _offset, _y, 2, 2, 0, c_white, 1);
 			var _alpha = (gAnvilWeapon1 == UPGRADES[i] or gAnvilWeapon2 == UPGRADES[i]) ? 0.5 : 1;
 		    draw_sprite_ext(UPGRADES[i][$ "thumb"], 0, _x + _offset, _y, 2, 2, 0, c_white, _alpha);
-			if (buttonClick([_x - _sprHalf + _offset, _y - _sprHalf, _x + _sprHalf + _offset, _y + _sprHalf])) {
+			if (buttonClick([_x - _sprHalf + _offset, _y - _sprHalf, _x + _sprHalf + _offset, _y + _sprHalf], true)) {
 				anvilSelected = i;
 				if (gAnvilWeapon1 == global.null and gAnvilWeapon2 != UPGRADES[anvilSelected]) {
 				    gAnvilWeapon1 = UPGRADES[anvilSelected];
@@ -723,13 +725,13 @@ if (instance_exists(oPlayer))
 				
 				draw_sprite_ext(sItemSquare, 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
 				draw_sprite_ext(gAnvilWeapon1[$ "thumb"], 0, _x + _offset - _distance, _y + _down, 2, 2, 0, c_white, 1);
-				if (buttonClick([_x - _sprHalf + _offset - _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset - _distance, _y + _sprHalf + _down])) {
+				if (buttonClick([_x - _sprHalf + _offset - _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset - _distance, _y + _sprHalf + _down], true)) {
 					gAnvilWeapon1 = global.null;
 				}
 				
 				draw_sprite_ext(sItemSquare, 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
 				draw_sprite_ext(gAnvilWeapon2[$ "thumb"], 0, _x + _offset + _distance, _y + _down, 2, 2, 0, c_white, 1);
-				if (buttonClick([_x - _sprHalf + _offset + _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset + _distance, _y + _sprHalf + _down])) {
+				if (buttonClick([_x - _sprHalf + _offset + _distance, _y - _sprHalf + _down, _x + _sprHalf + _offset + _distance, _y + _sprHalf + _down], true)) {
 					gAnvilWeapon2 = global.null;
 				}
 				canCollab = false;

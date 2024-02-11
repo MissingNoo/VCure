@@ -42,8 +42,16 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	//random_set_seed(current_time);
 	if (!variable_instance_exists(self, "mindmg")) { mindmg = 0; }	
 	if (!variable_instance_exists(self, "maxdmg")) { maxdmg = 0; }
-	var dmg = irandom_range(mindmg, maxdmg);
-
+	var _bonusDamage = 0;
+	if (upg[$ "bonusDamage"] != undefined) {
+	    for (var i = 0; i < array_length(upg[$ "bonusDamage"]); ++i) {
+		    _bonusDamage += upg[$ "bonusDamage"][i] / upg[$ "shoots"];
+		}
+		show_debug_message($"Base damage: {mindmg}/{maxdmg}, Bonus Damage: {_bonusDamage}");
+	}
+	var _mindmg = maxdmg + _bonusDamage;
+	var _maxdmg = mindmg + _bonusDamage;
+	var dmg = irandom_range(_mindmg, _maxdmg);
 	audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, .5);
 	#region debuffs	
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
