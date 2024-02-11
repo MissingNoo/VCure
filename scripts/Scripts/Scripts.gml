@@ -562,6 +562,11 @@ function remove_ids_in_blacklist(type, options){
 function prize_box_roll_weapon(boxnumber){
 	var _existing;
 	var _possibleWeapons = [];
+	for (var i = 0; i < array_length(UPGRADES); ++i) {
+		if (UPGRADES[i][$ "level"] == UPGRADES[i][$ "maxlevel"]) {
+			array_push(oGui.chestblacklist[0], UPGRADES[i][$ "id"]);
+		}
+	}
 	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 		var _weapon = WEAPONS_LIST[i][1];
 		if (_weapon[$ "collab"] == true or (_weapon[$ "perk"] and _weapon[$ "characterid"] != global.player[? "id"]) or (_weapon[$ "unlocked"] != undefined and !_weapon[$ "unlocked"])) {
@@ -629,6 +634,11 @@ function prize_box_roll_weapon(boxnumber){
 
 function prize_box_roll_item(boxnumber){
 	var _possibleItems= [];
+	for (var i = 0; i < array_length(playerItems); ++i) {
+		if (playerItems[i][$ "level"] == playerItems[i][$ "maxlevel"]) {
+			array_push(oGui.chestblacklist[1], playerItems[i][$ "id"]);
+		}
+	}
 	for (var i = 0; i < array_length(ItemList); ++i) {
 		var _item = ItemList[i][1];
 		if ((_item[$ "perk"] != undefined and _item[$ "perk"]) and (_item[$ "unlocked"] != undefined and !_item[$ "unlocked"])) {
