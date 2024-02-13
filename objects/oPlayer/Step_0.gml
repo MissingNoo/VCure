@@ -1,4 +1,5 @@
 #region Debug
+//feather disable GM2017
 DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});
 DebugManager.debug_add_config("Add 100 coins", DebugTypes.Button, undefined, undefined, function(){global.newcoins+=100;});
 #endregion
@@ -14,7 +15,6 @@ if (!global.gamePaused and device_mouse_check_button_pressed(0, mb_left) and os_
 }
 var baseScore = (global.defeatedEnemies * 75) + (global.minibossDefeated * 428) + (global.bossDefeated * 2251) + (max(0, global.minutes - 30) * 20126) + (min(59, global.minutes) * 126) + (min(59, global.seconds) * 10) + (global.level * 1219);
 var hardcoreBonus = 0;
-//Feather disable once GM2017
 if (global.shopUpgrades.Hardcore.level == 1) {
 	hardcoreBonus = floor(baseScore * (global.minutes * 0.01 + global.hours* 1.2));
 }

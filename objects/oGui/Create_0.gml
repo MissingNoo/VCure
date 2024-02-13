@@ -625,6 +625,7 @@ function boxitems(offset){
 	surface_reset_target();
 }
 //ParticleSystem7
+//feather disable GM2017
 coinsSystem = part_system_create();
 part_system_draw_order(coinsSystem, true);
 
@@ -689,3 +690,4 @@ part_system_position(shineSystem, GW/2, GH/2 + resultY);
 part_system_automatic_draw(shineSystem, false);
 
 #endregion
+//feather enable GM2017

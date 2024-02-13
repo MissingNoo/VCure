@@ -1,3 +1,4 @@
+//feather disable GM2017
 show = false;
 x = 100;
 y = 100;

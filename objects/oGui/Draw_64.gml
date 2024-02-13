@@ -805,6 +805,8 @@ if (instance_exists(oPlayer))
 			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
 				temp = prize_box_roll();
 			    boxaccept = true;
+				//feather disable GM2017
+				var _pemit1, _pemit2, _pemit3;
 				if (!multiChest) {
 					boxcoins = irandom_range(72, 103);
 					part_system_position(shineSystem, GW/2, GH/2 + resultY);
@@ -933,6 +935,7 @@ if (instance_exists(oPlayer))
 			if (boxoffset <  -3000) { boxoffset = 0; }
 		}
 	}
+	
 	#endregion
 	#region Timer
 	var time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
@@ -1053,6 +1056,7 @@ if (keyboard_check_pressed(ord("M"))) {
 	else global.debug=true;
 	DebugManager.show = global.debug;
 }
+//feather enable GM2017
 //draw_text(10,10,global.debug);
 var debugy=170;
 offset = 0;
