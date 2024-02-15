@@ -1,6 +1,6 @@
 //Feather disable all
-#macro MX device_mouse_x_to_gui(0)
-#macro MY device_mouse_y_to_gui(0)
+#macro MX oGui.x
+#macro MY oGui.y
 #macro mouse_click device_mouse_check_button_pressed(0, mb_left)
 #macro mouse_hold device_mouse_check_button(0, mb_right)
 function mouse_on_area(area){

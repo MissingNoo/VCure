@@ -8,5 +8,8 @@ enum ConfigSteps {
 currentStep = ConfigSteps.Language;
 languages = lexicon_languages_get_array();
 show_message_async(languages);
-//selectedLanguage = 
-room_goto(rInicio);
+selectedLanguage = [0, array_length(languages) -1];
+//room_goto(rInicio);
+a = 0;
+b = 2;
+c = 2;

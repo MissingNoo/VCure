@@ -1,7 +1,4 @@
-DebugManager.debug_add_config("testvar", DebugTypes.UpDown, self, "testvar");
-DebugManager.debug_add_config("testvar2", DebugTypes.UpDown, self, "testvar2");
 DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
-
 draw_set_alpha(1);
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
