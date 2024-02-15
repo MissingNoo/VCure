@@ -1,3 +1,7 @@
+DebugManager.debug_add_config("testvar", DebugTypes.UpDown, self, "testvar");
+DebugManager.debug_add_config("testvar2", DebugTypes.UpDown, self, "testvar2");
+DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
+
 draw_set_alpha(1);
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
@@ -770,8 +774,6 @@ if (instance_exists(oPlayer))
 		DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
 		//DebugManager.debug_add_config("Accept/Refuse X", DebugTypes.UpDown, self, "chestAcceptRefuseX");
 		//DebugManager.debug_add_config("multiChestX", DebugTypes.UpDown, self, "multiChestX");
-		DebugManager.debug_add_config("testvar", DebugTypes.UpDown, self, "testvar");
-		DebugManager.debug_add_config("testvar2", DebugTypes.UpDown, self, "testvar2");
 		draw_sprite_ext(sMenu, 0, GW/2, GH/2, !multiChest ? 3 : 4, 3, 0, c_white, 1);
 		if (!multiChest) {
 			draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);

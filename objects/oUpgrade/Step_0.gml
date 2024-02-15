@@ -63,6 +63,10 @@ if (!global.gamePaused) {
 	}
 	afterimage_step();	
 	switch (upg[$ "id"]) {
+		case Weapons.Brick:{
+			image_angle -= 6;
+			break;
+		}
 		case Weapons.PlugAsaCoco:{
 			//if (alarm_get(1) > 0) {
 			if (dAlarm[1] > 0) {

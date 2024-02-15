@@ -130,7 +130,7 @@ if (room == rInicio and !global.gamePaused) {
 	            break;}
 			case "Settings":{
 				keyboard_clear(ord("Z"));
-				pause_game();					
+				pause_game();
 				activeMenu = PMenus.Settings;
 				break;}
 			case "Shop":{
@@ -247,7 +247,6 @@ if (global.upgrade) // after level up
 }
 #endregion
 #region Anvil
-//TODO: rankupgrades cost money
 if (ANVIL) {
 	var selectedThing;
 	if (anvilSelectedCategory == 0) {

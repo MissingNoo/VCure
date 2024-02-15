@@ -78,7 +78,7 @@ if (irandom_range(1,range) == 1) {
 
 // randomize;
 if (irandom_range(1,3000) == 1) {
-    //TODO: code here for exp magnet
+    instance_create_depth(x,y, depth, oRainbowXP);
 }
 switch (thisEnemy) {
     case Enemies.FubuZilla:
