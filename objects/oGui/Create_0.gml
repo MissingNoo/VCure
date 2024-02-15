@@ -691,3 +691,4 @@ part_system_automatic_draw(shineSystem, false);
 
 #endregion
 //feather enable GM2017
+global.initialConfigDone = false;

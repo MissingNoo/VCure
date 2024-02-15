@@ -1,8 +1,3 @@
-#region Lexicon Initialization
-lexicon_index_declare_from_json("english.json");
-lexicon_index_declare_from_json("ptbr.json");
-lexicon_language_set("English");
-#endregion
 enum ConfigSteps {
 	Language,
 	PlayerName,

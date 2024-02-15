@@ -78,3 +78,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
 	if (selected > _maxopt) { selected = _maxopt;	}
 }
 #endregion
+if (!global.initialConfigDone) {
+	global.initialConfigDone = true;
+    room_goto(rInicio);
+}

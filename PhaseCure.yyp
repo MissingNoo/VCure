@@ -127,7 +127,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Collabs","folderPath":"folders/Sprites/Powers/Collabs.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Shop","folderPath":"folders/Sprites/Shop.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Gacha","folderPath":"folders/Sprites/Shop/Gacha.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/Shop/icons.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"icons","folderPath":"folders/Sprites/Maps/icons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"NpcShop","folderPath":"folders/Sprites/Shop/NpcShop.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
@@ -1025,8 +1025,8 @@
     {"id":{"name":"rStage1","path":"rooms/rStage1/rStage1.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"rInitialConfig","path":"rooms/rInitialConfig/rInitialConfig.yy",},},
     {"roomId":{"name":"rInicio","path":"rooms/rInicio/rInicio.yy",},},
+    {"roomId":{"name":"rInitialConfig","path":"rooms/rInitialConfig/rInitialConfig.yy",},},
     {"roomId":{"name":"rStage1","path":"rooms/rStage1/rStage1.yy",},},
     {"roomId":{"name":"rCharacterSelect","path":"rooms/rCharacterSelect/rCharacterSelect.yy",},},
     {"roomId":{"name":"rShop","path":"rooms/rShop/rShop.yy",},},
