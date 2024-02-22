@@ -3,11 +3,24 @@
     "locale": "PT-BR",
     "text": {
 		"Config" : {
-			"PlayerName" : "Nome do Player:"
+			"PlayerName" : "Nome do Player",
+			"ShowNames1" : "Mostrar nome de outros jogadores?",
+			"ShowNames2" : "(Podera haver linguagem ofensiva nos \nnomes de outros jogadores na tabela de classificacao)",
+			"Show" : "Mostrar",
+			"DontShow" : "Nao mostrar",
+			"ShowMyName" : "Usar nome",
+			"LanguageText" : "Lingua",
+			"FinalAccept" : "Iniciar!",
+			"FinalRefuse" : "Reiniciar",
+			"ShowHiscoreNames" : "Mostrar outros nomes",
+			"ConsentText" : "Concorda com a utilizacao do seu nome de utilizador quando submete pontuacoes para a tabela de classificacao? \nSe optares por nao participar, todas as pontuacoes que escolheres enviar serao guardadas e apresentadas como 'Anonimo'. \n\nPode alterar esta definicao mais tarde.",
+			"Consent" : "Concordo",
+			"DontConsent" : "Nao Concordo"
 		},
 		"Hud" : {
 			"Button" : {
-				"Accept" : "Accept"
+				"Accept" : "Aceitar",
+				"Reject" : "Rejeitar"
 			}
 		},
 		"Characters":{
@@ -24,471 +37,435 @@
 				"chooseText" : "Choose your YIPPEE"
 			}
 		},
-		"Special" : {
-			"No Multiplayer" :{
-				"name" : "No Multiplayer!",
-				"desc" : "THERE'S NO MULTIPLAYER!."
-			}
-		},
 		"HouseItems" : {
 			"Bookshelf": "Bookshelf"
 		},
         "Anvil" : {
 			"Enhance":{
-				"0":"Increase base attack by 2",
-				"1":"Increase base attack by 2",
-				"2":"Increase base attack by 2.5",
-				"3":"Increase base attack by 3"
+				"0":"Aumentar ataque base em 2",
+				"1":"Aumentar ataque base em 2",
+				"2":"Aumentar ataque base em 2.5",
+				"3":"Aumentar ataque base em 3"
 			}
         },
         "Weapons":{
-			"Zenora's Tears":{
-				"name":"Zenora's Tears",
-					"1":"The ones he cries everytime someone asks for multiplayer", 
-					"2":"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
-					"3":"Increase damage by [25%].",
-					"4":"Bullets ricochet if hit limit is reached.",
-					"5":"Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].",
-					"6":"Increase damage by [40%].",
-					"7":"Shoot [2] additional shots, and pistol becomes spread type."
-				},
-            "Pistol Shot":{
-            "name":"Pistol Shot",
-				"1":"Shoots 3 Projectiles forward.", 
-				"2":"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
-				"3":"Increase damage by [25%].",
-				"4":"Bullets ricochet if hit limit is reached.",
-				"5":"Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].",
-				"6":"Increase damage by [40%].",
-				"7":"Shoot [2] additional shots, and pistol becomes spread type."
-            },
-            "Summon Tentacle":{
-            "name":"Summon Tentacle",
-				"1":"A tentacle shoots out in front.",
-				"2":"Increase damage by 20%.",
-				"3":"Reduce the time between attacks by 20%.",
-				"4":"Increase attack area by 25%.",
-				"5":"Increase damage by 50%.",
-				"6":"Adds small knockback on hit.",
-				"7":"Chain another three tentacles in a chain at a random direction."
-            },
             "BL Book":{
-            "name":"BL Book",
-				"1":"Repels targets with orbiting BL Books.",
-				"2":"Add 1 additional book.",
-				"3":"Increase damage by 30% and increase duration by 1 second.",
-				"4":"Add 1 additional book.",
-				"5":"Increase Damage by 40%.",
-				"6":"Add 1 additional book.",
-				"7":"Increase damage by 40%."
+            "name":"Livro BL",
+				"1":"Repele inimigos com livros orbitantes.",
+				"2":"1 Livro adicional.",
+				"3":"Aumentar o dano em 30% e aumentar a duracao em 1 segundo.",
+				"4":"1 Livro adicional.",
+				"5":"Aumentar o dano em 40%.",
+				"6":"1 Livro adicional.",
+				"7":"Aumentar o dano em 40%."
             },
             "Bounce Ball":{
-            "name":"Bounce Ball",
-            "1":"Drops a falling bounce ball on a random target. Size of ball varies between characters.",
-			"2":"Increase damage by 20%.",
-			"3":"Drop 2 balls.",
-			"4":"Gain knockback effect. The strength of knockback varies from character.",
-			"5":"Drop 3 balls.",
-			"6":"Reduce the time between attacks by 15%.",
-			"7":"Increase damage by 30% and drop 4 balls."
+            "name":"Bola de Ressalto",
+            "1": "Deixa cair uma bola de ressalto num alvo aleatorio. O tamanho da bola varia conforme a personagem.",
+			"2": "Aumenta o dano em 20%.",
+			"3": "Deixa cair 2 bolas.",
+			"4": "Ganha um efeito de ricochete. A forca do efeito de ricochete varia conforme a personagem.",
+			"5": "Larga 3 bolas.",
+			"6": "Reduzir o tempo entre ataques em 15%.",
+			"7": "Aumenta o dano em 30% e deixa cair 4 bolas."
             },
             "Elite Lava Bucket":{
-            "name":"Elite Lava Bucket",
-            "1":"Drop lava on the ground, burning targets slowly.",
-			"2":"Increase lava area by 20%.",
-			"3":"Throw 2 lava buckets.",
-			"4":"Increase damage by 30% and increase duration of lava by 1 second",
-			"5":"Increase damage by 30%",
-			"6":"Throw 3 lava buckets",
-			"7":"Throw 4 lava buckets and increase lava size by 20%"
+            "name":"Balde de Lava de Elite",
+            "1": "Deixa cair lava no chao, queimando os alvos lentamente.",
+			"2": "Aumenta a area de lava em 20%.",
+			"3": "Atira 2 baldes de lava.",
+			"4": "Aumenta o dano em 30% e aumenta a duracao da lava em 1 segundo",
+			"5": "Aumenta o dano em 30%",
+			"6": "Atirar 3 baldes de lava",
+			"7": "Atirar 4 baldes de lava e aumentar o tamanho da lava em 20%"
             },
             "EN's Curse":{
-            "name" : "EN's Curse",
-            "1":"Fire cursed energy in front. On hit, there is a chance to spread another Curse towards another nearby target.",
-			"2":"Increase chance of chaining curses from 70% to 80%.",
-			"3":"Increase damage by 30%.",
-			"4":"Increase the maximum range limit of chaining curses to 125px.",
-			"5":"Fire 2 curses and increase the chance of chaining to 90%.",
-			"6":"Reduce the time between attacks by 15%.",
-			"7":"Fire 3 curses. Each time a curse spreads, its damage increases by 10%."
+            "name" : "Maldicao do EN",
+            "1": "Dispara energia amaldiçoada à frente. Ao ser atingido, há uma hipótese de espalhar outra Maldição para outro alvo próximo.",
+			"2": "Aumenta a hipótese de encadear maldições de 70% para 80%.",
+			"3": "Aumenta o dano em 30%.",
+			"4": "Aumenta o limite máximo de alcance das maldições encadeadas para 125px.",
+			"5": "Disparar 2 maldições e aumentar a probabilidade de encadeamento para 90%.",
+			"6": "Reduzir o tempo entre ataques em 15%.",
+			"7": "Dispara 3 maldições. Cada vez que uma maldição se espalha, o seu dano aumenta em 10%."
             },
             "Plug Type Asacoco" : {
-            "name": "Plug Type Asacoco",
-            "1":"Fires a fast piercing tail at a random target.",
-			"2":"Increase damage by 20%.",
-			"3":"Fire an additional Asacoco.",
-			"4":"Increase damage by 30%.",
-			"5":"Fire an additional Asacoco.",
-			"6":"Adds knockback on hit.",
-			"7":"Fire an additional Asacoco."
+            "name": "Rabo Asacoco",
+            "1": "Dispara uma cauda perfurante rápida num alvo aleatório.",
+			"2": "Aumenta o dano em 20%.",
+			"3": "Dispara um Asacoco adicional.",
+			"4": "Aumenta o dano em 30%.",
+			"5": "Dispara mais um Asacoco.",
+			"6": "Adiciona recuo ao acertar.",
+			"7": "Dispara mais um Asacoco."
             },
             "Cutting Board":{
-            "name":"Cutting Board",
-				"1":"Create a defensive wall that damages targets behind you. Effectiveness is increased on certain characters.",
-				"2":"Increase size of wall by 30%.",
-				"3":"Increase damage by 30%.",
-				"4":"Walls travel farther.",
-				"5":"Increase damage by 50%.",
-				"6":"Reduce the time between attacks by 0.5 seconds.",
-				"7":"Shoot additional walls from sides."
+            "name":"Tábua de cortar",
+			"1": "Cria uma parede defensiva que causa danos nos alvos atrás de ti. A eficácia é aumentada em certas personagens.",
+			"2": "Aumenta o tamanho da parede em 30%.",
+			"3": "Aumenta o dano em 30%.",
+			"4": "As paredes deslocam-se mais longe.",
+			"5": "Aumenta o dano em 50%.",
+			"6": "Reduzir o tempo entre ataques em 0,5 segundos.",
+			"7": "Disparar paredes adicionais dos lados."
             },
             "Fan Beam":{
-            "name":"Fan Beam",
-				"1":"Shoot a powerful laser beam from the microphone. Horizontal only.",
-				"2":"Increase size by 30%.",
-				"3":"Reduce attack cooldown by 0.5 seconds.",
-				"4":"Increase damage by 50%.",
-				"5":"Reduce attack cooldown by 0.5 seconds.",
-				"6":"Increase size by 50%.",
-				"7":"Fire an additional beam from behind "
+            "name":"Feixe de ventoinha",
+			"1": "Dispara um poderoso feixe de laser a partir do microfone. Apenas na horizontal.",
+			"2": "Aumenta o tamanho em 30%.",
+			"3": "Reduz o tempo de espera do ataque em 0,5 segundos.",
+			"4": "Aumenta o dano em 50%.",
+			"5": "Reduzir o tempo de arrefecimento do ataque em 0,5 segundos.",
+			"6": "Aumenta o tamanho em 50%.",
+			"7": "Disparar um feixe adicional por trás"
             },
             "CEO's Tears":{
-            "name":"CEO's Tears",
-				"1":"Fires rapid tears at random targets.",
-				"2":"Increases damage by 20%.",
-				"3":"Shoot 2 tears.",
-				"4":"Reduce the time between attacks by 33%.",
-				"5":"Tears are 25% faster and increase damage by 20%.",
-				"6":"Reduce the time between attacks by 50%.",
-				"7":"Shoot 4 tears."
+            "name":"Lágrimas do CEO",
+			"1": "Dispara lágrimas rápidas em alvos aleatórios.",
+			"2": "Aumenta o dano em 20%.",
+			"3": "Dispara 2 lágrimas.",
+			"4": "Reduz o tempo entre ataques em 33%.",
+			"5": "As lágrimas são 25% mais rápidas e aumentam o dano em 20%.",
+			"6": "Reduzir o tempo entre ataques em 50%.",
+			"7": "Dispara 4 lágrimas."
             },
             "Holo Bomb":{
-            "name":"Holo Bomb",
-				"1":"A bomb that explodes, dealing damage to all nearby targets.",
-				"2":"Increase explosion size by 15%.",
-				"3":"Increase damage by 20%.",
-				"4":"Throw 2 bombs.",
-				"5":"Reduce the time between attacks by 20%.",
-				"6":"Increase explosion size by 20%.",
-				"7":"Throw 3 bombs."
+            "name":"Bomba Holo",
+			"1": "Uma bomba que explode, causando dano a todos os alvos próximos.",
+			"2": "Aumenta o tamanho da explosão em 15%.",
+			"3": "Aumenta o dano em 20%.",
+			"4": "Atira 2 bombas.",
+			"5": "Reduzir o tempo entre ataques em 20%.",
+			"6": "Aumenta o tamanho da explosão em 20%.",
+			"7": "Atirar 3 bombas."
             },
             "Spider Cooking":{
-            "name":"Spider Cooking",
-				"1":"Create an area of miasma around, dealing slow damage to enemies inside.",
-				"2":"Increase area by 15%.",
-				"3":"Increase damage by 30%.",
-				"4":"Increase area by 25%.",
-				"5":"Increase frequency of hits by 20%.",
-				"6":"Increase damage by 60%.",
-				"7":"Add small knockback on hit."
+            "name":"Cozinhar Aranha",
+			"1": "Cria uma área de miasma ao redor, causando dano lento aos inimigos dentro dela.",
+			"2": "Aumenta a área em 15%.",
+			"3": "Aumenta o dano em 30%.",
+			"4": "Aumenta a área em 25%.",
+			"5": "Aumenta a frequência dos golpes em 20%.",
+			"6": "Aumenta o dano em 60%.",
+			"7": "Acrescenta um pequeno efeito de ricochete ao acertar."
             },
             "Glowstick":{
-            "name":"Glowstick",
-            	"1":"Throw a glowstick to a nearby target and then spins back to player.",
-				"2":"Increases damage by 20%.",
-				"3":"Increase hit limit by 10 and throw one additional glowstick.",
-				"4":"Increase size of glowstick by 25%.",
-				"5":"Throw one additional glowstick.",
-				"6":"Increase damage by 33%.",
-				"7":"Throw one additional glowstick."
+            "name":"Bastão luminoso",
+			"1": "Atira um bastão luminoso para um alvo próximo e depois gira de volta para o jogador.",
+			"2": "Aumenta o dano em 20%.",
+			"3": "Aumenta o limite de acerto em 10 e atira mais um bastão luminoso.",
+			"4": "Aumenta o tamanho do bastão luminoso em 25%.",
+			"5": "Atira mais um bastão luminoso.",
+			"6": "Aumenta o dano em 33%.",
+			"7": "Atira mais uma vara luminosa."
             },
             "Idol Song":{
-            "name":"Idol Song",
-				"1":"Magical music notes that float vertically in both directions.",
-				"2":"Increase damage by 25%.",
-				"3":"Increase speed and travel width.",
-				"4":"Increase music note size by 25%.",
-				"5":"Reduce the time between attacks by 20%.",
-				"6":"Increase music note size by 25%.",
-				"7":"Increase damage by 50%."
+            "name":"Canção do Ídolo",
+			"1": "Notas musicais mágicas que flutuam verticalmente em ambas as direcções.",
+			"2": "Aumenta o dano em 25%.",
+			"3": "Aumenta a velocidade e a largura da viagem.",
+			"4": "Aumenta o tamanho da nota musical em 25%.",
+			"5": "Reduzir o tempo entre ataques em 20%.",
+			"6": "Aumentar o tamanho da nota musical em 25%.",
+			"7": "Aumenta o dano em 50%."
             },
             "Psycho Axe":{
-            "name":"Spit Bottle",
-				"1":"Throw an bottle that spirals outward from the player.",
-				"2":"Increase size of the bottle by 20%. Increase damage by 20%.",
-				"3":"Reduce delay between attacks by 20%.",
-				"4":"Increase damage by 33%, and size by 20%.",
-				"5":"Remove hit limit, and lasts 1 second longer.",
-				"6":"Increase attack size by 50%.",
-				"7":"Increase damage by 50%."
+            "name":"Garrafa de cuspo",
+			"1": "Atira uma garrafa que gira em espiral para fora do jogador.",
+			"2": "Aumenta o tamanho da garrafa em 20%. Aumenta o dano em 20%.",
+			"3": "Reduzir o atraso entre ataques em 20%.",
+			"4": "Aumenta o dano em 33% e o tamanho em 20%.",
+			"5": "Remove o limite de golpes, e dura mais 1 segundo.",
+			"6": "Aumenta o tamanho do ataque em 50%.",
+			"7": "Aumenta o dano em 50%."
             },
             "Wamy Water":{
-            "name":"Wamy Water",
-				"1":"Create a splash of unknown water in front, knocking targets back.",
-				"2":"Increase damage by 20%.",
-				"3":"Increase attack area by 30%.",
-				"4":"Increase splash knockback.",
-				"5":"Reduce time between attacks by 20%.",
-				"6":"Increase damage by 30%.",
-				"7":"Increase attack area by 30% and stops targets for a short moment after knockback."
+            "name":"Água de Wamy",
+			"1": "Cria um salpico de água desconhecida à frente, atirando os alvos para trás.",
+			"2": "Aumenta o dano em 20%.",
+			"3": "Aumenta a área de ataque em 30%.",
+			"4": "Aumenta o efeito de ricochete do salpico.",
+			"5": "Reduzir o tempo entre ataques em 20%.",
+			"6": "Aumenta o dano em 30%.",
+			"7": "Aumenta a área de ataque em 30% e pára os alvos por um curto momento após o knockback."
             },
             "X-Potato":{
 				"name":"X-Potato",
-				"1": "Throw a potato that bounces around the screen before exploding into an X.",
-				"2": "Increases the X explosion size by 20%.",
-				"3": "Throw 2 potatoes.",
-				"4": "Increase damage and speed by 30%.",
-				"5": "Reduce the time between attacks by 15% and remove hit limit.",
-				"6": "Increase the size of potatoes and the X explosion size by 30%.",
-				"7": "Throw four potatoes."
+				"1": "Atira uma batata que salta à volta do ecrã antes de explodir num X.",
+				"2": "Aumenta o tamanho da explosão do X em 20%.",
+				"3": "Atira 2 batatas.",
+				"4": "Aumenta o dano e a velocidade em 30%.",
+				"5": "Reduzir o tempo entre ataques em 15% e remover o limite de acertos.",
+				"6": "Aumentar o tamanho das batatas e o tamanho da explosão X em 30%.",
+				"7": "Atira quatro batatas."
             },
             "PiPiPilstols":{
             "name":"PiPiPistols",
-			"desc": "One pistol shoots in aimed direction, another at random targets",
-            "1": "One pistol shoots in aimed direction, another at random targets",
-            "2": "Shoot 1 additional shot from each pistol",
-            "3": "Increase damage by 25%, and each bullet can pierce +1 times.",
-            "4": "Reduce the time between attacks by 25%, and each bullet can pierce +1 times.",
-            "5": "Increase damage by 50%",
-            "6": "A pair of full auto rifles, firing continuously. Damage is increased by 75%, and each bullet can pierce +1 times."
+			"desc": "Uma pistola dispara na direção pretendida, outra dispara contra alvos aleatórios",
+            "1": "Uma pistola dispara na direção pretendida, outra em alvos aleatórios",
+            "2": "Disparar 1 tiro adicional de cada pistola",
+            "3": "Aumenta o dano em 25%, e cada bala pode perfurar +1 vezes",
+            "4": "Reduzir o tempo entre ataques em 25%, e cada bala pode perfurar +1 vezes",
+            "5": "Aumenta o dano em 50%",
+            "6": "Um par de espingardas automáticas, disparando continuamente. O dano é aumentado em 75% e cada bala pode perfurar +1 vezes."
             }
         },
         "Items": {
 			"Blacksmith's Gear" : {
-				"name": "Blacksmith's Gear",
-				"1":"Normal anvils can be used twice. Only applies to anvils since taking this item.",
-				"2":"Normal anvils can be used twice. Weapon enhancements increase damage by 2.5 instead of 2 per level.",
-				"3":"Normal anvils can be used twice. Weapon enhancements increase damage by 3 instead of 2 per level."
+				"name": "Equipamento de Ferreiro",
+				"1": "As bigornas normais podem ser usadas duas vezes. Só se aplica a bigornas desde que se adquiriu este item.",
+				"2": "Bigornas normais podem ser usadas duas vezes. Melhorias nas armas aumentam o dano em 2,5 em vez de 2 por nível.",
+				"3": "As bigornas normais podem ser usadas duas vezes. As melhorias das armas aumentam o dano em 3 em vez de 2 por nível."
 				},
             "Body Pillow": {
-                "name" : "Body Pillow",
-                "1": "Gain a shield that absorbs up to [15] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [5%].",
-                "2": "Gain a shield that absorbs up to [20] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [10%].",
-                "3": "Gain a shield that absorbs up to [25] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [15%].",
-                "4": "Gain a shield that absorbs up to [30] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [20%].",
-                "5": "Gain a shield that absorbs up to [35] damage. Every [15] seconds, this shield refreshes. Also reduces damage taken by [25%]."
+                "name" : "Almofada para o corpo",
+                "1": "Ganha um escudo que absorve até [15] de dano. A cada [15] segundos, este escudo é atualizado. Também reduz o dano recebido em [5%]",
+                "2": "Ganha um escudo que absorve até [20] de dano. A cada [15] segundos, este escudo é atualizado. Também reduz o dano recebido em [10%].",
+                "3": "Ganha um escudo que absorve até [25] de dano. A cada [15] segundos, este escudo é atualizado. Também reduz o dano recebido em [15%].",
+                "4": "Ganha um escudo que absorve até [30] de dano. A cada [15] segundos, este escudo é atualizado. Também reduz o dano recebido em [20%].",
+                "5": "Ganha um escudo que absorve até [35] de dano. A cada [15] segundos, este escudo é atualizado. Também reduz o dano recebido em [25%]."
             },
             "Breastplate":{
-				"name" : "Breastplate",
-				"1" : "Reduce damage taken by 10% and SPD by 20%. When attacked there is a 50% chance the attacker also takes 200% damage.",	
-				"2" : "Reduce damage taken by 15% and SPD by 20%. When attacked there is a 60% chance the attacker also takes 250% damage.",
-				"3" : "Reduce damage taken by 20% and SPD by 20%. When attacked there is a 70% chance the attacker also takes 300% damage."
+				"name" : "Peitoral",
+				"1" : "Reduz o dano recebido em 10% e a DPS em 20%. Quando atacado, há 50% de hipóteses de o atacante também sofrer 200% de dano",	
+				"2" : "Reduz o dano sofrido em 15% e a DPS em 20%. Quando atacado, há 60% de hipóteses de o atacante também sofrer 250% de dano",
+				"3" : "Reduzir o dano recebido em 20% e a DPS em 20%. Quando atacado, há 70% de hipóteses de o atacante também sofrer 300% de dano."
 				},
             "Credit Card": {
-                "name" : "Credit Card",
-				"1": "Cost of enhancing is reduced by [20%] and anvils appear [20%] more often.", 
-				"2": "Cost of enhancing is reduced by [25%] and anvils appear [40%] more often.",
-				"3": "Cost of enhancing is reduced by [30%] and anvils appear [60%] more often.",
-				"4": "Cost of enhancing is reduced by [35%] and anvils appear [80%] more often.",
-				"5": "Cost of enhancing is reduced by [40%] and anvils appear [twice] as often."
+                "name" : "Cartão de crédito",
+				"1": "O custo de melhoramento é reduzido em [20%] e as bigornas aparecem [20%] mais vezes", 
+				"2": "O custo de melhoria é reduzido em [25%] e as bigornas aparecem [40%] mais vezes.",
+				"3": "O custo de melhoria é reduzido em [30%] e as bigornas aparecem [60%] mais vezes.",
+				"4": "O custo de otimização é reduzido em [35%] e as bigornas aparecem [80%] mais vezes.",
+				"5": "O custo de melhoria é reduzido em [40%] e as bigornas aparecem [duas vezes] mais frequentemente."
             },
             "Hope Soda" : {
-				"name" : "Hope Soda",
-				"1" : "Increase critical hit damage 10% and increase Special cooldown by 25%.",
-				"2" : "Increase critical hit damage 20% and increase Special cooldown by 25%.",
-				"3" : "Increase critical hit damage 30% and increase Special cooldown by 25%.",
-				"4" : "Increase critical hit damage 40% and increase Special cooldown by 25%.",
-				"5" : "Increase critical hit damage 50% and increase Special cooldown by 25%."
+				"name" : "Refrigerante Esperança",
+				"1" : "Aumenta o dano de acerto crítico em 10% e aumenta o tempo de recarga do Especial em 25%.",
+				"2" : "Aumenta o dano de acerto crítico em 20% e aumenta o tempo de recarga do Especial em 25%.",
+				"3" : "Aumenta o dano de acerto crítico em 30% e aumenta o tempo de recarga do Especial em 25%.",
+				"4" : "Aumenta o dano de acerto crítico em 40% e aumenta o tempo de recarga do Especial em 25%.",
+				"5" : "Aumenta o dano de acerto crítico em 50% e aumenta o tempo de recarga do Especial em 25%."
             },
             "Devil Hat" : {
-				"name" : "Devil Hat",
-				"1" : "Attacks deal 1.2 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%.",
-				"2" : "Attacks deal 1.4 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%.",
-				"3" : "Attacks deal 1.6 times damage if the target is farther than 150px away from the player. If less than 150px away, damage is reduced by 10%."
+				"name" : "Chapéu do Diabo",
+				"1" : "Os ataques causam 1,2 vezes o dano se o alvo estiver a mais de 150px de distância do jogador. Se estiver a menos de 150px, o dano é reduzido em 10%",
+				"2" : "Os ataques causam 1,4 vezes o dano se o alvo estiver a mais de 150px de distância do jogador. Se estiver a menos de 150px de distância, o dano é reduzido em 10%.",
+				"3" : "Os ataques causam 1,6 vezes o dano se o alvo estiver a mais de 150px de distância do jogador. Se estiver a menos de 150px, o dano é reduzido em 10%."
             },
             "Chicken's Feather": {
-                "name" : "Chicken's Feather",
-                "1" : "Gain [1] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ",
-				"2" : "Gain [2] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. ",
-				"3" : "Gain [3] revive. When you reach 0 HP, you automatically recover 50% HP and all current targets except bosses will be defeated. "
+                "name" : "Pena de Galinha",
+                "1" : "Ganha [1] reviver. Quando atingires 0 PV, recuperas automaticamente 50% de PV e todos os alvos actuais, exceto os bosses, serão derrotados. ",
+				"2" : "Ganha [2] reviver. Quando atingires 0 PV, recuperas automaticamente 50% de PV e todos os alvos actuais, exceto os bosses, serão derrotados. ",
+				"3" : "Ganha [3] reviver. Quando atingires 0 de PV, recuperas automaticamente 50% de PV e todos os alvos actuais, exceto os bosses, serão derrotados. "
             },
             "GWS Pill" : {
-            "name" : "GWS Pill",
-				"1":"While the Special meter is still charging, increase crit by 15%.", 
-				"2":"While the Special meter is still charging, increase crit by 20%.", 
-				"3":"While the Special meter is still charging, increase crit by 25%."
+            "name" : "Pílula GWS",
+			"1": "Enquanto o medidor de Especial ainda estiver a carregar, aumenta o crítico em 15%.", 
+			"2": "Enquanto o medidor de Especial ainda estiver a carregar, aumenta o crítico em 20%.", 
+			"3": "Enquanto o medidor de Especial ainda estiver a carregar, aumenta o crítico em 25%.", "4": "Enquanto o medidor de Especial ainda estiver a carregar, aumenta o crítico em 25%."
             },
             "Just Bandage" : {
-            "name" : "Just Bandage",
-				"1" : "Increase Max HP by 10. After being hit, heal 10% HP every 3 seconds until 80% of the damage taken is recovered (recovers minimum 1 HP).",
-				"2" : "Increase Max HP by 20. After being hit, heal 10% HP every 3 seconds until 90% of the damage taken is recovered (recovers minimum 1 HP).",
-				"3" : "Increase Max HP by 30. After being hit, heal 10% HP every 3 seconds until 100% of the damage taken is recovered (recovers minimum 1 HP)."
+            "name" : "Apenas ligadura",
+			"1" : "Aumenta o HP máximo em 10. Após ser atingido, cura 10% dos PV a cada 3 segundos até recuperar 80% do dano sofrido (recupera no mínimo 1 PV).",
+			"2" : "Aumenta os PV máximos em 20. Após ser atingido, cura 10% de PV a cada 3 segundos até recuperar 90% do dano sofrido (recupera no mínimo 1 PV).",
+			"3" : "Aumenta os PV máximos em 30. Depois de ser atingido, cura 10% de PV a cada 3 segundos até recuperar 100% do dano sofrido (recupera no mínimo 1 PV)."
             },
             "Limiter" : {
-            "name" : "Limiter",
-                "1":	"Gain 100% Pick Up Range. ",
-                "2":	"Gain 200% Pick Up Range. ",
-                "3":	"Gain 300% Pick Up Range. "
+            "name" : "Limitador",
+			"1":	"Ganho 100% Gama de captação. ",
+			"2":	"Ganho de 200% da gama de captação. ",
+			"3":	"Ganhar 300% de alcance de recolha. "
             },
             "Super Chatto Time" : {
-            "name" : "Super Chatto Time",
-                "1":	"Targets drop 20% more HoloCoins. All HoloCoins are picked automatically.",
-                "2":	"Targets drop 40% more HoloCoins. All HoloCoins are picked automatically.",
-                "3":	"Targets drop 60% more HoloCoins. All HoloCoins are picked automatically.",
-                "4":	"Targets drop 80% more HoloCoins. All HoloCoins are picked automatically.",
-                "5":	"Targets drop 100% more HoloCoins. All HoloCoins are picked automatically."				
+            "name" : "Hora do Super Chatto",
+			"1":	"Os alvos deixam cair mais 20% de HoloCoins. Todas as HoloCoins são apanhadas automaticamente",
+			"2":	"Os alvos caem 40% mais HoloCoins. Todas as HoloCoins são apanhadas automaticamente.",
+			"3":	"Os alvos caem 60% mais HoloCoins. Todas as HoloCoins são apanhadas automaticamente.",
+			"4":	"Os alvos caem 80% mais HoloCoins. Todas as HoloCoins são recolhidas automaticamente",
+			"5":	"Os alvos caem 100% mais HoloCoins. Todas as HoloCoins são recolhidas automaticamente."	
             },
             "Stolen Piggy Bank" : {
-            "name" : "Stolen Piggy Bank",
-			"1":	"Gain 1 coin for every 100px traveled and increase SPD by 20%. However, reduce Pick Up Range by 30%.",
-			"2":	"Gain 1 coin for every 75px traveled and increase SPD by 30%. However, reduce Pick Up Range by 30%.",
-			"3":	"Gain 1 coin for every 50px traveled and increase SPD by 40%. However, reduce Pick Up Range by 30%."
+            "name" : "Porquinho mealheiro roubado",
+			"1":	"Ganha 1 moeda por cada 100px percorridos e aumenta a DPS em 20%. No entanto, reduz o alcance de recolha em 30%",
+			"2":	"Ganha 1 moeda por cada 75px percorridos e aumenta a DPS em 30%. No entanto, reduz o alcance de recolha em 30%",
+			"3":	"Ganha 1 moeda por cada 50px percorridos e aumenta a DPS em 40%. No entanto, reduz o alcance de recolha em 30%."
             },
             "Sake" : {
             "name" : "Sake",
-				"1":"Gain 1% crit buff every second up to 10%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
-				"2":"Gain 1% crit buff every second up to 15%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds.",
-				"3":"Gain 1% crit buff every second up to 20%. If taking damage by a target, lose half the buff. If eating food, +5% crit for 10 seconds."
+			"1": "Ganha 1% de bónus de crítico a cada segundo até 10%. Se receber dano de um alvo, perde metade do bónus. Se estiver a comer comida, +5% de crítico durante 10 segundos",
+			"2": "Ganha 1% de bónus crítico a cada segundo até 15%. Se sofrer dano de um alvo, perde metade do bónus. Se comer comida, +5% de crítico durante 10 segundos.",
+			"3": "Ganha 1% de bónus crítico a cada segundo até 20%. Se sofrer dano de um alvo, perde metade do bónus. Se comer comida, +5% de crítico durante 10 segundos."
             },
             "Plushie" : {
-            "name" : "Plushie",
-                "1":"Delays taken damage. On any hit by a target, take only [30%] of the damage initially, then take the remaining damage gradually.",
-				"2":"Delays taken damage. On any hit by a target, take only [20%] of the damage initially, then take the remaining damage gradually.",
-				"3":"Delays taken damage. On any hit by a target, take only [10%] of the damage initially, then take the remaining damage gradually."
+            "name" : "Peluche",
+			"1": "Atrasa o dano recebido. Em qualquer ataque de um alvo, recebe apenas [30%] do dano inicialmente, depois recebe o restante dano gradualmente",
+			"2": "Atrasa o dano recebido. Em qualquer golpe de um alvo, recebe apenas [20%] do dano inicialmente, depois recebe o restante dano gradualmente.",
+			"3": "Atrasa o dano recebido. Em qualquer golpe de um alvo, recebe apenas [10%] do dano inicialmente, depois recebe o dano restante gradualmente."
             },
             "Piki Piki Piman" : {
             "name" : "Piki Piki Piman",
-				"1":"Gain 15 Max HP. After receiving damage, increase the special meter by 2%. There is a 0,2 second cooldown.",
-				"2":"Gain 20 Max HP. After receiving damage, increase the special meter by 3%. There is a 0,2 second cooldown.",
-				"3":"Gain 25 Max HP. After receiving damage, increase the special meter by 4%. There is a 0,2 second cooldown."
+			"1": "Ganha 15 de HP máximo. Depois de receber dano, aumenta o medidor de especial em 2%. O tempo de espera é de 0,2 segundos",
+			"2": "Ganha 20 de Vida Máxima. Depois de receber dano, aumenta o medidor de especial em 3%. Há um período de arrefecimento de 0,2 segundos.",
+			"3": "Ganha 25 de Vida Máxima. Depois de receber dano, aumenta o medidor de especial em 4%. Há um período de arrefecimento de 0,2 segundos."
             },
             "Membership" : {
-            "name" : "Membership",
-				"1":"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 30% and take 10% less damage.",
-				"2":"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 40% and take 18% less damage.",
-				"3":"Lose 3 Holo Coins per second. If Holo Coins is more than 0, increase damage by 50% and take 25% less damage."
+            "name" : "Adesão",
+			"1": "Perde 3 Moedas Holo por segundo. Se as Moedas Holo forem superiores a 0, aumenta o dano em 30% e sofre menos 10% de dano",
+			"2": "Perde 3 Moedas Holo por segundo. Se as Moedas Holo forem superiores a 0, aumenta o dano em 40% e sofre menos 18% de dano.",
+			"3": "Perde 3 Moedas Holo por segundo. Se as Moedas Holo forem superiores a 0, aumenta o dano em 50% e sofre menos 25% de dano."
             },
             "Halu" : {
             "name" : "Halu",
-				"1":"Increase regular fan spawns, and fans become 5% stronger. Gain 1 HoloCoin for every 5 targets defeated since taking this item.",
-				"2":"Increase regular fan spawns more, and fans become 15% stronger. Gain 1 HoloCoin for every 4 targets defeated since taking this item.",
-				"3":"Increase regular fan spawns further, and fans become 25% stronger. Gain 1 HoloCoin for every 3 targets defeated since taking this item.",
-				"4":"Increase regular fan spawns even further beyond, and fans become 33% stronger. Are you sure about this?",
-				"5":"Don't do it. "
+			"1": "Aumenta o número de leques que aparecem regularmente, e os leques tornam-se 5% mais fortes. Ganha 1 HoloCoin por cada 5 alvos derrotados desde que recebeste este item.",
+			"2": "Aumenta ainda mais o número de leques regulares, e os leques ficam 15% mais fortes. Ganha 1 HoloCoin por cada 4 alvos derrotados desde que recebeste este item.",
+			"3": "Aumenta ainda mais o número de leques regulares, e os leques tornam-se 25% mais fortes. Ganha 1 HoloCoin por cada 3 alvos derrotados desde que recebeste este item.",
+			"4": "Aumenta ainda mais o número de leques regulares, e os leques ficam 33% mais fortes. Tens a certeza disto?",
+			"5": "Não o faças. "
             },
             "Idol Costume" : {
-            "name" : "Idol Costume",
-					"1":"Reduce Special cooldown by 20%.", 
-					"2":"Reduce Special cooldown by 25%.",
-					"3":"Reduce Special cooldown by 30%.",
-					"4":"Reduce Special cooldown by 35%.",
-					"5":"Reduce Special cooldown by 40%."
+            "name" : "Roupa de Ídolo",
+			"1": "Reduzir o tempo de espera do Especial em 20%.", 
+			"2": "Reduzir o tempo de recarga de Special em 25%.",
+			"3": "Reduzir o tempo de recarga de Special em 30%.",
+			"4": "Reduzir o tempo de espera do Especial em 35%.",
+			"5": "Reduzir o tempo de espera do Especial em 40%."
             },
             "Energy Drink" : {
-            "name" : "Energy Drink",
-				"1":"Increase Haste by [10%] and SPD by [30%], but reduce Max HP by [20%] as well.",
-				"2":"Increase Haste by [15%] and SPD by [40%], but reduce Max HP by [20%] as well.",
-				"3":"Increase Haste by [20%] and SPD by [50%], but reduce Max HP by [20%] as well."
+            "name" : "Bebida energética",
+			"1": "Aumenta a Aceleração em [10%] e o DPS em [30%], mas reduz o HP máximo em [20%] também.",
+			"2": "Aumenta a Aceleração em [15%] e a DPS em [40%], mas também reduz os PV máximos em [20%].",
+			"3": "Aumenta a Aceleração em [20%] e a DPS em [50%], mas também reduz os PV máximos em [20%]."
             },
             "Face Mask" : {
-            "name" : "Face Mask",
-            "1":"Increase ATK by [50%] and Haste by [10%]. Take [30%] more damage."            
+            "name" : "Máscara Facial",
+            "1": "Aumenta o ATQ em [50%] e a Aceleração em [10%]. Recebe [30%] a mais de dano."       
             },
             "Full Meal" : {
-            "name" : "Full Meal",
-            "1":"All healing is doubled."
+            "name" : "Refeição Completa",
+            "1": "Toda a cura é dobrada."
             },
             "Gorilla's Paw" : {
-            "name" : "Gorilla's Paw",
-            	"1":"Increase normal attack damage by [30%], but lose [20%] critical chance.",
-				"2":"Increase normal attack damage by [40%], but lose [20%] critical chance.",
-				"3":"Increase normal attack damage by [50%], but lose [20%] critical chance."
+            "name" : "Pata de Gorila",
+			"1": "Aumenta o dano de ataque normal em [30%], mas perde [20%] de hipótese crítica.",
+			"2": "Aumenta o dano de ataque normal em [40%], mas perde [20%] de hipótese crítica.",
+			"3": "Aumenta o dano de ataque normal em [50%], mas perde [20%] de chance de crítico."
             },
             "Headphones" : {
-            "name" : "Headphones",
-				"1":"[15%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"2":"[20%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"3":"[25%] chance to negate [1] hit, and create a shockwave that knocks back all targets.", 
-				"4":"[30%] chance to negate [1] hit, and create a shockwave that knocks back all targets.",
-				"5":"[35%] chance to negate [1] hit, and create a shockwave that knocks back all targets."
+            "name" : "Auscultadores",
+			"1":"[15%] de hipótese de anular [1] golpe e criar uma onda de choque que repele todos os alvos.", 
+			"2":"[20%] de hipóteses de anular [1] golpe e criar uma onda de choque que repele todos os alvos.", 
+			"3":"[25%] de hipótese de anular [1] golpe e criar uma onda de choque que repele todos os alvos.", 
+			"4":"[30%] de hipótese de anular [1] golpe e criar uma onda de choque que repele todos os alvos.",
+			"5":"[35%] de hipótese de anular [1] golpe e criar uma onda de choque que repele todos os alvos."
             },
             "Injection Type Asacoco" : {
-            "name" : "Injection Type Asacoco",
-				"1":"Lose [5%] HP every second (until 1 HP remains), but gain [40%] damage.",
-				"2":"Lose [5%] HP every second (until 1 HP remains), but gain [60%] damage.",
-				"3":"Lose [5%] HP every second (until 1 HP remains), but gain [80%] damage."
+            "name" : "Tipo de Injeção Asacoco",
+			"1": "Perde [5%] de PV a cada segundo (até restar 1 PV), mas ganha [40%] de dano.",
+			"2": "Perde [5%] de PV a cada segundo (até restar 1 PV), mas ganha [60%] de dano.",
+			"3": "Perde [5%] de Vida a cada segundo (até restar 1 de Vida), mas recebe [80%] de dano."
             },
             "Holy Milk" : {
-            "name" : "Knightly Milk",
-				"1":"Increases attack size of weapons by [10%]. Also increase Pick Up Range by [30%].",
-				"2":"Increases attack size of weapons by [15%]. Also increase Pick Up Range by [40%].",
-				"3":"Increases attack size of weapons by [20%]. Also increase Pick Up Range by [50%]."
+            "name" : "Leite de Cavaleiro",
+			"1": "Aumenta o tamanho do ataque das armas em [10%]. Também aumenta o Alcance de Recolha em [30%]",
+			"2": "Aumenta o tamanho do ataque das armas em [15%]. Também aumenta o Alcance de Recolha em [40%].",
+			"3": "Aumenta o tamanho do ataque das armas em [20%]. Também aumenta o Alcance de Recolha em [50%]."
             },
             "SuccubusHorn" : {
-            "name" : "Nurse's Horn",
-				"1":"When a target is defeated, there is a [30%] chance to heal for [2 HP].",
-				"2":"When a target is defeated, there is a [30%] chance to heal for [4 HP].",
-				"3":"When a target is defeated, there is a [30%] chance to heal for [6 HP]."       
+            "name" : "Chifre da Enfermeira",
+			"1": "Quando um alvo é derrotado, há uma hipótese de [30%] de curar [2 PV].",
+			"2": "Quando um alvo é derrotado, existe uma hipótese de [30%] de curar [4 PV].",
+			"3": "Quando um alvo é derrotado, existe uma hipótese de [30%] de curar [6 PV]."      
             },
             "Study Glasses" : {
-            "name" : "Uruka's Eye-Bra",
-				"1":"Increase EXP gain by [10%].", 
-				"2":"Increase EXP gain by [15%].",
-				"3":"Increase EXP gain by [20%].",
-				"4":"Increase EXP gain by [25%].",
-				"5":"Increase EXP gain by [30%]."
+            "name" : "Sutia da Uruka",
+			"1": "Aumenta o ganho de EXP em [10%].", 
+			"2": "Aumenta o ganho de EXP em [15%].",
+			"3": "Aumenta o ganho de EXP em [20%].",
+			"4": "Aumentar o ganho de EXP em [25%].",
+			"5": "Aumentar o ganho de EXP em [30%]."
             },
             "Uber Sheep" : {
-            "name" : "Uber Sheep",
-				"1":"Every [10] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"2":"Every [9] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"3":"Every [8] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"4":"Every [7] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%].",
-				"5":"Every [6] seconds, food will drop close by. Also increase food drop chance from defeated targets by [10%]."
+            "name" : "Ovelha Uber",
+			"1": "A cada [10] segundos, comida cairá por perto. Também aumenta em [10%] a probabilidade de cair comida de alvos derrotados",
+			"2": "A cada [9] segundos, cairá comida por perto. Também aumenta em [10%] a probabilidade de cair comida de alvos derrotados.",
+			"3": "A cada [8] segundos, cairá comida nas proximidades. Aumenta também em [10%] a probabilidade de cair comida de alvos derrotados.",
+			"4": "A cada [7] segundos, cairá comida nas proximidades. Aumenta também em [10%] a probabilidade de cair comida de alvos derrotados.",
+			"5": "A cada [6] segundos, cairá comida nas proximidades. Também aumenta em [10%] a probabilidade de cair comida de alvos derrotados."
             }
         },
 		"Enchantments" : {
-			"1" : { "desc" : "Damage +15%" },
-			"2" : { "desc" : "Size +15%"},
+			"1" : { "desc" : "Dano +15%" },
+			"2" : { "desc" : "Tamanho +15%"},
 			"3" : { "desc" : "Cooldown -10%" },
-			"4" : { "desc" : "HitRate +20%" },
-			"5" : { "desc" : "Crit Damage +10%" },
-			"6" : { "desc" : "+Knockback effect" },
-			"7" : { "desc" : "+1 projectile" }
+			"4" : { "desc" : "Velocidade de dano +20%" },
+			"5" : { "desc" : "Dano Critico +10%" },
+			"6" : { "desc" : "+Efeito Ricochete" },
+			"7" : { "desc" : "+1 Projetil" }
 		},
 		"Perks": {
 			"Heavy Artillery" : {
-				"name": "Heavy Artillery",
-				"desc" : "Every 3 seconds, fire a naval gun, dealing 333% damage.",
-				"1":"Every 3 seconds, fire a naval gun, dealing 333% damage.",
-				"2":"Naval guns fire 33% more often.",
-				"3":"Naval guns fire +1 times."
+				"name": "Artilharia Pesada",
+				"desc" : "A cada 3 segundos, dispara um canhão naval, causando 333% de dano.",
+				"1": "A cada 3 segundos, dispara um canhão naval, causando 333% de dano.",
+				"2": "As armas navais disparam 33% mais vezes.",
+				"3": "As armas navais disparam +1 vezes."
 				},
 			"Moldy Soul": {
-				"name": "Moldy Soul",
-				"desc": "Every time a food item is consumed, 33% chance to gain  3% Crit Damage.",
-				"1": "Every time a food item is consumed, 33% chance to gain 3% Crit Damage.",
-				"2": "Critical hits with your main weapon have a 33% chance to spawn Mold that hits nearby targets for 33% damage.",
-				"3": "Extra Crit Damage afftects Mold critical hits 3 times."
+				"name": "Alma bolorenta",
+				"desc": "Toda vez que um item de comida é consumido, 33% de chance de ganhar 3% de Dano Crítico",
+				"1": "Sempre que um item alimentar é consumido, 33% de hipóteses de ganhar 3% de Dano Crítico.",
+				"2": "Acertos críticos com a sua arma principal têm 33% de hipóteses de gerar Bolor que atinge alvos próximos com 33% de dano.",
+				"3": "O Dano Crítico Extra afecta 3 vezes os acertos críticos do Molde."
 			},
 			"Soda Fueled": {
-				"name": "Soda Fueled",
-				"desc": "Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.",
-				"1": "Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.",
-				"2": "Soda lasts 3 times longer.",
-				"3": "All soda buffs are 3 times stronger."
+				"name": "Movida a refrigerante",
+				"desc": "Qualquer item alimentar tem 33% de hipótese de se transformar em Soda. Pegar Soda concede 3% de Crit, DPS e Aceleração por 3 segundos",
+				"1": "Qualquer item alimentar tem 33% de hipótese de se transformar em Soda. Apanhar Soda concede 3% de Crítico, DPS e Aceleração durante 3 segundos",
+				"2": "Soda dura 3 vezes mais.",
+				"3": "Todos os buffs de soda são 3 vezes mais fortes."
 			},
 			"Dirty Mind": {
-				"name": "Dirty Mind",
-				"desc": "Gives Uruka a ?% chance to negate received damage, and turns half of it into Healing.",
-				"1": "Gives Uruka a ?% chance to negate received damage, and turns half of it into Healing.",
-				"2": "Increase negate chance to 20%.",
-				"3": "Increase negate chance to 25%."
+				"name": "Mente suja",
+				"desc": "Dá a Uruka ?% de chance de negar o dano recebido e transforma metade dele em Cura",
+				"1": "Dá a Uruka ?% de chance de negar o dano recebido e transforma metade dele em Cura",
+				"2": "Aumenta a chance de negar para 20%.",
+				"3": "Aumenta a chance de negar para 25%."
 			},
 			"Brittle Bones": {
-				"name": "Brittle Bones",
-				"desc": "Take more damage, spawn Rest Notes when taking damage.",
-				"1": "Take +2 damage, spawn Rest Notes when taking damage.",
-				"2": "Take +3 dmg.",
-				"3": "Take +4 dmg."
+				"name": "Ossos frágeis",
+				"desc": "Sofre mais danos, gera Notas de Descanso quando sofre danos",
+				"1": "Sofre +2 de dano, gera Notas de Descanso quando sofre dano",
+				"2": "Receber +3 dmg.",
+				"3": "Receber +4 dmg."
 			},
 			"Trash Bear": {
-				"name": "Trash Bear",
-				"desc": "Chance to drop spaghetti from enemies killed.",
-				"1": "10% Chance to drop spaghetti from enemies killed.",
-				"2": "Increase drop chance to 11%.",
-				"3": "Increase drop chance to 12%."
+				"name": "Urso do lixo",
+				"desc": "Probabilidade de deixar cair esparguete dos inimigos mortos",
+				"1": "10% de hipótese de deixar cair esparguete dos inimigos mortos.",
+				"2": "Aumentar a hipótese de largar esparguete para 11%.",
+				"3": "Aumenta a hipótese de cair para 12%."
 			},
 			"Power Strike" : {
-				"name": "Power Strike",
-				"desc": "Summons a electric pulse around Lia",
-				"1": "Every 10 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
-				"2": "Every 8 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage.",
-				"3": "Every 6 seconds spawn a eletric pulse around Lia for 2 seconds, dealing 50% base weapon damage."
+				"name": "Greve de potência",
+				"desc": "Invoca um pulso elétrico à volta da Lia",
+				"1": "A cada 10 segundos gera um pulso elétrico ao redor de Lia por 2 segundos, causando 50% do dano básico de arma",
+				"2": "A cada 8 segundos gera um pulso elétrico à volta da Lia durante 2 segundos, causando 50% do dano base da arma",
+				"3": "A cada 6 segundos gera um pulso elétrico à volta da Lia durante 2 segundos, causando 50% do dano base da arma."
 			},
 			"Viral" : {
 				"name": "Viral",
-				"desc": "Small chance on crits to convert a enemy into a Liker",
-				"1": "On a crit, there is a 20% chance to Infect the target (Max 5) to your side and help for 8 seconds. Target gain Lia's ATK and SPD.",
-				"2": "Increase chance to 27% and max infected to 10.",
-				"3": "Increase chance to 33% and max infected to 15."
+				"desc": "Pequena hipótese de converter um inimigo num Liker",
+				"1": "Num crítico, existe uma hipótese de 20% de Infetar o alvo (Max 5) para o teu lado e ajudar durante 8 segundos. O alvo ganha o ATQ e a DPS da Lia",
+				"2": "Aumenta a chance para 27% e o máximo de infectados para 10.",
+				"3": "Aumenta a hipótese para 33% e o máximo de infectados para 15."
 			},
 			"Lick" : {
-				"name": "Lick",
-				"desc": "Heals HP every few seconds based on how many enemies are close to Lia",
-				"1": "LIA heals 1% of health per every enemy in a small radius around her every 5 seconds.",
-				"2": "Increase radius and lower time to 4 seconds.",
-				"3": "Increase radius and lower time to 3 seconds."
+				"name": "Lambida",
+				"desc": "Cura HP a cada poucos segundos com base em quantos inimigos estão perto de Lia",
+				"1": "LIA cura 1% da saúde por cada inimigo num pequeno raio à sua volta a cada 5 segundos",
+				"2": "Aumentar o raio e diminuir o tempo para 4 segundos.",
+				"3": "Aumenta o raio e reduz o tempo para 3 segundos."
 			},
 			"" : {
 				"name": "",

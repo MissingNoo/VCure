@@ -17,11 +17,11 @@ switch (currentStep) {
 		if (string_length(keyboard_string) > 15) {
 			keyboard_string = string_copy(keyboard_string, 1, 15);
 		}
-		playername = keyboard_string;
 		if (confirm) {
 		    global.username = playername;
 			currentStep++;
 		}
+		playername = keyboard_string;		
 		break;
 	case ConfigSteps.ShowNames:
 		if (confirm) {

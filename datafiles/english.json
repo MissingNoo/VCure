@@ -16,7 +16,6 @@
 			"ConsentText" : "Do you consent to use your Username when submitting scores to the leaderboard? \nIf you opt-out, any scores you choose to submit will be stored and displayed as 'Anonymous'. \n\nYou may change this setting later.",
 			"Consent" : "Consent",
 			"DontConsent" : "Don't Consent"
-
 		},
 		"Hud" : {
 			"Button" : {

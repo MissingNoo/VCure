@@ -1,4 +1,5 @@
 #region Locals Initialization
+centered = false;
 mousePrevious = [0,0];
 released=false;
 zKey = 0;

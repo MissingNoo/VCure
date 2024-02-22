@@ -1099,3 +1099,7 @@ if (_drawMouse and os_type != os_android) {
 if (!_drawMouse) {
     cursor_sprite = sBlank;
 }
+if (!centered) {
+	centered = true;
+    window_center();
+}
