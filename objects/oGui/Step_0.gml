@@ -458,7 +458,7 @@ if (room == rCharacterSelect) {
 					break;}
 				case false:{
 					global.mode = "menu";
-					global.username = global.player[?"name"]; //TODO: Remove
+					//global.username = global.player[?"name"]; //TODO: Remove
 					room_goto(rLobby);
 					break;}
 			}

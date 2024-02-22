@@ -1,4 +1,7 @@
 //global.serverip = "192.168.15.9";
+if (!global.initialConfigDone) {
+    instance_destroy();
+}
 playerSpawn = [1895, 1880];
 if (instance_number(oClient) > 1) {
     instance_destroy();

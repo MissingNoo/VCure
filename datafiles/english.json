@@ -2,6 +2,22 @@
     "language": "English",
     "locale": "en-US",
     "text": {
+		"Config" : {
+			"PlayerName" : "Player Name",
+			"ShowNames1" : "Display other player names in leaderboard?",
+			"ShowNames2" : "(There may be potential profanity or other offensive language found in other player \nnames in the leaderboard)",
+			"Show" : "Show",
+			"DontShow" : "Don't Show",
+			"ShowMyName" : "Use Username",
+			"LanguageText" : "Language",
+			"FinalAccept" : "Start!",
+			"FinalRefuse" : "Restart",
+			"ShowHiscoreNames" : "Show Hiscore Names",
+			"ConsentText" : "Do you consent to use your Username when submitting scores to the leaderboard? \nIf you opt-out, any scores you choose to submit will be stored and displayed as 'Anonymous'. \n\nYou may change this setting later.",
+			"Consent" : "Consent",
+			"DontConsent" : "Don't Consent"
+
+		},
 		"Hud" : {
 			"Button" : {
 				"Accept" : "Accept"

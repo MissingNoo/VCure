@@ -1,3 +1,7 @@
+playername = "Player";
+showOtherNames = false;
+sendMyName = false;
+finalAccept = false;
 enum ConfigSteps {
 	Language,
 	PlayerName,
@@ -7,7 +11,7 @@ enum ConfigSteps {
 }
 currentStep = ConfigSteps.Language;
 languages = lexicon_languages_get_array();
-show_message_async(languages);
+//show_message_async(languages);
 selectedLanguage = [0, array_length(languages) -1];
 //room_goto(rInicio);
 a = 0;

@@ -91,5 +91,8 @@ reset_timer();
 #region Lexicon Initialization
 lexicon_index_declare_from_json("english.json");
 lexicon_index_declare_from_json("ptbr.json");
+ini_open("Settings");
+var language = ini_read_string("Settings", "Language", "English");
+ini_close();
 lexicon_language_set("English");
 #endregion

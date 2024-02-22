@@ -1062,6 +1062,7 @@ offset = 0;
 #endregion	
 #region Android Buttons
 if (os_type == os_android) 
+//if (true) 
 {
 	android_gui_button(zButton);
 	android_gui_button(xButton);
