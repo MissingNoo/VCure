@@ -38,6 +38,7 @@ switch (currentStep) {
 	case ConfigSteps.FinalInfo:
 		if (confirm) {
 			if (!finalAccept) {
+				global.initialConfigDone = true;
 			    Save_Data_Structs();
 				room_goto(rInicio);
 			}
