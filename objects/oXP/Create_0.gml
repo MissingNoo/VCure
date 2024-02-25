@@ -10,3 +10,5 @@ direction = random_range(0, 360);
 speed = random_range(1, 1.5);
 alarm[0] = 15;
 justSpawned = true;
+canMerge = false;
+alarm[1] = 60*5;

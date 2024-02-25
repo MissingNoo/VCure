@@ -18,7 +18,7 @@ if (!global.gamePaused) {
 		if (!nearestxp.justSpawned and distance_to_point(nearestxp.x, nearestxp.y) < 40) {
 		    otherxp = collision_circle(x,y, 30, oXP,false,true);
 		}
-		if (otherxp != noone and !onArea) {    
+		if (otherxp != noone and !onArea and canMerge and otherxp.canMerge) {    
 			direction = point_direction(x,y,otherxp.x,otherxp.y);
 			speed = 1 * Delta;
 			if (collision_circle(x,y, 3, oXP,false,true)) {

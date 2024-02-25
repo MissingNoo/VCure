@@ -89,7 +89,7 @@ switch (currentStep) {
 						[lexicon_text("Config.LanguageText"), languages[selectedLanguage[0]][0]],
 						[lexicon_text("Config.PlayerName"), playername],
 						[lexicon_text("Config.ShowHiscoreNames"), !showOtherNames ? lexicon_text("Config.Show") : lexicon_text("Config.DontShow")],
-						[lexicon_text("Config.ShowMyName"), !showOtherNames ? lexicon_text("Config.Consent") : lexicon_text("Config.DontConsent")],
+						[lexicon_text("Config.ShowMyName"), !sendMyName ? lexicon_text("Config.Consent") : lexicon_text("Config.DontConsent")],
 					]
 		_offset = 0;
 		for (var i = 0; i < array_length(_info); ++i) {
