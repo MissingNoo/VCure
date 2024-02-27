@@ -2,6 +2,16 @@
     "language": "English",
     "locale": "en-US",
     "text": {
+		"MainMenu" : {
+			"Singleplayer" : "Singleplayer",
+			"Multiplayer" : "Multiplayer",
+			"Shop" : "Shop",
+			"Leaderboard" : "Leaderboard",
+			"Achievements" : "Achievements",
+			"Settings" : "Settings",
+			"Credits" : "Credits",
+			"Quit" : "Quit"
+		},
 		"Config" : {
 			"PlayerName" : "Player Name",
 			"ShowNames1" : "Display other player names in leaderboard?",
@@ -19,7 +29,8 @@
 		},
 		"Hud" : {
 			"Button" : {
-				"Accept" : "Accept"
+				"Accept" : "Accept",
+				"Refuse" : "Refuse"
 			}
 		},
 		"Characters":{

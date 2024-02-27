@@ -3,9 +3,15 @@
 #macro MY oGui.y
 #macro mouse_click device_mouse_check_button_pressed(0, mb_left)
 #macro mouse_hold device_mouse_check_button(0, mb_right)
-function mouse_on_area(area){
+function mouse_on_area(area, hover = true){
 	var result = false;
-	if (point_in_rectangle(MX, MY, area[0], area[1], area[2], area[3])) {
+	var _x = device_mouse_x_to_gui(0);
+	var _y = device_mouse_y_to_gui(0);
+	if (hover) {
+	    _x = MX;
+		_y = MY;
+	}
+	if (point_in_rectangle(_x, _y, area[0], area[1], area[2], area[3])) {
 	    result = true;
 	}
 	return result;

@@ -3,11 +3,6 @@ if (boss) {
 	instance_create_depth(x, y, depth, oChest);
 }
 
-if (dropxp and hp < 0) {
-	global.defeatedEnemies += 1;
-    instance_create_layer(x,y,"Instances",oXP, {xp : xp});
-}
-
 //global.lastxp = xp;
 //layer_sequence_create("Instances", x, y, seq_xp);
 //random_set_seed(current_time);

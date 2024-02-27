@@ -1,4 +1,8 @@
 DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
+DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
+DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
+DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
+DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
 draw_set_alpha(1);
 //draw_text(mouse_x, mouse_y, $"{mousePrevious}")
 //var _names = variable_struct_get_names(oGame.importedSave);
@@ -51,28 +55,43 @@ if (room == rInicio) {
 		gpu_set_fog(false,c_white,0,0);
 		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
 		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
-		var buttons = [[0, 1.68 + 0.035, 5.15, 7, 2.5, 
-									[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
-									[0, 1.76 + 0.035, 2.29, 3.5, -0.65,
-									[[GW/1.82,GH/2.53, GW/1.41, GH/1.83],[GW/1.41, GH/2.54],[GW/1.82, GH/1.86]]],
-									[0, 1.34, 2.39, 4, 0,
-									[[GW/1.39,GH/2.54, GW/1.10, GH/1.79],[GW/1.10, GH/2.57],[GW/1.39,GH/1.83]]],
-									[0, 1.56, 1.72, 5, -3.95,
-									[[GW/1.70, GH/1.79, GW/1.07, GH/1.32],[GW/1.07, GH/1.71],[GW/1.70,GH/1.42]]],
-									[0, 1.67, 1.32, 4, -5.60,									
-									[[GW/1.77,GH/1.40, GW/1.42, GH/1.12],[GW/1.42, GH/1.36],[GW/1.77,GH/1.17]]],
-									[0, 1.32, 1.29, 5, -5.45,
-									[[GW/1.40,GH/1.35, GW/1.15, GH/1.07],[GW/1.15, GH/1.30],[GW/1.40,GH/1.12]]]];
+		//var buttons = [[0, 1.68 + 0.035, 5.15, 7, 2.5, 
+		//							[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
+		//							[0, 1.76 + 0.035, 2.29, 3.5, -0.65,
+		//							[[GW/1.82,GH/2.53, GW/1.41, GH/1.83],[GW/1.41, GH/2.54],[GW/1.82, GH/1.86]]],
+		//							[0, 1.34, 2.39, 4, 0,
+		//							[[GW/1.39,GH/2.54, GW/1.10, GH/1.79],[GW/1.10, GH/2.57],[GW/1.39,GH/1.83]]],
+		//							[0, 1.56, 1.72, 5, -3.95,
+		//							[[GW/1.70, GH/1.79, GW/1.07, GH/1.32],[GW/1.07, GH/1.71],[GW/1.70,GH/1.42]]],
+		//							[0, 1.67, 1.32, 4, -5.60,									
+		//							[[GW/1.77,GH/1.40, GW/1.42, GH/1.12],[GW/1.42, GH/1.36],[GW/1.77,GH/1.17]]],
+		//							[0, 1.32, 1.29, 5, -5.45,
+		//							[[GW/1.40,GH/1.35, GW/1.15, GH/1.07],[GW/1.15, GH/1.30],[GW/1.40,GH/1.12]]]];
+		var _menuyoffset = 0;
+		draw_set_valign(fa_center);
+		draw_set_halign(fa_middle);
+		var _w = sprite_get_width(sHudButton) * 2 / 2;
+		var _h = sprite_get_height(sHudButton) * 2 / 2;
 		for (var i = 0; i < array_length(menuOptions); i++) {
 			//draw_sprite_ext(buttons[i][0], selected == i ? 1 : 0 , 0, 0, 1, 1, 0, c_white, 1);
+			var _spr = selected == i ? 1 : 0;
 			var _color = selected == i ? c_black : c_white;
-			var _bgcolor = selected == i ? #d2d2d2 : #a9a9a9;
-			draw_triangle_color(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
-			draw_triangle_color(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
-			draw_text_transformed_color(floor(GW/buttons[i][1]), floor(GH/buttons[i][2]), menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
-			mouse_on_button_triangle(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
-			mouse_on_button_triangle(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
+			var _xx = GW - 305;
+			var _yy = GH/4 + _menuyoffset;
+			draw_sprite_ext(sHudButton, _spr, _xx, _yy, selected == i ? 2 : 1.75, 2, 0, c_white, 1);
+			draw_text_transformed_color(_xx, _yy + 5, menuOptions[i], 2, 2, 0, _color, _color, _color, _color, 1);
+			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and mouse_click) { menuClick = true; }
+			if (point_in_rectangle(x, y, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { selected = i; }
+			_menuyoffset += 93;
+			//var _bgcolor = selected == i ? #d2d2d2 : #a9a9a9;
+			//draw_triangle_color(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
+			//draw_triangle_color(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
+			//draw_text_transformed_color(floor(GW/buttons[i][1]), floor(GH/buttons[i][2]), menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
+			//mouse_on_button_triangle(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
+			//mouse_on_button_triangle(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
 		}
+		draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
 	}
 	#endregion
 }
@@ -792,7 +811,7 @@ if (instance_exists(oPlayer))
 			var h = sprite_get_height(sHudButton) * 1.50;
 			_x = GW/2;
 			_y = GH/2 + 275;
-			var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
+			var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)], false);
 			draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
 			draw_set_valign(fa_middle);
 			draw_set_halign(fa_center);
@@ -876,7 +895,7 @@ if (instance_exists(oPlayer))
 				var h = sprite_get_height(sHudButton) * 1.50;
 				_x = GW/2 + chestAcceptRefuseX;
 				_y = GH/2 + 275;
-				var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
+				var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)], false);
 				draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
 				draw_set_valign(fa_middle);
 				draw_set_halign(fa_center);

@@ -1,7 +1,4 @@
 draw_text(10, 10, currentStep);
-DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
-DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
-DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
 var _offset;
 switch (currentStep) {
     case ConfigSteps.Language:

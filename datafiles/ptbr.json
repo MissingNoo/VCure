@@ -2,6 +2,16 @@
     "language": "PtBr",
     "locale": "PT-BR",
     "text": {
+		"MainMenu" : {
+			"Singleplayer" : "Jogar",
+			"Multiplayer" : "Multijogador",
+			"Shop" : "Loja",
+			"Leaderboard" : "Leaderboard",
+			"Achievements" : "Conquistas",
+			"Settings" : "Configuraçoes",
+			"Credits" : "Créditos",
+			"Quit" : "Sair"
+		},
 		"Config" : {
 			"PlayerName" : "Nome do Player",
 			"ShowNames1" : "Mostrar nome de outros jogadores?",

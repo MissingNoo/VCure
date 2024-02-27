@@ -81,3 +81,4 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
 if (!global.initialConfigDone and room != rInitialConfig) {
     room_goto(rInitialConfig);
 }
+menuClick = false;

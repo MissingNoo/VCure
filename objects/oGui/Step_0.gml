@@ -56,7 +56,7 @@ if (room == rStage1 and !instance_exists(oClient)) {
 #region Input
 //feather disable GM1044
 if (room == rInicio) {
-    zKey = input_check_pressed("accept") or input_check_pressed("click");
+    zKey = input_check_pressed("accept") or menuClick;
 }
 else {
     zKey = input_check_pressed("accept");
@@ -128,11 +128,11 @@ if (room == rInicio and !global.gamePaused) {
 				outfitSelected = false;
 	            room_goto(rCharacterSelect);
 	            break;}
-			case MenuOptionsEnum.Settings:{
-				keyboard_clear(ord("Z"));
-				pause_game();
-				activeMenu = PMenus.Settings;
-				break;}
+			//case MenuOptionsEnum.Settings:{
+			//	keyboard_clear(ord("Z"));
+			//	pause_game();
+			//	activeMenu = PMenus.Settings;
+			//	break;}
 			case MenuOptionsEnum.Shop:{
 				DEBUG
 					global.holocoins = 99999;
