@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"Animation Curves","order":22,"path":"folders/Animation Curves.yy",},
     {"name":"DebugLib","order":37,"path":"folders/DebugLib.yy",},
     {"name":"Extensions","order":24,"path":"folders/Extensions.yy",},
@@ -114,7 +114,7 @@
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"input_icons_gamepad","order":3,"path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},
     {"name":"WeaponScripts","order":18,"path":"scripts/WeaponScripts/WeaponScripts.yy",},
     {"name":"__input_finalize_verb_groups","order":3,"path":"scripts/__input_finalize_verb_groups/__input_finalize_verb_groups.yy",},

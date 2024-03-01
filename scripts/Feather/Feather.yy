@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "Feather",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "PhaseCure",
-    "path": "PhaseCure.yyp",
+  "$GMScript":"",
+  "%Name":"Feather",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Feather",
+  "parent":{
+    "name":"PhaseCure",
+    "path":"PhaseCure.yyp",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
