@@ -1,5 +1,7 @@
 DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
-DebugManager.debug_add_config("1:30", DebugTypes.Button, self, "", function(){Minutes = 1; Seconds = 28});
+DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
+DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
+DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
 DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
 DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
 DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");

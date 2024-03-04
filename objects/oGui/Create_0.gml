@@ -160,6 +160,8 @@ e=1;
 f=1;
 g=1;
 h=1;
+minute = 0;
+second = 0;
 #endregion
 #region PauseMenu	
 activeMenu = PMenus.Pause;
