@@ -3,9 +3,6 @@
 DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});
 DebugManager.debug_add_config("Add 100 coins", DebugTypes.Button, undefined, undefined, function(){global.newcoins+=100;});
 #endregion
-if (keyboard_check_pressed(vk_end)) {
-    skilltimer = specialcooldown;
-}
 can_collab();
 if (!global.gamePaused and device_mouse_check_button_pressed(0, mb_left) and os_type != os_android and !(instance_exists(DebugManager) and mouse_on_area(DebugManager.screenarea))) {
     mouseAim = !mouseAim;
@@ -231,6 +228,10 @@ if (HP <= 0) {
 			}
 		}
 	}
+	ANVIL = false;
+	GoldenANVIL = false;
+	global.upgrade = false;
+	mouseAim = false;
 }
 #endregion
 #region Healing

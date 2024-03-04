@@ -78,7 +78,7 @@ if (room == rInicio) {
 			var _spr = selected == i ? 1 : 0;
 			var _color = selected == i ? c_black : c_white;
 			var _xx = GW - 305;
-			var _yy = GH/4 + _menuyoffset;
+			var _yy = GH/4 + _menuyoffset + 3;
 			draw_sprite_ext(sHudButton, _spr, _xx, _yy, selected == i ? 2 : 1.75, 2, 0, c_white, 1);
 			draw_text_transformed_color(_xx, _yy + 5, menuOptions[i], 2, 2, 0, _color, _color, _color, _color, 1);
 			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and mouse_click) { menuClick = true; }
@@ -411,7 +411,7 @@ if (instance_exists(oPlayer))
 	draw_rectangle(5, 5, GW - 5, 30, true);
 	#endregion
 	#region LevelUP
-	if (global.upgrade == 1) {
+	if (global.upgrade) {
 		#region UpgradeList
 		offset = 0;
 		for (var i = 0; i < array_length(global.upgradeOptions); i++) {

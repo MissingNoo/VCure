@@ -144,7 +144,11 @@ if(_canmove and instance_exists(target)){
 	if (instance_exists(target)) {
 		if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;}
 		if (followPlayer) {
-			direction=point_direction(x,y,target.x,target.y);
+			var _bossoffset = 0;
+			if (thisEnemy == Enemies.FubuZilla) {
+			    _bossoffset = 16;
+			}
+			direction=point_direction(x,y,target.x,target.y + _bossoffset);
 			if (boss) {
 				if(target.x < x) image_xscale = -2;
 				if(target.x > x) image_xscale = 2;

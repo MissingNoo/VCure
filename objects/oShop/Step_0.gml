@@ -89,7 +89,7 @@ if (interacting) {
 		var _cost = _upg.costs[_level - _level == _maxlevel ? 1 : 0];
 		switch (interactOption) {
 		    case 0:
-		        if (global.holocoins > _cost and _level < _maxlevel) {
+		        if (global.holocoins >= _cost and _level < _maxlevel) {
 				    global.holocoins -= _cost;
 					global.shopUpgrades[$ ups[selected]].level += 1;
 					interacting = false;
