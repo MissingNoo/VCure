@@ -119,6 +119,7 @@ pButton = [startX - 280,					startY, startX - 280 + 120, startY + 45, "P"];
 plusButton = [startX - 420,			startY, startX - 420 + 120, startY + 45, ">"];
 minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
 houseButton = [startX - 700,		startY, startX - 700 + 120, startY + 45, "H"];
+holdPositions = [[0, 0, 0, 0], [0, 0, 0, 0]]
 if (os_type == os_android) {
 	zB = input_virtual_create();
 	zB.rectangle(zButton[0], zButton[1], zButton[2], zButton[3]);

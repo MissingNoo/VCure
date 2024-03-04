@@ -113,6 +113,7 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
+    {"name":"Joystick","order":32,"path":"folders/Sprites/Hud/Joystick.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_icons_gamepad","order":3,"path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},

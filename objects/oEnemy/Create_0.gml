@@ -113,3 +113,6 @@ infectedAttackTimer = 10;
 lightningMarked = false;
 lightningTimer = 10;
 #endregion
+#region look direction on spawn
+firstlook = false;
+#endregion

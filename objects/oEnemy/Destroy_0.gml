@@ -48,12 +48,12 @@ for (var i = 0; i < global.shopUpgrades[$ "FoodDrop"][$ "level"]; ++i) {
 if (Bonuses[BonusType.UberSheep][ItemIds.UberSheep] != 0) {
     _dropchance = _dropchance * Bonuses[BonusType.UberSheep][ItemIds.UberSheep];
 }
-if (random_range(0,200) <= _dropchance) {
+if (random_range(0,200) <= _dropchance and dropxp) {
     instance_create_layer(x,y,"Instances", oBurguer);
 }
 // randomize;
 var _spawnCoin = true;
-if (irandom_range(1, 90) == 1) {
+if (irandom_range(1, 90) == 1 and dropxp) {
 	for (var i = 0; i < array_length(Bonuses[BonusType.SuperChattoTime]); ++i) {
 	    if(Bonuses[BonusType.SuperChattoTime][i] > 0){
 			_spawnCoin = false;
@@ -67,12 +67,12 @@ if (irandom_range(1, 90) == 1) {
 
 // randomize;
 var range = floor(1300 * (1 - Bonuses[BonusType.AnvilDrop][ItemIds.CreditCard])) + 1;
-if (irandom_range(1,range) == 1) {
+if (irandom_range(1,range) == 1 and dropxp) {
 	instance_create_layer(x,y,"Instances", oAnvil);
 }
 
 // randomize;
-if (irandom_range(1,3000) == 1) {
+if (irandom_range(1,3000) == 1 and dropxp) {
     instance_create_depth(x,y, depth, oRainbowXP);
 }
 switch (thisEnemy) {

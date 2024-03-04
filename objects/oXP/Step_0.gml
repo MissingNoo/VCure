@@ -4,7 +4,7 @@ if (!global.gamePaused) {
 	}
 	if (gotRainbow) {
 		direction = point_direction(x, y, oPlayer.x, oPlayer.y);
-		speed = oPlayer.spd * 1.3 * Delta;
+		speed = oPlayer.spd * oGui.a * Delta;
 		exit;
 	}
 	if (onArea) {

@@ -1,3 +1,16 @@
+if (!firstlook) {
+    firstlook = true;
+	if (boss) {
+		if(target.x < x) image_xscale = -2;
+		if(target.x > x) image_xscale = 2;
+		image_yscale = 2;
+	}
+	else{
+		if(target.x < x) image_xscale = xscale * -1;
+		if(target.x > x) image_xscale = xscale;
+		image_yscale = yscale;
+	}
+}
 if (!instance_exists(target)) { target = noone; }
 if (infected and target == oPlayer) { target = noone; }
 if (infected and variable_instance_exists(target, "infected") and target.infected) { target = noone; }
@@ -62,6 +75,7 @@ if(_canmove and instance_exists(target)){
 	}
 	if (lifetimeAlarm < 0) {
 		lifetimeAlarm = 0;
+		dropxp = false;
 	    hp = 0;
 	}
 	#region Fubuzilla
@@ -132,13 +146,13 @@ if(_canmove and instance_exists(target)){
 		if (followPlayer) {
 			direction=point_direction(x,y,target.x,target.y);
 			if (boss) {
-				if(target.x < x) image_xscale=-2;
-				if(target.x > x) image_xscale=2;
+				if(target.x < x) image_xscale = -2;
+				if(target.x > x) image_xscale = 2;
 				image_yscale = 2;
 			}
 			else{
-				if(target.x < x) image_xscale= xscale * -1;
-				if(target.x > x) image_xscale=xscale;
+				if(target.x < x) image_xscale = xscale * -1;
+				if(target.x > x) image_xscale = xscale;
 				image_yscale = yscale;
 			}
 		}

@@ -46,36 +46,46 @@ function pause_game(){
 	if (instance_exists(oGameOver)) {
 	    return;
 	}
-		if (instance_exists(oPlayer)) { oPlayer.wasPausedAim = oPlayer.mouseAim; }
+		if (instance_exists(oPlayer)) {
+			if (!global.gamePaused) {
+			    oPlayer.wasPausedAim = oPlayer.mouseAim; 
+				oPlayer.mouseAim = false;
+			}
+			else {
+				oPlayer.mouseAim = oPlayer.wasPausedAim;
+			}
+		}
 		
 		oGui.activeMenu=PMenus.Pause;
 		oGui.selected=0;
 		maxselected = 0;
-		if (instance_exists(oJoystick)) {
-			if (global.mode == "menu") {
-			    global.mode = "stage";
-			}
-			else{global.mode = "menu";}
-		}
+		//if (instance_exists(oJoystick)) {
+		//	if (global.mode == "menu") {
+		//	    global.mode = "stage";
+		//	}
+		//	else{global.mode = "menu";}
+		//}
 		if (!global.gamePaused) {
 		    global.gamePaused = true;
-			mouseAim = false;
+			//mouseAim = false;
 		}
 		else if (global.gamePaused and !ANVIL and !global.upgrade and !PrizeBox and !GoldenANVIL) {
 		    global.gamePaused = false;
-			if (instance_exists(oPlayer)) { oPlayer.mouseAim = oPlayer.wasPausedAim; }
+			//if (instance_exists(oPlayer)) { oPlayer.mouseAim = oPlayer.wasPausedAim; }
 		}
 		if (global.singleplayer) {
 			if(global.gamePaused)
-			{	
-					with(all)
-					{
-						if (speed != 0 and image_speed != 0) {
-							for (var i = 0; i < 12; i++)
-							{
-								if (alarm_get(i) > 0) {
-								    setalarms[i] = true;
-								}else {setalarms[i] = false;}
+			{
+				with(all)
+				{
+					if (speed != 0 and image_speed != 0) {
+						for (var i = 0; i < 12; i++) {
+							if (alarm_get(i) > 0) {
+								setalarms[i] = true;
+								}
+								else {
+									setalarms[i] = false;
+								}
 								alarms[i] = alarm_get(i);
 								alarm_set(i,-1);
 							}
@@ -164,28 +174,27 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 			bb = oPlayer.y;
 			var part = quantity / 4;
 			var dieAtX = oPlayer.x + 999999;
-			if (distanceDie != "-") {
-				dieAtX = oPlayer.x + distanceDie;
-			}
+			//if (distanceDie != "-") {
+			//	dieAtX = oPlayer.x + distanceDie;
+			//}
 			
 			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				bb -= wallSprOffset;
 			}
 			bb = oPlayer.y;
 			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				bb += wallSprOffset;
 			}
 			bb = oPlayer.y;
-			dieAtX = oPlayer.x - 50;
 			for (var i = 0; i < part; ++i) {
-				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				bb -= wallSprOffset;
 			}
 			bb = oPlayer.y;
 			for (var i = 0; i < part; ++i) {
-				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, dieX : dieAtX, customXP : xp});
+				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				bb += wallSprOffset;
 			}
 		    break;}

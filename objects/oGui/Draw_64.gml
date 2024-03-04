@@ -1,4 +1,5 @@
 DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
+DebugManager.debug_add_config("1:30", DebugTypes.Button, self, "", function(){Minutes = 1; Seconds = 28});
 DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
 DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
 DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
@@ -977,6 +978,38 @@ if (instance_exists(oPlayer))
 			draw_set_color(c_white);
 			draw_set_alpha(1);
 			_xx += 40;
+		}
+	}
+	#endregion
+	#region Joystick
+	if (os_type == os_android and !global.gamePaused) {
+	    if (device_mouse_check_button(0, mb_left)) {
+			if (holdPositions[0][0] == 0) {
+			    holdPositions[0][0] = device_mouse_x_to_gui(0);
+				holdPositions[0][1] = device_mouse_y_to_gui(0);
+			}
+			holdPositions[0][2] = device_mouse_x_to_gui(0);
+			holdPositions[0][3] = device_mouse_y_to_gui(0);
+			draw_sprite_ext(sHudJoystick, 0, holdPositions[0][0], holdPositions[0][1], 0.75, 0.75, 0, c_white, 0.75);
+			draw_sprite_ext(sHudJoystick, 1, holdPositions[0][2], holdPositions[0][3], 0.75, 0.75, 0, c_white, 0.75);
+		}
+		else {
+			holdPositions[0][0] = 0;
+			holdPositions[0][1] = 0;
+		}
+	    if (device_mouse_check_button(1, mb_left)) {
+			if (holdPositions[1][0] == 0) {
+			    holdPositions[1][0] = device_mouse_x_to_gui(1);
+				holdPositions[1][1] = device_mouse_y_to_gui(1);
+			}
+			holdPositions[1][2] = device_mouse_x_to_gui(1);
+			holdPositions[1][3] = device_mouse_y_to_gui(1);
+			draw_sprite_ext(sHudJoystick, 0, holdPositions[1][0], holdPositions[1][1], 0.75, 0.75, 0, c_white, 0.75);
+			draw_sprite_ext(sHudJoystick, 1, holdPositions[1][2], holdPositions[1][3], 0.75, 0.75, 0, c_white, 0.75);
+		}
+		else {
+			holdPositions[1][0] = 0;
+			holdPositions[1][1] = 0;
 		}
 	}
 	#endregion

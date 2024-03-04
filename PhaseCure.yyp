@@ -132,6 +132,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Joystick","folderPath":"folders/Sprites/Hud/Joystick.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},
@@ -863,6 +864,7 @@
     {"id":{"name":"__input_gamepad_set_mapping","path":"scripts/__input_gamepad_set_mapping/__input_gamepad_set_mapping.yy",},},
     {"id":{"name":"input_join_params_get","path":"scripts/input_join_params_get/input_join_params_get.yy",},},
     {"id":{"name":"__input_class_icon_category","path":"scripts/__input_class_icon_category/__input_class_icon_category.yy",},},
+    {"id":{"name":"sHudJoystick","path":"sprites/sHudJoystick/sHudJoystick.yy",},},
     {"id":{"name":"sTakodachi","path":"sprites/sTakodachi/sTakodachi.yy",},},
     {"id":{"name":"sUiLevelHeaderPink","path":"sprites/sUiLevelHeaderPink/sUiLevelHeaderPink.yy",},},
     {"id":{"name":"sDarkShrimp","path":"sprites/sDarkShrimp/sDarkShrimp.yy",},},
