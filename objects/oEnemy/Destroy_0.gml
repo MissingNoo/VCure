@@ -72,7 +72,7 @@ if (irandom_range(1,range) == 1 and dropxp) {
 }
 
 // randomize;
-if (irandom_range(1,3000) == 1 and dropxp) {
+if (irandom_range(0,3000) == 1 and dropxp) {
     instance_create_depth(x,y, depth, oRainbowXP);
 }
 switch (thisEnemy) {

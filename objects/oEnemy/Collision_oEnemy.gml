@@ -38,7 +38,7 @@ switch (pattern) {
 if (thisEnemy == Enemies.SmolAme) {
     canCollide = false;
 }
-if (canwalk and canCollide and other.pattern == pattern and other.infected == infected) {
+if (!global.gamePaused and canwalk and canCollide and other.pattern == pattern and other.infected == infected) {
 	//if (pattern == Patterns.Cluster and other.pattern == Patterns.Cluster or pattern != Patterns.Cluster and other.pattern != Patterns.Cluster ) {
 		var _push = .5;
 
@@ -46,7 +46,7 @@ if (canwalk and canCollide and other.pattern == pattern and other.infected == in
 		var _hspd = lengthdir_x(_push, _dir);
 		var _vspd = lengthdir_y(_push, _dir);
  
-		 x+=_hspd;
-		 y+=_vspd;
+		x+=_hspd;
+		y+=_vspd;
 	//}
 }

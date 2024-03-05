@@ -1,4 +1,4 @@
-if (!firstlook) {
+if (!firstlook and instance_exists(target)) {
     firstlook = true;
 	if (boss) {
 		if(target.x < x) image_xscale = -2;

@@ -20,11 +20,11 @@ if (instance_number(oClient) > 1) {
 client = network_create_socket(network_socket_udp);
 clientBuffer = buffer_create(4098, buffer_fixed, 1);
 //if (global.singleplayer) {
+keepalive = time_source_create(time_source_game, 5, time_source_units_seconds,function(){ sendMessage({command : Network.KeepAlive, roomname : global.roomname})});
 try{
 	if (!global.singleplayer) {
 		connected = network_connect_raw(client, global.serverip, global.port);
-		sendMessage({command : Network.Connection, username : global.username});
-		keepalive = time_source_create(time_source_game, 5, time_source_units_seconds,function(){ sendMessage({command : Network.KeepAlive, roomname : global.roomname})});
+		sendMessage({command : Network.Connection, username : global.username});		
 		//connected = network_connect_raw(client, "opencure.ddns.net", 64198);
 		//connected = network_connect(client, "140.238.187.191", 64198);
 	}

@@ -83,7 +83,7 @@ if (room == rInicio) {
 			var _yy = GH/4 + _menuyoffset + 3;
 			draw_sprite_ext(sHudButton, _spr, _xx, _yy, selected == i ? 2 : 1.75, 2, 0, c_white, 1);
 			draw_text_transformed_color(_xx, _yy + 5, menuOptions[i], 2, 2, 0, _color, _color, _color, _color, 1);
-			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and mouse_click) { menuClick = true; }
+			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and mouse_click and selected == i) { menuClick = true; }
 			if (point_in_rectangle(x, y, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { selected = i; }
 			_menuyoffset += 93;
 			//var _bgcolor = selected == i ? #d2d2d2 : #a9a9a9;

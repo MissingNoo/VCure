@@ -709,3 +709,6 @@ part_system_automatic_draw(shineSystem, false);
 #endregion
 //feather enable GM2017
 global.initialConfigDone = false;
+ini_open("Settings");
+global.username = ini_read_string("Settings", "Username", "Player");
+ini_close();

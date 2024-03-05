@@ -23,6 +23,9 @@ switch (currentStep) {
 		}
 		if (confirm) {
 		    global.username = playername;
+			ini_open("Settings");
+			ini_write_string("Settings", "Username", global.username);
+			ini_close();
 			currentStep++;
 		}
 		playername = keyboard_string;		

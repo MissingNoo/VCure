@@ -36,9 +36,13 @@ switch (extraInfo.uid) {
         break;}
 	case Weapons.UrukaNote:{
 		if (!variable_instance_exists(self, "coscounter")) {
-			variable_instance_set(self, "coscounter", extraInfo.coscounter);
+			if (extraInfo[$ "coscounter"] != undefined) {
+			    variable_instance_set(self, "coscounter", extraInfo.coscounter);
+			}
 		}
-		y = cose_wave(coscounter / 1000, 1 * extraInfo.upDown, extraInfo.travelWidth, extraInfo.noteStartY);
+		else{
+			y = cose_wave(coscounter / 1000, 1 * extraInfo.upDown, extraInfo.travelWidth, extraInfo.noteStartY);
+		}
 		break;}
 	case Weapons.BLFujoshiAxe:{
 		blfujoshiaxe_step();
