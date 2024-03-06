@@ -91,6 +91,7 @@
     {"name":"Icons","order":15,"path":"folders/Sprites/Hud/Icons.yy",},
     {"name":"ItemLevel","order":9,"path":"folders/Sprites/Hud/ItemLevel.yy",},
     {"name":"ItemTypes","order":13,"path":"folders/Sprites/Hud/ItemTypes.yy",},
+    {"name":"Joystick","order":32,"path":"folders/Sprites/Hud/Joystick.yy",},
     {"name":"LevelUp","order":14,"path":"folders/Sprites/Hud/LevelUp.yy",},
     {"name":"Imported","order":2,"path":"folders/Sprites/Imported.yy",},
     {"name":"Items","order":10,"path":"folders/Sprites/Items.yy",},
@@ -113,7 +114,6 @@
     {"name":"Stages","order":16,"path":"folders/Sprites/Stages.yy",},
     {"name":"Tile Sets","order":14,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":19,"path":"folders/Timelines.yy",},
-    {"name":"Joystick","order":32,"path":"folders/Sprites/Hud/Joystick.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"input_icons_gamepad","order":3,"path":"scripts/input_icons_gamepad/input_icons_gamepad.yy",},

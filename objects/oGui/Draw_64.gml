@@ -7,13 +7,6 @@ DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
 DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
 DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
 draw_set_alpha(1);
-//draw_text(mouse_x, mouse_y, $"{mousePrevious}")
-//var _names = variable_struct_get_names(oGame.importedSave);
-//var _str = "";
-//for (var i = 0; i < array_length(_names); ++i) {
-//    _str = _str + "\n" + _names[i];
-//}
-//draw_text(mouse_x, mouse_y, _str);
 // Feather disable GM1041
 DEBUG
     draw_circle(x,y,5,false);

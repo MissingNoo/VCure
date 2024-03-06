@@ -108,6 +108,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Icons","folderPath":"folders/Sprites/Hud/Icons.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"ItemLevel","folderPath":"folders/Sprites/Hud/ItemLevel.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"ItemTypes","folderPath":"folders/Sprites/Hud/ItemTypes.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Joystick","folderPath":"folders/Sprites/Hud/Joystick.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"LevelUp","folderPath":"folders/Sprites/Hud/LevelUp.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"SelectScreen","folderPath":"folders/Sprites/Hud/SelectScreen.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Imported","folderPath":"folders/Sprites/Imported.yy",},
@@ -132,7 +133,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Stages","folderPath":"folders/Sprites/Stages.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Joystick","folderPath":"folders/Sprites/Hud/Joystick.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"blocks-16bit.ttf","CopyToMask":-1,"filePath":"datafiles",},

@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableOutfits", "gRanks", "unlockableCharacters", "unlockableAchievements", "showOtherNames", "initialConfigDone"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableOutfits", "gRanks", "unlockableCharacters", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -24,8 +24,10 @@ function Load_Data_Structs () {
         var Json = json_parse( json_encode(Map) );
             for(var i = 0; i < array_length(global.Data); i++){
                 var Key = global.Data[i];
-                if(variable_global_exists(Key)){
-                    variable_global_set(Key, Json[$ Key] );}}
+                //if(variable_global_exists(Key)){
+                    variable_global_set(Key, Json[$ Key] );
+				//}
+			}
           ds_map_destroy(Map);} 
 		  if (is_string(global.shopUpgradesJSON)) {
 		      //global.shopUpgrades = json_parse(global.shopUpgradesJSON);
@@ -42,6 +44,7 @@ function Load_Data_Structs () {
 		if(array_length(UnlockableAchievements) < AchievementIds.Length) { UnlockableAchievements[AchievementIds.Length] = false; }
 		if(array_length(Granks) < Characters.Lenght) { Granks[array_length(Granks)] = 0; }
 		if(array_length(UnlockableOutfits) < Outfits.Length) { UnlockableOutfits[Outfits.Length] = false; }
+		show_message($"{global.showOtherNames},{global.sendMyName}");
      };
     
 function Save_Reserve () { var Data = {};

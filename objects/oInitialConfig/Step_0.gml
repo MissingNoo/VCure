@@ -28,7 +28,7 @@ switch (currentStep) {
 			ini_close();
 			currentStep++;
 		}
-		playername = keyboard_string;		
+		playername = keyboard_string;
 		break;
 	case ConfigSteps.ShowNames:
 		if (updown != 0) { showOtherNames = !showOtherNames; }
