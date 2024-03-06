@@ -815,7 +815,7 @@ if (instance_exists(oPlayer))
 			draw_text_transformed_color(_x, _y + 5, lexicon_text("Hud.Button.Accept"), 2, 2, 0, _color, _color, _color, _color, 1);
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
-			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)])) {
+			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]) or zKey) {
 				temp = prize_box_roll();
 			    boxaccept = true;
 				//feather disable GM2017
