@@ -818,6 +818,7 @@
     {"name":"input_profile_set","order":7,"path":"scripts/input_profile_set/input_profile_set.yy",},
     {"name":"sEletricPulseThumb","order":13,"path":"sprites/sEletricPulseThumb/sEletricPulseThumb.yy",},
     {"name":"sDeathHeart","order":15,"path":"sprites/sDeathHeart/sDeathHeart.yy",},
+    {"name":"sHudConfirm","order":16,"path":"sprites/sHudConfirm/sHudConfirm.yy",},
     {"name":"input_cursor_y","order":11,"path":"scripts/input_cursor_y/input_cursor_y.yy",},
     {"name":"bgtest","order":21,"path":"sprites/bgtest/bgtest.yy",},
     {"name":"snd_tailplug","order":6,"path":"sounds/snd_tailplug/snd_tailplug.yy",},

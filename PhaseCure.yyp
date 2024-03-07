@@ -948,6 +948,7 @@
     {"id":{"name":"sEletricPulseThumb","path":"sprites/sEletricPulseThumb/sEletricPulseThumb.yy",},},
     {"id":{"name":"sDeathHeart","path":"sprites/sDeathHeart/sDeathHeart.yy",},},
     {"id":{"name":"input_cursor_gyro_enabled_get","path":"scripts/input_cursor_gyro_enabled_get/input_cursor_gyro_enabled_get.yy",},},
+    {"id":{"name":"sHudConfirm","path":"sprites/sHudConfirm/sHudConfirm.yy",},},
     {"id":{"name":"input_cursor_y","path":"scripts/input_cursor_y/input_cursor_y.yy",},},
     {"id":{"name":"bgtest","path":"sprites/bgtest/bgtest.yy",},},
     {"id":{"name":"snd_tailplug","path":"sounds/snd_tailplug/snd_tailplug.yy",},},

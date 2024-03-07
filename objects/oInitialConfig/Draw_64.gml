@@ -1,4 +1,8 @@
-draw_text(10, 10, currentStep);
+//draw_text(10, 10, currentStep);
+DebugManager.debug_add_config("aa", DebugTypes.UpDown, self, "a");
+DebugManager.debug_add_config("bb", DebugTypes.UpDown, self, "b");
+DebugManager.debug_add_config("cc", DebugTypes.UpDown, self, "c");
+draw_sprite_ext(sHudConfirm, 0, GW - 75, GH - 75, 2, 2, 0, c_white, confirmBlink ? 1 : 0.75);
 var _offset;
 switch (currentStep) {
     case ConfigSteps.Language:

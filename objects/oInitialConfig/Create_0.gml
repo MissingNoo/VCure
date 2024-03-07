@@ -2,6 +2,9 @@ playername = "Player";
 showOtherNames = false;
 sendMyName = false;
 finalAccept = false;
+confirmBlink = false;
+confirmtimer = time_source_create(time_source_game, 1, time_source_units_seconds,function(){ oInitialConfig.confirmBlink = !oInitialConfig.confirmBlink; }, [], -1);
+time_source_start(confirmtimer);
 enum ConfigSteps {
 	Language,
 	PlayerName,

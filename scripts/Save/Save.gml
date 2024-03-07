@@ -44,7 +44,6 @@ function Load_Data_Structs () {
 		if(array_length(UnlockableAchievements) < AchievementIds.Length) { UnlockableAchievements[AchievementIds.Length] = false; }
 		if(array_length(Granks) < Characters.Lenght) { Granks[array_length(Granks)] = 0; }
 		if(array_length(UnlockableOutfits) < Outfits.Length) { UnlockableOutfits[Outfits.Length] = false; }
-		show_message($"{global.showOtherNames},{global.sendMyName}");
      };
     
 function Save_Reserve () { var Data = {};
