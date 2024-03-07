@@ -13,6 +13,7 @@ global.prizebox = false;
 #macro GoldenANVIL global.goldenAnvil
 #macro Buffs global.buffs
 #macro Delta global.deltaTime
+#macro RELEASE os_get_config() == "Release"
 #macro DEBUG if (os_get_config() == "Debug" or global.debug) {
 #macro ENDDEBUG }
 //gml_pragma("ityBuild", "true");

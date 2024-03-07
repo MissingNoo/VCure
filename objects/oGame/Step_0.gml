@@ -1,3 +1,7 @@
+if (RELEASE) {
+    global.debug = false;
+	DebugManager.show = false;
+}
 if (keyboard_check_pressed(vk_f11)) {
     window_set_fullscreen(not window_get_fullscreen());
 }
