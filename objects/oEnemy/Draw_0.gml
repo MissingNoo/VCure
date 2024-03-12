@@ -27,7 +27,7 @@ if (fanbeamFiring > 0) {
 
 switch (thisEnemy) {
 	    case Enemies.SmolAme:
-			if (groundPounding and image_index > 17) {
+			if (groundPounding and image_index > 17 and !ametp and sprite_index != sSmolAme) {
 				draw_set_alpha(.25);
 				draw_set_color(c_black);
 			    draw_circle(x,y, 80, false);
@@ -35,24 +35,6 @@ switch (thisEnemy) {
 				draw_set_alpha(1);
 			}
 			draw_self();
-			//draw_text(x, y + 20, image_index);
-			//draw_text(x, y + 40, groundPoundTimer);
-			//draw_text(x, y + 60, goingDownTimer);
-			
-			//else {
-			//	if (!goingDown) {
-			//		if (image_index > 7 and ameY - y < oGui.f) {
-			//		    image_index = 7;
-			//		}
-			//	    draw_sprite_ext(sprite_index, image_index, x, ameY, image_xscale, image_yscale, 0, c_white, 1);
-			//	}
-			//	if (goingDown) {
-			//		if (image_index > 3 and ameY - y > oGui.f) {
-			//		    image_index = 3;
-			//		}
-			//	    draw_sprite_ext(sprite_index, image_index, x, ameY, image_xscale, image_yscale, 0, c_white, 1);
-			//	}
-			//}
 	        break;
 }
 if (damaged and thisEnemy != Enemies.SmolAme) {

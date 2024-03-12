@@ -106,9 +106,7 @@ if(_canmove and instance_exists(target)){
 		    image_alpha = .99;
 		}
 		else { image_alpha = 1;}
-	    if (groundPoundTimer > 0) {
-		    groundPoundTimer -= 1/60 * Delta;
-		}
+	    if (groundPoundTimer > 0) { groundPoundTimer -= 1/60 * Delta; }
 		if (groundPoundTimer < 0) {
 			groundPoundTimer = 0;
 			goingDownTimer = 10;
@@ -119,20 +117,7 @@ if(_canmove and instance_exists(target)){
 			goingDownTimer = 4;
 			goingDown = true;
 		}
-		if (goingDownTimer > 0) {
-		    goingDownTimer -= 1/60 * Delta;
-		}
-		//if (groundPounding and !goingDown) {
-		//	ameY -= oGui.e;
-		//	if (goingDownTimer > 0) {
-		//		goingDownTimer -= 1/60 * Delta;
-		//	}
-		//	else { goingDown = true; sprite_index = sSmolAmeGroundpound}
-		//}
-		//if (goingDown) {
-		//    ameY += oGui.e;
-		//}
-		
+		if (goingDownTimer > 0) { goingDownTimer -= 1/60 * Delta; }
 	}
 	#endregion
 	image_speed = oImageSpeed * Delta;
