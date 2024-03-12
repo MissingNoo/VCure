@@ -14,7 +14,7 @@
 	#endregion
 	
 	#region Score
-		draw_text_transformed(GW/2, GH/2.65, "Score: ", 2, 2, 0);
+		draw_text_transformed(GW/2, GH/2.65, $"Score: {global.score}", 2, 2, 0);
 	#endregion
 	
 	#region Holocoins
