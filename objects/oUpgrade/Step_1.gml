@@ -173,6 +173,7 @@ image_speed = 0;
 			break;}
 		case Weapons.BlBook:{
 			orbitLength = upg[$ "orbitLength"];
+			spinningSpeed = upg[$ "spinningSpeed"];
 			if (shoots > 0) {	
 				switch (upg[$ "level"]) {
 				    case 1:
