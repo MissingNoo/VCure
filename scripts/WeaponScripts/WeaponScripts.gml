@@ -8,7 +8,7 @@ function psycho_axe_step(){
 function blbook_step(){
 	x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
 	y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
-	orbitPlace-=3;
+	orbitPlace-=spinningSpeed;
 }
 function blfujoshibook_step(){
 	orbitLength = 100;

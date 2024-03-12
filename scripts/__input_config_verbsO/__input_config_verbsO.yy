@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__input_config_verbsO",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Animation Curves",
-    "path": "folders/Animation Curves.yy",
+  "$GMScript":"",
+  "%Name":"__input_config_verbsO",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__input_config_verbsO",
+  "parent":{
+    "name":"Animation Curves",
+    "path":"folders/Animation Curves.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

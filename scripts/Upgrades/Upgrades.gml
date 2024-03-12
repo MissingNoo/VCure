@@ -371,6 +371,8 @@ function populate_upgrades(){
 				thumb : sBLBookThumb,
 				mindmg : [12, 12, 16, 16, 16, 16, 23],
 				maxdmg : [16, 16, 20, 20, 20, 20, 28],
+				orbitLength : [50, 50, 50, 50, 62.5, 62.5, 62.5],
+				spinningSpeed : [3, 3, 3, 3, 3.75, 3.75, 3.75],
 				cooldown : 360,
 				minimumcooldown : 300,
 				shoots : [3, 4, 4, 5, 5, 6, 6],
