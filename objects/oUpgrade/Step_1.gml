@@ -172,7 +172,7 @@ image_speed = 0;
 			dAlarm[1]=30;
 			break;}
 		case Weapons.BlBook:{
-			orbitLength = 50;
+			orbitLength = upg[$ "orbitLength"];
 			if (shoots > 0) {	
 				switch (upg[$ "level"]) {
 				    case 1:

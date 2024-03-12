@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "DebugLib",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "DebugLib",
-    "path": "folders/DebugLib.yy",
+  "$GMScript":"",
+  "%Name":"DebugLib",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DebugLib",
+  "parent":{
+    "name":"DebugLib",
+    "path":"folders/DebugLib.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

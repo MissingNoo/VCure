@@ -88,7 +88,7 @@ if(_canmove and instance_exists(target)){
 	if (fanbeamFiring < 0) {
 		fanbeamFiring = 0;
 		var angle = image_xscale > 0 ? 0 : 180;
-		instance_create_depth(x + (35 * image_xscale), y - 55, depth - 1, oFubuzillaBeam, {image_angle : angle});
+		instance_create_depth(x + (35 * image_xscale), y - 55, depth - 1, oFubuzillaBeam, {image_angle : angle, owner : id});
 	}
 	if (fanbeamAlarm < 0) {
 		fanbeamAlarm = fanbeamCooldown;
@@ -146,7 +146,7 @@ if(_canmove and instance_exists(target)){
 		if (followPlayer) {
 			var _bossoffset = 0;
 			if (thisEnemy == Enemies.FubuZilla) {
-			    _bossoffset = 16;
+			    _bossoffset = 32;
 			}
 			direction=point_direction(x,y,target.x,target.y + _bossoffset);
 			if (boss) {

@@ -157,8 +157,6 @@ global.patternNames = ["Null", "Cluster", "Horde", "Ring", "WallRight", "WallLef
 
 function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
 	show_debug_message($"spawned {monster}, amount {quantity}");
-	//quantity = os_type == os_android ? quantity / 2 : quantity;
-//function spawnEvent(monster, quantity, type, hp = 0, spd = 0, xp = 0){
 	if (!global.singleplayer) { return; }
 	var enemy = global.enemies[monster];
 	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);

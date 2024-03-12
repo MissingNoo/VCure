@@ -17,7 +17,7 @@ if (!Achievements[ach].unlocked) {
 	}
 	load_unlocked();
 }
-alpha -= .005;
+alpha -= .0025;
 if (alpha <= 0) {
     instance_destroy();
 }

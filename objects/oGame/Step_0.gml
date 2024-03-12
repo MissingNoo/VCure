@@ -1,5 +1,6 @@
-if (RELEASE) {
+if (RELEASE) { 
     global.debug = false;
+	//Feather disable once GM2017
 	DebugManager.show = false;
 }
 if (keyboard_check_pressed(vk_f11)) {

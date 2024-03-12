@@ -1,4 +1,5 @@
 DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
+DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 5;});
 DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
 DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
 DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
