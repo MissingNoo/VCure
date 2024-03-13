@@ -884,7 +884,7 @@ if (instance_exists(oPlayer)) {
 	#endregion
 }
 #endregion
-#region PauseMenu //TODO: Redo!!!
+#region PauseMenu
 if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !PrizeBox and HP > 0 and !instance_exists(oGameOver)) {
 	draw_set_halign(fa_left);
 	if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }

@@ -1,12 +1,13 @@
 //switch (upg[?"name"]) {
 //default:
-if (variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] and image_alpha == 1) {
+if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlayer.wallMart) and image_alpha == 1) {
 	
 //draw_sprite_ext(sprite_index, image_index-2, xpreviousprevious, ypreviousprevious, image_xscale, image_yscale, image_angle, upg[$ "afterimageColor"], .5);
 //draw_sprite_ext(sprite_index, image_index-1, xprevious, yprevious, image_xscale, image_yscale, image_angle, upg[$ "afterimageColor"], .75);
 	var _alpha = .1
+	var _color = upg[$ "afterimageColor"] == undefined ? c_yellow : upg[$ "afterimageColor"];
 	for (var i = 0; i < array_length(afterimage[0]); ++i) {
-	    draw_sprite_ext(sprite_index, afterimage[2][i], afterimage[0][i], afterimage[1][i], image_xscale, image_yscale, afterimage[3][i], upg[$ "afterimageColor"], _alpha);
+	    draw_sprite_ext(sprite_index, afterimage[2][i], afterimage[0][i], afterimage[1][i], image_xscale, image_yscale, afterimage[3][i], _color, _alpha);
 		_alpha += .10
 	}
 }
