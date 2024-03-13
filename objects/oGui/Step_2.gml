@@ -1,9 +1,9 @@
-// Feather disable GM2016
 var _updown = - upKey + downKey;
 var _leftright = - leftKey + rightKey;
 if (isP != global.gamePaused) {
     loadSettingValues();
 }
+#region Menu
 if (room == rInicio) {
 	if (!global.gamePaused) {
 	    if (upKey) { if (selected == 0) { selected = array_length(menuOptions) - 1; } else selected -= 1; }
@@ -11,14 +11,15 @@ if (room == rInicio) {
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 	}
 }
-
+#endregion
+#region Achievements screen
 if (room == rAchievements) {
-	//feather disable once GM1044
 	if (input_check_pressed("cancel")) {
 	    room_goto(rInicio);
 	}
 }
-
+#endregion
+#region Character selection screen
 if (room == rCharacterSelect) {
 	if (!characterSelected) {
 		selectedCharacter += _leftright;
@@ -40,8 +41,8 @@ if (room == rCharacterSelect) {
 		if (selected > array_length(stageModes) - 1) { selected = 0; }
 	}
 }
-//global.holocoins = 99999;
-
+#endregion
+#region Level Up
 if (instance_exists(oPlayer) and global.upgrade==1) {
 	var istherererolls = 1;
 	if (global.rerolls > 0) { istherererolls = 0; }
@@ -49,7 +50,7 @@ if (instance_exists(oPlayer) and global.upgrade==1) {
     if (selected < 0) { selected = array_length(global.upgradeOptions) - istherererolls; }
     if (selected > array_length(global.upgradeOptions) - istherererolls) { selected = 0; }
 }
-
+#endregion
 #region Anvil
 if (instance_exists(oPlayer) and ANVIL) {
 	if (anvilconfirm) { return; }
@@ -61,15 +62,6 @@ if (instance_exists(oPlayer) and ANVIL) {
 	if (anvilSelectedCategory > 1) { anvilSelectedCategory = 1; }	
 }
 #endregion
-
-//if (room == rCharacterSelect) {
-//	var _sprspd = sprite_get_speed(CHARACTERS[selectedCharacter][?"sprite"]);
-//    if (sprindex < sprite_get_number(CHARACTERS[selectedCharacter][?"sprite"])) {
-//		sprindex+= _sprspd / game_get_speed(gamespeed_fps) * Delta;
-//	}
-//	else sprindex=0;
-//}
-
 #region PausedMenu
 if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
 	selected += _updown;
@@ -78,6 +70,8 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
 	if (selected > _maxopt) { selected = _maxopt;	}
 }
 #endregion
+#region Initial configuration
 if (!global.initialConfigDone and room != rInitialConfig) {
     room_goto(rInitialConfig);
 }
+#endregion
