@@ -148,8 +148,7 @@ if (room == rInicio and !global.gamePaused) {
 }
 #endregion
 #region LevelUp control
-if (global.upgrade) // after level up
-{
+if (global.upgrade) {
 	if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; } // arrow sprite index
 	if (zKey) {
 		if (selected == 4) {
@@ -222,7 +221,7 @@ if (global.upgrade) // after level up
 					}
 					break;
 				}
-					#endregion
+				#endregion
 			}
 			else if (global.upgradeOptions[selected][$ "style"] == ItemTypes.Perk) {
 				#region Upgrade existing item
@@ -454,7 +453,6 @@ if (room == rCharacterSelect) {
 					break;}
 				case false:{
 					global.mode = "menu";
-					//global.username = global.player[?"name"]; //TODO: Remove
 					room_goto(rLobby);
 					break;}
 			}
