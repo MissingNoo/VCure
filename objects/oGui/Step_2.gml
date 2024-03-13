@@ -1,7 +1,7 @@
 var _updown = - upKey + downKey;
 var _leftright = - leftKey + rightKey;
 if (isP != global.gamePaused) {
-    loadSettingValues();
+    //loadSettingValues();
 }
 #region Menu
 if (room == rInicio) {
@@ -76,3 +76,6 @@ if (!global.initialConfigDone and room != rInitialConfig) {
     room_goto(rInitialConfig);
 }
 #endregion
+if (hpUiLastValue != global.showhpui) {
+    upgradesSurface();
+}

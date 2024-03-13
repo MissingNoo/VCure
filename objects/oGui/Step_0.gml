@@ -471,28 +471,37 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		}			
 	}	
     if (zKey){
-		if (activeMenu == PMenus.Settings and justopened > 0) {
-			if (!pauseMenu[PMenus.Settings][PM.Bool][selectedOption]) {
-				editOption = true;
-			}
+		var _option = pauseMenu[activeMenu][PM.Options][selectedOption];
+		switch (_option[1]) {
+		    case PM.Bool:
+		        variable_global_set(_option[2], !variable_global_get(_option[2]));
+		        break;
+		    default:
+		        // code here
+		        break;
 		}
+		//if (activeMenu == PMenus.Settings and justopened > 0) {
+		//	if (!pauseMenu[PMenus.Settings][PM.Bool][selectedOption]) {
+		//		editOption = true;
+		//	}
+		//}
 		justopened += 1;
-		var optionIs = "";
-		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selectedOption]); ++i) {
-			if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == ":") {
-			    break;
-			}
-			if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == " ") {
-				i++;
-			}
-		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1);
-		}
+		//var optionIs = "";
+		//for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selectedOption]); ++i) {
+		//	if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == ":") {
+		//	    break;
+		//	}
+		//	if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == " ") {
+		//		i++;
+		//	}
+		//    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1);
+		//}
 		
-		variable_global_set(optionIs, !variable_global_get(optionIs));
-		loadSettingValues();
+		//variable_global_set(optionIs, !variable_global_get(optionIs));
+		//loadSettingValues();
 		
 		lastmenu = activeMenu;
-		switch (pauseMenu[activeMenu][PM.Options][selectedOption]) {
+		switch (pauseMenu[activeMenu][PM.Options][selectedOption][0]) {
 			case "Skills":{
 		        
 		        break;}
@@ -515,43 +524,54 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		#region settings controlaudio_sound_get_gain(global.musicPlaying));
 		#endregion
 		if (activeMenu != lastmenu) {
-			loadSettingValues();
 		    selectedOption=0;
 			startOption = 0;
 			totalOptions = array_length(pauseMenu[activeMenu][PM.Options]);
 		}
 	}	
-	if (editOption and (leftKey or rightKey)){
-		var optionIs = "";
-		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selectedOption]); ++i) {
-			if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == ":") {
-			    break;
-			}
-		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1);
-		}
-		switch (optionIs) {
-		    case "Music Volume":{
-		        global.musicVolume += (rightKey*0.1) - (leftKey*0.1);
-				if (global.musicVolume > 1) {
-				    global.musicVolume = 1;
-				}
-				if (global.musicVolume < 0) {
-				    global.musicVolume = 0;
-				}
-				loadSettingValues();
-		        break;}
-			case "Sound Volume":{
-		        global.soundVolume += (rightKey*0.1) - (leftKey*0.1);
-				if (global.soundVolume > 1) {
-				    global.soundVolume = 1;
-				}
-				if (global.soundVolume < 0) {
-				    global.soundVolume = 0;
-				}
-				loadSettingValues();
-		        break;}
+	if (leftKey or rightKey){
+		var _option = pauseMenu[activeMenu][PM.Options][selectedOption]
+		switch (_option[1]) {
+		    case PM.Slider:
+		        variable_global_set(_option[2], variable_global_get(_option[2]) + (rightKey*0.1) - (leftKey*0.1));
+				if (variable_global_get(_option[2]) > 1) { variable_global_set(_option[2], 1); }
+				if (variable_global_get(_option[2]) < 0) { variable_global_set(_option[2], 0); }
+		        break;
+		    default:
+		        // code here
+		        break;
 		}
 	}
+	//	var optionIs = "";
+	//	for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selectedOption]); ++i) {
+	//		if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == ":") {
+	//		    break;
+	//		}
+	//	    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1);
+	//	}
+	//	switch (optionIs) {
+	//	    case "Music Volume":{
+	//	        global.musicVolume += (rightKey*0.1) - (leftKey*0.1);
+	//			if (global.musicVolume > 1) {
+	//			    global.musicVolume = 1;
+	//			}
+	//			if (global.musicVolume < 0) {
+	//			    global.musicVolume = 0;
+	//			}
+	//			loadSettingValues();
+	//	        break;}
+	//		case "Sound Volume":{
+	//	        global.soundVolume += (rightKey*0.1) - (leftKey*0.1);
+	//			if (global.soundVolume > 1) {
+	//			    global.soundVolume = 1;
+	//			}
+	//			if (global.soundVolume < 0) {
+	//			    global.soundVolume = 0;
+	//			}
+	//			loadSettingValues();
+	//	        break;}
+	//	}
+	//}
 }
 #endregion
 #region Debug

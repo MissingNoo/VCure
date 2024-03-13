@@ -165,13 +165,16 @@ second = 58;
 #endregion
 #region PauseMenu
 activeMenu = PMenus.Pause;
+lastOptionType = 0;
 enum PM{	
 	Title,
+	Align,
 	XScale,
 	YScale,
 	Options,
 	Bool,
 	BoolValue,
+	Slider,
 	Lenght
 }
 enum PMenus{
@@ -182,44 +185,40 @@ enum PMenus{
 }
 for (var i = 0; i < PMenus.Lenght; ++i) {
 	pauseMenu[i] = array_create(PMenus.Lenght, 0);
-	//show_message(string(pauseMenu));
 	for (var j = 0; j < PM.Lenght; ++j) {
 		pauseMenu[i][j] = 0;
 	}
 }
 	
 pauseMenu[PMenus.Pause][PM.Title] = "PAUSED";
-pauseMenu[PMenus.Pause][PM.XScale] = 2;
-pauseMenu[PMenus.Pause][PM.Options] = ["Skills", "????", "Resume", "Settings", "Quit"];
-pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
+pauseMenu[PMenus.Pause][PM.Align] = fa_center;
+pauseMenu[PMenus.Pause][PM.Options] = [["Skills", ""], ["????", ""], ["Resume", ""], ["Settings", ""], ["Quit", ""]];
 #region Settings
-	pauseMenu[PMenus.Settings][PM.Title] = "SETTINGS";
-	pauseMenu[PMenus.Settings][PM.XScale] = 2.5;
-	
-	function loadSettingValues(){
-		pauseMenu[PMenus.Settings][PM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
-		pauseMenu[PMenus.Settings][PM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
-		pauseMenu[PMenus.Settings][PM.Bool][2] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][2] = global.damageNumbers;
-		pauseMenu[PMenus.Settings][PM.Options][2] = "damage Numbers: ";
-		pauseMenu[PMenus.Settings][PM.Bool][3] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][3] = global.screenShake;
-		pauseMenu[PMenus.Settings][PM.Options][3] = "screen Shake: ";
-		pauseMenu[PMenus.Settings][PM.Bool][4] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][4] = global.spawnEnemies;
-		pauseMenu[PMenus.Settings][PM.Options][4] = "spawnEnemies: ";
-		pauseMenu[PMenus.Settings][PM.Options][5] = "gamePad: ";
-		pauseMenu[PMenus.Settings][PM.Bool][5] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.gamePad;
-		pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
-		pauseMenu[PMenus.Settings][PM.Bool][6] = true;
-		pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;
+pauseMenu[PMenus.Settings][PM.Title] = "SETTINGS";
+pauseMenu[PMenus.Settings][PM.Align] = fa_left;
+
+	//function loadSettingValues(){
+		//pauseMenu[PMenus.Settings][PM.Options][0] = "Music Volume: " + string(round(global.musicVolume*100)) + "%";
+		//pauseMenu[PMenus.Settings][PM.Options][1] = "Sound Volume: " + string(round(global.soundVolume*100)) + "%";
+		//pauseMenu[PMenus.Settings][PM.Bool][2] = true;
+		//pauseMenu[PMenus.Settings][PM.BoolValue][2] = global.damageNumbers;
+		//pauseMenu[PMenus.Settings][PM.Options][2] = "damage Numbers: ";
+		//pauseMenu[PMenus.Settings][PM.Bool][3] = true;
+		//pauseMenu[PMenus.Settings][PM.BoolValue][3] = global.screenShake;
+		//pauseMenu[PMenus.Settings][PM.Options][3] = "screen Shake: ";
+		//pauseMenu[PMenus.Settings][PM.Bool][4] = true;
+		//pauseMenu[PMenus.Settings][PM.BoolValue][4] = global.spawnEnemies;
+		//pauseMenu[PMenus.Settings][PM.Options][4] = "spawnEnemies: ";
+		//pauseMenu[PMenus.Settings][PM.Options][5] = "gamePad: ";
+		//pauseMenu[PMenus.Settings][PM.Bool][5] = true;
+		//pauseMenu[PMenus.Settings][PM.BoolValue][5] = global.gamePad;
+		//pauseMenu[PMenus.Settings][PM.Options][6] = "showhpui: ";
+		//pauseMenu[PMenus.Settings][PM.Bool][6] = true;
+		//pauseMenu[PMenus.Settings][PM.BoolValue][6] = global.showhpui;
 		//pauseMenu[PMenus.Settings][PM.Options][1] = "guiScale: " + string(round(global.guiScale*100)) + "%";
-	}
-	loadSettingValues();
-	//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];
-	pauseMenu[PMenus.Settings][PM.YScale] = 0.75;
-	#endregion
+	//}
+	//loadSettingValues();
+#endregion
 startOption = 0;
 maxOptions = 0;
 totalOptions = 0;
@@ -457,6 +456,7 @@ function drawStatsSelect(character){
 }
 #endregion
 #region upgrades surface
+hpUiLastValue = global.showhpui;
 itemsSurface = surface_create(window_get_width(), window_get_height());
 function upgradesSurface(){
 	if (surface_exists(itemsSurface)) {
@@ -558,7 +558,7 @@ function upgradesSurface(){
 }
 #endregion
 #endregion
-#region upgrades surface
+#region PrizeBox
 boxcoins = 0;
 temp = 0;
 upspeed = 15;

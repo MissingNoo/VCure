@@ -49,12 +49,8 @@ if (room == rInicio) {
 			var _yy = GH/4 + _menuyoffset + 3;
 			draw_sprite_ext(sHudButton, _spr, _xx, _yy, selected == i ? 2 : 1.75, 2, 0, c_white, 1);
 			draw_text_transformed_color(_xx, _yy + 5, menuOptions[i], 2, 2, 0, _color, _color, _color, _color, 1);
-			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { 
-				selected = i; 
-				if (mouse_click) {
-				    menuClick = true;
-				}
-			}
+			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and selected == i and mouse_click) { menuClick = true; }
+			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { selected = i; }
 			_menuyoffset += 93;
 		}
 		draw_set_valign(fa_top);
@@ -93,12 +89,8 @@ if (room == rCharacterSelect) {
 		for (var i=1; i < Characters.Lenght; i++) {
 			var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
-			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) {
-			    selectedCharacter = i;
-				if (mouse_click) {
-				    menuClick = true;
-				}
-			}			
+			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
+			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2, _x + _pW + 2 + _offset, _y + _pH + 2, false);
 			var _characterUnlocked = c_white;
 			if (!UnlockableCharacters[CHARACTERS[i][?"id"]]) { _characterUnlocked = c_black; }
@@ -338,7 +330,7 @@ if (instance_exists(oPlayer)) {
 		for (var i = 0; i < array_length(global.upgradeOptions); i++) {			
 			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);
 			draw_rectangle(_xx - 365, _yy + offset - 35, _xx + 365, _yy + offset - 34, false);
-			if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2)) {
+			if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2, "selected", i)) {
 			    menuClick = true;
 			}
 			if (i == selected) {
@@ -416,11 +408,9 @@ if (instance_exists(oPlayer)) {
 			var _rerollY = GH/1.05;
 			var _sprW = sprite_get_width(sHudButton);
 			var _sprH = sprite_get_height(sHudButton);
+			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH)and selected == 4 and mouse_click) { menuClick = true; }
 			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH)) {
 				selected = 4;
-				if (mouse_click) {
-				    menuClick = true;
-				}
 			}
 			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);			
 			var color = selected == 4 ? c_black : c_white;
@@ -900,92 +890,53 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 	if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
 	totalOptions = array_length(pauseMenu[activeMenu][PM.Options]) - 1;
 	maxOptions = startOption + 5;
-	if (maxOptions > totalOptions) { maxOptions = totalOptions; }
-	
+	if (maxOptions > totalOptions) { maxOptions = totalOptions; }	
 	draw_sprite_ext(sMenu, 0, GW/2, GH/2, 2.5, 2.5, 0, c_white, 1);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_top);
 	draw_text_transformed(GW/2, GH/2 - 240, pauseMenu[activeMenu][PM.Title], 4, 4, 0);
 	draw_set_valign(fa_middle);
+	draw_set_halign(pauseMenu[activeMenu][PM.Align]);
 	var _offset = 0;
+	if (activeMenu == PMenus.Settings) {
+	    pauseMenu[PMenus.Settings][PM.Options] = [
+			["Music Volume: " + string(round(global.musicVolume*100)) + "%", PM.Slider, "musicVolume"],
+			["Sound Volume: " + string(round(global.soundVolume*100)) + "%", PM.Slider, "soundVolume"],
+			["Damage Numbers", PM.Bool, "damageNumbers"],
+			["Screen Shake", PM.Bool, "screenShake"],
+			["HP UI", PM.Bool, "showhpui"],
+		]
+	}
 	for (var i = startOption; i <= maxOptions; ++i) {
 		var _x = GW/2;
 		var _y = GH/2 - 145 + _offset;
 		var _scale = [selectedOption == i ? 1.35 : 1.25, selectedOption == i ? 1.75 : 1.65]
 		var _wh = [(sprite_get_width(sHudButton) * _scale[0]) / 2, (sprite_get_height(sHudButton) * _scale[1]) / 2]
 	    draw_sprite_ext(sHudButton, selectedOption == i ? 1 : 0, _x, _y, _scale[0], _scale[1], 0, c_white, 1);
-		if (!editOption and point_in_rectangle(MX, MY, _x - _wh[0], _y - _wh[1], _x + _wh[0], _y + _wh[1])) { 
-			selectedOption = i;
-			if (mouse_click) {
-				menuClick = true;
-			}
+		lastOptionType = pauseMenu[activeMenu][PM.Options][selectedOption][1];
+		var _isSelected = selectedOption == i;
+		switch (pauseMenu[activeMenu][PM.Options][i][1]) {
+			case PM.Slider:
+				if (_isSelected) {
+					draw_sprite_ext(sMenuArrow, 0, _x - 140, _y, 2, 2, 180, c_white, 1);
+					draw_sprite_ext(sMenuArrow, 0, _x + 140, _y, 2, 2, 0, c_white, 1);
+				}
+			    break;
+			case PM.Bool:
+				var _sprColor = _isSelected ? 2 : 0;
+				var _isEnabled = variable_global_get(pauseMenu[activeMenu][PM.Options][i][2]) ? 1 : 0;
+				var _xoff = _isSelected ? 95 : 85
+				draw_sprite_ext(sToggleButton, _sprColor + _isEnabled, _x + _xoff, _y, 1.50, 1.50, 0, c_white, 1);
+				break;
 		}
+		if (point_in_rectangle(MX, MY, _x - _wh[0], _y - _wh[1], _x + _wh[0], _y + _wh[1]) and selectedOption == i and mouse_click) { menuClick = true; }
+		if (point_in_rectangle(MX, MY, _x - _wh[0], _y - _wh[1], _x + _wh[0], _y + _wh[1])) { selectedOption = i; }
 		var _color = selectedOption == i ? c_black : c_white;
-		draw_text_transformed_color(_x, _y + 5, pauseMenu[activeMenu][PM.Options][i], 2, 2, 0, _color, _color, _color, _color, 1);
+		var _selectedOffset = _isSelected ? 115 : 100;
+		var _xoff = pauseMenu[activeMenu][PM.Align] == fa_left ? _selectedOffset : 0;
+		draw_text_transformed_color(_x - _xoff, _y + 5, pauseMenu[activeMenu][PM.Options][i][0], 2, 2, 0, _color, _color, _color, _color, 1);
 		_offset += 69;
 	}
-	
-	//var _scaleoff = 0;
-	//if (totaloptions > 6) {
-	//	_scaleoff = 3;
-	//}
-	//draw_sprite_ext(sMenu, 0, GW/2, GH/2, pauseMenu[activeMenu][PM.XScale] + _scaleoff, pauseMenu[activeMenu][PM.YScale], 0,c_white,1);
-	//draw_set_halign(fa_center);
-	//draw_set_valign(fa_top);		
-	//draw_text_transformed(GW/2, 
-	//(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 20,
-	//pauseMenu[activeMenu][PM.Title], 
-	//3, 3, 0);
-	//var mOffset = 0;
-	//draw_set_valign(fa_middle);
-	//var bigString = 0;
-	//for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
-	//	if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
-	//		bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
-	//	}
-	//}
-	//for (var i = startOption; i < totaloptions; ++i) {
-	//	var _xoff = 0;
-	//	if (totaloptions > 6) {
-	//		if (i <= 5) {
-	//			_xoff = sprite_get_width(sHudButton) * -1;
-	//		}
-	//		else{
-	//			_xoff = sprite_get_width(sHudButton);
-	//		}
-	//	}
-	//	var spr = (selected == i) ? 1 : 0;
-	//	var _ox = GW/2 + _xoff;
-	//	var _oy = (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset;
-	//	draw_sprite_ext(sHudButton, spr, _ox, _oy, bigString, 1.35,0,c_white,1);	
-	//	mouse_on_button(_ox, _oy, sHudButton, i, bigString, 1.35);
-	//	var _arrowoff = 160;
-	//	if (editOption and selected == i) {
-	//		draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff - _arrowoff,
-	//		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-	//		2,
-	//		2,180,c_white,1);
-	//		draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff + _arrowoff,
-	//		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-	//		2,
-	//		2,0,c_white,1);
-	//	}
-	//	draw_set_color(selected == i ? c_black : c_white);
-	//	draw_text_transformed(GW/2 + _xoff,
-	//	(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-	//	pauseMenu[activeMenu][PM.Options][i], 1.5, 1.5, 0);	
-	//	if (activeMenu == PMenus.Settings  and pauseMenu[activeMenu][PM.Bool][i] == true) {
-	//		var boolselected = (selected == i) ? 2 : 0;
-	//		var boolv = (pauseMenu[activeMenu][PM.BoolValue][i]) ? 1 : 0;
-	//		draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72 + _xoff, 
-	//		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-	//		1, 1,0,c_white,1);
-	//	}
-	//	if (i == 5) {
-	//		mOffset=-45;
-	//	}
-	//	mOffset+=45;
-	//}
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);		
@@ -1015,7 +966,7 @@ if (os_type == os_android) {
 	android_gui_button(zButton);
 	android_gui_button(xButton);
 	android_gui_button(pButton);
-	if (editOption or selectingOutfit) {
+	if (lastOptionType == PM.Slider or selectingOutfit) {
 		android_gui_button(plusButton);
 		android_gui_button(minusButton);
 	}
