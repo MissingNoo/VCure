@@ -914,7 +914,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 		var _scale = [selectedOption == i ? 1.35 : 1.25, selectedOption == i ? 1.75 : 1.65]
 		var _wh = [(sprite_get_width(sHudButton) * _scale[0]) / 2, (sprite_get_height(sHudButton) * _scale[1]) / 2]
 	    draw_sprite_ext(sHudButton, selectedOption == i ? 1 : 0, _x, _y, _scale[0], _scale[1], 0, c_white, 1);
-		if (point_in_rectangle(MX, MY, _x - _wh[0], _y - _wh[1], _x + _wh[0], _y + _wh[1])) { 
+		if (!editOption and point_in_rectangle(MX, MY, _x - _wh[0], _y - _wh[1], _x + _wh[0], _y + _wh[1])) { 
 			selectedOption = i;
 			if (mouse_click) {
 				menuClick = true;
