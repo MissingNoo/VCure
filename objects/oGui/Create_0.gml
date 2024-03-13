@@ -163,7 +163,7 @@ h=1;
 minute = 19;
 second = 58;
 #endregion
-#region PauseMenu	
+#region PauseMenu
 activeMenu = PMenus.Pause;
 enum PM{	
 	Title,
@@ -191,7 +191,6 @@ for (var i = 0; i < PMenus.Lenght; ++i) {
 pauseMenu[PMenus.Pause][PM.Title] = "PAUSED";
 pauseMenu[PMenus.Pause][PM.XScale] = 2;
 pauseMenu[PMenus.Pause][PM.Options] = ["Skills", "????", "Resume", "Settings", "Quit"];
-//pauseMenu[PMenus.Pause][PM.Options] = ["Skills"];
 pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 #region Settings
 	pauseMenu[PMenus.Settings][PM.Title] = "SETTINGS";
@@ -222,7 +221,9 @@ pauseMenu[PMenus.Pause][PM.YScale] = 0.75;
 	pauseMenu[PMenus.Settings][PM.YScale] = 0.75;
 	#endregion
 startOption = 0;
-	totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
+maxOptions = 0;
+totalOptions = 0;
+selectedOption = 0;
 #endregion
 #region Stages
 	stageSelected = false;

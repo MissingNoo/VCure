@@ -898,69 +898,94 @@ if (instance_exists(oPlayer)) {
 if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !PrizeBox and HP > 0 and !instance_exists(oGameOver)) {
 	draw_set_halign(fa_left);
 	if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
-	var startOption = 0;
-	var totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
-	var _scaleoff = 0;
-	if (totaloptions > 6) {
-		_scaleoff = 3;
-	}
-	draw_sprite_ext(sMenu, 0, GW/2, GH/2, pauseMenu[activeMenu][PM.XScale] + _scaleoff, pauseMenu[activeMenu][PM.YScale], 0,c_white,1);
+	totalOptions = array_length(pauseMenu[activeMenu][PM.Options]) - 1;
+	maxOptions = startOption + 5;
+	if (maxOptions > totalOptions) { maxOptions = totalOptions; }
+	
+	draw_sprite_ext(sMenu, 0, GW/2, GH/2, 2.5, 2.5, 0, c_white, 1);
 	draw_set_halign(fa_center);
-	draw_set_valign(fa_top);		
-	draw_text_transformed(GW/2, 
-	(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 20,
-	pauseMenu[activeMenu][PM.Title], 
-	3, 3, 0);
-	var mOffset = 0;
+	draw_set_valign(fa_top);
+	draw_text_transformed(GW/2, GH/2 - 240, pauseMenu[activeMenu][PM.Title], 4, 4, 0);
 	draw_set_valign(fa_middle);
-	var bigString = 0;
-	for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
-		if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
-			bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
-		}
-	}
-	for (var i = startOption; i < totaloptions; ++i) {
-		var _xoff = 0;
-		if (totaloptions > 6) {
-			if (i <= 5) {
-				_xoff = sprite_get_width(sHudButton) * -1;
-			}
-			else{
-				_xoff = sprite_get_width(sHudButton);
+	var _offset = 0;
+	for (var i = startOption; i <= maxOptions; ++i) {
+		var _x = GW/2;
+		var _y = GH/2 - 145 + _offset;
+		var _scale = [selectedOption == i ? 1.35 : 1.25, selectedOption == i ? 1.75 : 1.65]
+		var _wh = [(sprite_get_width(sHudButton) * _scale[0]) / 2, (sprite_get_height(sHudButton) * _scale[1]) / 2]
+	    draw_sprite_ext(sHudButton, selectedOption == i ? 1 : 0, _x, _y, _scale[0], _scale[1], 0, c_white, 1);
+		if (point_in_rectangle(MX, MY, _x - _wh[0], _y - _wh[1], _x + _wh[0], _y + _wh[1])) { 
+			selectedOption = i;
+			if (mouse_click) {
+				menuClick = true;
 			}
 		}
-		var spr = (selected == i) ? 1 : 0;
-		var _ox = GW/2 + _xoff;
-		var _oy = (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset;
-		draw_sprite_ext(sHudButton, spr, _ox, _oy, bigString, 1.35,0,c_white,1);	
-		mouse_on_button(_ox, _oy, sHudButton, i, bigString, 1.35);
-		var _arrowoff = 160;
-		if (editOption and selected == i) {
-			draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff - _arrowoff,
-			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-			2,
-			2,180,c_white,1);
-			draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff + _arrowoff,
-			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-			2,
-			2,0,c_white,1);
-		}
-		draw_set_color(selected == i ? c_black : c_white);
-		draw_text_transformed(GW/2 + _xoff,
-		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-		pauseMenu[activeMenu][PM.Options][i], 1.5, 1.5, 0);	
-		if (activeMenu == PMenus.Settings  and pauseMenu[activeMenu][PM.Bool][i] == true) {
-			var boolselected = (selected == i) ? 2 : 0;
-			var boolv = (pauseMenu[activeMenu][PM.BoolValue][i]) ? 1 : 0;
-			draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72 + _xoff, 
-			(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
-			1, 1,0,c_white,1);
-		}
-		if (i == 5) {
-			mOffset=-45;
-		}
-		mOffset+=45;
+		var _color = selectedOption == i ? c_black : c_white;
+		draw_text_transformed_color(_x, _y + 5, pauseMenu[activeMenu][PM.Options][i], 2, 2, 0, _color, _color, _color, _color, 1);
+		_offset += 69;
 	}
+	
+	//var _scaleoff = 0;
+	//if (totaloptions > 6) {
+	//	_scaleoff = 3;
+	//}
+	//draw_sprite_ext(sMenu, 0, GW/2, GH/2, pauseMenu[activeMenu][PM.XScale] + _scaleoff, pauseMenu[activeMenu][PM.YScale], 0,c_white,1);
+	//draw_set_halign(fa_center);
+	//draw_set_valign(fa_top);		
+	//draw_text_transformed(GW/2, 
+	//(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 20,
+	//pauseMenu[activeMenu][PM.Title], 
+	//3, 3, 0);
+	//var mOffset = 0;
+	//draw_set_valign(fa_middle);
+	//var bigString = 0;
+	//for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
+	//	if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
+	//		bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
+	//	}
+	//}
+	//for (var i = startOption; i < totaloptions; ++i) {
+	//	var _xoff = 0;
+	//	if (totaloptions > 6) {
+	//		if (i <= 5) {
+	//			_xoff = sprite_get_width(sHudButton) * -1;
+	//		}
+	//		else{
+	//			_xoff = sprite_get_width(sHudButton);
+	//		}
+	//	}
+	//	var spr = (selected == i) ? 1 : 0;
+	//	var _ox = GW/2 + _xoff;
+	//	var _oy = (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset;
+	//	draw_sprite_ext(sHudButton, spr, _ox, _oy, bigString, 1.35,0,c_white,1);	
+	//	mouse_on_button(_ox, _oy, sHudButton, i, bigString, 1.35);
+	//	var _arrowoff = 160;
+	//	if (editOption and selected == i) {
+	//		draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff - _arrowoff,
+	//		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+	//		2,
+	//		2,180,c_white,1);
+	//		draw_sprite_ext(sMenuArrow, 0, GW/2 + _xoff + _arrowoff,
+	//		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+	//		2,
+	//		2,0,c_white,1);
+	//	}
+	//	draw_set_color(selected == i ? c_black : c_white);
+	//	draw_text_transformed(GW/2 + _xoff,
+	//	(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+	//	pauseMenu[activeMenu][PM.Options][i], 1.5, 1.5, 0);	
+	//	if (activeMenu == PMenus.Settings  and pauseMenu[activeMenu][PM.Bool][i] == true) {
+	//		var boolselected = (selected == i) ? 2 : 0;
+	//		var boolv = (pauseMenu[activeMenu][PM.BoolValue][i]) ? 1 : 0;
+	//		draw_sprite_ext(sToggleButton, boolselected + boolv, GW/1.72 + _xoff, 
+	//		(GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90 + mOffset,
+	//		1, 1,0,c_white,1);
+	//	}
+	//	if (i == 5) {
+	//		mOffset=-45;
+	//	}
+	//	mOffset+=45;
+	//}
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_white);		

@@ -472,27 +472,27 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 	}	
     if (zKey){
 		if (activeMenu == PMenus.Settings and justopened > 0) {
-			if (!pauseMenu[PMenus.Settings][PM.Bool][selected]) {
+			if (!pauseMenu[PMenus.Settings][PM.Bool][selectedOption]) {
 				editOption = true;
 			}
 		}
 		justopened += 1;
 		var optionIs = "";
-		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
-			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
+		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selectedOption]); ++i) {
+			if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == ":") {
 			    break;
 			}
-			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == " ") {
+			if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == " ") {
 				i++;
 			}
-		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1);
+		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1);
 		}
 		
 		variable_global_set(optionIs, !variable_global_get(optionIs));
 		loadSettingValues();
 		
 		lastmenu = activeMenu;
-		switch (pauseMenu[activeMenu][PM.Options][selected]) {
+		switch (pauseMenu[activeMenu][PM.Options][selectedOption]) {
 			case "Skills":{
 		        
 		        break;}
@@ -516,18 +516,18 @@ if (global.gamePaused and !global.upgrade and !ANVIL) {
 		#endregion
 		if (activeMenu != lastmenu) {
 			loadSettingValues();
-		    selected=0;
+		    selectedOption=0;
 			startOption = 0;
-			totaloptions = array_length(pauseMenu[activeMenu][PM.Options]);
+			totalOptions = array_length(pauseMenu[activeMenu][PM.Options]);
 		}
 	}	
 	if (editOption and (leftKey or rightKey)){
 		var optionIs = "";
-		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selected]); ++i) {
-			if (string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1) == ":") {
+		for (var i = 1; i < string_length(pauseMenu[activeMenu][PM.Options][selectedOption]); ++i) {
+			if (string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1) == ":") {
 			    break;
 			}
-		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selected],i,1);
+		    optionIs = optionIs + string_copy(pauseMenu[activeMenu][PM.Options][selectedOption],i,1);
 		}
 		switch (optionIs) {
 		    case "Music Volume":{

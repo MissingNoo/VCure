@@ -64,10 +64,11 @@ if (instance_exists(oPlayer) and ANVIL) {
 #endregion
 #region PausedMenu
 if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
-	selected += _updown;
-	var _maxopt = array_length(pauseMenu[activeMenu][PM.Options]) - 1;
-	if (selected < 0) { selected = 0; }
-	if (selected > _maxopt) { selected = _maxopt;	}
+	selectedOption += _updown;
+	if (selectedOption < 0) { selectedOption = totalOptions; }
+	if (selectedOption > totalOptions) { selectedOption = 0; }
+	if (selectedOption > maxOptions) { startOption += 1; }
+	if (selectedOption < startOption) { startOption -= 1; }
 }
 #endregion
 #region Initial configuration
