@@ -590,43 +590,13 @@ if (keyboard_check(ord("N"))) {
 	//show_message(string(_xn));
 }
 
-if (keyboard_check_pressed(vk_end)) {
+if (keyboard_check_pressed(vk_end) and global.debug) {
 	debuglog = !debuglog;
     show_debug_log(debuglog)
 }
-
-	DEBUG
-		
-		//if(keyboard_check(ord("Q"))) a -=1;
-		if(keyboard_check_pressed(ord("Q"))) a -=1;
-		//if(keyboard_check(ord("W"))) a +=1;
-		if(keyboard_check_pressed(ord("W"))) a += 1;
-		if(keyboard_check(ord("E"))) b -=.05;
-		//if(keyboard_check(ord("E"))) b -=1;
-		if(keyboard_check(ord("R"))) b +=.05;
-		//if(keyboard_check(ord("R"))) b +=1;
-		if(keyboard_check(ord("T"))) c -=.1;
-		if(keyboard_check(ord("Y"))) c +=.1;
-		if(keyboard_check(ord("U"))) d -=.1;
-		if(keyboard_check(ord("I"))) d +=.1;
-		if(keyboard_check_pressed(ord("O"))) {e -=.05; global.guiScale = e; if (os_type == os_android) { gui_set();}};
-		if(keyboard_check_pressed(ord("P"))) {e +=1; global.guiScale = e; if (os_type == os_android) { gui_set();}};
-		if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio);}
-		//if (keyboard_check_pressed(ord("V"))) {
-		//    display_set_gui_size(640,360);
-		//}
-		//if (keyboard_check_pressed(ord("B"))) {
-		//    display_set_gui_size(1280,720);
-		//}
-		//if (keyboard_check_pressed(ord("N"))) {
-		//    display_set_gui_size(1920,1080);
-		//}
-		if (instance_exists(oPlayer)) {
-		    revives = oPlayer.revives;
-		}
-		if (instance_exists(oEvents)) {
-		    event= oEvents.event;
-		}
-		
-	ENDDEBUG
+DEBUG
+if(keyboard_check_pressed(ord("O"))) {e -=.05; global.guiScale = e; if (os_type == os_android) { gui_set();}};
+if(keyboard_check_pressed(ord("P"))) {e +=1; global.guiScale = e; if (os_type == os_android) { gui_set();}};
+if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio);}
+ENDDEBUG
 #endregion

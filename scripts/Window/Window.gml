@@ -155,15 +155,17 @@ function drawRectangle(x, y, xx, yy, _background = c_black, _outline = c_white, 
 }
 	
 	
-function mouse_on_button(_x, _y, _sprite, _index, _xscale = 1, _yscale = 1, _variable = "selected"){
+function mouse_on_button(_x, _y, _sprite, _index, _xscale = 1, _yscale = 1, _variable = "selected", _info = -1){
 	var _return = false;
 	var _w = sprite_get_width(_sprite) * _xscale /2;
 	var _h = sprite_get_height(_sprite) * _yscale / 2;
+	if (point_in_rectangle(MX, MY, _x - _w, _y - _h, _x + _w, _y + _h) and mouse_click) {
+		if (variable_instance_get(self, _variable) == _info) {
+		    _return = true;
+		}
+	}
 	if (point_in_rectangle(oGui.x, oGui.y, _x - _w, _y - _h, _x + _w, _y + _h)) {
 		variable_instance_set(self, _variable, _index);
-	}
-	if (point_in_rectangle(MX, MY, _x - _w, _y - _h, _x + _w, _y + _h) and mouse_click) {
-		_return = true;
 	}
 	DEBUG
 	    draw_rectangle(_x - _w, _y - _h, _x + _w, _y + _h, true);
