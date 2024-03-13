@@ -55,12 +55,8 @@ if (room == rStage1 and !instance_exists(oClient)) {
 #endregion	
 #region Input
 //feather disable GM1044
-if (room == rInicio) {
-    zKey = input_check_pressed("accept") or menuClick;
-}
-else {
-    zKey = input_check_pressed("accept");
-}
+zKey = input_check_pressed("accept") or menuClick;
+menuClick = false;
 xKey = input_check_pressed("cancel");
 eKey = input_check_pressed("action");
 leftKey = input_check_pressed("left");
@@ -162,7 +158,7 @@ if (global.upgrade) // after level up
 				random_upgrades();
 				global.rerolls--;
 			}
-			return;				
+			return;
 		}
 		for (var i = 0; i < 6; i++) 
 		{	

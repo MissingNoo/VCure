@@ -1,18 +1,4 @@
-DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
-DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 5;});
-DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function(){global.xp = oPlayer.neededxp;});
-DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
-DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
-DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
-DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
-DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
-DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
-DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
-draw_set_alpha(1);
 // Feather disable GM1041
-DEBUG
-    draw_circle(x,y,5,false);
-ENDDEBUG
 #region Start variables
 var _x = 0;
 var _y = 0;
@@ -33,9 +19,7 @@ draw_set_font(global.newFont[1]);
 if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
-		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 		draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
-		//draw_sprite_ext(sMenuTalents, 0, GW/3.47, GH/1.94, 0.8, 0.8, 0, c_white, 1);
 		var _talents = [
 			[sIoriArt, #e7eeea, 8.99, 1.88],
 			[sUrukaArt, #455b82, 6.13, 1.71],
@@ -52,41 +36,25 @@ if (room == rInicio) {
 		}
 		gpu_set_fog(false,c_white,0,0);
 		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
-		//[[GW/a,GH/b],[GW/c,GH/d],[GW/e,GH/f]]],
-		//var buttons = [[0, 1.68 + 0.035, 5.15, 7, 2.5, 
-		//							[[GW/1.07,GH/2.70, GW/1.77,GH/6.30],[GW/1.07,GH/10.38],[GW/1.78,GH/2.61]]],
-		//							[0, 1.76 + 0.035, 2.29, 3.5, -0.65,
-		//							[[GW/1.82,GH/2.53, GW/1.41, GH/1.83],[GW/1.41, GH/2.54],[GW/1.82, GH/1.86]]],
-		//							[0, 1.34, 2.39, 4, 0,
-		//							[[GW/1.39,GH/2.54, GW/1.10, GH/1.79],[GW/1.10, GH/2.57],[GW/1.39,GH/1.83]]],
-		//							[0, 1.56, 1.72, 5, -3.95,
-		//							[[GW/1.70, GH/1.79, GW/1.07, GH/1.32],[GW/1.07, GH/1.71],[GW/1.70,GH/1.42]]],
-		//							[0, 1.67, 1.32, 4, -5.60,									
-		//							[[GW/1.77,GH/1.40, GW/1.42, GH/1.12],[GW/1.42, GH/1.36],[GW/1.77,GH/1.17]]],
-		//							[0, 1.32, 1.29, 5, -5.45,
-		//							[[GW/1.40,GH/1.35, GW/1.15, GH/1.07],[GW/1.15, GH/1.30],[GW/1.40,GH/1.12]]]];
 		var _menuyoffset = 0;
 		draw_set_valign(fa_center);
 		draw_set_halign(fa_middle);
 		var _w = sprite_get_width(sHudButton) * 2 / 2;
 		var _h = sprite_get_height(sHudButton) * 2 / 2;
 		for (var i = 0; i < array_length(menuOptions); i++) {
-			//draw_sprite_ext(buttons[i][0], selected == i ? 1 : 0 , 0, 0, 1, 1, 0, c_white, 1);
 			var _spr = selected == i ? 1 : 0;
 			var _color = selected == i ? c_black : c_white;
 			var _xx = GW - 305;
 			var _yy = GH/4 + _menuyoffset + 3;
 			draw_sprite_ext(sHudButton, _spr, _xx, _yy, selected == i ? 2 : 1.75, 2, 0, c_white, 1);
 			draw_text_transformed_color(_xx, _yy + 5, menuOptions[i], 2, 2, 0, _color, _color, _color, _color, 1);
-			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and mouse_click and selected == i) { menuClick = true; }
-			if (point_in_rectangle(x, y, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { selected = i; }
+			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { 
+				selected = i; 
+				if (mouse_click) {
+				    menuClick = true;
+				}
+			}
 			_menuyoffset += 93;
-			//var _bgcolor = selected == i ? #d2d2d2 : #a9a9a9;
-			//draw_triangle_color(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
-			//draw_triangle_color(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], _bgcolor, _bgcolor, _bgcolor, false);
-			//draw_text_transformed_color(floor(GW/buttons[i][1]), floor(GH/buttons[i][2]), menuOptions[i], buttons[i][3], buttons[i][3], buttons[i][4], _color, _color, _color, _color, 1);
-			//mouse_on_button_triangle(buttons[i][5][0][0], buttons[i][5][0][1],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
-			//mouse_on_button_triangle(buttons[i][5][0][2], buttons[i][5][0][3],buttons[i][5][1][0], buttons[i][5][1][1], buttons[i][5][2][0], buttons[i][5][2][1], i);
 		}
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);
@@ -96,21 +64,8 @@ if (room == rInicio) {
 draw_set_font(global.newFont[2]);
 #endregion
 #region Character Select Room
-var str = ""; var offset = 0;
-if (room == rCharacterSelect or room == rAchievements) {
-	#region Lines
-	var linesoff = 0;
-	if (alarm_get(0) == -1) {
-		alarm[0]=1;
-	}
-	for (var i = 0; i < 130; ++i) {
-		//draw_sprite_ext(sMenuCharselectBar,0,oGame.linespos+linesoff,display_get_gui_height()+60,1.5,2.15,0,c_white,.25);
-		linesoff +=16;
-	}	
-#endregion
-}
+var offset = 0;
 if (room == rCharacterSelect) {
-	//draw_rectangle_color(0, 0, GW, GH, #19181d, #19181d, #19181d, #19181d, false);
 	NAME=CHARACTERS[selectedCharacter][?"name"];
 	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
 	draw_set_alpha(0.5);
@@ -122,11 +77,9 @@ if (room == rCharacterSelect) {
 	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
 	#region CharacterList
 	if (!characterSelected) {
-		//str="CHOOSE YOUR IDOL";
-		str = CHARACTERS[selectedCharacter][?"chooseText"];
 		draw_set_valign(fa_middle);
 		draw_set_halign(fa_center);
-		draw_text_transformed(GW/4, GH/8, str, 4.30, 4.30, 0);
+		draw_text_transformed(GW/4, GH/8, "Choose your vtuber", 4.30, 4.30, 0);
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);
 		draw_set_color(c_white);
@@ -141,11 +94,14 @@ if (room == rCharacterSelect) {
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) {
 			    selectedCharacter = i;
+				if (mouse_click) {
+				    menuClick = true;
+				}
 			}			
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2, _x + _pW + 2 + _offset, _y + _pH + 2, false);
-			if (UnlockableCharacters[CHARACTERS[i][?"id"]]) {
-			    draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
-			}
+			var _characterUnlocked = c_white;
+			if (!UnlockableCharacters[CHARACTERS[i][?"id"]]) { _characterUnlocked = c_black; }
+			draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 2, 2, 0, _characterUnlocked, 1);
 			if (selectedCharacter == i) {
 				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
 			}
@@ -169,7 +125,7 @@ if (room == rCharacterSelect) {
 			draw_text_transformed(GW/1.49 + 25, GH/1.39 + _yoffset, string($"{_info[i][1]}{_info[i][2]}"), 1.5, 1.5, 0);
 			_yoffset += 35;
 		}
-		//draw_sprite_ext(sSelectScreenThingy, 0, GW/a, GH/b, e, e, 0, c_white, 1);
+		#region Special Window
 		select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special");
 		var _speX = GW/1.09;
 		var _speY = GH/1.21;
@@ -177,6 +133,8 @@ if (room == rCharacterSelect) {
 		var _speSprW = sprite_get_width(_speSpr);
 		var _speSprH = sprite_get_height(_speSpr);
 		draw_sprite_ext(_speSpr, 0, _speX, _speY, 3, 3, 0, c_white, 1);
+		#endregion
+		#region Atk Window
 		select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack");
 		var _atkSpr = CHARACTERS[selectedCharacter][?"weapon"][1].thumb;
 		var _atkX = GW/1.19;
@@ -184,6 +142,8 @@ if (room == rCharacterSelect) {
 		var _atkSprW = sprite_get_width(_atkSpr);
 		var _atkSprH = sprite_get_height(_atkSpr);
 		draw_sprite_ext(_atkSpr, 0, _atkX, _atkY, 3, 3, 0, c_white, 1);
+		#endregion
+		#region Skills Window
 		select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills");
 		_offset = 0;
 		for (var i = 0; i < 3; ++i) {
@@ -212,6 +172,8 @@ if (room == rCharacterSelect) {
 			}
 			_offset += 75;
 		}
+		#endregion
+		#region Open Window when mouse over
 		if (point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3))) {
 		    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Special", 0.75);
 			draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
@@ -224,6 +186,7 @@ if (room == rCharacterSelect) {
 			draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name"), 2.5, 2.5, 0);
 			drawDesc(GW/1.40, GH/1.41, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc"), GW/3.90, 2);
 		}
+		#endregion
 	}
 	#endregion	
 	#region Outfit
@@ -264,9 +227,8 @@ if (room == rCharacterSelect) {
 		_y = 0;
 		draw_set_color(c_white);
 		draw_set_alpha(1);
-		str="CHOOSE MODE";
 		draw_set_halign(fa_center);
-		draw_text_transformed(GW/2,GH/22.50,str, 4.50, 4.50, 0);
+		draw_text_transformed(GW/2, GH/22.50, "CHOOSE MODE", 4.50, 4.50, 0);
 		draw_set_halign(fa_left);
 		_x = GW/2;
 		_y = round(GH/3.14);
@@ -285,6 +247,9 @@ if (room == rCharacterSelect) {
 				ENDDEBUG
 				if (point_in_rectangle(oGui.x, oGui.y, _x - _sprW, _y + offset - _sprH, _x + _sprW, _y + offset + _sprH)) {
 				    selected = i;
+					if (mouse_click) {
+					    menuClick = true;
+					}
 				}
 				if (i == selected) {
 					draw_sprite_ext(sUpgradeBackground, 1, _x, _y + offset, 1.49, 1.34, 0, c_white, 1);
@@ -305,57 +270,11 @@ if (room == rCharacterSelect) {
 		draw_set_valign(fa_top);
 		draw_set_halign(fa_left);
 	}
-	
 	#endregion
-	#region Weapon window
-	//_x = GW / 1.42;
-	//_y = GH / 5.95;
-	//_xx = GW / 1.02;
-	//_yy = GH / 1.88;
-	//_titleY = GH/4.22;
-	//_titlePos = 18;
-	//_fontSize = 2;
-	//drawWindow(_x,_y,_xx,_yy,"ATTACK", _titleY, _titlePos, _fontSize);
-	//if (_isUnlocked) {
-	//	var weaponID = CHARACTERS[selectedCharacter][?"weapon"];
-	//	var weaponSprite = weaponID[1][$ "thumb"];
-	//	draw_sprite_ext(weaponSprite, 0,GW/1.37, GH/3.52,2,2,0,c_white,1);
-	//	draw_set_valign(fa_middle); draw_set_color(c_white);
-	//	draw_text_transformed(_x + 66, _y + 77, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".name"), 2.50, 2.50, 0);
-	//	//drawDesc(GW/1.39, GH/2.97, weaponID[1][$"desc"], GW/4.10, 2);
-	//	drawDesc(_x + 13, _y + 118, lexicon_text("Weapons." + weaponID[1][$ "name"] + ".1") , 350, 2);
-	//}
-	//draw_set_valign(0);
-	#endregion
-	#region Special window
-	//_x = GW / 1.42;
-	//_y = GH / 1.88;
-	//_xx = GW / 1.02;
-	//_yy = GH / 1.07;
-	//_titleY = GH/1.67;
-	//_titlePos = 18;
-	//_fontSize = 2;
-	//drawWindow(_x,_y,_xx,_yy,"SPECIAL", _titleY, _titlePos, _fontSize);
-	//_x = GW/1.37;
-	//_y = GH/1.55;
-	//if (_isUnlocked) {
-	//	var specialID = CHARACTERS[selectedCharacter][?"special"];
-	//	var specialSprite = SPECIAL_LIST[specialID][$ "thumb"];
-	//	var specialName = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".name");
-	//	var specialDesc = lexicon_text("Special." + SPECIAL_LIST[specialID][$ "name"] + ".desc");
-	//	draw_sprite_ext(specialSprite, 0,_x - 4 - sprite_get_width(specialSprite), _y-sprite_get_height(specialSprite),2,2,0,c_white,1);
-	//	draw_set_valign(fa_middle); draw_set_color(c_white);
-	//	draw_text_transformed(_x + 38, _y, specialName, 2, 2, 0);
-	//	drawDesc(_x - 19, _y + 35, specialDesc, _x + 1, 2);
-	//}
-	//draw_set_valign(0);
-	#endregion
-	
 }
 #endregion
 #region Inside Stage
-if (instance_exists(oPlayer))
-{	
+if (instance_exists(oPlayer)) {	
 	draw_sprite_ext(sPhaseCoin, 0, GW/1.23, GH/15.06, 1, 1, 0, c_white, 1);
 	draw_text_transformed(GW/1.18, GH/16.35, string(global.newcoins), 2, 2, 0);
 	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
@@ -400,7 +319,7 @@ if (instance_exists(oPlayer))
 		draw_set_alpha(1);
 	    draw_surface(itemsSurface, 0, 0);
 	}
-	#endregion	
+	#endregion
 	#region XP
 	if (global.xp > 0) {
 		draw_rectangle_color(5, 5, 5 + ((global.xp / oPlayer.neededxp) * GW - 5), 30, c_blue, c_blue, c_blue, c_blue, false);
@@ -411,27 +330,34 @@ if (instance_exists(oPlayer))
 	if (global.upgrade) {
 		#region UpgradeList
 		offset = 0;
-		for (var i = 0; i < array_length(global.upgradeOptions); i++) {
-			var _xx = round(GW/1.55);
-			var _yy = round(GH/4.16);
-			var _xscale = 2.06;
-			var _yscale = 1.32;
-			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);//upgrade background
-			//draw_sprite_ext(sUpgradeBackground, 2, _xx, _yy + 5 + offset, _xscale, _yscale, 0, c_white, .75);//upgrade line for the text
-			draw_rectangle(_xx - 365, _yy + offset - 35, _xx + 365, _yy + offset - 34, false);			
-			mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2);
-			if (i == selected) { //if select draw border
-				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, _xscale, _yscale, 0, c_white, 1);//upgrade background
-				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 415, _yy + 2 + offset, 2, 2, 0, c_white, 1); 
-			} 
+		var _xx = round(GW/1.55);
+		var _yy = round(GH/4.16);
+		var _xscale = 2.06;
+		var _yscale = 1.32;
+		for (var i = 0; i < array_length(global.upgradeOptions); i++) {			
+			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);
+			draw_rectangle(_xx - 365, _yy + offset - 35, _xx + 365, _yy + offset - 34, false);
+			if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2)) {
+			    menuClick = true;
+			}
+			if (i == selected) {
+				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, _xscale, _yscale, 0, c_white, 1);
+				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 415, _yy + 2 + offset, 2, 2, 0, c_white, 1);
+			}
 			draw_set_halign(fa_left);
-		//	offset += 138;
-		//}
-		//offset = 0;
-		//for (var i = 0; i < array_length(global.upgradeOptions); i++) {
 			var uptype = "";
+			var style = "";
+			var foundup = false;
+			var foundlv = 0;
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:{
+					for (var j = 0; j < array_length(UPGRADES); ++j) {
+						if (UPGRADES[j][$ "name"] == global.upgradeOptions[i][$ "name"]) {
+							foundup = true;
+							foundlv = UPGRADES[j][$ "level"] + 1;
+						}
+					}
+					style = " >> Weapon";
 					uptype = "Weapons.";
 					var _enchantment = WEAPONS_LIST[global.upgradeOptions[i].id][1].enchantment;
 					var _isEnchanted = _enchantment != Enchantments.None;
@@ -440,47 +366,17 @@ if (instance_exists(oPlayer))
 						draw_set_halign(fa_right);
 						draw_text_transformed(_xx + 365, _yy + 35 + offset, "> " + lexicon_text($"Enchantments.{_enchantment}.desc"), 2, 2, 0);
 						draw_set_halign(fa_left);
-					}					
+					}
 					break;}
-				case ItemTypes.Item:{
-					uptype = "Items.";
-					break;}
-				case ItemTypes.Perk:{
-					uptype = "Perks.";
-					break;}
-			}
-			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
-			//draw_text_transformed(_xx - 348 + guiOffset, _yy - 64 + offset - androidoffset, _name, 2, 2, 0); // draw the name //UNUSED
-			draw_text_transformed(_xx - 348, _yy - 57 + offset, _name, 2, 2, 0); // draw the name
-			draw_set_color(c_white);
-			var style = ""; 
-			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
-				case ItemTypes.Weapon:{
-					style = " >> Weapon";
-					break;}
-				case ItemTypes.Item:{
-					style = " >> Item";
-					break;}
-				case ItemTypes.Perk:{
-					style = " >> Skill";
-					break;}
-			}
-			draw_set_halign(fa_right);
-			//draw_text_transformed(_xx + 340 - guiOffset, _yy - 64 + offset - androidoffset, string(style), 2, 2, 0);  // draw type of upgrade //UNUSED
-			draw_text_transformed(_xx + 340, _yy - 57 + offset, string(style), 2, 2, 0);  // draw type of upgrade 
-			draw_set_halign(fa_left);
-			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb			
-			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322, _yy + 8 + offset,2, 2,0,c_white,1); // item thumb type
-			var foundup = false;
-			var foundlv = 0;
-			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Item:{
 					for (var j = 0; j < array_length(playerItems); ++j) {
 						if (playerItems[j][$ "id"] == global.upgradeOptions[i][$ "id"]) {
 							foundup = true;
 							foundlv = playerItems[j][$ "level"] + 1;
 						}
-					}	
+					}
+					style = " >> Item";
+					uptype = "Items.";
 					break;}
 				case ItemTypes.Perk:{
 					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
@@ -488,32 +384,27 @@ if (instance_exists(oPlayer))
 							foundup = true;
 							foundlv = PLAYER_PERKS[j][$ "level"] + 1;
 						}
-					}	
+					}
+					style = " >> Skill";
+					uptype = "Perks.";
 					break;}
-				case ItemTypes.Weapon:{
-					for (var j = 0; j < array_length(UPGRADES); ++j) {
-						if (UPGRADES[j][$ "name"] == global.upgradeOptions[i][$ "name"]) {
-							foundup = true;
-							foundlv = UPGRADES[j][$ "level"] + 1;
-						}
-					}	
-					break;}
-			}		
+			}
+			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
+			draw_text_transformed(_xx - 348, _yy - 57 + offset, _name, 2, 2, 0);
+			draw_set_color(c_white);
+			draw_set_halign(fa_right);
+			draw_text_transformed(_xx + 340, _yy - 57 + offset, string(style), 2, 2, 0);
+			draw_set_halign(fa_left);
+			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322, _yy + 8 + offset,2, 2,0,c_white,1);
+			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322, _yy + 8 + offset,2, 2,0,c_white,1);
 			var maxx = 600;
-			//if (os_type == os_android) {
-			//	maxx = GW/2.50;
-			//}else{
-			//	maxx = GW/2.07;
-			//}	
 			var desc = "";
 			if (foundup) {
 				var idd = global.upgradeOptions[i][$ "id"];
 				desc = lexicon_text(uptype + global.upgradeOptions[i][$ "name"] + "." + string(foundlv));
-				//draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + "." + string(foundlv)), string_width("W"), 327.5, 2,2,0);
 			}
 			else{
 				desc = lexicon_text(uptype + global.upgradeOptions[i][$ "name"] + ".1");
-				//draw_text_ext_transformed(GW/2.20+(guiOffset/2) + 5,GH/5.5+offset, lexicon_text(uptype + global.upgradeOptions[i][$"name"] + ".1"), string_width("W"), 327.5, 2,2,0);
 			}
 			drawDesc(_xx- 230, _yy - 28 + offset, desc , maxx, 2);
 			offset += 138;
@@ -524,11 +415,13 @@ if (instance_exists(oPlayer))
 			var _rerollY = GH/1.05;
 			var _sprW = sprite_get_width(sHudButton);
 			var _sprH = sprite_get_height(sHudButton);
-			if (buttonClick([_rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH], true)) {
-			    selected = 4;
+			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH)) {
+				selected = 4;
+				if (mouse_click) {
+				    menuClick = true;
+				}
 			}
-			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);
-			
+			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);			
 			var color = selected == 4 ? c_black : c_white;
 			draw_set_halign(fa_center);
 			draw_set_valign(fa_middle);
@@ -555,7 +448,6 @@ if (instance_exists(oPlayer))
 		var xoffset = 0;
 		var anvilIsSelected = 0;
 		for (var i = 0; i < array_length(UPGRADES); ++i){
-			//if (!anvilconfirm) { mouseOnButton(GW/2.30, GH/3, GW/12, sItemSquare, 2, 2, UPGRADES, "anvilSelected", "horizontal");}
 			if (anvilSelectedCategory == 0 and i == anvilSelected){
 				anvilIsSelected = 1;
 			}else{
@@ -776,6 +668,7 @@ if (instance_exists(oPlayer))
 	#region Prize Box
 	DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oChest);});
 	if (PrizeBox) {
+		#region Debug
 		DebugManager.debug_add_config("Restart Box", DebugTypes.Button, undefined, undefined, function(){boxaccept = false; chestresult = false; chesttimer = 0; chestspr = 0; boxoffset = 700;});
 		DebugManager.debug_add_config("Animation time", DebugTypes.UpDown, self, "chestmaxtimer");
 		DebugManager.debug_add_config("Chest Size", DebugTypes.UpDown, self, "chestsize");
@@ -785,8 +678,7 @@ if (instance_exists(oPlayer))
 		DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
 		DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
 		DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
-		//DebugManager.debug_add_config("Accept/Refuse X", DebugTypes.UpDown, self, "chestAcceptRefuseX");
-		//DebugManager.debug_add_config("multiChestX", DebugTypes.UpDown, self, "multiChestX");
+		#endregion
 		draw_sprite_ext(sMenu, 0, GW/2, GH/2, !multiChest ? 3 : 4, 3, 0, c_white, 1);
 		if (!multiChest) {
 			draw_sprite_ext(sChest, chestspr, GW/2, GH/2 + 250, chestsize, chestsize, 0, c_white, 1);
@@ -950,13 +842,14 @@ if (instance_exists(oPlayer))
 			if (boxoffset <  -3000) { boxoffset = 0; }
 		}
 	}
-	
 	#endregion
 	#region Timer
-	var time = string(global.minutes) + ":" + string(string_format(global.seconds,2,0));
-	draw_text_transformed(GW/2-(string_width(time)/2),35,time,1,1,0);
+	var _seconds = round(Seconds);
+	if (_seconds < 10) { _seconds = $"0{_seconds}"; }
+	var _time = $"{Minutes}:{_seconds}";
+	draw_text_transformed(GW/2 - (string_width(_time)/2), 35, _time, 2, 2, 0);
 	#endregion
-	#region Buffs
+	#region Buffs //TODO: fix draw
 	var _xx = 55;
 	var _yy = GH - 55;
 	for (var i = 0; i < array_length(Buffs); ++i) {
@@ -980,39 +873,27 @@ if (instance_exists(oPlayer))
 	#endregion
 	#region Joystick
 	if (os_type == os_android and !global.gamePaused) {
-	    if (device_mouse_check_button(0, mb_left)) {
-			if (holdPositions[0][0] == 0) {
-			    holdPositions[0][0] = device_mouse_x_to_gui(0);
-				holdPositions[0][1] = device_mouse_y_to_gui(0);
+		for (var i = 0; i <= 1; ++i) {
+		    if (device_mouse_check_button(i, mb_left)) {
+				if (holdPositions[i][0] == 0) {
+				    holdPositions[i][0] = device_mouse_x_to_gui(i);
+					holdPositions[i][1] = device_mouse_y_to_gui(i);
+				}
+				holdPositions[i][2] = device_mouse_x_to_gui(i);
+				holdPositions[i][3] = device_mouse_y_to_gui(i);
+				draw_sprite_ext(sHudJoystick, 0, holdPositions[i][0], holdPositions[i][1], 0.75, 0.75, 0, c_white, 0.75);
+				draw_sprite_ext(sHudJoystick, 1, holdPositions[i][2], holdPositions[i][3], 0.75, 0.75, 0, c_white, 0.75);
 			}
-			holdPositions[0][2] = device_mouse_x_to_gui(0);
-			holdPositions[0][3] = device_mouse_y_to_gui(0);
-			draw_sprite_ext(sHudJoystick, 0, holdPositions[0][0], holdPositions[0][1], 0.75, 0.75, 0, c_white, 0.75);
-			draw_sprite_ext(sHudJoystick, 1, holdPositions[0][2], holdPositions[0][3], 0.75, 0.75, 0, c_white, 0.75);
-		}
-		else {
-			holdPositions[0][0] = 0;
-			holdPositions[0][1] = 0;
-		}
-	    if (device_mouse_check_button(1, mb_left)) {
-			if (holdPositions[1][0] == 0) {
-			    holdPositions[1][0] = device_mouse_x_to_gui(1);
-				holdPositions[1][1] = device_mouse_y_to_gui(1);
+			else {
+				holdPositions[i][0] = 0;
+				holdPositions[i][1] = 0;
 			}
-			holdPositions[1][2] = device_mouse_x_to_gui(1);
-			holdPositions[1][3] = device_mouse_y_to_gui(1);
-			draw_sprite_ext(sHudJoystick, 0, holdPositions[1][0], holdPositions[1][1], 0.75, 0.75, 0, c_white, 0.75);
-			draw_sprite_ext(sHudJoystick, 1, holdPositions[1][2], holdPositions[1][3], 0.75, 0.75, 0, c_white, 0.75);
-		}
-		else {
-			holdPositions[1][0] = 0;
-			holdPositions[1][1] = 0;
 		}
 	}
 	#endregion
 }
 #endregion
-#region PauseMenu
+#region PauseMenu //TODO: Redo!!!
 if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !PrizeBox and HP > 0 and !instance_exists(oGameOver)) {
 	draw_set_halign(fa_left);
 	if (instance_exists(oPlayer) and activeMenu == PMenus.Pause) { drawStats(); }
@@ -1031,23 +912,12 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 	3, 3, 0);
 	var mOffset = 0;
 	draw_set_valign(fa_middle);
-	//if (global.debug) {
-	//	draw_text(300, 200,
-	//	"totaloptions = " + string(array_length(pauseMenu[activeMenu][PM.Options])) +
-	//	" \n totalOptionsNow= " + string(totaloptions) +
-	//	" \n startOption= " + string(startOption) +
-	//	" \n selected= " + string(selected) +
-	//	" \n t-s= " + string(totaloptions - startOption) +
-	//	" \n totaloptions = " + string("a")	
-	//	);
-	//}
 	var bigString = 0;
 	for (var i = 0; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
 		if (string_length(pauseMenu[activeMenu][PM.Options][i])/11 > bigString) {
 			bigString = string_length(pauseMenu[activeMenu][PM.Options][i])/11;
 		}
 	}
-	//mouseOnButton(GW/2, (GH/2 - (sprite_get_height(sMenu) * pauseMenu[activeMenu][PM.YScale])/2) + 90, 45, sHudButton, bigString, 1, array_create(array_length(pauseMenu[activeMenu][PM.Options]),0), "selected");
 	for (var i = startOption; i < totaloptions; ++i) {
 		var _xoff = 0;
 		if (totaloptions > 6) {
@@ -1096,22 +966,26 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 	}
 #endregion
 #region Debug
+DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
+DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 5;});
+DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function(){global.xp = oPlayer.neededxp;});
+DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
+DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
+DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
+DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
+DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
+DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
+DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
 if (keyboard_check_pressed(ord("M"))) {
-	if (global.debug) {
-		global.debug = false;
-	}
-	else global.debug=true;
+	global.debug = !global.debug;
 	DebugManager.show = global.debug;
 }
 //feather enable GM2017
-//draw_text(10,10,global.debug);
 var debugy=170;
 offset = 0;
 #endregion	
 #region Android Buttons
-if (os_type == os_android) 
-//if (true) 
-{
+if (os_type == os_android) {
 	android_gui_button(zButton);
 	android_gui_button(xButton);
 	android_gui_button(pButton);
@@ -1131,18 +1005,16 @@ if (room == rCharacterSelect or room == rInicio) {
 	draw_set_halign(fa_left);
 }
 #endregion
-//x = 0;
-//y = 0;
+#region Draw Mouse
 var _drawMouse = true;
 if (instance_exists(oPlayer) and oPlayer.mouseAim) {
     _drawMouse = false;
-	if (ANVIL or GoldenANVIL or global.upgrade or PrizeBox){
+	if (global.gamePaused){
 		_drawMouse = true;
 	}
 }
 if (_drawMouse and os_type != os_android) {
 	cursor_sprite = sMouse;
-	//draw_sprite_ext(sMouse, 0, device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), 2, 2, 0, c_white, 1);
 }
 if (!_drawMouse) {
     cursor_sprite = sBlank;
@@ -1151,3 +1023,4 @@ if (!centered) {
 	centered = true;
     window_center();
 }
+#endregion
