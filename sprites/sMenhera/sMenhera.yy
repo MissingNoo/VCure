@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Lia",
-    "path":"folders/Sprites/Characters/Lia.yy",
+    "path":"folders/Sprites/Characters/PhaseConnect/Lia.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

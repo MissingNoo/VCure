@@ -31,7 +31,7 @@
   "origin":9,
   "parent":{
     "name":"Pipkin Pippa",
-    "path":"folders/Sprites/Characters/Pipkin Pippa.yy",
+    "path":"folders/Sprites/Characters/PhaseConnect/Pipkin Pippa.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

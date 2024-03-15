@@ -80,13 +80,13 @@ if (room == rCharacterSelect) {
 		draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
 		draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
 		for (var i=1; i < Characters.Lenght; i++) {
-			if (CHARACTERS[i][?"agency"] != selectedAgency) {
+			if (CHARACTERS[i][?"agency"] != selectedAgency and selectedAgency != "All") {
 			    continue;
 			}
 			var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
-			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
-			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
+			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
+			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2, _x + _pW + 2 + _offset, _y + _pH + 2, false);
 			var _characterUnlocked = c_white;
 			if (!UnlockableCharacters[CHARACTERS[i][?"id"]]) { _characterUnlocked = c_black; }
@@ -206,12 +206,14 @@ if (room == rCharacterSelect) {
 	var gens = ["Origins"];
 	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
 	if (point_in_rectangle(TouchX1, TouchX2, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH)) {
+		sidebarOpen = true;
 	    if (sidebar[0] < sidebar[1]) {
 		    sidebar[0] += 10;
 		}
 		else { sidebar[0] = sidebar[1]; }
 	}
 	else {
+		sidebarOpen = false;
 		if (sidebar[0] > 65) {
 		    sidebar[0] -= 10;
 		}

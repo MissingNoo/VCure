@@ -26,7 +26,7 @@
   "origin":9,
   "parent":{
     "name":"Iori",
-    "path":"folders/Sprites/Characters/Iori.yy",
+    "path":"folders/Sprites/Characters/PhaseConnect/Iori.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -38,7 +38,7 @@
   ],
   "name":"sTrickyIdle",
   "nineSlice":null,
-  "origin":9,
+  "origin":7,
   "parent":{
     "name":"Trickywi",
     "path":"folders/Sprites/Characters/Guests/Trickywi.yy",
@@ -135,7 +135,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":13,
+    "xorigin":12,
     "yorigin":35,
   },
   "swatchColours":null,

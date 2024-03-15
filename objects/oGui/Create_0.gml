@@ -41,8 +41,10 @@ maxselected = selected;
 color=c_white;
 #endregion
 #region SideBar
+sidebarOpen = false;
 sidebar = [64, 320];
 agencies = [
+	["All", sPhaseIcon], 
 	["Phase-Connect", sPhaseIcon], 
 	["Indies", sPhaseIcon]
 ]

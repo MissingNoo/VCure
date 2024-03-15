@@ -28,7 +28,7 @@
   "origin":9,
   "parent":{
     "name":"Uruka",
-    "path":"folders/Sprites/Characters/Uruka.yy",
+    "path":"folders/Sprites/Characters/PhaseConnect/Uruka.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -34,7 +34,7 @@
   "origin":9,
   "parent":{
     "name":"Tenma",
-    "path":"folders/Sprites/Characters/Tenma.yy",
+    "path":"folders/Sprites/Characters/PhaseConnect/Tenma.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

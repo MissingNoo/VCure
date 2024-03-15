@@ -1,11 +1,17 @@
 {
   "$GMAndroidOptions":"",
   "%Name":"Android",
+  "ConfigValues":{
+    "Debug":{
+      "option_android_minimum_sdk":"21",
+      "option_android_arch_x86_64":"true",
+    },
+  },
   "name":"Android",
   "option_android_application_tag_inject":"",
   "option_android_arch_arm64":true,
   "option_android_arch_armv7":false,
-  "option_android_arch_x86_64":false,
+  "option_android_arch_x86_64":true,
   "option_android_attribute_allow_backup":true,
   "option_android_build_tools":"",
   "option_android_compile_sdk":"33",
@@ -43,7 +49,7 @@
   "option_android_launchscreen_fill":1,
   "option_android_lint":true,
   "option_android_logcat":"yoyo:V DEBUG:V AndroidRuntime:V",
-  "option_android_minimum_sdk":"16",
+  "option_android_minimum_sdk":"21",
   "option_android_orient_landscape":true,
   "option_android_orient_landscape_flipped":true,
   "option_android_orient_portrait":false,
