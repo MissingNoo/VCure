@@ -373,6 +373,12 @@ if (room == rCharacterSelect or room == rAchievements) {
 }
 #region Select Character room
 if (room == rCharacterSelect) {
+	//else {
+	//	if (sidebar[0] > 0) {
+	//		sidebar[0] -= b;
+	//	}
+	//	else { sidebar[0] = 0; }
+	//}
 	#region Character sprite
 	characterSubImage[1] = sprite_get_number(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"]);
 	characterSubImage[2] = sprite_get_speed(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"]);

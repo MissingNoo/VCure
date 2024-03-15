@@ -65,13 +65,6 @@ var offset = 0;
 if (room == rCharacterSelect) {
 	NAME=CHARACTERS[selectedCharacter][?"name"];
 	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
-	draw_set_alpha(0.5);
-	draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);
-	draw_set_alpha(1);
-	draw_sprite_ext(sPhaseIcon, 0, 32, 32, .35, .35, 0, #add8e6, 1);
-	draw_rectangle_color(0,0, 8, 64, #add8e6, #add8e6, #add8e6, #add8e6, false);
-	var gens = ["Origins"];
-	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
 	#region CharacterList
 	if (!characterSelected) {
 		draw_set_valign(fa_middle);
@@ -87,6 +80,9 @@ if (room == rCharacterSelect) {
 		draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
 		draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
 		for (var i=1; i < Characters.Lenght; i++) {
+			if (CHARACTERS[i][?"agency"] != selectedAgency) {
+			    continue;
+			}
 			var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 			if (point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
@@ -182,6 +178,46 @@ if (room == rCharacterSelect) {
 		#endregion
 	}
 	#endregion	
+	#region SideBar
+	
+	var _surf = surface_create(sidebar[1], GH);
+	surface_set_target(_surf);
+	var _yoff = 0;
+	for (var i = 0; i < array_length(agencies); ++i) {
+		var _color = selectedAgency == agencies[i][0] ? #add8e6 : c_white;
+	    draw_text_transformed_color(75, 15 + _yoff, agencies[i][0], 3, 3, 0, _color, _color, _color, _color, 1);
+		draw_sprite_ext(agencies[i][1], 0, 32, 32 + _yoff + 4, .35, .35, 0, _color, 1);
+		var _w = sprite_get_width(agencies[i][1]) * 0.35 / 2;
+		var _h = sprite_get_height(agencies[i][1]) * 0.35 / 2;
+		draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w, 32 + _yoff + _h, true);
+		if (mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w, 32 + _yoff + _h)) {
+		    selectedAgency = agencies[i][0];
+		}
+		_yoff += 60;
+	}
+	surface_reset_target();
+	draw_set_alpha(0.75);
+	draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);	
+	draw_rectangle_color(64,0, sidebar[0], GH, c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
+	draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0, 0);
+	surface_free(_surf);
+	//draw_rectangle_color(0,0, 8, 64, #add8e6, #add8e6, #add8e6, #add8e6, false);
+	var gens = ["Origins"];
+	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
+	if (point_in_rectangle(TouchX1, TouchX2, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH)) {
+	    if (sidebar[0] < sidebar[1]) {
+		    sidebar[0] += 10;
+		}
+		else { sidebar[0] = sidebar[1]; }
+	}
+	else {
+		if (sidebar[0] > 65) {
+		    sidebar[0] -= 10;
+		}
+		else { sidebar[0] = 65; }
+	}
+	#endregion
 	#region Outfit
 	if (selectingOutfit) {
 		draw_text(GW/2, GH/2, "Press Z");

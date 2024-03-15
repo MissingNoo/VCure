@@ -113,7 +113,7 @@ enum Characters {
 	Trickywi,
 	Lenght
 }
-function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
+function createCharacter(_id, _agency, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
 {
 	if (_unlocked) {
 	    UnlockableCharacters[_id] = _unlocked;
@@ -121,6 +121,7 @@ function createCharacter(_id, _name, _portrait, _bigArt, _sprite, _runningsprite
 	global.characters[_id]=ds_map_create();
 	m = global.characters[_id];
 	ds_map_add(m, "id", _id);
+	ds_map_add(m, "agency", _agency);
 	ds_map_add(m, "name", _name);
 	ds_map_add(m, "portrait", _portrait);
 	ds_map_add(m, "bigArt", _bigArt);
@@ -149,12 +150,12 @@ enum BuffNames{
 	WallmartDefense
 }
 function populate_characters(){
-	createCharacter(Characters.Null,"",sBlank,sBlank, sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
-	createCharacter(Characters.Uruka,"Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
-	createCharacter(Characters.Pippa,"Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
-	createCharacter(Characters.Lia,"Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
-	createCharacter(Characters.Tenma,"Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, false);
-	createCharacter(Characters.Trickywi,"Trickywi",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
+	createCharacter(Characters.Null, "Phase-Connect","",sBlank,sBlank, sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
+	createCharacter(Characters.Uruka, "Phase-Connect","Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
+	createCharacter(Characters.Pippa, "Phase-Connect","Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
+	createCharacter(Characters.Lia, "Phase-Connect","Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
+	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, false);
+	createCharacter(Characters.Trickywi, "Indies","Trickywi",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	
 	
 	//Buffs[BuffNames.ShortHeight] = {

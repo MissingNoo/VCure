@@ -40,6 +40,14 @@ selected=0;
 maxselected = selected;
 color=c_white;
 #endregion
+#region SideBar
+sidebar = [64, 320];
+agencies = [
+	["Phase-Connect", sPhaseIcon], 
+	["Indies", sPhaseIcon]
+]
+selectedAgency = "Phase-Connect";
+#endregion
 #endregion
 #region Stage
 #region Anvil
