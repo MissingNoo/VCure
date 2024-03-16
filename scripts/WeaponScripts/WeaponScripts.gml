@@ -180,7 +180,6 @@ function urukanote_step(o){
 		}
 	}
 }
-	
 function bounceball_step(o){
 	if (o == 0) {
 	    direction = point_direction(x,y,x,y+10);
