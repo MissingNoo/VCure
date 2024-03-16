@@ -1,4 +1,6 @@
 //event_inherited();
+_extrainfo = {};
+_extra = {};
 xxstart = xstart;
 yystart = ystart;
 sincounter = current_time;

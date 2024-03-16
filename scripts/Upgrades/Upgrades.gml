@@ -207,6 +207,7 @@ function populate_upgrades(){
 		#region Uruka Perks
 			#region UrukaNote 
 			new_create_upgrade({
+				func : urukanote_step,
 				id : Weapons.UrukaNote,
 				name : "Music Note",
 				maxlevel : 7,
@@ -258,30 +259,32 @@ function populate_upgrades(){
 		#endregion	
 		#region Lia
 		new_create_upgrade({
-				id : Weapons.LiaBolt,
-				name : "Lightning Bolt",
-				maxlevel : 7,
-				sprite : sBolt,
-				attackdelay : 10,
-				thumb : sLiaBolt,
-				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
-				maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.20, 13*1.20*1.10, 13*1.20*1.10],
-				cooldown : [80, 80, 80*0.85, 80*0.85, 80*0.85*0.90, 80*0.85*0.90, 80*0.85*0.90],
-				duration : 50, 
-				hitCooldown : 20,
-				canBeHasted : true,
-				speed : 0,
-				hits : 1,
-				type : "red",
-				shoots : 1,
-				bolts : [1, 2, 2, 3, 3, 3, 5],
-				knockbackSpeed : 0,
-				knockbackDuration : 0,
-				perk : true,
-				characterid : Characters.Lia,
-				weight : 3
-			});
+			func : liabolt_step,
+			id : Weapons.LiaBolt,
+			name : "Lightning Bolt",
+			maxlevel : 7,
+			sprite : sBolt,
+			attackdelay : 10,
+			thumb : sLiaBolt,
+			mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
+			maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.20, 13*1.20*1.10, 13*1.20*1.10],
+			cooldown : [80, 80, 80*0.85, 80*0.85, 80*0.85*0.90, 80*0.85*0.90, 80*0.85*0.90],
+			duration : 50, 
+			hitCooldown : 20,
+			canBeHasted : true,
+			speed : 0,
+			hits : 1,
+			type : "red",
+			shoots : 1,
+			bolts : [1, 2, 2, 3, 3, 3, 5],
+			knockbackSpeed : 0,
+			knockbackDuration : 0,
+			perk : true,
+			characterid : Characters.Lia,
+			weight : 3
+		});
 		new_create_upgrade({
+			func : eletricpulse_step,
 				id : Weapons.ElectricPulse,
 				name : "Electric Pulse",
 				maxlevel : 7,
@@ -308,6 +311,7 @@ function populate_upgrades(){
 		#region Tenma
 		#region Brick
 		new_create_upgrade({
+			func : brick_step,
 			id : Weapons.Brick,
 			name : "Brick",
 			maxlevel : 7,
@@ -363,6 +367,7 @@ function populate_upgrades(){
 	#endregion
 	#region BLBook
 		new_create_upgrade({
+				func : blbook_step,
 				id : Weapons.BlBook,
 				weight : 3,
 				name : "BL Book",
@@ -393,6 +398,7 @@ function populate_upgrades(){
 	#endregion
 	#region Bounce Ball //TODO: knockback depends on character
 		new_create_upgrade({ 
+			func : bounceball_step,
 				id : Weapons.BounceBall,
 				weight : 4,
 				name : "Bounce Ball",
@@ -422,6 +428,7 @@ function populate_upgrades(){
 	#endregion
 	#region Cutting Board
 	new_create_upgrade({
+		func : cuttingboard_step,
 				id : Weapons.CuttingBoard,
 				name : "Cutting Board",
 				maxlevel : 7,
@@ -448,6 +455,7 @@ function populate_upgrades(){
 	#endregion
 	#region Fan Beam
 	new_create_upgrade({
+		func : fanbeam_step,
 				id : Weapons.FanBeam,
 				name : "Fan Beam",
 				weight : 3,
@@ -475,6 +483,7 @@ function populate_upgrades(){
 	#endregion
 	#region CEO Tears
 	new_create_upgrade({
+		func : ceotears_step,
 				id : Weapons.CEOTears,
 				weight : 2,
 				name : "CEO's Tears",
@@ -503,6 +512,7 @@ function populate_upgrades(){
 	#endregion
 	#region EliteLavaBucket
 		new_create_upgrade({ 
+			func : lavabucket_step,
 				id : Weapons.EliteLavaBucket,
 				weight : 3,
 				name : "Elite Lava Bucket",
@@ -532,6 +542,7 @@ function populate_upgrades(){
 	#endregion
 	#region EN's Curse
 	new_create_upgrade({ 
+		func : encurse_step,
 			id : Weapons.ENsCurse,
 			weight : 2,
 			name : "EN's Curse",
@@ -561,6 +572,7 @@ function populate_upgrades(){
 	#endregion
 	#region Holobomb
 	new_create_upgrade({
+		func : holobomb_step,
 				id : Weapons.HoloBomb,
 				name : "Holo Bomb",
 				maxlevel : 7,
@@ -603,6 +615,7 @@ function populate_upgrades(){
 	#endregion
 	#region asacoco
 	new_create_upgrade({ 
+			func : asacoco_step,
 				id : Weapons.PlugAsaCoco,
 				weight : 4,
 				name : "Plug Type Asacoco",
@@ -634,6 +647,7 @@ function populate_upgrades(){
 	#endregion
 	#region SpiderCooking
 		new_create_upgrade({
+			func : spidercooking_step,
 				id : Weapons.SpiderCooking,
 				name : "Spider Cooking",
 				maxlevel : 7,
@@ -660,6 +674,7 @@ function populate_upgrades(){
 	#endregion
 	#region Glowstick
 			new_create_upgrade({
+				func : glowstick_step,
 				id : Weapons.Glowstick,
 				name : "Glowstick",
 				weight : 4,
@@ -687,6 +702,7 @@ function populate_upgrades(){
 			#endregion
 	#region Idol Song //TODO FIX THIS
 			new_create_upgrade({
+				func : idolsong_step,
 				id : Weapons.IdolSong,
 				name : "Idol Song",
 				afterimage : true,
@@ -716,6 +732,7 @@ function populate_upgrades(){
 			#endregion
 	#region Psycho Axe
 			new_create_upgrade({
+				func : psychoaxe_step,
 				id : Weapons.PsychoAxe,
 				name : "Psycho Axe",
 				maxlevel : 7,
@@ -744,6 +761,7 @@ function populate_upgrades(){
 	#endregion
 	#region Wamy Water
 			new_create_upgrade({
+				func : wamywater_step,
 				id : Weapons.WamyWater,
 				name : "Wamy Water",
 				maxlevel : 7,
@@ -769,6 +787,7 @@ function populate_upgrades(){
 	#endregion
 	#region XPotato
 	new_create_upgrade({
+		func : xpotato_step,
 				id : Weapons.XPotato,
 				weight : 2,
 				name : "X-Potato",
@@ -822,6 +841,7 @@ function populate_upgrades(){
 	#region Collabs
 	#region MiComet
 	new_create_upgrade({ 
+		func : micomet_step,
 				id : Weapons.MiComet,
 				collab : true,
 				weight : 0,
@@ -902,6 +922,7 @@ function populate_upgrades(){
 	#endregion
 	#region BLFujoshi
 	new_create_upgrade({ 
+		func : blfujoshi_step,
 				id : Weapons.BLFujoshi,
 				collab : true,
 				weight : 0,
@@ -928,6 +949,7 @@ function populate_upgrades(){
 				perk : false,
 			});
 	new_create_upgrade({ 
+		func : blfujoshiaxe_step,
 				id : Weapons.BLFujoshiAxe,
 				collab : true,
 				weight : 0,
@@ -956,6 +978,7 @@ function populate_upgrades(){
 				perk : false,
 			});
 	new_create_upgrade({ 
+		func : blfujoshibook_step,
 				id : Weapons.BLFujoshiBook,
 				collab : true,
 				weight : 0,
@@ -986,6 +1009,7 @@ function populate_upgrades(){
 	#endregion
 	#region Bone Bros
 	new_create_upgrade({ 
+		func : bonebros_step,
 				id : Weapons.BoneBros,
 				collab : true,
 				weight : 0,
@@ -1012,6 +1036,7 @@ function populate_upgrades(){
 				perk : false,
 			});
 	new_create_upgrade({ 
+		func : bonebros_slash_step,
 				id : Weapons.BoneBrosSlash,
 				collab : true,
 				weight : 0,
@@ -1040,6 +1065,7 @@ function populate_upgrades(){
 				perk : false,
 			});
 	new_create_upgrade({ 
+		func : bonebros_bullet_step,
 				id : Weapons.BoneBrosBullet,
 				collab : true,
 				weight : 0,
@@ -1070,6 +1096,7 @@ function populate_upgrades(){
 	#endregion
 	#region Eldritch Horror
 	new_create_upgrade({ 
+		func : eldritchhorror_step,
 				id : Weapons.EldritchHorror,
 				collab : true,
 				weight : 0,
@@ -1098,6 +1125,7 @@ function populate_upgrades(){
 	#endregion
 	#region Absolute Wall
 	new_create_upgrade({ 
+		func : absolutewall_step,
 				id : Weapons.AbsoluteWall,
 				collab : true,
 				weight : 0,
@@ -1128,6 +1156,7 @@ function populate_upgrades(){
 	#endregion
 	#region Breathe-in Type Asacoco
 	new_create_upgrade({ 
+		func : breatheintypeasacoco_step,
 				id : Weapons.BreatheInTypeAsacoco,
 				weight : 0,
 				collab : true,
@@ -1156,6 +1185,7 @@ function populate_upgrades(){
 	#endregion
 	#region Elite Cooking
 	new_create_upgrade({ 
+		func : elitecooking_step,
 		id : Weapons.EliteCooking,
 		weight : 0,
 		collab : true,
@@ -1184,6 +1214,7 @@ function populate_upgrades(){
 	#endregion
 	#region Ring of Fitness
 	new_create_upgrade({ 
+		func : ringoffitness_step,
 		id : Weapons.RingOfFitness,
 		weight : 0,
 		collab : true,
@@ -1211,7 +1242,8 @@ function populate_upgrades(){
 	});
 	#endregion
 	#region Stream of Tears
-	new_create_upgrade({ 
+	new_create_upgrade({
+		func : streamoftears_step,
 		id : Weapons.StreamOfTears,
 		weight : 0,
 		collab : true,
@@ -1242,6 +1274,7 @@ function populate_upgrades(){
 	#endregion
 	#region I'm Die
 	new_create_upgrade({ 
+		func : imdie_step,
 		id : Weapons.ImDie,
 		weight : 0,
 		collab : true,
@@ -1268,6 +1301,7 @@ function populate_upgrades(){
 		perk : false,
 	});
 	new_create_upgrade({ 
+		func : imdieexplosion_step,
 		id : Weapons.ImDieExplosion,
 		weight : 0,
 		collab : true,
@@ -1298,6 +1332,7 @@ function populate_upgrades(){
 	#region Modded
 	#region Pipkin Pippa
 	new_create_upgrade({
+		func : pipipistol_step,
 		id : Weapons.PipiPilstol,
 		name : "PiPiPilstols",
 		maxlevel : 6,
@@ -1321,6 +1356,7 @@ function populate_upgrades(){
 		weight : 3
 	},[snd_bullet, snd_bullet2, snd_bullet3]);
 	new_create_upgrade({
+		func : heavyartillery_step,
 		id : Weapons.HeavyArtillery,
 		name : "Heavy Artillery",
 		maxlevel : 3,
@@ -1343,6 +1379,7 @@ function populate_upgrades(){
 		characterid : Characters.Null
 	});
 	new_create_upgrade({
+		func : mold_step,
 		id : Weapons.Mold,
 		name : "mold",
 		maxlevel : 1,
@@ -1366,9 +1403,10 @@ function populate_upgrades(){
 	});
 	#endregion
 	#endregion
+	#endregion
 }
 
-#endregion
+
 #region Collabs
 //global.collabs = array_create(Weapons.Length);
 global.collabs = [];
