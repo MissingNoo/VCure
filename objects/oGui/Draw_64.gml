@@ -87,7 +87,7 @@ if (room == rCharacterSelect) {
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
-			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2, _x + _pW + 2 + _offset, _y + _pH + 2, false);
+			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
 			var _characterUnlocked = c_white;
 			if (!UnlockableCharacters[CHARACTERS[i][?"id"]]) { _characterUnlocked = c_black; }
 			draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 2, 2, 0, _characterUnlocked, 1);
@@ -96,7 +96,7 @@ if (room == rCharacterSelect) {
 			}
 			_offset += 95;
 			if (i == 5) {
-			    _yoffset += 10;
+			    _yoffset += 85;
 				_offset = 0;
 			}
 		}		
@@ -187,18 +187,17 @@ if (room == rCharacterSelect) {
 		var _color = selectedAgency == agencies[i][0] ? #add8e6 : c_white;
 	    draw_text_transformed_color(75, 15 + _yoff, agencies[i][0], 3, 3, 0, _color, _color, _color, _color, 1);
 		draw_sprite_ext(agencies[i][1], 0, 32, 32 + _yoff + 4, .35, .35, 0, _color, 1);
+		if (selectedAgency == agencies[i][0]) {
+		    draw_rectangle_color(0, sidebar[2] - 30, 3, sidebar[2] + 30, #add8e6, #add8e6, #add8e6, #add8e6, false);
+		}
+		//draw_text(TouchX1, TouchY1 - 30, $"{sidebar[2]}   /   {sidebar[3]}");
 		var _w = (sprite_get_width(agencies[i][1]) * 0.35) / 2;
 		var _h = (sprite_get_height(agencies[i][1]) * 0.35) / 2 + 5;
 		DEBUG
 			draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h, true);
 		ENDDEBUG
 		if (sidebarOpen and mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h)) {
-			selectedCharacter = 0;
-			selectedAgency = agencies[i][0];
-			do {
-				selectedCharacter += 1;
-			} until (CHARACTERS[selectedCharacter][? "agency"] == selectedAgency or selectedAgency == "All");
-			NAME=CHARACTERS[selectedCharacter][?"name"];
+			selectAgency(i, _yoff);
 		}
 		_yoff += 60;
 	}
@@ -209,9 +208,8 @@ if (room == rCharacterSelect) {
 	draw_set_alpha(1);
 	draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0, 0);
 	surface_free(_surf);
-	//draw_rectangle_color(0,0, 8, 64, #add8e6, #add8e6, #add8e6, #add8e6, false);
 	//draw_circle(MX, MY, 32, false);
-	if (point_in_rectangle(TouchX1, TouchX1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH)) {
+	if (point_in_rectangle(TouchX1, TouchY1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH) or sidebarOpenByButton) {
 		sidebarOpen = true;
 	    if (sidebar[0] < sidebar[1]) {
 		    sidebar[0] += 10;
@@ -1022,7 +1020,7 @@ if (os_type == os_android) {
 #region Info on screen
 if (room == rCharacterSelect or room == rInicio) {
 	draw_set_halign(fa_right);
-	draw_text_transformed(GW/1, GH/1.05, "CONFIRM: Z | CANCEL: X / ESC", 2.5, 2.5, 0);
+	draw_text_transformed(GW - 10, GH/1.05, "CONFIRM: Z | CANCEL: X | Exit: ESC", 2.5, 2.5, 0);
 	draw_set_halign(fa_left);
 }
 #endregion

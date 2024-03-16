@@ -5,6 +5,7 @@ enum Outfits {
 	Tenma,
 	//TenmaAlternative,
 	Trickywi,
+	Amelia,
 	Length
 }
 UnlockableOutfits = array_create(Outfits.Length, false);
@@ -29,6 +30,7 @@ function populate_outfits(){
 	//outfit_add(Characters.Tenma,		Outfits.TenmaAlternative,			sTenmaIdle,			sTenmaRun,				true);
 	outfit_add(Characters.Tenma,		Outfits.Tenma,			sTenmaIdle,			sTenmaRun,				true);
 	outfit_add(Characters.Trickywi,		Outfits.Trickywi,			sTrickyIdle,			sTrickyRun,				true);
+	outfit_add(Characters.Amelia,		Outfits.Amelia,			sAmeliaIdle,			sAmeliaRun,				true);
 }
 
 function unlocked_outfits_load(){

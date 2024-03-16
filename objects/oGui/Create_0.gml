@@ -42,13 +42,33 @@ color=c_white;
 #endregion
 #region SideBar
 sidebarOpen = false;
-sidebar = [64, 320];
+sidebarOpenByButton = false;
+sidebar = [64, 320, 32, 32];
+selectedAgency = "All";
+selectedAgencyPos = 0;
+resetSidebar = function(){
+	sidebarOpen = false;
+	sidebarOpenByButton = false;
+	sidebar = [64, 320, 32, 32];
+	selectedAgency = "All";
+	selectedAgencyPos = 0;
+}
 agencies = [
 	["All", sHudHomeIcon], 
-	["Phase-Connect", sPhaseIcon], 
+	["Phase-Connect", sPhaseIcon],
+	["Hololive", sHudHoloIcon],
 	["Indies", sHudIndiesIcon]
 ]
-selectedAgency = "All";
+selectAgency = function(i, _y = 0){
+	selectedCharacter = 0;
+	selectedAgency = agencies[i][0];
+	selectedAgencyPos = i;
+	sidebar[3] = 32 + _y;
+	do {
+		selectedCharacter += 1;
+	} until (CHARACTERS[selectedCharacter][? "agency"] == selectedAgency or selectedAgency == "All");
+	NAME=CHARACTERS[selectedCharacter][?"name"];
+}
 #endregion
 #endregion
 #region Stage

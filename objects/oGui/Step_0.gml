@@ -99,6 +99,7 @@ if (room == rInicio and !global.gamePaused) {
 			//	audio_stop_sound(global.musicPlaying);
 			//	break;}
 	        case MenuOptionsEnum.Singleplayer:{
+				resetSidebar();
 				stageSelected = false;
 				characterSelected = false;
 				global.singleplayer = true;
@@ -110,6 +111,7 @@ if (room == rInicio and !global.gamePaused) {
 	            room_goto(rCharacterSelect);
 	            break;}
 			case MenuOptionsEnum.Multiplayer:{
+				resetSidebar();
 				if (os_type == os_gxgames) {
 				    show_message_async("Incompatible with browser versions");
 					break;
@@ -373,6 +375,12 @@ if (room == rCharacterSelect or room == rAchievements) {
 }
 #region Select Character room
 if (room == rCharacterSelect) {
+	if (sidebar[2] < sidebar[3]) {
+		sidebar[2] += 20;
+	}
+	if (sidebar[2] > sidebar[3]) {
+		sidebar[2] -= 20;
+	}
 	//else {
 	//	if (sidebar[0] > 0) {
 	//		sidebar[0] -= b;
@@ -424,6 +432,13 @@ if (room == rCharacterSelect) {
 			outfitSelected = false;
 			selectedOutfit = 0;
 			selected = 0;
+			return;
+		}
+	}
+	if (xKey) {
+		if (!characterSelected) {
+			sidebarOpenByButton = !sidebarOpenByButton;
+			return;
 		}
 	}
 	if (zKey) {
@@ -437,6 +452,8 @@ if (room == rCharacterSelect) {
 			return;
 		}
 		if (!characterSelected) {
+			if (sidebarOpenByButton) { sidebarOpenByButton = false; return; }
+			if (!UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]]) { return; }
 			global.player=CHARACTERS[selectedCharacter];
 			audio_stop_sound(global.musicPlaying);
 			audio_play_sound(snd_char_selected,0,0);

@@ -51,14 +51,17 @@ function create_perk(_data){
 		MoldySoul,
 		SodaFueled,
 		Ankh,
+		FpsMastery,
+		DetectiveEye,
+		Bubba,
 		Lenght
 	}
 #endregion
 function populate_perks(){
 	#region Item Creation
 		#region Character Perks
-		#region Amelia Perks
-		#region FPS Mastery
+		#region Uruka Perks
+		#region Dirty Mind
 		create_perk({
 			id : PerkIds.DirtyMind,
 			name : "Dirty Mind",
@@ -70,7 +73,7 @@ function populate_perks(){
 			dodgeChance: [0, 15, 20, 25]
 		});
 		#endregion
-		#region Detective Eye
+		#region Trash Bear
 		create_perk({
 			id : PerkIds.TrashBear,
 			name : "Trash Bear",
@@ -97,7 +100,6 @@ function populate_perks(){
 		global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		global.characterPerks[Characters.Tenma] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		#endregion
-		
 		#region Lia
 		#region EletricPulse
 		create_perk({
@@ -172,6 +174,38 @@ function populate_perks(){
 			characterid : Characters.Pippa
 		});
 		global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
+		#endregion
+		#region Hololive
+		#region Amelia
+		create_perk({
+			id : PerkIds.FpsMastery,
+			name : "FPS Mastery",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sAmeliaFpsMastery,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Amelia
+		});
+		create_perk({
+			id : PerkIds.DetectiveEye,
+			name : "Detective Eye",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sAmeliaDetectiveEye,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Amelia
+		});
+		create_perk({
+			id : PerkIds.Bubba,
+			name : "Bubba",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sAmeliaBubba,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Amelia
+		});
+		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+		#endregion
 		#endregion
 		#region Indies
 		#region Trickywi

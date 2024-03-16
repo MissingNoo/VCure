@@ -710,12 +710,14 @@ function prize_box_roll_item(boxnumber){
 	array_push(oGui.chestblacklist[1], _item);
 	return _item;
 }
-credits = @"Thanks to these awesome people for their help
+credits = @"Thanks to these awesome people
 Kay Yu: original Holocure
-Naisho14 on Reddit for the character selection interface
-Ajmoment: Uruka and Lia sprites and icons
+Naisho14 on Reddit for the character selection interface concept images
+Ajmoment: Uruka / Lia sprites and icons
 Cursed: Tenma character sprites
 SymbolsWriter: Pippa character sprites and icons
 Agn0sia: original Pippa mod
 Fans on the Phase discord for ideas
-Airgeadlamh: Trickywi sprites";
+Airgeadlamh: Trickywi sprites
+JujuAdams: Input library
+TabularElf: Lexicon library";

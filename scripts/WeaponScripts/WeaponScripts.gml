@@ -786,6 +786,15 @@ function eletricpulse_step(o){
 		y = owner.y;
 	}
 }
+function amepistol_step(o){
+	if (o == 0) {
+	    direction = global.arrowDir;
+		image_angle = global.arrowDir;
+	}
+	else {
+		
+	}
+}
 function _step(o){
 	if (o == 0) {
 	    

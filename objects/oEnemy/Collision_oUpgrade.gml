@@ -1,5 +1,6 @@
 if (!gotknocked and !infected) {
     gotknocked = true;
+	if (other.upg[$ "knockbackSpeed"] == undefined) { exit; }
 	var _push = other.upg[$ "knockbackSpeed"];
 	if (variable_instance_exists(other, "tempKnockback")) {
 		_push = other.tempKnockback;

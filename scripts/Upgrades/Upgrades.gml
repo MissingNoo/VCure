@@ -199,6 +199,7 @@ enum Weapons{
 	PipiPilstol,
 	HeavyArtillery,
 	Brick,
+	AmePistol,
 	Length
 }
 
@@ -336,7 +337,32 @@ function populate_upgrades(){
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
 		#endregion
-		
+		#region Hololive
+		#region Amelia
+		new_create_upgrade({
+			func : amepistol_step,
+			id : Weapons.AmePistol,
+			name : "Pistol Shot",
+			maxlevel : 7,
+			sprite : sAmeliaWeaponProjectile,
+			thumb : sAmeliaWeapon,
+			mindmg : [8, 8, 10, 10, 10, 12, 12],
+			maxdmg : [12, 12, 14, 14, 14, 16, 16],
+			cooldown : [80, 80, 80, 80, 60, 60, 60],
+			duration : 120,
+			hitCooldown : 20,
+			canBeHasted : true,
+			attackdelay : 6,
+			speed : 5,
+			hits : [1, 2, 2, 2, 3, 3, 3],
+			type : "red",
+			shoots : [3, 5, 5, 5, 5, 5, 5],
+			perk : true,
+			characterid : Characters.Amelia,
+			weight : 3
+		},[snd_bullet, snd_bullet2, snd_bullet3]);
+		#endregion
+		#endregion
 	#region Shockwave
 	new_create_upgrade({ //Shockwave
 				id : Weapons.Shockwave,

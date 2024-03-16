@@ -111,6 +111,7 @@ enum Characters {
 	Lia,
 	Tenma,
 	Trickywi,
+	Amelia,
 	Lenght
 }
 function createCharacter(_id, _agency, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
@@ -156,6 +157,7 @@ function populate_characters(){
 	createCharacter(Characters.Lia, "Phase-Connect","Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
 	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, false);
 	createCharacter(Characters.Trickywi, "Indies","Trickywi",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
+	createCharacter(Characters.Amelia, "Hololive", "Amelia Watson", sAmeliaPortrait, sAmeliaArt, sAmeliaIdle, sAmeliaRun, 75, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
 	
 	
 	//Buffs[BuffNames.ShortHeight] = {

@@ -22,7 +22,17 @@ if (room == rAchievements) {
 #region Character selection screen
 if (room == rCharacterSelect) {
 	if (!characterSelected) {
-		if (_leftright != 0) {
+		if (_updown != 0 and sidebarOpen) {
+		    selectedAgencyPos += _updown;
+			if (selectedAgencyPos >= array_length(agencies)) {
+			    selectedAgencyPos = 0;
+			}
+			if (selectedAgencyPos < 0) {
+			    selectedAgencyPos = array_length(agencies) - 1;
+			}
+		    selectAgency(selectedAgencyPos);
+		}
+		if (_leftright != 0 and !sidebarOpen) {
 		    do {
 				selectedCharacter += _leftright;
 				if (selectedCharacter < 1) { selectedCharacter = Characters.Lenght - 1; }
