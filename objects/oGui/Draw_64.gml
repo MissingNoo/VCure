@@ -87,7 +87,10 @@ if (room == rCharacterSelect) {
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
+			if (CHARACTERS[i][? "finished"] == false) { draw_set_color(c_red); }
+			if (CHARACTERS[i][? "finished"] == false and os_get_config() == "Release") { continue; }
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
+			draw_set_color(c_white);
 			var _characterUnlocked = UnlockableCharacters[CHARACTERS[i][?"id"]];
 			draw_sprite_ext(_characterUnlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
 			if (selectedCharacter == i) {

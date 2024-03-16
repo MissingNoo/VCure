@@ -55,6 +55,12 @@ function create_perk(_data){
 		FpsMastery,
 		DetectiveEye,
 		Bubba,
+		BellyDancing,
+		Mukirose,
+		Aromatherapy,
+		CuttingDeep,
+		LivingWeapon,
+		Slumber,
 		Lenght
 	}
 #endregion
@@ -215,6 +221,42 @@ function populate_perks(){
 			characterid : Characters.Amelia
 		});
 		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+		#endregion
+		#region Aki
+		create_perk({
+			id : PerkIds.BellyDancing,
+			name : "Belly Dancing",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sAkiPerk2,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Aki
+		});
+		create_perk({
+			id : PerkIds.Mukirose,
+			name : "Mukirose",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sAkiPerk3,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Aki
+		});
+		create_perk({
+			id : PerkIds.Aromatherapy,
+			name : "Aromatherapy",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sAkiPerk1,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Aki
+		});
+		global.characterPerks[Characters.Aki] = [PERK_LIST[PerkIds.BellyDancing][0], PERK_LIST[PerkIds.Mukirose][0], PERK_LIST[PerkIds.Aromatherapy][0]];
+		#endregion
+		#region Anya
+		create_perk({ id : PerkIds.CuttingDeep, name : "Cutting Deep", maxlevel : 3, weight : 3, thumb : sAnyaPerk1, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		create_perk({ id : PerkIds.LivingWeapon, name : "Living Weapon", maxlevel : 3, weight : 3, thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		create_perk({ id : PerkIds.Slumber, name : "Slumber", maxlevel : 3, weight : 3, thumb : sAnyaPerk3, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		global.characterPerks[Characters.Anya] = [PERK_LIST[PerkIds.CuttingDeep][0], PERK_LIST[PerkIds.LivingWeapon][0], PERK_LIST[PerkIds.Slumber][0]];
 		#endregion
 		#endregion
 		#region Indies

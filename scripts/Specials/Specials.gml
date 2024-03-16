@@ -22,7 +22,9 @@ global.specialBonuses[0] = 0;
 		Uruka,
 		Lia,
 		WalmartForm,
-		BuffDude
+		BuffDude,
+		Shallys,
+		BladeForm
 	}
 #endregion
 function populate_specials(){
@@ -32,6 +34,8 @@ function populate_specials(){
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Trickywi, undefined);
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Amelia, undefined);
 	create_special(SpecialIds.BuffDude, "Buffed Kanpainiki", sWalmart, 60, Characters.Tenma, undefined);
+	create_special(SpecialIds.Shallys, "Shallys", sAkiSpecial, 100, Characters.Aki, undefined);
+	create_special(SpecialIds.BladeForm, "Blade Form", sAnyaSpecial, 0, Characters.Anya, undefined);
 }
 
 function use_special(_special)
