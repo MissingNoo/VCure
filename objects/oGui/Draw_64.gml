@@ -210,7 +210,8 @@ if (room == rCharacterSelect) {
 	draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0, 0);
 	surface_free(_surf);
 	//draw_rectangle_color(0,0, 8, 64, #add8e6, #add8e6, #add8e6, #add8e6, false);
-	if (point_in_rectangle(TouchX1, TouchX2, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH)) {
+	//draw_circle(MX, MY, 32, false);
+	if (point_in_rectangle(TouchX1, TouchX1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH)) {
 		sidebarOpen = true;
 	    if (sidebar[0] < sidebar[1]) {
 		    sidebar[0] += 10;
