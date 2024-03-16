@@ -381,6 +381,18 @@ if (room == rCharacterSelect) {
 	if (sidebar[2] > sidebar[3]) {
 		sidebar[2] -= 20;
 	}
+	if (sidebarOpen) {
+	    if (sidebar[0] < sidebar[1]) {
+		    sidebar[0] += 10;
+		}
+		else { sidebar[0] = sidebar[1]; }
+	}
+	else {
+		if (sidebar[0] > 65) {
+		    sidebar[0] -= 10;
+		}
+		else { sidebar[0] = 65; }
+	}
 	//else {
 	//	if (sidebar[0] > 0) {
 	//		sidebar[0] -= b;

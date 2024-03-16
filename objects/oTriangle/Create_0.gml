@@ -9,3 +9,4 @@ speed = random_range(1,1.2);
 direction = point_direction(x,y,x,y+10);
 alarm[0] = irandom_range(1,100);
 image_angle = irandom_range(0, 360);
+sprite_index = choose(sPhaseIcon, sHudIndiesIcon, sHudHoloIcon);

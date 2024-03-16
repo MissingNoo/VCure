@@ -88,9 +88,8 @@ if (room == rCharacterSelect) {
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
-			var _characterUnlocked = c_white;
-			if (!UnlockableCharacters[CHARACTERS[i][?"id"]]) { _characterUnlocked = c_black; }
-			draw_sprite_ext(CHARACTERS[i][?"portrait"], 0, _x + _offset, _y + _yoffset, 2, 2, 0, _characterUnlocked, 1);
+			var _characterUnlocked = UnlockableCharacters[CHARACTERS[i][?"id"]];
+			draw_sprite_ext(_characterUnlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
 			if (selectedCharacter == i) {
 				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
 			}
@@ -121,7 +120,8 @@ if (room == rCharacterSelect) {
 		var _speSpr = SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb;
 		var _speSprW = sprite_get_width(_speSpr);
 		var _speSprH = sprite_get_height(_speSpr);
-		draw_sprite_ext(_speSpr, 0, _speX, _speY, 3, 3, 0, c_white, 1);
+		var _specialsUnlocked = global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1;
+		draw_sprite_ext(_specialsUnlocked ? _speSpr : sLockIcon, 0, _speX, _speY, 3, 3, 0, c_white, 1);
 		#endregion
 		#region Atk Window
 		select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack");
@@ -163,7 +163,7 @@ if (room == rCharacterSelect) {
 		}
 		#endregion
 		#region Open Window when mouse over
-		if (point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3))) {
+		if (point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3)) and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
 		    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Special", 0.75);
 			draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
 			draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name"), 2.5, 2.5, 0);
@@ -197,7 +197,7 @@ if (room == rCharacterSelect) {
 			draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h, true);
 		ENDDEBUG
 		if (sidebarOpen and mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h)) {
-			selectAgency(i, _yoff);
+			selectAgency(i);
 		}
 		_yoff += 60;
 	}
@@ -211,17 +211,9 @@ if (room == rCharacterSelect) {
 	//draw_circle(MX, MY, 32, false);
 	if (point_in_rectangle(TouchX1, TouchY1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH) or sidebarOpenByButton) {
 		sidebarOpen = true;
-	    if (sidebar[0] < sidebar[1]) {
-		    sidebar[0] += 10;
-		}
-		else { sidebar[0] = sidebar[1]; }
 	}
 	else {
 		sidebarOpen = false;
-		if (sidebar[0] > 65) {
-		    sidebar[0] -= 10;
-		}
-		else { sidebar[0] = 65; }
 	}
 	#endregion
 	#region Outfit

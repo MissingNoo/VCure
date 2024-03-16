@@ -904,6 +904,7 @@
     {"id":{"name":"sLiaRunningOld","path":"sprites/sLiaRunningOld/sLiaRunningOld.yy",},},
     {"id":{"name":"sLick","path":"sprites/sLick/sLick.yy",},},
     {"id":{"name":"sLimiter","path":"sprites/sLimiter/sLimiter.yy",},},
+    {"id":{"name":"sCharacterLockedIcon","path":"sprites/sCharacterLockedIcon/sCharacterLockedIcon.yy",},},
     {"id":{"name":"sLockIcon","path":"sprites/sLockIcon/sLockIcon.yy",},},
     {"id":{"name":"sMembership","path":"sprites/sMembership/sMembership.yy",},},
     {"id":{"name":"sMenhera","path":"sprites/sMenhera/sMenhera.yy",},},

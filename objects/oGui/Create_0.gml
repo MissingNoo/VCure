@@ -59,11 +59,11 @@ agencies = [
 	["Hololive", sHudHoloIcon],
 	["Indies", sHudIndiesIcon]
 ]
-selectAgency = function(i, _y = 0){
+selectAgency = function(i){
 	selectedCharacter = 0;
 	selectedAgency = agencies[i][0];
 	selectedAgencyPos = i;
-	sidebar[3] = 32 + _y;
+	sidebar[3] = 32 + (60 * i);
 	do {
 		selectedCharacter += 1;
 	} until (CHARACTERS[selectedCharacter][? "agency"] == selectedAgency or selectedAgency == "All");

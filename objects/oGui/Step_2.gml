@@ -22,15 +22,27 @@ if (room == rAchievements) {
 #region Character selection screen
 if (room == rCharacterSelect) {
 	if (!characterSelected) {
-		if (_updown != 0 and sidebarOpen) {
-		    selectedAgencyPos += _updown;
-			if (selectedAgencyPos >= array_length(agencies)) {
-			    selectedAgencyPos = 0;
+		if (_updown != 0) {
+			if (sidebarOpen) {
+			    selectedAgencyPos += _updown;
+				if (selectedAgencyPos >= array_length(agencies)) {
+				    selectedAgencyPos = 0;
+				}
+				if (selectedAgencyPos < 0) {
+				    selectedAgencyPos = array_length(agencies) - 1;
+				}
+			    selectAgency(selectedAgencyPos);
 			}
-			if (selectedAgencyPos < 0) {
-			    selectedAgencyPos = array_length(agencies) - 1;
+			else {
+				var _nextCharacter = selectedCharacter + (5 * _updown);
+				if (_nextCharacter < 1 or _nextCharacter > Characters.Lenght - 1) {
+				    return;
+				}
+				//if (selectedCharacter + _updown * 4 < Characters.Lenght - 1 or selectedCharacter + _updown * 4 < 0) {
+				//    return;
+				//}
+				selectedCharacter = _nextCharacter;
 			}
-		    selectAgency(selectedAgencyPos);
 		}
 		if (_leftright != 0 and !sidebarOpen) {
 		    do {

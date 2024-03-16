@@ -777,6 +777,7 @@
     {"name":"sLiaRunningOld","order":7,"path":"sprites/sLiaRunningOld/sLiaRunningOld.yy",},
     {"name":"sLick","order":3,"path":"sprites/sLick/sLick.yy",},
     {"name":"sLimiter","order":18,"path":"sprites/sLimiter/sLimiter.yy",},
+    {"name":"sCharacterLockedIcon","order":19,"path":"sprites/sCharacterLockedIcon/sCharacterLockedIcon.yy",},
     {"name":"sLockIcon","order":13,"path":"sprites/sLockIcon/sLockIcon.yy",},
     {"name":"sMembership","order":19,"path":"sprites/sMembership/sMembership.yy",},
     {"name":"sMenhera","order":5,"path":"sprites/sMenhera/sMenhera.yy",},

@@ -41,6 +41,7 @@ function create_perk(_data){
 
 	enum PerkIds
 	{
+		Null,
 		DirtyMind,
 		TrashBear,
 		WeakBones,
@@ -58,7 +59,17 @@ function create_perk(_data){
 	}
 #endregion
 function populate_perks(){
-	#region Item Creation
+	#region PerkCreation
+		create_perk({
+			id : PerkIds.Null,
+			name : "",
+			maxlevel : 1, 
+			weight : 0,
+			thumb : sCharacterLockedIcon,
+			cooldown : 1,
+			characterid : Characters.Null,
+		});
+		global.characterPerks[Characters.Tenma] = [PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
 		#region Character Perks
 		#region Uruka Perks
 		#region Dirty Mind
@@ -98,7 +109,6 @@ function populate_perks(){
 		});
 		#endregion
 		global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
-		global.characterPerks[Characters.Tenma] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		#endregion
 		#region Lia
 		#region EletricPulse
@@ -218,7 +228,7 @@ function populate_perks(){
 			cooldown : 1,
 			characterid : Characters.Trickywi
 		});
-		global.characterPerks[Characters.Trickywi] = [PERK_LIST[PerkIds.Ankh][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
+		global.characterPerks[Characters.Trickywi] = [PERK_LIST[PerkIds.Ankh][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
 		#endregion
 		#endregion
 		#endregion
