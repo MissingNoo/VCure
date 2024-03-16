@@ -44,11 +44,11 @@ color=c_white;
 sidebarOpen = false;
 sidebar = [64, 320];
 agencies = [
-	["All", sPhaseIcon], 
+	["All", sHudHomeIcon], 
 	["Phase-Connect", sPhaseIcon], 
-	["Indies", sPhaseIcon]
+	["Indies", sHudIndiesIcon]
 ]
-selectedAgency = "Phase-Connect";
+selectedAgency = "All";
 #endregion
 #endregion
 #region Stage

@@ -187,24 +187,29 @@ if (room == rCharacterSelect) {
 		var _color = selectedAgency == agencies[i][0] ? #add8e6 : c_white;
 	    draw_text_transformed_color(75, 15 + _yoff, agencies[i][0], 3, 3, 0, _color, _color, _color, _color, 1);
 		draw_sprite_ext(agencies[i][1], 0, 32, 32 + _yoff + 4, .35, .35, 0, _color, 1);
-		var _w = sprite_get_width(agencies[i][1]) * 0.35 / 2;
-		var _h = sprite_get_height(agencies[i][1]) * 0.35 / 2;
-		draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w, 32 + _yoff + _h, true);
-		if (mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w, 32 + _yoff + _h)) {
-		    selectedAgency = agencies[i][0];
+		var _w = (sprite_get_width(agencies[i][1]) * 0.35) / 2;
+		var _h = (sprite_get_height(agencies[i][1]) * 0.35) / 2 + 5;
+		DEBUG
+			draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h, true);
+		ENDDEBUG
+		if (sidebarOpen and mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h)) {
+			selectedCharacter = 0;
+			selectedAgency = agencies[i][0];
+			do {
+				selectedCharacter += 1;
+			} until (CHARACTERS[selectedCharacter][? "agency"] == selectedAgency or selectedAgency == "All");
+			NAME=CHARACTERS[selectedCharacter][?"name"];
 		}
 		_yoff += 60;
 	}
 	surface_reset_target();
 	draw_set_alpha(0.75);
-	draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);	
+	draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);
 	draw_rectangle_color(64,0, sidebar[0], GH, c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0, 0);
 	surface_free(_surf);
 	//draw_rectangle_color(0,0, 8, 64, #add8e6, #add8e6, #add8e6, #add8e6, false);
-	var gens = ["Origins"];
-	draw_sprite_ext(sPhaseOrigins, 0, 32, 200, 0.15, 0.15, 0, c_white, 1);
 	if (point_in_rectangle(TouchX1, TouchX2, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH)) {
 		sidebarOpen = true;
 	    if (sidebar[0] < sidebar[1]) {

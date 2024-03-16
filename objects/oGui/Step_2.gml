@@ -22,12 +22,14 @@ if (room == rAchievements) {
 #region Character selection screen
 if (room == rCharacterSelect) {
 	if (!characterSelected) {
-		selectedCharacter += _leftright;
-	    if (selectedCharacter < 1) { selectedCharacter = Characters.Lenght - 1; }
-	    if (selectedCharacter > Characters.Lenght - 1) { selectedCharacter = 1; }
 		if (_leftright != 0) {
-		    NAME=CHARACTERS[selectedCharacter][?"name"];
-			audio_play_sound(snd_char_select_woosh,0,0);
+		    do {
+				selectedCharacter += _leftright;
+				if (selectedCharacter < 1) { selectedCharacter = Characters.Lenght - 1; }
+				if (selectedCharacter > Characters.Lenght - 1) { selectedCharacter = 1; }
+				NAME=CHARACTERS[selectedCharacter][?"name"];
+				audio_play_sound(snd_char_select_woosh,0,0);
+			} until (CHARACTERS[selectedCharacter][? "agency"] == selectedAgency or selectedAgency == "All");
 		}
 	}
 	if (selectingOutfit) {

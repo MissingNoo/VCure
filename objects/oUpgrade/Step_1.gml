@@ -138,12 +138,6 @@ image_speed = 0;
 		if (variable_struct_exists(upg, "afterimage")) {
 		    _extrainfo.afterimageColor = upg.afterimageColor;
 		}
-		//vars = variable_instance_get_names(self);
-		//savedvars = {};
-		//for (var i = 0; i < array_length(vars); ++i) {
-		//    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
-		//}
-		//sendvars = json_stringify(savedvars);
 		if (!variable_instance_exists(self, "sent")) {
 			sent = true;
 			sendMessage({
@@ -155,7 +149,6 @@ image_speed = 0;
 				direction,
 				image_angle,
 				upgID,
-				//haveafterimage : (variable_struct_exists(upg, "afterimage")) ? true : false,
 				extraInfo : json_stringify(_extrainfo)
 			});
 		}

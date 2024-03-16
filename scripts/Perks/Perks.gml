@@ -50,6 +50,7 @@ function create_perk(_data){
 		HeavyArtillery,
 		MoldySoul,
 		SodaFueled,
+		Ankh,
 		Lenght
 	}
 #endregion
@@ -95,7 +96,6 @@ function populate_perks(){
 		#endregion
 		global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		global.characterPerks[Characters.Tenma] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
-		global.characterPerks[Characters.Trickywi] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		#endregion
 		
 		#region Lia
@@ -139,51 +139,54 @@ function populate_perks(){
 		#endregion
 		global.characterPerks[Characters.Lia] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
 		#endregion
-			
-	
-			
-			
-			create_perk({
-						id : PerkIds.HeavyArtillery,
-						name : "Heavy Artillery",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sHeavyArtillery,
-						cooldown : [3, 3, 2.01, 2.01],
-						characterid : Characters.Pippa,
-						upgrade: true,
-						upgradeid : Weapons.HeavyArtillery
-					});
-			//create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 0, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 180, "Do nothing.", Characters.Pippa);
-			//create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 1, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 174, "Do nothing.", Characters.Pippa);
-			//create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 2, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 174, "Do nothing.", Characters.Pippa);
-			//create_perk(PerkIds.HeavyArtillery, "Heavy Artillery", 3, 3, 1, spr_Pipmod_Pippa_Icon_Perk_HeavyArtillery, 174, "Do nothing.", Characters.Pippa);
-			create_perk({
-						id : PerkIds.MoldySoul,
-						name : "Moldy Soul",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sMoldySoul,
-						cooldown : 1,
-						characterid : Characters.Pippa,
-						upgradeid : Weapons.Mold,
-						chance : 33
-					});
-			//create_perk(PerkIds.MoldySoul, "Moldy Soul", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
-			//create_perk(PerkIds.MoldySoul, "Moldy Soul", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_MoldySoul, 1, "Do nothing.", Characters.Pippa);
-			create_perk({
-						id : PerkIds.SodaFueled,
-						name : "Soda Fueled",
-						maxlevel : 3, 
-						weight : 1,
-						thumb : sSodaFueled,
-						cooldown : 1,
-						characterid : Characters.Pippa
-					});
-			//create_perk(PerkIds.SodaFueled, "Soda Fueled", 0, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
-			//create_perk(PerkIds.SodaFueled, "Soda Fueled", 1, 1, 1, spr_Pipmod_Pippa_Icon_Perk_SodaFueled, 1, "Do nothing.", Characters.Pippa);
-			global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
-			
+		#region Pippa
+		create_perk({
+			id : PerkIds.HeavyArtillery,
+			name : "Heavy Artillery",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sHeavyArtillery,
+			cooldown : [3, 3, 2.01, 2.01],
+			characterid : Characters.Pippa,
+			upgrade: true,
+			upgradeid : Weapons.HeavyArtillery
+		});
+		create_perk({
+			id : PerkIds.MoldySoul,
+			name : "Moldy Soul",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sMoldySoul,
+			cooldown : 1,
+			characterid : Characters.Pippa,
+			upgradeid : Weapons.Mold,
+			chance : 33
+		});
+		create_perk({
+			id : PerkIds.SodaFueled,
+			name : "Soda Fueled",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sSodaFueled,
+			cooldown : 1,
+			characterid : Characters.Pippa
+		});
+		global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
+		#endregion
+		#region Indies
+		#region Trickywi
+		create_perk({
+			id : PerkIds.Ankh,
+			name : "Ankh",
+			maxlevel : 3, 
+			weight : 1,
+			thumb : sTrickyAnkh,
+			cooldown : 1,
+			characterid : Characters.Trickywi
+		});
+		global.characterPerks[Characters.Trickywi] = [PERK_LIST[PerkIds.Ankh][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
+		#endregion
+		#endregion
 		#endregion
 	#endregion
 }
