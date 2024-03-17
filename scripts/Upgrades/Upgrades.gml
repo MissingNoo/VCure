@@ -388,7 +388,9 @@ function populate_upgrades(){
 			characterid : Characters.Aki,
 			weight : 3,
 			range : 250,
-			chance : [0, 0, 0, 0, 0, 0, 30]
+			chance : [0, 0, 0, 0, 0, 0, 30],
+			afterimage : true,
+			afterimageColor : c_aqua,
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
 		#region Anya

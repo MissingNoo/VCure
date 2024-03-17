@@ -1,6 +1,6 @@
 //switch (upg[?"name"]) {
 //default:
-if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlayer.wallMart) and image_alpha == 1) {
+if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlayer.wallMart) and (image_alpha == 1 or image_alpha == .999)) {
 	
 //draw_sprite_ext(sprite_index, image_index-2, xpreviousprevious, ypreviousprevious, image_xscale, image_yscale, image_angle, upg[$ "afterimageColor"], .5);
 //draw_sprite_ext(sprite_index, image_index-1, xprevious, yprevious, image_xscale, image_yscale, image_angle, upg[$ "afterimageColor"], .75);

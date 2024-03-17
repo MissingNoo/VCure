@@ -191,6 +191,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	if (oPlayer.spaghettiEaten) {
 	    dmg = dmg * 1.25;
 	}
+	dmg = dmg * other.damageMultFromDefDown;
 	#region Uruka Note Multiplier
 	//the whole note hits 3 targets, half hits 5, quarter hits 7, and 1/8th has unlimited pierce (explosion for the first three would just happen when they reach their pierce limit or hit the edge of screen)
 	switch (sprite_index) {
@@ -213,7 +214,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	        break;
 	}
 	#endregion
-	other.hp-= dmg;
+	other.hp -= dmg;
 	if (global.damageNumbers) {
 	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
 		_inst.dmg = round(dmg);

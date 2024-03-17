@@ -76,6 +76,9 @@ for (var i = 0; i < array_length(debuffs); ++i) {
 	if (variable_struct_exists(debuffs[i], "marks")) {
 	    draw_text(x+offset, y+35, debuffs[i].marks);
 	}
+	if (variable_struct_exists(debuffs[i], "count")) {
+	    draw_text(x+offset, y+35, debuffs[i].count);
+	}
 	offset += iconsize + 5;
 }
 if (oPlayer.spaghettiEaten) {

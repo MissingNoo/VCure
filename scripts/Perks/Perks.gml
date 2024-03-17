@@ -251,13 +251,15 @@ function populate_perks(){
 			characterid : Characters.Aki
 		});
 		create_perk({
+			func : perk_aromateraphy,
 			id : PerkIds.Aromatherapy,
 			name : "Aromatherapy",
 			maxlevel : 3, 
 			weight : 1,
 			thumb : sAkiPerk1,
-			cooldown : [3, 3, 2.01, 2.01],
-			characterid : Characters.Aki
+			cooldown : 1.5,
+			characterid : Characters.Aki,
+			draw : true
 		});
 		global.characterPerks[Characters.Aki] = [PERK_LIST[PerkIds.BellyDancing][0], PERK_LIST[PerkIds.Mukirose][0], PERK_LIST[PerkIds.Aromatherapy][0]];
 		#endregion

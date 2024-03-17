@@ -1,3 +1,4 @@
+updatedebuffs();
 if (!firstlook and instance_exists(target)) {
     firstlook = true;
 	if (boss) {
@@ -194,9 +195,9 @@ if(_canmove and instance_exists(target)){
 		}
 	}
 	// Feather disable once GM2016
-	atk = (baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25));
+	atk = ((baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25))) * atkMult;
 	if (canwalk) {
-	    speed = (baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * Delta;
+	    speed = ((baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * spdMult) * Delta;
 		if (distance_to_point(target.x, target.y - 8) < 3) {
 		    speed = 0;
 		}
@@ -221,12 +222,11 @@ if(_canmove and instance_exists(target)){
 		speed = 0;
 	}
 	
-	
 	var debuffLenght = array_length(debuffs);	
 	#region debuff cooldown
 	if (debuffLenght > 0) {	
 		for (var i = 0; i < debuffLenght; ++i) {
-			if (!variable_struct_exists(debuffs[i], "cooldown")) { break; }
+			if (!variable_struct_exists(debuffs[i], "cooldown")) { continue; }
 		    if (debuffs[i].cooldown > 0) {
 			    debuffs[i].cooldown -= 1/60 * Delta;
 				//show_message(debuffs[i].cooldown);

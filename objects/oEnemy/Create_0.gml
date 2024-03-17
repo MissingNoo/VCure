@@ -6,7 +6,10 @@ lifetimeAlarm = 0;
 saved = false;
 gotknocked = false;
 debuffs = [];
-damaged=false;
+damageMultFromDefDown = 1;
+spdMult = 1;
+atkMult = 1;
+damaged = false;
 target = oPlayer;
 enemynum = 1;
 #region fubuzilla
@@ -24,7 +27,6 @@ groundPounding = false;
 goingDown = false;
 ametp = true;
 #endregion
-//TODO: add multiplayer random target
 if (room != rInicio) {
 	    random_set_seed(current_time);
 	if (ds_list_size(global.enemyPool) > 0 ) {
@@ -116,3 +118,14 @@ lightningTimer = 10;
 #region look direction on spawn
 firstlook = false;
 #endregion
+function updatedebuffs(){
+	for (var i = 0; i < array_length(debuffs); ++i) {
+	    if (variable_struct_exists(debuffs[i], "stat")) {
+			//show_debug_message($"original : {variable_instance_get(self, debuffs[i].stat)}");
+			var _count = debuffs[i].count;
+			var _mult = debuffs[i].statAmount[_count];
+			variable_instance_set(self, debuffs[i][$ "stat"], _mult);
+			//show_debug_message($"after: {variable_instance_get(self, debuffs[i].stat)}");
+		}
+	}
+}

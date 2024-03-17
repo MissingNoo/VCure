@@ -209,6 +209,9 @@ enum BuffNames{
 	Soda,
 	testbuff,
 	WallmartDefense,
+	AtkDown,
+	SpdDown,
+	DefDown,
 	BellyDance
 }
 function populate_characters(){
@@ -248,7 +251,7 @@ function populate_characters(){
 		atk : 1.1,
 		speed : 1.5,
 		crit : 1,
-		weapon : Weapons.Aik,
+		weapon : Weapons.AmePistol,
 		ballsize : 3,
 		flat : false,
 		unlocked : false,
@@ -339,6 +342,45 @@ function populate_characters(){
 		cooldown : 0,
 		baseCooldown : 1,
 		level : 0
+	}
+	Buffs[BuffNames.AtkDown] = {
+		id : BuffNames.AtkDown,
+		name : "atkdown",
+		icon : sHudAtkIcon,
+		enabled : false,
+		permanent : false,
+		count : 0,
+		maxCount : 3,
+		cooldown : 10,
+		baseCooldown : 10,
+		stat : "atkMult",
+		statAmount : [1, 0.9, 0.8, 0.7]
+	}
+	Buffs[BuffNames.SpdDown] = {
+		id : BuffNames.SpdDown,
+		name : "spddown",
+		icon : sHudSpdIcon,
+		enabled : false,
+		permanent : false,
+		count : 0,
+		maxCount : 3,
+		cooldown : 10,
+		baseCooldown : 10,
+		stat : "spdMult",
+		statAmount : [1, 0.9, 0.8, 0.7]
+	}
+	Buffs[BuffNames.DefDown] = {
+		id : BuffNames.DefDown,
+		name : "defdown",
+		icon : sHudDefenseIcon,
+		enabled : false,
+		permanent : false,
+		count : 0,
+		maxCount : 3,
+		cooldown : 10,
+		baseCooldown : 10,
+		stat : "damageMultFromDefDown",
+		statAmount : [1, 1,1, 1.2, 1.3]
 	}
 		
 	//Buffs[BuffNames.SharkBite] = {

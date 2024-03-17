@@ -12,6 +12,9 @@ bandageLevel = 0;
 bandageHealSeconds = 0;
 #endregion
 #region Player Variables
+#region Perks
+aromateraphy = [false, 0, 0, 0, 0];
+#endregion
 if (!instance_exists(oCam)) {
     instance_create_depth(x,y,0,oCam);
 }

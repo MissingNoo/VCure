@@ -4,7 +4,10 @@ draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8);
 #region Have perk
 var lickArea = 0;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-	if (PLAYER_PERKS[i].level > 0) {
+	if (variable_struct_exists(PLAYER_PERKS[i], "draw")) {
+	    PLAYER_PERKS[i].func(WeaponEvent.PerkDraw);
+	}
+	if (PLAYER_PERKS[i].level > 0) { //TODO: CLEAN
 	    switch (PLAYER_PERKS[i].id) {
 		    case PerkIds.Lick:
 		        lickArea = PLAYER_PERKS[i].lickArea;
