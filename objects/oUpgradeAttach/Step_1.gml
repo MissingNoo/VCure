@@ -1,2 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+if (variable_instance_exists(self, "step") and beginStep) {
+	beginStep = false;
+    step(WeaponEvent.BeginStep);
+}

@@ -388,6 +388,16 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 						PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
 						PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
 						break;}
+					case BuffNames.BellyDance:
+						Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
+						if (oPlayer.moving) {
+							Buffs[BuffNames.BellyDance][$ "count"]++;
+						}
+						else if (Buffs[BuffNames.BellyDance][$ "count"] > 0) {
+							instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oUpgradeAttach, {upg : UPGRADES[0], mindmg : UPGRADES[0][$ "mindmg"], maxdmg : UPGRADES[0][$ "maxdmg"], sprite_index : sAkiCircle, step : bellydance_step, image_xscale : .1, image_yscale : .1, count : Buffs[BuffNames.BellyDance][$ "count"]})
+							Buffs[BuffNames.BellyDance][$ "count"] = 0;
+						}
+						break;
 					}
 				}
 			}	

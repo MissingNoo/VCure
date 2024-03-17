@@ -2,6 +2,7 @@
 perkBonusDmg = 0;
 _extrainfo = {};
 _extra = {};
+enemyTarget = noone;
 xxstart = xstart;
 yystart = ystart;
 sincounter = current_time;

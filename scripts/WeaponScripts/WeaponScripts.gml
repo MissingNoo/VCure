@@ -3,6 +3,7 @@ enum WeaponEvent {
 	Step,
 	OnHit,
 	AnimationEnd,
+	Draw,
 	PerkOnHit = 99
 }
 function blbook_step(o){
@@ -825,7 +826,7 @@ function aik_step(o){
 			if (shoots > 0) {
 			    enemyTarget = _list[| 0];
 			}
-			if (shoots == -1) {
+			else {
 				var _chance = irandom_range(0, ds_list_size(_list) - 1);
 			    enemyTarget = _list[| _chance];
 			}
@@ -870,8 +871,27 @@ function aik_step(o){
 	        // code here
 	        break;
 	    case WeaponEvent.AnimationEnd:
-	        instance_destroy();
+			if (sprite_index == sAkiBeam or sprite_index == sAkiBeam2) {
+			    instance_destroy();
+			}
 	        break;
+	}
+}
+function bellydance_step(o){ //TODO add animation
+	switch (o) {
+	    case WeaponEvent.BeginStep:
+			var _lv = Buffs[BuffNames.BellyDance][$ "level"];
+			mindmg = (mindmg * _lv) * count;
+			maxdmg = (maxdmg * _lv) * count;
+	        break;
+	    case WeaponEvent.Step:
+	        image_xscale += 0.25;
+	        image_yscale = image_xscale;
+	        break;
+	    case WeaponEvent.Draw:
+	        draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, 0, c_white, 0.5);
+	        break;
+		
 	}
 }
 function _step(o){

@@ -208,7 +208,8 @@ enum BuffNames{
 	Paralyzed,
 	Soda,
 	testbuff,
-	WallmartDefense
+	WallmartDefense,
+	BellyDance
 }
 function populate_characters(){
 	createCharacter(Characters.Null, "Phase-Connect","",sBlank,sBlank, sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
@@ -326,6 +327,18 @@ function populate_characters(){
 		permanent : true,
 		baseCooldown : 1,
 		cooldown : 0,
+	}
+	Buffs[BuffNames.BellyDance] = {
+		id : BuffNames.BellyDance,
+		name : "Belly Dance",
+		icon : sAkiPerk2,
+		enabled : false,
+		permanent : true,
+		count : 0,
+		maxCount : 999,
+		cooldown : 0,
+		baseCooldown : 1,
+		level : 0
 	}
 		
 	//Buffs[BuffNames.SharkBite] = {
@@ -476,8 +489,10 @@ if (canMove == true){
 			if (x + _xadd > _maxx or x - _xadd < _minx) { _xadd = 0;}
 			if (y + _yadd > _maxy or y - _yadd < _miny) { _yadd = 0;}
 			move_and_collide(_xadd, _yadd,oCollision);
+			moving = true;
 		}
 		else {
+			moving = false;
 			sprite_index=sprite;
 		}
 	}
@@ -501,13 +516,16 @@ if (canMove == true){
 		if (x + _xadd > _maxx or x + _xadd < _minx) { _xadd = 0;}
 		if (y + _yadd > _maxy or y + _yadd < _miny) { _yadd = 0;}
 		move_and_collide(_xadd, _yadd,oCollision);
+		moving = true;
 		sprite_index=runningsprite;
         }
 		else if (os_type != os_android or global.gamePad) {
 			sprite_index=sprite;
+			moving = false;
 		}
     } 
 	else if (os_type != os_android or global.gamePad) {
 		sprite_index=sprite;
-		}
+		moving = false;
+	}
 }

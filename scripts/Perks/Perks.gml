@@ -233,11 +233,12 @@ function populate_perks(){
 		#region Aki
 		create_perk({
 			id : PerkIds.BellyDancing,
+			func : belly_dancing,
 			name : "Belly Dancing",
 			maxlevel : 3, 
 			weight : 1,
 			thumb : sAkiPerk2,
-			cooldown : [3, 3, 2.01, 2.01],
+			cooldown : 1,
 			characterid : Characters.Aki
 		});
 		create_perk({
