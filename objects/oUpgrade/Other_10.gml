@@ -163,6 +163,21 @@ switch (upg[$ "id"]) {
 				//}
 			break;
 		}
+	case Weapons.Aik:{
+			//if (shoots > 1) {			
+				//shoots-=1;
+				inst = spawn_upgrade();
+				if (shoots % 2) {
+					inst.shoots = -2;
+				}
+				else{
+					inst.shoots = -1;
+				}
+				//shoots=0;
+				//alarm[0]=10;
+				//}
+			break;
+		}
 	case Weapons.AbsoluteWall:{
 		//if (shoots > 1) {			
 				inst = spawn_upgrade();

@@ -366,7 +366,7 @@ function populate_upgrades(){
 		#endregion
 		#region Aki
 		new_create_upgrade({
-			//func : amepistol_step,
+			func : aik_step,
 			id : Weapons.Aik,
 			name : "Aik",
 			maxlevel : 7,
@@ -379,13 +379,13 @@ function populate_upgrades(){
 			hitCooldown : 60,
 			canBeHasted : true,
 			attackdelay : 8,
-			speed : 8,
+			speed : 6,
 			area : [.8, .8, .96, .96, .96, .96, 1.20],
 			hits : [1, 2, 2, 2, 3, 3, 3],
 			type : "red",
 			shoots : [2, 2, 2, 3, 3, 4, 4],
 			perk : true,
-			characterid : Characters.Amelia,
+			characterid : Characters.Aki,
 			weight : 3,
 			range : 250,
 			chance : [0, 0, 0, 0, 0, 0, 30]

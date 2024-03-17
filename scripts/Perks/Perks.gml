@@ -200,27 +200,35 @@ function populate_perks(){
 			weight : 1,
 			thumb : sAmeliaFpsMastery,
 			cooldown : [3, 3, 2.01, 2.01],
+			bonus : true,
+			bonusType : BonusType.Damage,
+			bonusValue : [0, 1.20, 1.40, 1.60],
 			characterid : Characters.Amelia
+			//TODO: fire 10% faster
 		});
 		create_perk({
 			id : PerkIds.DetectiveEye,
+			func : detective_eye,
 			name : "Detective Eye",
 			maxlevel : 3, 
 			weight : 1,
 			thumb : sAmeliaDetectiveEye,
 			cooldown : [3, 3, 2.01, 2.01],
-			characterid : Characters.Amelia
+			characterid : Characters.Amelia,
+			bonus : true,
+			bonusType : BonusType.Critical,
+			bonusValue : [0, 1.10, 1.20, 1.30]
 		});
 		create_perk({
 			id : PerkIds.Bubba,
 			name : "Bubba",
 			maxlevel : 3, 
-			weight : 1,
+			weight : 0, //TODO: change when bubba exists
 			thumb : sAmeliaBubba,
 			cooldown : [3, 3, 2.01, 2.01],
 			characterid : Characters.Amelia
 		});
-		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Null][0]];
 		#endregion
 		#region Aki
 		create_perk({
@@ -284,10 +292,13 @@ function tick_perks()
 		if (PLAYER_PERKS[i][$ "level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$ "id"]] <= 0) {
 			default_perk_behaviour(PLAYER_PERKS[i][$ "id"], PLAYER_PERKS[i][$ "cooldown"]);
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
-				PerkBonuses[PLAYER_PERKS[i][$ "bonustype"]][PLAYER_PERKS[i][$ "id"]] = PLAYER_PERKS[i][$ "bonusvalue"];
+				PerkBonuses[PLAYER_PERKS[i][$ "bonusType"]][PLAYER_PERKS[i][$ "id"]] = PLAYER_PERKS[i][$ "bonusValue"];
 			}
 			if (variable_struct_exists(PLAYER_PERKS[i], "upgrade")) {
 				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][PLAYER_PERKS[i][$ "level"]]});
+			}
+			if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
+			    PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"]);
 			}
 			switch (PLAYER_PERKS[i][$ "id"]) {
 				case PerkIds.Lick:{

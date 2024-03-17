@@ -1,3 +1,10 @@
+enum WeaponEvent {
+	BeginStep,
+	Step,
+	OnHit,
+	AnimationEnd,
+	PerkOnHit = 99
+}
 function blbook_step(o){
 	if (o == 0) {
 	    orbitLength = upg[$ "orbitLength"];
@@ -787,19 +794,96 @@ function eletricpulse_step(o){
 	}
 }
 function amepistol_step(o){
-	if (o == 0) {
-	    direction = global.arrowDir;
-		image_angle = global.arrowDir;
+	switch (o) {
+	    case WeaponEvent.BeginStep:
+			amePistolLastHit = false;
+	        direction = global.arrowDir;
+			image_angle = global.arrowDir;
+	        break;
+	    case WeaponEvent.Step:
+	        // code here
+	        break;
+	    case WeaponEvent.OnHit:
+	        if (hits == 1 and !amePistolLastHit and upg[$"level"] >= 4) {
+			    AmePistolLastHit=true;
+				hits+=5;
+				direction = random(360);
+			}
+	        break;
 	}
-	else {
-		
+}
+function aik_step(o){
+	switch (o) {
+	    case WeaponEvent.BeginStep:
+			enemyTarget = noone;
+			image_alpha = .999;
+			beamLaunched = false;
+			directionSet = false;
+			var _list = ds_list_create();
+			var _num = collision_circle_list(x, y, 250, oEnemy, false, true, _list, true);
+			if (_num <= 0) { exit; }
+			if (shoots > 0) {
+			    enemyTarget = _list[| 0];
+			}
+			if (shoots == -1) {
+				var _chance = irandom_range(0, ds_list_size(_list) - 1);
+			    enemyTarget = _list[| _chance];
+			}
+			if (enemyTarget != noone and instance_exists(enemyTarget)) {
+			    direction = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+				speed = upg[$ "speed"];
+			}
+			else {
+				speed = 0;
+			}
+			ds_list_destroy(_list);
+	        break;
+	    case WeaponEvent.Step:
+			if (enemyTarget == noone) {
+				speed = 0;
+			}
+	        if (instance_exists(enemyTarget)) {
+				if (!directionSet) {
+					image_angle = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+				    directionSet = true;
+				}
+			    enemyDirection = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+				if (direction > enemyDirection) {
+				    direction -= 2;
+				}
+				if (direction < enemyDirection) {
+				    direction += 2;
+				}
+				if (distance_to_object(enemyTarget) < 22) {
+					speed = 0; 
+				}
+				if (speed > 0) { image_angle = enemyDirection; }
+			}
+			if (speed == 0) {
+				if (!beamLaunched) {
+					beamLaunched = true;
+				    instance_create_depth(x, y, depth, oUpgradeAttach, {upg, sprite_index : sAkiBeam, image_angle, mindmg, maxdmg});
+				}
+			}
+	        break;
+	    case WeaponEvent.OnHit:
+	        // code here
+	        break;
+	    case WeaponEvent.AnimationEnd:
+	        instance_destroy();
+	        break;
 	}
 }
 function _step(o){
-	if (o == 0) {
-	    
-	}
-	else {
-		
+	switch (o) {
+	    case WeaponEvent.BeginStep:
+	        // code here
+	        break;
+	    case WeaponEvent.Step:
+	        // code here
+	        break;
+	    case WeaponEvent.OnHit:
+	        // code here
+	        break;
 	}
 }

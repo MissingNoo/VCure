@@ -55,6 +55,9 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, .5);
 	#region debuffs	
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
+			PLAYER_PERKS[i][$ "func"](99);
+		}
 		//#region Shark Bite
 		//var found = false;
 		//if (PLAYER_PERKS[i][$ "id"] == PerkIds.SharkBite and PLAYER_PERKS[i][$ "level"] > 0 and irandom_range(1,100) <= Buffs[BuffNames.SharkBite].chance[PLAYER_PERKS[i][$ "level"]]) {
@@ -80,6 +83,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 		//}
 		//#endregion
 	}	
+	dmg += perkBonusDmg;
 	for (var i = 0; i < array_length(playerItems); ++i) {
 	    switch (playerItems[i][$ "id"]) {
 		    case ItemIds.DevilHat:
@@ -219,6 +223,9 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	
 	//other.alarm[1]=15;
 	other.damagedAlarm=15;
+	if (variable_struct_exists(upg, "func")) {
+	    upg[$ "func"](WeaponEvent.OnHit);
+	}
 	switch (upg[$ "id"]) {
 	    case Weapons.UrukaNote:{
 	        if (hits == 1 and upg.level == 7) {

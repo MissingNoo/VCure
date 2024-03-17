@@ -53,7 +53,7 @@ if (!global.gamePaused) {
 	}
 	afterimage_step();
 	if (variable_struct_exists(upg, "func")) {
-	    upg[$ "func"](1);
+	    upg[$ "func"](WeaponEvent.Step);
 	}
 }
 #endregion

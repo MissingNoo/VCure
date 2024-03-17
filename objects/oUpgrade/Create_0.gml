@@ -1,4 +1,5 @@
 //event_inherited();
+perkBonusDmg = 0;
 _extrainfo = {};
 _extra = {};
 xxstart = xstart;

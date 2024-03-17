@@ -93,7 +93,7 @@ image_speed = 0;
 	}
 	//show_message(string(image_xscale));
 	if (variable_struct_exists(upg, "func")) {
-	    upg[$ "func"](0);
+	    upg[$ "func"](WeaponEvent.BeginStep);
 	}
 	//else {
 	//	default_behaviour();
