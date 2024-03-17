@@ -215,13 +215,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	}
 	#endregion
 	other.hp -= dmg;
-	if (global.damageNumbers) {
-	    var _inst = instance_create_layer(other.x,other.y,"DamageLayer",oDamageText);
-		_inst.dmg = round(dmg);
-		_inst.critical = _wasCrit;
-		_inst.infected = _virusInfected;
-	}
-	
+	damage_number_spawn(other, dmg, _wasCrit, _virusInfected);
 	//other.alarm[1]=15;
 	other.damagedAlarm=15;
 	if (variable_struct_exists(upg, "func")) {

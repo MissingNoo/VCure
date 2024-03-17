@@ -819,7 +819,6 @@ function aik_step(o){
 	    case WeaponEvent.BeginStep:
 			enemyTarget = noone;
 			image_alpha = .999;
-			beamLaunched = false;
 			directionSet = false;
 			var _list = ds_list_create();
 			var _num = collision_circle_list(x, y, 250, oEnemy, false, true, _list, true);

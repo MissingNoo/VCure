@@ -9,6 +9,11 @@ sincounter = current_time;
 coscounter = current_time;
 cansend = true;
 sendend = true;
+#region Hololive
+#region Aki
+beamLaunched = false;
+#endregion
+#endregion
 #region Uruka Note
 noteStartX = x;
 noteStartY = y;

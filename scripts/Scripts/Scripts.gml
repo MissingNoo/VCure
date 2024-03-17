@@ -710,6 +710,16 @@ function prize_box_roll_item(boxnumber){
 	array_push(oGui.chestblacklist[1], _item);
 	return _item;
 }
+
+function damage_number_spawn(instance, damage, critical, infected = false){
+	if (global.damageNumbers) {
+		var _inst = instance_create_layer(instance.x, instance.y, "DamageLayer", oDamageText);
+		_inst.dmg = round(damage);
+		_inst.critical = critical;
+		_inst.infected = infected;
+	}
+}
+	
 credits = @"Thanks to these awesome people
 Kay Yu: original Holocure
 Naisho14 on Reddit for the character selection interface concept images

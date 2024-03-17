@@ -13,7 +13,10 @@ bandageHealSeconds = 0;
 #endregion
 #region Player Variables
 #region Perks
+#region Aki
 aromateraphy = [false, 0, 0, 0, 0];
+mukirose = [false, 0, 0, 0, 0];
+#endregion
 #endregion
 if (!instance_exists(oCam)) {
     instance_create_depth(x,y,0,oCam);

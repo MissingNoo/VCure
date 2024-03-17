@@ -242,6 +242,7 @@ function populate_perks(){
 			characterid : Characters.Aki
 		});
 		create_perk({
+			func : perk_mukirose,
 			id : PerkIds.Mukirose,
 			name : "Mukirose",
 			maxlevel : 3, 

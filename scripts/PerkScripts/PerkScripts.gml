@@ -93,9 +93,36 @@ function perk_aromateraphy(o){
 						    _enemy.debuffs[_pos].count += 1;
 						}
 					}
+					if (oPlayer.mukirose[0]) {
+					    var _mukiChance = irandom_range(0, 100);
+						if (_mukiChance <= oPlayer.mukirose[1]) {
+						    var _amount = array_length(_enemy.debuffs);
+							var _damage = irandom_range(UPGRADES[0][$ "mindmg"], UPGRADES[0][$ "maxdmg"]);
+							var _multiplier = oPlayer.mukirose[2];
+							var _totalDamage = (_damage * _multiplier) * _amount;
+							damage_number_spawn(_enemy, _totalDamage, false);
+							_enemy.hp -= _totalDamage;
+						}
+					}					
 				}
 		    }
 		}
-		
+	}
+}
+function perk_mukirose(o){
+	switch (o) {
+	    case 1:
+			oPlayer.mukirose[0] = true;
+			oPlayer.mukirose[1] = 50;
+			oPlayer.mukirose[2] = .5;
+			break;
+	    case 2:
+			oPlayer.mukirose[1] = 66;
+			oPlayer.mukirose[2] = .75;
+			break;
+	    case 3:
+			oPlayer.mukirose[1] = 75;
+			oPlayer.mukirose[2] = 1;
+			break;
 	}
 }
