@@ -863,7 +863,17 @@ function aik_step(o){
 			if (speed == 0) {
 				if (!beamLaunched) {
 					beamLaunched = true;
-				    instance_create_depth(x, y, depth, oUpgradeAttach, {upg, sprite_index : sAkiBeam, image_angle, mindmg, maxdmg});
+					var _beam = sAkiBeam;
+					var _size = 1;
+					if (upg[$ "level"] == upg[$ "maxlevel"]) {
+					    _beam = sAkiBeam2;
+					    _size = 1.30;
+						mindmg = mindmg * 1.30;
+						maxdmg = maxdmg * 1.30;
+					}
+					if (enemyTarget != noone) {
+					    instance_create_depth(x, y, depth, oUpgradeAttach, {upg, sprite_index : _beam, image_angle, mindmg, maxdmg, image_xscale : _size, image_yscale : _size, applyDebuff : [BuffNames.DefDown, 3, upg[$ "chance"]]});
+					}
 				}
 			}
 	        break;

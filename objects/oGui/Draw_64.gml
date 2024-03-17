@@ -981,7 +981,8 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 #endregion
 #region Debug
 DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
-DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 5;});
+DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 999;});
+DebugManager.debug_add_config("Setweapon", DebugTypes.Button, self, "", function(){ global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Aik][1]; });
 DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function(){global.xp = oPlayer.neededxp;});
 DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
 DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");

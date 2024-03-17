@@ -214,6 +214,30 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	        break;
 	}
 	#endregion
+	if (variable_instance_exists(self, "applyDebuff")) {
+		if (irandom_range(0, 100) <= applyDebuff[2]) {
+			var _enemy = other;
+			var _exist = false;
+			var _pos = 0;
+			for (var j = 0; j < array_length(_enemy.debuffs); ++j) {
+				if (_enemy.debuffs[j].id == applyDebuff[0]) {
+					_exist = true;
+					_pos = j;
+					break;
+				}
+			}
+			if (_exist) {
+			    _enemy.debuffs[_pos].cooldown = _enemy.debuffs[_pos].baseCooldown;
+			}
+			else {
+			    var _struc = copy_struct(Buffs[applyDebuff[0]]);
+				_struc.cooldown = _struc.baseCooldown;
+				_struc.count = applyDebuff[1];
+				array_push(_enemy.debuffs, _struc);
+			}
+		}
+	}
+	
 	other.hp -= dmg;
 	damage_number_spawn(other, dmg, _wasCrit, _virusInfected);
 	//other.alarm[1]=15;

@@ -101,6 +101,7 @@ function initializePlayer(_p){
 	gy =0;
 	pimanLevel = 0;
 	oGui.upgradesSurface();
+	//UPGRADES[0] = WEAPONS_LIST[Weapons.Aik][7];
 }
 global.characters=[];
 #macro CHARACTERS global.characters
@@ -223,6 +224,8 @@ function populate_characters(){
 	createCharacter(Characters.Trickywi, "Indies","Trickywi",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	createCharacter(Characters.Amelia, "Hololive", "Amelia Watson", sAmeliaPortrait, sAmeliaArt, sAmeliaIdle, sAmeliaRun, 75, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
 	createCharacter(Characters.Aki, "Hololive", "Aki Rosenthal", sAkiPortrait, sPlaceholderArt, sAkiIdle, sAkiRun, 80, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
+	CHARACTERS[Characters.Tenma][? "finished"] = false;
+	CHARACTERS[Characters.Amelia][? "finished"] = false;
 	//createCharacterNew({
 	//	id : Characters.,
 	//	name : "",
@@ -239,7 +242,7 @@ function populate_characters(){
 	//	ballsize : ,
 	//	flat : ,
 	//});
-	createCharacterNew({
+	createCharacterNew({ //TODO: Special, belly dance fade when close to screen border, 
 		id : Characters.Aki,
 		name : "Aki Rosenthal",
 		agency : "Hololive",
@@ -255,7 +258,7 @@ function populate_characters(){
 		ballsize : 3,
 		flat : false,
 		unlocked : false,
-		finished : true
+		finished : false
 	});
 	createCharacterNew({ id : Characters.Anya, name : "Anya Melfissa", agency : "Hololive", portrait : sAnyaPortrait, bigArt : sPlaceholderArt, sprite : sAnyaIdle, runningsprite : sAnyaRun, hp : 60, atk : 1.50, speed : 1.20, crit : 5, weapon : Weapons.Keris, ballsize : 2, flat : true, unlocked : true, finished : false });
 	//Buffs[BuffNames.ShortHeight] = {

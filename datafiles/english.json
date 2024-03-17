@@ -47,10 +47,10 @@
 				"chooseText" : "Choose your YIPPEE"
 			}
 		},
-		"Special" : {
-			"No Multiplayer" :{
-				"name" : "No Multiplayer!",
-				"desc" : "THERE'S NO MULTIPLAYER!."
+		"Specials" : {
+			"Shallys" :{
+				"name" : "Shallys",
+				"desc" : "Sing an otherwordly folk song, summoning a storm of rose petals dealing 50% damage and inflicts 20% Slow each while healing for 20% per second."
 			}
 		},
 		"HouseItems" : {
@@ -65,15 +65,16 @@
 			}
         },
         "Weapons":{
-			"Zenora's Tears":{
-				"name":"Zenora's Tears",
-					"1":"The ones he cries everytime someone asks for multiplayer", 
-					"2":"Shoot [1] additional shot, and each bullet can pierce [+1] times.",
-					"3":"Increase damage by [25%].",
-					"4":"Bullets ricochet if hit limit is reached.",
-					"5":"Each bullet can pierce [+1] times. Reduce the time between attacks by [25%].",
-					"6":"Increase damage by [40%].",
-					"7":"Shoot [2] additional shots, and pistol becomes spread type."
+			"Aik":{
+				"name":"Aik",
+				 	"desc" : "Sends Aik to the closest as well as random targets and fires a beam.",
+					"1":"Sends Aik to the closest as well as random targets and fires a beam.", 
+					"2":"Increase damage by [20%].",
+					"3":"Increase size of beam by [20%].",
+					"4":"Send [3] Aik.",
+					"5":"Reduce time between attacks by [15%].",
+					"6":"Send [4] Aik.",
+					"7":"Become a cross shape beam. Increase damage and size of beam by [30%]. Has a chance to apply a debuff that reduces DEF by [30%]."
 				},
             "Pistol Shot":{
             "name":"Pistol Shot",
@@ -512,6 +513,27 @@
 				"1": "LIA heals 1% of health per every enemy in a small radius around her every 5 seconds.",
 				"2": "Increase radius and lower time to 4 seconds.",
 				"3": "Increase radius and lower time to 3 seconds."
+			},
+			"Belly Dancing" : {
+				"name": "Belly Dancing",
+				"desc" : "Gain stacks of Belly Dance while moving, when still unleash a burst of damage.",
+				"1": "While moving, gain 1 stack of Belly Dance per sec. If Aki stops moving, unleash a burst that deals [20%] damage per stack.",
+				"2": "While moving, gain 1 stack of Belly Dance per sec. If Aki stops moving, unleash a burst that deals [30%] damage per stack.",
+				"3": "While moving, gain 1 stack of Belly Dance per sec. If Aki stops moving, unleash a burst that deals [40%] damage per stack."
+			},
+			"Mukirose" : {
+				"name": "Mukirose",
+				"desc" : "When applying debuffs, also damage the enemies.",
+				"1" : "When a target receives a Stat Debuff, there is a 50% chance that target takes [50%] damage for each type of Stat Debuff they currently have.",
+				"2" : "When a target receives a Stat Debuff, there is a 66% chance that target takes [75%] damage for each type of Stat Debuff they currently have.",
+				"3" : "When a target receives a Stat Debuff, there is a 75% chance that target takes [100%] damage for each type of Stat Debuff they currently have."
+			},
+			"Aromatherapy" : {
+				"name": "Aromatherapy",
+				"desc" : "Apply debuffs to close enemies.",
+				"1" : "Target within [100px] has a [15%] chance to gain a debuff (ATK, SPD or DEF) every 1.5 seconds. Each stack debuffs [10%] of that stat up to [30%].",
+				"2" : "Target within [125px] has a [25%] chance to gain a debuff (ATK, SPD or DEF) every 1.5 seconds. Each stack debuffs [10%] of that stat up to [30%].",
+				"3" : "Target within [150px] has a [35%] chance to gain a debuff (ATK, SPD or DEF) every 1.5 seconds. Each stack debuffs [10%] of that stat up to [30%]."
 			},
 			"" : {
 				"name": "",
