@@ -18,7 +18,9 @@ function detective_eye(level){
 	}
 }
 function belly_dancing(level){
-	Buffs[BuffNames.BellyDance][$ "enabled"] = true;
+	if (level > 0 and level < 4) {
+	    Buffs[BuffNames.BellyDance][$ "enabled"] = true;
+	}
 	switch (level) {
 	    case 1:
 			Buffs[BuffNames.BellyDance][$ "level"] = 0.20;
