@@ -20,7 +20,7 @@ draw_set_font(global.newFont[1]);
 if (room == rInicio) {
 	#region Menu
 	if (!global.gamePaused) {
-		draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
+		//draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
 		var _talents = [
 			[sIoriArt, #e7eeea, 8.99, 1.88],
 			[sUrukaArt, #455b82, 6.13, 1.71],
@@ -88,7 +88,8 @@ if (room == rCharacterSelect) {
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
 			if (CHARACTERS[i][? "finished"] == false) { draw_set_color(c_red); }
-			if (CHARACTERS[i][? "finished"] == false and os_get_config() == "Release") { continue; }
+			if (CHARACTERS[i][? "finished"] == 3) { draw_set_color(c_orange); }
+			if ((CHARACTERS[i][? "finished"] == false or CHARACTERS[i][? "finished"] == 3) and os_get_config() == "Release") { continue; }
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
 			draw_set_color(c_white);
 			var _characterUnlocked = UnlockableCharacters[CHARACTERS[i][?"id"]];

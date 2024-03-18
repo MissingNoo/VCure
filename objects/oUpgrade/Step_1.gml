@@ -74,6 +74,9 @@ image_speed = 0;
 	if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Cooldown) {
 		cooldown = cooldown * 0.9;
 	}
+	if (oPlayer.slowTime and upg.id == Weapons.AmePistol) {
+	    cooldown = cooldown / 2;
+	}
 	global.upgradeCooldown[upg[$ "id"]] = cooldown;
 	dAlarm[1] = upg[$ "duration"];
 	image_speed=1;
@@ -85,9 +88,9 @@ image_speed = 0;
 	if (variable_struct_exists(upg, "sound") and upg[$ "sound"] != "") {
 		if (is_array(upg[$ "sound"])) {
 			var snd = irandom_range(0, array_length(upg[$ "sound"])-1);
-		    audio_play_sound(upg[$ "sound"][snd],0,0);
+		    audio_play_sound(upg[$ "sound"][snd],0,0, global.soundVolume);
 		}else{
-			audio_play_sound(upg[$ "sound"],0,0);
+			audio_play_sound(upg[$ "sound"],0,0, global.soundVolume);
 		}
 	    
 	}

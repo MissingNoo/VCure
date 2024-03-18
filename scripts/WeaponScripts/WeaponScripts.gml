@@ -780,7 +780,7 @@ function imdieexplosion_step(o){
 	    explosionSize += .10;
 		image_xscale = explosionSize;
 		image_yscale = explosionSize;
-		oGame.shakeMagnitude = oGui.e;
+		oGame.shakeMagnitude = 2;
 	}
 	else {
 		
@@ -798,6 +798,9 @@ function eletricpulse_step(o){
 function amepistol_step(o){
 	switch (o) {
 	    case WeaponEvent.BeginStep:
+			if (shoots > 0 and oPlayer.slowTime) {
+			    global.upgradeCooldown[Weapons.AmePistol] = global.upgradeCooldown[Weapons.AmePistol] / 2;
+			}
 			amePistolLastHit = false;
 	        direction = global.arrowDir;
 			image_angle = global.arrowDir;

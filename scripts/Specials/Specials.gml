@@ -24,7 +24,8 @@ global.specialBonuses[0] = 0;
 		WalmartForm,
 		BuffDude,
 		Shallys,
-		BladeForm
+		BladeForm,
+		SlowTime
 	}
 #endregion
 function populate_specials(){
@@ -32,7 +33,7 @@ function populate_specials(){
 	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, Characters.Lia, undefined);
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Pippa, undefined);
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Trickywi, undefined);
-	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Amelia, undefined);
+	create_special(SpecialIds.SlowTime, "Slow Time", sWalmart, 60, Characters.Amelia, seq_SlowTime);
 	create_special(SpecialIds.BuffDude, "Buffed Kanpainiki", sWalmart, 60, Characters.Tenma, undefined);
 	create_special(SpecialIds.Shallys, "Shallys", sAkiSpecial, 100, Characters.Aki, undefined);
 	create_special(SpecialIds.BladeForm, "Blade Form", sAnyaSpecial, 75, Characters.Anya, undefined);
@@ -48,12 +49,6 @@ function use_special(_special)
 	    case SpecialIds.Uruka:
 			oPlayer.monsterUsed = true;
 			oPlayer.monsterTimer = 10;
-			//if (!instance_exists(oEnemy)) { break; }
-	        //with (oEnemy) {
-			//    // Feather disable once GM1041
-			//    array_push(debuffs, copy_struct(Buffs[BuffNames.Slowness]));
-			//	//show_message(Buffs[BuffNames.Slowness]);
-			//}
 	        break;
 		case SpecialIds.Lia:{
 			oPlayer.menhera = true;
@@ -71,6 +66,21 @@ function use_special(_special)
 	    case SpecialIds.BladeForm:
 			oPlayer.bladeForm = true;
 			oPlayer.bladeFormTimer = 8;
+			break;
+		case SpecialIds.SlowTime:
+			oPlayer.slowTime = true;
+			oPlayer.slowTimeTimer = 10;
+			if (global.screenShake == 1) {
+				oGame.shakeMagnitude=12;
+			}
+			if (!instance_exists(oEnemy)) { break; }
+	        with (oEnemy) {
+			    // Feather disable once GM1041
+				var _struct = copy_struct(Buffs[BuffNames.SpdDown]);
+				_struct.count = 8;
+				_struct.cooldown = _struct.baseCooldown;
+			    array_push(debuffs, _struct);
+			}
 			break;
 	    //case SpecialIds.Gura:
 	    //	redgura = true;

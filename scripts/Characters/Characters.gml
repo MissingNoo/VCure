@@ -220,12 +220,13 @@ function populate_characters(){
 	createCharacter(Characters.Uruka, "Phase-Connect","Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
 	createCharacter(Characters.Pippa, "Phase-Connect","Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	createCharacter(Characters.Lia, "Phase-Connect","Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
-	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, false);
+	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdle, sTenmaRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	createCharacter(Characters.Trickywi, "Indies","Trickywi",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	createCharacter(Characters.Amelia, "Hololive", "Amelia Watson", sAmeliaPortrait, sAmeliaArt, sAmeliaIdle, sAmeliaRun, 75, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
 	createCharacter(Characters.Aki, "Hololive", "Aki Rosenthal", sAkiPortrait, sPlaceholderArt, sAkiIdle, sAkiRun, 80, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
+	CHARACTERS[Characters.Trickywi][? "finished"] = false;
 	CHARACTERS[Characters.Tenma][? "finished"] = false;
-	CHARACTERS[Characters.Amelia][? "finished"] = false;
+	CHARACTERS[Characters.Amelia][? "finished"] = 3;
 	//createCharacterNew({
 	//	id : Characters.,
 	//	name : "",
@@ -258,9 +259,9 @@ function populate_characters(){
 		ballsize : 3,
 		flat : false,
 		unlocked : false,
-		finished : false
+		finished : 3
 	});
-	createCharacterNew({ id : Characters.Anya, name : "Anya Melfissa", agency : "Hololive", portrait : sAnyaPortrait, bigArt : sPlaceholderArt, sprite : sAnyaIdle, runningsprite : sAnyaRun, hp : 60, atk : 1.50, speed : 1.20, crit : 5, weapon : Weapons.Keris, ballsize : 2, flat : true, unlocked : true, finished : false });
+	createCharacterNew({ id : Characters.Anya, name : "Anya Melfissa", agency : "Hololive", portrait : sAnyaPortrait, bigArt : sPlaceholderArt, sprite : sAnyaIdle, runningsprite : sAnyaRun, hp : 60, atk : 1.50, speed : 1.20, crit : 5, weapon : Weapons.Keris, ballsize : 2, flat : true, unlocked : false, finished : false });
 	//Buffs[BuffNames.ShortHeight] = {
 	//	id : BuffNames.ShortHeight,
 	//	name : "Short Height",
@@ -370,7 +371,7 @@ function populate_characters(){
 		cooldown : 10,
 		baseCooldown : 10,
 		stat : "spdMult",
-		statAmount : [1, 0.9, 0.8, 0.7]
+		statAmount : [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
 	}
 	Buffs[BuffNames.DefDown] = {
 		id : BuffNames.DefDown,
@@ -395,12 +396,6 @@ function populate_characters(){
 	//	level : 1,
 	//	damage : [1,1.6,1.9,1.12],
 	//	chance : [0,10,15,20]
-	//}
-	//Buffs[BuffNames.Slowness] = {
-	//	id : BuffNames.Slowness,
-	//	name : "Slowness",
-	//	icon : sShortHeight, //TODO: add slow speed icon
-	//	time : 15,
 	//}
 	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
 	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);

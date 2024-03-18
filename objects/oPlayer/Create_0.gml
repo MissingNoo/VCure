@@ -40,6 +40,11 @@ afterImageTimerEnd = function(a){
 	}
 };
 #endregion
+#region Amelia
+slowTime = false;
+slowTimeTimer = 0;
+slowTimeEnd = function(){ slowTime = false; };
+#endregion
 #endregion
 if (!instance_exists(oCam)) {
     instance_create_depth(x,y,0,oCam);
