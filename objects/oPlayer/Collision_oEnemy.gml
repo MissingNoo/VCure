@@ -5,11 +5,12 @@ if (other.hittedcooldown[Weapons.AnyaBlade] < global.currentFrame) {
     cooldownOver = true;
 }
 if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and !other.infected) {
-	other.hittedcooldown[Weapons.AnyaBlade] = global.currentFrame + 10;
+	other.hittedcooldown[Weapons.AnyaBlade] = global.currentFrame + BLADE_FORM_HIT_COOLDOWN;
 	other.damaged = true;
-	other.hp -= 10;
+	var _dmg = irandom_range(8, 12);
+	other.hp -= _dmg;
 	other.damagedAlarm = 15;
-	damage_number_spawn(other, 10, false);
+	damage_number_spawn(other, _dmg, false);
 }
 #endregion
 #endregion

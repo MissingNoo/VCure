@@ -35,7 +35,7 @@ function populate_specials(){
 	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Amelia, undefined);
 	create_special(SpecialIds.BuffDude, "Buffed Kanpainiki", sWalmart, 60, Characters.Tenma, undefined);
 	create_special(SpecialIds.Shallys, "Shallys", sAkiSpecial, 100, Characters.Aki, undefined);
-	create_special(SpecialIds.BladeForm, "Blade Form", sAnyaSpecial, 0, Characters.Anya, undefined);
+	create_special(SpecialIds.BladeForm, "Blade Form", sAnyaSpecial, 75, Characters.Anya, undefined);
 }
 
 function use_special(_special)
@@ -70,7 +70,7 @@ function use_special(_special)
 			break;
 	    case SpecialIds.BladeForm:
 			oPlayer.bladeForm = true;
-			oPlayer.bladeFormTimer = 10;
+			oPlayer.bladeFormTimer = 8;
 			break;
 	    //case SpecialIds.Gura:
 	    //	redgura = true;

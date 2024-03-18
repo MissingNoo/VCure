@@ -125,7 +125,7 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 #endregion
 #region Specials
 tickTimer(["bladeFormTimer", bladeFormEnd]);
-tickTimer(["afterImageTimer", afterImageTimerEnd, afterImageTimerBase]);
+tickTimer(["afterImageTimer", afterImageTimerEnd]);
 if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
 if (input_check_pressed("cancel") and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) { use_special(special);	}
 if (global.lastsequence != undefined) {
@@ -153,20 +153,19 @@ if (wallMart) {
 #region Anya
 if (bladeForm) {
 	image_xscale = 1;
-	rotationSpeed += acceleration;
-	if (rotationSpeed > maxAcceleration) {
-	    rotationSpeed = maxAcceleration;
+	rotationSpeed += BLADE_FORM_ACCELERATION;
+	if (rotationSpeed >  BLADE_FORM_MAX_ACCELERATION) {
+	    rotationSpeed = BLADE_FORM_MAX_ACCELERATION;
 	}
 	image_angle -= rotationSpeed;
 	immortal = true;
 	lockSprite = true;
-	if (rotationSpeed < changeOnSpeed) {
+	if (rotationSpeed < BLADE_FORM_CHANGE_FORM) {
 	    sprite_index = sAnyaBlade1;
 	}
 	else {
 		sprite_index = sAnyaBlade2;
 	}
-    
 }
 #endregion
 #endregion

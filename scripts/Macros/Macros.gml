@@ -1,4 +1,13 @@
 // Feather disable GM2017
+#region Specials
+#region Anya
+#macro BLADE_FORM_ACCELERATION 0.1
+#macro BLADE_FORM_CHANGE_FORM  20
+#macro BLADE_FORM_MAX_ACCELERATION  30
+#macro BLADE_FORM_AFTERIMAGE_COOLDOWN 0.05
+#macro BLADE_FORM_HIT_COOLDOWN 10
+#endregion
+#endregion
 #macro WEAPONS_LIST global.upgradesAvaliable
 #macro u global.upgradesAvaliable
 #macro Shield global.shield

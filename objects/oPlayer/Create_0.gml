@@ -20,7 +20,7 @@ mukirose = [false, 0, 0, 0, 0];
 #endregion
 #region Anya
 bladeForm = false;
-bladeFormTimer = 10;
+bladeFormTimer = 0;
 bladeFormEnd = function(){
 	bladeForm = false;
 	immortal = false;
@@ -28,29 +28,17 @@ bladeFormEnd = function(){
 	image_angle = 0;
 	rotationSpeed = 0;
 };
-acceleration = 0.1;
 rotationSpeed = 0;
-changeOnSpeed = 20;
-maxAcceleration = 30;
 bladeFormAfterImages = [];
-afterImageTimerBase = 1;
-afterImageTimer = 1;
+afterImageTimer = BLADE_FORM_AFTERIMAGE_COOLDOWN;
 afterImageTimerEnd = function(a){
-	afterImageTimer = 0.05;
+	afterImageTimer = BLADE_FORM_AFTERIMAGE_COOLDOWN;
 	bladeFormAfterImages = [];
 	array_push(bladeFormAfterImages, image_angle);
 	if (array_length(bladeFormAfterImages) >= 5) {
 	    array_shift(bladeFormAfterImages);
 	}
 };
-areaTime = 10;
-DebugManager.debug_add_config("areaTime", DebugTypes.UpDown, self, "areaTime");
-DebugManager.debug_add_config("Timer", DebugTypes.UpDown, self, "bladeFormTimer");
-DebugManager.debug_add_config("acceleration", DebugTypes.UpDown, self, "acceleration");
-DebugManager.debug_add_config("changeOnSpeed", DebugTypes.UpDown, self, "changeOnSpeed");
-DebugManager.debug_add_config("maxAcceleration", DebugTypes.UpDown, self, "maxAcceleration");
-DebugManager.debug_add_config("afterImageTimer", DebugTypes.UpDown, self, "afterImageTimer");
-DebugManager.debug_add_config("afterImageTimerBase", DebugTypes.UpDown, self, "afterImageTimerBase");
 #endregion
 #endregion
 if (!instance_exists(oCam)) {
