@@ -1,3 +1,19 @@
+#region Specials
+#region Anya
+var cooldownOver = false;
+if (other.hittedcooldown[Weapons.AnyaBlade] < global.currentFrame) {
+    cooldownOver = true;
+}
+if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and !other.infected) {
+	other.hittedcooldown[Weapons.AnyaBlade] = global.currentFrame + 10;
+	other.damaged = true;
+	other.hp -= 10;
+	other.damagedAlarm = 15;
+	damage_number_spawn(other, 10, false);
+}
+#endregion
+#endregion
+if (immortal) { exit; }
 if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.gamePaused and !other.infected) {
 	invencibilityFrames = 3;
 	other.canattack=false;

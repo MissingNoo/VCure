@@ -129,3 +129,4 @@ function updatedebuffs(){
 		}
 	}
 }
+hittedcooldown = array_create(100, 0);

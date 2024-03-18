@@ -125,7 +125,7 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 #endregion
 #region Specials
 tickTimer(["bladeFormTimer", bladeFormEnd]);
-tickTimer(["afterImageTimer", afterImageTimerEnd, a]);
+tickTimer(["afterImageTimer", afterImageTimerEnd, afterImageTimerBase]);
 if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
 if (input_check_pressed("cancel") and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) { use_special(special);	}
 if (global.lastsequence != undefined) {

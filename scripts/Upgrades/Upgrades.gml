@@ -202,7 +202,8 @@ enum Weapons{
 	AmePistol,
 	Aik,
 	Keris,
-	Length
+	Length,
+	AnyaBlade
 }
 
 function populate_upgrades(){

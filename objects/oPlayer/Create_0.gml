@@ -36,12 +36,15 @@ bladeFormAfterImages = [];
 afterImageTimerBase = 1;
 afterImageTimer = 1;
 afterImageTimerEnd = function(a){
-	afterImageTimer = a;
+	afterImageTimer = 0.05;
+	bladeFormAfterImages = [];
 	array_push(bladeFormAfterImages, image_angle);
-	if (array_length(bladeFormAfterImages) >= 4) {
+	if (array_length(bladeFormAfterImages) >= 5) {
 	    array_shift(bladeFormAfterImages);
 	}
 };
+areaTime = 10;
+DebugManager.debug_add_config("areaTime", DebugTypes.UpDown, self, "areaTime");
 DebugManager.debug_add_config("Timer", DebugTypes.UpDown, self, "bladeFormTimer");
 DebugManager.debug_add_config("acceleration", DebugTypes.UpDown, self, "acceleration");
 DebugManager.debug_add_config("changeOnSpeed", DebugTypes.UpDown, self, "changeOnSpeed");
@@ -145,11 +148,11 @@ global.move.follow(false);
 function tickTimer(arr){
 	var _count = variable_instance_get(self, arr[0]);
 	if (_count == -1) { exit; }
-	if (_count > 0) {
+	if (_count >= 0) {
 	    variable_instance_set(self, arr[0], _count - ((1/60) * Delta));
 	}
 	if (_count < 0) {
+		variable_instance_set(self, arr[0], -1);
 		arr[1]();
-	    variable_instance_set(self, arr[0], _count - ((1/60) * Delta));
 	}
 }
