@@ -16,6 +16,17 @@ for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	}
 }
 #endregion
+#region Specials
+#region Anya
+if (bladeForm) {
+	var _alpha = 0.25;
+    for (var i = 0; i < array_length(bladeFormAfterImages); ++i) {
+	    draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, bladeFormAfterImages[i], c_yellow, _alpha);
+		_alpha+=0.25;
+	}
+}
+#endregion
+#endregion
 draw_self();
 if (HP > 0 and HP < MAXHP) {
     draw_healthbar((x - 13), ((y - characterHeight) - 3), (x + 13), ((y - characterHeight) - 6), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);

@@ -477,13 +477,13 @@ if (canMove == true){
 				    global.arrowDir = point_direction(oPlayer.x, oPlayer.y, mouse_x, mouse_y + 16);
 				}
 				if (global.arrowDir > 90 and global.arrowDir < 270) {
-					    image_xscale = -1;
+					    if (!lockSprite) {image_xscale = -1;}
 					};
 					if (global.arrowDir < 90 and (global.arrowDir > 270 or global.arrowDir > 0)) {
-					    image_xscale = 1;
+					    if (!lockSprite) {image_xscale = 1;}
 					};
 					if (global.arrowDir < 360 and global.arrowDir > 270) {
-					    image_xscale = 1;
+					    if (!lockSprite) {image_xscale = 1;}
 					};
 			}
 			else{
@@ -496,13 +496,13 @@ if (canMove == true){
 				if (!instance_exists(oPlayerWorld)) {
 				    global.arrowDir = point_direction(x1, y1, x2, y2);
 					if (global.arrowDir > 90 and global.arrowDir < 270) {
-						image_xscale = -1;
+						if (!lockSprite) {image_xscale = -1;}
 					};
 					if (global.arrowDir < 90 and (global.arrowDir > 270 or global.arrowDir > 0)) {
-						image_xscale = 1;
+						if (!lockSprite) {image_xscale = 1;}
 					};
 					if (global.arrowDir < 360 and global.arrowDir > 270) {
-						image_xscale = 1;
+						if (!lockSprite) {image_xscale = 1;}
 					};
 				}
 			}
@@ -522,7 +522,7 @@ if (canMove == true){
 	}
 	else {
 		if (global.move.check() and global.move.get_touch_x() != undefined and global.move.get_touch_y() != undefined) {
-			sprite_index=runningsprite;
+			if (!lockSprite) {sprite_index=runningsprite;}
 			_mx1 = global.move.get_touch_start_x();
 			_my1 = global.move.get_touch_start_y();
 			_mx2 = global.move.get_touch_x();
@@ -538,7 +538,7 @@ if (canMove == true){
 		}
 		else {
 			moving = false;
-			sprite_index=sprite;
+			if (!lockSprite) {sprite_index=sprite;}
 		}
 	}
     
@@ -547,7 +547,7 @@ if (canMove == true){
     {
 		if (_hspd != 0) {
 			if (!global.strafe and !instance_exists(oJoystick)) {
-			    image_xscale=_hspd;
+			    if (!lockSprite) {image_xscale=_hspd;}
 			}		    
 		}
 		
@@ -562,15 +562,15 @@ if (canMove == true){
 		if (y + _yadd > _maxy or y + _yadd < _miny) { _yadd = 0;}
 		move_and_collide(_xadd, _yadd,oCollision);
 		moving = true;
-		sprite_index=runningsprite;
+		if (!lockSprite) {sprite_index=runningsprite;}
         }
 		else if (os_type != os_android or global.gamePad) {
-			sprite_index=sprite;
+			if (!lockSprite) {sprite_index=sprite;}
 			moving = false;
 		}
     } 
 	else if (os_type != os_android or global.gamePad) {
-		sprite_index=sprite;
+		if (!lockSprite) {sprite_index=sprite;}
 		moving = false;
 	}
 }

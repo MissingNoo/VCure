@@ -68,7 +68,10 @@ function use_special(_special)
 		case SpecialIds.BuffDude:
 			instance_create_depth(x, y, depth, oTenmaDude);
 			break;
-	    
+	    case SpecialIds.BladeForm:
+			oPlayer.bladeForm = true;
+			oPlayer.bladeFormTimer = 10;
+			break;
 	    //case SpecialIds.Gura:
 	    //	redgura = true;
 	    //	break;

@@ -1,5 +1,6 @@
 event_inherited();
 initializePlayer(global.player);
+lockSprite = false;
 moving = false;
 characterHeight = sprite_get_height(sprite_index);
 #region Variables related to items
@@ -16,6 +17,37 @@ bandageHealSeconds = 0;
 #region Aki
 aromateraphy = [false, 0, 0, 0, 0];
 mukirose = [false, 0, 0, 0, 0];
+#endregion
+#region Anya
+bladeForm = false;
+bladeFormTimer = 10;
+bladeFormEnd = function(){
+	bladeForm = false;
+	immortal = false;
+	lockSprite = false;
+	image_angle = 0;
+	rotationSpeed = 0;
+};
+acceleration = 0.1;
+rotationSpeed = 0;
+changeOnSpeed = 20;
+maxAcceleration = 30;
+bladeFormAfterImages = [];
+afterImageTimerBase = 1;
+afterImageTimer = 1;
+afterImageTimerEnd = function(a){
+	afterImageTimer = a;
+	array_push(bladeFormAfterImages, image_angle);
+	if (array_length(bladeFormAfterImages) >= 4) {
+	    array_shift(bladeFormAfterImages);
+	}
+};
+DebugManager.debug_add_config("Timer", DebugTypes.UpDown, self, "bladeFormTimer");
+DebugManager.debug_add_config("acceleration", DebugTypes.UpDown, self, "acceleration");
+DebugManager.debug_add_config("changeOnSpeed", DebugTypes.UpDown, self, "changeOnSpeed");
+DebugManager.debug_add_config("maxAcceleration", DebugTypes.UpDown, self, "maxAcceleration");
+DebugManager.debug_add_config("afterImageTimer", DebugTypes.UpDown, self, "afterImageTimer");
+DebugManager.debug_add_config("afterImageTimerBase", DebugTypes.UpDown, self, "afterImageTimerBase");
 #endregion
 #endregion
 if (!instance_exists(oCam)) {
@@ -110,3 +142,14 @@ global.move.follow(false);
 //rig=0;
 //upp=0;
 #endregion
+function tickTimer(arr){
+	var _count = variable_instance_get(self, arr[0]);
+	if (_count == -1) { exit; }
+	if (_count > 0) {
+	    variable_instance_set(self, arr[0], _count - ((1/60) * Delta));
+	}
+	if (_count < 0) {
+		arr[1]();
+	    variable_instance_set(self, arr[0], _count - ((1/60) * Delta));
+	}
+}

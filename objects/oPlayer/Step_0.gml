@@ -124,6 +124,8 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 }
 #endregion
 #region Specials
+tickTimer(["bladeFormTimer", bladeFormEnd]);
+tickTimer(["afterImageTimer", afterImageTimerEnd, a]);
 if (skilltimer < specialcooldown + 10) { skilltimer+=1/60; }
 if (input_check_pressed("cancel") and skilltimer > specialcooldown and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) { use_special(special);	}
 if (global.lastsequence != undefined) {
@@ -138,7 +140,7 @@ if (monsterUsed) {
 	}
 }
 #endregion
-#region Monster
+#region Wallmart
 if (wallMart) {
 	wallmartTimer -= 1/60*Delta;
 	if (wallmartTimer <= 0) {
@@ -146,6 +148,25 @@ if (wallMart) {
 		Buffs[BuffNames.WallmartDefense][$ "enabled"] = false;
 		instance_destroy(oSpecialEffect);
 	}
+}
+#endregion
+#region Anya
+if (bladeForm) {
+	image_xscale = 1;
+	rotationSpeed += acceleration;
+	if (rotationSpeed > maxAcceleration) {
+	    rotationSpeed = maxAcceleration;
+	}
+	image_angle -= rotationSpeed;
+	immortal = true;
+	lockSprite = true;
+	if (rotationSpeed < changeOnSpeed) {
+	    sprite_index = sAnyaBlade1;
+	}
+	else {
+		sprite_index = sAnyaBlade2;
+	}
+    
 }
 #endregion
 #endregion

@@ -980,17 +980,18 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 	}
 #endregion
 #region Debug
-DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
+//DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
 DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 999;});
-DebugManager.debug_add_config("Setweapon", DebugTypes.Button, self, "", function(){ global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Aik][1]; });
+//DebugManager.debug_add_config("Setweapon", DebugTypes.Button, self, "", function(){ global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Aik][1]; });
+DebugManager.debug_add_config("Special", DebugTypes.Button, self, "", function(){oPlayer.skilltimer = oPlayer.specialcooldown;});
 DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function(){global.xp = oPlayer.neededxp;});
-DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
-DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
-DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
-DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
-DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
-DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
-DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
+//DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
+//DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
+//DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
+//DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
+//DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
+//DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
+//DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
 if (keyboard_check_pressed(ord("M"))) {
 	global.debug = !global.debug;
 	DebugManager.show = global.debug;
