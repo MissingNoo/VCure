@@ -823,41 +823,56 @@ function aik_step(o){
 			enemyTarget = noone;
 			image_alpha = .999;
 			directionSet = false;
+			var _dir = irandom_range(0, 360);
 			var _list = ds_list_create();
 			var _num = collision_circle_list(x, y, 250, oEnemy, false, true, _list, true);
-			if (_num <= 0) { exit; }
-			if (shoots > 0) {
-			    enemyTarget = _list[| 0];
+			if (_num > 0) {
+				if (shoots > 0) {
+				    enemyTarget = _list[| 0];
+				}
+				else {
+					var _chance = irandom_range(0, ds_list_size(_list) - 1);
+				    enemyTarget = _list[| _chance];
+				}
+				if (enemyTarget != noone and instance_exists(enemyTarget)) {
+				    _dir = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+				}
 			}
-			else {
-				var _chance = irandom_range(0, ds_list_size(_list) - 1);
-			    enemyTarget = _list[| _chance];
+			direction = irandom_range(_dir - 30, _dir + 30);
+			if (direction - enemyDirection < -180) {
+				direction = enemyDirection;
 			}
-			if (enemyTarget != noone and instance_exists(enemyTarget)) {
-			    direction = point_direction(x, y, enemyTarget.x, enemyTarget.y);
-				speed = upg[$ "speed"];
-			}
-			else {
-				speed = 0;
-			}
+			image_angle = direction;
+			speed = upg[$ "speed"];
+			//else {
+			//	speed = 0;
+			//}
 			ds_list_destroy(_list);
 	        break;
 	    case WeaponEvent.Step:
-			if (enemyTarget == noone) {
-				speed = 0;
-			}
+			//if (enemyTarget == noone) {
+			//	speed = 0;
+			//}
 	        if (instance_exists(enemyTarget)) {
 				if (!directionSet) {
 					image_angle = point_direction(x, y, enemyTarget.x, enemyTarget.y);
 				    directionSet = true;
 				}
 			    enemyDirection = point_direction(x, y, enemyTarget.x, enemyTarget.y);
-				if (direction > enemyDirection) {
-				    direction -= 2;
+				//if (direction > enemyDirection) {
+				//    direction -= 2;
+				//}
+				//if (direction < enemyDirection) {
+				//    direction += 2;
+				//}
+				if (aikFollow) {
+				    if (direction - enemyDirection < -180) {
+						lowest = direction - enemyDirection;
+						direction = enemyDirection;
+					}
+					direction = lerp(direction, enemyDirection, .25);
 				}
-				if (direction < enemyDirection) {
-				    direction += 2;
-				}
+				
 				if (distance_to_object(enemyTarget) < 22) {
 					speed = 0; 
 				}

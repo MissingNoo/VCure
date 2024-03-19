@@ -48,6 +48,12 @@ if (!global.gamePaused) {
 			event_user(i);
 		}
 	}
+	if (aikFollowTimer > 0) {
+	    aikFollowTimer -= (1/60) * Delta;
+	}
+	else {
+		aikFollow = true;
+	}
 	if (speed > 0 and upg[$ "id"] != Weapons.CuttingBoard) {
 	    speed=upg[$ "speed"] * Delta;
 	}

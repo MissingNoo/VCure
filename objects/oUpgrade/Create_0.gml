@@ -1,8 +1,13 @@
 //event_inherited();
+lowest = 0;
+aikFollowTimer = 0.25;
+aikFollow = false;
+dirTurn = false;
 perkBonusDmg = 0;
 _extrainfo = {};
 _extra = {};
 enemyTarget = noone;
+enemyDirection = 0;
 xxstart = xstart;
 yystart = ystart;
 sincounter = current_time;

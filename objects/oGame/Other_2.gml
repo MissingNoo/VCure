@@ -197,6 +197,13 @@ var fstr = "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^~`a
 draw_set_font(global.newFont[1]);
 #endregion
 #region Populate Items
+for (var i = 0; i < Characters.Lenght; ++i) {
+    global.characterdata[i] = {
+		unlocked : false,
+		outfits : [],
+		grank : 0,
+	};
+}
 populate_items();
 populate_upgrades();
 populate_collabs();

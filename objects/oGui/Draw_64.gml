@@ -64,7 +64,7 @@ draw_set_font(global.newFont[2]);
 var offset = 0;
 if (room == rCharacterSelect) {
 	NAME=CHARACTERS[selectedCharacter][?"name"];
-	var _isUnlocked = UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]];
+	var _isUnlocked = CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked;
 	#region CharacterList
 	if (!characterSelected) {
 		draw_set_valign(fa_middle);
@@ -78,7 +78,9 @@ if (room == rCharacterSelect) {
 		_x = GW/10;
 		_y = GH/4;
 		draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
-		draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
+		if (_isUnlocked) {
+		    draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
+		}
 		for (var i=1; i < Characters.Lenght; i++) {
 			if (CHARACTERS[i][?"agency"] != selectedAgency and selectedAgency != "All") {
 			    continue;
@@ -86,14 +88,20 @@ if (room == rCharacterSelect) {
 			var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 			var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
-			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }			
-			if (CHARACTERS[i][? "finished"] == false) { draw_set_color(c_red); }
-			if (CHARACTERS[i][? "finished"] == 3) { draw_set_color(c_orange); }
-			if ((CHARACTERS[i][? "finished"] == false or CHARACTERS[i][? "finished"] == 3) and os_get_config() == "Release") { continue; }
+			if (!sidebarOpen and point_in_rectangle(x, y, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }
+			switch (CHARACTERS[i][? "finished"]) {
+			    case 0:
+					if (os_get_config() == "Release") { continue; }
+			        draw_set_color(c_red);
+			        break;
+			    case 3:
+					if (os_get_config() == "Release") { continue; }
+			        draw_set_color(c_orange);
+			        break;
+			}
 			draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
 			draw_set_color(c_white);
-			var _characterUnlocked = UnlockableCharacters[CHARACTERS[i][?"id"]];
-			draw_sprite_ext(_characterUnlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(CharacterData[i].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
 			if (selectedCharacter == i) {
 				draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
 			}
@@ -102,26 +110,28 @@ if (room == rCharacterSelect) {
 			    _yoffset += 85;
 				_offset = 0;
 			}
-		}		
-		draw_text_ext_transformed(GW/1.48, GH/7.31, string_upper(CHARACTERS[selectedCharacter][?"name"]), string_height("W"), 50, 7, 7, 0);		
-		draw_sprite_ext(sCharShadow, 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 0.8);
-		draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
-		var _charInfo = CHARACTERS[selectedCharacter];
-		var _info = [[sHudHPIcon, _charInfo[?"hp"], ""], [sHudAtkIcon, _charInfo[?"atk"], "x"], [sHudSpdIcon,_charInfo[?"speed"], "x"], [sHudCrtIcon,_charInfo[?"crit"], "%"]];
-		_yoffset = 0;
-		for (var i = 0; i < array_length(_info); ++i) {
-		    draw_sprite_ext(_info[i][0], 0, GW/1.49, GH/1.37 + _yoffset, 1.5, 1.5, 0, c_white, 1);
-			draw_set_alpha(0.25);
-			draw_rectangle_color(GW/1.46, GH/1.39 + _yoffset, GW/1.35, GH/1.34 + _yoffset, c_black, c_black, c_black, c_black, false);
-			draw_set_alpha(1);
-			draw_text_transformed(GW/1.49 + 25, GH/1.39 + _yoffset, string($"{_info[i][1]}{_info[i][2]}"), 1.5, 1.5, 0);
-			_yoffset += 35;
+		}
+		if (_isUnlocked) {
+		    draw_text_ext_transformed(GW/1.48, GH/7.31, string_upper(CHARACTERS[selectedCharacter][?"name"]), string_height("W"), 50, 7, 7, 0);		
+			draw_sprite_ext(sCharShadow, 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 0.8);
+			draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
+			var _charInfo = CHARACTERS[selectedCharacter];
+			var _info = [[sHudHPIcon, _charInfo[?"hp"], ""], [sHudAtkIcon, _charInfo[?"atk"], "x"], [sHudSpdIcon,_charInfo[?"speed"], "x"], [sHudCrtIcon,_charInfo[?"crit"], "%"]];
+			_yoffset = 0;
+			for (var i = 0; i < array_length(_info); ++i) {
+			    draw_sprite_ext(_info[i][0], 0, GW/1.49, GH/1.37 + _yoffset, 1.5, 1.5, 0, c_white, 1);
+				draw_set_alpha(0.25);
+				draw_rectangle_color(GW/1.46, GH/1.39 + _yoffset, GW/1.35, GH/1.34 + _yoffset, c_black, c_black, c_black, c_black, false);
+				draw_set_alpha(1);
+				draw_text_transformed(GW/1.49 + 25, GH/1.39 + _yoffset, string($"{_info[i][1]}{_info[i][2]}"), 1.5, 1.5, 0);
+				_yoffset += 35;
+			}
 		}
 		#region Special Window
 		select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special");
 		var _speX = GW/1.09;
 		var _speY = GH/1.21;
-		var _speSpr = SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb;
+		var _speSpr = _isUnlocked ? SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb : sLockIcon;
 		var _speSprW = sprite_get_width(_speSpr);
 		var _speSprH = sprite_get_height(_speSpr);
 		var _specialsUnlocked = global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1;
@@ -129,7 +139,7 @@ if (room == rCharacterSelect) {
 		#endregion
 		#region Atk Window
 		select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack");
-		var _atkSpr = CHARACTERS[selectedCharacter][?"weapon"][1].thumb;
+		var _atkSpr = _isUnlocked ? CHARACTERS[selectedCharacter][?"weapon"][1].thumb : sCharacterLockedIcon;
 		var _atkX = GW/1.19;
 		var _atkY = GH/1.14;
 		var _atkSprW = sprite_get_width(_atkSpr);
@@ -143,7 +153,7 @@ if (room == rCharacterSelect) {
 			var _xx = GW/1.20 + _offset;
 			var _yy = GH/1.43;
 			var _perk = global.characterPerks[selectedCharacter][i]
-			var _spr = _perk.thumb;
+			var _spr = _isUnlocked ? _perk.thumb : sCharacterLockedIcon;
 			var _sprW = sprite_get_width(_spr) * 3 / 2;
 			var _sprH = sprite_get_height(_spr) * 3 / 2;
 		    draw_sprite_ext(_spr, 0, _xx, _yy, 3, 3, 0, c_white, 1);
@@ -157,7 +167,7 @@ if (room == rCharacterSelect) {
 			var _spr = _perk.thumb;
 			var _sprW = sprite_get_width(_spr) * 3 / 2;
 			var _sprH = sprite_get_height(_spr) * 3 / 2;
-			if (point_in_rectangle(TouchX1, TouchY1, _xx - _sprW, _yy - _sprH, _xx + _sprW, _yy + _sprH)) {
+			if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _xx - _sprW, _yy - _sprH, _xx + _sprW, _yy + _sprH)) {
 			    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Skill", 0.75);
 				draw_sprite_ext(_spr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
 				draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Perks." + _perk.name + ".name"), 2.5, 2.5, 0);
@@ -167,13 +177,13 @@ if (room == rCharacterSelect) {
 		}
 		#endregion
 		#region Open Window when mouse over
-		if (point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3)) and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
+		if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3)) and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
 		    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Special", 0.75);
 			draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
 			draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name"), 2.5, 2.5, 0);
 			drawDesc(GW/1.40, GH/1.41, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc"), GW/3.90, 2);
 		}
-		if (point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2))) {
+		if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2))) {
 		    select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Attack", 0.75);
 			draw_sprite_ext(_atkSpr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
 			draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name"), 2.5, 2.5, 0);
@@ -989,7 +999,7 @@ DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function()
 //DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
 //DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
 //DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
-//DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
+DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
 //DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
 //DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
 //DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");

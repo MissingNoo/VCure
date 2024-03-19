@@ -215,7 +215,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	}
 	#endregion
 	if (variable_instance_exists(self, "applyDebuff")) {
-		if (irandom_range(0, 100) <= applyDebuff[2]) {
+		if (irandom_range(1, 100) <= applyDebuff[2]) {
 			var _enemy = other;
 			var _exist = false;
 			var _pos = 0;

@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableOutfits", "gRanks", "unlockableCharacters", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdata"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -40,10 +40,7 @@ function Load_Data_Structs () {
 		  
 		if(array_length(UnlockableItems) < ItemIds.Length) { UnlockableItems[ItemIds.Length] = false; }
 		if(array_length(UnlockableWeapons) < Weapons.Length) { UnlockableWeapons[Weapons.Length] = false; }
-		if(array_length(UnlockableCharacters) < Characters.Lenght) { UnlockableCharacters[Characters.Lenght] = false; }
 		if(array_length(UnlockableAchievements) < AchievementIds.Length) { UnlockableAchievements[AchievementIds.Length] = false; }
-		if(array_length(Granks) < Characters.Lenght) { Granks[array_length(Granks)] = 0; }
-		if(array_length(UnlockableOutfits) < Outfits.Length) { UnlockableOutfits[Outfits.Length] = false; }
      };
     
 function Save_Reserve () { var Data = {};

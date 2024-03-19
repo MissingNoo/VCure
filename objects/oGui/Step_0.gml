@@ -375,30 +375,8 @@ if (room == rCharacterSelect or room == rAchievements) {
 }
 #region Select Character room
 if (room == rCharacterSelect) {
-	if (sidebar[2] < sidebar[3]) {
-		sidebar[2] += 20;
-	}
-	if (sidebar[2] > sidebar[3]) {
-		sidebar[2] -= 20;
-	}
-	if (sidebarOpen) {
-	    if (sidebar[0] < sidebar[1]) {
-		    sidebar[0] += 10;
-		}
-		else { sidebar[0] = sidebar[1]; }
-	}
-	else {
-		if (sidebar[0] > 65) {
-		    sidebar[0] -= 10;
-		}
-		else { sidebar[0] = 65; }
-	}
-	//else {
-	//	if (sidebar[0] > 0) {
-	//		sidebar[0] -= b;
-	//	}
-	//	else { sidebar[0] = 0; }
-	//}
+	sidebar[2] = lerp(sidebar[2], sidebar[3], 0.25);
+	sidebar[0] = lerp(sidebar[0], sidebarOpen ? sidebar[1] : 65, 0.1);
 	#region Character sprite
 	characterSubImage[1] = sprite_get_number(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"]);
 	characterSubImage[2] = sprite_get_speed(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"]);
@@ -465,7 +443,7 @@ if (room == rCharacterSelect) {
 		}
 		if (!characterSelected) {
 			if (sidebarOpenByButton) { sidebarOpenByButton = false; return; }
-			if (!UnlockableCharacters[CHARACTERS[selectedCharacter][?"id"]]) { return; }
+			if (!CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked) { return; }
 			global.player=CHARACTERS[selectedCharacter];
 			audio_stop_sound(global.musicPlaying);
 			audio_play_sound(snd_char_selected,0,0);

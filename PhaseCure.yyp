@@ -90,7 +90,6 @@
     {"$GMFolder":"","%Name":"Achievements","folderPath":"folders/Sprites/Achievements.yy","name":"Achievements","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Buffs","folderPath":"folders/Sprites/Buffs.yy","name":"Buffs","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Characters","folderPath":"folders/Sprites/Characters.yy","name":"Characters","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Amelia","folderPath":"folders/Sprites/Characters/Amelia.yy","name":"Amelia","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Guests","folderPath":"folders/Sprites/Characters/Guests.yy","name":"Guests","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Trickywi","folderPath":"folders/Sprites/Characters/Guests/Trickywi.yy","name":"Trickywi","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Hololive","folderPath":"folders/Sprites/Characters/Hololive.yy","name":"Hololive","resourceType":"GMFolder","resourceVersion":"2.0",},

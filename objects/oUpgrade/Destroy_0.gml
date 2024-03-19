@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (lowest < 0) {
+    show_debug_message($"lowest: {lowest}");
+}
+
 sendMessage({
 	command: Network.DestroyUpgrade,
 	upgID,	
