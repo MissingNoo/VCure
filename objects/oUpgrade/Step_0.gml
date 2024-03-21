@@ -1,4 +1,4 @@
-_extra = {};
+extra = {};
 var _oldspeed = speed;
 var _olddir = direction;
 xpreviousprevious = x - (x - xprevious);
@@ -85,12 +85,12 @@ if (sendend) {
 	});
 }
 
-if (_oldspeed != speed) { _extra.speed = speed; }
-if (_olddir != speed) { _extra.direction = direction;  _extra.image_angle = image_angle; }
+if (_oldspeed != speed) { extra.speed = speed; }
+if (_olddir != speed) { extra.direction = direction;  extra.image_angle = image_angle; }
 
 sendMessage({
 		command : Network.UpdateUpgrade,
 		socket,
 		upgID,
-		extrainfo : json_stringify(_extra)
+		extrainfo : json_stringify(extra)
 	});

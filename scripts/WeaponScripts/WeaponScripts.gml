@@ -71,7 +71,7 @@ function asacoco_step(o){
 	else {
 		if (dAlarm[1] > 0) {
 			y-=1.75;
-			_extra.asay = y;
+			extra.asay = y;
 			if (instance_exists(ce)) {
 				direction = point_direction(x,y,ce.x, ce.y);
 				image_angle = point_direction(x,y,ce.x, ce.y);
@@ -116,7 +116,7 @@ function liabolt_step(o){
 			_inst.newboltcolor = lightningColor;
 			_inst.newowner = id;
 		}
-		_extrainfo = {upg : upg[$"id"], lightningColor, startX, startY};
+		extrainfo = {upg : upg[$"id"], lightningColor, startX, startY};
 	}
 	else {
 		image_xscale = 0.2;
@@ -124,8 +124,8 @@ function liabolt_step(o){
 		if (lightningTarget != noone and instance_exists(lightningTarget)) {
 			x = lightningTarget.x;
 			y = lightningTarget.y;
-			_extra.lx = x;
-			_extra.ly = y;
+			extra.lx = x;
+			extra.ly = y;
 		}
 	}
 }
@@ -168,10 +168,10 @@ function urukanote_step(o){
 				hits = 9999;
 			    break;
 		}
-		_extrainfo.coscounter = coscounter;
-		_extrainfo.upDown = upDown;
-		_extrainfo.travelWidth = upg[$ "travelWidth"];
-		_extrainfo.noteStartY = noteStartY;
+		extrainfo.coscounter = coscounter;
+		extrainfo.upDown = upDown;
+		extrainfo.travelWidth = upg[$ "travelWidth"];
+		extrainfo.noteStartY = noteStartY;
 	}
 	else {
 		if (sprite_index == sMonsterPulse or sprite_index == sNoteExplosion) {
@@ -220,8 +220,8 @@ function lavabucket_step(o){
 		depth = layer_get_depth("Pools");
 	}
 	else {
-		_extra.lx = x;
-		_extra.ly = y;
+		extra.lx = x;
+		extra.ly = y;
 	}
 }
 function ceotears_step(o){
@@ -297,11 +297,11 @@ function absolutewall_step(o){
 		x = owner.x;
 		y = owner.y - 16;
 		image_xscale = image_yscale + 0.5;
-		_extra.x = x;
-		_extra.y = y;
-		_extra.image_angle = image_angle;
-		_extra.image_xscale = image_xscale;
-		_extra.image_yscale = image_yscale;
+		extra.x = x;
+		extra.y = y;
+		extra.image_angle = image_angle;
+		extra.image_xscale = image_xscale;
+		extra.image_yscale = image_yscale;
 	}
 }
 function cuttingboard_step(o){
@@ -707,7 +707,7 @@ function elitecooking_step(o){
 	else {
 		if (poolSize != 1) {
 			poolSize -= 1;
-			_extra.poolSize = poolSize;
+			extra.poolSize = poolSize;
 		}
 	}
 }
@@ -810,7 +810,7 @@ function amepistol_step(o){
 	        break;
 	    case WeaponEvent.OnHit:
 	        if (hits == 1 and !amePistolLastHit and upg[$"level"] >= 4) {
-			    AmePistolLastHit=true;
+			    amePistolLastHit=true;
 				hits+=5;
 				direction = random(360);
 			}

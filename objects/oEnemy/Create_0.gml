@@ -124,6 +124,7 @@ function updatedebuffs(){
 			//show_debug_message($"original : {variable_instance_get(self, debuffs[i].stat)}");
 			var _count = debuffs[i].count;
 			var _mult = debuffs[i].statAmount[_count];
+			//feather disable once GM1041
 			variable_instance_set(self, debuffs[i][$ "stat"], _mult);
 			//show_debug_message($"after: {variable_instance_get(self, debuffs[i].stat)}");
 		}

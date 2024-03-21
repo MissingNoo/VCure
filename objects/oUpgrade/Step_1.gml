@@ -13,7 +13,7 @@ if (socket == oPlayer.socket) {
 #region Start
 // Feather disable GM2016
 if (a==0) {
-	_extrainfo = {upg : upg[$"id"]};
+	extrainfo = {upg : upg[$"id"]};
 if (shoots > 0 and WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Projectile) {
 	shoots += 1;
 }
@@ -126,20 +126,20 @@ image_speed = 0;
 		}
 	}
 	{ //online code
-		_extrainfo.uid = upg.id;
+		extrainfo.uid = upg.id;
 		if (speed != 0) {
-		    _extrainfo.speed = speed;
+		    extrainfo.speed = speed;
 		}
 		if (image_xscale != 1) {
-		    _extrainfo.xscale = image_xscale;
+		    extrainfo.xscale = image_xscale;
 		}
 		if (image_yscale != 1) {
-		    _extrainfo.yscale = image_yscale;
+		    extrainfo.yscale = image_yscale;
 		}
-		_extrainfo.speed = speed;
-		_extrainfo.shoots = shoots;
+		extrainfo.speed = speed;
+		extrainfo.shoots = shoots;
 		if (variable_struct_exists(upg, "afterimage")) {
-		    _extrainfo.afterimageColor = upg.afterimageColor;
+		    extrainfo.afterimageColor = upg.afterimageColor;
 		}
 		if (!variable_instance_exists(self, "sent")) {
 			sent = true;
@@ -152,7 +152,7 @@ image_speed = 0;
 				direction,
 				image_angle,
 				upgID,
-				extraInfo : json_stringify(_extrainfo)
+				extraInfo : json_stringify(extrainfo)
 			});
 		}
 	}	

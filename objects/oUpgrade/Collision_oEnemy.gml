@@ -44,6 +44,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	if (!variable_instance_exists(self, "maxdmg")) { maxdmg = 0; }
 	var _bonusDamage = 0;
 	if (upg[$ "bonusDamage"] != undefined) {
+		//feather disable once GM1041
 	    for (var i = 0; i < array_length(upg[$ "bonusDamage"]); ++i) {
 		    _bonusDamage += upg[$ "bonusDamage"][i] / upg[$ "shoots"];
 		}

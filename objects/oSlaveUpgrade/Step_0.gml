@@ -45,13 +45,13 @@ switch (extraInfo.uid) {
 		}
 		break;}
 	case Weapons.BLFujoshiAxe:{
-		blfujoshiaxe_step();
+		//blfujoshiaxe_step();
 		break;}
 	case Weapons.BLFujoshiBook:{
-		blfujoshibook_step();
+		//blfujoshibook_step();
 		break;}
 	case Weapons.BlBook:
-		blbook_step();
+		//blbook_step();
 		break;
 	case Weapons.SpiderCooking:{
 		x= owner.x;

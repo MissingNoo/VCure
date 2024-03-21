@@ -18,7 +18,9 @@
   ],
   "managed":true,
   "name":"oUpgradeAttach",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"oUpgrade","path":"objects/oUpgrade/oUpgrade.yy",},"propertyId":{"name":"upg","path":"objects/oUpgrade/oUpgrade.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
+  ],
   "parent":{
     "name":"Upgrades",
     "path":"folders/Objects/Player/Upgrades.yy",

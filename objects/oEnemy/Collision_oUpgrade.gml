@@ -6,7 +6,9 @@ if (!gotknocked and !infected) {
 		_push = other.tempKnockback;
 	}	
 	var _dir = point_direction(other.x, other.y, x, y);
+	//feather disable once GM1041
 	var _hspd = lengthdir_x(_push, _dir);
+	//feather disable once GM1041
 	var _vspd = lengthdir_y(_push, _dir); 
 	x+=_hspd;
 	y+=_vspd;
