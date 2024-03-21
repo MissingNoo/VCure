@@ -126,3 +126,19 @@ function perk_mukirose(o){
 			break;
 	}
 }
+function perk_ankh(o){
+	if (!instance_exists(oMascot) and o > 0) {
+	    instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);
+	}
+	switch (o) {
+	    case 1:
+			
+			break;
+	    case 2:
+			
+			break;
+	    case 3:
+			
+			break;
+	}
+}

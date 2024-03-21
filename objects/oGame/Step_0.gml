@@ -1,3 +1,24 @@
+if (keyboard_check_pressed(vk_f8)) {
+    show_message("Game data cleared! Reload the game!");
+	file_delete("settings");
+	
+	file_delete("sava_data.bin");
+	Granks = array_create(Characters.Lenght, 0);
+	UnlockableItems = array_create(ItemIds.Length, false);
+	UnlockableWeapons = array_create(Weapons.Length, false);
+	UnlockableAchievements = array_create(AchievementIds.Length, false);
+	for (var i = 0; i < Characters.Lenght; ++i) {
+	    global.characterdata[i] = {
+			unlocked : false,
+			outfits : [],
+			grank : 0,
+		};
+	}
+	global.holocoins = 0;
+	Save_Data_Structs();
+	global.initialConfigDone = false;
+}
+
 if (RELEASE) { 
     global.debug = false;
 	//Feather disable once GM2017

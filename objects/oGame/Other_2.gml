@@ -177,6 +177,7 @@ if (!variable_global_exists("ShopUpgrades")) {
 global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
 #endregion
 global.holocoins = 0;
+global.musicVolume = 0.25;
 Load_Data_Structs();
 global.holocoins ??= 0;
 #region Font

@@ -1,0 +1,1 @@
+sprite_index = choose(sXiboo, sDiaboo, sSpoodle, sCupid, sChillaboo);

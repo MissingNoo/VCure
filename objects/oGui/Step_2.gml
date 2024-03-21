@@ -97,6 +97,7 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
 #endregion
 #region Initial configuration
 if (!global.initialConfigDone and room != rInitialConfig) {
+	global.initialConfigDone = false;
     room_goto(rInitialConfig);
 }
 #endregion

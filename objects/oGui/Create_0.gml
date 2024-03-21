@@ -1,3 +1,5 @@
+UnlockableAchievements[AchievementIds.NoSound] = false;
+instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.NoSound})
 #region Locals Initialization
 menuClick = false;
 centered = false;

@@ -275,6 +275,7 @@ function populate_perks(){
 		#region Trickywi
 		create_perk({
 			id : PerkIds.Ankh,
+			func : perk_ankh,
 			name : "Ankh",
 			maxlevel : 3, 
 			weight : 1,

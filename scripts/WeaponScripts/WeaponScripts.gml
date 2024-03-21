@@ -835,7 +835,7 @@ function aik_step(o){
 				    enemyTarget = _list[| _chance];
 				}
 				if (enemyTarget != noone and instance_exists(enemyTarget)) {
-				    _dir = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+				    _dir = point_direction(x, y, enemyTarget.x, enemyTarget.y - 8);
 				}
 			}
 			direction = irandom_range(_dir - 30, _dir + 30);
@@ -855,10 +855,10 @@ function aik_step(o){
 			//}
 	        if (instance_exists(enemyTarget)) {
 				if (!directionSet) {
-					image_angle = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+					image_angle = point_direction(x, y, enemyTarget.x, enemyTarget.y - 8);
 				    directionSet = true;
 				}
-			    enemyDirection = point_direction(x, y, enemyTarget.x, enemyTarget.y);
+			    enemyDirection = point_direction(x, y, enemyTarget.x, enemyTarget.y - 8);
 				//if (direction > enemyDirection) {
 				//    direction -= 2;
 				//}
@@ -871,6 +871,7 @@ function aik_step(o){
 						direction = enemyDirection;
 					}
 					direction = lerp(direction, enemyDirection, .25);
+					image_angle = direction;
 				}
 				
 				if (distance_to_object(enemyTarget) < 22) {
