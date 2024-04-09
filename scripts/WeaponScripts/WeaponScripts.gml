@@ -850,9 +850,9 @@ function aik_step(o){
 			ds_list_destroy(_list);
 	        break;
 	    case WeaponEvent.Step:
-			//if (enemyTarget == noone) {
-			//	speed = 0;
-			//}
+			if (enemyTarget == noone) {
+				speed = 0;
+			}
 	        if (instance_exists(enemyTarget)) {
 				if (!directionSet) {
 					image_angle = point_direction(x, y, enemyTarget.x, enemyTarget.y - 8);
@@ -865,19 +865,18 @@ function aik_step(o){
 				//if (direction < enemyDirection) {
 				//    direction += 2;
 				//}
-				if (aikFollow) {
-				    if (direction - enemyDirection < -180) {
-						lowest = direction - enemyDirection;
-						direction = enemyDirection;
-					}
-					direction = lerp(direction, enemyDirection, .25);
+				if (aikFollow and speed > 0) {
+				    //if (direction - enemyDirection < -180) {
+					//	lowest = direction - enemyDirection;
+					//	direction = enemyDirection;
+					//}
+					direction += angle_difference(enemyDirection, direction) * 0.25;
 					image_angle = direction;
 				}
 				
 				if (distance_to_object(enemyTarget) < 22) {
 					speed = 0; 
 				}
-				if (speed > 0) { image_angle = enemyDirection; }
 			}
 			if (speed == 0) {
 				if (!beamLaunched) {

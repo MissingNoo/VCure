@@ -199,7 +199,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.400.0.516",
+    "IDEVersion":"2024.400.0.532",
   },
   "name":"PhaseCure",
   "resources":[
@@ -215,7 +215,6 @@
     {"id":{"name":"oAchNotify","path":"objects/oAchNotify/oAchNotify.yy",},},
     {"id":{"name":"oAnvil","path":"objects/oAnvil/oAnvil.yy",},},
     {"id":{"name":"oAreaDmg","path":"objects/oAreaDmg/oAreaDmg.yy",},},
-    {"id":{"name":"oMascot","path":"objects/oMascot/oMascot.yy",},},
     {"id":{"name":"oBurguer","path":"objects/oBurguer/oBurguer.yy",},},
     {"id":{"name":"oBush1","path":"objects/oBush1/oBush1.yy",},},
     {"id":{"name":"oBush2","path":"objects/oBush2/oBush2.yy",},},
@@ -246,6 +245,7 @@
     {"id":{"name":"oJoystick","path":"objects/oJoystick/oJoystick.yy",},},
     {"id":{"name":"oLobby","path":"objects/oLobby/oLobby.yy",},},
     {"id":{"name":"oMapItemParent","path":"objects/oMapItemParent/oMapItemParent.yy",},},
+    {"id":{"name":"oMascot","path":"objects/oMascot/oMascot.yy",},},
     {"id":{"name":"oNpcShop","path":"objects/oNpcShop/oNpcShop.yy",},},
     {"id":{"name":"oPillar","path":"objects/oPillar/oPillar.yy",},},
     {"id":{"name":"oPillarBroken","path":"objects/oPillarBroken/oPillarBroken.yy",},},

@@ -11,4 +11,5 @@ if (direction > 90 and direction < 270) {
 else {
 	scaleMult = 1;
 }
-direction = lerp(direction, point_direction(x, y, oPlayer.x, oPlayer.y), 0.1);
+//direction += lerp(direction, point_direction(x, y, oPlayer.x, oPlayer.y), 0.1);
+direction += angle_difference(point_direction(x, y, oPlayer.x, oPlayer.y), direction) * 0.1;

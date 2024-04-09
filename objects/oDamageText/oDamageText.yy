@@ -28,9 +28,9 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"dmg","filters":[],"listItems":[],"multiselect":false,"name":"dmg","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"","%Name":"critical","filters":[],"listItems":[],"multiselect":false,"name":"critical","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"","%Name":"infected","filters":[],"listItems":[],"multiselect":false,"name":"infected","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"dmg","filters":[],"listItems":[],"multiselect":false,"name":"dmg","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"critical","filters":[],"listItems":[],"multiselect":false,"name":"critical","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"infected","filters":[],"listItems":[],"multiselect":false,"name":"infected","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

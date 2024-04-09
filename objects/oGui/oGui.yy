@@ -38,8 +38,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"anvilSelected","filters":[],"listItems":[],"multiselect":false,"name":"anvilSelected","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"","%Name":"anvilSelectedCategory","filters":[],"listItems":[],"multiselect":false,"name":"anvilSelectedCategory","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"anvilSelected","filters":[],"listItems":[],"multiselect":false,"name":"anvilSelected","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"anvilSelectedCategory","filters":[],"listItems":[],"multiselect":false,"name":"anvilSelectedCategory","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

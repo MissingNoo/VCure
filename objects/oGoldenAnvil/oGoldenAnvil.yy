@@ -33,9 +33,9 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"dontsend","filters":[],"listItems":[],"multiselect":false,"name":"dontsend","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"","%Name":"anvilid","filters":[],"listItems":[],"multiselect":false,"name":"anvilid","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"","%Name":"maxuses","filters":[],"listItems":[],"multiselect":false,"name":"maxuses","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"dontsend","filters":[],"listItems":[],"multiselect":false,"name":"dontsend","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"anvilid","filters":[],"listItems":[],"multiselect":false,"name":"anvilid","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"maxuses","filters":[],"listItems":[],"multiselect":false,"name":"maxuses","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
