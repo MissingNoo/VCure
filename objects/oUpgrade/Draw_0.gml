@@ -1,4 +1,5 @@
 //switch (upg[?"name"]) {
+draw_text(x + 20, y, $"{direction} : {angle_difference(direction, 270) * 0.1}");
 //default:
 if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlayer.wallMart) and (image_alpha == 1 or image_alpha == .999)) {
 	

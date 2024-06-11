@@ -204,7 +204,10 @@ function bounceball_step(o){
 		if (vspeed < upg[$ "speed"]) {
 			vspeed += 0.55 * Delta;
 		}
-		move_and_collide(hspd, vspd, oEnemy);
+		//move_and_collide(hspd, vspd, oEnemy);
+		var _dir = point_direction(x, y, x, y + 10);
+		var _diff = angle_difference(_dir, direction);
+		direction += _diff * 0.005;
 		image_angle+=10;
 	}
 }

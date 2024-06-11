@@ -16,15 +16,16 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 		var _push = 5;
 		var _dir = point_direction(other.x, other.y, x, y);
 		var _rnd = 0;
-		do {
-		    _rnd = irandom_range(-1,1);
-		} until (_rnd != 0);
-		var _hspd = lengthdir_x(_push, _dir)  * _rnd;
+		//do {
+		    //_rnd = choose(-1,1);
+		//} until (_rnd != 0);
+		direction = _dir;
+		//var _hspd = lengthdir_x(_push, _dir)  * _rnd;
 		var _vspd = lengthdir_y(_push, _dir); 
 		 //x+=_hspd;
 		 //y+=_vspd;
 		 vspeed=_vspd;
-		 hspeed = _hspd;
+		 //hspeed = _hspd;
 		 if (upg[$ "id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x + _hspd, y + _vspd); }		 
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;
