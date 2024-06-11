@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"Achievements",
   "isCompatibility":false,
   "isDnD":false,

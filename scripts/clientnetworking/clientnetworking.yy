@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"clientnetworking",
   "isCompatibility":false,
   "isDnD":false,

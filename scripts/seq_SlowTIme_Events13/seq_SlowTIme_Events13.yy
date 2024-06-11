@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"seq_SlowTIme_Events13",
   "isCompatibility":false,
   "isDnD":false,
