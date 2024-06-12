@@ -1,7 +1,6 @@
 {
   "FolderOrderSettings":[
     {"name":"Animation Curves","order":22,"path":"folders/Animation Curves.yy",},
-    {"name":"DebugLib","order":37,"path":"folders/DebugLib.yy",},
     {"name":"Extensions","order":24,"path":"folders/Extensions.yy",},
     {"name":"Fonts","order":18,"path":"folders/Fonts.yy",},
     {"name":"Input","order":38,"path":"folders/Input.yy",},
@@ -51,6 +50,8 @@
     {"name":"Loading","order":3,"path":"folders/Lexicon/Internal/Loading.yy",},
     {"name":"Parsers","order":4,"path":"folders/Lexicon/Internal/Parsers.yy",},
     {"name":"Language","order":4,"path":"folders/Lexicon/Language.yy",},
+    {"name":"Libs","order":39,"path":"folders/Libs.yy",},
+    {"name":"DebugLib","order":1,"path":"folders/Libs/DebugLib.yy",},
     {"name":"Notes","order":23,"path":"folders/Notes.yy",},
     {"name":"Objects","order":20,"path":"folders/Objects.yy",},
     {"name":"Game","order":2,"path":"folders/Objects/Game.yy",},
@@ -864,6 +865,7 @@
     {"name":"sMonsterPulse","order":8,"path":"sprites/sMonsterPulse/sMonsterPulse.yy",},
     {"name":"sMouse","order":31,"path":"sprites/sMouse/sMouse.yy",},
     {"name":"sMouseAim","order":30,"path":"sprites/sMouseAim/sMouseAim.yy",},
+    {"name":"sMusicIcon","order":21,"path":"sprites/sMusicIcon/sMusicIcon.yy",},
     {"name":"sNoteExplosion","order":9,"path":"sprites/sNoteExplosion/sNoteExplosion.yy",},
     {"name":"sNurseHorn","order":8,"path":"sprites/sNurseHorn/sNurseHorn.yy",},
     {"name":"sPhaseCoin","order":29,"path":"sprites/sPhaseCoin/sPhaseCoin.yy",},
@@ -964,6 +966,7 @@
     {"name":"sUrukaRunning","order":1,"path":"sprites/sUrukaRunning/sUrukaRunning.yy",},
     {"name":"sUrukaSpecial","order":6,"path":"sprites/sUrukaSpecial/sUrukaSpecial.yy",},
     {"name":"sViral","order":4,"path":"sprites/sViral/sViral.yy",},
+    {"name":"sVolIcon","order":20,"path":"sprites/sVolIcon/sVolIcon.yy",},
     {"name":"sWall","order":2,"path":"sprites/sWall/sWall.yy",},
     {"name":"sWallThumb","order":3,"path":"sprites/sWallThumb/sWallThumb.yy",},
     {"name":"sWalmart","order":4,"path":"sprites/sWalmart/sWalmart.yy",},

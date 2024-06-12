@@ -18,6 +18,10 @@ if (GoldenANVIL or global.upgrade == 1 or PrizeBox or global.gamePaused and room
 #region Menu room
 draw_set_font(global.newFont[1]);
 if (room == rInicio) {
+	#region Volume icons
+	slider(sMusicIcon, 30, 56, 16, 100, 5, 8, "soundVolume");
+	slider(sMusicIcon, 30, 211, 16, 100, 5, 8, "musicVolume");
+	#endregion
 	#region Menu
 	if (!global.gamePaused) {
 		//draw_sprite_ext(sMenuTitle, 0, GW/3.77, GH/8.53, 0.7, 0.7, 0, c_white, 1);
@@ -315,7 +319,7 @@ if (room == rCharacterSelect) {
 }
 #endregion
 #region Inside Stage
-if (instance_exists(oPlayer)) {	
+if (instance_exists(oPlayer)) {
 	draw_sprite_ext(sPhaseCoin, 0, GW/1.23, GH/15.06, 1, 1, 0, c_white, 1);
 	draw_text_transformed(GW/1.18, GH/16.35, string(global.newcoins), 2, 2, 0);
 	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
@@ -948,8 +952,10 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 	var _offset = 0;
 	if (activeMenu == PMenus.Settings) {
 	    pauseMenu[PMenus.Settings][PM.Options] = [
-			["Music Volume: " + string(round(global.musicVolume*100)) + "%", PM.Slider, "musicVolume"],
-			["Sound Volume: " + string(round(global.soundVolume*100)) + "%", PM.Slider, "soundVolume"],
+			//["Music Volume: " + string(round(global.musicVolume*100)) + "%", PM.Slider, "musicVolume"],
+			["", PM.Slider, "musicVolume", sMusicIcon],
+			["", PM.Slider, "soundVolume", sVolIcon],
+			//["Sound Volume: " + string(round(global.soundVolume*100)) + "%", PM.Slider, "soundVolume"],
 			["Damage Numbers", PM.Bool, "damageNumbers"],
 			["Screen Shake", PM.Bool, "screenShake"],
 			["HP UI", PM.Bool, "showhpui"],
@@ -965,10 +971,15 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 		var _isSelected = selectedOption == i;
 		switch (pauseMenu[activeMenu][PM.Options][i][1]) {
 			case PM.Slider:
+				var _scolor = c_white;
+				var _ccolor = c_gray;
 				if (_isSelected) {
 					draw_sprite_ext(sMenuArrow, 0, _x - 140, _y, 2, 2, 180, c_white, 1);
 					draw_sprite_ext(sMenuArrow, 0, _x + 140, _y, 2, 2, 0, c_white, 1);
+					var _scolor = c_black;
+					var _ccolor = c_green;
 				}
+				slider(pauseMenu[activeMenu][PM.Options][i][3], 18, _x - 70, _y, 170, 5, 8, pauseMenu[activeMenu][PM.Options][i][2], _scolor, _ccolor, 170);
 			    break;
 			case PM.Bool:
 				var _sprColor = _isSelected ? 2 : 0;

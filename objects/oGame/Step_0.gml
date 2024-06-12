@@ -28,10 +28,10 @@ if (keyboard_check_pressed(vk_f11)) {
     window_set_fullscreen(not window_get_fullscreen());
 }
 DEBUG
-if (keyboard_check_pressed(vk_home)) {
-    Minutes = 6;
-	Seconds = 55;
-}
+//if (keyboard_check_pressed(vk_home)) {
+//    Minutes = 6;
+//	Seconds = 55;
+//}
 ENDDEBUG
 //if (global.debug and keyboard_check_pressed(vk_home)) {
 //    var importedSave = {};

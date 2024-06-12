@@ -6,7 +6,7 @@
   "name":"DebugLib",
   "parent":{
     "name":"DebugLib",
-    "path":"folders/DebugLib.yy",
+    "path":"folders/Libs/DebugLib.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

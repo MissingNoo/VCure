@@ -201,3 +201,28 @@ function select_screen_window(_x, _y, _xx, _yy, _title, _alpha = 0.5){
 	draw_text_transformed(_x + 6, _y + 5, string_upper(_title), 2.5, 2.5, 0);
 	draw_rectangle_color(_x + 5, _y + 37, _xx - 5, _y + 38, c_white, c_white, c_white, c_white, false);
 }
+
+function slider(icon, iconoffset, x, y, length, height, r, variable, backcolor = c_white, circlecolor = c_gray, multiplier = 100, isglobal = true, instance = noone) {
+	draw_set_color(backcolor);
+	draw_rectangle(x, y, x + length, y + height, false);
+	var value = 0;
+	if (isglobal) {
+		value = variable_global_get(variable);
+	}
+	else {
+		value = variable_instance_get(instance, variable);
+	}
+	draw_set_color(circlecolor);
+	draw_circle(x + (variable_global_get(variable) * multiplier), y + (height / 2), r, false);
+	draw_set_color(c_white);
+	draw_sprite_ext(icon, 0, x - iconoffset, y+ (height / 2), 1, 1, 0, c_white, 1);
+	if (mouse_hold_left and point_in_rectangle(MX, MY, x, y - 3, x + length, y + height + 3)) {
+		var endvalue = (MX - x) / multiplier;
+		if (isglobal) {
+			variable_global_set(variable, endvalue);
+		}
+		else {
+			variable_instance_set(instance, variable, endvalue);
+		}
+	}
+}

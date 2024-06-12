@@ -8,6 +8,11 @@
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
+  "ConfigValues":{
+    "Debug":{
+      "textureGroupId":"{ \"name\":\"Default\", \"path\":\"texturegroups/Default\" }",
+    },
+  },
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
@@ -27,7 +32,7 @@
   "origin":0,
   "parent":{
     "name":"DebugLib",
-    "path":"folders/DebugLib.yy",
+    "path":"folders/Libs/DebugLib.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
