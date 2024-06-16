@@ -1,3 +1,4 @@
+//Feather disable GM2064
 if (keyboard_check_pressed(vk_f8)) {
     show_message("Game data cleared! Reload the game!");
 	file_delete("settings");

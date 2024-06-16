@@ -709,18 +709,18 @@ if (instance_exists(oPlayer)) {
 	}
 	#endregion
 	#region Prize Box
-	DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oChest);});
+	//DebugManager.debug_add_config("PrizeBox", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oChest);});
 	if (PrizeBox) {
 		#region Debug
-		DebugManager.debug_add_config("Restart Box", DebugTypes.Button, undefined, undefined, function(){boxaccept = false; chestresult = false; chesttimer = 0; chestspr = 0; boxoffset = 700;});
-		DebugManager.debug_add_config("Animation time", DebugTypes.UpDown, self, "chestmaxtimer");
-		DebugManager.debug_add_config("Chest Size", DebugTypes.UpDown, self, "chestsize");
-		DebugManager.debug_add_config("Result Size", DebugTypes.UpDown, self, "resultSize");
-		DebugManager.debug_add_config("Result Y", DebugTypes.UpDown, self, "resultY");
-		DebugManager.debug_add_config("Coins amount", DebugTypes.UpDown, self, "coinsAmount");
-		DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
-		DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
-		DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
+		//DebugManager.debug_add_config("Restart Box", DebugTypes.Button, undefined, undefined, function(){boxaccept = false; chestresult = false; chesttimer = 0; chestspr = 0; boxoffset = 700;});
+		//DebugManager.debug_add_config("Animation time", DebugTypes.UpDown, self, "chestmaxtimer");
+		//DebugManager.debug_add_config("Chest Size", DebugTypes.UpDown, self, "chestsize");
+		//DebugManager.debug_add_config("Result Size", DebugTypes.UpDown, self, "resultSize");
+		//DebugManager.debug_add_config("Result Y", DebugTypes.UpDown, self, "resultY");
+		//DebugManager.debug_add_config("Coins amount", DebugTypes.UpDown, self, "coinsAmount");
+		//DebugManager.debug_add_config("Item size", DebugTypes.UpDown, self, "itemsize");
+		//DebugManager.debug_add_config("Upwards speed", DebugTypes.UpDown, self, "upspeed");
+		//DebugManager.debug_add_config("Distance between items", DebugTypes.UpDown, self, "itemdistance");
 		#endregion
 		draw_sprite_ext(sMenu, 0, GW/2, GH/2, !multiChest ? 3 : 4, 3, 0, c_white, 1);
 		if (!multiChest) {
@@ -744,7 +744,7 @@ if (instance_exists(oPlayer)) {
 			var h = sprite_get_height(sHudButton) * 1.50;
 			_x = GW/2;
 			_y = GH/2 + 275;
-			var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)], false);
+			var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
 			draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
 			draw_set_valign(fa_middle);
 			draw_set_halign(fa_center);
@@ -828,7 +828,7 @@ if (instance_exists(oPlayer)) {
 				var h = sprite_get_height(sHudButton) * 1.50;
 				_x = GW/2 + chestAcceptRefuseX;
 				_y = GH/2 + 275;
-				var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)], false);
+				var mouseIn = mouse_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]);
 				draw_sprite_ext(sHudButton, mouseIn ? 1 : 0, _x, _y, 0.75, 1.50, 0, c_white, 1);
 				draw_set_valign(fa_middle);
 				draw_set_halign(fa_center);
@@ -976,8 +976,8 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 				if (_isSelected) {
 					draw_sprite_ext(sMenuArrow, 0, _x - 140, _y, 2, 2, 180, c_white, 1);
 					draw_sprite_ext(sMenuArrow, 0, _x + 140, _y, 2, 2, 0, c_white, 1);
-					var _scolor = c_black;
-					var _ccolor = c_green;
+					_scolor = c_black;
+					_ccolor = c_green;
 				}
 				slider(pauseMenu[activeMenu][PM.Options][i][3], 18, _x - 70, _y, 170, 5, 8, pauseMenu[activeMenu][PM.Options][i][2], _scolor, _ccolor, 170);
 			    break;
@@ -1003,18 +1003,18 @@ if (global.gamePaused and !global.upgrade and !ANVIL and !GoldenANVIL and !Prize
 #endregion
 #region Debug
 //DebugManager.debug_add_config("RainbowXP", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oRainbowXP)});
-DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 999;});
+//DebugManager.debug_add_config("Rerrols", DebugTypes.Button, self, "", function(){global.rerolls = 999;});
 //DebugManager.debug_add_config("Setweapon", DebugTypes.Button, self, "", function(){ global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Aik][1]; });
-DebugManager.debug_add_config("Special", DebugTypes.Button, self, "", function(){oPlayer.skilltimer = oPlayer.specialcooldown;});
-DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function(){global.xp = oPlayer.neededxp;});
-DebugManager.debug_add_config("Ghost", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);});
+//DebugManager.debug_add_config("Special", DebugTypes.Button, self, "", function(){oPlayer.skilltimer = oPlayer.specialcooldown;});
+//DebugManager.debug_add_config("Levelup", DebugTypes.Button, self, "", function(){global.xp = oPlayer.neededxp;});
+//DebugManager.debug_add_config("Ghost", DebugTypes.Button, self, "", function(){instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);});
 //DebugManager.debug_add_config("Minute", DebugTypes.UpDown, self, "minute");
 //DebugManager.debug_add_config("Seconds", DebugTypes.UpDown, self, "second");
 //DebugManager.debug_add_config("Set time", DebugTypes.Button, self, "", function(){Minutes = minute; Seconds = second});
-DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
-DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
-DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
-DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
+//DebugManager.debug_add_config("a", DebugTypes.UpDown, self, "a");
+//DebugManager.debug_add_config("b", DebugTypes.UpDown, self, "b");
+//DebugManager.debug_add_config("c", DebugTypes.UpDown, self, "c");
+//DebugManager.debug_add_config("d", DebugTypes.UpDown, self, "d");
 if (keyboard_check_pressed(ord("M"))) {
 	global.debug = !global.debug;
 	DebugManager.show = global.debug;

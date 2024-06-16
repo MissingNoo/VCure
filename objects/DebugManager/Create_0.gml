@@ -1,4 +1,5 @@
 //feather disable GM2017
+screenarea = [];
 show = false;
 x = 100;
 y = 100;

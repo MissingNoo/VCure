@@ -26,7 +26,8 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 		 //y+=_vspd;
 		 vspeed=_vspd;
 		 //hspeed = _hspd;
-		 if (upg[$ "id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x + _hspd, y + _vspd); }		 
+		 //if (upg[$ "id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x + _hspd, y + _vspd); }
+		 if (upg[$ "id"] == Weapons.RingOfFitness) { direction = point_direction(x, y, x, y + _vspd); }
 		 //if (alarm_get(11) == -1) {
 		 //    alarm[11] = 20;
 		 //}		 

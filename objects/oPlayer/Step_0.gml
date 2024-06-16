@@ -1,7 +1,7 @@
 #region Debug
 //feather disable GM2017
-DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});
-DebugManager.debug_add_config("Add 100 coins", DebugTypes.Button, undefined, undefined, function(){global.newcoins+=100;});
+//DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});
+//DebugManager.debug_add_config("Add 100 coins", DebugTypes.Button, undefined, undefined, function(){global.newcoins+=100;});
 #endregion
 can_collab();
 if (!global.gamePaused and device_mouse_check_button_pressed(0, mb_left) and os_type != os_android and !(instance_exists(DebugManager) and mouse_on_area(DebugManager.screenarea))) {

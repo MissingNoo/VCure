@@ -1,3 +1,4 @@
+//Feather disable GM2064
 enum WeaponEvent {
 	BeginStep,
 	Step,
