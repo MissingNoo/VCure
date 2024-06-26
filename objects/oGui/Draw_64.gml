@@ -460,7 +460,7 @@ if (instance_exists(oPlayer)) {
 			var _rerollY = GH/1.05;
 			var _sprW = sprite_get_width(sHudButton);
 			var _sprH = sprite_get_height(sHudButton);
-			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH)and selected == 4 and mouse_click) { menuClick = true; }
+			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH) and selected == 4 and mouse_click) { menuClick = true; }
 			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH)) {
 				selected = 4;
 			}

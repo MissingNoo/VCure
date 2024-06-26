@@ -282,6 +282,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 		case Weapons.ENsCurse:
 			var chance = irandom_range(0, 100);
 			if (chance < upg[$ "chance"]) {
+				//feather disable once GM1041
 				var near = collision_circle(x, y, upg[$ "range"], oEnemy, false, true);
 			    if (distance_to_object(near) < upg[$ "range"]) {
 				    hits = 2;

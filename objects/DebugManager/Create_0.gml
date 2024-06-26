@@ -102,3 +102,11 @@ DebugManager.debug_add_config(self, {
 	page : "Start"
 });
 DebugManager.same_line();
+//Stage
+DebugManager.debug_add_config(self, {
+	text : "Anvil",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oAnvil)},
+	page : "Stage"
+});

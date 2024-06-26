@@ -1,5 +1,5 @@
 //switch (upg[?"name"]) {
-draw_text(x + 20, y, $"{direction} : {angle_difference(direction, 270) * 0.1}");
+//draw_text(x + 20, y, $"{direction} : {angle_difference(direction, 270) * 0.1}");
 //default:
 if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlayer.wallMart) and (image_alpha == 1 or image_alpha == .999)) {
 	
@@ -54,6 +54,7 @@ DEBUG
 		draw_text(x + 20, y - 20, wallNumber);
 	}
 	if (upg[$ "id"] == Weapons.ENsCurse) {
+		//feather disable once GM1041
 		draw_circle(x,y, upg[$ "range"],true)
 	}
 	//draw_text(x, y - 20, upgID);
