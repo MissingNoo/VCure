@@ -40,7 +40,7 @@ if (room == rInicio) {
 			draw_sprite_ext(_talents[i][0], 0, GW/_talents[i][2], _sine, 0.3, 0.3, 0, c_white, 1);
 		}
 		gpu_set_fog(false,c_white,0,0);
-		draw_text_transformed(20,GH-50,"version ? by Airgeadlamh", 1, 1, 0);
+		draw_text_transformed(20,GH-50, $"version ? by Airgeadlamh GUI: {global.guiScale}", 1, 1, 0);
 		var _menuyoffset = 0;
 		draw_set_valign(fa_center);
 		draw_set_halign(fa_middle);
@@ -1035,6 +1035,10 @@ if (os_type == os_android) {
 	android_gui_button(zButton);
 	android_gui_button(xButton);
 	android_gui_button(pButton);
+	if (room == rInicio) {
+	    android_gui_button(guiplus);
+		android_gui_button(guiminus);
+	}
 	if (lastOptionType == PM.Slider or selectingOutfit) {
 		android_gui_button(plusButton);
 		android_gui_button(minusButton);

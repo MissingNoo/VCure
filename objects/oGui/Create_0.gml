@@ -152,6 +152,8 @@ pButton = [startX - 280,					startY, startX - 280 + 120, startY + 45, "P"];
 plusButton = [startX - 420,			startY, startX - 420 + 120, startY + 45, ">"];
 minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
 houseButton = [startX - 700,		startY, startX - 700 + 120, startY + 45, "H"];
+guiminus = [startX - 420,				startY, startX - 420 + 120, startY + 45, "Gui +"];
+guiplus = [startX - 560,					startY, startX - 560 + 120, startY + 45, "Gui -"];
 holdPositions = [[0, 0, 0, 0], [0, 0, 0, 0]]
 if (os_type == os_android) {
 	zB = input_virtual_create();
@@ -169,6 +171,14 @@ if (os_type == os_android) {
 	hB = input_virtual_create();
 	hB.rectangle(houseButton[0], houseButton[1], houseButton[2], houseButton[3]);
 	hB.button("house");
+	
+	guiminusButton = input_virtual_create();
+	guiminusButton.rectangle(guiminus[0], guiminus[1], guiminus[2], guiminus[3]);
+	guiminusButton.button("gm");
+	
+	guiplusButton = input_virtual_create();
+	guiplusButton.rectangle(guiplus[0], guiplus[1], guiplus[2], guiplus[3]);
+	guiplusButton.button("gp");
 }
 //feather disable once GM2017
 function android_gui_button(pos){
@@ -178,7 +188,9 @@ function android_gui_button(pos){
 	draw_set_alpha(1);
 	draw_set_color(c_black);
 	draw_rectangle(pos[0], pos[1], pos[2], pos[3], true);
+	draw_set_halign(fa_center);
 	draw_text(pos[0] + 70, pos[1] + 22.5, pos[4]);
+	draw_set_halign(fa_left);
 	draw_set_color(c_white);
 }
 #endregion

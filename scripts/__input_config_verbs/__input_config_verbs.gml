@@ -25,6 +25,8 @@ function __input_config_verbs()
 	        action:  input_binding_key(vk_add),
 	        special: input_binding_key(vk_shift),
 	        house: input_binding_key(vk_home),
+	        gp: input_binding_key(vk_pageup),
+	        gm: input_binding_key(vk_pagedown),
         
 	        //No aiming verbs since we use the mouse for that (see below for aiming verb examples)
 	        click: input_binding_mouse_button(mb_left),
@@ -66,6 +68,8 @@ function __input_config_verbs()
 	        action:  input_binding_virtual_button(),
 	        special: input_binding_virtual_button(),
 	        house: input_binding_virtual_button(),
+	        gm: input_binding_virtual_button(),
+	        gp: input_binding_virtual_button(),
         
 	        pause: input_binding_virtual_button(),
 	    }

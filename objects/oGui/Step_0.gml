@@ -15,6 +15,16 @@ if (os_type == os_android) {
 	minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
 	houseButton = [startX - 700,		startY, startX - 700 + 120, startY + 45, "H"];
 	hB.rectangle(houseButton[0], houseButton[1], houseButton[2], houseButton[3]);
+	guiminus = [startX - 420,				startY, startX - 420 + 120, startY + 45, "Gui +"];
+	guiminusButton.rectangle(guiminus[0], guiminus[1], guiminus[2], guiminus[3]);
+	guiplus = [startX - 560,					startY, startX - 560 + 120, startY + 45, "Gui -"];
+	guiplusButton.rectangle(guiplus[0], guiplus[1], guiplus[2], guiplus[3]);
+	if (!is_undefined(global.guiScale)) {
+	    gui_set();
+	}
+	else {
+		global.guiScale = 1.5;
+	}
 }
 #region Misc
 isP=global.gamePaused;
@@ -627,9 +637,9 @@ if (keyboard_check_pressed(vk_end) and global.debug) {
 	debuglog = !debuglog;
     show_debug_log(debuglog)
 }
+if(input_check_pressed("gm")) {global.guiScale -= .05; if (os_type == os_android) { gui_set();}};
+if(input_check_pressed("gp")) {global.guiScale += .05; if (os_type == os_android) { gui_set();}};
 DEBUG
-if(keyboard_check_pressed(ord("O"))) {e -=.05; global.guiScale = e; if (os_type == os_android) { gui_set();}};
-if(keyboard_check_pressed(ord("P"))) {e +=1; global.guiScale = e; if (os_type == os_android) { gui_set();}};
 if((keyboard_check(vk_escape) and room == rCharacterSelect)) {room_goto(rInicio);}
 ENDDEBUG
 #endregion
