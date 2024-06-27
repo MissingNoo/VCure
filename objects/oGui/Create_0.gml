@@ -1,6 +1,7 @@
 //UnlockableAchievements[AchievementIds.NoSound] = false;
 //instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.NoSound})
 #region Locals Initialization
+xpsurface = surface_create(sprite_get_width(sExpBarBG), 100);
 menuClick = false;
 centered = false;
 mousePrevious = [0,0];

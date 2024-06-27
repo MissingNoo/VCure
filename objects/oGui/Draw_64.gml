@@ -366,10 +366,17 @@ if (instance_exists(oPlayer)) {
 	}
 	#endregion
 	#region XP
-	if (global.xp > 0) {
-		draw_rectangle_color(5, 5, 5 + ((global.xp / oPlayer.neededxp) * GW - 5), 30, c_blue, c_blue, c_blue, c_blue, false);
+	if (surface_exists(xpsurface)) {
+		surface_set_target(xpsurface);
+		draw_sprite(sExpBarBG, 0, 0, 0);
+		draw_sprite_part(sExpBar, -1, 0, 0, ((global.xp / oPlayer.neededxp) * sprite_get_width(sExpBar)), sprite_get_height(sExpBarBG), 0, 0);
+		draw_sprite(sExpBarBG, 1, 0, 0);
+		surface_reset_target();
+		draw_surface_stretched(xpsurface, 0, 0, GW, 180);
 	}
-	draw_rectangle(5, 5, GW - 5, 30, true);
+	else {
+		xpsurface = surface_create(sprite_get_width(sExpBarBG), 100);
+	}
 	#endregion
 	#region LevelUP
 	if (global.upgrade) {

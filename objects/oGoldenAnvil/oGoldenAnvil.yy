@@ -6,7 +6,6 @@
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"oGoldenAnvil",
@@ -16,8 +15,8 @@
     "path":"folders/Objects/Player/Upgrades.yy",
   },
   "parentObjectId":{
-    "name":"oDepthParent",
-    "path":"objects/oDepthParent/oDepthParent.yy",
+    "name":"oInteractableParent",
+    "path":"objects/oInteractableParent/oInteractableParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -33,9 +32,9 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"dontsend","filters":[],"listItems":[],"multiselect":false,"name":"dontsend","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
-    {"$GMObjectProperty":"v1","%Name":"anvilid","filters":[],"listItems":[],"multiselect":false,"name":"anvilid","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"maxuses","filters":[],"listItems":[],"multiselect":false,"name":"maxuses","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"dontsend","filters":[],"listItems":[],"multiselect":false,"name":"dontsend","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"v1","%Name":"anvilid","filters":[],"listItems":[],"multiselect":false,"name":"anvilid","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"maxuses","filters":[],"listItems":[],"multiselect":false,"name":"maxuses","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
@@ -45,5 +44,8 @@
     "path":"sprites/sGoldenAnvil/sGoldenAnvil.yy",
   },
   "spriteMaskId":null,
+  "tags":[
+    "interactable",
+  ],
   "visible":true,
 }

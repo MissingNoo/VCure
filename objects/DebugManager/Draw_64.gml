@@ -68,3 +68,4 @@ for (var i = 0; i < array_length(variables); ++i) {
 }
 maxsize = yy - y + 10;
 draw_set_alpha(1);
+screenarea = [x, y, maxwidth, maxsize];
