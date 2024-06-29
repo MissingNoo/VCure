@@ -149,115 +149,151 @@ fpsAverage = movingSum / fpsArraySize;
 #endregion
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
-	//if (keyboard_check_pressed(ord("I"))) { oPlayer.y = 610 - oGui.a; }
-	//if (keyboard_check_pressed(ord("O"))) { oPlayer.y = 3170; }
+	
 	var xx;
 	var yy;
 	var px;
 	var py;
-	//yy = oCam.y - oPlayer.y;
-	var insts = [oEnemy, oAnvil, oUpgrade, oDropParent];
-    if (oPlayer.x < 610) {
-		xx = oCam.x - oPlayer.x;
-		px = oPlayer.x;
-		py = oPlayer.y;
-	    oPlayer.x = 3170;
-		oCam.x = oPlayer.x + xx;
-		if (instance_exists(oEvents)) {
-		    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
-				oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
+	if (room == rStage1) {	
+		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent];
+	    if (oPlayer.x < 610) {
+			xx = oCam.x - oPlayer.x;
+			px = oPlayer.x;
+			py = oPlayer.y;
+		    oPlayer.x = 3170;
+			oCam.x = oPlayer.x + xx;
+			if (instance_exists(oEvents)) {
+			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+					oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
+				}
 			}
-		}
 		
-		for (var i = 0; i < array_length(insts); ++i) {
-		    with (insts[i]) {
-			    xx = x - px;
-				yy = y - py;
-				x = oPlayer.x + xx;
-				y = oPlayer.y + yy;
-				xstart = xstart + xx;
-				if (variable_instance_exists(self, "xxstart")) {
-				    xxstart = xxstart + xx;
-				    yystart = yystart + yy;
+			for (var i = 0; i < array_length(insts); ++i) {
+			    with (insts[i]) {
+				    xx = x - px;
+					yy = y - py;
+					x = oPlayer.x + xx;
+					y = oPlayer.y + yy;
+					xstart = xstart + xx;
+					if (variable_instance_exists(self, "xxstart")) {
+					    xxstart = xxstart + xx;
+					    yystart = yystart + yy;
+					}
 				}
 			}
 		}
-	}
-	if (oPlayer.x > 3170) {
-		xx = oCam.x - oPlayer.x;
-		px = oPlayer.x;
-		py = oPlayer.y;
-	    oPlayer.x = 610;
-		oCam.x = oPlayer.x + xx;
-		if (instance_exists(oEvents)) {
-		    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
-			    oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
+		if (oPlayer.x > 3170) {
+			xx = oCam.x - oPlayer.x;
+			px = oPlayer.x;
+			py = oPlayer.y;
+		    oPlayer.x = 610;
+			oCam.x = oPlayer.x + xx;
+			if (instance_exists(oEvents)) {
+			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+				    oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
+				}
 			}
-		}
 		
-		for (var i = 0; i < array_length(insts); ++i) {
-		    with (insts[i]) {
-			    xx = x - px;
-				yy = y - py;
-				x = oPlayer.x + xx;
-				y = oPlayer.y + yy;
-				xstart = xstart - xx;
-				ystart = ystart + yy;
-				if (variable_instance_exists(self, "xxstart")) {
-				    xxstart = xxstart + xx;
-				    yystart = yystart + yy;
+			for (var i = 0; i < array_length(insts); ++i) {
+			    with (insts[i]) {
+				    xx = x - px;
+					yy = y - py;
+					x = oPlayer.x + xx;
+					y = oPlayer.y + yy;
+					xstart = xstart - xx;
+					ystart = ystart + yy;
+					if (variable_instance_exists(self, "xxstart")) {
+					    xxstart = xxstart + xx;
+					    yystart = yystart + yy;
+					}
 				}
 			}
 		}
-	}
-	if (oPlayer.y < 610) {
-		xx = oCam.x - oPlayer.x;
-		yy = oCam.y - oPlayer.y;
-		px = oPlayer.x;
-		py = oPlayer.y;
-	    oPlayer.y = 3170;
-		oCam.y = oPlayer.y + yy;
-		if (instance_exists(oEvents)) {
-		    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
-			    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
+		if (oPlayer.y < 610) {
+			xx = oCam.x - oPlayer.x;
+			yy = oCam.y - oPlayer.y;
+			px = oPlayer.x;
+			py = oPlayer.y;
+		    oPlayer.y = 3170;
+			oCam.y = oPlayer.y + yy;
+			if (instance_exists(oEvents)) {
+			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+				    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
+				}
 			}
-		}
-		for (var i = 0; i < array_length(insts); ++i) {
-		    with (insts[i]) {
-			    xx = x - px;
-				yy = y - py;
-				x = oPlayer.x + xx;
-				y = oPlayer.y + yy;
-				ystart = ystart + yy;
-				if (variable_instance_exists(self, "xxstart")) {
-				    xxstart = xxstart + xx;
-				    yystart = yystart + yy;
+			for (var i = 0; i < array_length(insts); ++i) {
+			    with (insts[i]) {
+				    xx = x - px;
+					yy = y - py;
+					x = oPlayer.x + xx;
+					y = oPlayer.y + yy;
+					ystart = ystart + yy;
+					if (variable_instance_exists(self, "xxstart")) {
+					    xxstart = xxstart + xx;
+					    yystart = yystart + yy;
+					}
 				}
 			}
 		}
-	}
-	if (oPlayer.y > 3170) {
-		xx = oCam.x - oPlayer.x;
-		yy = oCam.y - oPlayer.y;
-		px = oPlayer.x;
-		py = oPlayer.y;
-	    oPlayer.y = 610;
-		oCam.y = oPlayer.y + yy;
-		if (instance_exists(oEvents)) {
-		    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
-			    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
+		if (oPlayer.y > 3170) {
+			xx = oCam.x - oPlayer.x;
+			yy = oCam.y - oPlayer.y;
+			px = oPlayer.x;
+			py = oPlayer.y;
+		    oPlayer.y = 610;
+			oCam.y = oPlayer.y + yy;
+			if (instance_exists(oEvents)) {
+			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
+				    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
+				}
+			}
+			for (var i = 0; i < array_length(insts); ++i) {
+			    with (insts[i]) {
+				    xx = x - px;
+					yy = y - py;
+					x = oPlayer.x + xx;
+					y = oPlayer.y + yy;
+					ystart = ystart - yy;
+					if (variable_instance_exists(self, "xxstart")) {
+					    xxstart = xxstart + xx;
+					    yystart = yystart + yy;
+					}
+				}
 			}
 		}
-		for (var i = 0; i < array_length(insts); ++i) {
-		    with (insts[i]) {
-			    xx = x - px;
-				yy = y - py;
-				x = oPlayer.x + xx;
-				y = oPlayer.y + yy;
-				ystart = ystart - yy;
-				if (variable_instance_exists(self, "xxstart")) {
-				    xxstart = xxstart + xx;
-				    yystart = yystart + yy;
+		if (oPlayer.x > room_width / 2) {
+			with (oMapItemParent) {
+				if (x < 1100) {
+					//currentside = 1;
+					//lastside = 0;
+					x += 2560;
+				}
+			}
+		}
+		if (oPlayer.x < room_width / 2) {
+			with (oMapItemParent) {
+				if (x >= 2655) {
+					//currentside = 0;
+					//lastside = 1;
+					x -= 2560;
+				}
+			}
+		}
+		if (oPlayer.y > room_height / 2) {
+			with (oMapItemParent) {
+				if (y < 1100) {
+					//currentside = 1;
+					//lastside = 0;
+					y += 2560;
+				}
+			}
+		}
+		if (oPlayer.y < room_height / 2) {
+			with (oMapItemParent) {
+				if (y >= 2655) {
+					//currentside = 0;
+					//lastside = 1;
+					y -= 2560;
 				}
 			}
 		}

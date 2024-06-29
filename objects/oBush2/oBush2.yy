@@ -8,12 +8,12 @@
   "name":"oBush2",
   "overriddenProperties":[],
   "parent":{
-    "name":"MapAssets",
-    "path":"folders/Objects/Map/MapAssets.yy",
+    "name":"MapItems",
+    "path":"folders/Objects/MapItems.yy",
   },
   "parentObjectId":{
-    "name":"oDepthParent",
-    "path":"objects/oDepthParent/oDepthParent.yy",
+    "name":"oMapItemParent",
+    "path":"objects/oMapItemParent/oMapItemParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
