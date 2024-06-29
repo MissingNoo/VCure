@@ -735,3 +735,5 @@ global.initialConfigDone = false;
 ini_open("Settings");
 global.username = ini_read_string("Settings", "Username", "Player");
 ini_close();
+GW = display_get_gui_width();
+GH = display_get_gui_height();

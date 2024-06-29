@@ -59,7 +59,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	#region debuffs	
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
-			PLAYER_PERKS[i][$ "func"](99);
+			PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnHit);
 		}
 		//#region Shark Bite
 		//var found = false;
@@ -85,7 +85,10 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 		//	}
 		//}
 		//#endregion
-	}	
+	}
+	if (perkBonusDmg == 99999 and other.boss) {
+	    perkBonusDmg = 0;
+	}
 	dmg += perkBonusDmg;
 	for (var i = 0; i < array_length(playerItems); ++i) {
 	    switch (playerItems[i][$ "id"]) {

@@ -1,6 +1,6 @@
 #region Screen Size
-GW = display_get_gui_width();
-GH = display_get_gui_height();
+//GW = display_get_gui_width();
+//GH = display_get_gui_height();
 #endregion
 if (os_type == os_android) {
     startX = GW - 150;

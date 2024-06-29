@@ -1,3 +1,5 @@
+onScreenArrow = sAnvilPointer;
+offScreenArrow = sAnvilPointer;
 used = false;
 if (!dontsend) {
 	maxuses = 1;

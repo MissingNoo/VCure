@@ -201,10 +201,12 @@ function populate_perks(){
 			thumb : sAmeliaFpsMastery,
 			cooldown : [3, 3, 2.01, 2.01],
 			bonus : true,
+			//bonusType : [BonusType.Damage, BonusType.Haste],
 			bonusType : BonusType.Damage,
+			//bonusValue : [[0, 1.20, 1.40, 1.60], [0, 0, 0, 1.10]],
 			bonusValue : [0, 1.20, 1.40, 1.60],
+			//TODO: attack 10% faster
 			characterid : Characters.Amelia
-			//TODO: fire 10% faster
 		});
 		create_perk({
 			id : PerkIds.DetectiveEye,
@@ -221,14 +223,15 @@ function populate_perks(){
 		});
 		create_perk({
 			id : PerkIds.Bubba,
+			func : perk_bubba,
 			name : "Bubba",
 			maxlevel : 3, 
-			weight : 0, //TODO: change when bubba exists
+			weight : 1,
 			thumb : sAmeliaBubba,
 			cooldown : [3, 3, 2.01, 2.01],
 			characterid : Characters.Amelia
 		});
-		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Null][0]];
+		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
 		#endregion
 		#region Aki
 		create_perk({

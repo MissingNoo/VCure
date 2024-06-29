@@ -1,4 +1,20 @@
-function detective_eye(level){
+function perk_bubba(level, event = WeaponEvent.Null){
+	if (!instance_exists(oBubba)) {
+	    instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oBubba);
+	}
+	switch (level) {
+	    case 1:
+	        oBubba.basespeed = 1;
+	        break;
+	    case 2:
+	        oBubba.basespeed = 1.15;
+	        break;
+	    case 3:
+	        oBubba.basespeed = 1.30;
+	        break;
+	}
+}
+function detective_eye(level, event = WeaponEvent.Null){
 	switch (level) {
 	    case 1:
 	        // code here
@@ -7,17 +23,18 @@ function detective_eye(level){
 	        // code here
 	        break;
 	    case 3:
-	        // code here
+	        if (event == WeaponEvent.PerkOnHit) {
+			    var _chance = irandom_range(0, 100);
+				show_debug_message($"Detective Eye rolled: {_chance}");
+				if (_chance <= 2) {
+					perkBonusDmg += 99999;
+				}
+			}
 	        break;
-		case WeaponEvent.PerkOnHit:
-			var _chance = irandom_range(0, 100);
-			if (_chance <= 2) {
-				perkBonusDmg += 99999;
-			}			
-			break;
+			//TODO: A red "KO" appears on the screen when the Skill triggers.
 	}
 }
-function belly_dancing(level){
+function belly_dancing(level, event = WeaponEvent.Null){
 	if (level > 0 and level < 4) {
 	    Buffs[BuffNames.BellyDance][$ "enabled"] = true;
 	}
@@ -33,7 +50,7 @@ function belly_dancing(level){
 	        break;
 	}
 }
-function perk_aromateraphy(o){
+function perk_aromateraphy(o, event = WeaponEvent.Null){
 	switch (o) {
 	    case 1:
 			oPlayer.aromateraphy[0] = true;
@@ -109,7 +126,7 @@ function perk_aromateraphy(o){
 		}
 	}
 }
-function perk_mukirose(o){
+function perk_mukirose(o, event = WeaponEvent.Null){
 	switch (o) {
 	    case 1:
 			oPlayer.mukirose[0] = true;
@@ -126,7 +143,7 @@ function perk_mukirose(o){
 			break;
 	}
 }
-function perk_ankh(o){
+function perk_ankh(o, event = WeaponEvent.Null){
 	if (!instance_exists(oMascot) and o > 0) {
 	    instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);
 	}

@@ -7,6 +7,7 @@ enum WeaponEvent {
 	Draw,
 	PerkOnHit = 100,
 	PerkDraw = 101,
+	Null = 102,
 }
 function blbook_step(o){
 	if (o == 0) {

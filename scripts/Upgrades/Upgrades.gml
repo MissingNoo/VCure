@@ -162,7 +162,7 @@ enum Weapons{
 	LiaBolt,
 	ElectricPulse,
 	Mold,
-	BlBook, //TODO: area, knockback
+	BlBook, //TODO: knockback
 	BounceBall,
 	CEOTears,
 	CuttingBoard,

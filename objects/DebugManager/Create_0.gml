@@ -110,3 +110,17 @@ DebugManager.debug_add_config(self, {
 	func: function(){instance_create_depth(oPlayer.x, oPlayer.y + 20, oPlayer.depth, oAnvil)},
 	page : "Stage"
 });
+DebugManager.debug_add_config(self, {
+	text : "Bubba",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){instance_create_depth(oPlayer.x, oPlayer.y + 50, oPlayer.depth, oBubba)},
+	page : "Stage"
+});
+DebugManager.debug_add_config(self, {
+	text : "LevelUP",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){global.xp = oPlayer.neededxp;},
+	page : "Stage"
+});
