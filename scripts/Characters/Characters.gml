@@ -226,7 +226,7 @@ function populate_characters(){
 	createCharacter(Characters.Aki, "Hololive", "Aki Rosenthal", sAkiPortrait, sPlaceholderArt, sAkiIdle, sAkiRun, 80, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
 	CHARACTERS[Characters.Trickywi][? "finished"] = false;
 	CHARACTERS[Characters.Tenma][? "finished"] = false;
-	CHARACTERS[Characters.Amelia][? "finished"] = 3;
+	//CHARACTERS[Characters.Amelia][? "finished"] = 3;
 	//createCharacterNew({
 	//	id : Characters.,
 	//	name : "",

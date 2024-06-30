@@ -67,7 +67,7 @@ function use_special(_special)
 			oPlayer.bladeForm = true;
 			oPlayer.bladeFormTimer = 8;
 			break;
-		case SpecialIds.SlowTime:
+		case SpecialIds.SlowTime: //TODO: fix enemies not going to normal speed
 			oPlayer.slowTime = true;
 			oPlayer.slowTimeTimer = 10;
 			if (global.screenShake == 1) {

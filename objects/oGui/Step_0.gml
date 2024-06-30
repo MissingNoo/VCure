@@ -15,10 +15,18 @@ if (os_type == os_android) {
 	minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
 	houseButton = [startX - 700,		startY, startX - 700 + 120, startY + 45, "H"];
 	hB.rectangle(houseButton[0], houseButton[1], houseButton[2], houseButton[3]);
-	guiminus = [startX - 420,				startY, startX - 420 + 120, startY + 45, "Gui +"];
-	guiminusButton.rectangle(guiminus[0], guiminus[1], guiminus[2], guiminus[3]);
-	guiplus = [startX - 560,					startY, startX - 560 + 120, startY + 45, "Gui -"];
-	guiplusButton.rectangle(guiplus[0], guiplus[1], guiplus[2], guiplus[3]);
+	if (room == rInicio) {
+	    guiminus = [startX - 420,				startY, startX - 420 + 120, startY + 45, "Gui +"];
+		guiminusButton.rectangle(guiminus[0], guiminus[1], guiminus[2], guiminus[3]);
+		guiplus = [startX - 560,					startY, startX - 560 + 120, startY + 45, "Gui -"];
+		guiplusButton.rectangle(guiplus[0], guiplus[1], guiplus[2], guiplus[3]);
+	}
+	else {
+		guiminus = [0,0,0,0, "Gui +"];
+		guiminusButton.rectangle(guiminus[0], guiminus[1], guiminus[2], guiminus[3]);
+		guiplus = [0,0,0,0, "Gui -"];
+		guiplusButton.rectangle(guiplus[0], guiplus[1], guiplus[2], guiplus[3]);
+	}
 	if (!is_undefined(global.guiScale)) {
 	    gui_set();
 	}

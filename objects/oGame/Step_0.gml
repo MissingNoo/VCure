@@ -149,13 +149,12 @@ fpsAverage = movingSum / fpsArraySize;
 #endregion
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
-	
 	var xx;
 	var yy;
 	var px;
 	var py;
 	if (room == rStage1) {	
-		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent];
+		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent, oBubba, oBubbaBark, oMascot];
 	    if (oPlayer.x < 610) {
 			xx = oCam.x - oPlayer.x;
 			px = oPlayer.x;

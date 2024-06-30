@@ -1,9 +1,9 @@
 function perk_bubba(level, event = WeaponEvent.Null){
-	if (!instance_exists(oBubba)) {
-	    instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oBubba);
-	}
 	switch (level) {
 	    case 1:
+			if (!instance_exists(oBubba)) {
+			    instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oBubba);
+			}
 	        oBubba.basespeed = 1;
 	        break;
 	    case 2:
@@ -144,12 +144,11 @@ function perk_mukirose(o, event = WeaponEvent.Null){
 	}
 }
 function perk_ankh(o, event = WeaponEvent.Null){
-	if (!instance_exists(oMascot) and o > 0) {
-	    instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);
-	}
 	switch (o) {
 	    case 1:
-			
+			if (!instance_exists(oMascot) and o > 0) {
+			    instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);
+			}
 			break;
 	    case 2:
 			
