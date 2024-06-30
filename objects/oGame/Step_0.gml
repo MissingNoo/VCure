@@ -154,7 +154,7 @@ if (instance_exists(oPlayer)) {
 	var px;
 	var py;
 	if (room == rStage1) {	
-		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent, oBubba, oBubbaBark, oMascot];
+		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent, oBubba, oBubbaBark, oMascot, oChest];
 	    if (oPlayer.x < 610) {
 			xx = oCam.x - oPlayer.x;
 			px = oPlayer.x;
