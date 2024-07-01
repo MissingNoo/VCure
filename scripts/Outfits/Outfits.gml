@@ -31,7 +31,7 @@ function populate_outfits(){
 	outfit_add(Characters.Lia,				Outfits.Lia,					sLiaIdle,					sLiaRunningOld,		true);
 	outfit_add(Characters.Pippa,		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
 	//outfit_add(Characters.Tenma,		Outfits.TenmaAlternative,			sTenmaIdle,			sTenmaRun,				true);
-	outfit_add(Characters.Tenma,		Outfits.Tenma,			sTenmaIdle,			sTenmaRun,				true);
+	outfit_add(Characters.Tenma,		Outfits.Tenma,			sTenmaIdleNew,			sTenmaRunNew,				true);
 	outfit_add(Characters.Trickywi,		Outfits.Trickywi,			sTrickyIdle,			sTrickyRun,				true);
 	outfit_add(Characters.Amelia,		Outfits.Amelia,			sAmeliaIdle,			sAmeliaRun,				true);
 	outfit_add(Characters.Aki,		Outfits.Aki,			sAkiIdle,			sAkiRun,				true);
