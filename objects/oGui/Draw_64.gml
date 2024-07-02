@@ -64,9 +64,6 @@ if (room == rInicio) {
 }
 draw_set_font(global.newFont[2]);
 #endregion
-#region Character Select Room
-var offset = 0;
-#endregion
 #region Inside Stage
 if (instance_exists(oPlayer)) {
 	draw_sprite_ext(sPhaseCoin, 0, GW/1.23, GH/15.06, 1, 1, 0, c_white, 1);

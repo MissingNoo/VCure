@@ -39,7 +39,6 @@ else {
 	gui_set();
 }
 #region Misc
-isP=global.gamePaused;
 if (TouchX1 != mousePrevious[0]) {
     mousePrevious[0] = TouchX1;
 	x = TouchX1;
@@ -91,7 +90,7 @@ downKey = input_check_pressed("down");
 #endregion
 #region Pause Menu
 if (activeMenu == PMenus.Pause) { editOption = false; }
-if (xKey and global.gamePaused and !ANVIL and !GoldenANVIL) {
+if (xKey and global.gamePaused and !isBusy) {
 	if (!editOption) {
 		if (activeMenu != PMenus.Pause and room != rInicio) {
 		    activeMenu = PMenus.Pause;
@@ -258,7 +257,7 @@ if (room == rCharacterSelect or room == rAchievements) {
 	}
 }
 #region PauseMenu
-if (global.gamePaused and !global.upgrade and !ANVIL) {
+if (global.gamePaused and !isBusy) {
 	pauseMenu[activeMenu][PM.YScale] = 0.75;
 	for (var i = 1; i < array_length(pauseMenu[activeMenu][PM.Options]); ++i) {
 		if (i < 5) {

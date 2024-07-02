@@ -1,11 +1,8 @@
 var _updown = - upKey + downKey;
 var _leftright = - leftKey + rightKey;
-if (isP != global.gamePaused) {
-    //loadSettingValues();
-}
 #region Menu
 if (room == rInicio) {
-	if (!global.gamePaused) {
+	if (!global.gamePaused and !isBusy) {
 	    if (upKey) { if (selected == 0) { selected = array_length(menuOptions) - 1; } else selected -= 1; }
 		if (downKey) { if (selected < array_length(menuOptions) - 1) { selected += 1; } else selected = 0; }
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
@@ -29,7 +26,7 @@ if (instance_exists(oPlayer) and global.upgrade==1) {
 }
 #endregion
 #region PausedMenu
-if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
+if (global.gamePaused and !isBusy and !editOption) {
 	selectedOption += _updown;
 	if (selectedOption < 0) { selectedOption = totalOptions; }
 	if (selectedOption > totalOptions) { selectedOption = 0; }

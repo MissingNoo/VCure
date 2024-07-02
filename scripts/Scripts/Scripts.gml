@@ -164,6 +164,9 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 	//if (xp == "-") {
 	//    xp = EnemyList[enemy][? "exp"];
 	//}
+	if (monster[?"sprite"] == undefined) {
+	    exit;
+	}
 	switch (type) {
 		case Patterns.WallLeftRight:{
 			var _wh = view_wport[0] / 2 + offset;
