@@ -106,7 +106,7 @@ if (!characterSelected) {
 			draw_sprite_ext(_spr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
 			scribble(lexicon_text("Perks." + _perk.name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
 			//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Perks." + _perk.name + ".name"), 2.5, 2.5, 0);
-			drawDesc(GW/1.40, GH/1.41, lexicon_text("Perks." + _perk.name + ".desc"), GW/3.90, 2);
+			scribble(lexicon_text("Perks." + _perk.name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 		}
 		_offset += 75;
 	}
@@ -117,14 +117,14 @@ if (!characterSelected) {
 		draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
 		scribble(lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
 		//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name"), 2.5, 2.5, 0);
-		drawDesc(GW/1.40, GH/1.41, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc"), GW/3.90, 2);
+		scribble(lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 	}
 	if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2))) {
 		select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Attack", 0.75);
 		draw_sprite_ext(_atkSpr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
 		scribble(lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
 		//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name"), 2.5, 2.5, 0);
-		drawDesc(GW/1.40, GH/1.41, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc"), GW/3.90, 2);
+		scribble(lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 	}
 	#endregion
 }
