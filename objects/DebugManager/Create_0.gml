@@ -46,7 +46,7 @@ function same_line(){
 	variables[array_length(variables) - 1][$ "sameLine"] = true
 }
 
-a = 2655;
+a = 2;
 b = 1;
 c = 1;
 d = 1;

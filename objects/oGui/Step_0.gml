@@ -34,6 +34,10 @@ if (os_type == os_android) {
 		global.guiScale = 1.5;
 	}
 }
+else {
+	global.guiScale = 2;
+	gui_set();
+}
 #region Misc
 isP=global.gamePaused;
 if (TouchX1 != mousePrevious[0]) {
