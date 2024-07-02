@@ -220,7 +220,7 @@ function populate_characters(){
 	createCharacter(Characters.Uruka, "Phase-Connect","Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
 	createCharacter(Characters.Pippa, "Phase-Connect","Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
 	createCharacter(Characters.Lia, "Phase-Connect","Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
-	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaArt, sTenmaIdleNew, sTenmaRunNew, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
+	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaBig, sTenmaIdleNew, sTenmaRunNew, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	createCharacter(Characters.Trickywi, "Indies","Nephasis",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
 	createCharacter(Characters.Amelia, "Hololive", "Amelia Watson", sAmeliaPortrait, sAmeliaArt, sAmeliaIdle, sAmeliaRun, 75, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
 	createCharacter(Characters.Aki, "Hololive", "Aki Rosenthal", sAkiPortrait, sPlaceholderArt, sAkiIdle, sAkiRun, 80, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);

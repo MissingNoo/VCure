@@ -1,3 +1,4 @@
+//feather disable all
 var _ax = oPlayer.x - x;
 var _ay = oPlayer.y - y;
 var _xx = clamp(GW/2 - _ax * 2, 28, GW - 28);

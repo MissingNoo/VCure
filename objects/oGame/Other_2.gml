@@ -185,7 +185,8 @@ global.holocoins ??= 0;
 //global.newFont = font_add("Silver.ttf", 32, false, false, 32, 128);
 var fstr = "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^~`abcdefghijklmnopqrstuvwxyz{|}~";
 //if (os_type != os_android) {
-    //global.newFont[1] = font_add_sprite_ext(sPixelFont, fstr, true, 1);
+    global.newFont[1] = font_add_sprite_ext(sPixelFont, fstr, true, 1);
+	scribble_font_set_default("sPixelFont");
 	//global.newFont[2] = font_add_sprite_ext(sPixelFont, fstr, true, 2);
     global.newFont[1] = font_add("Silver.ttf", 13, false, false, 32, 128);
 	global.newFont[2] = font_add("Silver.ttf", 13, false, false, 32, 128);

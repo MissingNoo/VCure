@@ -1,3 +1,4 @@
+//feather disable all
 draw_self();
 _x = x;
 _y = y - 40;

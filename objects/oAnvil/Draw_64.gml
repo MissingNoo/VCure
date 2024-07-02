@@ -1,7 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
 
-// Inherit the parent event
 event_inherited();
 if (ANVIL) {
 		draw_set_halign(fa_center);
