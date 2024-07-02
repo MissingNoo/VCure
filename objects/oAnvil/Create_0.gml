@@ -4,11 +4,6 @@ used = false;
 upgradeconfirm = false;
 anvilSelected = 0;
 anvilSelectedCategory = 0;
-gAnvilWeapon1 = global.null;
-gAnvilWeapon2 = global.null;
-gAnvilWeapon1Position = 0;
-gAnvilWeapon2Position = 0;
-canCollab = false;
 anvilconfirm = false;
 upgradeCoinValue = 0;
 if (!dontsend) {

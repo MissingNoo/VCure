@@ -265,47 +265,6 @@ if (global.upgrade) {
 	}
 }
 #endregion
-#region Golden Anvil
-if (GoldenANVIL) {
-	if (zKey and canCollab) {
-	    UPGRADES[gAnvilWeapon1Position] = global.null;
-	    UPGRADES[gAnvilWeapon2Position] = global.null;
-		for (var i = 0; i < array_length(Collabs); ++i) {
-		    if (is_array(Collabs[i]) and ((Collabs[i][0] == gAnvilWeapon1[$ "id"] and Collabs[i][1] == gAnvilWeapon2[$ "id"]) or (Collabs[i][0] == gAnvilWeapon2[$ "id"] and Collabs[i][1] == gAnvilWeapon1[$ "id"]))) {
-				var _n = min(gAnvilWeapon1Position, gAnvilWeapon2Position);
-			    UPGRADES[_n] = WEAPONS_LIST[i][1];
-				UPGRADES[_n][$ "materials"] = [];
-				UPGRADES[_n][$ "materials"][0] = gAnvilWeapon1;
-				UPGRADES[_n][$ "materials"][1] = gAnvilWeapon2;
-				break;
-			}
-		}	
-		for (var i = 0; i < array_length(UPGRADES) - 1; ++i) {
-		    if (UPGRADES[i] == global.null and UPGRADES[i+1] != global.null) {
-			    UPGRADES[i] = UPGRADES[i + 1];
-			    UPGRADES[i + 1] = global.null;
-				i=0;
-			}
-		}
-		GoldenANVIL = false;
-		gAnvilWeapon1 = global.null;
-	    gAnvilWeapon2 = global.null;
-		gAnvilWeapon1Position = 0;
-		gAnvilWeapon2Position = 0;
-		canCollab = false;
-		pause_game();
-		upgradesSurface();
-		return;
-	}
-	if (xKey) {
-	    gAnvilWeapon1 = global.null;
-	    gAnvilWeapon2 = global.null;
-		gAnvilWeapon1Position = 0;
-		gAnvilWeapon2Position = 0;
-		canCollab = false;
-	}	
-}
-#endregion
 if (room == rCharacterSelect or room == rAchievements) {
     if (instance_number(oTriangle) == 0) {
 		instance_create_layer(0,0, "Instances", oTriangle);

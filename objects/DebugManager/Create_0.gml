@@ -124,3 +124,13 @@ DebugManager.debug_add_config(self, {
 	func: function(){global.xp = oPlayer.neededxp;},
 	page : "Stage"
 });
+DebugManager.debug_add_config(self, {
+	text : "CollabTest",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		UPGRADES[1] = global.upgradesAvaliable[Weapons.BlBook][7];
+		UPGRADES[2] = global.upgradesAvaliable[Weapons.PsychoAxe][7];
+	},
+	page : "Stage"
+});
