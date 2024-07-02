@@ -20,7 +20,13 @@ if (!characterSelected) {
 		var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 		var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
-		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { selectedCharacter = i; }
+		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { 
+			selectedCharacter = i; 
+			if (soundplayedby != i) {
+				soundplayedby = i;
+			    audio_play_sound(snd_char_select_woosh,0,0);
+			}
+		}
 		switch (CHARACTERS[i][? "finished"]) {
 			case 0:
 				if (os_get_config() == "Release") { continue; }

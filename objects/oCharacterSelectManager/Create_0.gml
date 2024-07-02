@@ -1,3 +1,4 @@
+soundplayedby = -1;
 menuClick = false;
 #region Selection screen
 characterSelected = false;
