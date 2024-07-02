@@ -75,17 +75,6 @@ if (instance_exists(oPlayer) and global.upgrade==1) {
     if (selected > array_length(global.upgradeOptions) - istherererolls) { selected = 0; }
 }
 #endregion
-#region Anvil
-if (instance_exists(oPlayer) and ANVIL) {
-	if (anvilconfirm) { return; }
-	anvilSelected += _leftright;
-	if (anvilSelected < 0) { anvilSelected = 5; }
-	if (anvilSelected > 5) { anvilSelected = 0; }
-	anvilSelectedCategory += _updown;
-	if (anvilSelectedCategory < 0) { anvilSelectedCategory = 0; }
-	if (anvilSelectedCategory > 1) { anvilSelectedCategory = 1; }	
-}
-#endregion
 #region PausedMenu
 if (global.gamePaused and !global.upgrade and !ANVIL and !editOption) {
 	selectedOption += _updown;

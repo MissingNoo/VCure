@@ -75,15 +75,6 @@ selectAgency = function(i){
 #endregion
 #endregion
 #region Stage
-#region Anvil
-gAnvilWeapon1 = global.null;
-gAnvilWeapon2 = global.null;
-gAnvilWeapon1Position = 0;
-gAnvilWeapon2Position = 0;
-canCollab = false;
-anvilconfirm = false;
-upgradeCoinValue = 0;
-#endregion
 #region LevelUp
 upgradeconfirm = false;
 holoarrowspr=0;
