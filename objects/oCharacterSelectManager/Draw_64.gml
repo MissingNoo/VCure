@@ -1,3 +1,8 @@
+var a = DebugManager.a;
+var b = DebugManager.b;
+var c = DebugManager.c;
+var d = DebugManager.d;
+var e = DebugManager.e;
 var offset;
 NAME=CHARACTERS[selectedCharacter][?"name"];
 var _isUnlocked = CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked;
@@ -58,13 +63,15 @@ if (!characterSelected) {
 		var _charInfo = CHARACTERS[selectedCharacter];
 		var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];
 		_yoffset = 0;
+		draw_set_alpha(0.5);
+		select_screen_window(GW/1.53, GH/1.68, GW/1.27, GH/1.07, "Status");
 		for (var i = 0; i < array_length(_info); ++i) {
 			var _val = string($"{_info[i][1]}{_info[i][2]}");
 			//draw_sprite_ext(, 0, GW/DebugManager.a, GH/DebugManager.b + _yoffset, DebugManager.c, DebugManager.c, 0, c_white, 1);
 			draw_set_alpha(0.25);
 			draw_rectangle_color(GW/2, GH/1.65 + _yoffset, GW/1.75, GH/1.52 + _yoffset, c_black, c_black, c_black, c_black, false);
 			draw_set_alpha(1);
-			scribble($"[{_info[i][0]}] {_val}").scale(3).draw(GW/2.15, GH/1.65 + _yoffset);
+			scribble($"[{_info[i][0]}] {_val}").scale(3).draw(GW/1.48, GH/1.52 + _yoffset);
 			_yoffset += 60;
 		}
 	}
