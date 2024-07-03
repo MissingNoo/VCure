@@ -17,7 +17,7 @@ if (room == rAchievements) {
 }
 #endregion
 #region Level Up
-if (instance_exists(oPlayer) and global.upgrade==1) {
+if (instance_exists(oPlayer) and global.upgrade) {
 	var istherererolls = 1;
 	if (global.rerolls > 0) { istherererolls = 0; }
 	selected += _updown;

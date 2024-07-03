@@ -20,7 +20,7 @@ if (!characterSelected) {
 		var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
 		var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
-		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH)) { 
+		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and state == "base") {
 			selectedCharacter = i; 
 			if (soundplayedby != i) {
 				soundplayedby = i;
@@ -53,18 +53,19 @@ if (!characterSelected) {
 	}
 	if (_isUnlocked) {
 		scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][?"name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
-		draw_sprite_ext(sCharShadow, 0, GW/1.41, GH/1.46, 5, 5, 0, c_white, 0.8);
-		draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/1.41, GH/1.46, 5, 5, 0, c_white, 1);
+		draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
+		draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
 		var _charInfo = CHARACTERS[selectedCharacter];
-		var _info = [[sHudHPIcon, _charInfo[?"hp"], ""], [sHudAtkIcon, _charInfo[?"atk"], "x"], [sHudSpdIcon,_charInfo[?"speed"], "x"], [sHudCrtIcon,_charInfo[?"crit"], "%"]];
+		var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];
 		_yoffset = 0;
 		for (var i = 0; i < array_length(_info); ++i) {
-			draw_sprite_ext(_info[i][0], 0, GW/1.49, GH/1.37 + _yoffset, 1.5, 1.5, 0, c_white, 1);
+			var _val = string($"{_info[i][1]}{_info[i][2]}");
+			//draw_sprite_ext(, 0, GW/DebugManager.a, GH/DebugManager.b + _yoffset, DebugManager.c, DebugManager.c, 0, c_white, 1);
 			draw_set_alpha(0.25);
-			draw_rectangle_color(GW/1.46, GH/1.39 + _yoffset, GW/1.35, GH/1.34 + _yoffset, c_black, c_black, c_black, c_black, false);
+			draw_rectangle_color(GW/2, GH/1.65 + _yoffset, GW/1.75, GH/1.52 + _yoffset, c_black, c_black, c_black, c_black, false);
 			draw_set_alpha(1);
-			scribble(string($"{_info[i][1]}{_info[i][2]}")).scale(1.5).draw(GW/1.49 + 25, GH/1.39 + _yoffset);
-			_yoffset += 35;
+			scribble($"[{_info[i][0]}] {_val}").scale(3).draw(GW/2.15, GH/1.65 + _yoffset);
+			_yoffset += 60;
 		}
 	}
 	#region Special Window
@@ -107,12 +108,16 @@ if (!characterSelected) {
 		var _spr = _perk.thumb;
 		var _sprW = sprite_get_width(_spr) * 3 / 2;
 		var _sprH = sprite_get_height(_spr) * 3 / 2;
-		if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _xx - _sprW, _yy - _sprH, _xx + _sprW, _yy + _sprH)) {
-			select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Skill", 0.75);
-			draw_sprite_ext(_spr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
-			scribble(lexicon_text("Perks." + _perk.name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
-			//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Perks." + _perk.name + ".name"), 2.5, 2.5, 0);
-			scribble(lexicon_text("Perks." + _perk.name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
+		//if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
+		if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _xx - _sprW, _yy - _sprH, _xx + _sprW, _yy + _sprH) and mouse_click) {
+			infolevel = 1;
+			state = "showinfo";
+			info = "skills"
+		//	select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Skill", 0.75);
+		//	draw_sprite_ext(_spr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
+		//	scribble(lexicon_text("Perks." + _perk.name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
+		//	//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Perks." + _perk.name + ".name"), 2.5, 2.5, 0);
+		//	scribble(lexicon_text("Perks." + _perk.name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 		}
 		_offset += 75;
 	}
@@ -125,12 +130,15 @@ if (!characterSelected) {
 		//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name"), 2.5, 2.5, 0);
 		scribble(lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 	}
-	if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2))) {
-		select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Attack", 0.75);
-		draw_sprite_ext(_atkSpr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
-		scribble(lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
-		//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name"), 2.5, 2.5, 0);
-		scribble(lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
+	if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2)) and mouse_click) {
+		infolevel = 1;
+		state = "showinfo";
+		info = "weapon"
+	//	select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Attack", 0.75);
+	//	draw_sprite_ext(_atkSpr, 0, GW/1.36, GH/1.51, 3, 3, 0, c_white, 1);
+	//	scribble(lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
+	//	//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".name"), 2.5, 2.5, 0);
+	//	scribble(lexicon_text("Weapons." + CHARACTERS[selectedCharacter][?"weapon"][1].name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 	}
 	#endregion
 }
@@ -167,7 +175,7 @@ draw_set_alpha(1);
 draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0, 0);
 surface_free(_surf);
 //draw_circle(MX, MY, 32, false);
-if (point_in_rectangle(TouchX1, TouchY1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH) or sidebarOpenByButton) {
+if (state == "base" and point_in_rectangle(TouchX1, TouchY1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH) or sidebarOpenByButton) {
 	sidebarOpen = true;
 }
 else {
@@ -257,4 +265,64 @@ if (characterSelected and outfitSelected) {
 	draw_set_valign(fa_top);
 	draw_set_halign(fa_left);
 }
+#endregion
+#region show info
+if (state == "showinfo") {
+    scribble($"{state},{info},{infolevel}").scale(2).draw(MX, MY + 10);
+	draw_set_alpha(0.5);
+	draw_rectangle_color(0, 0, GW, GH, #19181D, #19181D, #19181D, #19181D, false);
+	draw_set_alpha(0.75);
+	_x = GW/4;
+	_y = GH/2;
+	draw_rectangle_color(_x - 150, _y - 150, _x + 150, _y + 150, c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
+	scribble("[fa_center][fa_middle]LEVEL").scale(9).draw(_x, _y - 90);
+	scribble($"[fa_center][fa_middle]{infolevel}").scale(20).draw(_x, _y + 50);
+	var _max;
+	switch (info) {
+		case "weapon":
+		    _max = CHARACTERS[selectedCharacter][?"weapon"][1][$ "maxlevel"];
+		    break;
+		case "skills":
+		    _max = 3;
+		    break;
+	}
+	if (infolevel < _max) {
+	    draw_triangle_color(triangleR[0][0], triangleR[0][1], triangleR[1][0], triangleR[1][1], triangleR[2][0], triangleR[2][1], c_white, c_white, c_white, false);
+	}
+	if (infolevel > 1) {
+	    draw_triangle_color(triangleL[0][0], triangleL[0][1], triangleL[1][0], triangleL[1][1], triangleL[2][0], triangleL[2][1], c_white, c_white, c_white, false);
+	}
+	_x  = GW/1.60;
+	var _xscale = 2.20;
+	var _yscale = 1.40;
+	_y  = GH/2;
+	switch (info) {
+	    case "weapon":
+			var _weapon = CHARACTERS[selectedCharacter][?"weapon"][1];
+	        draw_sprite_ext(sUpgradeBackground, 0, _x + 40, _y, _xscale, _yscale, 0, c_black, .75);
+			draw_rectangle(_x - 365, _y - 35, _x + 440, _y - 34, false);
+			scribble(lexicon_text($"Weapons.{_weapon[$ "name"]}.name")).scale(2).draw(_x - 348, _y - 57);
+			scribble("[fa_right]>> Weapon").scale(2).draw(_x + 440, _y - 57);
+			draw_sprite_ext(_weapon[$ "thumb"],0,_x - 322, _y + 8, 2, 2, 0, c_white, 1);
+			draw_sprite_ext(sItemType, _weapon[$ "style"], _x - 322, _y + 8, 2, 2,0,c_white,1);
+			drawDesc(_x- 230, _y - 28, lexicon_text($"Weapons.{_weapon[$ "name"]}.{infolevel}"), 700, 2);
+	        break;
+	    case "skills":
+			_y = _y - 175
+			for (var i = 0; i < 3; ++i) {
+				var _perk = global.characterPerks[selectedCharacter][i];
+		        draw_sprite_ext(sUpgradeBackground, 0, _x + 40, _y, _xscale, _yscale, 0, c_black, .75);
+				draw_rectangle(_x - 365, _y - 35, _x + 440, _y - 34, false);
+				scribble(lexicon_text($"Perks.{_perk[$ "name"]}.name")).scale(2).draw(_x - 348, _y - 57);
+				scribble("[fa_right]>> Skill").scale(2).draw(_x + 440, _y - 57);
+				draw_sprite_ext(_perk[$ "thumb"],0,_x - 322, _y + 8, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(sItemType, _perk[$ "style"], _x - 322, _y + 8, 2, 2,0,c_white,1);
+				drawDesc(_x- 230, _y - 28, lexicon_text($"Perks.{_perk[$ "name"]}.{infolevel}"), 700, 2);
+				_y += 175;
+			}
+			break;
+	}
+}
+
 #endregion

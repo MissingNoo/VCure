@@ -1,3 +1,10 @@
+state = "base";
+info = "";
+infolevel = 1;
+var _x = GW/4;
+var _y = GH/2;
+triangleR = [[_x + 160, _y - 50], [_x + 160, _y + 50], [_x + 160 + 25, _y]];
+triangleL = [[_x - 160, _y - 50], [_x - 160, _y + 50], [_x - 160 - 25, _y]];
 soundplayedby = -1;
 menuClick = false;
 #region Selection screen
