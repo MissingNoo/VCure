@@ -105,63 +105,62 @@ if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2),
 }
 #endregion
 
-#region Stage
-#endregion
+#region CharacterList
+if (!characterSelected) {
+	//Feather disable once GM1041
+	scribble("[white][fa_middle][fa_center]Choose your vtuber").scale(4.30, 4.30).draw(GW/4, GH/8);
+	_offset = 0;
+	var _yoffset = 0;
+	_x = GW/10;
+	_y = GH/4;
+	//draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
+	//if (_isUnlocked) {
+	//	draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
+	//}
+	for (var i=1; i < Characters.Lenght; i++) {
+		if (CHARACTERS[i][?"agency"] != selectedAgency and selectedAgency != "All") {
+			continue;
+		}
+		var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
+		var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
+		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
+		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and state == "base") {
+			selectedCharacter = i; 
+			if (soundplayedby != i) {
+				soundplayedby = i;
+				audio_play_sound(snd_char_select_woosh,0,0);
+			}
+		}
+		switch (CHARACTERS[i][? "finished"]) {
+			case 0:
+				if (os_get_config() == "Release") { continue; }
+				draw_set_color(c_red);
+				break;
+			case 3:
+				if (os_get_config() == "Release") { continue; }
+				draw_set_color(c_orange);
+				break;
+		}
+		draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
+		draw_set_color(c_white);
+		draw_sprite_ext(CharacterData[i].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
+		if (selectedCharacter == i) {
+			draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
+		}
+		if (i == 5) {
+			_yoffset += 85;
+			_offset = 0;
+		}
+		else {
+			_offset += 95;
+		}
+	}
+}
+#endregion	
+
 
 switch (state) {
     case "base":{
-        #region CharacterList
-		if (!characterSelected) {
-			//Feather disable once GM1041
-			scribble("[white][fa_middle][fa_center]Choose your vtuber").scale(4.30, 4.30).draw(GW/4, GH/8);
-			_offset = 0;
-			var _yoffset = 0;
-			_x = GW/10;
-			_y = GH/4;
-			//draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
-			//if (_isUnlocked) {
-			//	draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
-			//}
-			for (var i=1; i < Characters.Lenght; i++) {
-				if (CHARACTERS[i][?"agency"] != selectedAgency and selectedAgency != "All") {
-					continue;
-				}
-				var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
-				var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
-				if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
-				if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and state == "base") {
-					selectedCharacter = i; 
-					if (soundplayedby != i) {
-						soundplayedby = i;
-					    audio_play_sound(snd_char_select_woosh,0,0);
-					}
-				}
-				switch (CHARACTERS[i][? "finished"]) {
-					case 0:
-						if (os_get_config() == "Release") { continue; }
-					    draw_set_color(c_red);
-					    break;
-					case 3:
-						if (os_get_config() == "Release") { continue; }
-					    draw_set_color(c_orange);
-					    break;
-				}
-				draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
-				draw_set_color(c_white);
-				draw_sprite_ext(CharacterData[i].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
-				if (selectedCharacter == i) {
-					draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
-				}
-				if (i == 5) {
-					_yoffset += 85;
-					_offset = 0;
-				}
-				else {
-					_offset += 95;
-				}
-			}
-		}
-		#endregion	
 		#region Outfit
 		if (selectingOutfit) {
 			draw_text(GW/2, GH/2, "Press Z");
@@ -309,8 +308,8 @@ switch (state) {
 				var _ph = sprite_get_height(stages[selectedStage].port) / 2 * 3.25;
 				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw, _yy + _ph, c_black, c_black, c_black, c_black, false);
 				draw_sprite_ext(stages[selectedStage].port, 0, _x, _yy, 3.25, 3.25, 0 ,c_white, 0.65);
-				draw_sprite_ext(stages[selectedStage].back, 0, _x, _yy, 1.25, 1.25, 0 ,c_white, 0.40);
-				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8.25, 8.80).draw(_x, GH/2.50);
+				draw_sprite_ext(stages[selectedStage].back, 0, _x, _yy, 1.25, 1.25, 0 ,c_white, 0.75);
+				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8.25).draw(_x, GH/2.50);
 				scribble($"[fa_center][fa_middle]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50);
 				triangleSR = [[_x + 250, _yy - 40], [_x + 250, _yy + 40], [_x + 250 + 20, _yy]];
 				triangleSL = [[_x - 250, _yy - 40], [_x - 250, _yy + 40], [_x - 250 - 20, _yy]];
@@ -321,8 +320,8 @@ switch (state) {
 				if (selectedStage > 0) {
 				    draw_triangle_color(triangleSL[0][0], triangleSL[0][1], triangleSL[1][0], triangleSL[1][1], triangleSL[2][0], triangleSL[2][1], c_white, c_white, c_white, false);
 				}
-				draw_sprite_ext(sHudButton, 1, GW/2, GH/1.40, 1, 2, 0, c_white, 1);
-				scribble("[c_black][fa_center][fa_middle]GO!").scale(2).draw(GW/2, GH/1.40);
+				draw_sprite_ext(sHudButton, 1, _x, GH/1.40, 1, 2, 0, c_white, 1);
+				scribble("[c_black][fa_center][fa_middle]GO!").scale(2).draw(_x, GH/1.40);
 		        break;
 		    case false:
 		        scribble("[fa_center][fa_middle]CHOOSE MODE").scale(4.50).draw(_x, GH/8);
