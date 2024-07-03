@@ -1,3 +1,5 @@
+nextvar = [false, "", false];
+stagelerp = [-GW/2.75, -GW/2.75, -GW/2.75];
 state = "base";
 info = "";
 infolevel = 1;

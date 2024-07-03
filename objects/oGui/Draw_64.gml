@@ -554,7 +554,7 @@ if (os_type == os_android) {
 	    android_gui_button(guiplus);
 		android_gui_button(guiminus);
 	}
-	if (lastOptionType == PM.Slider or (instance_exists(oCharacterSelectManager) and oCharacterSelectManager.selectingOutfit)) {
+	if (lastOptionType == PM.Slider or (instance_exists(oCharacterSelectManager) and (oCharacterSelectManager.selectingOutfit or oCharacterSelectManager.state == "stage"))) {
 		android_gui_button(plusButton);
 		android_gui_button(minusButton);
 	}

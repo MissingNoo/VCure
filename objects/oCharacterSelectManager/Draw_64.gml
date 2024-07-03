@@ -1,4 +1,5 @@
 //feather disable GM2017
+//scribble(stagelerp[0] - stagelerp[1]).scale(4).draw(MX, MY + 20);
 var a = DebugManager.a;
 var b = DebugManager.b;
 var c = DebugManager.c;
@@ -24,9 +25,9 @@ if (_isUnlocked) {
 	for (var i = 0; i < array_length(_info); ++i) {
 		var _val = string($"{_info[i][1]}{_info[i][2]}");
 		//draw_sprite_ext(, 0, GW/DebugManager.a, GH/DebugManager.b + _yoffset, DebugManager.c, DebugManager.c, 0, c_white, 1);
-		draw_set_alpha(0.25);
-		draw_rectangle_color(GW/2, GH/1.65 + _yoffset, GW/1.75, GH/1.52 + _yoffset, c_black, c_black, c_black, c_black, false);
-		draw_set_alpha(1);
+		//draw_set_alpha(0.25);
+		//draw_rectangle_color(GW/2, GH/1.65 + _yoffset, GW/1.75, GH/1.52 + _yoffset, c_black, c_black, c_black, c_black, false);
+		//draw_set_alpha(1);
 		scribble($"[{_info[i][0]}] {_val}").scale(3).draw(GW/1.48, GH/1.52 + _yoffset);
 		_yoffset += 60;
 	}
@@ -289,18 +290,17 @@ switch (state) {
 		}
         break;}
 	case "stage":{
-		_x = 0;
 		draw_set_alpha(0.5);
-		draw_rectangle_color(_x, 0, _x + 550, GH, c_black, c_black, c_black, c_black, false);
+		draw_rectangle_color(0, 0, GW/2.75 + stagelerp[0], GH, c_black, c_black, c_black, c_black, false);
 		draw_set_alpha(1);
-		_x = GW/5.60;
+		_x = GW/5.60 + stagelerp[0];
 		_y = round(GH/3.14);
 		switch (stageSelected) {
 		    case true:
 				gpu_set_blendmode(bm_max);
-				draw_set_alpha(0.75);
-				draw_rectangle_color(GW/30, GH/5.50, GW/3.05, GH, c_white, c_white, c_black, c_black, false);
-				draw_set_alpha(1);
+				//draw_set_alpha(0.75);
+				//draw_rectangle_color(GW/30, GH/5.50, GW/3.05, GH, c_white, c_white, c_black, c_black, false);
+				//draw_set_alpha(1);
 				gpu_set_blendmode(bm_normal);
 		        scribble("[fa_center][fa_middle]CHOOSE STAGE").scale(4.50).draw(_x, GH/8);
 				_yy = GH/2.50;
@@ -311,8 +311,9 @@ switch (state) {
 				draw_sprite_ext(stages[selectedStage].back, 0, _x, _yy, 1.25, 1.25, 0 ,c_white, 0.75);
 				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8.25).draw(_x, GH/2.50);
 				scribble($"[fa_center][fa_middle]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50);
-				triangleSR = [[_x + 250, _yy - 40], [_x + 250, _yy + 40], [_x + 250 + 20, _yy]];
-				triangleSL = [[_x - 250, _yy - 40], [_x - 250, _yy + 40], [_x - 250 - 20, _yy]];
+				var _xoff = _pw + 15;
+				triangleSR = [[_x + _xoff, _yy - 40], [_x + _xoff, _yy + 40], [_x + _xoff + 20, _yy]];
+				triangleSL = [[_x - _xoff, _yy - 40], [_x - _xoff, _yy + 40], [_x - _xoff - 20, _yy]];
 				_max = array_length(stages) - 1;
 				if (selectedStage < _max) {
 				    draw_triangle_color(triangleSR[0][0], triangleSR[0][1], triangleSR[1][0], triangleSR[1][1], triangleSR[2][0], triangleSR[2][1], c_white, c_white, c_white, false);

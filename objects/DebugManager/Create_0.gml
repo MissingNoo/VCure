@@ -7,7 +7,7 @@ vara = 1;
 varb = 1;
 maxsize = 0;
 maxwidth = 0;
-step = 0.25;
+step = 1;
 minimized = false;
 xx = x;
 yy = 0;
@@ -46,9 +46,9 @@ function same_line(){
 	variables[array_length(variables) - 1][$ "sameLine"] = true
 }
 
-a = 2;
-b = 1;
-c = 1;
+a = 10;
+b = 10;
+c = 20;
 d = 1;
 e = 1;
 arr = ["a", "b", "c", "d", "e"];
