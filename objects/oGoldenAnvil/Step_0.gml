@@ -29,6 +29,7 @@ if (GoldenANVIL) {
 		gAnvilWeapon2Position = 0;
 		canCollab = false;
 		pause_game();
+		//feather disable once GM2016
 		oGui.upgradesSurface();
 		return;
 	}

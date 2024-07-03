@@ -25,7 +25,39 @@ if (spriteChangeTimer < 0) {
 }
 #endregion
 switch (state) {
+	case "stage":
+		if (input_check_pressed("accept")) {
+			switch (stageSelected) {
+			    case true:
+			        room_goto(stages[selectedStage].roomname);
+			        break;
+			    case false:
+			        stageSelected = true;
+					if (selected == 0) { global.stageType = StageTypes.Stage; }
+					if (selected == 1) { global.stageType = StageTypes.Endless; }
+			        break;
+			}
+		}
+		if (input_check_pressed("cancel")) {
+			switch (stageSelected) {
+			    case true:
+			        stageSelected = false;
+			        break;
+			    case false:
+			        characterSelected = false;
+					outfitSelected = false;
+					selectedOutfit = 0;
+					selected = 0;
+					state = "base";
+			        break;
+			}
+			return;
+		}
+		break;
     case "base":
+		if (characterSelected and outfitSelected) {
+		    state = "stage";
+		}
         if (selectingOutfit) {
 			if (input_check_pressed("cancel")) {
 				selectingOutfit = false;
@@ -41,15 +73,6 @@ switch (state) {
 				return;
 			}
 		}
-		if (!stageSelected and characterSelected and outfitSelected) {
-			if (input_check_pressed("cancel")) {
-				characterSelected = false;
-				outfitSelected = false;
-				selectedOutfit = 0;
-				selected = 0;
-				return;
-			}
-		}
 		if (input_check_pressed("cancel")) {
 			if (!characterSelected) {
 				sidebarOpenByButton = !sidebarOpenByButton;
@@ -57,15 +80,6 @@ switch (state) {
 			}
 		}
 		if (input_check_pressed("accept")) {
-			if (stageSelected) {
-				room_goto(stages[0].roomname);
-			}
-			if (!stageSelected and characterSelected and outfitSelected) {
-				stageSelected = true;
-				if (selected == 0) { global.stageType = StageTypes.Stage; }
-				if (selected == 1) { global.stageType = StageTypes.Endless; }
-				return;
-			}
 			if (!characterSelected) {
 				if (sidebarOpenByButton) { sidebarOpenByButton = false; return; }
 				if (!CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked) { return; }

@@ -5,6 +5,8 @@ var _x = GW/4;
 var _y = GH/2;
 triangleR = [[_x + 160, _y - 50], [_x + 160, _y + 50], [_x + 160 + 25, _y]];
 triangleL = [[_x - 160, _y - 50], [_x - 160, _y + 50], [_x - 160 - 25, _y]];
+triangleSR = [[_x + 160, _y - 50], [_x + 160, _y + 50], [_x + 160 + 25, _y]];
+triangleSL = [[_x - 160, _y - 50], [_x - 160, _y + 50], [_x - 160 - 25, _y]];
 soundplayedby = -1;
 menuClick = false;
 #region Selection screen
@@ -76,7 +78,10 @@ selectAgency = function(i){
 		desc : "Defeat 5000 targets as soon as possible! Shop upgrades are standardized"
 		//desc : "Defeat 5000 targets as \nsoon as possible! \nShop upgrades are standardized"
 	}];
-	stages = [{name: "Stage 1", port : sStage1Port, roomname : rStage1}];
+	stages = [
+		{name: "[wave]GRASSY\nPLAINS", port : sStage1Port, back : sAmeBack, roomname : rStage1},
+		{name: "[wave]HOLOFFICE", port : sStage2Port, back : sGlasses, roomname : rStage1},
+	];
 	selectedStage = 0;
 #endregion
 resetSidebar();

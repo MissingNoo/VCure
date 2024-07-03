@@ -1,5 +1,6 @@
 // Feather disable GM1041
 #region Start variables
+var offset;
 var str = "";
 var _x = 0;
 var _y = 0;

@@ -80,6 +80,7 @@ if (ANVIL) {
 			    anvilconfirm = true;
 			}
 		}
+		//feather disable once GM2016
 		oGui.upgradesSurface();
 	}
 }
