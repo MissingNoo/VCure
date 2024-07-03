@@ -109,9 +109,9 @@ if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2),
 #region CharacterList
 if (!characterSelected) {
 	//Feather disable once GM1041
-	scribble("[white][fa_middle][fa_center]Choose your vtuber").scale(4.30, 4.30).draw(GW/4, GH/8);
+	var _yoffset = 0 - characterlerp[0];	
+	scribble("[white][fa_middle][fa_center]Choose your vtuber").scale(4.30, 4.30).draw(GW/4, GH/8 + _yoffset);
 	_offset = 0;
-	var _yoffset = 0;
 	_x = GW/10;
 	_y = GH/4;
 	//draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
@@ -159,6 +159,44 @@ if (!characterSelected) {
 }
 #endregion	
 
+#region SideBar
+var _surf = surface_create(sidebar[1], GH);
+surface_set_target(_surf);
+var _yoff = 0;
+for (var i = 0; i < array_length(agencies); ++i) {
+	var _color = selectedAgency == agencies[i][0] ? #add8e6 : c_white;
+	scribble($"[{_color}]{agencies[i][0]}").scale(3).draw(75, 15 + _yoff);
+	//draw_text_transformed_color(75, 15 + _yoff, agencies[i][0], 3, 3, 0, _color, _color, _color, _color, 1);
+	draw_sprite_ext(agencies[i][1], 0, 32, 32 + _yoff + 4, .35, .35, 0, _color, 1);
+	if (selectedAgency == agencies[i][0]) {
+		draw_rectangle_color(0, sidebar[2] - 30, 3, sidebar[2] + 30, #add8e6, #add8e6, #add8e6, #add8e6, false);
+	}
+	//draw_text(TouchX1, TouchY1 - 30, $"{sidebar[2]}   /   {sidebar[3]}");
+	var _w = (sprite_get_width(agencies[i][1]) * 0.35) / 2;
+	var _h = (sprite_get_height(agencies[i][1]) * 0.35) / 2 + 5;
+	DEBUG
+		draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h, true);
+	ENDDEBUG
+	if (sidebarOpen and mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h)) {
+		selectAgency(i);
+	}
+	_yoff += 60;
+}
+surface_reset_target();
+draw_set_alpha(0.75);
+draw_rectangle_color(0,0, 64 + sidebarlerp[0], GH, c_black, c_black, c_black, c_black, false);
+draw_rectangle_color(64 + sidebarlerp[0],0, sidebar[0] + sidebarlerp[0], GH, c_black, c_black, c_black, c_black, false);
+draw_set_alpha(1);
+draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0 + sidebarlerp[0], 0);
+surface_free(_surf);
+//draw_circle(MX, MY, 32, false);
+if (state == "base" and point_in_rectangle(TouchX1, TouchY1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH) or sidebarOpenByButton) {
+	sidebarOpen = true;
+}
+else {
+	sidebarOpen = false;
+}
+#endregion
 
 switch (state) {
     case "base":{
@@ -193,44 +231,6 @@ switch (state) {
 		//	var _isUnlocked = CHARACTERS[selectedCharacter][?"outfits"][selectedOutfit][$ "unlocked"] ? c_white : c_black;
 		//	draw_sprite_ext(_spr, outfitIdleAnimation[0], _x, _y + sprite_get_height(_spr) * 3, 6, 6, 0, _isUnlocked, 1);
 		//}
-		#endregion
-		#region SideBar
-		var _surf = surface_create(sidebar[1], GH);
-		surface_set_target(_surf);
-		var _yoff = 0;
-		for (var i = 0; i < array_length(agencies); ++i) {
-			var _color = selectedAgency == agencies[i][0] ? #add8e6 : c_white;
-			scribble($"[{_color}]{agencies[i][0]}").scale(3).draw(75, 15 + _yoff);
-			//draw_text_transformed_color(75, 15 + _yoff, agencies[i][0], 3, 3, 0, _color, _color, _color, _color, 1);
-			draw_sprite_ext(agencies[i][1], 0, 32, 32 + _yoff + 4, .35, .35, 0, _color, 1);
-			if (selectedAgency == agencies[i][0]) {
-				draw_rectangle_color(0, sidebar[2] - 30, 3, sidebar[2] + 30, #add8e6, #add8e6, #add8e6, #add8e6, false);
-			}
-			//draw_text(TouchX1, TouchY1 - 30, $"{sidebar[2]}   /   {sidebar[3]}");
-			var _w = (sprite_get_width(agencies[i][1]) * 0.35) / 2;
-			var _h = (sprite_get_height(agencies[i][1]) * 0.35) / 2 + 5;
-			DEBUG
-				draw_rectangle(32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h, true);
-			ENDDEBUG
-			if (sidebarOpen and mouse_click and point_in_rectangle(MX, MY, 32 - _w, 32 + _yoff - _h, 32 + _w + (string_width(agencies[i][0]) * 3) + 25, 32 + _yoff + _h)) {
-				selectAgency(i);
-			}
-			_yoff += 60;
-		}
-		surface_reset_target();
-		draw_set_alpha(0.75);
-		draw_rectangle_color(0,0, 64, GH, c_black, c_black, c_black, c_black, false);
-		draw_rectangle_color(64,0, sidebar[0], GH, c_black, c_black, c_black, c_black, false);
-		draw_set_alpha(1);
-		draw_surface_part(_surf, 0, 0, sidebar[0], GH, 0, 0);
-		surface_free(_surf);
-		//draw_circle(MX, MY, 32, false);
-		if (state == "base" and point_in_rectangle(TouchX1, TouchY1, 0, 0, 64 + (sidebar[0] > 64 ? sidebar[0] - 64 : sidebar[0]), GH) or sidebarOpenByButton) {
-			sidebarOpen = true;
-		}
-		else {
-			sidebarOpen = false;
-		}
 		#endregion
         break;}
     case "showinfo":{

@@ -1,10 +1,10 @@
-var _updown = - upKey + downKey;
-var _leftright = - leftKey + rightKey;
+var _updown = - input_check_pressed("up") + input_check_pressed("down");
+var _leftright = - input_check_pressed("left") + input_check_pressed("right");
 #region Menu
 if (room == rInicio) {
 	if (!global.gamePaused and !isBusy) {
-	    if (upKey) { if (selected == 0) { selected = array_length(menuOptions) - 1; } else selected -= 1; }
-		if (downKey) { if (selected < array_length(menuOptions) - 1) { selected += 1; } else selected = 0; }
+	    selected += _updown;
+		selected = clamp(selected, 0, array_length(menuOptions) - 1);
 		//mouseOnButton(GW/1.25, GW/6, 55, sHudButton, 1.75, 1.5, menuOptions);
 	}
 }

@@ -43,23 +43,22 @@ if (room == rInicio) {
 		gpu_set_fog(false,c_white,0,0);
 		draw_text_transformed(20,GH-50, $"version ? by Airgeadlamh GUI: {global.guiScale}", 1, 1, 0);
 		var _menuyoffset = 0;
-		draw_set_valign(fa_center);
-		draw_set_halign(fa_middle);
 		var _w = sprite_get_width(sHudButton) * 2 / 2;
 		var _h = sprite_get_height(sHudButton) * 2 / 2;
 		for (var i = 0; i < array_length(menuOptions); i++) {
 			var _spr = selected == i ? 1 : 0;
-			var _color = selected == i ? c_black : c_white;
+			var _color = selected == i ? "c_black" : "c_white";
 			var _xx = GW - 305;
 			var _yy = GH/4 + _menuyoffset + 3;
 			draw_sprite_ext(sHudButton, _spr, _xx, _yy, selected == i ? 2 : 1.75, 2, 0, c_white, 1);
-			draw_text_transformed_color(_xx, _yy + 5, menuOptions[i], 2, 2, 0, _color, _color, _color, _color, 1);
+			if (_yy mod 2 == 1) {
+			    _yy++;
+			}
+			scribble($"[fa_middle][fa_center][{_color}]{menuOptions[i]}").scale(2.5).draw(_xx, _yy + 4);
 			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h) and selected == i and mouse_click) { menuClick = true; }
 			if (point_in_rectangle(MX, MY, _xx - _w, _yy - _h, _xx + _w, _yy + _h)) { selected = i; }
 			_menuyoffset += 93;
 		}
-		draw_set_valign(fa_top);
-		draw_set_halign(fa_left);
 	}
 	#endregion
 }
@@ -410,9 +409,29 @@ if (instance_exists(oPlayer)) {
 	#endregion
 	#region Timer
 	var _seconds = round(Seconds);
+	var _minutes = round(Minutes);
 	if (_seconds < 10) { _seconds = $"0{_seconds}"; }
-	var _time = $"{Minutes}:{_seconds}";
-	draw_text_transformed(GW/2 - (string_width(_time)/2), 35, _time, 2, 2, 0);
+	if (_minutes < 10) { _minutes = $"0{_minutes}"; }
+	var _text = "";
+	switch (global.stageType) {
+	    case StageTypes.Stage:
+	        _text = "STAGE";
+	        break;
+	    case StageTypes.Endless:
+	        _text = "ENDLESS"
+	        break;
+	}
+	var _time = $"[fa_center][fa_middle]{_minutes}:{_seconds}";
+	scribble($"[c_black]{_time}").scale(3).draw(GW/2-2, GH/10);
+	scribble($"[c_black]{_time}").scale(3).draw(GW/2+2, GH/10);
+	scribble($"[c_black]{_time}").scale(3).draw(GW/2, GH/10-2);
+	scribble($"[c_black]{_time}").scale(3).draw(GW/2, GH/10+2);
+	scribble(_time).scale(3).draw(GW/2, GH/10);
+	scribble($"[fa_center][fa_middle][c_black]{_text}").scale(1.80).draw(GW/2-2, GH/14.10);
+	scribble($"[fa_center][fa_middle][c_black]{_text}").scale(1.80).draw(GW/2+2, GH/14.10);
+	scribble($"[fa_center][fa_middle][c_black]{_text}").scale(1.80).draw(GW/2, GH/14.10-2);
+	scribble($"[fa_center][fa_middle][c_black]{_text}").scale(1.80).draw(GW/2, GH/14.10+2);
+	scribble($"[fa_center][fa_middle]{_text}").scale(1.80).draw(GW/2, GH/14.10);
 	#endregion
 	#region Buffs //TODO: fix draw
 	var _xx = 55;

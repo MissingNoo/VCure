@@ -31,22 +31,30 @@ if (spriteChangeTimer < 0) {
 	}
 }
 #endregion
+#region Lerps
+if (sidebarlerp[0] != sidebarlerp[1]) {
+	sidebarlerp[0] = lerp(sidebarlerp[0], sidebarlerp[1], 0.30);
+}
+if (characterlerp[0] != characterlerp[1]) {
+	characterlerp[0] = lerp(characterlerp[0], characterlerp[1], 0.30);
+	if (int64(round(characterlerp[0] - characterlerp[1])) == 0) {
+		characterlerp[0] = characterlerp[1];
+		nextVar();
+	}
+	exit;
+}
+if (stagelerp[0] != stagelerp[1]) {
+	stagelerp[0] = lerp(stagelerp[0], stagelerp[1], 0.30);
+	if (int64(round(stagelerp[0] - stagelerp[1])) == 0) {
+		stagelerp[0] = stagelerp[1];
+		nextVar();
+		stagelerp[1] = 0;
+	}
+	exit;
+}
+#endregion
 switch (state) {
 	case "stage":
-		if (stagelerp[0] != stagelerp[1]) {
-		    stagelerp[0] = lerp(stagelerp[0], stagelerp[1], 0.30);
-			if (int64(round(stagelerp[0] - stagelerp[1])) == 0) {
-			    stagelerp[0] = stagelerp[1];
-			}
-			exit;
-		}
-		else {
-			if (!nextvar[0] and nextvar[1] != "") {
-			    nextvar[0] = true;
-				variable_instance_set(self, nextvar[1], nextvar[2]);
-				stagelerp[1] = 0;
-			}
-		}
 		if (input_check_pressed("accept")) {
 			switch (stageSelected) {
 			    case true:
@@ -82,9 +90,14 @@ switch (state) {
 		}
 		break;
     case "base":
+		sidebarlerp[1] = 0;
+		characterlerp[1] = 0;
 		if (characterSelected and outfitSelected) {
 		    state = "stage";
+			sidebarlerp[1] = -64;
+			characterlerp[1] = characterlerp[2];
 			stagelerp[1] = 0;
+			return;
 		}
         if (selectingOutfit) {
 			if (input_check_pressed("cancel")) {
@@ -118,7 +131,9 @@ switch (state) {
 					case true:{
 						global.mode = "stage";
 						//room_goto(Room1);
-						characterSelected = true;
+						//characterSelected = true;
+						nextvar = [false, "characterSelected", true];
+						characterlerp[1] = characterlerp[2];
 						maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
 						var _unlockedOutfits = 0;
 						for (var i = 0; i < maxOutfits; ++i) {

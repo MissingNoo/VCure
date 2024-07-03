@@ -132,6 +132,7 @@ if (room == rInicio and !global.gamePaused) {
 				global.singleplayer = false;
 				//instance_create_layer(0, 0, "Instances", oClient);
 				selected=0;
+				global.stageType = StageTypes.Stage;
 	            room_goto(rCharacterSelect);
 	            break;}
 			//case MenuOptionsEnum.Settings:{
