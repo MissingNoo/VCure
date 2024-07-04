@@ -3,6 +3,8 @@ stagelerp = [-GW/2.75, -GW/2.75, -GW/2.75];
 nextvar = [false, "", false];
 sidebarlerp = [-64, 0, -64];
 characterlerp = [345, 0, 345];
+stageselectlerp = [0, 0];
+
 function nextVar(){
 	if (!nextvar[0] and nextvar[1] != "") {
 		nextvar[0] = true;

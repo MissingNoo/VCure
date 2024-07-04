@@ -34,6 +34,11 @@ if (spriteChangeTimer < 0) {
 #region Lerps
 if (sidebarlerp[0] != sidebarlerp[1]) {
 	sidebarlerp[0] = lerp(sidebarlerp[0], sidebarlerp[1], 0.30);
+	if (int64(round(sidebarlerp[0] - sidebarlerp[1])) == 0) {
+		sidebarlerp[0] = sidebarlerp[1];
+		nextVar();
+	}
+	exit;
 }
 if (characterlerp[0] != characterlerp[1]) {
 	characterlerp[0] = lerp(characterlerp[0], characterlerp[1], 0.30);
@@ -51,6 +56,9 @@ if (stagelerp[0] != stagelerp[1]) {
 		stagelerp[1] = 0;
 	}
 	exit;
+}
+if (stageselectlerp[0] != stageselectlerp[1]) {
+	stageselectlerp[0] = lerp(stageselectlerp[0], stageselectlerp[1], 0.30);
 }
 #endregion
 switch (state) {
@@ -97,6 +105,7 @@ switch (state) {
 			sidebarlerp[1] = -64;
 			characterlerp[1] = characterlerp[2];
 			stagelerp[1] = 0;
+			stagelerp[0] = stagelerp[2];
 			return;
 		}
         if (selectingOutfit) {

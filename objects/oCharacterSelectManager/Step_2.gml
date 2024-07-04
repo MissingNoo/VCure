@@ -13,6 +13,7 @@ switch (state) {
 			var _min = 0;
 			var _max = array_length(stages) - 1;
 			selectedStage = clamp(selectedStage, _min, _max);
+			stageselectlerp[1] = selectedStage * -550;
 		}
 		break;}
     case "base":

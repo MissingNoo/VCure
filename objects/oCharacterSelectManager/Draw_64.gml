@@ -1,5 +1,5 @@
 //feather disable GM2017
-//scribble(stagelerp[0] - stagelerp[1]).scale(4).draw(MX, MY + 20);
+scribble(stageselectlerp).scale(4).draw(MX, MY + 20);
 var a = DebugManager.a;
 var b = DebugManager.b;
 var c = DebugManager.c;
@@ -307,14 +307,24 @@ switch (state) {
 				var _pw = sprite_get_width(stages[selectedStage].port) / 2 * 3.25;
 				var _ph = sprite_get_height(stages[selectedStage].port) / 2 * 3.25;
 				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw, _yy + _ph, c_black, c_black, c_black, c_black, false);
-				draw_sprite_ext(stages[selectedStage].port, 0, _x, _yy, 3.25, 3.25, 0 ,c_white, 0.65);
-				draw_sprite_ext(stages[selectedStage].back, 0, _x, _yy, 1.25, 1.25, 0 ,c_white, 0.75);
-				//scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8.25).draw(_x, GH/2.50);
-				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x-2, GH/2.50);
-				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x+2, GH/2.50);
-				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50-2);
-				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50+2);
-				scribble($"[fa_center][fa_middle]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50);
+				var _stagesurf = surface_create(sprite_get_width(stages[selectedStage].port) * 3.25, 600);
+				var _sx = _pw;
+				var _sy = 300;
+				surface_set_target(_stagesurf);
+				var _soffset = 0
+				for (var i = 0; i < array_length(stages); ++i) {
+					draw_sprite_ext(stages[i].port, 0, _sx + stageselectlerp[0] + _soffset, _sy, 3.25, 3.25, 0 ,c_white, 0.65);
+					draw_sprite_ext(stages[i].back, 0, _sx + stageselectlerp[0] + _soffset, _sy, 1.25, 1.25, 0 ,c_white, 0.75);
+					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0] - 2 + _soffset, _sy);
+					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0] + 2  + _soffset, _sy);
+					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0]  + _soffset, _sy - 2);
+					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0]  + _soffset, _sy + 2);
+					scribble($"[fa_center][fa_middle]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0]  + _soffset, _sy);
+					_soffset += 550;
+				}
+				surface_reset_target();
+				draw_surface(_stagesurf, _x-_sx, _yy-_sy);
+				surface_free(_stagesurf);
 				var _xoff = _pw + 15;
 				triangleSR = [[_x + _xoff, _yy - 40], [_x + _xoff, _yy + 40], [_x + _xoff + 20, _yy]];
 				triangleSL = [[_x - _xoff, _yy - 40], [_x - _xoff, _yy + 40], [_x - _xoff - 20, _yy]];
