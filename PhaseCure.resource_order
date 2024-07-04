@@ -773,7 +773,6 @@
     {"name":"circle_white","order":2,"path":"sprites/circle_white/circle_white.yy",},
     {"name":"DebugArrowButtonUpDown","order":1,"path":"sprites/DebugArrowButtonUpDown/DebugArrowButtonUpDown.yy",},
     {"name":"DebugManagerBackground","order":4,"path":"sprites/DebugManagerBackground/DebugManagerBackground.yy",},
-    {"name":"menu_charselecBG","order":1,"path":"sprites/menu_charselecBG/menu_charselecBG.yy",},
     {"name":"sAbsoluteWall","order":10,"path":"sprites/sAbsoluteWall/sAbsoluteWall.yy",},
     {"name":"sAbsoluteWallIThumb","order":9,"path":"sprites/sAbsoluteWallIThumb/sAbsoluteWallIThumb.yy",},
     {"name":"sAchCursed","order":7,"path":"sprites/sAchCursed/sAchCursed.yy",},

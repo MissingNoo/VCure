@@ -9,7 +9,7 @@ if (barktimer < 0) {
 	instance_create_depth(x, y, depth - 1, oBubbaBark);
 }
 direction = point_direction(x, y, target.x, target.y);
-if (distance_to_point(target.x, target.y) < 10) {
+if (distance_to_point(target.x, target.y) < 10 or x - xprevious > 50) {
     target.x = oPlayer.x + irandom_range(-200, 200);
     target.y = oPlayer.y + irandom_range(-200, 200);
 }

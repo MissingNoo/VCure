@@ -309,7 +309,11 @@ switch (state) {
 				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw, _yy + _ph, c_black, c_black, c_black, c_black, false);
 				draw_sprite_ext(stages[selectedStage].port, 0, _x, _yy, 3.25, 3.25, 0 ,c_white, 0.65);
 				draw_sprite_ext(stages[selectedStage].back, 0, _x, _yy, 1.25, 1.25, 0 ,c_white, 0.75);
-				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8.25).draw(_x, GH/2.50);
+				//scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8.25).draw(_x, GH/2.50);
+				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x-2, GH/2.50);
+				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x+2, GH/2.50);
+				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50-2);
+				scribble($"[fa_center][fa_middle][c_black]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50+2);
 				scribble($"[fa_center][fa_middle]{stages[selectedStage].name}").scale(8).draw(_x, GH/2.50);
 				var _xoff = _pw + 15;
 				triangleSR = [[_x + _xoff, _yy - 40], [_x + _xoff, _yy + 40], [_x + _xoff + 20, _yy]];

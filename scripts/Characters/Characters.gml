@@ -402,8 +402,7 @@ function populate_characters(){
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	NAME=CHARACTERS[Characters.Uruka][?"name"];
 }
-function Movement()
-{
+function Movement() {
 if (canMove == true){
 	var _target = noone;
 	if (instance_exists(oCam)) {
@@ -568,4 +567,6 @@ if (canMove == true){
 		if (!lockSprite) {sprite_index=sprite;}
 		moving = false;
 	}
+	oCam.x = oPlayer.x;
+	oCam.y = oPlayer.y;
 }

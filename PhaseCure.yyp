@@ -893,7 +893,6 @@
     {"id":{"name":"DebugArrowButtonLeftRight","path":"sprites/DebugArrowButtonLeftRight/DebugArrowButtonLeftRight.yy",},},
     {"id":{"name":"DebugArrowButtonUpDown","path":"sprites/DebugArrowButtonUpDown/DebugArrowButtonUpDown.yy",},},
     {"id":{"name":"DebugManagerBackground","path":"sprites/DebugManagerBackground/DebugManagerBackground.yy",},},
-    {"id":{"name":"menu_charselecBG","path":"sprites/menu_charselecBG/menu_charselecBG.yy",},},
     {"id":{"name":"MenuImage","path":"sprites/MenuImage/MenuImage.yy",},},
     {"id":{"name":"sAbsoluteWall","path":"sprites/sAbsoluteWall/sAbsoluteWall.yy",},},
     {"id":{"name":"sAbsoluteWallIThumb","path":"sprites/sAbsoluteWallIThumb/sAbsoluteWallIThumb.yy",},},
