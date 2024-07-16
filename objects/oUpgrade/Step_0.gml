@@ -10,13 +10,6 @@ if (socket == oPlayer.socket) {
 }
 #region Connected to Character
 if (!global.gamePaused) {
-	if (subImg < maxImg and sprReset) {
-	    subImg += (sprSpeed / game_get_speed(sprSpeedType) * Delta) * image_speed;
-		if (subImg > maxImg) {
-		    subImg = maxImg;
-			event_perform(ev_other, ev_animation_end);
-		}
-	}
 	#region broadcasts
 	switch (upg[$ "id"]) {
 	    case Weapons.MiCometMeteor:

@@ -405,19 +405,19 @@ function populate_upgrades(){
 			mindmg : [0, 0, 0, 0, 0, 0, 0],
 			maxdmg : [0, 0, 0, 0, 0, 0, 0], 
 			cooldown : [90, 90, 90, 90, 90, 76, 76], 
-			duration : 50, 
+			duration : 30,
 			hitCooldown : 60, 
 			canBeHasted : true, 
 			attackdelay : 8, 
 			speed : 0, 
-			area : 1,
-			hits : [1, 2, 2, 2, 3, 3, 3], 
+			size : 1.5,
+			hits : 999,
 			type : "red", 
 			shoots : 1, 
 			perk : true, 
 			characterid : Characters.Anya, 
 			weight : 3, 
-			range : 250, 
+			range : 120,
 			chance : [0, 0, 0, 0, 0, 0, 30] 
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion

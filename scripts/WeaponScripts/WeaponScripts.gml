@@ -55,11 +55,11 @@ function brick_step(o){
 		image_angle -= 6;
 	}
 }
-function keris_step(o){
+function keris_step(o, owner = noone){
 	switch (o) {
-	    case WeaponEvent.AnimationEnd:
-	        image_speed = 0;
-	        break;
+		case WeaponEvent.BeginStep:
+			image_angle = global.arrowDir;
+			break;
 		case WeaponEvent.Step:
 			if (variable_instance_exists(self, "image_index") and image_index == 0) {
 			    image_alpha-=DebugManager.a;

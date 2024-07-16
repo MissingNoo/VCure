@@ -1,4 +1,5 @@
 //event_inherited();
+stopanimation = false;
 lowest = 0;
 aikFollowTimer = 0.25;
 aikFollow = false;

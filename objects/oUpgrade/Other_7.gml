@@ -1,5 +1,8 @@
 if (variable_struct_exists(upg, "func")) {
-	    upg.func(WeaponEvent.AnimationEnd);
+	    upg.func(WeaponEvent.AnimationEnd, self.id);
+}
+if (stopanimation) {
+    exit;
 }
 var _oldsprite = sprite_index;
 var _oldsub = subImg;
@@ -109,8 +112,12 @@ switch (upg[$ "id"]) {
 		break;}
 	#endregion
 	#endregion
+	case Weapons.Keris:
+		stopanimation = true;
+		subImg = 4;
+		exit;
     default:
-        subImg = 0;
+		subImg = 0;     
         break;
 }
 maxImg = sprite_get_number(sprite_index);
