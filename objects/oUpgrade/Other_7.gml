@@ -1,3 +1,6 @@
+if (variable_struct_exists(upg, "func")) {
+	    upg.func(WeaponEvent.AnimationEnd);
+}
 var _oldsprite = sprite_index;
 var _oldsub = subImg;
 switch (upg[$ "id"]) {

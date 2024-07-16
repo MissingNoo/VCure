@@ -1,4 +1,4 @@
-if (maxuses == 0 and !ANVIL) {
+if (maxuses <= 0 and !ANVIL) {
 	instance_destroy();
 }
 if (ANVIL) {

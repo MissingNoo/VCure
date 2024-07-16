@@ -11,7 +11,7 @@ if (socket == oPlayer.socket) {
 #region Connected to Character
 if (!global.gamePaused) {
 	if (subImg < maxImg and sprReset) {
-	    subImg += sprSpeed / game_get_speed(sprSpeedType) * Delta;
+	    subImg += (sprSpeed / game_get_speed(sprSpeedType) * Delta) * image_speed;
 		if (subImg > maxImg) {
 		    subImg = maxImg;
 			event_perform(ev_other, ev_animation_end);
@@ -59,7 +59,7 @@ if (!global.gamePaused) {
 	}
 	afterimage_step();
 	if (variable_struct_exists(upg, "func")) {
-	    upg[$ "func"](WeaponEvent.Step);
+	    upg.func(WeaponEvent.Step);
 	}
 }
 #endregion

@@ -395,7 +395,31 @@ function populate_upgrades(){
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
 		#region Anya
-		new_create_upgrade({ id : Weapons.Keris, name : "Keris", maxlevel : 7, sprite : sAnyaProjectile, thumb : sAnyaWeapon, mindmg : [0, 0, 0, 0, 0, 0, 0], maxdmg : [0, 0, 0, 0, 0, 0, 0,], cooldown : [90, 90, 90, 90, 90, 76, 76], duration : 50, hitCooldown : 60, canBeHasted : true, attackdelay : 8, speed : 8, area : [.8, .8, .96, .96, .96, .96, 1.20], hits : [1, 2, 2, 2, 3, 3, 3], type : "red", shoots : [2, 2, 2, 3, 3, 4, 4], perk : true, characterid : Characters.Anya, weight : 3, range : 250, chance : [0, 0, 0, 0, 0, 0, 30] },[snd_bullet, snd_bullet2, snd_bullet3]);
+		new_create_upgrade({
+			func : keris_step,
+			id : Weapons.Keris, 
+			name : "Keris", 
+			maxlevel : 7, 
+			sprite : sAnyaProjectile, 
+			thumb : sAnyaWeapon, 
+			mindmg : [0, 0, 0, 0, 0, 0, 0],
+			maxdmg : [0, 0, 0, 0, 0, 0, 0], 
+			cooldown : [90, 90, 90, 90, 90, 76, 76], 
+			duration : 50, 
+			hitCooldown : 60, 
+			canBeHasted : true, 
+			attackdelay : 8, 
+			speed : 0, 
+			area : 1,
+			hits : [1, 2, 2, 2, 3, 3, 3], 
+			type : "red", 
+			shoots : 1, 
+			perk : true, 
+			characterid : Characters.Anya, 
+			weight : 3, 
+			range : 250, 
+			chance : [0, 0, 0, 0, 0, 0, 30] 
+		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
 		#endregion
 	#region Shockwave

@@ -102,7 +102,7 @@ if (arrowDir == 0 and shoots > 0) {
 }
 ce=0;
 image_alpha=0;
-image_speed=0;	
+//image_speed=0;	
 originalspeed = speed;
 a=0;
 //alarm[1]=200;
@@ -117,8 +117,8 @@ originaly=0;
 orbitoffset = -90;
 orbitPlace = 0;
 orbitLength = 0;
-image_speed=0;
-image_alpha=0;
+//image_speed=0;
+//image_alpha=0;
 //lava
 loops = 0;
 changeSprite=false;

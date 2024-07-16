@@ -55,6 +55,18 @@ function brick_step(o){
 		image_angle -= 6;
 	}
 }
+function keris_step(o){
+	switch (o) {
+	    case WeaponEvent.AnimationEnd:
+	        image_speed = 0;
+	        break;
+		case WeaponEvent.Step:
+			if (variable_instance_exists(self, "image_index") and image_index == 0) {
+			    image_alpha-=DebugManager.a;
+			}
+			break;
+	}
+}
 function asacoco_step(o){
 	if (o == 0) {
 	    originaly=y;
