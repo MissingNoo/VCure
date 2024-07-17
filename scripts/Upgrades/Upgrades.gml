@@ -396,7 +396,7 @@ function populate_upgrades(){
 		#endregion
 		#region Anya
 		new_create_upgrade({
-			func : keris_step,
+			//func : keris_step,
 			id : Weapons.Keris, 
 			name : "Keris", 
 			maxlevel : 7, 
@@ -452,7 +452,8 @@ function populate_upgrades(){
 	#endregion
 	#region BLBook
 		new_create_upgrade({
-				func : blbook_step,
+				beginstep : blbook_begin_step,
+				step : blbook_step,
 				id : Weapons.BlBook,
 				weight : 3,
 				name : "BL Book",
@@ -2005,16 +2006,17 @@ function tick_powers(){
 		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i].id] <= 0) {
-				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
-					upg : UPGRADES[i],
-					speed : UPGRADES[i][$ "speed"],
-					hits : UPGRADES[i][$ "hits"],
-					shoots : UPGRADES[i][$ "shoots"],
-					sprite_index : UPGRADES[i][$ "sprite"],
-					level : UPGRADES[i][$ "level"],
-					mindmg: UPGRADES[i][$ "mindmg"],
-					maxdmg: UPGRADES[i][$ "maxdmg"]
-				});				
+				instance_create_layer(x,y-8,"Upgrades",oUpgradeNew);
+				//instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
+				//	upg : UPGRADES[i],
+				//	speed : UPGRADES[i][$ "speed"],
+				//	hits : UPGRADES[i][$ "hits"],
+				//	shoots : UPGRADES[i][$ "shoots"],
+				//	sprite_index : UPGRADES[i][$ "sprite"],
+				//	level : UPGRADES[i][$ "level"],
+				//	mindmg: UPGRADES[i][$ "mindmg"],
+				//	maxdmg: UPGRADES[i][$ "maxdmg"]
+				//});
 			}			
 		}
 	}
