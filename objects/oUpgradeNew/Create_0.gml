@@ -9,14 +9,18 @@ mindmg = upg.mindmg;
 last_frame = sprite_get_number(sprite_index);
 sprite_speed = sprite_get_speed(sprite_index);
 sprite_speed_type = sprite_get_speed_type(sprite_index);
-dAlarm = array_create(11, [-1, undefined]);
+dAlarm = [];
 dAlarm[0][0] = upg.attackdelay;
 dAlarm[0][1] = function() {
 	if (shoots > 1) {
-		instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, shoots : -1});
 		shoots--;
+		instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, shoots : -1, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
 	    dAlarm[0][0] = upg.attackdelay;
 	}
+}
+dAlarm[1][0] = upg.duration;
+dAlarm[1][1] = function() {
+	instance_destroy();
 }
 #region Cooldown
 var cooldown = upg.cooldown;
@@ -73,3 +77,4 @@ for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 if (upg[$ "create"] != undefined) {
 	upg.create(self.id);
 }
+visible = true;

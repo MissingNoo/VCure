@@ -1,7 +1,10 @@
 if (global.gamePaused) { exit; }
+if (upg[$ "step"] != undefined) {
+	upg.step(self.id);
+}
 #region Delta alarms
 for (var i = 0; i < array_length(dAlarm); ++i) {
-	if (dAlarm[i][0] != -1) {
+	if (dAlarm[i][0] > 0) {
 		dAlarm[i][0] -= 1 * Delta;
 	}
 	if (dAlarm[i][0] < 0 and dAlarm[i][0] != -1) {

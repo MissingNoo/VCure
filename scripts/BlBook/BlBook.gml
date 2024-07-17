@@ -1,35 +1,37 @@
-function blbook_step(){
-	x = owner.x + lengthdir_x(orbitLength, round(orbitPlace));
-	y = owner.y - 16 + lengthdir_y(orbitLength, round(orbitPlace));
-	orbitPlace-=spinningSpeed;
+function blbook_step(obj){
+	obj.x = obj.owner.x + lengthdir_x(obj.orbitLength, round(obj.orbitPlace));
+	obj.y = obj.owner.y - 16 + lengthdir_y(obj.orbitLength, round(obj.orbitPlace));
+	obj.orbitPlace -= obj.upg[$ "spinningSpeed"];
 }
-function blbook_begin_step(){
-	orbitLength = upg[$ "orbitLength"];
-	spinningSpeed = upg[$ "spinningSpeed"];
-	if (shoots > 0) {	
-		switch (upg[$ "level"]) {
+function blbook_create(obj){
+	obj.orbitLength = obj.upg[$ "orbitLength"];
+	obj.spinningSpeed = obj.upg[$ "spinningSpeed"];
+	if (obj.shoots > 0) {
+		switch (obj.upg[$ "level"]) {
 			case 1:
-				orbitoffset = -120;
+				obj.orbitoffset = -120;
 				break;
 			case 2:
-				orbitoffset = -90;
+				obj.orbitoffset = -90;
 				break;
 			case 3:
-				orbitoffset = -90;
+				obj.orbitoffset = -90;
 				break;
 			case 4:
-				orbitoffset = -80;
+				obj.orbitoffset = -80;
 				break;
 			case 5:
-				orbitoffset = -80;
+				obj.orbitoffset = -80;
 				break;
 			case 6:
-				orbitoffset = -60;
+				obj.orbitoffset = -60;
 				break;
 			case 7:
-				orbitoffset = -60;
+				obj.orbitoffset = -60;
 				break;
 		}
 	}
-	
+	obj.x = obj.owner.x + lengthdir_x(obj.orbitLength, round(obj.orbitPlace));
+	obj.y = obj.owner.y - 16 + lengthdir_y(obj.orbitLength, round(obj.orbitPlace));
+	obj.orbitPlace -= obj.upg[$ "spinningSpeed"];
 }

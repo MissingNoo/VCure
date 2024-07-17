@@ -344,7 +344,6 @@ function populate_upgrades(){
 		#region Amelia
 		new_create_upgrade({
 			create : amepistol_create,
-			func : amepistol_step,
 			id : Weapons.AmePistol,
 			name : "Pistol Shot",
 			maxlevel : 7,
@@ -357,7 +356,7 @@ function populate_upgrades(){
 			duration : 120,
 			hitCooldown : 20,
 			canBeHasted : true,
-			attackdelay : 80,
+			attackdelay : 6,//
 			speed : 5,
 			hits : [1, 2, 2, 2, 3, 3, 3],
 			type : "red",
@@ -454,7 +453,7 @@ function populate_upgrades(){
 	#endregion
 	#region BLBook
 		new_create_upgrade({
-				beginstep : blbook_begin_step,
+				create : blbook_create,
 				step : blbook_step,
 				id : Weapons.BlBook,
 				weight : 3,
@@ -481,6 +480,7 @@ function populate_upgrades(){
 				afterimageColor : c_red,
 				shotType : ShotTypes.Multishot,
 				perk : false,
+				attackdelay : 0.1
 				//collabWith : Weapons.PsychoAxe,
 			});
 	#endregion
@@ -1932,7 +1932,8 @@ function random_upgrades(){
 	    //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PipiPilstol][1];
+	 //CHANGE
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BlBook][1];
 }	
 #endregion
 #region Random Enchantments
