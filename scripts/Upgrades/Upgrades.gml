@@ -211,7 +211,11 @@ function populate_upgrades(){
 		#region Uruka Perks
 			#region UrukaNote 
 			new_create_upgrade({
-				func : urukanote_step,
+				create : urukanote_create,
+				step : urukanote_step,
+				outside_view : urukanote_outside_view,
+				animation_end : urukanote_animation_end,
+				on_hit : urukanote_on_hit,
 				id : Weapons.UrukaNote,
 				name : "Music Note",
 				maxlevel : 7,
@@ -703,62 +707,65 @@ function populate_upgrades(){
 	#endregion
 	#region asacoco
 	new_create_upgrade({ 
-			func : asacoco_step,
-				id : Weapons.PlugAsaCoco,
-				weight : 4,
-				name : "Plug Type Asacoco",
-				maxlevel : 7,
-				sprite : sAsaCocoShoot,
-				thumb : sAsaCocoThumb,
-				mindmg : [12, 15, 15, 20, 20, 20, 20],
-				maxdmg : [16, 19, 19, 24, 24, 24, 24],
-				cooldown : 150,
-				minimumcooldown : 1,
-				shoots : [1, 1, 2, 2, 3, 3, 4],
-				attackdelay : 10,
-				hits : 999,
-				hitCooldown : 10, 
-				duration : 45,
-				speed : 20,
-				knockbackDuration : [0, 0, 0, 0, 0, 15, 15],
-				knockbackSpeed : [0, 0, 0, 0, 0, 7, 7],
-				size : 1,
-				canBeHasted : true,
-				type : "white",
-				shotType : ShotTypes.Multishot,
-				afterimage : true,
-				afterimageColor : c_yellow,
-				perk : false,
-				incompatibleEnchantments : [0, Enchantments.Size]
-				//collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
-			});
+		create : asacoco_create,
+		step : asacoco_step,
+		id : Weapons.PlugAsaCoco,
+		weight : 4,
+		name : "Plug Type Asacoco",
+		maxlevel : 7,
+		sprite : sAsaCocoShoot,
+		thumb : sAsaCocoThumb,
+		mindmg : [12, 15, 15, 20, 20, 20, 20],
+		maxdmg : [16, 19, 19, 24, 24, 24, 24],
+		cooldown : 150,
+		minimumcooldown : 1,
+		shoots : [1, 1, 2, 2, 3, 3, 4],
+		attackdelay : 10,
+		hits : 999,
+		hitCooldown : 10, 
+		duration : 70,
+		speed : 20,
+		knockbackDuration : [0, 0, 0, 0, 0, 15, 15],
+		knockbackSpeed : [0, 0, 0, 0, 0, 7, 7],
+		size : 1,
+		canBeHasted : true,
+		type : "white",
+		shotType : ShotTypes.Multishot,
+		afterimage : true,
+		afterimageColor : c_yellow,
+		perk : false,
+		incompatibleEnchantments : [0, Enchantments.Size]
+		//collabWith :[Weapons.FanBeam, Weapons.HoloBomb] 
+	});
 	#endregion
 	#region SpiderCooking
 		new_create_upgrade({
-			func : spidercooking_step,
-				id : Weapons.SpiderCooking,
-				name : "Spider Cooking",
-				maxlevel : 7,
-				weight : 4,
-				sprite : sSpiderCooking,
-				thumb : sSpiderCookingThumb,
-				mindmg : [7, 7, 10, 10, 10, 12, 12],
-				maxdmg : [11, 11, 14, 14, 14, 16, 16],
-				cooldown : 600,
-				duration : 601, 
-				hitCooldown : [45, 45, 45, 45, 36, 36, 36], 
-				canBeHasted : false,
-				speed : 0,
-				hits : 9999,
-				type : "white",
-				shoots : [1, 1, 2, 2, 3, 3, 4],
-				knockbackSpeed : [0, 0, 0, 0, 0, 0, 3],
-				knockbackDuration : [0, 0, 0, 0, 0, 0, 8],
-				perk : false,
-				shotType : ShotTypes.Melee,
-				size : [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
-				incompatibleEnchantments : [0, Enchantments.Cooldown]
-			});
+			create : spidercooking_create,
+			step : spidercooking_step,
+			draw : spidercooking_draw,
+			id : Weapons.SpiderCooking,
+			name : "Spider Cooking",
+			maxlevel : 7,
+			weight : 4,
+			sprite : sSpiderCooking,
+			thumb : sSpiderCookingThumb,
+			mindmg : [7, 7, 10, 10, 10, 12, 12],
+			maxdmg : [11, 11, 14, 14, 14, 16, 16],
+			cooldown : 600,
+			duration : 601, 
+			hitCooldown : [45, 45, 45, 45, 36, 36, 36], 
+			canBeHasted : false,
+			speed : 0,
+			hits : 9999,
+			type : "white",
+			shoots : [1, 1, 2, 2, 3, 3, 4],
+			knockbackSpeed : [0, 0, 0, 0, 0, 0, 3],
+			knockbackDuration : [0, 0, 0, 0, 0, 0, 8],
+			perk : false,
+			shotType : ShotTypes.Melee,
+			size : [1, 1.15, 1.15, 1.40, 1.40, 1.40, 1.40],
+			incompatibleEnchantments : [0, Enchantments.Cooldown]
+		});
 	#endregion
 	#region Glowstick
 			new_create_upgrade({
@@ -1932,8 +1939,8 @@ function random_upgrades(){
 	    //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
-	 //CHANGE
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BlBook][1];
+	 //cti
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.SpiderCooking][1];
 }	
 #endregion
 #region Random Enchantments

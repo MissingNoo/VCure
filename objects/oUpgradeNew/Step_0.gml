@@ -2,6 +2,7 @@ if (global.gamePaused) { exit; }
 if (upg[$ "step"] != undefined) {
 	upg.step(self.id);
 }
+afterimage_step();
 #region Delta alarms
 for (var i = 0; i < array_length(dAlarm); ++i) {
 	if (dAlarm[i][0] > 0) {
@@ -13,6 +14,7 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 	}
 }
 #endregion
+
 if (current_frame > last_frame) {
 	if (upg[$ "animation_end"] != undefined) {
 	    upg.animation_end(self.id);

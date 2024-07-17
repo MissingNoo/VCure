@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Asacoco",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Asacoco",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

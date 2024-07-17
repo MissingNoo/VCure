@@ -64,9 +64,11 @@ else{
 	var VIEW_WIDTH = VIEW_HEIGHT * aspect;
 }
 camera_set_view_size(view_camera[0], floor(VIEW_WIDTH), floor(VIEW_HEIGHT));
+surface_resize(application_surface, view_wport[0], view_hport[0]);
+camera_set_view_size(view_camera[0], floor(VIEW_WIDTH + 1), floor(VIEW_HEIGHT + 1));
 view_wport[0] = max_w;
 view_hport[0] = max_h;
-surface_resize(application_surface, view_wport[0], view_hport[0]);
+
 }
 function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	_xx = floor(_xx);

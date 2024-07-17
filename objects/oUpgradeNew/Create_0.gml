@@ -10,18 +10,17 @@ last_frame = sprite_get_number(sprite_index);
 sprite_speed = sprite_get_speed(sprite_index);
 sprite_speed_type = sprite_get_speed_type(sprite_index);
 dAlarm = [];
-dAlarm[0][0] = upg.attackdelay;
-dAlarm[0][1] = function() {
-	if (shoots > 1) {
-		shoots--;
-		instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, shoots : -1, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
-	    dAlarm[0][0] = upg.attackdelay;
-	}
+if (upg[$ "attackdelay"] != undefined) {
+	array_push(dAlarm, [upg.attackdelay, function() {
+		if (shoots > 1) {
+			shoots--;
+			instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, shoots : -1, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
+		    dAlarm[0][0] = upg.attackdelay;
+		}}]);
 }
-dAlarm[1][0] = upg.duration;
-dAlarm[1][1] = function() {
+array_push(dAlarm, [upg.duration, function() {
 	instance_destroy();
-}
+}]);
 #region Cooldown
 var cooldown = upg.cooldown;
 if (upg.canBeHasted == true and oPlayer.weaponHaste != 0) {

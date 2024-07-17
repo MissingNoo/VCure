@@ -567,6 +567,6 @@ if (canMove == true){
 		if (!lockSprite) {sprite_index=sprite;}
 		moving = false;
 	}
-	oCam.x = oPlayer.x;
-	oCam.y = oPlayer.y;
+	//oCam.x = round(oPlayer.x);
+	//oCam.y = round(oPlayer.y);
 }

@@ -358,9 +358,6 @@ function sine_wave(time, period, amplitude, midpoint) {
     return sin(time * 2 * pi / period) * amplitude + midpoint;
 }
 function cose_wave(time, period, amplitude, midpoint) {
-	if (variable_instance_exists(self, "coscounter")) {
-	    coscounter+=15;
-	}
     return cos(time * 2 * pi / period) * amplitude + midpoint;
 }
 

@@ -124,6 +124,40 @@ DebugManager.debug_add_config(self, {
 	func: function(){global.xp = oPlayer.neededxp;},
 	page : "Stage"
 });
+ws = 0;
+DebugManager.debug_add_config(self, {
+	text : "Weapon",
+	type : DebugTypes.UpDown,
+	variable : "ws",
+	//func: function(){},
+	page : "Stage"
+});
+DebugManager.debug_add_config(self, {
+	text : $"Level Up",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		if (UPGRADES[DebugManager.ws].level < UPGRADES[DebugManager.ws].maxlevel) {
+		    UPGRADES[DebugManager.ws] = global.upgradesAvaliable[UPGRADES[DebugManager.ws].id][UPGRADES[DebugManager.ws].level + 1];
+			oGui.upgradesSurface();
+		}
+	},
+	page : "Stage"
+});
+same_line();
+DebugManager.debug_add_config(self, {
+	text : "Down",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		if (UPGRADES[DebugManager.ws].level > 1) {
+		    UPGRADES[DebugManager.ws] = global.upgradesAvaliable[UPGRADES[DebugManager.ws].id][UPGRADES[DebugManager.ws].level - 1];
+			oGui.upgradesSurface();
+		}
+	},
+	page : "Stage"
+});
+same_line();
 DebugManager.debug_add_config(self, {
 	text : "CollabTest",
 	type : DebugTypes.Button,

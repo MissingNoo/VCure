@@ -28,20 +28,6 @@ explosionResized = false;
 while (upDown == 0) {
     upDown = irandom_range(-1,1);
 }
-noteExplosion = function(){
-	hits = 9999;
-	speed = 0;
-	if (!explosionResized) {
-	    explosionResized = true;
-		image_xscale = image_xscale / 1.5;
-		image_yscale = image_yscale / 1.5;
-		subImg = 0;
-	}	
-	sprite_index = sNoteExplosion;
-	maxImg = sprite_get_number(sprite_index);
-	sprSpeed = sprite_get_speed(sprite_index);
-	sprSpeedType = sprite_get_speed_type(sprite_index);
-}
 #endregion
 #region Lia
 drawLighting = true;
