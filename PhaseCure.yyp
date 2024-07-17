@@ -476,6 +476,7 @@
     {"id":{"name":"__scribble_system","path":"scripts/__scribble_system/__scribble_system.yy",},},
     {"id":{"name":"__scribble_tick","path":"scripts/__scribble_tick/__scribble_tick.yy",},},
     {"id":{"name":"Achievements","path":"scripts/Achievements/Achievements.yy",},},
+    {"id":{"name":"AmePistol","path":"scripts/AmePistol/AmePistol.yy",},},
     {"id":{"name":"BlBook","path":"scripts/BlBook/BlBook.yy",},},
     {"id":{"name":"Characters","path":"scripts/Characters/Characters.yy",},},
     {"id":{"name":"clientnetworking","path":"scripts/clientnetworking/clientnetworking.yy",},},

@@ -343,6 +343,7 @@ function populate_upgrades(){
 		#region Hololive
 		#region Amelia
 		new_create_upgrade({
+			create : amepistol_create,
 			func : amepistol_step,
 			id : Weapons.AmePistol,
 			name : "Pistol Shot",
@@ -352,10 +353,11 @@ function populate_upgrades(){
 			mindmg : [8, 8, 10, 10, 10, 12, 12],
 			maxdmg : [12, 12, 14, 14, 14, 16, 16],
 			cooldown : [80, 80, 80, 80, 60, 60, 60],
+			minimumcooldown : 50,
 			duration : 120,
 			hitCooldown : 20,
 			canBeHasted : true,
-			attackdelay : 6,
+			attackdelay : 80,
 			speed : 5,
 			hits : [1, 2, 2, 2, 3, 3, 3],
 			type : "red",
@@ -2006,7 +2008,7 @@ function tick_powers(){
 		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i].id] <= 0) {
-				instance_create_layer(x,y-8,"Upgrades",oUpgradeNew);
+				instance_create_layer(x,y-8,"Upgrades",oUpgradeNew, {upg : UPGRADES[i]});
 				//instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 				//	upg : UPGRADES[i],
 				//	speed : UPGRADES[i][$ "speed"],
