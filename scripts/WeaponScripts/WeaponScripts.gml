@@ -18,28 +18,6 @@ function brick_step(o){
 		image_angle -= 6;
 	}
 }
-function bounceball_step(o){
-	if (o == 0) {
-	    direction = point_direction(x,y,x,y+10);
-		for (var i = 0; i < global.player[?"ballsize"]; ++i) {
-			image_xscale = image_xscale * 1.10;
-			image_yscale = image_xscale;
-		}
-		y = oPlayer.y - 200;
-		var _bx = irandom_range(-100, 100);
-		x = oPlayer.x + _bx;
-	}
-	else {
-		if (vspeed < upg[$ "speed"]) {
-			vspeed += 0.55 * Delta;
-		}
-		//move_and_collide(hspd, vspd, oEnemy);
-		var _dir = point_direction(x, y, x, y + 10);
-		var _diff = angle_difference(_dir, direction);
-		direction += _diff * 0.005;
-		image_angle+=10;
-	}
-}
 function lavabucket_step(o){
 	if (o == 0) {
 	    visible = false;

@@ -490,33 +490,35 @@ function populate_upgrades(){
 	#endregion
 	#region Bounce Ball //TODO: knockback depends on character
 		new_create_upgrade({ 
-			func : bounceball_step,
-				id : Weapons.BounceBall,
-				weight : 4,
-				name : "Bounce Ball",
-				maxlevel : 7,
-				sprite : sBounceBall,
-				thumb : sBounceBallThumb,
-				mindmg : [10, 12, 12, 12, 12, 12, 17],
-				maxdmg : [14, 16, 16, 16, 16, 16, 21],
-				cooldown : [120, 120, 120, 120, 120, 102, 102],
-				minimumcooldown : 102,
-				shoots : [1, 1, 2, 2, 3, 3, 4],
-				attackdelay : 5,
-				hits : 10,
-				hitCooldown : 30, 
-				duration : 180,
-				speed : 6,
-				knockbackDuration : [0, 0, 5, 5, 5, 5, 5],
-				knockbackSpeed : [0, 0, 3, 3, 3, 3, 3],
-				size : 0.6,
-				canBeHasted : true,
-				type : "white",
-				shotType : ShotTypes.Multishot,
-				perk : false,
-				unlocked : false,
-				incompatibleEnchantments : [0, Enchantments.Size]
-			});
+			create : bounceball_create,
+			step : bounceball_step,
+			on_hit : bounceball_on_hit,
+			id : Weapons.BounceBall,
+			weight : 4,
+			name : "Bounce Ball",
+			maxlevel : 7,
+			sprite : sBounceBall,
+			thumb : sBounceBallThumb,
+			mindmg : [10, 12, 12, 12, 12, 12, 17],
+			maxdmg : [14, 16, 16, 16, 16, 16, 21],
+			cooldown : [120, 120, 120, 120, 120, 102, 102],
+			minimumcooldown : 102,
+			shoots : [1, 1, 2, 2, 3, 3, 4],
+			attackdelay : 5,
+			hits : 10,
+			hitCooldown : 30, 
+			duration : 180,
+			speed : 6,
+			knockbackDuration : [0, 0, 5, 5, 5, 5, 5],
+			knockbackSpeed : [0, 0, 3, 3, 3, 3, 3],
+			size : 0.6,
+			canBeHasted : true,
+			type : "white",
+			shotType : ShotTypes.Multishot,
+			perk : false,
+			unlocked : false,
+			incompatibleEnchantments : [0, Enchantments.Size]
+		});
 	#endregion
 	#region Cutting Board
 	new_create_upgrade({
@@ -1940,7 +1942,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.SpiderCooking][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
 }	
 #endregion
 #region Random Enchantments

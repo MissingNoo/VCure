@@ -479,6 +479,7 @@
     {"id":{"name":"AmePistol","path":"scripts/AmePistol/AmePistol.yy",},},
     {"id":{"name":"Asacoco","path":"scripts/Asacoco/Asacoco.yy",},},
     {"id":{"name":"BlBook","path":"scripts/BlBook/BlBook.yy",},},
+    {"id":{"name":"BounceBall","path":"scripts/BounceBall/BounceBall.yy",},},
     {"id":{"name":"Characters","path":"scripts/Characters/Characters.yy",},},
     {"id":{"name":"clientnetworking","path":"scripts/clientnetworking/clientnetworking.yy",},},
     {"id":{"name":"DebugLib","path":"scripts/DebugLib/DebugLib.yy",},},

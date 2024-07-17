@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"BounceBall",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"BounceBall",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
