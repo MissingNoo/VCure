@@ -4,6 +4,6 @@ if (!other.used) {
 	other.used = true;
 	other.maxuses -= 1;
 	GoldenANVIL = true;
-	audio_play_sound(snd_anvil,0,0);
+	audio_play_sound(snd_anvil,0,0, global.soundVolume);
 	pause_game();
 }

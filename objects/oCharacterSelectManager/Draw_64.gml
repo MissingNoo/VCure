@@ -129,7 +129,7 @@ if (!characterSelected) {
 			selectedCharacter = i; 
 			if (soundplayedby != i) {
 				soundplayedby = i;
-				audio_play_sound(snd_char_select_woosh,0,0);
+				audio_play_sound(snd_char_select_woosh,0,0, global.soundVolume);
 			}
 		}
 		switch (CHARACTERS[i][? "finished"]) {

@@ -11,7 +11,7 @@ switch (upg[$ "id"]) {
 		break;}
 	case Weapons.PlugAsaCoco:{
 		speed = originalspeed;
-		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0);
+		audio_play_sound(choose(snd_tailplug, snd_tailplug2, snd_tailplug3),0,0, global.soundVolume);
 		break;}
 	case Weapons.XPotato:{
 		instance_destroy();

@@ -28,6 +28,6 @@ if (!other.used and possible_upgrade) {
 	oGui.selected = 0;
 	oGui.anvilSelected = 0;
 	oGui.anvilSelectedCategory = 0;
-	audio_play_sound(snd_anvil,0,0);
+	audio_play_sound(snd_anvil,0,0, global.soundVolume);
 	pause_game();
 }

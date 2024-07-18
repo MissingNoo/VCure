@@ -1,5 +1,5 @@
 if (boss) {
-    audio_play_sound(snd_bossdefeated,0,0);
+    audio_play_sound(snd_bossdefeated,0,0, global.soundVolume);
 	instance_create_depth(x, y, depth, oChest);
 }
 

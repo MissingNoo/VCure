@@ -30,7 +30,7 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 		skilltimer += calc;
 	}
 	//damaged=true;
-	audio_play_sound(snd_hurt,0,0);
+	audio_play_sound(snd_hurt,0,0, global.soundVolume);
 	#region Uruka
 	var bonusdmg = 0;
 	var _dirtyDodge = irandom_range(1, 100);

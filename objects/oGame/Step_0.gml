@@ -481,6 +481,6 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 #endregion
 #region in stage
 if (global.musicPlaying != undefined) {
-	audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
+	//audio_sound_gain(global.musicPlaying, global.musicVolume, 0);
 }
 #endregion

@@ -135,7 +135,7 @@ switch (state) {
 				if (!CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked) { return; }
 				global.player=CHARACTERS[selectedCharacter];
 				audio_stop_sound(global.musicPlaying);
-				audio_play_sound(snd_char_selected,0,0);
+				audio_play_sound(snd_char_selected,0,0, global.soundVolume);
 				switch (global.singleplayer) {
 					case true:{
 						global.mode = "stage";

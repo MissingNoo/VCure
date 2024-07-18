@@ -1,6 +1,6 @@
 if (other.canattack and !global.gamePaused) {
 	other.canattack=false;
-	audio_play_sound(snd_hurt,0,0);
+	audio_play_sound(snd_hurt,0,0, global.soundVolume);
 	if (Shield > 0) {
 	    Shield -= 15;
 	}

@@ -15,7 +15,7 @@ if (!dontsend) {
 		}
 	}
 }
-audio_play_sound(snd_anvildrop,0,0);
+audio_play_sound(snd_anvildrop,0,0, global.soundVolume);
 if (global.shareAnvils and !dontsend) {
 	sendMessage({
 		command : Network.SpawnAnvil,
