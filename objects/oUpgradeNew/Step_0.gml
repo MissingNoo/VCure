@@ -17,12 +17,13 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 
 if (ceil(current_frame) == last_frame) {
 	if (upg[$ "animation_end"] != undefined) {
+		animate = false;
 	    upg.animation_end(self.id);
 	}
 	else {
 		current_frame = 0;
 	}
 }
-else {
+else if (animate) {
 	current_frame += sprite_speed / game_get_speed(sprite_speed_type) * Delta;
 }

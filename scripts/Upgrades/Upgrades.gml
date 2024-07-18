@@ -401,29 +401,29 @@ function populate_upgrades(){
 		#endregion
 		#region Anya
 		new_create_upgrade({
-			//func : keris_step,
+			create : keris_create,
+			animation_end : keris_animation_end,
 			id : Weapons.Keris, 
 			name : "Keris", 
 			maxlevel : 7, 
 			sprite : sAnyaProjectile, 
 			thumb : sAnyaWeapon, 
-			mindmg : [0, 0, 0, 0, 0, 0, 0],
-			maxdmg : [0, 0, 0, 0, 0, 0, 0], 
-			cooldown : [90, 90, 90, 90, 90, 76, 76], 
+			mindmg : [8, 8, 10, 10, 10, 10, 10],
+			maxdmg : [12, 12, 14, 14, 14, 14, 14], 
+			cooldown : [90, 90, 90, 90, 90, 76.5, 76.5], 
 			duration : 30,
 			hitCooldown : 60, 
 			canBeHasted : true, 
 			attackdelay : 8, 
 			speed : 0, 
-			size : 1.5,
+			size : [1.5, 1.5, 1.5, 1.5, 1.5, 2.25, 2.25],
 			hits : 999,
 			type : "red", 
 			shoots : 1, 
 			perk : true, 
 			characterid : Characters.Anya, 
 			weight : 3, 
-			range : 120,
-			chance : [0, 0, 0, 0, 0, 0, 30] 
+			range : [120, 120, 120, 120, 120, 150, 150]
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
 		#endregion

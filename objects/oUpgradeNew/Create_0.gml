@@ -1,3 +1,4 @@
+animate = true;
 sprite_index = upg.sprite;
 speed = upg.speed;
 if (shoots == 0) {

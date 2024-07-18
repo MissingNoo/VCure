@@ -261,7 +261,24 @@ function populate_characters(){
 		unlocked : false,
 		finished : 3
 	});
-	createCharacterNew({ id : Characters.Anya, name : "Anya Melfissa", agency : "Hololive", portrait : sAnyaPortrait, bigArt : sPlaceholderArt, sprite : sAnyaIdle, runningsprite : sAnyaRun, hp : 60, atk : 1.50, speed : 1.20, crit : 5, weapon : Weapons.Keris, ballsize : 2, flat : true, unlocked : false, finished : false });
+	createCharacterNew({
+		id : Characters.Anya,
+		name : "Anya Melfissa",
+		agency : "Hololive",
+		portrait : sAnyaPortrait,
+		bigArt : sPlaceholderArt,
+		sprite : sAnyaIdle,
+		runningsprite : sAnyaRun,
+		hp : 60,
+		atk : 1.50,
+		speed : 1.20,
+		crit : 5,
+		weapon : Weapons.Keris,
+		ballsize : 2,
+		flat : true,
+		unlocked : true,
+		finished : false
+	});
 	//Buffs[BuffNames.ShortHeight] = {
 	//	id : BuffNames.ShortHeight,
 	//	name : "Short Height",
