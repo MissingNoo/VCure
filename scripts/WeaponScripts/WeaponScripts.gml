@@ -18,22 +18,6 @@ function brick_step(o){
 		image_angle -= 6;
 	}
 }
-function lavabucket_step(o){
-	if (o == 0) {
-	    visible = false;
-		level = upg[$ "level"];
-		random_set_seed(current_time);
-		x = owner.x + irandom_range(-100,100);
-		random_set_seed(current_time);
-		y = owner.y + (irandom_range(-100,100)*-1);
-		visible = true;
-		depth = layer_get_depth("Pools");
-	}
-	else {
-		extra.lx = x;
-		extra.ly = y;
-	}
-}
 function ceotears_step(o){
 	if (o == 0) {
 	    if (instance_exists(oEnemy)) {
@@ -724,4 +708,10 @@ function _step(o){
 	        // code here
 	        break;
 	}
+}
+function update_sprite_info(obj, newframe = 0){
+	obj.current_frame = newframe;
+	obj.last_frame = sprite_get_number(obj.sprite_index);
+	obj.sprite_speed = sprite_get_speed(obj.sprite_index);
+	obj.sprite_speed_type = sprite_get_speed_type(obj.sprite_index);
 }

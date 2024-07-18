@@ -91,12 +91,8 @@ function noteexplosion(obj){
 		    obj.explosionResized = true;
 			obj.image_xscale = obj.image_xscale / 1.5;
 			obj.image_yscale = obj.image_yscale / 1.5;
-			obj.currentFrame = 0;
 		}	
 		obj.sprite_index = sNoteExplosion;
-		obj.currentFrame = 0;
-		obj.last_frame = sprite_get_number(obj.sprite_index);
-		obj.sprite_speed = sprite_get_speed(obj.sprite_index);
-		obj.sprite_speed_type = sprite_get_speed_type(obj.sprite_index);
+		update_sprite_info(obj);
 	}
 }

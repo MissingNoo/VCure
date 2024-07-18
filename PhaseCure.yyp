@@ -734,6 +734,7 @@
     {"id":{"name":"input_xy","path":"scripts/input_xy/input_xy.yy",},},
     {"id":{"name":"input_y","path":"scripts/input_y/input_y.yy",},},
     {"id":{"name":"Items","path":"scripts/Items/Items.yy",},},
+    {"id":{"name":"LavaBucket","path":"scripts/LavaBucket/LavaBucket.yy",},},
     {"id":{"name":"lexicon_async","path":"scripts/lexicon_async/lexicon_async.yy",},},
     {"id":{"name":"lexicon_entry_add","path":"scripts/lexicon_entry_add/lexicon_entry_add.yy",},},
     {"id":{"name":"lexicon_entry_exists","path":"scripts/lexicon_entry_exists/lexicon_entry_exists.yy",},},

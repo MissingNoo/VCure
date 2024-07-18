@@ -15,24 +15,7 @@ switch (upg[$ "id"]) {
 		}
 		break;}
 	case Weapons.EliteLavaBucket:{
-		if (sprite_index == sLavaPoolStart) {
-			subImg = 0;
-		    sprite_index = sLavaPoolLoop;			
-			changeSprite= true;
-			dAlarm[1]=upg[$ "duration"] * 0.25;
-		}
-		if (sprite_index == sLavaPoolLoop and changeSprite == false) {
-			changeSprite=true;
-			dAlarm[1]=2;
-		    if (loops > 0) {
-				subImg = 0;
-			    sprite_index = sLavaPoolEnd;
-			}
-			else loops += 1;
-		}
-		if (sprite_index == sLavaPoolEnd and changeSprite == false) {
-			instance_destroy();
-		}
+		
 		break;}
 	case Weapons.FanBeam:{
 		image_alpha = 0;

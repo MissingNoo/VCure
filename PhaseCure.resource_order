@@ -629,6 +629,7 @@
     {"name":"input_xy","order":4,"path":"scripts/input_xy/input_xy.yy",},
     {"name":"input_y","order":5,"path":"scripts/input_y/input_y.yy",},
     {"name":"Items","order":7,"path":"scripts/Items/Items.yy",},
+    {"name":"LavaBucket","order":7,"path":"scripts/LavaBucket/LavaBucket.yy",},
     {"name":"lexicon_entry_exists","order":1,"path":"scripts/lexicon_entry_exists/lexicon_entry_exists.yy",},
     {"name":"lexicon_entry_remove","order":2,"path":"scripts/lexicon_entry_remove/lexicon_entry_remove.yy",},
     {"name":"lexicon_flush_cache","order":1,"path":"scripts/lexicon_flush_cache/lexicon_flush_cache.yy",},

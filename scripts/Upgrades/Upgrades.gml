@@ -606,33 +606,34 @@ function populate_upgrades(){
 	#endregion
 	#region EliteLavaBucket
 		new_create_upgrade({ 
-			func : lavabucket_step,
-				id : Weapons.EliteLavaBucket,
-				weight : 3,
-				name : "Elite Lava Bucket",
-				maxlevel : 7,
-				sprite : sLavaPoolStart,
-				thumb : sEliteLavaBucketThumb,
-				mindmg : [6, 6, 6, 10, 14, 14, 14],
-				maxdmg : [10, 10, 10, 14, 18, 18, 18],
-				cooldown : 300,
-				minimumcooldown : 1,
-				shoots : [1, 1, 2, 2, 2, 3, 4],
-				attackdelay : 5,
-				hits : 9999,
-				hitCooldown : 45, 
-				duration : [180, 180, 180, 270, 270, 270, 270],
-				speed : 0,
-				knockbackDuration : 0,
-				knockbackSpeed : 0,
-				size : [.9, 1.1, 1.1, 1.1, 1.1, 1.1, 1.32],
-				canBeHasted : true,
-				type : "white",
-				shotType : ShotTypes.Multishot,
-				perk : false,
-				incompatibleEnchantments : [0, Enchantments.Projectile]
-				//collabWith : Weapons.PsychoAxe
-			});
+			create : lavabucket_create,
+			animation_end : lavabucket_animation_end,
+			id : Weapons.EliteLavaBucket,
+			weight : 3,
+			name : "Elite Lava Bucket",
+			maxlevel : 7,
+			sprite : sLavaPoolStart,
+			thumb : sEliteLavaBucketThumb,
+			mindmg : [6, 6, 6, 10, 14, 14, 14],
+			maxdmg : [10, 10, 10, 14, 18, 18, 18],
+			cooldown : 300,
+			minimumcooldown : 1,
+			shoots : [1, 1, 2, 2, 2, 3, 4],
+			attackdelay : 5,
+			hits : 9999,
+			hitCooldown : 45, 
+			duration : [180, 180, 180, 270, 270, 270, 270],
+			speed : 0,
+			knockbackDuration : 0,
+			knockbackSpeed : 0,
+			size : [.9, 1.1, 1.1, 1.1, 1.1, 1.1, 1.32],
+			canBeHasted : true,
+			type : "white",
+			shotType : ShotTypes.Multishot,
+			perk : false,
+			incompatibleEnchantments : [0, Enchantments.Projectile]
+			//collabWith : Weapons.PsychoAxe
+		});
 	#endregion
 	#region EN's Curse
 	new_create_upgrade({ 
@@ -1942,7 +1943,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.EliteLavaBucket][1];
 }	
 #endregion
 #region Random Enchantments
