@@ -18,50 +18,6 @@ function brick_step(o){
 		image_angle -= 6;
 	}
 }
-function ceotears_step(o){
-	if (o == 0) {
-	    if (instance_exists(oEnemy)) {
-			// random_set_seed(current_time * global.upgradeCooldown[0]);
-			var enemies = instance_number(oEnemy);
-			if (enemies == 0) { instance_destroy(); }
-			//var ce = instance_nearest(x,y-50.75,oEnemy);
-			// // randomize;
-			//if (ce != 0) {
-				ce = instance_find(oEnemy, irandom_range(0,enemies-1));
-				direction = point_direction(x,y,ce.x, ce.y);
-				image_angle = point_direction(x,y,ce.x, ce.y);
-			//}
-			if (shoots>0) {
-				for (var i = 1; i < shoots; ++i) {
-					spawn_upgrade();
-					//alarm[0]=1;
-					dAlarm[0]=1;
-				}
-			}
-		} else instance_destroy();
-	}
-	else {
-		
-	}
-}
-function fanbeam_step(o){
-	if (o == 0) {
-	    image_xscale = owner.image_xscale;
-		if(shoots == -1){
-			image_xscale = image_xscale * -1;
-		}
-		if (shoots>0) {
-			for (var i = 1; i < shoots; ++i) {
-				spawn_upgrade();
-				//alarm[0]=1;
-				dAlarm[0]=1;
-			}
-		}
-	}
-	else {
-		
-	}
-}
 function absolutewall_step(o){
 	if (o == 0) {
 	    if (global.player[?"flat"]) {

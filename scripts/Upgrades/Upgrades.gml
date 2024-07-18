@@ -549,60 +549,63 @@ function populate_upgrades(){
 	#endregion
 	#region Fan Beam
 	new_create_upgrade({
-		func : fanbeam_step,
-				id : Weapons.FanBeam,
-				name : "Fan Beam",
-				weight : 3,
-				maxlevel : 7,
-				sprite : sFanBeam,
-				thumb : sFanBeamThumb,
-				mindmg : [27, 27, 27, 36, 36, 36, 36],
-				maxdmg : [33, 33, 33, 44, 44, 44, 44],
-				cooldown : [180, 180, 150, 150, 120, 120, 120],
-				duration : 999, 
-				hitCooldown : 60, 
-				canBeHasted : true,
-				speed : 0,
-				hits : 9999,
-				type : "white",
-				shoots : [1, 1, 1, 1, 1, 1, 2],
-				area : [1, 1.30, 1.30, 1.30, 1.30, 2, 2],
-				knockbackSpeed : 15,
-				knockbackDuration : 10,
-				shotType : ShotTypes.Ranged,
-				perk : false,
-				unlocked : false
-				//collabWith : Weapons.PlugAsaCoco
-			});
+		create : fanbeam_create,
+		step : fanbeam_step,
+		animation_end : fanbeam_animation_end,
+		id : Weapons.FanBeam,
+		name : "Fan Beam",
+		weight : 3,
+		maxlevel : 7,
+		sprite : sFanBeam,
+		thumb : sFanBeamThumb,
+		mindmg : [27, 27, 27, 36, 36, 36, 36],
+		maxdmg : [33, 33, 33, 44, 44, 44, 44],
+		cooldown : [180, 180, 150, 150, 120, 120, 120],
+		duration : 999, 
+		hitCooldown : 60, 
+		canBeHasted : true,
+		speed : 0,
+		hits : 9999,
+		type : "white",
+		shoots : [1, 1, 1, 1, 1, 1, 2],
+		area : [1, 1.30, 1.30, 1.30, 1.30, 2, 2],
+		knockbackSpeed : 15,
+		knockbackDuration : 10,
+		shotType : ShotTypes.Ranged,
+		perk : false,
+		unlocked : false,
+		attackdelay : 0.1
+		//collabWith : Weapons.PlugAsaCoco
+	});
 	#endregion
 	#region CEO Tears
 	new_create_upgrade({
-		func : ceotears_step,
-				id : Weapons.CEOTears,
-				weight : 2,
-				name : "CEO's Tears",
-				maxlevel : 7,
-				sprite : sCeoTears,
-				thumb : sCeoTearsThumb,
-				mindmg : [8, 10, 10, 10, 12, 12, 12],
-				maxdmg : [12, 14, 14, 14, 16, 16, 16],
-				cooldown : [30, 30, 30, 20, 20, 10, 10],
-				minimumcooldown : 1,
-				shoots : [1, 1, 2, 2, 2, 2, 4],
-				attackdelay : 1,
-				hits : 1,
-				hitCooldown : 30, 
-				size : 0.9,
-				duration : 90,
-				speed : [4, 4, 4, 4, 5, 5, 5],
-				knockbackDuration : 0,
-				knockbackSpeed : 0,
-				canBeHasted : true,
-				type : "white",
-				shotType : ShotTypes.Multishot,
-				perk : false,
-				unlocked : false,
-			});
+		create : ceotears_create,
+		id : Weapons.CEOTears,
+		weight : 2,
+		name : "CEO's Tears",
+		maxlevel : 7,
+		sprite : sCeoTears,
+		thumb : sCeoTearsThumb,
+		mindmg : [8, 10, 10, 10, 12, 12, 12],
+		maxdmg : [12, 14, 14, 14, 16, 16, 16],
+		cooldown : [30, 30, 30, 20, 20, 10, 10],
+		minimumcooldown : 1,
+		shoots : [1, 1, 2, 2, 2, 2, 4],
+		attackdelay : 1,
+		hits : 1,
+		hitCooldown : 30, 
+		size : 0.9,
+		duration : 90,
+		speed : [4, 4, 4, 4, 5, 5, 5],
+		knockbackDuration : 0,
+		knockbackSpeed : 0,
+		canBeHasted : true,
+		type : "white",
+		shotType : ShotTypes.Multishot,
+		perk : false,
+		unlocked : false,
+	});
 	#endregion
 	#region EliteLavaBucket
 		new_create_upgrade({ 
@@ -1943,7 +1946,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.EliteLavaBucket][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 }	
 #endregion
 #region Random Enchantments
