@@ -15,7 +15,7 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 }
 #endregion
 
-if (floor(current_frame) == last_frame) {
+if (ceil(current_frame) == last_frame) {
 	if (upg[$ "animation_end"] != undefined) {
 	    upg.animation_end(self.id);
 	}
