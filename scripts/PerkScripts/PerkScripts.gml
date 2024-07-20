@@ -146,15 +146,11 @@ function perk_mukirose(o, event = WeaponEvent.Null){
 function perk_ankh(o, event = WeaponEvent.Null){
 	switch (o) {
 	    case 1:
+	    case 2:
+	    case 3:
 			if (!instance_exists(oMascot) and o > 0) {
 			    instance_create_depth(oPlayer.x - 20, oPlayer.y - 20, oPlayer.depth, oMascot);
 			}
-			break;
-	    case 2:
-			
-			break;
-	    case 3:
-			
 			break;
 	}
 }
