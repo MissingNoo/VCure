@@ -7,7 +7,9 @@ enum WeaponEvent {
 	Draw,
 	PerkOnHit = 100,
 	PerkDraw = 101,
-	Null = 102,
+	PerkOnKill = 102,
+	PerkCooldown = 103,
+	Null = 999,
 }
 function brick_step(o){
 	if (o == 0) {

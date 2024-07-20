@@ -835,6 +835,7 @@
     {"name":"sAnyaPortrait","order":6,"path":"sprites/sAnyaPortrait/sAnyaPortrait.yy",},
     {"name":"sAnyaProjectile","order":8,"path":"sprites/sAnyaProjectile/sAnyaProjectile.yy",},
     {"name":"sAnyaRun","order":1,"path":"sprites/sAnyaRun/sAnyaRun.yy",},
+    {"name":"sAnyaSharpAura","order":12,"path":"sprites/sAnyaSharpAura/sAnyaSharpAura.yy",},
     {"name":"sAnyaSpecial","order":7,"path":"sprites/sAnyaSpecial/sAnyaSpecial.yy",},
     {"name":"sAnyaWeapon","order":2,"path":"sprites/sAnyaWeapon/sAnyaWeapon.yy",},
     {"name":"sAreaDmgMask","order":5,"path":"sprites/sAreaDmgMask/sAreaDmgMask.yy",},

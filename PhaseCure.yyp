@@ -963,6 +963,7 @@
     {"id":{"name":"sAnyaPortrait","path":"sprites/sAnyaPortrait/sAnyaPortrait.yy",},},
     {"id":{"name":"sAnyaProjectile","path":"sprites/sAnyaProjectile/sAnyaProjectile.yy",},},
     {"id":{"name":"sAnyaRun","path":"sprites/sAnyaRun/sAnyaRun.yy",},},
+    {"id":{"name":"sAnyaSharpAura","path":"sprites/sAnyaSharpAura/sAnyaSharpAura.yy",},},
     {"id":{"name":"sAnyaSpecial","path":"sprites/sAnyaSpecial/sAnyaSpecial.yy",},},
     {"id":{"name":"sAnyaWeapon","path":"sprites/sAnyaWeapon/sAnyaWeapon.yy",},},
     {"id":{"name":"sAreaDmgMask","path":"sprites/sAreaDmgMask/sAreaDmgMask.yy",},},

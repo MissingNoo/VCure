@@ -436,23 +436,23 @@ if (instance_exists(oPlayer)) {
 	#region Buffs //TODO: fix draw
 	var _xx = 55;
 	var _yy = GH - 55;
-	for (var i = 0; i < array_length(Buffs); ++i) {
-		if (variable_struct_exists(Buffs[i],"enabled") and Buffs[i].enabled == true) {
-			draw_set_alpha(.5);
-			draw_rectangle(_xx - 32, _yy - 32, _xx + 32, _yy + 32, false);
-			draw_set_alpha(1);
-			draw_sprite_stretched(Buffs[i].icon, 0, _xx - sprite_get_width(Buffs[i].icon), _yy - sprite_get_height(Buffs[i].icon), 35, 35);
-			draw_set_color(c_blue);
-			if (variable_struct_exists(Buffs[i], "cooldown") and !variable_struct_exists(Buffs[i], "permanent")) {
-				draw_text(_xx, _yy+10, string(round(Buffs[i].cooldown)));
-			}
-			if (variable_struct_exists(Buffs[i], "count")) {
-				draw_text(_xx - 25, _yy+10, string(round(Buffs[i].count)));
-			}					
-			draw_set_color(c_white);
-			draw_set_alpha(1);
-			_xx += 40;
+	for (var i = 0; i < array_length(PlayerBuffs); ++i) {
+		//if (variable_struct_exists(PlayerBuffs[i],"enabled") and PlayerBuffs[i].enabled == true) {
+		draw_set_alpha(.5);
+		draw_rectangle(_xx - 32, _yy - 32, _xx + 32, _yy + 32, false);
+		draw_set_alpha(1);
+		draw_sprite_stretched(PlayerBuffs[i].icon, 0, _xx - sprite_get_width(PlayerBuffs[i].icon), _yy - sprite_get_height(PlayerBuffs[i].icon), 35, 35);
+		draw_set_color(c_blue);
+		if (variable_struct_exists(PlayerBuffs[i], "cooldown") and !variable_struct_exists(PlayerBuffs[i], "permanent")) {
+			draw_text(_xx, _yy+10, string(round(PlayerBuffs[i].cooldown)));
 		}
+		if (variable_struct_exists(PlayerBuffs[i], "count")) {
+			scribble($"[fa_right]{string(round(PlayerBuffs[i].count))}").scale(3).draw(_xx + 15, _yy);
+		}					
+		draw_set_color(c_white);
+		draw_set_alpha(1);
+		_xx += 40;
+		//}
 	}
 	#endregion
 	#region Joystick

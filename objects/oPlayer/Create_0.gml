@@ -1,5 +1,6 @@
 event_inherited();
 initializePlayer(global.player);
+buffs = [];
 lockSprite = false;
 moving = false;
 characterHeight = sprite_get_height(sprite_index);

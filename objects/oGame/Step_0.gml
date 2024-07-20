@@ -355,20 +355,12 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 #region Time
 if (global.gamePaused == false and instance_exists(oPlayer)) {
 	global.seconds+=(1/60) * Delta ;
-	#region Skills Cooldown		
-	#region cooldownamount
-	var down = 1;
-	//for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
-	//	if (Bonuses[BonusType.Haste][i] != 0) {
-	//	    down = 1 * Bonuses[BonusType.Haste][i];
-	//	}
-	//}
-	//for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
-	//    down = down + ((down * 4) / 100);
-	//}
-	#endregion
+	#region Skills Cooldown
 	for (var i = 0; i < array_length(global.perkCooldown); ++i) {
 		global.perkCooldown[i] -= (1/60) * Delta;
+		if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
+			PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkCooldown);
+		}
 	}
 	//feather disable once GM1041
 	for (var i = 0; i < array_length(UPGRADES); ++i) {
@@ -387,78 +379,78 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	}
 	#endregion
 	#region buff coldown
-	for (var i = 0; i < array_length(Buffs); ++i) {
-		if (Buffs[i][$ "enabled"] and variable_struct_exists(Buffs[i], "cooldown")) {
-			if (Buffs[i].cooldown > 0) {
-				Buffs[i].cooldown -= 1/60 * Delta;
-				switch (Buffs[i][$ "id"]) {
-					case BuffNames.SakeFood:{
-						Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
-						break;}
-					case BuffNames.Spaghetti:{
-						oPlayer.spaghettiEaten = true;
-						break;}
-					case BuffNames.Soda:{
-						var _spd = 1.03;
-						var _crt = 1.03;
-						var _haste = 1.03;
-						for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
-						    if (PLAYER_PERKS[j].id == PerkIds.SodaFueled and PLAYER_PERKS[j].level == 3) {
-							    _spd = 1.09;
-								_crt = 1.09;
-								_haste = 1.09;
-							}
-						}
-						PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
-						PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
-						PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
-						break;}
-				}
-			}
-			if (Buffs[i].cooldown <= 0) {
-				if (!variable_struct_exists(Buffs[i], "permanent")) {
-					Buffs[i].enabled = false;
-					if (variable_struct_exists(Buffs[i], "count")) {
-						Buffs[i][$ "count"] = 0;
-					}
-				}
-				switch (Buffs[i][$ "id"]) {
-					case BuffNames.Sake:{
-						if (Buffs[i][$ "count"] < Buffs[i][$ "maxCount"]) {
-							Buffs[i][$ "count"] += 1;
-						}
-						var _amount = (Buffs[BuffNames.Sake][$ "count"] < 10) ? "1.0{0}" : "1.{0}";
-						Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, Buffs[BuffNames.Sake][$ "count"]));
-						Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
-						break;}
-					case BuffNames.SakeFood:{
-						Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
-						break;}
-					case BuffNames.Spaghetti:{
-						oPlayer.spaghettiEaten = false;
-						break;}
-					case BuffNames.Soda:{
-						var _spd = 0;
-						var _crt = 0;
-						var _haste = 0;
-						PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
-						PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
-						PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
-						break;}
-					case BuffNames.BellyDance:
-						Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
-						if (oPlayer.moving) {
-							Buffs[BuffNames.BellyDance][$ "count"]++;
-						}
-						else if (Buffs[BuffNames.BellyDance][$ "count"] > 0) {
-							instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oUpgradeAttach, {upg : UPGRADES[0], mindmg : UPGRADES[0][$ "mindmg"], maxdmg : UPGRADES[0][$ "maxdmg"], sprite_index : sAkiCircle, step : bellydance_step, image_xscale : .1, image_yscale : .1, count : Buffs[BuffNames.BellyDance][$ "count"]})
-							Buffs[BuffNames.BellyDance][$ "count"] = 0;
-						}
-						break;
-					}
-				}
-			}	
-		}
+	//for (var i = 0; i < array_length(PlayerBuffs); ++i) {
+	//	if (variable_struct_exists(PlayerBuffs[i], "cooldown")) {
+	//		if (PlayerBuffs[i].cooldown > 0) {
+	//			PlayerBuffs[i].cooldown -= 1/60 * Delta;
+	//			switch (PlayerBuffs[i][$ "id"]) {
+	//				case BuffNames.SakeFood:{
+	//					Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
+	//					break;}
+	//				case BuffNames.Spaghetti:{
+	//					oPlayer.spaghettiEaten = true;
+	//					break;}
+	//				case BuffNames.Soda:{
+	//					var _spd = 1.03;
+	//					var _crt = 1.03;
+	//					var _haste = 1.03;
+	//					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
+	//					    if (PLAYER_PERKS[j].id == PerkIds.SodaFueled and PLAYER_PERKS[j].level == 3) {
+	//						    _spd = 1.09;
+	//							_crt = 1.09;
+	//							_haste = 1.09;
+	//						}
+	//					}
+	//					PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
+	//					PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
+	//					PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
+	//					break;}
+	//			}
+	//		}
+	//		if (PlayerBuffs[i].cooldown <= 0) {
+	//			if (!variable_struct_exists(PlayerBuffs[i], "permanent")) {
+	//				//PlayerBuffs[i].enabled = false;
+	//				if (variable_struct_exists(PlayerBuffs[i], "count")) {
+	//					PlayerBuffs[i][$ "count"] = 0;
+	//				}
+	//			}
+	//			switch (PlayerBuffs[i][$ "id"]) {
+	//				case BuffNames.Sake:{
+	//					if (PlayerBuffs[i][$ "count"] < PlayerBuffs[i][$ "maxCount"]) {
+	//						PlayerBuffs[i][$ "count"] += 1;
+	//					}
+	//					var _amount = (PlayerBuffs[BuffNames.Sake][$ "count"] < 10) ? "1.0{0}" : "1.{0}";
+	//					Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, PlayerBuffs[BuffNames.Sake][$ "count"]));
+	//					Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
+	//					break;}
+	//				case BuffNames.SakeFood:{
+	//					Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
+	//					break;}
+	//				case BuffNames.Spaghetti:{
+	//					oPlayer.spaghettiEaten = false;
+	//					break;}
+	//				case BuffNames.Soda:{
+	//					var _spd = 0;
+	//					var _crt = 0;
+	//					var _haste = 0;
+	//					PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
+	//					PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
+	//					PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
+	//					break;}
+	//				case BuffNames.BellyDance:
+	//					Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
+	//					if (oPlayer.moving) {
+	//						Buffs[BuffNames.BellyDance][$ "count"]++;
+	//					}
+	//					else if (Buffs[BuffNames.BellyDance][$ "count"] > 0) {
+	//						instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oUpgradeAttach, {upg : UPGRADES[0], mindmg : UPGRADES[0][$ "mindmg"], maxdmg : UPGRADES[0][$ "maxdmg"], sprite_index : sAkiCircle, step : bellydance_step, image_xscale : .1, image_yscale : .1, count : Buffs[BuffNames.BellyDance][$ "count"]})
+	//						Buffs[BuffNames.BellyDance][$ "count"] = 0;
+	//					}
+	//					break;
+	//				}
+	//			}
+	//		}	
+	//	}
 	#endregion
 }
 

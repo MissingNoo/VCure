@@ -92,6 +92,7 @@ function populate_perks(){
 		#endregion
 		#region Trash Bear
 		create_perk({
+			func : trash_bear,
 			id : PerkIds.TrashBear,
 			name : "Trash Bear",
 			maxlevel : 3, 
@@ -99,7 +100,7 @@ function populate_perks(){
 			thumb : sTrashBear,
 			cooldown : 1,
 			characterid : Characters.Uruka,
-			dropChance : [0, 10, 11, 12],
+			//dropChance : [0, 10, 11, 12],
 			spdDebuff : [0, 0.85, 0.80, 0.75]
 		});
 		#endregion
@@ -281,7 +282,7 @@ function populate_perks(){
 			bonusType : BonusType.PickupRange,
 			bonusValue : [0, 1.20, 1.40, 1.60],
 		});
-		create_perk({ id : PerkIds.LivingWeapon, name : "Living Weapon", maxlevel : 3, weight : 3, thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		create_perk({ func : living_weapon, id : PerkIds.LivingWeapon, name : "Living Weapon", maxlevel : 3, weight : 3, thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
 		create_perk({ id : PerkIds.Slumber, name : "Slumber", maxlevel : 3, weight : 3, thumb : sAnyaPerk3, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
 		global.characterPerks[Characters.Anya] = [PERK_LIST[PerkIds.CuttingDeep][0], PERK_LIST[PerkIds.LivingWeapon][0], PERK_LIST[PerkIds.Slumber][0]];
 		#endregion

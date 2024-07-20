@@ -174,3 +174,30 @@ function cutting_deep(level, event = WeaponEvent.Null, upg = global.null){
 		}
 	}
 }
+function living_weapon(level, event = WeaponEvent.Null){
+	switch (event) {
+	    case WeaponEvent.PerkOnKill:
+			if (level > 0) {
+			    add_buff_to_player(BuffNames.Sharpen);
+			}
+	        break;
+	}
+}
+function trash_bear(level, event = WeaponEvent.Null, enemy = noone){
+	var _spaghettiChance = irandom_range(0, 100);
+	var dropChance = 0;
+	switch (level) {
+	    case 1:
+	        dropChance = 10;
+	        break;
+	    case 2:
+	        dropChance = 11;
+	        break;
+	    case 3:
+	        dropChance = 12;
+	        break;
+	}
+	if (_spaghettiChance <= dropChance) {
+		instance_create_depth(enemy.x, enemy.y, depth, oSpaghetti);
+	}
+}

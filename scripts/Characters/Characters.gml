@@ -213,7 +213,8 @@ enum BuffNames{
 	AtkDown,
 	SpdDown,
 	DefDown,
-	BellyDance
+	BellyDance,
+	Sharpen
 }
 function populate_characters(){
 	createCharacter(Characters.Null, "Phase-Connect","",sBlank,sBlank, sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
@@ -403,6 +404,15 @@ function populate_characters(){
 		stat : "damageMultFromDefDown",
 		statAmount : [1, 1,1, 1.2, 1.3]
 	}
+	Buffs[BuffNames.Sharpen] = {
+		id : BuffNames.Sharpen,
+		name : "sharpen",
+		icon : sAnyaPerk2,
+		enabled : false,
+		permanent : true,
+		count : 1,
+		maxCount : 50
+	}
 		
 	//Buffs[BuffNames.SharkBite] = {
 	//	id : BuffNames.SharkBite,
@@ -418,6 +428,25 @@ function populate_characters(){
 	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	NAME=CHARACTERS[Characters.Uruka][?"name"];
+}
+function add_buff_to_player(bid) {
+	var found = false;
+	var pos = 0;
+	for (var i = 0; i < array_length(PlayerBuffs); ++i) {
+	    if (PlayerBuffs[i].id == bid) {
+		    found = true;
+			pos = i;
+			break;
+		}
+	}
+	if (found) {
+		if (PlayerBuffs[pos][$ "count"] != undefined) {
+		    Buffs[pos].count++;
+		}
+	}
+	else {
+		array_push(PlayerBuffs, variable_clone(Buffs[bid]));
+	}
 }
 function Movement() {
 if (canMove == true){

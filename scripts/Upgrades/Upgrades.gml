@@ -1970,7 +1970,7 @@ function random_upgrades(){
 	//if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$ "unlocked"]) {
 	    //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
 	//}
-	 global.upgradeOptions[0] = PERK_LIST[PerkIds.CuttingDeep][0];
+	 global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
 	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 }	

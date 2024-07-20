@@ -21,6 +21,7 @@ global.prizebox = false;
 #macro PrizeBox global.prizebox
 #macro GoldenANVIL global.goldenAnvil
 #macro Buffs global.buffs
+#macro PlayerBuffs oPlayer.buffs
 #macro Delta global.deltaTime
 #macro RELEASE os_get_config() == "Release"
 #macro DEBUG if (os_get_config() == "Debug" or global.debug) {

@@ -34,11 +34,8 @@ if (boss) {
 //var dropchance = 1 / 200 * (1 - _dropChanceBuff);
 //show_message(dropchance)
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-    if (PLAYER_PERKS[i].id == PerkIds.TrashBear and PLAYER_PERKS[i].level > 0) {
-	    var _spaghettiChance = irandom_range(0, 100);
-		if (_spaghettiChance <= PLAYER_PERKS[i].dropChance) {
-		    instance_create_depth(x,y, depth, oSpaghetti);
-		}
+	if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
+		PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnKill, self);
 	}
 }
 var _dropchance = 1;
