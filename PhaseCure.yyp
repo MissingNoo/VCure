@@ -956,6 +956,7 @@
     {"id":{"name":"sAnyaBlade1","path":"sprites/sAnyaBlade1/sAnyaBlade1.yy",},},
     {"id":{"name":"sAnyaBlade2","path":"sprites/sAnyaBlade2/sAnyaBlade2.yy",},},
     {"id":{"name":"sAnyaIdle","path":"sprites/sAnyaIdle/sAnyaIdle.yy",},},
+    {"id":{"name":"sAnyaLargeKeris","path":"sprites/sAnyaLargeKeris/sAnyaLargeKeris.yy",},},
     {"id":{"name":"sAnyaPerk1","path":"sprites/sAnyaPerk1/sAnyaPerk1.yy",},},
     {"id":{"name":"sAnyaPerk2","path":"sprites/sAnyaPerk2/sAnyaPerk2.yy",},},
     {"id":{"name":"sAnyaPerk3","path":"sprites/sAnyaPerk3/sAnyaPerk3.yy",},},

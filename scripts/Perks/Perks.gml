@@ -268,7 +268,19 @@ function populate_perks(){
 		global.characterPerks[Characters.Aki] = [PERK_LIST[PerkIds.BellyDancing][0], PERK_LIST[PerkIds.Mukirose][0], PERK_LIST[PerkIds.Aromatherapy][0]];
 		#endregion
 		#region Anya
-		create_perk({ id : PerkIds.CuttingDeep, name : "Cutting Deep", maxlevel : 3, weight : 3, thumb : sAnyaPerk1, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		create_perk({
+			func : cutting_deep,
+			id : PerkIds.CuttingDeep,
+			name : "Cutting Deep",
+			maxlevel : 3,
+			weight : 3,
+			thumb : sAnyaPerk1,
+			cooldown : [1, 1, 1, 1],
+			characterid : Characters.Anya,
+			bonus : true,
+			bonusType : BonusType.PickupRange,
+			bonusValue : [0, 1.20, 1.40, 1.60],
+		});
 		create_perk({ id : PerkIds.LivingWeapon, name : "Living Weapon", maxlevel : 3, weight : 3, thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
 		create_perk({ id : PerkIds.Slumber, name : "Slumber", maxlevel : 3, weight : 3, thumb : sAnyaPerk3, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
 		global.characterPerks[Characters.Anya] = [PERK_LIST[PerkIds.CuttingDeep][0], PERK_LIST[PerkIds.LivingWeapon][0], PERK_LIST[PerkIds.Slumber][0]];

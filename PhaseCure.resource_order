@@ -828,6 +828,7 @@
     {"name":"sAnvilPointer","order":36,"path":"sprites/sAnvilPointer/sAnvilPointer.yy",},
     {"name":"sAnyaBlade1","order":9,"path":"sprites/sAnyaBlade1/sAnyaBlade1.yy",},
     {"name":"sAnyaBlade2","order":10,"path":"sprites/sAnyaBlade2/sAnyaBlade2.yy",},
+    {"name":"sAnyaLargeKeris","order":11,"path":"sprites/sAnyaLargeKeris/sAnyaLargeKeris.yy",},
     {"name":"sAnyaPerk1","order":3,"path":"sprites/sAnyaPerk1/sAnyaPerk1.yy",},
     {"name":"sAnyaPerk2","order":4,"path":"sprites/sAnyaPerk2/sAnyaPerk2.yy",},
     {"name":"sAnyaPerk3","order":5,"path":"sprites/sAnyaPerk3/sAnyaPerk3.yy",},

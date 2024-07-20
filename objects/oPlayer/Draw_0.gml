@@ -1,6 +1,8 @@
 //event_inherited();
 draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8);
-
+DEBUG
+    draw_circle(x, y, pickupRadius, true);
+ENDDEBUG
 #region Have perk
 var lickArea = 0;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {

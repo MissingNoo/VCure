@@ -202,6 +202,7 @@ enum Weapons{
 	AmePistol,
 	Aik,
 	Keris,
+	LargeKeris,
 	Length,
 	AnyaBlade
 }
@@ -423,7 +424,32 @@ function populate_upgrades(){
 			perk : true, 
 			characterid : Characters.Anya, 
 			weight : 3, 
-			range : [120, 120, 120, 120, 120, 150, 150]
+			range : [120, 120, 120, 120, 120, 150, 150],
+			shotType : ShotTypes.Melee
+		},[snd_bullet, snd_bullet2, snd_bullet3]);
+		new_create_upgrade({
+			animation_end : large_keris_animation_end,
+			id : Weapons.LargeKeris,
+			name : "Keris", 
+			maxlevel : 1, 
+			sprite : sAnyaLargeKeris, 
+			thumb : sAnyaWeapon, 
+			mindmg : 10,
+			maxdmg : 14, 
+			cooldown : 0, 
+			duration : 30,
+			hitCooldown : 30, 
+			canBeHasted : true, 
+			attackdelay : 8,
+			speed : 0,
+			size : 1.5,
+			hits : 999,
+			type : "red", 
+			shoots : 1, 
+			perk : true, 
+			characterid : Characters.Anya, 
+			weight : 0,
+			shotType : ShotTypes.Melee
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
 		#endregion
@@ -1944,9 +1970,9 @@ function random_upgrades(){
 	//if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$ "unlocked"]) {
 	    //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
 	//}
-	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.HeavyArtillery][0];
+	 global.upgradeOptions[0] = PERK_LIST[PerkIds.CuttingDeep][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
 }	
 #endregion
 #region Random Enchantments

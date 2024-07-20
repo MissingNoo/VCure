@@ -1,7 +1,6 @@
 x = floor(oPlayer.x);
 y = floor(oPlayer.y);
 
-
 ////var xTo, yTo;
 //if (distance_to_object(oPlayer) > DebugManager.a) {
 //    move_towards_point(oPlayer.x, oPlayer.y, oPlayer.spd);

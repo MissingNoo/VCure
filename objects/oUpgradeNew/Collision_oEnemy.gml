@@ -34,11 +34,15 @@ var dmg = irandom_range(_mindmg, _maxdmg);
 audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, global.soundVolume);
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
-		PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnHit);
+		PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnHit, upg);
 	}
 }
 if (perkBonusDmg == 99999 and other.boss) {
 	perkBonusDmg = 0;
+}
+if (resetcooldown and !cooldownwasreset) {
+	cooldownwasreset = true;
+    other.hittedcooldown[upg.id] = global.currentFrame - 1;
 }
 dmg += perkBonusDmg;
 for (var i = 0; i < array_length(playerItems); ++i) {
