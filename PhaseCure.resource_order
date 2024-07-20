@@ -1004,6 +1004,7 @@
     {"name":"sMenhera","order":5,"path":"sprites/sMenhera/sMenhera.yy",},
     {"name":"sMenu","order":16,"path":"sprites/sMenu/sMenu.yy",},
     {"name":"sMenuArrow","order":22,"path":"sprites/sMenuArrow/sMenuArrow.yy",},
+    {"name":"sMenuBG","order":38,"path":"sprites/sMenuBG/sMenuBG.yy",},
     {"name":"sMenuCharselectBar","order":12,"path":"sprites/sMenuCharselectBar/sMenuCharselectBar.yy",},
     {"name":"sMenuTalents","order":2,"path":"sprites/sMenuTalents/sMenuTalents.yy",},
     {"name":"sMenuTitle","order":3,"path":"sprites/sMenuTitle/sMenuTitle.yy",},

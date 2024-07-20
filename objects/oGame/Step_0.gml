@@ -356,10 +356,19 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 if (global.gamePaused == false and instance_exists(oPlayer)) {
 	global.seconds+=(1/60) * Delta ;
 	#region Skills Cooldown
-	for (var i = 0; i < array_length(global.perkCooldown); ++i) {
-		global.perkCooldown[i] -= (1/60) * Delta;
-		if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
-			PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkCooldown);
+	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		global.perkCooldown[PLAYER_PERKS[i].id] -= (1/60) * Delta;
+		if (global.perkCooldown[PLAYER_PERKS[i].id] <= 0) {
+			global.perkCooldown[PLAYER_PERKS[i].id] = PLAYER_PERKS[i].cooldown;
+		    if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
+				PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkCooldown);
+			}
+			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
+				PerkBonuses[PLAYER_PERKS[i][$ "bonusType"]][PLAYER_PERKS[i][$ "id"]] = PLAYER_PERKS[i][$ "bonusValue"];
+			}
+			if (variable_struct_exists(PLAYER_PERKS[i], "upgrade")) {
+				instance_create_layer(x,y-8,"Upgrades",oUpgrade,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][PLAYER_PERKS[i][$ "level"]]});
+			}
 		}
 	}
 	//feather disable once GM1041

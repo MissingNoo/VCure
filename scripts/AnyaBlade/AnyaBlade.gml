@@ -14,22 +14,24 @@ function keris_create(obj){
 			pos = [60, 0, -60];
 		    break;
 		case 6:
+			pos = [128, -128, 50, -50];
+			break;
 		case 7:
 			pos = [128, -128, 50, -50];
+			var _list = ds_list_create();
+			var _num = collision_circle_list(oPlayer.x, oPlayer.y, oPlayer.pickupRadius, oEnemy, false, true, _list, false);
+			repeat (4) {
+				if (ds_list_size(_list) == 0) {
+				    break;
+				}
+				var _pos = irandom(ds_list_size(_list) - 1);
+				instance_create_layer(_list[| _pos].x, _list[| _pos].y, "Upgrades", oUpgradeNew, {upg : global.upgradesAvaliable[Weapons.LargeKeris][1], shoots : -1});
+			    ds_list_delete(_list, _pos);
+			}
+			ds_list_destroy(_list);
 		    break;
 	}
 	keris_position(obj, pos, global.arrowDir);
-	var _list = ds_list_create();
-	var _num = collision_circle_list(oPlayer.x, oPlayer.y, oPlayer.pickupRadius, oEnemy, false, true, _list, false);
-	repeat (3) {
-		if (ds_list_size(_list) == 0) {
-		    break;
-		}
-		var _pos = irandom(ds_list_size(_list) - 1);
-		instance_create_layer(_list[| _pos].x, _list[| _pos].y, "Upgrades", oUpgradeNew, {upg : global.upgradesAvaliable[Weapons.LargeKeris][1], shoots : -1});
-	    ds_list_delete(_list, _pos);
-	}
-	ds_list_destroy(_list);
 }
 function large_keris_animation_end(obj) {
 	instance_destroy(obj);

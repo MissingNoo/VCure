@@ -1152,6 +1152,7 @@
     {"id":{"name":"sMenhera","path":"sprites/sMenhera/sMenhera.yy",},},
     {"id":{"name":"sMenu","path":"sprites/sMenu/sMenu.yy",},},
     {"id":{"name":"sMenuArrow","path":"sprites/sMenuArrow/sMenuArrow.yy",},},
+    {"id":{"name":"sMenuBG","path":"sprites/sMenuBG/sMenuBG.yy",},},
     {"id":{"name":"sMenuCharselectBar","path":"sprites/sMenuCharselectBar/sMenuCharselectBar.yy",},},
     {"id":{"name":"sMenuCharSelectCursor","path":"sprites/sMenuCharSelectCursor/sMenuCharSelectCursor.yy",},},
     {"id":{"name":"sMenuTalents","path":"sprites/sMenuTalents/sMenuTalents.yy",},},

@@ -158,6 +158,40 @@ DebugManager.debug_add_config(self, {
 	page : "Stage"
 });
 same_line();
+ps = 0;
+DebugManager.debug_add_config(self, {
+	text : "Perk",
+	type : DebugTypes.UpDown,
+	variable : "ps",
+	//func: function(){},
+	page : "Stage"
+});
+DebugManager.debug_add_config(self, {
+	text : $"LVUp",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		if (PLAYER_PERKS[DebugManager.ps].level < 3) {
+			PLAYER_PERKS[DebugManager.ps] = PERK_LIST[PLAYER_PERKS[DebugManager.ps].id][PLAYER_PERKS[DebugManager.ps].level + 1];
+			oGui.upgradesSurface();
+		}
+	},
+	page : "Stage"
+});
+same_line();
+DebugManager.debug_add_config(self, {
+	text : "LVDown",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		if (PLAYER_PERKS[DebugManager.ps].level > 1) {
+			PLAYER_PERKS[DebugManager.ps] = PERK_LIST[PLAYER_PERKS[DebugManager.ps].id][PLAYER_PERKS[DebugManager.ps].level - 1];
+			oGui.upgradesSurface();
+		}
+	},
+	page : "Stage"
+});
+same_line();
 DebugManager.debug_add_config(self, {
 	text : "CollabTest",
 	type : DebugTypes.Button,
