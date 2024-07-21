@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "1b921ee06b412eb2",
+    "type": "split",
+    "children": [
+      {
+        "id": "49d4882913db3d21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d1110596ed1b6ca2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "21ff2eccccd4df1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "aacdad9967ef0218",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76696af187ba359e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7af4c8d245627e82",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1e4b99157ddda60c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "67bcab6fd5feb8ca",
+    "type": "split",
+    "children": [
+      {
+        "id": "01cb232b0b30ed8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a259c527c2749f6f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "be8cebfe9fe3d1e0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fd1fe13b2079d713",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "45b35eca35e4d4e1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "d1110596ed1b6ca2",
+  "lastOpenFiles": [
+    "Canvas.canvas",
+    "z_attachments/Wallmart Form.png",
+    "z_attachments/Soda Fueled.png",
+    "z_attachments/25536c1c-91dd-4e3d-810a-bd262ab9b135.png",
+    "z_attachments/Pipipistols.png",
+    "z_attachments/Moldy Soul.png",
+    "z_attachments/Heavy Artillery.png",
+    "z_attachments/Pippa.png",
+    "z_attachments/Lia.png",
+    "z_attachments",
+    "68da2d1a-c54a-4af6-85d8-0d1b3cd69bca.png",
+    "68da2d1a-c54a-4af6-85d8-0d1b3cd69bca 1.png",
+    "Uruka.md",
+    "Uruka Skills.md"
+  ]
+}
