@@ -4,6 +4,7 @@
 #macro MAXHP global.maxhp
 #macro NAME global.name
 function initializePlayer(_p){
+	oGame.endlessminutemark = false;
 	mouseAim = false;
 	attacktick=true;
 	global.newcoins = 0;

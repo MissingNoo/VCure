@@ -202,3 +202,12 @@ DebugManager.debug_add_config(self, {
 	},
 	page : "Stage"
 });
+DebugManager.debug_add_config(self, {
+	text : "Minutes",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		Minutes = DebugManager.a;
+	},
+	page : "Stage"
+});

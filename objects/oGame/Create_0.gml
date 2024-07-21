@@ -1,3 +1,4 @@
+endlessminutemark = false;
 HP = 0;
 global.currentFrame = 0;
 #region fps mean

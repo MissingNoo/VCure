@@ -1,6 +1,6 @@
 //feather disable GM2017
 
-scribble(CharacterData[selectedCharacter]).scale(4).draw(MX, MY + 20);
+scribble(CharacterData[selectedCharacter]).scale(4).wrap(100).draw(MX, MY + 20);
 var a = DebugManager.a;
 var b = DebugManager.b;
 var c = DebugManager.c;

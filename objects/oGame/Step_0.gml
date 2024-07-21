@@ -476,6 +476,16 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 		global.hours+=1;
 	}
 	
+	if (Minutes >= 30 and !endlessminutemark) {
+	    endlessminutemark = true;
+		if (!CharacterData[global.player[? "id"]][$ "stagefirstclear"][global.currentStage]) {
+		    CharacterData[global.player[? "id"]][$ "stagefirstclear"][global.currentStage] = true;
+			CharacterData[global.player[? "id"]].fandomxp += 14;
+		}
+		else {
+			CharacterData[global.player[? "id"]].fandomxp += 7;
+		}
+	}
 	//a b
 	global.timeA = max(0, Minutes - 23) + 37 * Hours;
 	global.timeB = global.minutesPast30 + 60 * global.hoursPast1;

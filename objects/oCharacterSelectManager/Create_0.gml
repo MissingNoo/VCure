@@ -91,10 +91,7 @@ selectAgency = function(i){
 		desc : "Defeat 5000 targets as soon as possible! Shop upgrades are standardized"
 		//desc : "Defeat 5000 targets as \nsoon as possible! \nShop upgrades are standardized"
 	}];
-	stages = [
-		{name: "[wave]GRASSY\nPLAINS", port : sStage1Port, back : sAmeBack, roomname : rStage1},
-		{name: "[wave]HOLOFFICE", port : sStage2Port, back : sGlasses, roomname : rStage1},
-	];
+	stages = StageData;
 	selectedStage = 0;
 #endregion
 resetSidebar();

@@ -205,8 +205,12 @@ for (var i = 0; i < Characters.Lenght; ++i) {
 		unlocked : false,
 		outfits : [],
 		grank : 0,
-		fandomxp : 0
+		fandomxp : 0,
+		stagefirstclear : []
 	};
+	for (var j = 0; j < StageID.Length; ++j) {
+		global.characterdata[i][$ "stagefirstclear"][j] = false;
+	}
 }
 if (is_string(global.characterdataJSON)) {
 	var arr = json_parse(global.characterdataJSON);
@@ -217,6 +221,11 @@ if (is_string(global.characterdataJSON)) {
 		}
 	}
 }
+#region lower arrays
+//for (var i = 0; i < Characters.Lenght; ++i) {
+//	global.characterdata[i][$ "stagefirstclear"][StageID.Length] = false;
+//}
+#endregion
 populate_items();
 populate_upgrades();
 populate_collabs();

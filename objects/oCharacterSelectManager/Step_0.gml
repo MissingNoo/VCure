@@ -74,6 +74,7 @@ switch (state) {
 		if (input_check_pressed("accept")) {
 			switch (stageSelected) {
 			    case true:
+					global.currentStage = selectedStage;
 			        room_goto(stages[selectedStage].roomname);
 			        break;
 			    case false:

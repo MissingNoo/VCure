@@ -10,14 +10,14 @@ function Save_Data_Structs () {
 	global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
 	global.characterdataJSON = json_stringify(global.characterdata);
 	var Data = {};
-        for(var i = 0; i < array_length(global.Data); i++){
-            var Key = global.Data[i];
-                if(variable_global_exists(Key)){
-                    Data[$ Key] = variable_global_get(Key);}}
-                var Map = json_decode(json_stringify(Data));
-                ds_map_secure_save(Map, DATA);
-                ds_map_destroy(Map);
-            };
+    for(var i = 0; i < array_length(global.Data); i++){
+        var Key = global.Data[i];
+            if(variable_global_exists(Key)){
+                Data[$ Key] = variable_global_get(Key);}}
+            var Map = json_decode(json_stringify(Data));
+            ds_map_secure_save(Map, DATA);
+            ds_map_destroy(Map);
+        };
     
 function Load_Data_Structs () {
 	global.characterdata = undefined;;
