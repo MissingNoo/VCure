@@ -117,6 +117,11 @@ if (instance_exists(oPlayer)) {
 		draw_sprite(sExpBarBG, 0, 0, 0);
 		draw_sprite_part(sExpBar, -1, 0, 0, ((global.xp / oPlayer.neededxp) * sprite_get_width(sExpBar)), sprite_get_height(sExpBarBG), 0, 0);
 		draw_sprite(sExpBarBG, 1, 0, 0);
+		var _border = [[-2, 0], [0, -2], [2, 0], [0, 2]];
+		//for (var i = 0; i < array_length(_border); ++i) {
+		//    scribble($"[c_black]LV:{global.level}").scale(1.60).draw(588 + _border[i][0], 6 + _border[i][1]);
+		//}
+		scribble($"LV:{global.level}").scale(1.50).draw(588, 7);
 		surface_reset_target();
 		draw_surface_stretched(xpsurface, 0, 0, GW, 180);
 	}
