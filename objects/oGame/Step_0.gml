@@ -480,10 +480,20 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	    endlessminutemark = true;
 		if (!CharacterData[global.player[? "id"]][$ "stagefirstclear"][global.currentStage]) {
 		    CharacterData[global.player[? "id"]][$ "stagefirstclear"][global.currentStage] = true;
-			CharacterData[global.player[? "id"]].fandomxp += 14;
+			if (global.stageHard) {
+			    CharacterData[global.player[? "id"]].fandomxp += 20;
+			}
+			else {
+			    CharacterData[global.player[? "id"]].fandomxp += 14;
+			}
 		}
 		else {
-			CharacterData[global.player[? "id"]].fandomxp += 7;
+			if (global.stageHard) {
+			    CharacterData[global.player[? "id"]].fandomxp += 10;
+			}
+			else {
+			    CharacterData[global.player[? "id"]].fandomxp += 7;
+			}
 		}
 	}
 	//a b

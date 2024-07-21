@@ -75,6 +75,7 @@ switch (state) {
 			switch (stageSelected) {
 			    case true:
 					global.currentStage = selectedStage;
+					global.stageHard = stages[selectedStage].hard;
 			        room_goto(stages[selectedStage].roomname);
 			        break;
 			    case false:
