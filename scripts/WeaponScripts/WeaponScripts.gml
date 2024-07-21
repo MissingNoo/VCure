@@ -77,17 +77,6 @@ function cuttingboard_step(o){
 		}
 	}
 }
-function holobomb_step(o){
-	if (o == 0) {
-	    x = owner.x + irandom_range(-50,50);			
-		y = owner.y + (irandom_range(-50,50)*-1);
-		//alarm[0] = 1;
-		depth=owner.depth;
-	}
-	else {
-		
-	}
-}
 function glowstick_step(o){
 	if (o == 0) {
 	    if (instance_exists(oEnemy)) {

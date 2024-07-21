@@ -165,7 +165,7 @@ switch (sprite_index) {
 		dmg = dmg / 8;
 	    break;
 	case sBombExplosion:{
-		dmg = (dmg * 2) + (sizeGained / 10);
+		dmg = (dmg * 2);// + (sizeGained / 10);
 		break;}
 }
 #endregion

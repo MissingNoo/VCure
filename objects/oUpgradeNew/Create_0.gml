@@ -65,6 +65,7 @@ if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Size) {
 	image_xscale = image_xscale * 1.15;
 	image_yscale = image_yscale * 1.15;
 }
+original_scale = [image_xscale, image_yscale];
 for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 	if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$ "id"] != Weapons.HoloBomb) {
 		if (image_xscale > 0) { 

@@ -696,30 +696,32 @@ function populate_upgrades(){
 	#endregion
 	#region Holobomb
 	new_create_upgrade({
-		func : holobomb_step,
-				id : Weapons.HoloBomb,
-				name : "Holo Bomb",
-				maxlevel : 7,
-				weight : 3,
-				sprite : sHolobomb,
-				thumb : sHolobomb,
-				mindmg : [15, 15, 15, 15, 15, 18, 18],
-				maxdmg : [19, 19, 19, 19, 19, 22, 22],
-				cooldown : [120, 120, 120, 120, 96, 96, 96],
-				duration : 630,
-				hitCooldown : 20, 
-				canBeHasted : true,
-				speed : 0,
-				hits : 999,
-				type : "white",
-				shoots : [1, 1, 1, 2, 2, 2, 3],
-				knockbackSpeed : 0,
-				knockbackDuration : 0,
-				shotType : ShotTypes.Multishot,
-				perk : false,
-				incompatibleEnchantments : [0, Enchantments.Projectile]
-				//collabWith : Weapons.PlugAsaCoco
-			});
+		create : holobomb_create,
+		animation_end : holobomb_animation_end,
+		on_hit : holobomb_on_hit,
+		id : Weapons.HoloBomb,
+		name : "Holo Bomb",
+		maxlevel : 7,
+		weight : 3,
+		sprite : sHolobomb,
+		thumb : sHolobomb,
+		mindmg : [15, 15, 15, 15, 15, 18, 18],
+		maxdmg : [19, 19, 19, 19, 19, 22, 22],
+		cooldown : [120, 120, 120, 120, 96, 96, 96],
+		duration : 630,
+		hitCooldown : 20, 
+		canBeHasted : true,
+		speed : 0,
+		hits : 999,
+		type : "white",
+		shoots : [1, 1, 1, 2, 2, 2, 3],
+		knockbackSpeed : 0,
+		knockbackDuration : 0,
+		shotType : ShotTypes.Multishot,
+		perk : false,
+		incompatibleEnchantments : [0, Enchantments.Projectile]
+		//collabWith : Weapons.PlugAsaCoco
+	});
 		//Damage: 	170% (12 – 22)
 		//Attack time: 	120 (2 s)
 		//Attack count: 	1
@@ -1972,7 +1974,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.FanBeam][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.HoloBomb][1];
 }	
 #endregion
 #region Random Enchantments

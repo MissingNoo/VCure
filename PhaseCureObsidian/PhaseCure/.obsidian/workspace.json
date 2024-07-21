@@ -11,8 +11,12 @@
             "id": "d1110596ed1b6ca2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Weapons/Multishot/BL Book.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Weapons/Multishot/BL Book.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Weapons/Multishot/BL Book.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Weapons/Multishot/BL Book.md"
+              }
             }
           }
         ],
@@ -141,19 +149,52 @@
   },
   "active": "d1110596ed1b6ca2",
   "lastOpenFiles": [
+    "Weapons/Multishot/Holobomb.md",
     "Canvas.canvas",
-    "z_attachments/Wallmart Form.png",
-    "z_attachments/Soda Fueled.png",
-    "z_attachments/25536c1c-91dd-4e3d-810a-bd262ab9b135.png",
-    "z_attachments/Pipipistols.png",
-    "z_attachments/Moldy Soul.png",
-    "z_attachments/Heavy Artillery.png",
-    "z_attachments/Pippa.png",
-    "z_attachments/Lia.png",
-    "z_attachments",
-    "68da2d1a-c54a-4af6-85d8-0d1b3cd69bca.png",
-    "68da2d1a-c54a-4af6-85d8-0d1b3cd69bca 1.png",
-    "Uruka.md",
-    "Uruka Skills.md"
+    "z_attachments/Pasted image 20240721085607.png",
+    "z_attachments/Pasted image 20240721085555.png",
+    "z_attachments/Pasted image 20240721085520.png",
+    "z_attachments/Pasted image 20240720232855.png",
+    "z_attachments/Pasted image 20240720232837.png",
+    "z_attachments/Pasted image 20240720232810.png",
+    "z_attachments/Pasted image 20240720232751.png",
+    "z_attachments/Pasted image 20240720232659.png",
+    "z_attachments/Pasted image 20240720232641.png",
+    "z_attachments/Pasted image 20240720232622.png",
+    "2023-10-26.md",
+    "Weapons/Ranged/Psycho Axe.md",
+    "Weapons/Ranged/Idol Song.md",
+    "Weapons/Ranged/Fan Beam.md",
+    "Weapons/Ranged/Cutting Board.md",
+    "Weapons/Multishot/X-Potato.md",
+    "Weapons/Multishot/Plug Type Asacoco.md",
+    "Weapons/Multishot/Glowstick.md",
+    "Weapons/Multishot/Elite Lava Bucket.md",
+    "Weapons/Multishot/EN's Curse.md",
+    "Weapons/Multishot/CEO Tear's.md",
+    "Weapons/Multishot/Bounce Ball.md",
+    "Weapons/Multishot/BL Book.md",
+    "Weapons/Melee/Wamy Water.md",
+    "Weapons/Melee/Spider Cooking.md",
+    "Weapons/Melee/Sausage.md",
+    "Weapons/Ranged",
+    "Weapons/Multishot",
+    "Weapons/Melee",
+    "Weapons",
+    "Untitled",
+    "Systems/Stamps.md",
+    "Systems/Holo House.md",
+    "Systems/Fandom.md",
+    "Systems",
+    "PhaseCure/Weapons/Ranged/Psycho Axe.md",
+    "PhaseCure/Weapons/Ranged/Idol Song.md",
+    "PhaseCure/Weapons/Ranged/Fan Beam.md",
+    "PhaseCure/Weapons/Ranged/Cutting Board.md",
+    "PhaseCure/Weapons/Melee/Wamy Water.md",
+    "PhaseCure/Canvas.canvas",
+    "PhaseCure/Weapons/Ranged",
+    "PhaseCure/Weapons/Multishot",
+    "PhaseCure/Weapons/Melee",
+    "PhaseCure/z_attachments"
   ]
 }

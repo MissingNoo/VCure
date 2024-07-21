@@ -5,7 +5,8 @@ function fanbeam_create(obj){
 	}
 }
 function fanbeam_step(obj){
-	
+	x = oPlayer.x;
+	y = oPlayer.y;
 }
 function fanbeam_animation_end(obj){
 	instance_destroy(obj);

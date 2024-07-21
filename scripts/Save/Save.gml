@@ -20,7 +20,7 @@ function Save_Data_Structs () {
         };
     
 function Load_Data_Structs () {
-	global.characterdata = undefined;;
+	global.characterdata = undefined;
     if (file_exists(DATA)) {
         var Map = ds_map_secure_load(DATA);
         var Json = json_parse( json_encode(Map) );

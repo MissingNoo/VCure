@@ -492,6 +492,7 @@
     {"id":{"name":"EnemyScripts","path":"scripts/EnemyScripts/EnemyScripts.yy",},},
     {"id":{"name":"FanBeam","path":"scripts/FanBeam/FanBeam.yy",},},
     {"id":{"name":"Feather","path":"scripts/Feather/Feather.yy",},},
+    {"id":{"name":"Holobomb","path":"scripts/Holobomb/Holobomb.yy",},},
     {"id":{"name":"House","path":"scripts/House/House.yy",},},
     {"id":{"name":"input_accessibility_global_cooldown_get","path":"scripts/input_accessibility_global_cooldown_get/input_accessibility_global_cooldown_get.yy",},},
     {"id":{"name":"input_accessibility_global_cooldown_set","path":"scripts/input_accessibility_global_cooldown_set/input_accessibility_global_cooldown_set.yy",},},

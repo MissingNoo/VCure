@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Holobomb",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Holobomb",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
