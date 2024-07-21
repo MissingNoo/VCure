@@ -197,7 +197,8 @@ function draw_set_reset(){
 	
 function select_screen_window(_x, _y, _xx, _yy, _title, _alpha = 0.5){
 	draw_set_alpha(_alpha);
-	draw_rectangle_color(_x, _y, _xx, _yy, c_black, c_black, c_black, c_black, false);
+	//draw_rectangle_color(_x, _y, _xx, _yy, c_black, c_black, c_black, c_black, false);
+	draw_rectangle_color(_x, _y, _xx, _yy, c_white, c_white, c_white, c_white, false);
 	draw_set_alpha(1);
 	scribble(string_upper($"[fa_top]{_title}")).scale(2.5).draw(_x + 6, _y + 5);
 	//draw_text_transformed(_x + 6, _y + 5, string_upper(_title), 2.5, 2.5, 0);

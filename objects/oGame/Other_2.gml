@@ -205,7 +205,17 @@ for (var i = 0; i < Characters.Lenght; ++i) {
 		unlocked : false,
 		outfits : [],
 		grank : 0,
+		fandomxp : 0
 	};
+}
+if (is_string(global.characterdataJSON)) {
+	var arr = json_parse(global.characterdataJSON);
+	for (var i = 0; i < array_length(arr); ++i) {
+		var _names = struct_get_names(arr[i]);
+		for (var j = 0; j < array_length(_names); ++j) {
+			global.characterdata[i][$ _names[j]] = arr[i][$ _names[j]];
+		}
+	}
 }
 populate_items();
 populate_upgrades();

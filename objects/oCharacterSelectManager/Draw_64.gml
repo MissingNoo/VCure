@@ -1,5 +1,6 @@
 //feather disable GM2017
-scribble(stageselectlerp).scale(4).draw(MX, MY + 20);
+
+scribble(CharacterData[selectedCharacter]).scale(4).draw(MX, MY + 20);
 var a = DebugManager.a;
 var b = DebugManager.b;
 var c = DebugManager.c;
@@ -21,7 +22,7 @@ if (_isUnlocked) {
 	var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];
 	var _yoffset = 0;
 	draw_set_alpha(0.5);
-	select_screen_window(GW/1.53, GH/1.68, GW/1.27, GH/1.07, "Status");
+	select_screen_window(GW/1.53, GH/1.68, GW/1.27, GH/1.07, "Status", 0.15);
 	for (var i = 0; i < array_length(_info); ++i) {
 		var _val = string($"{_info[i][1]}{_info[i][2]}");
 		//draw_sprite_ext(, 0, GW/DebugManager.a, GH/DebugManager.b + _yoffset, DebugManager.c, DebugManager.c, 0, c_white, 1);
@@ -32,8 +33,17 @@ if (_isUnlocked) {
 		_yoffset += 60;
 	}
 }
+#region Fandom
+var fandom = [[sFollowingFan, sFollowingFanLocked, 33], [sFollowingOshi, sFollowingOshiLocked, 66], [sFollowingGachikoi, sFollowingGachikoiLocked, 100]];
+var foffset = 0;
+for (var i = array_length(fandom) - 1; i >= 0; --i) {
+	var unlocked = CharacterData[selectedCharacter].fandomxp < fandom[i][2];
+	draw_sprite_ext(fandom[i][unlocked], -1, GW/1.07 + foffset, GH/2, 3, 3, 0, c_white, 1);
+    foffset -= 115;
+}
+#endregion
 #region Special Window
-select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special");
+select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special", 0.15);
 var _speX = GW/1.09;
 var _speY = GH/1.21;
 var _speSpr = _isUnlocked ? SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb : sLockIcon;
@@ -43,7 +53,7 @@ var _specialsUnlocked = global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1;
 draw_sprite_ext(_specialsUnlocked ? _speSpr : sLockIcon, 0, _speX, _speY, 3, 3, 0, c_white, 1);
 #endregion
 #region Atk Window
-select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack");
+select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack", 0.15);
 var _atkSpr = _isUnlocked ? CHARACTERS[selectedCharacter][?"weapon"][1].thumb : sCharacterLockedIcon;
 var _atkX = GW/1.19;
 var _atkY = GH/1.14;
@@ -52,7 +62,7 @@ var _atkSprH = sprite_get_height(_atkSpr);
 draw_sprite_ext(_atkSpr, 0, _atkX, _atkY, 3, 3, 0, c_white, 1);
 #endregion
 #region Skills Window
-select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills");
+select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills", 0.15);
 _offset = 0;
 for (var i = 0; i < 3; ++i) {
 	var _xx = GW/1.20 + _offset;

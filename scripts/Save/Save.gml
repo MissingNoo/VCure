@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdata", "guiScale"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdataJSON", "guiScale"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -8,6 +8,7 @@ global.Data = [
 
 function Save_Data_Structs () { 
 	global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
+	global.characterdataJSON = json_stringify(global.characterdata);
 	var Data = {};
         for(var i = 0; i < array_length(global.Data); i++){
             var Key = global.Data[i];
@@ -19,6 +20,7 @@ function Save_Data_Structs () {
             };
     
 function Load_Data_Structs () {
+	global.characterdata = undefined;;
     if (file_exists(DATA)) {
         var Map = ds_map_secure_load(DATA);
         var Json = json_parse( json_encode(Map) );
@@ -30,13 +32,21 @@ function Load_Data_Structs () {
 			}
           ds_map_destroy(Map);} 
 		  if (is_string(global.shopUpgradesJSON)) {
-		      //global.shopUpgrades = json_parse(global.shopUpgradesJSON);
 			  var _json = json_parse(global.shopUpgradesJSON);
 			  var _names = struct_get_names(_json);
 			  for (var i = 0; i < array_length(_names); ++i) {
 			      global.shopUpgrades[$ _names[i]].level = _json[$ _names[i]].level;
 			  }
-		  }  
+		  } 
+		  //if (is_string(global.characterdataJSON)) {
+			//  global.characterdata = json_parse(global.characterdataJSON);
+			  //show_debug_message(json_stringify(global.characterdataJSON, true));
+			  //show_message("");
+			  //var _names = struct_get_names(_json);
+			  //for (var i = 0; i < array_length(_names); ++i) {
+			  //    global.characterdata[$ _names[i]] = _json[$ _names[i]];
+			  //}
+		  //} 
 		  
 		if(array_length(UnlockableItems) < ItemIds.Length) { UnlockableItems[ItemIds.Length] = false; }
 		if(array_length(UnlockableWeapons) < Weapons.Length) { UnlockableWeapons[Weapons.Length] = false; }

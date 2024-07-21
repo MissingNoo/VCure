@@ -1,3 +1,11 @@
+if (keyboard_check_pressed(vk_pageup)) {
+    //CharacterData[selectedCharacter].grank++;
+    CharacterData[selectedCharacter].fandomxp++;
+}
+if (keyboard_check_pressed(vk_pagedown)) {
+    //CharacterData[selectedCharacter].grank++;
+    CharacterData[selectedCharacter].fandomxp--;
+}
 //feather disable GM2017
 //scribble(stagelerp[0] - stagelerp[1]).scale(4).draw(MX, MY + 20);
 var a = DebugManager.a;
