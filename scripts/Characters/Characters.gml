@@ -103,6 +103,37 @@ function initializePlayer(_p){
 	pimanLevel = 0;
 	oGui.upgradesSurface();
 	//UPGRADES[0] = WEAPONS_LIST[Weapons.Aik][7];
+	if (true) { //TODO: Shop fandom
+		var fxp = CharacterData[global.player[? "id"]][$ "fandomxp"];
+		var flvl = 0;
+	    if (fxp >= 33) { flvl = 1; }
+	    if (fxp >= 66) { flvl = 2; }
+	    if (fxp >= 100) { flvl = 3; }
+		switch (flvl) {
+		    case 1:
+		        HP += 5;
+				MAXHP += 5;
+				var rskill = choose(0, 1, 2);
+				PLAYER_PERKS[rskill] = PERK_LIST[PLAYER_PERKS[rskill].id][1];
+		        break;
+		    case 2:
+		        HP += 10;
+				MAXHP += 10;
+				repeat (3) {
+					var rskill = choose(0, 1, 2);
+				    PLAYER_PERKS[rskill] = PERK_LIST[PLAYER_PERKS[rskill].id][PLAYER_PERKS[rskill].level + 1];
+				}
+		        break;
+		    case 3:
+		        HP += 20;
+				MAXHP += 20;
+				for (var i=0; i<3; i++) {
+					PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i].id][3];
+				}
+		        break;
+		}
+		oGui.upgradesSurface();
+	}
 }
 global.characters=[];
 #macro CHARACTERS global.characters
