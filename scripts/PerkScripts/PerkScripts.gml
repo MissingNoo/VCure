@@ -185,7 +185,7 @@ function living_weapon(level, event = WeaponEvent.Null){
 }
 function trash_bear(level, event = WeaponEvent.Null, enemy = noone){
 	var _spaghettiChance = irandom_range(0, 100);
-	var dropChance = 0;
+	var dropChance = -1;
 	switch (level) {
 	    case 1:
 	        dropChance = 10;

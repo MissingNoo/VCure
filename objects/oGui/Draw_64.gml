@@ -66,10 +66,9 @@ draw_set_font(global.newFont[2]);
 #endregion
 #region Inside Stage
 if (instance_exists(oPlayer)) {
-	draw_sprite_ext(sPhaseCoin, 0, GW/1.23, GH/15.06, 1, 1, 0, c_white, 1);
-	draw_text_transformed(GW/1.18, GH/16.35, string(global.newcoins), 2, 2, 0);
-	draw_sprite_stretched(sHuddefeatedEnemies, 0, GW/1.25, GH/9, 55, 55);
-	draw_text_transformed(GW/1.18, GH/7.60, string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")}"), 2, 2, 0);
+	scribble($"[sHolocoin] {global.newcoins}").scale(3).draw(GW/1.25, GH/17);
+	var _defeated = string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")}");
+	scribble($"[sHuddefeatedEnemies] {_defeated}").scale(3).draw(GW/1.25, GH/7.50);
 	#region Character Portrait
 	_x = GW/25.10
 	_y = GH/10.59;
