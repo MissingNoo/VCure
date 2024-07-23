@@ -411,6 +411,7 @@
     {"name":"CeoTears","order":8,"path":"scripts/CeoTears/CeoTears.yy",},
     {"name":"Characters","order":2,"path":"scripts/Characters/Characters.yy",},
     {"name":"clientnetworking","order":9,"path":"scripts/clientnetworking/clientnetworking.yy",},
+    {"name":"CuttingBoard","order":12,"path":"scripts/CuttingBoard/CuttingBoard.yy",},
     {"name":"DebugLib","order":2,"path":"scripts/DebugLib/DebugLib.yy",},
     {"name":"draw_text_scribble_ext","order":1,"path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},
     {"name":"EnemyScripts","order":3,"path":"scripts/EnemyScripts/EnemyScripts.yy",},

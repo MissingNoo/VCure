@@ -548,30 +548,32 @@ function populate_upgrades(){
 	#endregion
 	#region Cutting Board
 	new_create_upgrade({
-		func : cuttingboard_step,
-				id : Weapons.CuttingBoard,
-				name : "Cutting Board",
-				maxlevel : 7,
-				sprite : sCuttingBoard,
-				thumb : sCuttingBoardThumb,
-				mindmg : [11, 11, 14, 14, 23, 23, 23],
-				maxdmg : [15, 15, 18, 18, 28, 28, 28],
-				cooldown : [180, 180, 180, 180, 180, 150, 150],
-				duration : 120, 
-				hitCooldown : 20, 
-				canBeHasted : true,
-				speed : [7, 7, 7, 10, 10, 10, 10],
-				hits : 9999,
-				type : "white",
-				shoots : [1, 1, 1, 1, 1, 1, 3],
-				area : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
-				size : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
-				knockbackSpeed : 7,
-				knockbackDuration : 20,				
-				shotType : ShotTypes.Multishot,
-				perk : false,
-				weight : 2
-			});
+		create : cutting_board_create,
+		step : cutting_board_step,
+		id : Weapons.CuttingBoard,
+		name : "Cutting Board",
+		maxlevel : 7,
+		sprite : sCuttingBoard,
+		thumb : sCuttingBoardThumb,
+		mindmg : [11, 11, 14, 14, 23, 23, 23],
+		maxdmg : [15, 15, 18, 18, 28, 28, 28],
+		cooldown : [180, 180, 180, 180, 180, 150, 150],
+		duration : 120, 
+		hitCooldown : 20, 
+		canBeHasted : true,
+		attackdelay : 0.001,
+		speed : [7, 7, 7, 10, 10, 10, 10],
+		hits : 9999,
+		type : "white",
+		shoots : [1, 1, 1, 1, 1, 1, 3],
+		area : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
+		size : [1, 1.30, 1.30, 1.30, 1.30, 1.30, 1.30],
+		knockbackSpeed : 7,
+		knockbackDuration : 20,				
+		shotType : ShotTypes.Multishot,
+		perk : false,
+		weight : 2
+	});
 	#endregion
 	#region Fan Beam
 	new_create_upgrade({
@@ -1974,7 +1976,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.HoloBomb][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
 }	
 #endregion
 #region Random Enchantments

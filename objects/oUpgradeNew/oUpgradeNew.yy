@@ -52,6 +52,8 @@
     {"$GMObjectProperty":"v1","%Name":"afterimage","filters":[],"listItems":[],"multiselect":false,"name":"afterimage","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"[[], [], [], []]","varType":4,},
     {"$GMObjectProperty":"v1","%Name":"afterimagecount","filters":[],"listItems":[],"multiselect":false,"name":"afterimagecount","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"idolDir","filters":[],"listItems":[],"multiselect":false,"name":"idolDir","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"90","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"diroffset","filters":[],"listItems":[],"multiselect":false,"name":"diroffset","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"arrowDir","filters":[],"listItems":[],"multiselect":false,"name":"arrowDir","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"global.arrowDir","varType":4,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

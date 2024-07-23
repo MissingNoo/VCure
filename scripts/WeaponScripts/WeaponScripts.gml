@@ -56,27 +56,6 @@ function absolutewall_step(o){
 		extra.image_yscale = image_yscale;
 	}
 }
-function cuttingboard_step(o){
-	if (o == 0) {
-	    if (global.player[?"flat"]) {
-			image_xscale = image_xscale * 1.30;
-			image_yscale = image_yscale * 1.30;
-			mindmg = mindmg * 1.30;
-			maxdmg = maxdmg * 1.30;
-		}
-		direction = arrowDir + 180 + diroffset;
-		speed = upg[$ "speed"];
-		image_angle = arrowDir + diroffset;
-	}
-	else {
-		if (distance_to_point(xstart, ystart) > 5) {
-			speed -= .30 * Delta;
-			if (speed < 0) {
-				speed = 0;
-			}
-		}
-	}
-}
 function glowstick_step(o){
 	if (o == 0) {
 	    if (instance_exists(oEnemy)) {

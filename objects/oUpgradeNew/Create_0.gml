@@ -16,15 +16,18 @@ dAlarm = [];
 array_push(dAlarm, [upg.duration, function() {
 	instance_destroy();
 }]);
+reverseshoots = -1;
 if (upg[$ "attackdelay"] != undefined) {
 	atkdelayalarm = array_length(dAlarm);
 	array_push(dAlarm, [upg.attackdelay, function() {
 		if (shoots > 1) {
 			shoots--;
-			instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, shoots : -1, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
+			instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, arrowDir : arrowDir, shoots : -1, reverseshoots : reverseshoots, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
+			reverseshoots -= 1;
 		    dAlarm[atkdelayalarm][0] = upg.attackdelay;
 		}}]);
 }
+else if (shoots > 0) { show_debug_message($"Weapon {upg.name} has multiple projectiles but no attackdelay entry") };
 
 #region Cooldown
 var cooldown = upg.cooldown;

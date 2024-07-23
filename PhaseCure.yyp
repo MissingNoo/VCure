@@ -486,6 +486,7 @@
     {"id":{"name":"CeoTears","path":"scripts/CeoTears/CeoTears.yy",},},
     {"id":{"name":"Characters","path":"scripts/Characters/Characters.yy",},},
     {"id":{"name":"clientnetworking","path":"scripts/clientnetworking/clientnetworking.yy",},},
+    {"id":{"name":"CuttingBoard","path":"scripts/CuttingBoard/CuttingBoard.yy",},},
     {"id":{"name":"DebugLib","path":"scripts/DebugLib/DebugLib.yy",},},
     {"id":{"name":"draw_text_scribble_ext","path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},},
     {"id":{"name":"draw_text_scribble","path":"scripts/draw_text_scribble/draw_text_scribble.yy",},},
