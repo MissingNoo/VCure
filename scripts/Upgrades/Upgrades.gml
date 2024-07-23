@@ -835,7 +835,8 @@ function populate_upgrades(){
 			#endregion
 	#region Idol Song //TODO FIX THIS
 			new_create_upgrade({
-				func : idolsong_step,
+				create : idolsong_create,
+				step : idolsong_step,
 				id : Weapons.IdolSong,
 				name : "Idol Song",
 				afterimage : true,
@@ -1978,7 +1979,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.Glowstick][1];
+	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.IdolSong][1];
 }	
 #endregion
 #region Random Enchantments

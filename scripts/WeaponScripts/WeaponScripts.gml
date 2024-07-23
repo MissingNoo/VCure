@@ -56,24 +56,6 @@ function absolutewall_step(o){
 		extra.image_yscale = image_yscale;
 	}
 }
-function idolsong_step(o){
-	if (o == 0) {
-	    if (idolDir == 90) {
-			idolDir = 270;
-			idolStartX= oPlayer.x + 20;
-			direction = idolDir;
-		}else{
-			idolDir = 90;
-			idolStartX= oPlayer.x - 20;
-			//xstart = xstart - 20;
-			direction = idolDir;
-			//image_xscale = image_xscale * -1;
-		}
-	}
-	else {
-		x = sine_wave(current_time  / 1000, 1 * (shoots % 2) ? 1 : -1, upg[$ "travelWidth"], idolStartX);
-	}
-}
 function psychoaxe_step(o){
 	if (o == 0) {
 	    orbitoffset = 0;

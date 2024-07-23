@@ -420,6 +420,7 @@
     {"name":"Glowstick","order":13,"path":"scripts/Glowstick/Glowstick.yy",},
     {"name":"Holobomb","order":11,"path":"scripts/Holobomb/Holobomb.yy",},
     {"name":"House","order":14,"path":"scripts/House/House.yy",},
+    {"name":"IdolSong","order":14,"path":"scripts/IdolSong/IdolSong.yy",},
     {"name":"input_accessibility_global_cooldown_set","order":1,"path":"scripts/input_accessibility_global_cooldown_set/input_accessibility_global_cooldown_set.yy",},
     {"name":"input_accessibility_global_toggle_get","order":2,"path":"scripts/input_accessibility_global_toggle_get/input_accessibility_global_toggle_get.yy",},
     {"name":"input_accessibility_global_toggle_set","order":3,"path":"scripts/input_accessibility_global_toggle_set/input_accessibility_global_toggle_set.yy",},

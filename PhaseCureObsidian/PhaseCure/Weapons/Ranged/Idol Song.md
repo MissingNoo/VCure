@@ -7,19 +7,19 @@
 - Survive as IRyS for 10 minutes in a single run.
 ---
 - Level 1
-	- [ ] Magical music notes that float vertically in both directions.
+	- [x] Magical music notes that float vertically in both directions.
 - Level 2
-	- [ ] Increase damage by 25%.
+	- [x] Increase damage by 25%.
 - Level 3
-	- [ ] Increase speed and travel width.
+	- [x] Increase speed and travel width.
 - Level 4
-	- [ ] Increase music note size by 25%.
+	- [x] Increase music note size by 25%.
 - Level 5
-	- [ ] Reduce the time between attacks by 20%.
+	- [x] Reduce the time between attacks by 20%.
 - Level 6
-	- [ ] Increase music note size by 25%.
+	- [x] Increase music note size by 25%.
 - Level MAX
-	- [ ] Increase damage by 50%.
+	- [x] Increase damage by 50%.
 ---
 ### Enchantments
 - Damage +15%
