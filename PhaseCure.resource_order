@@ -417,6 +417,7 @@
     {"name":"EnemyScripts","order":3,"path":"scripts/EnemyScripts/EnemyScripts.yy",},
     {"name":"FanBeam","order":9,"path":"scripts/FanBeam/FanBeam.yy",},
     {"name":"Feather","order":34,"path":"scripts/Feather/Feather.yy",},
+    {"name":"Glowstick","order":13,"path":"scripts/Glowstick/Glowstick.yy",},
     {"name":"Holobomb","order":11,"path":"scripts/Holobomb/Holobomb.yy",},
     {"name":"House","order":14,"path":"scripts/House/House.yy",},
     {"name":"input_accessibility_global_cooldown_set","order":1,"path":"scripts/input_accessibility_global_cooldown_set/input_accessibility_global_cooldown_set.yy",},

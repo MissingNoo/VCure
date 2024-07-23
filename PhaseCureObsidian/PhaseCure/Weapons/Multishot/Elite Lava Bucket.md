@@ -7,21 +7,21 @@
 - Available by default.
 ---
 - Level 1
-	- [ ] Drop lava on the ground, burning targets slowly.
+	- [x] Drop lava on the ground, burning targets slowly.
 - Level 2
-	- [ ] Increase lava area by 20%.
+	- [x] Increase lava area by 20%.
 - Level 3
-	- [ ] Throw 2 lava buckets.
+	- [x] Throw 2 lava buckets.
 - Level 4
-	- [ ] Increase damage by 30%
-	- [ ] Increase duration of lava by 1 second.
+	- [x] Increase damage by 30%
+	- [x] Increase duration of lava by 1 second.
 - Level 5
-	- [ ] Increase damage by 30%.
+	- [x] Increase damage by 30%.
 - Level 6
-	- [ ] Throw 3 lava buckets.
+	- [x] Throw 3 lava buckets.
 - Level 7
-	- [ ] Throw 4 lava buckets
-	- [ ] Increase lava size by 20%.
+	- [x] Throw 4 lava buckets
+	- [x] Increase lava size by 20%.
 ---
 ### Enchantments
 - Damage +15%

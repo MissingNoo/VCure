@@ -5,21 +5,23 @@
 - 4
 ### Unlocked by
 - Available by default.
+### Custom mechanic
+- [ ] Explosion damage value
 ---
 - Level 1
-	- [ ] Throw a glowstick to a nearby target and then spins back to player.
+	- [x] Throw a glowstick to a nearby target and then spins back to player.
 - Level 2
-	- [ ] Increase damage by 20%.
+	- [x] Increase damage by 20%.
 - Level 3
-	- [ ] Increase hit limit by 10 and throw 1 additional glowstick.
+	- [x] Increase hit limit by 10 and throw 1 additional glowstick.
 - Level 4
-	- [ ] Increase size of glowstick by 25%.
+	- [x] Increase size of glowstick by 25%.
 - Level 5
-	- [ ] Throw 1 additional glowstick.
+	- [x] Throw 1 additional glowstick.
 - Level 6
-	- [ ] Increase damage by 33%.
+	- [x] Increase damage by 33%.
 - Level MAX
-	- [ ] Throw 1 additional glowstick.
+	- [x] Throw 1 additional glowstick.
 ---
 ## Enchantments
 - Damage +15%

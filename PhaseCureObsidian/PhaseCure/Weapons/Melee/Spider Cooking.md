@@ -7,17 +7,17 @@
 - Available by default.
 ---
 - Level 1
-	- [ ] Create an area of miasma around, dealing slow damage to enemies inside.
+	- [x] Create an area of miasma around, dealing slow damage to enemies inside.
 - Level 2
-	- [ ] Increase area by 15%.
+	- [x] Increase area by 15%.
 - Level 3
-	- [ ] Increase damage by 30%.
+	- [x] Increase damage by 30%.
 - Level 4
-	- [ ] Increase area by 25%.
+	- [x] Increase area by 25%.
 - Level 5
-	- [ ] Increase frequency of hits by 20%.
+	- [x] Increase frequency of hits by 20%.
 - Level 6
-	- [ ] Increase damage by 60%.
+	- [x] Increase damage by 60%.
 - Level MAX
 	- [ ] Add small knockback on hit
 

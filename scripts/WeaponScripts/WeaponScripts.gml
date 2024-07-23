@@ -56,29 +56,6 @@ function absolutewall_step(o){
 		extra.image_yscale = image_yscale;
 	}
 }
-function glowstick_step(o){
-	if (o == 0) {
-	    if (instance_exists(oEnemy)) {
-			var enemies = instance_number(oEnemy);
-			if (enemies == 0) { instance_destroy(); }
-			ce = instance_find(oEnemy, irandom_range(0,enemies-1));
-			direction = point_direction(x,y,ce.x, ce.y);
-			image_angle = point_direction(x,y,ce.x, ce.y);
-			if (shoots>0) {
-				for (var i = 1; i < shoots; ++i) { spawn_upgrade(); }
-			}
-		} else instance_destroy();
-	}
-	else {
-		if (hits <= 0) {
-			sprite_index = sGlowstickThumbExplosion;
-			speed = 0;
-		}
-		if (distance_to_object(owner) > 200) {
-			direction = point_direction(x,y,owner.x, owner.y);
-		}
-	}
-}
 function idolsong_step(o){
 	if (o == 0) {
 	    if (idolDir == 90) {

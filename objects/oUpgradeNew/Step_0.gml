@@ -15,7 +15,7 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 }
 #endregion
 
-if (ceil(current_frame) == last_frame) {
+if (ceil(current_frame) >= last_frame) {
 	if (upg[$ "animation_end"] != undefined) {
 		animate = false;
 	    upg.animation_end(self.id);
@@ -24,6 +24,6 @@ if (ceil(current_frame) == last_frame) {
 		current_frame = 0;
 	}
 }
-else if (animate) {
+if (animate) {
 	current_frame += sprite_speed / game_get_speed(sprite_speed_type) * Delta;
 }
