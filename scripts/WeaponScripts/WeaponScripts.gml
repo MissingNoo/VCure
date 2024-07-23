@@ -56,19 +56,6 @@ function absolutewall_step(o){
 		extra.image_yscale = image_yscale;
 	}
 }
-function psychoaxe_step(o){
-	if (o == 0) {
-	    orbitoffset = 0;
-		orbitLength = 0;
-	}
-	else {
-		x = xxstart + lengthdir_x(round(orbitLength), round(orbitPlace));
-		y = yystart + lengthdir_y(round(orbitLength), round(orbitPlace));
-		orbitPlace -= 4;
-		orbitLength += 0.75;
-		image_angle += 10;
-	}
-}
 function wamywater_step(o){
 	if (o == 0) {
 	    image_angle = arrowDir + diroffset;

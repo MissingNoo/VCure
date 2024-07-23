@@ -30,7 +30,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Weapons/Ranged/Idol Song.md",
+                "file": "Weapons/Ranged/Psycho Axe.md",
                 "mode": "preview",
                 "source": false
               }
@@ -111,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Weapons/Ranged/Idol Song.md",
+                "file": "Weapons/Ranged/Psycho Axe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Weapons/Ranged/Idol Song.md",
+                "file": "Weapons/Ranged/Psycho Axe.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Weapons/Ranged/Idol Song.md"
+                "file": "Weapons/Ranged/Psycho Axe.md"
               }
             }
           }
@@ -175,6 +175,7 @@
   },
   "active": "0dd5194bf9a25c50",
   "lastOpenFiles": [
+    "Weapons/Ranged/Idol Song.md",
     "Weapons/Multishot/Glowstick.md",
     "Weapons/Melee/Wamy Water.md",
     "Weapons/Melee/Spider Cooking.md",
@@ -182,7 +183,6 @@
     "Weapons/Multishot/CEO Tear's.md",
     "Weapons/Multishot/Bounce Ball.md",
     "Weapons/Multishot/BL Book.md",
-    "Weapons/Ranged/Idol Song.md",
     "Weapons/Ranged/Fan Beam.md",
     "Weapons/Ranged/Cutting Board.md",
     "Canvas.canvas",

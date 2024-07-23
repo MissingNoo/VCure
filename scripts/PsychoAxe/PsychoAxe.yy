@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"PsychoAxe",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PsychoAxe",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

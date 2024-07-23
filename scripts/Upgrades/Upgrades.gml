@@ -866,7 +866,8 @@ function populate_upgrades(){
 			#endregion
 	#region Psycho Axe
 			new_create_upgrade({
-				func : psychoaxe_step,
+				create : psycho_axe_create,
+				step : psycho_axe_step,
 				id : Weapons.PsychoAxe,
 				name : "Psycho Axe",
 				maxlevel : 7,
@@ -881,7 +882,7 @@ function populate_upgrades(){
 				speed : 0,
 				hits : [10, 10, 10, 10, 999, 999, 999],
 				type : "white",
-				shoots : [2, 2, 2, 2, 2, 4, 4],
+				shoots : 1,
 				size : [1, 1.20, 1.20, 1.44, 1.44, 2.16, 2.16],
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
@@ -1979,7 +1980,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.IdolSong][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
 }	
 #endregion
 #region Random Enchantments

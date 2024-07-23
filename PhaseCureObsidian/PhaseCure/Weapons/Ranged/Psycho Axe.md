@@ -7,21 +7,22 @@
 - Available by default.
 ---
 - Level 1
-	- [ ] Throw an axe that spirals outward from the player.
+	- [x] Throw an axe that spirals outward from the player.
 - Level 2
-	- [ ] Increase size of axe by 20%. Increase damage by 20%.
+	- [x] Increase size of axe by 20%. 
+	- [x] Increase damage by 20%.
 - Level 3
-	- [ ] Reduce time between attacks by 20%.
+	- [x] Reduce time between attacks by 20%.
 - Level 4
-	- [ ] Increase damage by 33%.
-	- [ ] Increase size by 20%.
+	- [x] Increase damage by 33%.
+	- [x] Increase size by 20%.
 - Level 5
-	- [ ] Remove hit limit.
-	- [ ] Lasts 1 second longer.
+	- [x] Remove hit limit.
+	- [x] Lasts 1 second longer.
 - Level 6
-	- [ ] Increase attack size by 50%.
+	- [x] Increase attack size by 50%.
 - Level MAX
-	- [ ] Increase damage by 50%.
+	- [x] Increase damage by 50%.
 ---
 ### Enchantments
 - Damage +15%

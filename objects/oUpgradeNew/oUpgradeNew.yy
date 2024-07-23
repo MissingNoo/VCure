@@ -54,6 +54,8 @@
     {"$GMObjectProperty":"v1","%Name":"idolDir","filters":[],"listItems":[],"multiselect":false,"name":"idolDir","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"90","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"diroffset","filters":[],"listItems":[],"multiselect":false,"name":"diroffset","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"arrowDir","filters":[],"listItems":[],"multiselect":false,"name":"arrowDir","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"global.arrowDir","varType":4,},
+    {"$GMObjectProperty":"v1","%Name":"xxstart","filters":[],"listItems":[],"multiselect":false,"name":"xxstart","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"yystart","filters":[],"listItems":[],"multiselect":false,"name":"yystart","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
