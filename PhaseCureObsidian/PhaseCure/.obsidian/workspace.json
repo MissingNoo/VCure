@@ -30,10 +30,18 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Weapons/Multishot/Bounce Ball.md",
+                "file": "Weapons/Multishot/Glowstick.md",
                 "mode": "preview",
                 "source": false
               }
+            }
+          },
+          {
+            "id": "fa38027250c4b55a",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -103,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Weapons/Multishot/Bounce Ball.md",
+                "file": "Weapons/Multishot/Glowstick.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Weapons/Multishot/Bounce Ball.md",
+                "file": "Weapons/Multishot/Glowstick.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Weapons/Multishot/Bounce Ball.md"
+                "file": "Weapons/Multishot/Glowstick.md"
               }
             }
           }
@@ -167,6 +175,11 @@
   },
   "active": "0dd5194bf9a25c50",
   "lastOpenFiles": [
+    "Weapons/Melee/Wamy Water.md",
+    "Weapons/Melee/Spider Cooking.md",
+    "Weapons/Multishot/Elite Lava Bucket.md",
+    "Weapons/Multishot/CEO Tear's.md",
+    "Weapons/Multishot/Bounce Ball.md",
     "Weapons/Multishot/BL Book.md",
     "Weapons/Ranged/Idol Song.md",
     "Weapons/Ranged/Fan Beam.md",
@@ -188,12 +201,7 @@
     "Weapons/Multishot/X-Potato.md",
     "Weapons/Multishot/Plug Type Asacoco.md",
     "Weapons/Multishot/Glowstick.md",
-    "Weapons/Multishot/Elite Lava Bucket.md",
     "Weapons/Multishot/EN's Curse.md",
-    "Weapons/Multishot/CEO Tear's.md",
-    "Weapons/Multishot/Bounce Ball.md",
-    "Weapons/Melee/Wamy Water.md",
-    "Weapons/Melee/Spider Cooking.md",
     "Weapons/Melee/Sausage.md",
     "Weapons/Ranged",
     "Weapons/Multishot",
