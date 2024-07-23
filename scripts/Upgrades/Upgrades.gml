@@ -1976,7 +1976,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.CuttingBoard][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
 }	
 #endregion
 #region Random Enchantments

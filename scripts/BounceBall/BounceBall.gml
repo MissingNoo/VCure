@@ -19,7 +19,7 @@ function bounceball_step(obj){
 	obj.image_angle+=10;
 }
 function bounceball_on_hit(obj){
-	var _push = 5;
+	var _push = 8;
 	var _dir = point_direction(other.x, other.y, obj.x, obj.y);
 	var _rnd = 0;
 	obj.direction = _dir;

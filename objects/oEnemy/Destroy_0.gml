@@ -35,7 +35,7 @@ if (boss) {
 //show_message(dropchance)
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
-		PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnKill, self);
+		PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnKill, self.id, x, y);
 	}
 }
 var _dropchance = 1;

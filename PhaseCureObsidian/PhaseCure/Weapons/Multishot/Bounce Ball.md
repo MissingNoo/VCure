@@ -8,7 +8,7 @@
 ---
 - Level 1:
 	- [x] Drops a falling bounce ball on a random target
-	- [ ] Size of ball varies between characters.
+	- [x] Size of ball varies between characters.
 - Level 2:
 	- [x] Increase damage by 20%.
 - Level 3:

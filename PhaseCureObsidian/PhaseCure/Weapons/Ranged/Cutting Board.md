@@ -9,20 +9,20 @@ Survive for 10 minutes as Ninomae Ina'nis in a single run.
 
 ---
 - Level 1
-	- [ ] Create a defensive wall that damages targets behind you. 
-	- [ ] Effectiveness is increased on certain characters.
+	- [x] Create a defensive wall that damages targets behind you. 
+	- [x] Effectiveness is increased on certain characters.
 - Level 2
-	- [ ] Increase size of wall by 30%.
+	- [x] Increase size of wall by 30%.
 - Level 3
-	- [ ] Increase damage by 30%.
+	- [x] Increase damage by 30%.
 - Level 4
-	- [ ] Walls travel farther.
+	- [x] Walls travel farther.
 - Level 5
-	- [ ] Increase damage by 50%.
+	- [x] Increase damage by 50%.
 - Level 6
-	- [ ] Reduce the time between attacks by 0.5 seconds.
+	- [x] Reduce the time between attacks by 0.5 seconds.
 - Level MAX
-	- [ ] Shoot additional walls from sides.
+	- [x] Shoot additional walls from sides.
 
 ---
 ### Flat character bonus

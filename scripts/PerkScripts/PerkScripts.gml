@@ -183,7 +183,7 @@ function living_weapon(level, event = WeaponEvent.Null){
 	        break;
 	}
 }
-function trash_bear(level, event = WeaponEvent.Null, enemy = noone){
+function trash_bear(level, event = WeaponEvent.Null, enemy = noone, xx = 0, yy = 0){
 	var _spaghettiChance = irandom_range(0, 100);
 	var dropChance = -1;
 	switch (level) {
@@ -198,6 +198,8 @@ function trash_bear(level, event = WeaponEvent.Null, enemy = noone){
 	        break;
 	}
 	if (_spaghettiChance <= dropChance) {
-		instance_create_depth(enemy.x, enemy.y, depth, oSpaghetti);
+		if (enemy != noone) {
+		    instance_create_depth(xx, yy, depth, oSpaghetti);
+		}
 	}
 }
