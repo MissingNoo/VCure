@@ -10,13 +10,18 @@
           {
             "id": "d1110596ed1b6ca2",
             "type": "leaf",
+            "pinned": true,
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Weapons/Ranged/Cutting Board.md",
-                "mode": "preview",
-                "source": false
-              }
+                "file": "Canvas.canvas",
+                "viewState": {
+                  "x": -1428.7853561531226,
+                  "y": -1241.115082859211,
+                  "zoom": -0.379567953745524
+                }
+              },
+              "pinned": true
             }
           }
         ]
@@ -85,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Weapons/Ranged/Cutting Board.md",
+                "file": "Canvas.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Weapons/Ranged/Cutting Board.md",
+                "file": "Canvas.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Weapons/Ranged/Cutting Board.md"
+                "file": "Canvas.canvas"
               }
             }
           }
@@ -149,6 +154,7 @@
   },
   "active": "d1110596ed1b6ca2",
   "lastOpenFiles": [
+    "Weapons/Ranged/Cutting Board.md",
     "Weapons/Multishot/Glowstick.md",
     "Weapons/Multishot/BL Book.md",
     "Weapons/Multishot/Holobomb.md",
@@ -167,7 +173,6 @@
     "Weapons/Ranged/Psycho Axe.md",
     "Weapons/Ranged/Idol Song.md",
     "Weapons/Ranged/Fan Beam.md",
-    "Weapons/Ranged/Cutting Board.md",
     "Weapons/Multishot/X-Potato.md",
     "Weapons/Multishot/Plug Type Asacoco.md",
     "Weapons/Multishot/Elite Lava Bucket.md",

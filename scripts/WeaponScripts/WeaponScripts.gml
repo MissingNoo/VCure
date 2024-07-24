@@ -56,28 +56,6 @@ function absolutewall_step(o){
 		extra.image_yscale = image_yscale;
 	}
 }
-function pipipistol_step(o){
-	if (o == 0) {
-	    default_behaviour();
-	}
-	else {
-		
-	}
-}
-function heavyartillery_step(o){
-	if (o == 0) {
-	    default_behaviour();
-		mindmg = (UPGRADES[0].mindmg*333)/100;
-		maxdmg = (UPGRADES[0].maxdmg*333)/100;
-		var closest = instance_nearest(oPlayer.x ,oPlayer.y, oEnemy);
-		if (!instance_exists(closest)) { instance_destroy(); }
-		x=closest.x;
-		y=closest.y;
-	}
-	else {
-		
-	}
-}
 function mold_step(o){
 	if (o == 0) {
 	    default_behaviour();

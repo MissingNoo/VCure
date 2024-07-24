@@ -160,6 +160,7 @@ function populate_perks(){
 		#endregion
 		#region Pippa
 		create_perk({
+			func : heavy_artillery,
 			id : PerkIds.HeavyArtillery,
 			name : "Heavy Artillery",
 			maxlevel : 3, 

@@ -418,6 +418,7 @@
     {"name":"FanBeam","order":9,"path":"scripts/FanBeam/FanBeam.yy",},
     {"name":"Feather","order":34,"path":"scripts/Feather/Feather.yy",},
     {"name":"Glowstick","order":13,"path":"scripts/Glowstick/Glowstick.yy",},
+    {"name":"HeavyArtillery","order":18,"path":"scripts/HeavyArtillery/HeavyArtillery.yy",},
     {"name":"Holobomb","order":11,"path":"scripts/Holobomb/Holobomb.yy",},
     {"name":"House","order":14,"path":"scripts/House/House.yy",},
     {"name":"IdolSong","order":14,"path":"scripts/IdolSong/IdolSong.yy",},

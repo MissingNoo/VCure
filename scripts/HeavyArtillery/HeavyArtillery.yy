@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"HeavyArtillery",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"HeavyArtillery",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

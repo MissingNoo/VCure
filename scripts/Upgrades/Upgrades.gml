@@ -1492,7 +1492,8 @@ function populate_upgrades(){
 		weight : 3
 	},[snd_bullet, snd_bullet2, snd_bullet3]);
 	new_create_upgrade({
-		func : heavyartillery_step,
+		create : heavy_artillery_create,
+		animation_end : heavy_artillery_animation_end,
 		id : Weapons.HeavyArtillery,
 		name : "Heavy Artillery",
 		maxlevel : 3,
