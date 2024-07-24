@@ -855,6 +855,7 @@
     {"id":{"name":"Unlockables","path":"scripts/Unlockables/Unlockables.yy",},},
     {"id":{"name":"Upgrades","path":"scripts/Upgrades/Upgrades.yy",},},
     {"id":{"name":"UrukaNote","path":"scripts/UrukaNote/UrukaNote.yy",},},
+    {"id":{"name":"WamyWater","path":"scripts/WamyWater/WamyWater.yy",},},
     {"id":{"name":"WeaponScripts","path":"scripts/WeaponScripts/WeaponScripts.yy",},},
     {"id":{"name":"Window","path":"scripts/Window/Window.yy",},},
     {"id":{"name":"seq_GuraShark","path":"sequences/seq_GuraShark/seq_GuraShark.yy",},},

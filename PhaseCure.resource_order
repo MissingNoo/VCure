@@ -739,6 +739,7 @@
     {"name":"Unlockables","order":15,"path":"scripts/Unlockables/Unlockables.yy",},
     {"name":"Upgrades","order":1,"path":"scripts/Upgrades/Upgrades.yy",},
     {"name":"UrukaNote","order":4,"path":"scripts/UrukaNote/UrukaNote.yy",},
+    {"name":"WamyWater","order":16,"path":"scripts/WamyWater/WamyWater.yy",},
     {"name":"WeaponScripts","order":18,"path":"scripts/WeaponScripts/WeaponScripts.yy",},
     {"name":"Window","order":5,"path":"scripts/Window/Window.yy",},
     {"name":"seq_GuraShark","order":2,"path":"sequences/seq_GuraShark/seq_GuraShark.yy",},

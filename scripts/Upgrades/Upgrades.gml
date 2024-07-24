@@ -896,7 +896,8 @@ function populate_upgrades(){
 	#endregion
 	#region Wamy Water
 			new_create_upgrade({
-				func : wamywater_step,
+				create : wamy_water_create,
+				animation_end : wamy_water_animation_end,
 				id : Weapons.WamyWater,
 				name : "Wamy Water",
 				maxlevel : 7,
@@ -1980,7 +1981,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.PsychoAxe][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
 }	
 #endregion
 #region Random Enchantments

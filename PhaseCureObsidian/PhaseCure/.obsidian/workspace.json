@@ -10,42 +10,16 @@
           {
             "id": "d1110596ed1b6ca2",
             "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Canvas.canvas",
-                "viewState": {
-                  "x": -4315,
-                  "y": -1895,
-                  "zoom": -2.7234265405124893
-                }
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "0dd5194bf9a25c50",
-            "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Weapons/Ranged/Psycho Axe.md",
+                "file": "Weapons/Ranged/Cutting Board.md",
                 "mode": "preview",
                 "source": false
               }
             }
-          },
-          {
-            "id": "fa38027250c4b55a",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -111,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Weapons/Ranged/Psycho Axe.md",
+                "file": "Weapons/Ranged/Cutting Board.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Weapons/Ranged/Psycho Axe.md",
+                "file": "Weapons/Ranged/Cutting Board.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Weapons/Ranged/Psycho Axe.md"
+                "file": "Weapons/Ranged/Cutting Board.md"
               }
             }
           }
@@ -173,20 +147,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0dd5194bf9a25c50",
+  "active": "d1110596ed1b6ca2",
   "lastOpenFiles": [
-    "Weapons/Ranged/Idol Song.md",
     "Weapons/Multishot/Glowstick.md",
-    "Weapons/Melee/Wamy Water.md",
-    "Weapons/Melee/Spider Cooking.md",
-    "Weapons/Multishot/Elite Lava Bucket.md",
-    "Weapons/Multishot/CEO Tear's.md",
-    "Weapons/Multishot/Bounce Ball.md",
     "Weapons/Multishot/BL Book.md",
-    "Weapons/Ranged/Fan Beam.md",
-    "Weapons/Ranged/Cutting Board.md",
-    "Canvas.canvas",
     "Weapons/Multishot/Holobomb.md",
+    "Canvas.canvas",
     "z_attachments/Pasted image 20240721085607.png",
     "z_attachments/Pasted image 20240721085555.png",
     "z_attachments/Pasted image 20240721085520.png",
@@ -199,9 +165,17 @@
     "z_attachments/Pasted image 20240720232622.png",
     "2023-10-26.md",
     "Weapons/Ranged/Psycho Axe.md",
+    "Weapons/Ranged/Idol Song.md",
+    "Weapons/Ranged/Fan Beam.md",
+    "Weapons/Ranged/Cutting Board.md",
     "Weapons/Multishot/X-Potato.md",
     "Weapons/Multishot/Plug Type Asacoco.md",
+    "Weapons/Multishot/Elite Lava Bucket.md",
     "Weapons/Multishot/EN's Curse.md",
+    "Weapons/Multishot/CEO Tear's.md",
+    "Weapons/Multishot/Bounce Ball.md",
+    "Weapons/Melee/Wamy Water.md",
+    "Weapons/Melee/Spider Cooking.md",
     "Weapons/Melee/Sausage.md",
     "Weapons/Ranged",
     "Weapons/Multishot",

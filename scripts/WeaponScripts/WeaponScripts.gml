@@ -56,14 +56,6 @@ function absolutewall_step(o){
 		extra.image_yscale = image_yscale;
 	}
 }
-function wamywater_step(o){
-	if (o == 0) {
-	    image_angle = arrowDir + diroffset;
-	}
-	else {
-		
-	}
-}
 function pipipistol_step(o){
 	if (o == 0) {
 	    default_behaviour();

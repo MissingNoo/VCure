@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"WamyWater",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"WamyWater",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
