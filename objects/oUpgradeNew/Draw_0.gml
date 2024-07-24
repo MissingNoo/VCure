@@ -1,9 +1,9 @@
-var _offset = 0;
-for (var i = 0; i < array_length(dAlarm); ++i) {
-    draw_text(x, y - 10 - _offset, $"{i}: {dAlarm[i][0]}");
-	_offset += 10;
-}
-draw_text(x, y - 10 - _offset, $"{shoots}");
+//var _offset = 0;
+//for (var i = 0; i < array_length(dAlarm); ++i) {
+//    draw_text(x, y - 10 - _offset, $"{i}: {dAlarm[i][0]}");
+//	_offset += 10;
+//}
+//draw_text(x, y - 10 - _offset, $"{shoots}");
 if (((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"]) or oPlayer.wallMart) and (image_alpha == 1 or image_alpha >= .9)) {
 	var _alpha = .1;
 	var _color = upg[$ "afterimageColor"] == undefined ? c_yellow : upg[$ "afterimageColor"];

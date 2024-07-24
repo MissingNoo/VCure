@@ -778,6 +778,7 @@
     {"id":{"name":"Outfits","path":"scripts/Outfits/Outfits.yy",},},
     {"id":{"name":"Perks","path":"scripts/Perks/Perks.yy",},},
     {"id":{"name":"PerkScripts","path":"scripts/PerkScripts/PerkScripts.yy",},},
+    {"id":{"name":"Pipistol","path":"scripts/Pipistol/Pipistol.yy",},},
     {"id":{"name":"PsychoAxe","path":"scripts/PsychoAxe/PsychoAxe.yy",},},
     {"id":{"name":"Save","path":"scripts/Save/Save.yy",},},
     {"id":{"name":"scribble_add_macro","path":"scripts/scribble_add_macro/scribble_add_macro.yy",},},

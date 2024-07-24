@@ -1468,7 +1468,7 @@ function populate_upgrades(){
 	#region Modded
 	#region Pipkin Pippa
 	new_create_upgrade({
-		func : pipipistol_step,
+		create : pipipistol_create,
 		id : Weapons.PipiPilstol,
 		name : "PiPiPilstols",
 		maxlevel : 6,

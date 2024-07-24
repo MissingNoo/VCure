@@ -670,6 +670,7 @@
     {"name":"Outfits","order":17,"path":"scripts/Outfits/Outfits.yy",},
     {"name":"Perks","order":8,"path":"scripts/Perks/Perks.yy",},
     {"name":"PerkScripts","order":20,"path":"scripts/PerkScripts/PerkScripts.yy",},
+    {"name":"Pipistol","order":17,"path":"scripts/Pipistol/Pipistol.yy",},
     {"name":"PsychoAxe","order":15,"path":"scripts/PsychoAxe/PsychoAxe.yy",},
     {"name":"Save","order":6,"path":"scripts/Save/Save.yy",},
     {"name":"scribble_anim_cycle","order":1,"path":"scripts/scribble_anim_cycle/scribble_anim_cycle.yy",},

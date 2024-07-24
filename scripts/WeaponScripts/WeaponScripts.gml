@@ -59,23 +59,6 @@ function absolutewall_step(o){
 function pipipistol_step(o){
 	if (o == 0) {
 	    default_behaviour();
-		direction = arrowDir;
-		image_angle = arrowDir;
-		//alarm[0] = 10;
-		//if (shoots % 2) {
-		if (shoots == -1) {
-			sprite_index = sBulletBlue;
-			var enemies = instance_number(oEnemy);
-			ce = instance_find(oEnemy, irandom_range(0,enemies-1));
-			try{
-				direction = point_direction(x,y,ce.x, ce.y);
-				image_angle = point_direction(x,y,ce.x, ce.y);
-			}
-			catch (err){
-				direction = point_direction(x,y, 0, 0);
-				image_angle = point_direction(x,y, 0, 0);
-			}				
-		}
 	}
 	else {
 		
