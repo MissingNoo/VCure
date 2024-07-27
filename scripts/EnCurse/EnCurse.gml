@@ -26,6 +26,10 @@ function en_curse_on_hit(obj){
 					obj.image_alpha = 1;
 					obj.image_angle = point_direction(obj.x, obj.y, near.x, near.y - 8);
 					obj.direction = point_direction(obj.x, obj.y, near.x, near.y - 8);
+					if (obj.upg.level == 7) {
+						obj.mindmg = obj.mindmg + ((obj.mindmg * 10) / 100);
+						obj.maxndmg = obj.maxdmg + ((obj.maxdmg * 10) / 100);
+					}
 				}
 			}
 		}
