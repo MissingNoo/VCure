@@ -10,7 +10,22 @@ for (var i = 0; i < array_length(dAlarm); ++i) {
 	}
 	if (dAlarm[i][0] < 0 and dAlarm[i][0] != -1) {
 		dAlarm[i][0] = -1;
-		dAlarm[i][1]();
+		if (array_length(dAlarm[i]) == 2){
+			dAlarm[i][1]();
+		}
+		if (array_length(dAlarm[i]) == 3){
+			switch(dAlarm[i][2]){
+				default:
+					dAlarm[i][1]();
+					break;
+				case "variable":
+					variable_instance_set(self, dAlarm[i][1][0], dAlarm[i][1][1]);
+					break;
+				case "ex_func":
+					dAlarm[i][1][0](dAlarm[i][1][1]);
+					break;
+			}
+		}
 	}
 }
 #endregion

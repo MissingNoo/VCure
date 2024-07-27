@@ -925,34 +925,38 @@ function populate_upgrades(){
 	#endregion
 	#region XPotato
 	new_create_upgrade({
-		func : xpotato_step,
-				id : Weapons.XPotato,
-				weight : 2,
-				name : "X-Potato",
-				maxlevel : 7,
-				sprite : sXPotato,
-				thumb : sXPotatoThumb,
-				mindmg : [7, 7, 7, 12, 12, 12, 12],
-				maxdmg : [11, 11, 11, 16, 16, 16, 16],
-				mindmgExplosion : [16, 16, 16, 26, 26, 26, 26],
-				maxdmgExplosion : [20, 20, 20, 31, 31, 31, 31],
-				cooldown : [210, 210, 210, 210, 127, 127, 127],
-				minimumcooldown : 1,
-				shoots : [1, 1, 2, 2, 2, 2, 4],
-				attackdelay : 5,
-				hits : [10, 10, 10, 10, 9999, 9999, 9999],
-				hitCooldown : 20,
-				duration : 180,
-				speed : [5, 5, 5, 6.5, 6.5, 6.5, 6.5],
-				knockbackDuration : 0,
-				knockbackSpeed : 0,
-				size : [1, 1, 1, 1, 1, 1.30, 1.30],
-				explosionSize : [.8, 1, 1, 1, 1, 1.30, 1.30],
-				canBeHasted : true,
-				type : "white",
-				shotType : ShotTypes.Multishot,
-				perk : false,
-			});
+		create : x_potato_create,
+		outside_view : x_potato_outside_view,
+		step : x_potato_step,
+		animation_end : x_potato_animation_end,
+		post_draw : x_potato_post_draw,
+		id : Weapons.XPotato,
+		weight : 2,
+		name : "X-Potato",
+		maxlevel : 7,
+		sprite : sXPotato,
+		thumb : sXPotatoThumb,
+		mindmg : [7, 7, 7, 12, 12, 12, 12],
+		maxdmg : [11, 11, 11, 16, 16, 16, 16],
+		mindmgExplosion : [16, 16, 16, 26, 26, 26, 26],
+		maxdmgExplosion : [20, 20, 20, 31, 31, 31, 31],
+		cooldown : [210, 210, 210, 210, 127, 127, 127],
+		minimumcooldown : 1,
+		shoots : [1, 1, 2, 2, 2, 2, 4],
+		attackdelay : 5,
+		hits : [10, 10, 10, 10, 9999, 9999, 9999],
+		hitCooldown : 20,
+		duration : 180,
+		speed : [5, 5, 5, 6.5, 6.5, 6.5, 6.5],
+		knockbackDuration : 0,
+		knockbackSpeed : 0,
+		size : [1, 1, 1, 1, 1, 1.30, 1.30],
+		explosionSize : [.8, 1, 1, 1, 1, 1.30, 1.30],
+		canBeHasted : true,
+		type : "white",
+		shotType : ShotTypes.Multishot,
+		perk : false,
+	});
 	new_create_upgrade({
 				id : Weapons.XPotatoExplosion,
 				name : "XPotatoExplosion",
@@ -1984,7 +1988,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.ENsCurse][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.XPotato][1];
 }	
 #endregion
 #region Random Enchantments

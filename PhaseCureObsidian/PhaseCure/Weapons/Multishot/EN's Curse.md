@@ -21,7 +21,7 @@
 	- [x] Reduce the time between attacks by 15%.
 - Level MAX
 	- [x] Fire 3 curses. 
-	- [ ] Each time a curse spreads, its damage increases by 10%.
+	- [x] Each time a curse spreads, its damage increases by 10%.
 ---
 ### Enchantments
 - Damage +15%

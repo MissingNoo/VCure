@@ -861,6 +861,7 @@
     {"id":{"name":"WamyWater","path":"scripts/WamyWater/WamyWater.yy",},},
     {"id":{"name":"WeaponScripts","path":"scripts/WeaponScripts/WeaponScripts.yy",},},
     {"id":{"name":"Window","path":"scripts/Window/Window.yy",},},
+    {"id":{"name":"XPotato","path":"scripts/XPotato/XPotato.yy",},},
     {"id":{"name":"seq_GuraShark","path":"sequences/seq_GuraShark/seq_GuraShark.yy",},},
     {"id":{"name":"seq_InaSpin","path":"sequences/seq_InaSpin/seq_InaSpin.yy",},},
     {"id":{"name":"seq_SlowTime","path":"sequences/seq_SlowTime/seq_SlowTime.yy",},},

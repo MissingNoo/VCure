@@ -1,3 +1,15 @@
+if (!global.gamePaused){
+	for (var i = array_length(dAlarm) - 1; i >= 0 ; ++i) {
+		if (dAlarm[i][0] > 0) {
+			dAlarm[i][0] -= 1 * Delta;
+		}
+		if (dAlarm[i][0] < 0 and dAlarm[i][0] != -1) {
+			dAlarm[i][0] = -1;
+			dAlarm[i][1]();
+			array_delete(dAlarm, i, 1);
+		}
+	}
+}
 //Feather disable GM2064
 if (keyboard_check_pressed(vk_f8)) {
     show_message("Game data cleared! Reload the game!");

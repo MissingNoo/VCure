@@ -7,20 +7,21 @@
 - Survive as Inugami Korone for 10 minutes in a single run.
 ---
 - Level 1
-	- [ ] Throw a potato that bounces around the screen before exploding into an X.
+	- [x] Throw a potato that bounces around the screen before exploding into an X.
 - Level 2
-	- [ ] Increase the X explosion size by 20%.
+	- [x] Increase the X explosion size by 20%.
 - Level 3
-	- [ ] Throw 2 potatoes.
+	- [x] Throw 2 potatoes.
 - Level 4
-	- [ ] Increase damage and speed by 30%.
+	- [x] Increase damage and speed by 30%.
 - Level 5
-	- [ ] Reduce the time between attacks by 15%
-	- [ ] Remove hit limit.
+	- [x] Reduce the time between attacks by 15%
+	- [x] Remove hit limit.
 - Level 6
-	- [ ] Increase the size of potatoes and the X explosion size by 30%.
+	- [x] Increase the size of potatoes by 30%
+	- [x] Increase X explosion size by 30%.
 - Level MAX
-	- [ ] Throw 4 potatoes.
+	- [x] Throw 4 potatoes.
 ---
 ## Enchantments
 - Damage +15%

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"XPotato",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"XPotato",
+  "parent":{
+    "name":"WeaponScripts",
+    "path":"folders/Scripts/WeaponScripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
