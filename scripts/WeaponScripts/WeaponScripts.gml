@@ -66,15 +66,6 @@ function mold_step(o){
 		
 	}
 }
-function encurse_step(o){
-	if (o == 0) {
-	    direction = arrowDir;
-		image_angle  = arrowDir;
-	}
-	else {
-		
-	}
-}
 function xpotato_step(o){
 	if (o == 0) {
 	    direction = irandom_range(0,360);
@@ -397,22 +388,13 @@ function eletricpulse_step(o){
 function amepistol_step(o){
 	switch (o) {
 	    case WeaponEvent.BeginStep:
-			if (shoots > 0 and oPlayer.slowTime) {
-			    global.upgradeCooldown[Weapons.AmePistol] = global.upgradeCooldown[Weapons.AmePistol] / 2;
-			}
-			amePistolLastHit = false;
-	        direction = global.arrowDir;
-			image_angle = global.arrowDir;
+			
 	        break;
 	    case WeaponEvent.Step:
 	        // code here
 	        break;
 	    case WeaponEvent.OnHit:
-	        if (hits == 1 and !amePistolLastHit and upg[$"level"] >= 4) {
-			    amePistolLastHit=true;
-				hits+=5;
-				direction = random(360);
-			}
+	        
 	        break;
 	}
 }

@@ -349,6 +349,7 @@ function populate_upgrades(){
 		#region Amelia
 		new_create_upgrade({
 			create : amepistol_create,
+			on_hit : amepistol_on_hit,
 			id : Weapons.AmePistol,
 			name : "Pistol Shot",
 			maxlevel : 7,
@@ -668,33 +669,34 @@ function populate_upgrades(){
 	#endregion
 	#region EN's Curse
 	new_create_upgrade({ 
-		func : encurse_step,
-			id : Weapons.ENsCurse,
-			weight : 2,
-			name : "EN's Curse",
-			maxlevel : 7,
-			sprite : sENCurse,
-			thumb : sENCurseThumb,
-			mindmg : [12, 12, 17, 17, 17, 17, 17],
-			maxdmg : [16, 16, 21, 21, 21, 21, 21],
-			cooldown : [110, 110, 110, 110, 110, 93, 93],
-			minimumcooldown : 1,
-			shoots : [1, 1, 1, 1, 2, 2, 3],
-			attackdelay : 10,
-			hits : 1,
-			hitCooldown : 20, 
-			duration : 90,
-			speed : 7,
-			knockbackDuration : 0,
-			knockbackSpeed : 0,
-			size : 1.5,
-			range : [100, 100, 100, 125, 125, 125, 125],
-			chance : [70, 80, 80, 80, 90, 90, 90],
-			canBeHasted : true,
-			type : "white",
-			shotType : ShotTypes.Multishot,
-			perk : false,
-		});
+		create : en_curse_create,
+		on_hit : en_curse_on_hit,
+		id : Weapons.ENsCurse,
+		weight : 2,
+		name : "EN's Curse",
+		maxlevel : 7,
+		sprite : sENCurse,
+		thumb : sENCurseThumb,
+		mindmg : [12, 12, 17, 17, 17, 17, 17],
+		maxdmg : [16, 16, 21, 21, 21, 21, 21],
+		cooldown : [110, 110, 110, 110, 110, 93, 93],
+		minimumcooldown : 1,
+		shoots : [1, 1, 1, 1, 2, 2, 3],
+		attackdelay : 10,
+		hits : 1,
+		hitCooldown : 20, 
+		duration : 90,
+		speed : 7,
+		knockbackDuration : 0,
+		knockbackSpeed : 0,
+		size : 1.5,
+		range : [100, 100, 100, 125, 125, 125, 125],
+		chance : [70, 80, 80, 80, 90, 90, 90],
+		canBeHasted : true,
+		type : "white",
+		shotType : ShotTypes.Multishot,
+		perk : false,
+	});
 	#endregion
 	#region Holobomb
 	new_create_upgrade({
@@ -1982,7 +1984,7 @@ function random_upgrades(){
 	//}
 	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
 	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
+	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.ENsCurse][1];
 }	
 #endregion
 #region Random Enchantments

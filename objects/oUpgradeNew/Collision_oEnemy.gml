@@ -173,11 +173,11 @@ other.hp -= dmg;
 damage_number_spawn(other, dmg, _wasCrit, _virusInfected);
 other.damagedAlarm=15;
 hits-=1;
-if (upg[$ "on_hit"] != undefined) {
-	upg.on_hit(self.id);
-}
 if (hits <= 0) {
     image_alpha = 0;
+}
+if (upg[$ "on_hit"] != undefined) {
+	upg.on_hit(self.id);
 }
 //switch (upg[$ "id"]) {
 //    case Weapons.UrukaNote:{

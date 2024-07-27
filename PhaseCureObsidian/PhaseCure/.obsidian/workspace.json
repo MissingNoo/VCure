@@ -18,13 +18,26 @@
                 "viewState": {
                   "x": -1428.7853561531226,
                   "y": -1241.115082859211,
-                  "zoom": -0.379567953745524
+                  "zoom": -1.179567953745524
                 }
               },
               "pinned": true
             }
+          },
+          {
+            "id": "a66737afcb9e9cdb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Weapons/Multishot/EN's Curse.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -90,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Canvas.canvas",
+                "file": "Weapons/Multishot/EN's Curse.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Canvas.canvas",
+                "file": "Weapons/Multishot/EN's Curse.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Canvas.canvas"
+                "file": "Weapons/Multishot/EN's Curse.md"
               }
             }
           }
@@ -152,13 +165,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d1110596ed1b6ca2",
+  "active": "a66737afcb9e9cdb",
   "lastOpenFiles": [
+    "Canvas.canvas",
     "Weapons/Ranged/Cutting Board.md",
     "Weapons/Multishot/Glowstick.md",
     "Weapons/Multishot/BL Book.md",
     "Weapons/Multishot/Holobomb.md",
-    "Canvas.canvas",
     "z_attachments/Pasted image 20240721085607.png",
     "z_attachments/Pasted image 20240721085555.png",
     "z_attachments/Pasted image 20240721085520.png",

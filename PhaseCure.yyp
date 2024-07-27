@@ -217,7 +217,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.800.0.593",
+    "IDEVersion":"2024.800.0.597",
   },
   "name":"PhaseCure",
   "resources":[
@@ -490,6 +490,7 @@
     {"id":{"name":"DebugLib","path":"scripts/DebugLib/DebugLib.yy",},},
     {"id":{"name":"draw_text_scribble_ext","path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},},
     {"id":{"name":"draw_text_scribble","path":"scripts/draw_text_scribble/draw_text_scribble.yy",},},
+    {"id":{"name":"EnCurse","path":"scripts/EnCurse/EnCurse.yy",},},
     {"id":{"name":"EnemyScripts","path":"scripts/EnemyScripts/EnemyScripts.yy",},},
     {"id":{"name":"FanBeam","path":"scripts/FanBeam/FanBeam.yy",},},
     {"id":{"name":"Feather","path":"scripts/Feather/Feather.yy",},},
