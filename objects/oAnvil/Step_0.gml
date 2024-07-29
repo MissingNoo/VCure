@@ -28,6 +28,7 @@ if (ANVIL) {
 				}
 				else if (global.newcoins >= upgradeCoinValue) {
 					var _bonusdmg = 0;
+					/// @mixin blacksmithLevel
 					switch (oPlayer.blacksmithLevel) {
 					    case 0:
 					        _bonusdmg = 2;

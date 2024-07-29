@@ -95,3 +95,12 @@ selectAgency = function(i){
 	selectedStage = 0;
 #endregion
 resetSidebar();
+fandom_current_frame = [];
+fandom_current_frame[0][0] = 0;
+fandom_current_frame[0][1] = sprite_get_number(sFollowingFan);
+fandom_current_frame[1][0] = 0;
+fandom_current_frame[1][1] = sprite_get_number(sFollowingOshi);
+fandom_current_frame[2][0] = 0;
+fandom_current_frame[2][1] = sprite_get_number(sFollowingGachikoi);
+fandom_frame_speed = sprite_get_speed(sFollowingFan);
+fandom_frame_speed_type = sprite_get_speed_type(sFollowingFan);

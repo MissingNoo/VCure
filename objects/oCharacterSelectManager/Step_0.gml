@@ -1,13 +1,11 @@
-if (keyboard_check_pressed(vk_pageup)) {
-    //CharacterData[selectedCharacter].grank++;
-    CharacterData[selectedCharacter].fandomxp++;
-}
-if (keyboard_check_pressed(vk_pagedown)) {
-    //CharacterData[selectedCharacter].grank++;
-    CharacterData[selectedCharacter].fandomxp--;
-}
 //feather disable GM2017
-//scribble(stagelerp[0] - stagelerp[1]).scale(4).draw(MX, MY + 20);
+for (var i = array_length(fandom_current_frame) - 1; i > 0; i -= 1) {
+	if (ceil(fandom_current_frame[i][0]) >= fandom_current_frame[i][1]) {
+			current_frame = 0;
+	}
+	fandom_current_frame[i][0] += fandom_frame_speed / game_get_speed(fandom_frame_speed_type) * Delta;
+}
+
 var a = DebugManager.a;
 var b = DebugManager.b;
 var c = DebugManager.c;

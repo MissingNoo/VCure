@@ -1,3 +1,4 @@
+/// @instancevar {Integer} blacksmithLevel
 event_inherited();
 initializePlayer(global.player);
 buffs = [];

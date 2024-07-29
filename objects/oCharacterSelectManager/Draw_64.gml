@@ -38,7 +38,7 @@ var fandom = [[sFollowingFan, sFollowingFanLocked, 33], [sFollowingOshi, sFollow
 var foffset = 0;
 for (var i = array_length(fandom) - 1; i >= 0; --i) {
 	var unlocked = CharacterData[selectedCharacter].fandomxp < fandom[i][2];
-	draw_sprite_ext(fandom[i][unlocked], -1, GW/1.07 + foffset, GH/2, 3, 3, 0, c_white, 1);
+	draw_sprite_ext(fandom[i][unlocked], fandom_current_frame[i][0], GW/1.07 + foffset, GH/2, 3, 3, 0, c_white, 1);
     foffset -= 115;
 }
 #endregion
