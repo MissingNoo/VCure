@@ -30,7 +30,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Fandom.md",
+                "file": "Systems/Stamps.md",
                 "mode": "preview",
                 "source": false
               }
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Fandom.md",
+                "file": "Systems/Stamps.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Fandom.md",
+                "file": "Systems/Stamps.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Fandom.md"
+                "file": "Systems/Stamps.md"
               }
             }
           }
@@ -167,6 +167,8 @@
   },
   "active": "a2a9643677005800",
   "lastOpenFiles": [
+    "Systems/Holo House.md",
+    "Systems/Fandom.md",
     "Canvas.canvas",
     "Weapons/Multishot/BL Book.md",
     "Weapons/Melee/Wamy Water.md",
@@ -201,8 +203,6 @@
     "Weapons",
     "Untitled",
     "Systems/Stamps.md",
-    "Systems/Holo House.md",
-    "Systems/Fandom.md",
     "Systems",
     "PhaseCure/Weapons/Ranged/Psycho Axe.md",
     "PhaseCure/Weapons/Ranged/Idol Song.md",
