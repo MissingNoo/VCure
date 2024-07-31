@@ -545,7 +545,7 @@ if (canMove == true){
 				}
 				if (global.arrowDir > 360) { global.arrowDir = 0; }
 				if (global.arrowDir < 0) { global.arrowDir = 360; }
-				if (oPlayer.mouseAim) {
+				if (instance_exists(oPlayer) and oPlayer.mouseAim) {
 				    global.arrowDir = point_direction(oPlayer.x, oPlayer.y, mouse_x, mouse_y + 16);
 				}
 				if (global.arrowDir > 90 and global.arrowDir < 270) {

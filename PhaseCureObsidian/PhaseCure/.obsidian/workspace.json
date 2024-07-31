@@ -16,9 +16,9 @@
               "state": {
                 "file": "Canvas.canvas",
                 "viewState": {
-                  "x": -3709.041758467146,
-                  "y": -4321.430465506151,
-                  "zoom": -0.7795679537455239
+                  "x": -3156.943970807301,
+                  "y": -2125.174679068408,
+                  "zoom": -0.3795679537455239
                 }
               },
               "pinned": true
@@ -35,9 +35,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "0ea808fbe076fbd4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Systems/Character Selection.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "11dc3a38946faf3c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Systems/Holo House.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -103,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Stamps.md",
+                "file": "Systems/Holo House.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Stamps.md",
+                "file": "Systems/Holo House.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Stamps.md"
+                "file": "Systems/Holo House.md"
               }
             }
           }
@@ -165,11 +189,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a2a9643677005800",
+  "active": "11dc3a38946faf3c",
   "lastOpenFiles": [
-    "Systems/Holo House.md",
+    "Systems/Stamps.md",
     "Systems/Fandom.md",
     "Canvas.canvas",
+    "Systems/Character Selection.md",
+    "Systems/Holo House.md",
     "Weapons/Multishot/BL Book.md",
     "Weapons/Melee/Wamy Water.md",
     "Weapons/Melee/Spider Cooking.md",
@@ -202,13 +228,11 @@
     "Weapons/Melee",
     "Weapons",
     "Untitled",
-    "Systems/Stamps.md",
     "Systems",
     "PhaseCure/Weapons/Ranged/Psycho Axe.md",
     "PhaseCure/Weapons/Ranged/Idol Song.md",
     "PhaseCure/Weapons/Ranged/Fan Beam.md",
     "PhaseCure/Weapons/Ranged/Cutting Board.md",
-    "PhaseCure/Weapons/Melee/Wamy Water.md",
     "PhaseCure/Canvas.canvas",
     "PhaseCure/Weapons/Ranged",
     "PhaseCure/Weapons/Multishot",

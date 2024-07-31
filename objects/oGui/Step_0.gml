@@ -113,18 +113,18 @@ if (room == rInicio and !global.gamePaused) {
 	}
 	if (zKey) {
 	    switch (selected) {
-			//case MenuOptionsEnum.Map:{r
-			//	global.player=CHARACTERS[irandom_range(1, array_length(CHARACTERS) - 1)];
-			//	//room_goto(rDungeon);
-			//	room_goto(rMap);
-			//	audio_stop_sound(global.musicPlaying);
-			//	break;}
-	        case MenuOptionsEnum.Singleplayer:{
+			case MenuOptionsEnum.Map:
+				global.player=CHARACTERS[Characters.Amelia];
+				//room_goto(rDungeon);
+				room_goto(rMap);
+				audio_stop_sound(global.musicPlaying);
+				break;
+	        case MenuOptionsEnum.Singleplayer:
 				global.singleplayer = true;
 				selected=0;
 	            room_goto(rCharacterSelect);
-	            break;}
-			case MenuOptionsEnum.Multiplayer:{
+	            break;
+			case MenuOptionsEnum.Multiplayer:
 				if (os_type == os_gxgames) {
 				    show_message_async("Incompatible with browser versions");
 					break;
@@ -134,26 +134,26 @@ if (room == rInicio and !global.gamePaused) {
 				selected=0;
 				global.stageType = StageTypes.Stage;
 	            room_goto(rCharacterSelect);
-	            break;}
+	            break;
 			//case MenuOptionsEnum.Settings:{
 			//	keyboard_clear(ord("Z"));
 			//	pause_game();
 			//	activeMenu = PMenus.Settings;
 			//	break;}
-			case MenuOptionsEnum.Shop:{
+			case MenuOptionsEnum.Shop:
 				DEBUG
 					global.holocoins = 99999;
 				ENDDEBUG
 				keyboard_clear(ord("Z"));
 				room_goto(rShop);
-				break;}
-	        case MenuOptionsEnum.Quit:{
+				break;
+	        case MenuOptionsEnum.Quit:
 				Save_Data_Structs();
 	            game_end();
-	            break;}
-	        case MenuOptionsEnum.Achieves:{
+	            break;
+	        case MenuOptionsEnum.Achieves:
 				room_goto(rAchievements);
-	            break;}
+	            break;
 	    }
 	}
 }

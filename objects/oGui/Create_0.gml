@@ -44,7 +44,7 @@ lastmenu = PMenus.Pause;
 editOption = false;
 mousein = false;
 enum MenuOptionsEnum {
-	//Map,
+	Map,
 	Singleplayer,
 	Multiplayer,
 	Achieves,
@@ -55,7 +55,7 @@ enum MenuOptionsEnum {
 	Quit
 }
 //menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Shop", "Quit"];
-menuOptions = [lexicon_text("MainMenu.Singleplayer"), lexicon_text("MainMenu.Multiplayer"), lexicon_text("MainMenu.Achievements"), lexicon_text("MainMenu.Shop"), lexicon_text("MainMenu.Quit")];
+menuOptions = [lexicon_text("MainMenu.Map"), lexicon_text("MainMenu.Singleplayer"), lexicon_text("MainMenu.Multiplayer"), lexicon_text("MainMenu.Achievements"), lexicon_text("MainMenu.Shop"), lexicon_text("MainMenu.Quit")];
 #endregion
 #region Unused
 //guiOffset = 0;
