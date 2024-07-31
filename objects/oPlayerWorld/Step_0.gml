@@ -2,6 +2,6 @@
 //		    show_message_async(HouseInventory[HouseCategory.Interior]);
 //		}
 if (global.gamePaused) { return; }
-if (instance_exists(oNpcShop) or (instance_exists(oHouseManager) and oHouseManager.editHouse)) { return; }
+if (instance_exists(oNpcShop) or (instance_exists(oHouseManager) and oHouseManager.editHouse) or fishing) { return; }
 Movement();
 image_speed = global.gamePaused ? 0 : 1;

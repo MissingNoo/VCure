@@ -16,3 +16,6 @@ spd = 1.40;
 if (!instance_exists(oCam)) {
     instance_create_depth(x,y,0,oCamWorld);
 }
+#region Fishing
+fishing = false;
+#endregion
