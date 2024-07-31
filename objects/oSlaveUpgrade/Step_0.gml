@@ -32,7 +32,7 @@ switch (extraInfo.uid) {
 		}		
 		break;}
     case Weapons.PsychoAxe:{
-        psycho_axe_step();
+        //psycho_axe_step();
         break;}
 	case Weapons.UrukaNote:{
 		if (!variable_instance_exists(self, "coscounter")) {

@@ -1,3 +1,4 @@
+prize = 0;
 splash = false;
 splashed = false;
 fishingend = false;
@@ -8,10 +9,17 @@ pos = [0, 0];
 sprite = [
 	[0, sFishingBop, undefined],
 	[0, sFishIcon, undefined],
-	[0, sFishSplash, function(){if (oPlayerWorld.fishing and fishingend) {oPlayerWorld.fishing = false; splash = false; splashed = true;}}]
+	[0, sFishSplash, function(){
+		if (oPlayerWorld.fishing and fishingend) {
+			oPlayerWorld.fishing = false;
+			splash = false; 
+			splashed = true; 
+			oCamWorld.zoom_level = 1; 
+			instance_create_depth(0, 0, depth, oFishPrize, {prize : prize});
+		}}]
 ];
 caught = false;
-rhythmsurf = surface_create(sprite_get_width(sRhythmBar), sprite_get_height(sRhythmBar));
+rhythmsurf = surface_create(sprite_get_width(sRhythmBar) + 100, sprite_get_height(sRhythmBar) + 20);
 keydata = [
 	{spr : 0, key : "up" , pos : 0},
 	{spr : 1, key : "down" , pos : 0},
@@ -24,3 +32,11 @@ scale = 1;
 alpha = 0;
 xx = 0;
 key = 0;
+hp = 50;
+bonusfish = 0;
+judgement = 0;
+judgepos = 0;
+jx = 0;
+jalpha = 1;
+prizeoffset = 0;
+showprize = false;

@@ -46,9 +46,9 @@ function same_line(){
 	variables[array_length(variables) - 1][$ "sameLine"] = true
 }
 
-a = 10;
-b = 10;
-c = 20;
+a = 1;
+b = 1;
+c = 1;
 d = 1;
 e = 1;
 arr = ["a", "b", "c", "d", "e"];

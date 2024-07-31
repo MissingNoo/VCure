@@ -3,8 +3,8 @@ enum Rods {
 }
 function FishData() constructor {
 	data = [];
-	static addFish = function(name, icon, sprite, value, minimumrod) {
-        array_push(data, {name, icon, sprite, value, minimumrod});
+	static addFish = function(name, icon, sprite, value, rod) {
+        array_push(data, {name, icon, sprite, value, rod});
     }
 }
 global.fishes = new FishData() ;

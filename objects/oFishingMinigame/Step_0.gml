@@ -1,4 +1,5 @@
 if (!place_meeting(x, y, oPlayerWorld)) {exit;}
+var canget = [];
 for (var i = array_length(sprite) - 1; i >= 0; --i) {
     sprite[i][0] += (1/60 * sprite_get_speed(sprite[i][1])) * Delta;
 	if (sprite[i][0] > sprite_get_number(sprite[i][1])) {
@@ -8,8 +9,16 @@ for (var i = array_length(sprite) - 1; i >= 0; --i) {
 		}
 	}
 }
-if (!oPlayerWorld.fishing and input_check_pressed("accept")) {
+if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and input_check_pressed("accept")) {
+	for (var i = 0; i < array_length(Fishes.data); ++i) {
+	    if (Fishes.data[i].rod <= rod) {
+		    array_push(canget, Fishes.data[i]);
+		}
+	}
+	prize = canget[irandom(array_length(canget) - 1)];
+	oCamWorld.zoom_level = 0.60;
 	fishingend = false;
+	hp = 65;
 	splashed = false;
 	splash = false;
     oPlayerWorld.fishing = true;
@@ -25,30 +34,64 @@ if (!oPlayerWorld.fishing and input_check_pressed("accept")) {
 	alarm[0] = irandom_range(20, 100);
 	keys = [];
 	var _offset = 0;
-	repeat (7) {
+	repeat (200) {
 	    array_push(keys,variable_clone(keydata[irandom(array_length(keydata) - 1)]));
 		keys[array_length(keys) - 1].pos = _offset;
 		_offset -= 80;
 	}
 }
 if (caught) {
+	jx += 2;
+	hp = clamp(hp - 0.20, 0, 100);
+	if (hp <= 0) {
+		combo = 0;
+		keys = [];
+	}
     for (var i = array_length(keys) - 1; i >= 0; --i) {
 		keys[i].pos += 2;
 		if (keys[i].pos > sprite_get_width(sRhythmBar)) {
+			judgement = 0;
+			jx = keys[i].pos - 22;
+			jalpha = 1;
+			hp -= 10;
 		    array_delete(keys, i, 1);
 		}
 	}
 	var lastpress = input_check_press_most_recent();
-	if (lastpress != undefined and array_length(keys) > 0 and keys[0].pos > 140) {
+	if (lastpress != undefined and array_length(keys) > 0 and keys[0].pos > 130) {
 	    if (lastpress == keys[0].key) {
+			if (keys[0].pos < 195) {
+			    judgement = 2;
+			}
+			if (keys[0].pos < 160) { // 140
+			    judgement = 1;
+			}
+			if (keys[0].pos > 195) {
+			    judgement = 0;
+			}
+			jx = keys[0].pos;
+			jalpha = 1;
 			xx = keys[0].pos;
 			scale = 1;
 			alpha = 1;
 			key = keys[0].spr;
+			hp += 25;
+			array_shift(keys);
+			if (hp > 100) {
+			    keys = [];
+				combo++;
+			}
+		}
+		else {
+			judgement = 0;
+			jx = keys[0].pos;
+			jalpha = 1;
+			hp -= 10;
 			array_shift(keys);
 		}
 	}
 	if (array_length(keys) == 0) {
+		sprite[2][0] = 0;
 		caught = false;
 		splash = true;
 		fishingend = true;
@@ -56,7 +99,5 @@ if (caught) {
 }
 if (!splash and splashed) {
 	fishingend = true;
-	surface_set_target(rhythmsurf);
-	draw_clear_alpha(c_black, 0);
-	surface_reset_target();
 }
+prizeoffset = lerp(prizeoffset, 70, 0.1);
