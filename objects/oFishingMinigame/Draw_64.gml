@@ -27,5 +27,11 @@ if (caught) {
 	draw_set_alpha(1);
 	scribble($"CHAIN: {combo}").scale(3).draw(_x + _sw + 70, _y + 15);
 	scribble($"Bonus Fish: {bonusfish}").scale(2).draw(_x + _sw + 80, _y + 58);
-	draw_healthbar(GW/2 - 160, GH/3.25 - 16, GW/2 + 160, GH/3.25 + 16, hp, c_black, c_aqua, c_aqua, 0, 1, true);
+	draw_healthbar(GW/2 - 215, GH/3.25 - 16, GW/2 + 220, GH/3.25 + 20, hp, c_black, c_aqua, c_aqua, 0, 1, false);
+	draw_sprite_ext(sHook, 0, GW/2, GH/3.25, 2.50, 2.50, 0, c_white, 1);
 }
+var _text = "";
+for (var i = array_length(Fishes.data) - 1; i >= 0; --i) {
+    _text += $"\n[{sprite_get_name(Fishes.data[i].icon)},{Fishes.data[i].golden ? 1 : 0}]:{Fishes.data[i].amount}";
+}
+scribble(_text).scale(2).draw(10, 10);

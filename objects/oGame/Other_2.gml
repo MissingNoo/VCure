@@ -221,6 +221,12 @@ if (is_string(global.characterdataJSON)) {
 		}
 	}
 }
+if (is_string(global.fishamount)) {
+	var arr = json_parse(global.fishamount);
+	for (var i = 0; i < array_length(arr); ++i) {
+		Fishes.data[i].amount = arr[i].amount;
+	}
+}
 #region lower arrays
 //for (var i = 0; i < Characters.Lenght; ++i) {
 //	global.characterdata[i][$ "stagefirstclear"][StageID.Length] = false;

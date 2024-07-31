@@ -1,3 +1,4 @@
+bonusfish = 0;
 bars = [0, 0];
 prize = 0;
 splash = false;
@@ -16,6 +17,11 @@ sprite = [
 			splash = false; 
 			splashed = true; 
 			oCamWorld.zoom_level = 1; 
+			for (var i = 0; i < array_length(Fishes.data); ++i) {
+			    if (Fishes.data[i].name == prize.name) {
+				    Fishes.data[i].amount += 1 + bonusfish;
+				}
+			}
 			instance_create_depth(0, 0, depth, oFishPrize, {prize : prize});
 		}}]
 ];
@@ -34,7 +40,6 @@ alpha = 0;
 xx = 0;
 key = 0;
 hp = 50;
-bonusfish = 0;
 judgement = 0;
 judgepos = 0;
 jx = 0;

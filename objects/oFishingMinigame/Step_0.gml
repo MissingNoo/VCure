@@ -11,7 +11,7 @@ for (var i = array_length(sprite) - 1; i >= 0; --i) {
 }
 if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and !showprize and input_check_pressed("accept")) {
 	for (var i = 0; i < array_length(Fishes.data); ++i) {
-	    if (Fishes.data[i].rod <= rod) {
+	    if (Fishes.data[i].rod <= rod and !Fishes.data[i].golden) {
 		    array_push(canget, Fishes.data[i]);
 		}
 	}

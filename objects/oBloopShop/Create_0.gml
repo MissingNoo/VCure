@@ -47,18 +47,3 @@ shopItemsSell = [
 //	cost : 1000
 //},
 ]
-houseTabs = [
-{
-	sprite : sBook,
-	category : HouseCategory.Bedroom,
-},
-{
-	sprite : sTV,
-	category : HouseCategory.LivingRoom,
-},
-{
-	sprite : sWallThumb,
-	category : HouseCategory.Wall,
-},
-];
-furniture = [HouseItems[HouseItemId.Bookshelf], HouseItems[HouseItemId.Bookshelf], HouseItems[HouseItemId.TV], HouseItems[HouseItemId.Wall]];
