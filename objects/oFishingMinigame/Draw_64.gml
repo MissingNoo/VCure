@@ -21,6 +21,10 @@ if (caught) {
 	var _sw = (surface_get_width(rhythmsurf) + 50) / 2;
 	var _y = GH/1.50;
 	draw_surface_ext(rhythmsurf, _x - _sw, _y, 2, 2, 0, c_white, 1);
+	draw_set_alpha(0.35);
+	draw_rectangle_color(0, 0, GW, bars[0], c_black, c_black, c_black, c_black, false);
+	draw_rectangle_color(0, GH, GW, GH - bars[0], c_black, c_black, c_black, c_black, false);
+	draw_set_alpha(1);
 	scribble($"CHAIN: {combo}").scale(3).draw(_x + _sw + 70, _y + 15);
 	scribble($"Bonus Fish: {bonusfish}").scale(2).draw(_x + _sw + 80, _y + 58);
 	draw_healthbar(GW/2 - 160, GH/3.25 - 16, GW/2 + 160, GH/3.25 + 16, hp, c_black, c_aqua, c_aqua, 0, 1, true);

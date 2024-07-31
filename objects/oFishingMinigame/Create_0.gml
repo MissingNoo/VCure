@@ -1,3 +1,4 @@
+bars = [0, 0];
 prize = 0;
 splash = false;
 splashed = false;

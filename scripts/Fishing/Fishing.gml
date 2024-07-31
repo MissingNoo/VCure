@@ -9,5 +9,6 @@ function FishData() constructor {
 }
 global.fishes = new FishData() ;
 #macro Fishes global.fishes
+Fishes.addFish("Nothing", sBlank, sBlank, 0, 999);
 Fishes.addFish("Shrimp", sFishShrimpIcon, sFishShrimp, 50, Rods.Beginner);
 Fishes.addFish("Clownfish", sClownFishIcon, sClownFish, 100, Rods.Beginner);

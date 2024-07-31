@@ -9,7 +9,7 @@ for (var i = array_length(sprite) - 1; i >= 0; --i) {
 		}
 	}
 }
-if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and input_check_pressed("accept")) {
+if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and !showprize and input_check_pressed("accept")) {
 	for (var i = 0; i < array_length(Fishes.data); ++i) {
 	    if (Fishes.data[i].rod <= rod) {
 		    array_push(canget, Fishes.data[i]);
@@ -41,11 +41,13 @@ if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and input_check_press
 	}
 }
 if (caught) {
+	bars[1] = 135;
 	jx += 2;
 	hp = clamp(hp - 0.20, 0, 100);
 	if (hp <= 0) {
 		combo = 0;
 		keys = [];
+		prize = Fishes.data[0];
 	}
     for (var i = array_length(keys) - 1; i >= 0; --i) {
 		keys[i].pos += 2;
@@ -91,6 +93,7 @@ if (caught) {
 		}
 	}
 	if (array_length(keys) == 0) {
+		bars[1] = 0;
 		sprite[2][0] = 0;
 		caught = false;
 		splash = true;
@@ -101,3 +104,4 @@ if (!splash and splashed) {
 	fishingend = true;
 }
 prizeoffset = lerp(prizeoffset, 70, 0.1);
+bars[0] = lerp(bars[0], bars[1], 0.5);
