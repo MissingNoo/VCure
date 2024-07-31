@@ -116,7 +116,7 @@ if (room == rInicio and !global.gamePaused) {
 			case MenuOptionsEnum.Map:
 				global.player=CHARACTERS[Characters.Amelia];
 				//room_goto(rDungeon);
-				room_goto(rMap);
+				room_goto(rHoloHouseEntrance);
 				audio_stop_sound(global.musicPlaying);
 				break;
 	        case MenuOptionsEnum.Singleplayer:

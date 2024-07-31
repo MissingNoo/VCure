@@ -632,7 +632,34 @@ if (canMove == true){
 		
 		if (x + _xadd > _maxx or x + _xadd < _minx) { _xadd = 0;}
 		if (y + _yadd > _maxy or y + _yadd < _miny) { _yadd = 0;}
-		move_and_collide(_xadd, _yadd,oCollision);
+		//move_and_collide(_xadd, _yadd, oCollision, 128);
+		
+		if (!place_meeting(x + _xadd, y, oCollision)) {
+			x += _xadd;
+		}
+		else {
+			repeat (4) {
+			    if (!place_meeting(x + _xadd, y, oCollision)) {
+					x += _xadd;
+				}
+				_xadd = _xadd / 2;
+			}
+		}
+		if (!place_meeting(x, y + _yadd, oCollision)) {
+			y += _yadd;
+		}
+		else {
+			repeat (4) {
+			    if (!place_meeting(x, y + _yadd, oCollision)) {
+					y += _yadd;
+				}
+				_yadd = _yadd / 2;
+			}
+		}
+		if (place_meeting(x, y, oCollision)) {
+		    x = xprevious;
+		    y = yprevious;
+		}
 		moving = true;
 		if (!lockSprite) {sprite_index=runningsprite;}
         }
