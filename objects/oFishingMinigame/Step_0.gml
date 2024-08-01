@@ -1,4 +1,5 @@
 if (!place_meeting(x, y, oPlayerWorld)) {exit;}
+rod = global.equippedrod;
 var canget = [];
 for (var i = array_length(sprite) - 1; i >= 0; --i) {
     sprite[i][0] += (1/60 * sprite_get_speed(sprite[i][1])) * Delta;

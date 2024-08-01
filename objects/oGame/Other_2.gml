@@ -177,8 +177,12 @@ if (!variable_global_exists("ShopUpgrades")) {
 global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
 #endregion
 global.holocoins = 0;
+global.sand = 0;
+global.equippedrod = 0;
 global.musicVolume = 0.25;
 Load_Data_Structs();
+global.equippedrod ??= 0;
+global.sand ??= 0;
 global.holocoins ??= 0;
 #region Font
 //global.newFont = font_add("pixelade.ttf", 10, false, false, 32, 128);
@@ -225,6 +229,12 @@ if (is_string(global.fishamount)) {
 	var arr = json_parse(global.fishamount);
 	for (var i = 0; i < array_length(arr); ++i) {
 		Fishes.data[i].amount = arr[i].amount;
+	}
+}
+if (is_string(global.rodsowned)) {
+	var arr = json_parse(global.rodsowned);
+	for (var i = 0; i < array_length(arr); ++i) {
+		Rods[i].owned = arr[i].owned;
 	}
 }
 #region lower arrays

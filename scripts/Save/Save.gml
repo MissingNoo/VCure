@@ -1,6 +1,6 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdataJSON", "guiScale", "fishamount"
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdataJSON", "guiScale", "fishamount", "sand", "equippedrod", "rodsowned"
     ];
 
 #macro DATA (working_directory + "Save_Data.bin")
@@ -10,6 +10,7 @@ function Save_Data_Structs () {
 	global.shopUpgradesJSON = json_stringify(global.shopUpgrades);
 	global.characterdataJSON = json_stringify(global.characterdata);
 	global.fishamount = json_stringify(Fishes.data);
+	global.rodsowned = json_stringify(Rods);
 	var Data = {};
     for(var i = 0; i < array_length(global.Data); i++){
         var Key = global.Data[i];
