@@ -559,7 +559,7 @@ if (canMove == true){
 					};
 			}
 			else{
-				if (global.aim.check() and global.aim.get_touch_x() != undefined and global.aim.get_touch_y() != undefined) {
+				if (variable_global_exists("aim") and global.aim.check() and global.aim.get_touch_x() != undefined and global.aim.get_touch_y() != undefined) {
 					x1 = global.aim.get_touch_start_x();
 					y1 = global.aim.get_touch_start_y();
 				    x2 = global.aim.get_touch_x();

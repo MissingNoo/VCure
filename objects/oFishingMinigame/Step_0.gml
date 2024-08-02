@@ -1,4 +1,7 @@
 if (!place_meeting(x, y, oPlayerWorld)) {exit;}
+hpp = successAmount * (queueTime / 80);
+combo += -mouse_wheel_up() + mouse_wheel_down();
+queueTime = clamp(queueTime, 60, 9999);
 rod = global.equippedrod;
 var canget = [];
 for (var i = array_length(sprite) - 1; i >= 0; --i) {
@@ -17,6 +20,9 @@ if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and !showprize and in
 		}
 	}
 	prize = canget[irandom(array_length(canget) - 1)];
+	bonusYield = (combo div 10);
+	difficultyUp = min(35, ((combo div 10) * 5));
+	GetFishDifficulty(prize.name);
 	oCamWorld.zoom_level = 0.60;
 	fishingend = false;
 	hp = 65;
@@ -38,30 +44,47 @@ if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and !showprize and in
 	repeat (200) {
 	    array_push(keys,variable_clone(keydata[irandom(array_length(keydata) - 1)]));
 		keys[array_length(keys) - 1].pos = _offset;
-		_offset -= 80;
+		_offset -= queueTime;
+	}
+	if (alarm[2] == -1) {
+	    alarm[2] = (45 + bpm);
 	}
 }
 if (caught) {
 	bars[1] = 135;
 	jx += 2;
-	hp = clamp(hp - 0.20, 0, 100);
+	//hp = clamp(hp - 0.20, 0, 100);
 	if (hp <= 0) {
 		combo = 0;
 		keys = [];
 		prize = Fishes.data[0];
 	}
+	
+	var _combolen = string_length(string(combo));
+	var _comboval = 0;
+	if (_combolen == 2) {
+	    _comboval = real(string_char_at(string(combo), 1));
+	}
+	if (_combolen > 2) {
+	    _comboval = 7;
+	}
+	var _spd = bpm / (successAmount - _comboval);
+	//_spd = clamp(_spd + (_comboval / 2), 2, 7);
+	//_spd += ;
     for (var i = array_length(keys) - 1; i >= 0; --i) {
-		keys[i].pos += 2;
+		keys[i].pos += _spd * Delta;
 		if (keys[i].pos > sprite_get_width(sRhythmBar)) {
 			judgement = 0;
 			jx = keys[i].pos - 22;
 			jalpha = 1;
-			hp -= 10;
+			hp -= failAmount;
 		    array_delete(keys, i, 1);
 		}
 	}
 	var lastpress = input_check_press_most_recent();
-	if (lastpress != undefined and array_length(keys) > 0 and keys[0].pos > 130) {
+	if (lastpress != undefined and array_length(keys) > 0 and keys[0].pos > 130 and canpress) {
+		canpress = false;
+		alarm[3] = bpm / 1.5;
 	    if (lastpress == keys[0].key) {
 			if (keys[0].pos < 195) {
 			    judgement = 2;
@@ -78,7 +101,7 @@ if (caught) {
 			scale = 1;
 			alpha = 1;
 			key = keys[0].spr;
-			hp += 25;
+			hp += successAmount * (queueTime / 80);
 			array_shift(keys);
 			if (hp > 100) {
 			    keys = [];

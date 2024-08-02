@@ -157,9 +157,9 @@ state.add("Buy", {
 
 state.add("Sell", {
 	enter: function() {
-		itemoption = 0;
-		firstitem = 0;
-		lastitem = 4;
+		itemoption = 1;
+		firstitem = 1;
+		lastitem = 8;
 	},
 	step: function() {
 		#region Item Selection
@@ -202,11 +202,11 @@ state.add("Sell", {
 		if (itemoption > array_length(selllist) - 1) {
 		    itemoption = 1;
 			firstitem = 1;
-			lastitem = 5;
+			lastitem = 8;
 		}
 		if (itemoption < 1) {
 		    itemoption = array_length(selllist) - 1;
-			firstitem = array_length(selllist) - 5;
+			firstitem = array_length(selllist) - 8;
 			if (firstitem == 0) {
 			    firstitem = 1;
 			}
