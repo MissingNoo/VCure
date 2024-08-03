@@ -13,8 +13,13 @@ buying = false;
 buyoption = true;
 buylist = Rods;
 selling = false;
-selllist = Fishes.data;
-sellamount = array_create(array_length(Fishes.data), 0);
+selllist = [];
+for (var i = 1; i < array_length(Fishes.data); i++) {
+	if (Fishes.data[i].amount > 0) {
+		array_push(selllist, Fishes.data[i]);
+	}
+}
+sellamount = array_create(array_length(selllist), 0);
 whitebg = 1;
 state = new SnowState("Menu");
 state.add("Menu", {
@@ -158,9 +163,9 @@ state.add("Buy", {
 
 state.add("Sell", {
 	enter: function() {
-		itemoption = 1;
-		firstitem = 1;
-		lastitem = 8;
+		itemoption = 0;
+		firstitem = 0;
+		lastitem = 7;
 	},
 	step: function() {
 		#region Item Selection
@@ -182,6 +187,7 @@ state.add("Sell", {
 			if (selling) {
 				var _sellval = 0;
 				for (var i = 0; i < array_length(sellamount); ++i) {
+					if (i > array_length(selllist) - 1) { break; }
 				    _sellval += ((selllist[i].cost) * (selllist[i].golden ? 100 : 1)) * sellamount[i];
 					selllist[i].amount -= sellamount[i];
 					sellamount[i] = 0;
@@ -190,27 +196,26 @@ state.add("Sell", {
 			    exit;
 			}
 		}
-		if (!selling) {
+		if (!selling and array_length(selllist) > 0) {
 			sellamount[itemoption] += -input_check_pressed("left") + input_check_pressed("right");
 			if (sellamount[itemoption] < 0) {
-			    sellamount[itemoption] = selllist[itemoption].amount;
+				sellamount[itemoption] = selllist[itemoption].amount;
 			}
 			if (sellamount[itemoption] > selllist[itemoption].amount) {
-			    sellamount[itemoption] = 0;
+				sellamount[itemoption] = 0;
 			}
-		    itemoption += -input_check_pressed("up") + input_check_pressed("down");
+			if (array_length(selllist) > 1) {
+				itemoption += -input_check_pressed("up") + input_check_pressed("down");
+			}
 		}
 		if (itemoption > array_length(selllist) - 1) {
-		    itemoption = 1;
-			firstitem = 1;
-			lastitem = 8;
+		    itemoption = 0;
+			firstitem = 0;
+			lastitem = 7;
 		}
-		if (itemoption < 1) {
-		    itemoption = array_length(selllist) - 1;
+		if (itemoption < 0) {
+		    itemoption = clamp(array_length(selllist) - 1, 0, 99);
 			firstitem = array_length(selllist) - 8;
-			if (firstitem == 0) {
-			    firstitem = 1;
-			}
 			lastitem = array_length(selllist) - 1;
 		}
 		if (itemoption > lastitem) {
@@ -222,7 +227,7 @@ state.add("Sell", {
 		    lastitem--;
 		}
 		if (lastitem > array_length(selllist) - 1) { //Todo: Remove
-		    lastitem = array_length(selllist) - 1;
+		    lastitem = clamp(array_length(selllist) - 1, 0, 99);
 		}
 		#endregion
 		whitebg = sine_wave(current_time  / 1250, 1, 0.15, 0.15);
@@ -245,22 +250,39 @@ state.add("Sell", {
 		scribble($"[fa_center][fa_middle]Sale Total :").scale(2.5).draw(_x, _y + 572);
 		var _sellval = 0;
 		for (var i = 0; i < array_length(sellamount); ++i) {
+			if (i > array_length(selllist) - 1) { break; }
 		    _sellval += ((selllist[i].cost) * (selllist[i].golden ? 100 : 1)) * sellamount[i];
 		}
 		draw_rectangle(_x + 100, _y + 535, _x + 480, _y + 525 + 75, true);
 		scribble($"[fa_right][fa_middle]{_sellval}").scale(3).draw(_x + 460, _y + 572);
-		for (var i = firstitem; i <= lastitem; ++i) {
+		var _min = array_length(selllist) > 7 ? firstitem : 0;
+		var _max = array_length(selllist) > 7 ? lastitem : array_length(selllist) - 1;
+		for (var i = _min; i <= _max; ++i) {
+			var _alpha = 1;
+			if (array_length(selllist) == 0) {
+				break;
+			}
+			if (array_length(selllist) > 7) {
+				if (lastitem > array_length(selllist) -1) { lastitem = array_length(selllist) - 1; }
+				if (array_length(selllist) == 1) { break; }
+				if (i > array_length(selllist) - 1) { break; }
+			}
 			if (itemoption == i and !selling) {
 				draw_set_alpha(whitebg);
 			    draw_rectangle(_x - 480, _y - 30 + _offset, _x + 505, _y + 30 + _offset, false);
 				draw_set_alpha(1);
 				draw_sprite_ext(sHoloCursor, 0, _x - 510, _y + _offset, 2, 2, 0, c_white, 1);
 			}
-			draw_sprite_ext(selllist[i].icon, selllist[i].golden ? 1 : 0, _x - 450, _y + _offset, 2, 2, 0, c_white, 1);
+			if (selllist[i].amount == 0) {
+				draw_set_alpha(0.5);
+				_alpha = 0.5;
+			}
+			draw_sprite_ext(selllist[i].icon, selllist[i].golden ? 1 : 0, _x - 450, _y + _offset, 2, 2, 0, c_white, _alpha);
 			scribble($"{selllist[i].name}").scale(2).draw(_x - 410, _y - 8 + _offset);
 			scribble($"[fa_center]<{sellamount[i]} / {selllist[i].amount}>").scale(2).draw(_x, _y - 8 + _offset);
-			scribble($"[fa_center][sSand] {(selllist[i].cost) * (selllist[i].golden ? 100 : 1)}").scale(2).draw(_x + 150, _y - 8 + _offset);
+			scribble($"[sSand] {(selllist[i].cost) * (selllist[i].golden ? 100 : 1)}").scale(2).draw(_x + 150, _y - 8 + _offset);
 			scribble($"[fa_right]{((selllist[i].cost) * (selllist[i].golden ? 100 : 1)) * sellamount[i]}").scale(2).draw(_x + 465, _y - 8 + _offset);
+			draw_set_alpha(1);
 			_offset += 65;
 		}
     }
