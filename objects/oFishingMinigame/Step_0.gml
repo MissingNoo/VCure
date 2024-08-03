@@ -34,6 +34,7 @@ if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and !showprize and in
 	difficultyUp = min(35, ((combo div 10) * 5));
 	GetFishDifficulty(prize.name);
 	if (shinyRoll == 1) {
+		SetDifficulty(5);
 		prize.name = $"Golden {prize.name}";
 		prize.golden = true;
 		bonusFish = 0;
