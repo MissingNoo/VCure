@@ -5,9 +5,11 @@ var c = DebugManager.c;
 var d = DebugManager.d;
 var e = DebugManager.e;
 draw_sprite_ext(sHudArea, 0, (GW - 30) - (sprite_get_width(sHudArea) * 8), 30, 8, 2.25, 0, c_white, 1);
-scribble($"[fa_right][fa_middle][sSand]      {global.sand}").scale(2).draw(GW - 40, 52);
+scribble($"[fa_right][fa_middle]{global.sand}").scale(2).draw(GW - 35, 52);
+scribble($"[fa_left][fa_middle][sSand]").scale(2).draw(GW - b, 52);
 draw_sprite_ext(sHudArea, 0, (GW - 260) - (sprite_get_width(sHudArea) * 8), 30, 8, 2.25, 0, c_white, 1);
-scribble($"[fa_right][fa_middle][sHolocoin,0]      {global.holocoins}").scale(2).draw(GW - 270, 52);
+scribble($"[fa_right][fa_middle]{global.holocoins}").scale(2).draw(GW - 266, 52);
+scribble($"[fa_left][fa_middle][sHolocoin,0]").scale(2).draw(GW - 440, 52);
 for (var i = 0; i < array_length(options); ++i) {
 	var _spr = menuoption == i ? 1 : 0;
 	var _color = menuoption == i ? "c_black" : "c_white";

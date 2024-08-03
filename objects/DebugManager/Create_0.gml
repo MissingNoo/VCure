@@ -1,4 +1,5 @@
 //feather disable GM2017
+ini_open("Debug.ini");
 screenarea = [0, 0, 0, 0];
 show = false;
 x = 100;
@@ -46,11 +47,11 @@ function same_line(){
 	variables[array_length(variables) - 1][$ "sameLine"] = true
 }
 
-a = 1;
-b = 1;
-c = 1;
-d = 1;
-e = 1;
+a = ini_read_real("Debug", "a", 1);
+b = ini_read_real("Debug", "b", 1);
+c = ini_read_real("Debug", "c", 1);
+d = ini_read_real("Debug", "d", 1);
+e = ini_read_real("Debug", "e", 1);
 arr = ["a", "b", "c", "d", "e"];
 for (var i = 0; i < array_length(arr); ++i) {
     DebugManager.debug_add_config(self, {
@@ -211,3 +212,4 @@ DebugManager.debug_add_config(self, {
 	},
 	page : "Stage"
 });
+ini_close();
