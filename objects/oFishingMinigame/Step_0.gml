@@ -28,7 +28,6 @@ if (!oPlayerWorld.fishing and !instance_exists(oFishPrize) and !showprize and in
 		}
 	}
 	prize = variable_clone(canget[irandom(array_length(canget) - 1)]);
-	
 	var shinyChance = clamp((rod == Rod.Golden ? 561 : 701) - (5 * combo), 21, 999);
 	var shinyRoll = irandom(shinyChance);
 	bonusYield = (combo div 10);

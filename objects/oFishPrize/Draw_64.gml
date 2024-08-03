@@ -1,4 +1,4 @@
-draw_sprite_ext(sprite_index, 0, GW/2, offset, 2, 2, 0, c_white, 1) ;
+draw_sprite_ext(sprite_index, prize.golden, GW/2, offset, 2, 2, 0, c_white, 1) ;
 draw_sprite_ext(prize.icon, prize.golden, GW/2, offset, 2, 2, 0, c_white, 1) ;
 var _off = [[-2, 0], [2, 0], [0, -2], [0, 2]];
 var _text = "";
