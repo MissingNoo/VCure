@@ -38,6 +38,85 @@
 		- [x] ![Axolotl Icon.png](https://holocure.wiki.gg/images/8/88/Axolotl_Icon.png)![Golden Axolotl Icon.png](https://holocure.wiki.gg/images/5/52/Golden_Axolotl_Icon.png) Axolotl
 		- [x] Golden Variants
 - [ ] NPC's
-- [ ] Shops
+	- Bloop
+		- [x] Buy
+			- [x] Equip Rod
+		- [ ] Sell
+			- [x] Amount selection
+			- [ ] Show only fishes with amount higher than 0
+		- [ ] Exchange Sand to Holocoins
+		- [ ] Talk dialog
+	- Nemu
+		- [ ] Buy
+		- [ ] Sell
 - [ ] Farming
-- [ ] Decorations
+	- [ ] Plots
+		- [ ] Growth
+		- [ ] Harvest
+	- [ ] Soil types
+		- [ ] ![[Pasted image 20240802212342.png]] Standard (200)
+			- [ ] Normal growing time
+			- [ ] Normal crop yield (1-3 items)
+		- [ ] ![[Pasted image 20240802212351.png]] Enhanced (750)
+			- [ ] Normal growing time
+			- [ ] Triple yield (2-9 items)
+		- [ ] ![[Pasted image 20240802212357.png]] Expedited (1500)
+			- [ ] Starting grow time will be reduced by 40%.
+			- [ ] Normal yield
+	- [ ] Watering
+		- [ ] Speed up growth (-60 seconds)
+		- [ ] Rainy weather water plants
+		- [ ] NPC's may water plants
+		- [ ] 60s cooldown
+	- Seeds
+		- [ ] ![[Pasted image 20240802212711.png]] Wheat (100)
+			- Sell: 50
+			- Base Growth:  5m
+		- [ ] ![[Pasted image 20240802212723.png]] Tomato (150)
+			- Sell: 100
+			- Base Growth: 6m
+		- [ ] ![[Pasted image 20240802212728.png]] Potato (200)
+			- Sell: 150
+			- Base Growth: 6:30
+		- [ ] ![[Pasted image 20240802212732.png]] Rice (250)
+			- Sell: 200
+			- Base Growth: 7:00
+		- [ ] ![[Pasted image 20240802212736.png]] Onion (300)
+			- Sell: 250
+			- Base Growth: 7:30
+		- [ ] ![[Pasted image 20240802212739.png]] Carrot (350)
+			- Sell: 300
+			- Base Growth: 8:00
+		- [ ] ![[Pasted image 20240802212742.png]] Green Bean (400)
+			- Sell: 350
+			- Base Growth: 8:30
+		- [ ] ![[Pasted image 20240802212745.png]] Pepper (450)
+			- Sell: 400
+			- Base Growth: 9:00
+		- [ ] ![[Pasted image 20240802212751.png]] Strawberry (500)
+			- Sell: 450
+			- Base Growth: 9:30
+		- [ ] ![[Pasted image 20240802212754.png]] Corn (550)
+			- Sell: 500
+			- Base Growth: 10:00
+		- [ ] ![[Pasted image 20240802212758.png]] Radish (600)
+			- Sell: 550
+			- Base Growth: 11:00
+		- [ ] ![[Pasted image 20240802212803.png]] Garlic (650)
+			- Sell: 600
+			- Base Growth: 12:00
+	- [ ] Sell for holocoins
+- [ ] Management Board
+	- [ ] **Manage** - The Manage tab is where players can perform administrative options on their workers, including checking on their individuals status. Players can use this tab to feed Exhausted workers to return them to working status. This tab is also where players can rename their workers, and also fire workers, which will permanently remove them from play.
+	- [ ] **Hire** - This tab allows players to recruit workers. Players must first send out a recruiting notice, which will generate a list of up to 5 random workers to choose from, but players can only choose one of the workers from the list to recruit. The first hire on this list will always be a fan of the character the player is currently using (for example, a Shrimp if the player is using Gawr Gura). Posting a recruiting notice has a starting cost of 500 HoloCoins, which increases by another 500 for each additional worker already active, up to a maximum of 5,000. Up to 10 workers can be recruited, and if players want to recruit a new worker beyond the limit, they must first fire an existing one. Each worker has 4 randomly generated main stats to consider:
+		- [ ] **Efficiency** - This stat determines how fast the worker can collect HoloCoins. (1 efficiency = 1 coin gained every 2 to 10 seconds)
+		- [ ] **Stamina** - The larger this stat, the longer a worker can keep working before becoming Exhausted. (1 stamina = 20 seconds of work)
+		- [ ] **Max Level** - The maximum level to which the worker can be raised. Each level-up gives +1 Efficiency and +2 Stamina.
+		- [ ] **EXP Rate** - How fast the worker levels up.
+	- [ ] **Collect** - Players can use this tab to view the HoloCoins earned by each worker (and can be used to gauge a worker's efficiency), and here the player can collect the earned HoloCoins, which will be immediately added to the player's account.
+	- [ ] **Read** - The main help guide for the Management Board.
+- [ ] House
+	- [ ] Decorations
+		- [ ] Placing
+		- [ ] Moving
+		- [ ] Removing
