@@ -55,7 +55,7 @@
               "type": "markdown",
               "state": {
                 "file": "Systems/Holo House.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -112,7 +112,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "67bcab6fd5feb8ca",

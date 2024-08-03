@@ -27,6 +27,9 @@ if (caught) {
 	draw_set_alpha(1);
 	scribble($"CHAIN: {combo}").scale(3).draw(_x + _sw + 70, _y + 15);
 	scribble($"Bonus Fish: {bonusFish}").scale(2).draw(_x + _sw + 80, _y + 58);
+	if (comboval > 0) {
+		scribble($"[c_red]Speed LV:{comboval}").scale(2).draw(_x + _sw + 80, _y + 90);
+	}
 	draw_healthbar(GW/2 - 215, GH/3.25 - 16, GW/2 + 220, GH/3.25 + 20, hp, c_black, c_aqua, c_aqua, 0, 1, false);
 	draw_sprite_ext(sHook, 0, GW/2, GH/3.25, 2.50, 2.50, 0, c_white, 1);
 }
@@ -35,18 +38,7 @@ var _text = "";
 //    _text += $"\n[{sprite_get_name(Fishes.data[i].icon)},{Fishes.data[i].golden ? 1 : 0}]:{Fishes.data[i].amount}";
 //}
 //scribble(_text).scale(2).draw(10, 10);
-//var _spd = 2;
-//var _combolen = string_length(string(combo));
-//var _comboval = 0;
-//if (_combolen == 2) {
-//    _comboval = real(string_char_at(string(combo), 1));
-//}
-//if (_combolen > 2) {
-//    _comboval = 7;
-//}
-//_comboval -= 2;
-//_spd = clamp(_spd + (_comboval / 2), 2, 7);
-//_spd += min(35, ((combo div 10) * 5));
+
 //var _names = variable_struct_get_names(self);
 //for (var i = array_length(_names) - 1; i >= 0; --i) {
 //	if (is_array(variable_struct_get(self, _names[i]))) {
@@ -55,5 +47,3 @@ var _text = "";
 //    _text += $"\n{_names[i]}: {string_replace_all(variable_struct_get(self, _names[i]), "[", "[[")}";
 //}
 //scribble(_text).scale(2).draw(10, 10);
-//scribble($"[fa_right]{(bpm / DebugManager.a)}").scale(2).draw(GW - 10, 10);
-//scribble($"{_spd}/{combo}/_comboval").scale(2).draw(10, 10);

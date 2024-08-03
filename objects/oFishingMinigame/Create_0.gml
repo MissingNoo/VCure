@@ -1,4 +1,8 @@
-hpp = 0;
+//grid = ds_grid_create(10, 10);
+//ds_grid_clear(grid, -1);
+//ds_grid_destroy(grid);
+//ds_grid_clear(grid, -1);
+comboval = 0;
 canpress = true;
 queueTime = 1;
 currentDifficulty = 1;
@@ -247,12 +251,13 @@ sprite = [
 			splash = false; 
 			splashed = true; 
 			oCamWorld.zoom_level = 1; 
+			var prizeamount = minFish + irandom(bonusFish) + bonusYield;
 			for (var i = 0; i < array_length(Fishes.data); ++i) {
 			    if (Fishes.data[i].name == prize.name) {
-				    Fishes.data[i].amount += 1 + bonusFish;
+				    Fishes.data[i].amount += prize.golden ? 1 : prizeamount;
 				}
 			}
-			instance_create_depth(0, 0, depth, oFishPrize, {prize : prize});
+			instance_create_depth(0, 0, depth, oFishPrize, {prize : prize, amount : prizeamount});
 		}}]
 ];
 caught = false;

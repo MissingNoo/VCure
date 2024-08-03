@@ -1,4 +1,7 @@
 randomize();
+global.characterdataJSON = undefined;
+global.fishamount = undefined;
+global.rodsowned = undefined;
 #region ShopUpgrades
 if (!variable_global_exists("ShopUpgrades")) {
     global.shopUpgrades = {

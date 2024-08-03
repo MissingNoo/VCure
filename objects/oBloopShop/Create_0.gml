@@ -71,6 +71,7 @@ state.add("Buy", {
 				if (buylist[itemoption].owned) {
 				    global.equippedrod = itemoption;
 				    oFishingMinigame.rod = itemoption;
+					oFishingMinigame.combo = 0;
 				}
 				else {
 					buying = true;

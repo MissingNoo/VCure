@@ -52,8 +52,11 @@ Rods[Rod.Golden] = {
 };
 function FishData() constructor {
 	data = [];
-	static addFish = function(name, icon, sprite, cost, rod, golden = false) {
-        array_push(data, {name, icon, sprite, cost, rod, amount : 0, golden});
+	static addFish = function(name, icon, sprite, cost, rod) {
+        array_push(data, {name, icon, sprite, cost, rod, amount : 0, golden : false});
+		if (name != "Nothing") {
+			array_push(data, {name : $"Golden {name}", icon, sprite, cost, rod, amount : 0, golden : true});
+		}
     }
 }
 global.fishes = new FishData();
