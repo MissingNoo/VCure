@@ -18,3 +18,4 @@ if(plot.planted) {
     _text += $"\nTimer:{timer}\n4:{plot.growthtimer[0] < timer * 4}\n3:{plot.growthtimer[0] < timer * 3}\n2:{plot.growthtimer[0] < timer * 2}\n1:{plot.growthtimer[0] < timer}";
     //scribble(_text).draw(x, y - 30);
 }
+scribble($"[fa_bottom][fa_center]{state.get_current_state()}").draw(x, y - 30);

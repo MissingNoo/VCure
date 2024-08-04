@@ -23,7 +23,7 @@
   ],
   "name":"sFarmListWindow",
   "nineSlice":null,
-  "origin":0,
+  "origin":3,
   "parent":{
     "name":"Farming",
     "path":"folders/Sprites/Farming.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":0,
-    "yorigin":0,
+    "yorigin":131,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

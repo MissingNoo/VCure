@@ -3,4 +3,7 @@
 *.gcno
 *.gcda
 *.gcov
+cache/
+output/
+.vscode/
 PhaseCureObsidian/PhaseCure/.obsidian/workspace.json
