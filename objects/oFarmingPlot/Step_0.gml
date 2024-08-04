@@ -1,5 +1,5 @@
 if (plot.planted) {
-    plot.growthtimer[1] -= (1/10) * Delta;
+    plot.growthtimer[1] -= (1/60) * Delta;
     if (plot.growthtimer[1] <= 0) {
         plot.growthtimer[1] = 60;
         plot.growthtimer[0]--;
