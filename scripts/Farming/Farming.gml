@@ -3,19 +3,22 @@ enum SoilType {
     Enhanced,
     Expedited
 }
-function Crop(_name, _sprite, _wsprite, _cost) constructor {
+function Crop(_name, _sprite, _wsprite, _cost, _sell, _growthtime) constructor {
     name = _name;
     sprite = _sprite;
     worldsprite = _wsprite;
     cost = _cost;
+    sell = _sell;
+    growthtime = _growthtime;
 }
-function Plot(_id) constructor {
+function Plot() constructor {
     planted = false;
     soil = -1;
     watered = false;
     wateredcooldown = 0;
     crop = -1;
-    growthtimer = 0;
+    growthtimer = [0, 0];
+    stage = 0;
 }
 function Inventory() constructor {
     items = [];
@@ -65,4 +68,12 @@ function Inventory() constructor {
         }
         return result;
     }
+}
+global.crops = [];
+array_push(global.crops, 
+    new Crop("Wheat", sWheatIcon, sCropWheat, 100, 50, [5, 0])
+    )
+global.farmplots = array_create(8, undefined);
+for (var i = 0; i < array_length(global.farmplots); i += 1) {
+    global.farmplots[i] = new Plot();
 }

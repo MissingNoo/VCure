@@ -1,0 +1,1 @@
+plot = global.farmplots[plotnum];

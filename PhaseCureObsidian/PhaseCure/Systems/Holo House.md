@@ -41,35 +41,35 @@
 	- Bloop
 		- [x] Buy
 			- [x] Equip Rod
-		- [ ] Sell
+		- [x] Sell
 			- [x] Amount selection
-			- [ ] Show only fishes with amount higher than 0
+			- [x] Show only fishes with amount higher than 0
 		- [ ] Exchange Sand to Holocoins
 		- [ ] Talk dialog
 	- Nemu
 		- [ ] Buy
 		- [ ] Sell
 - [ ] Farming
-	- [ ] Plots
-		- [ ] Growth
+	-  Plots
+		- [x] Growth
 		- [ ] Harvest
-	- [ ] Soil types
+	- Soil types
 		- [ ] ![[Pasted image 20240802212342.png]] Standard (200)
-			- [ ] Normal growing time
+			- [x] Normal growing time
 			- [ ] Normal crop yield (1-3 items)
 		- [ ] ![[Pasted image 20240802212351.png]] Enhanced (750)
-			- [ ] Normal growing time
+			- [x] Normal growing time
 			- [ ] Triple yield (2-9 items)
 		- [ ] ![[Pasted image 20240802212357.png]] Expedited (1500)
 			- [ ] Starting grow time will be reduced by 40%.
 			- [ ] Normal yield
 	- [ ] Watering
-		- [ ] Speed up growth (-60 seconds)
+		- [x] Speed up growth (-60 seconds)
 		- [ ] Rainy weather water plants
 		- [ ] NPC's may water plants
 		- [ ] 60s cooldown
 	- Seeds
-		- [ ] ![[Pasted image 20240802212711.png]] Wheat (100)
+		- [x] ![[Pasted image 20240802212711.png]] Wheat (100)
 			- Sell: 50
 			- Base Growth:  5m
 		- [ ] ![[Pasted image 20240802212723.png]] Tomato (150)
