@@ -1,10 +1,11 @@
 global.serverip = "140.238.187.191";
-//global.serverip = "192.168.0.103";
 global.port = 64198;
 // Feather disable GM2044
 // Feather disable GM2017
 enum Network {
-	Move,
+	Null,
+	Register,
+	/*
 	Message,
 	PlayerMoved,
 	PlayerConnect,
@@ -33,6 +34,7 @@ enum Network {
 	UpdateAnvil,
 	AddItem,
 	InfectMob
+	*/
 }
 function clientReceivedPacket2(_response)
 {
@@ -533,13 +535,13 @@ function clientReceivedPacket(_buffer)
 /// @function                sendMessage(data)
 /// @description             Data to send server
 /// @param {any}     data data to send
-function sendMessage(data){
+function sendMessage(type, data){
 	if (!instance_exists(oClient)) { return; }
-	if(global.singleplayer == false){
-		data.roomname = global.roomname;
-		buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
-		var _json = json_stringify(data);
-		buffer_write(oClient.clientBuffer, buffer_text, _json);	
-		network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
-	}
+	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
+	data.playerid = global.playerid;
+	data.playername = global.username;
+	data.type = type;
+	var _json = json_stringify(data);
+	buffer_write(oClient.clientBuffer, buffer_text, _json);	
+	network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }

@@ -1,4 +1,8 @@
 //global.serverip = "192.168.15.9";
+ini_open("settings");
+global.playerid = ini_read_real("Settings", "playerid", -1);
+global.username = ini_read_string("Settings", "Username", "Player");
+ini_close();
 if (!global.initialConfigDone) {
     instance_destroy();
 }
@@ -6,27 +10,14 @@ playerSpawn = [1895, 1880];
 if (instance_number(oClient) > 1) {
     instance_destroy();
 }
-//if (global.singleplayer) {
-//    port = 64198;
-//	maxClients = 1;
-//	try{
-//		//server = network_create_server(network_socket_tcp, port, maxClients);
-//	}
-//	catch(error){
-//		//i don't care bro
-//	}
-//}
 
 client = network_create_socket(network_socket_udp);
 clientBuffer = buffer_create(4098, buffer_fixed, 1);
-//if (global.singleplayer) {
 keepalive = time_source_create(time_source_game, 5, time_source_units_seconds,function(){ sendMessage({command : Network.KeepAlive, roomname : global.roomname})});
 try{
 	if (!global.singleplayer) {
 		connected = network_connect_raw(client, global.serverip, global.port);
-		sendMessage({command : Network.Connection, username : global.username});		
-		//connected = network_connect_raw(client, "opencure.ddns.net", 64198);
-		//connected = network_connect(client, "140.238.187.191", 64198);
+		sendMessage({command : Network.Connection, username : global.username});
 	}
 	else{
 		connected = 0;
