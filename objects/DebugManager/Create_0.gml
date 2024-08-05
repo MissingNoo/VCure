@@ -62,7 +62,13 @@ for (var i = 0; i < array_length(arr); ++i) {
 	page : "2"
 });
 }
-
+DebugManager.debug_add_config(self, {
+	text : "Reset",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){ DebugManager.a = 1; DebugManager.b = 1; DebugManager.c = 1; DebugManager.d = 1; DebugManager.e = 1; },
+	page : "2"
+});
 valuetest = 0;
 DebugManager.debug_add_config(self, {
 	text : "Value Test",

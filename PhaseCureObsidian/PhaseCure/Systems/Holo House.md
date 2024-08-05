@@ -61,18 +61,18 @@
 			- [x] Normal growing time
 			- [ ] Triple yield (2-9 items)
 		- [ ] ![[Pasted image 20240802212357.png]] Expedited (1500)
-			- [ ] Starting grow time will be reduced by 40%.
+			- [x] Starting grow time will be reduced by 40%.
 			- [ ] Normal yield
 	- [ ] Watering
 		- [x] Speed up growth (-60 seconds)
 		- [ ] Rainy weather water plants
 		- [ ] NPC's may water plants
-		- [ ] 60s cooldown
+		- [x] 60s cooldown
 	- Seeds
 		- [x] ![[Pasted image 20240802212711.png]] Wheat (100)
 			- Sell: 50
 			- Base Growth:  5m
-		- [ ] ![[Pasted image 20240802212723.png]] Tomato (150)
+		- [x] ![[Pasted image 20240802212723.png]] Tomato (150)
 			- Sell: 100
 			- Base Growth: 6m
 		- [ ] ![[Pasted image 20240802212728.png]] Potato (200)

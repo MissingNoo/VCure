@@ -1,21 +1,23 @@
 draw_sprite_ext(sprite_index, plot.watered, x, y, 1, 1, 0, c_white, 1);
 if(plot.planted) {
-    var timer = plot.crop.growthtime[0] / 4;
-    if (plot.growthtimer[0] < timer * 4) {
+    if (plot.growthtimer < timer * 4) {
         plot.stage = 0;
     }
-    if (plot.growthtimer[0] < timer * 3) {
+    if (plot.growthtimer < timer * 3) {
         plot.stage = 1;
     }
-    if (plot.growthtimer[0] < timer * 2) {
+    if (plot.growthtimer < timer * 2) {
         plot.stage = 2;
     }
-    if (plot.growthtimer[0] < 0) {
+    if (plot.growthtimer <= 0) {
         plot.stage = 3;
     }
     draw_sprite_ext(plot.crop.worldsprite, plot.stage, x, y, 1, 1, 0, c_white, 1);
-    var _text = $"[fa_bottom][fa_center][{plot.growthtimer}\n";
-    _text += $"\nTimer:{timer}\n4:{plot.growthtimer[0] < timer * 4}\n3:{plot.growthtimer[0] < timer * 3}\n2:{plot.growthtimer[0] < timer * 2}\n1:{plot.growthtimer[0] < timer}";
-    //scribble(_text).draw(x, y - 30);
+    var offset = 0;
+    for (var i = 2; i <= 4; i += 1) {
+        scribble($"[fa_bottom][fa_center]{i}:{plot.growthtimer < timer * i}").draw(x, y - 40 - offset);
+        offset += 10;
+    }
+    var _text2 = $"[fa_bottom][fa_center]G {plot.growthtimer} T {timer} S {plot.stage}";
+    scribble(_text2).draw(x, y - 20);
 }
-scribble($"[fa_bottom][fa_center]{state.get_current_state()}").draw(x, y - 30);

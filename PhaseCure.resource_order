@@ -1137,6 +1137,7 @@
     {"name":"sSmolAmeJump","order":1,"path":"sprites/sSmolAmeJump/sSmolAmeJump.yy",},
     {"name":"sSoda","order":12,"path":"sprites/sSoda/sSoda.yy",},
     {"name":"sSodaFueled","order":7,"path":"sprites/sSodaFueled/sSodaFueled.yy",},
+    {"name":"sSoilIcons","order":8,"path":"sprites/sSoilIcons/sSoilIcons.yy",},
     {"name":"sSpaghetti","order":27,"path":"sprites/sSpaghetti/sSpaghetti.yy",},
     {"name":"sSpiderCooking","order":32,"path":"sprites/sSpiderCooking/sSpiderCooking.yy",},
     {"name":"sSpiderCookingThumb","order":33,"path":"sprites/sSpiderCookingThumb/sSpiderCookingThumb.yy",},

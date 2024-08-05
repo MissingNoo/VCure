@@ -1,25 +1,30 @@
-enum SoilType {
-    Standard,
-    Enhanced,
-    Expedited
-}
-function Crop(_name, _sprite, _wsprite, _cost, _sell, _growthtime) constructor {
+function Crop(_name, _seed, _sprite, _wsprite, _cost, _sell, _growthtime) constructor {
     name = _name;
     sprite = _sprite;
+    seedsprite = _seed;
     worldsprite = _wsprite;
     cost = _cost;
     sell = _sell;
     growthtime = _growthtime;
+    amount = 0;
 }
 function Plot() constructor {
     planted = false;
-    soil = -1;
+    soil = "";
     watered = false;
     wateredcooldown = 0;
     crop = -1;
-    growthtimer = [0, 0];
+    growthtimer = 0;
     stage = 0;
 }
+function Soil(_name, _subimg, _yield, _rate) constructor {
+    name = _name;
+    amount = 0;
+    subimg = _subimg;
+    yield = _yield;
+    rate = _rate;
+}
+global.farmsoils = [new Soil("Standard Soil", 0, 1, 0), new Soil("Enhanced Soil", 1, 3, 0), new Soil("Expedited Soil", 2, 1, 40)];
 function Inventory() constructor {
     items = [];
     static addItem = function(item, amount = 1) {
@@ -70,9 +75,8 @@ function Inventory() constructor {
     }
 }
 global.crops = [];
-array_push(global.crops, 
-    new Crop("Wheat", sWheatIcon, sCropWheat, 100, 50, [5, 0])
-    )
+array_push(global.crops, new Crop("Wheat", sWheatSeed, sWheatIcon, sCropWheat, 100, 50, [5, 0]));
+array_push(global.crops, new Crop("Tomato", sTomatoSeed, sTomatoIcon, sCropTomato, 150, 100, [6, 0]));
 global.farmplots = array_create(8, undefined);
 for (var i = 0; i < array_length(global.farmplots); i += 1) {
     global.farmplots[i] = new Plot();
