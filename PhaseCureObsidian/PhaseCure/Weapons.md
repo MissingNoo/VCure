@@ -1,3 +1,4 @@
 [[Melee]]
 [[MultiShot]]
 [[Ranged]]
+[[Collabs]]

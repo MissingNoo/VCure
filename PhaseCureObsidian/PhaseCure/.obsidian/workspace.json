@@ -16,9 +16,9 @@
               "state": {
                 "file": "Canvas.canvas",
                 "viewState": {
-                  "x": -3156.943970807301,
-                  "y": -2125.174679068408,
-                  "zoom": -0.3795679537455239
+                  "x": -3736.225009776559,
+                  "y": -576.6626636994429,
+                  "zoom": -1.179567953745524
                 }
               },
               "pinned": true
@@ -28,7 +28,7 @@
             "id": "1493a1ad2e5af692",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {}
             }
           }
@@ -159,12 +159,32 @@
   },
   "active": "1493a1ad2e5af692",
   "lastOpenFiles": [
+    "Weapons.md",
+    "Systems/Weapons/Collabs.md",
+    "Systems/Weapons/Collabs/Absolute Wall.md",
+    "Systems/Character Selection.md",
+    "Systems/Characters/Characters.md",
+    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
     "Canvas.canvas",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks",
+    "Systems/Characters/PhaseConnect/Uruka/Images/Dirty Mind.png",
+    "Systems/Characters/PhaseConnect/Uruka/Images/Music Note.png",
+    "Systems/Characters/PhaseConnect/Uruka/Images/MONSTER.png",
+    "Systems/Characters/PhaseConnect/Uruka/Images/Weak Bones.png",
+    "z_attachments/Wallmart Form.png",
+    "Systems/Characters/PhaseConnect/Uruka/Images/Wave.png",
+    "Systems/Characters/PhaseConnect/Uruka/Images",
+    "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
+    "Systems/Characters/PhaseConnect/Uruka",
+    "Systems/Characters/PhaseConnect",
+    "Systems/Characters/Hololive",
+    "Systems/Characters",
     "Systems.md",
     "Systems/Weapons/Melee.md",
     "Systems/Weapons/Melee/Sausage.md",
-    "Weapons.md",
-    "Systems/Weapons/Collabs/Absolute Wall.md",
     "Systems/Weapons/Multishot/Bounce Ball.md",
     "Systems/Weapons/Ranged/Cutting Board.md",
     "z_attachments/Pasted image 20240805214525.png",
@@ -177,34 +197,15 @@
     "2023-10-26.md",
     "Systems/Stamps.md",
     "Systems/Weapons/Ranged.md",
-    "Systems/Character Selection.md",
     "z_attachments/Pasted image 20240802212803.png",
     "z_attachments/Pasted image 20240802212758.png",
     "z_attachments/Pasted image 20240802212754.png",
-    "z_attachments/Pasted image 20240802212751.png",
-    "z_attachments/Pasted image 20240802212749.png",
-    "z_attachments/Pasted image 20240802212745.png",
-    "z_attachments/Pasted image 20240802212742.png",
-    "z_attachments/Pasted image 20240802212739.png",
-    "z_attachments/Pasted image 20240802212736.png",
     "Systems/Fandom.md",
     "Systems/Weapons/Multishot/BL Book.md",
     "Systems/Weapons/Melee/Wamy Water.md",
-    "Systems/Weapons/Melee/Spider Cooking.md",
-    "Systems/Weapons/Multishot/X-Potato.md",
-    "Systems/Weapons/Multishot/Plug Type Asacoco.md",
-    "Systems/Weapons/Multishot/Holobomb.md",
-    "Systems/Weapons/Multishot/Glowstick.md",
-    "Systems/Weapons/Multishot/EN's Curse.md",
     "Systems/Weapons/Ranged",
     "Systems/Weapons/Multishot",
     "Systems/Weapons/Melee",
-    "Systems/Weapons",
-    "Untitled",
-    "Systems",
-    "PhaseCure/Canvas.canvas",
-    "PhaseCure/Weapons/Ranged",
-    "PhaseCure/Weapons/Multishot",
-    "PhaseCure/Weapons/Melee"
+    "PhaseCure/Canvas.canvas"
   ]
 }

@@ -6,7 +6,7 @@
 ## Systems
 - [x] Agency selection.
 - [x] Skill status and information.
-- [x] Character status.
+- [x] [[Characters]] status.
 - [ ] Stage selection.
 - [ ] Outfit selection.
 - [x] Fandom Icons
