@@ -1,0 +1,3 @@
+[[Melee]]
+[[MultiShot]]
+[[Ranged]]

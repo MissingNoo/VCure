@@ -22,7 +22,7 @@ if (infected and target == noone) { //TODO multiplayer
 		if (variable_instance_get(_list[| i], "infected") == false) {
 			target = _list[| i];
 			if (instance_exists(target)) {
-				sendMessage({
+				sendMessage(0, {
 					command : Network.InfectMob,
 					id : enemyID,
 					target : target.enemyID,
@@ -179,7 +179,7 @@ if(_canmove and instance_exists(target)){
 		}		
 		if (!deathSent) {
 		    deathSent = true;
-			sendMessage({
+			sendMessage(0, {
 				command : Network.Destroy,
 				enemyID,
 			});

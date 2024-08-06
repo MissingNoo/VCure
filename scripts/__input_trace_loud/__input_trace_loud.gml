@@ -9,7 +9,7 @@ function __input_trace_loud()
         ++_i;
     }
     
-    show_debug_message("Input: LOUD " + _string);
+    //show_debug_message("Input: LOUD " + _string);
     
     if (__INPUT_EXTERNAL_DEBUG_LOG)
     {

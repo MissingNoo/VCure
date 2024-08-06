@@ -17,7 +17,7 @@ if (!dontsend) {
 }
 audio_play_sound(snd_anvildrop,0,0, global.soundVolume);
 if (global.shareAnvils and !dontsend) {
-	sendMessage({
+	sendMessage(0, {
 		command : Network.SpawnAnvil,
 		x, y, 
 		anvilid,

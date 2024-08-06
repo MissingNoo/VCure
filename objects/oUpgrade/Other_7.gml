@@ -97,7 +97,7 @@ maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
 sprSpeedType = sprite_get_speed_type(sprite_index);
 if (sprite_index != _oldsprite) {
-sendMessage({
+sendMessage(0, {
 		command : Network.UpdateUpgrade,
 		socket,
 		upgID,

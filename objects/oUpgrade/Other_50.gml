@@ -1,6 +1,6 @@
 var _prevDirection = direction;
 switch (upg[$ "id"]) {
-    case Weapons.XPotato:{
+    case Weapons.XPotato:
 		if (justBounced) { return; }
 		if (!justBounced) {
 		    justBounced = true;
@@ -8,16 +8,16 @@ switch (upg[$ "id"]) {
 		}
 		direction += 180;
 		break;
-	}
-	case Weapons.UrukaNote:{
+	
+	case Weapons.UrukaNote:
 		
-		break;}
+		break;
     default:
         // code here
         break;
 }
 if (_prevDirection != direction) {
-    sendMessage({
+    sendMessage(0, {
 		command : Network.UpdateUpgrade,
 		socket,
 		upgID,

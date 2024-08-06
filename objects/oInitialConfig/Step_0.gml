@@ -50,6 +50,7 @@ switch (currentStep) {
 			if (!finalAccept) {
 				global.initialConfigDone = true;
 			    Save_Data_Structs();
+				sendMessageNew(Network.Register, {});
 				room_goto(rInicio);
 			}
 			else{

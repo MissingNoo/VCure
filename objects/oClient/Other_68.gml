@@ -5,7 +5,6 @@ if (async_load[? "size"] > 0) {
 	buffer_seek(_buffer, buffer_seek_start, 0);
 	var _response = buffer_read(_buffer, buffer_text);
 	clientReceivedPacket2(_response);
-	
 }
 //switch (type_event) {
 //    case network_type_data:

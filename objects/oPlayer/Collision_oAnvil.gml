@@ -7,7 +7,7 @@ if (!other.used and possible_upgrade) {
 	other.used = true;
 	other.maxuses -= 1;
 	if (global.shareAnvils) {
-	    sendMessage({
+	    sendMessage(0, {
 			command : Network.UpdateAnvil,
 			anvilid : other.anvilid,
 			maxuses : other.maxuses

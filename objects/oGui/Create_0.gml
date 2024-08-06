@@ -194,7 +194,7 @@ selectedOption = 0;
 //feather disable once GM2017
 function share_item(i){
 	if (global.shareItems) {
-		sendMessage({
+		sendMessage(0, {
 			command : Network.AddItem,
 			type : "item",
 			id : playerItems[i][$ "id"],
@@ -206,7 +206,7 @@ function share_item(i){
 //feather disable once GM2017
 function share_weapon(i){
 	if (global.shareWeapons) {
-		sendMessage({
+		sendMessage(0, {
 			command : Network.AddItem,
 			type : "weapon",
 			id : UPGRADES[i].id,

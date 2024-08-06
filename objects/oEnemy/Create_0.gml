@@ -99,7 +99,7 @@ if (global.IsHost and !global.singleplayer) {
 	    variable_struct_set(savedvars, vars[i], variable_instance_get(self, vars[i]));
 	}
 	sendvars = json_stringify(savedvars);
-	sendMessage({
+	sendMessage(0, {
 		command : Network.Spawn,
 		socket : oClient.connected,
 		x,

@@ -1,0 +1,1 @@
+- [x] Generate user id on first game launch.

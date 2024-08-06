@@ -1,5 +1,5 @@
 if (instance_exists(oClient)) {
-	sendMessage({command : Network.Disconnect});
+	sendMessage(0, {command : Network.Disconnect});
     network_destroy(oClient.client);
 	network_destroy(oClient.connected);
 }

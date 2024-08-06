@@ -33,7 +33,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 	if ((point_in_rectangle(mouse_x, mouse_y, joinx1, createy1, joinx2, createy2) and lobbyClick or input_check_pressed("accept")) and array_length(rooms) > 0) {
 		global.roomname = rooms[selectedroom][$ "name"];
 		if (rooms[selectedroom][$ "password"] == "") {
-		    sendMessage({
+		    sendMessage(0, {
 				command : Network.JoinRoom,
 				username : global.username,
 				character : global.player[?"id"],			
@@ -43,7 +43,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 	}
 	
 	if (point_in_rectangle(mouse_x, mouse_y, reloadx1, createy1, reloadx2, createy2) and lobbyClick) {
-		sendMessage({ command : Network.ListRooms });
+		sendMessage(0, { command : Network.ListRooms });
 	}
 }
 
@@ -88,11 +88,11 @@ if (creatingroom) {
 			}
 		    if (creatingselectedyesno == 1 and roomname != "") {
 				creatingroom = false;
-			    sendMessage({
+			    sendMessage(0, {
 					command : Network.CreateRoom,
 					password
 				});
-				sendMessage({
+				sendMessage(0, {
 					command : Network.JoinRoom,
 					username : global.username,
 					character : global.player[?"id"],
@@ -146,13 +146,13 @@ if (typepassword) {
 			    if (rooms[selectedroom][$ "password"] == password) {
 					typepassword = false;
 					global.roomname = rooms[selectedroom][$ "name"];
-				    sendMessage({
+				    sendMessage(0, {
 						command : Network.JoinRoom,
 						username : global.username,
 						character : global.player[?"id"],			
 					});
 				}				
-				//sendMessage({
+				//sendMessage(0, {
 				//	command : Network.JoinRoom,
 				//	username : global.username,
 				//	character : global.player[?"id"],
@@ -181,7 +181,7 @@ if (joinedRoom) {
 		array_shift(oLobby.chatmessages);
 	}
 	if ((gui_button_click(chatSend) and global.mouseDown or keyboard_check_pressed(vk_enter)) and chattext != "") {
-	    sendMessage({
+	    sendMessage(0, {
 			command : Network.ChatMessage,
 			text : chattext,
 			username : global.username
@@ -198,7 +198,7 @@ if (joinedRoom) {
 	}
 	
 	if (ishost and gui_button_click(startButton) and global.mouseDown) {
-		sendMessage({command : Network.StartGame});			
+		sendMessage(0, {command : Network.StartGame});			
 	}
 		
 	#region buttons
@@ -217,7 +217,7 @@ if (joinedRoom) {
 					oGui.x = 0;
 					oGui.y = 0;					
 					variable_instance_set(self, options[i][1], !variable_instance_get(self, options[i][1]));
-					sendMessage({
+					sendMessage(0, {
 						command : Network.UpdateOptions,
 						option : options[i][1],
 						value : variable_instance_get(self, options[i][1])

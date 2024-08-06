@@ -70,14 +70,14 @@ if (hits <= 0 and upg[$ "id"] != Weapons.Glowstick) {
 
 if (image_alpha == 0 and cansend) {
     cansend = false;
-	sendMessage({
+	sendMessage(0, {
 		command: Network.DestroyUpgrade,
 		upgID,	
 	});
 }
 if (sendend) {
 	sendend = false;
-	sendMessage({
+	sendMessage(0, {
 		command : Network.UpdateUpgrade,
 		socket,
 		upgID,
@@ -88,7 +88,7 @@ if (sendend) {
 if (_oldspeed != speed) { extra.speed = speed; }
 if (_olddir != speed) { extra.direction = direction;  extra.image_angle = image_angle; }
 
-sendMessage({
+sendMessage(0, {
 		command : Network.UpdateUpgrade,
 		socket,
 		upgID,

@@ -143,7 +143,7 @@ image_speed = 0;
 		}
 		if (!variable_instance_exists(self, "sent")) {
 			sent = true;
-			sendMessage({
+			sendMessage(0, {
 				command : Network.SpawnUpgrade,
 				socket : oClient.connected,
 				x,

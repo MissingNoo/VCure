@@ -4,7 +4,7 @@ if (lowest < 0) {
     show_debug_message($"lowest: {lowest}");
 }
 
-sendMessage({
+sendMessage(0, {
 	command: Network.DestroyUpgrade,
 	upgID,	
 });

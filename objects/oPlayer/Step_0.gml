@@ -177,7 +177,7 @@ var previousSprite = sprite_index;
 Movement();
 #region Multiplayer sync
 if (x != xprevious or y != yprevious or previousSprite != sprite_index) {
-	sendMessage({
+	sendMessage(0, {
 		command : Network.Move,
 		socket : socket,
 		x : x,

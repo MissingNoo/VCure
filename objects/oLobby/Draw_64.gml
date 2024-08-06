@@ -96,11 +96,11 @@ if (creatingroom) {
 	if (point_in_rectangle(oGui.x, oGui.y, ax - as, cy - 14.5, ax + as, cy + 14.5) and lobbyClick) {
 		    if (roomname != "") {
 				creatingroom = false;
-			    sendMessage({
+			    sendMessage(0, {
 					command : Network.CreateRoom,
 					password
 				});
-				sendMessage({
+				sendMessage(0, {
 					command : Network.JoinRoom,
 					username : global.username,
 					character : global.player[?"id"],
@@ -161,7 +161,7 @@ if (typepassword) {
 		if (rooms[selectedroom][$ "password"] == password) {
 			typepassword = false;
 			global.roomname = rooms[selectedroom][$ "name"];
-			sendMessage({
+			sendMessage(0, {
 				command : Network.JoinRoom,
 				username : global.username,
 				character : global.player[?"id"],			

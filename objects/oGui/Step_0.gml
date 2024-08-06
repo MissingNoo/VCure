@@ -65,6 +65,7 @@ if (device_mouse_check_button_released(0, mb_left)) {
 //if (instance_number(oTitleRunning) == 0 and room == rInicio) {
 //    instance_create_layer(0,0, "Instances", oTitleRunning);
 //}	
+/*
 if (room == rInicio and instance_exists(oClient)) {
     instance_destroy(oClient);//feather disable once GM2017
 	global.IsHost = true;
@@ -73,6 +74,7 @@ if (room == rStage1 and !instance_exists(oClient)) {
 	instance_create_layer(1895, 1880, "Instances", oClient);
     instance_create_layer(1895, 1880, "Instances", oPlayer);
 }
+*/
 #endregion	
 #region Input
 //feather disable GM1044

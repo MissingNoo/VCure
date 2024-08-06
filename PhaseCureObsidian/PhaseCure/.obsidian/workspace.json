@@ -25,43 +25,15 @@
             }
           },
           {
-            "id": "a2a9643677005800",
+            "id": "1493a1ad2e5af692",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Stamps.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0ea808fbe076fbd4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Character Selection.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "11dc3a38946faf3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Holo House.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -107,13 +79,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -129,7 +99,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Holo House.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -146,7 +115,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Holo House.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,9 +136,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Systems/Holo House.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -191,8 +157,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "11dc3a38946faf3c",
+  "active": "1493a1ad2e5af692",
   "lastOpenFiles": [
+    "Canvas.canvas",
+    "Systems.md",
+    "Systems/Weapons/Melee.md",
+    "Systems/Weapons/Melee/Sausage.md",
+    "Weapons.md",
+    "Systems/Weapons/Collabs/Absolute Wall.md",
+    "Systems/Weapons/Multishot/Bounce Ball.md",
+    "Systems/Weapons/Ranged/Cutting Board.md",
+    "z_attachments/Pasted image 20240805214525.png",
+    "Systems/Weapons/Collabs",
+    "Server.md",
+    "Systems/Holo House.md",
+    "Systems/Weapons/MultiShot.md",
+    "Fishing.md",
+    "Farming.md",
+    "2023-10-26.md",
+    "Systems/Stamps.md",
+    "Systems/Weapons/Ranged.md",
+    "Systems/Character Selection.md",
     "z_attachments/Pasted image 20240802212803.png",
     "z_attachments/Pasted image 20240802212758.png",
     "z_attachments/Pasted image 20240802212754.png",
@@ -202,44 +187,24 @@
     "z_attachments/Pasted image 20240802212742.png",
     "z_attachments/Pasted image 20240802212739.png",
     "z_attachments/Pasted image 20240802212736.png",
-    "z_attachments/Pasted image 20240802212732.png",
-    "z_attachments/Pasted image 20240802212728.png",
-    "Systems/Stamps.md",
     "Systems/Fandom.md",
-    "Canvas.canvas",
-    "Systems/Character Selection.md",
-    "Systems/Holo House.md",
-    "Weapons/Multishot/BL Book.md",
-    "Weapons/Melee/Wamy Water.md",
-    "Weapons/Melee/Spider Cooking.md",
-    "Weapons/Multishot/X-Potato.md",
-    "Weapons/Multishot/Plug Type Asacoco.md",
-    "Weapons/Multishot/Holobomb.md",
-    "Weapons/Multishot/Glowstick.md",
-    "Weapons/Multishot/EN's Curse.md",
-    "Weapons/Multishot/Elite Lava Bucket.md",
-    "Weapons/Multishot/CEO Tear's.md",
-    "Weapons/Multishot/Bounce Ball.md",
-    "Weapons/Ranged/Cutting Board.md",
-    "2023-10-26.md",
-    "Weapons/Ranged/Psycho Axe.md",
-    "Weapons/Ranged/Idol Song.md",
-    "Weapons/Ranged/Fan Beam.md",
-    "Weapons/Melee/Sausage.md",
-    "Weapons/Ranged",
-    "Weapons/Multishot",
-    "Weapons/Melee",
-    "Weapons",
+    "Systems/Weapons/Multishot/BL Book.md",
+    "Systems/Weapons/Melee/Wamy Water.md",
+    "Systems/Weapons/Melee/Spider Cooking.md",
+    "Systems/Weapons/Multishot/X-Potato.md",
+    "Systems/Weapons/Multishot/Plug Type Asacoco.md",
+    "Systems/Weapons/Multishot/Holobomb.md",
+    "Systems/Weapons/Multishot/Glowstick.md",
+    "Systems/Weapons/Multishot/EN's Curse.md",
+    "Systems/Weapons/Ranged",
+    "Systems/Weapons/Multishot",
+    "Systems/Weapons/Melee",
+    "Systems/Weapons",
     "Untitled",
     "Systems",
-    "PhaseCure/Weapons/Ranged/Psycho Axe.md",
-    "PhaseCure/Weapons/Ranged/Idol Song.md",
-    "PhaseCure/Weapons/Ranged/Fan Beam.md",
-    "PhaseCure/Weapons/Ranged/Cutting Board.md",
     "PhaseCure/Canvas.canvas",
     "PhaseCure/Weapons/Ranged",
     "PhaseCure/Weapons/Multishot",
-    "PhaseCure/Weapons/Melee",
-    "PhaseCure/z_attachments"
+    "PhaseCure/Weapons/Melee"
   ]
 }
