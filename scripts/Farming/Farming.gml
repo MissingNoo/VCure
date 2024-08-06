@@ -75,8 +75,20 @@ function Inventory() constructor {
     }
 }
 global.crops = [];
-array_push(global.crops, new Crop("Wheat", sWheatSeed, sWheatIcon, sCropWheat, 100, 50, [5, 0]));
-array_push(global.crops, new Crop("Tomato", sTomatoSeed, sTomatoIcon, sCropTomato, 150, 100, [6, 0]));
+array_push(global.crops, 
+    new Crop("Wheat", sWheatSeed, sWheatIcon, sCropWheat, 100, 50, [5, 0]),
+    new Crop("Tomato", sTomatoSeed, sTomatoIcon, sCropTomato, 150, 100, [6, 0]),
+    new Crop("Potato", sPotatoSeed, sPotatoIcon, sCropPotato, 200, 150, [6, 30]),
+    new Crop("Rice", sRiceSeed, sRiceIcon, sCropRice, 250, 200, [7, 0]),
+    new Crop("Onion", sOnionSeed, sOnionIcon, sCropOnion, 300, 250, [7, 30]),
+    new Crop("Carrot", sCarrotSeed, sCarrotIcon, sCropCarrot, 350, 300, [8, 0]),
+    new Crop("Green Bean", sGreenBeanSeed, sGreenBeanIcon, sCropGreenBean, 400, 350, [8, 30]),
+    new Crop("Pepper", sPepperSeed, sPepperIcon, sCropPepper, 450, 400, [9, 0]),
+    new Crop("Strawberry", sStrawberrySeed, sStrawberryIcon, sCropStrawberry, 500, 450, [9, 30]),
+    new Crop("Corn", sCornSeed, sCornIcon, sCropCorn, 550, 500, [10, 0]),
+    new Crop("Radish", sRadishSeed, sRadishIcon, sCropRadish, 600, 550, [11, 0]),
+    new Crop("Garlic", sGarlicSeed, sGarlicIcon, sCropGarlic, 650, 600, [12, 0]),
+);
 global.farmplots = array_create(8, undefined);
 for (var i = 0; i < array_length(global.farmplots); i += 1) {
     global.farmplots[i] = new Plot();

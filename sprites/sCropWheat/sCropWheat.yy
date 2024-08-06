@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Farming",
-    "path":"folders/Sprites/Farming.yy",
+    "name":"World",
+    "path":"folders/Sprites/Farming/Crops/World.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -32,6 +32,9 @@ state.add("Menu", {
         oCamWorld.zoom_level = 0.50;
         if (plot.planted) {
             menuoptions[0] = "Water";
+            if (plot.growthtimer == 0) {
+                menuoptions[0] = "Harvest";
+            }
         }
         else {
             menuoptions[0] = "Plant Seed";
@@ -160,13 +163,14 @@ state.add("Confirm", {
         if (input_check_pressed("left") or input_check_pressed("right")) {
             confirm = !confirm;
         }
-        if (input_check_pressed("cancel")) { 
+        if (input_check_pressed("cancel")) {
             state.change("Seed", function(){}, function(){});
         }
         if (input_check_pressed("accept")) { 
             switch (confirm) {
                 case true:
                     plot.planted = true;
+                    
                     plot.soil = variable_clone(global.farmsoils[selectedsoil]);
                     plot.crop = variable_clone(global.crops[selectedseed]);
                     var _minutes = plot.crop.growthtime[0] * 60 * 60;

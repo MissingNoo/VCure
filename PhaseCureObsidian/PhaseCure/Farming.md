@@ -24,34 +24,34 @@
 		- [x] ![[Pasted image 20240802212723.png]] Tomato (150)
 			- Sell: 100
 			- Base Growth: 6m
-		- [ ] ![[Pasted image 20240802212728.png]] Potato (200)
+		- [x] ![[Pasted image 20240802212728.png]] Potato (200)
 			- Sell: 150
 			- Base Growth: 6:30
-		- [ ] ![[Pasted image 20240802212732.png]] Rice (250)
+		- [x] ![[Pasted image 20240802212732.png]] Rice (250)
 			- Sell: 200
 			- Base Growth: 7:00
-		- [ ] ![[Pasted image 20240802212736.png]] Onion (300)
+		- [x] ![[Pasted image 20240802212736.png]] Onion (300)
 			- Sell: 250
 			- Base Growth: 7:30
-		- [ ] ![[Pasted image 20240802212739.png]] Carrot (350)
+		- [x] ![[Pasted image 20240802212739.png]] Carrot (350)
 			- Sell: 300
 			- Base Growth: 8:00
-		- [ ] ![[Pasted image 20240802212742.png]] Green Bean (400)
+		- [x] ![[Pasted image 20240802212742.png]] Green Bean (400)
 			- Sell: 350
 			- Base Growth: 8:30
-		- [ ] ![[Pasted image 20240802212745.png]] Pepper (450)
+		- [x] ![[Pasted image 20240802212745.png]] Pepper (450)
 			- Sell: 400
 			- Base Growth: 9:00
-		- [ ] ![[Pasted image 20240802212751.png]] Strawberry (500)
+		- [x] ![[Pasted image 20240802212751.png]] Strawberry (500)
 			- Sell: 450
 			- Base Growth: 9:30
-		- [ ] ![[Pasted image 20240802212754.png]] Corn (550)
+		- [x] ![[Pasted image 20240802212754.png]] Corn (550)
 			- Sell: 500
 			- Base Growth: 10:00
-		- [ ] ![[Pasted image 20240802212758.png]] Radish (600)
+		- [x] ![[Pasted image 20240802212758.png]] Radish (600)
 			- Sell: 550
 			- Base Growth: 11:00
-		- [ ] ![[Pasted image 20240802212803.png]] Garlic (650)
+		- [x] ![[Pasted image 20240802212803.png]] Garlic (650)
 			- Sell: 600
 			- Base Growth: 12:00
 	- [ ] Sell for holocoins

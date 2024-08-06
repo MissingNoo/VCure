@@ -357,6 +357,7 @@ function sine_wave(time, period, amplitude, midpoint) {
 	}
     return sin(time * 2 * pi / period) * amplitude + midpoint;
 }
+
 function cose_wave(time, period, amplitude, midpoint) {
     return cos(time * 2 * pi / period) * amplitude + midpoint;
 }
