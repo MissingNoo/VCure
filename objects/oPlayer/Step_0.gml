@@ -3,6 +3,7 @@
 //DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});
 //DebugManager.debug_add_config("Add 100 coins", DebugTypes.Button, undefined, undefined, function(){global.newcoins+=100;});
 #endregion
+if (!instance_exists(oCamWorld)) { instance_create_depth(x, y, depth, oCamWorld); }
 can_collab();
 if (!global.gamePaused and device_mouse_check_button_pressed(0, mb_left) and os_type != os_android and !(instance_exists(DebugManager) and mouse_on_area(DebugManager.screenarea))) {
     mouseAim = !mouseAim;

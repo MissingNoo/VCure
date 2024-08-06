@@ -168,11 +168,11 @@ if (instance_exists(oPlayer)) {
 	if (room == rStage1) {	
 		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent, oBubba, oBubbaBark, oMascot, oChest, oUpgradeNew];
 	    if (oPlayer.x < 610) {
-			xx = oCam.x - oPlayer.x;
+			xx = oCamWorld.x - oPlayer.x;
 			px = oPlayer.x;
 			py = oPlayer.y;
 		    oPlayer.x = 3170;
-			oCam.x = oPlayer.x + xx;
+			oCamWorld.x = oPlayer.x + xx;
 			if (instance_exists(oEvents)) {
 			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
 					oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
@@ -194,11 +194,11 @@ if (instance_exists(oPlayer)) {
 			}
 		}
 		if (oPlayer.x > 3170) {
-			xx = oCam.x - oPlayer.x;
+			xx = oCamWorld.x - oPlayer.x;
 			px = oPlayer.x;
 			py = oPlayer.y;
 		    oPlayer.x = 610;
-			oCam.x = oPlayer.x + xx;
+			oCamWorld.x = oPlayer.x + xx;
 			if (instance_exists(oEvents)) {
 			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
 				    oEvents.clouds[i][0] = oPlayer.x + (oEvents.clouds[i][0] - px);
@@ -221,12 +221,12 @@ if (instance_exists(oPlayer)) {
 			}
 		}
 		if (oPlayer.y < 610) {
-			xx = oCam.x - oPlayer.x;
-			yy = oCam.y - oPlayer.y;
+			xx = oCamWorld.x - oPlayer.x;
+			yy = oCamWorld.y - oPlayer.y;
 			px = oPlayer.x;
 			py = oPlayer.y;
 		    oPlayer.y = 3170;
-			oCam.y = oPlayer.y + yy;
+			oCamWorld.y = oPlayer.y + yy;
 			if (instance_exists(oEvents)) {
 			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
 				    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);
@@ -247,12 +247,12 @@ if (instance_exists(oPlayer)) {
 			}
 		}
 		if (oPlayer.y > 3170) {
-			xx = oCam.x - oPlayer.x;
-			yy = oCam.y - oPlayer.y;
+			xx = oCamWorld.x - oPlayer.x;
+			yy = oCamWorld.y - oPlayer.y;
 			px = oPlayer.x;
 			py = oPlayer.y;
 		    oPlayer.y = 610;
-			oCam.y = oPlayer.y + yy;
+			oCamWorld.y = oPlayer.y + yy;
 			if (instance_exists(oEvents)) {
 			    for (var i = 0; i < array_length(oEvents.clouds); ++i) {
 				    oEvents.clouds[i][1] = oPlayer.y + (oEvents.clouds[i][1] - py);

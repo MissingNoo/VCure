@@ -1,6 +1,3 @@
-if (oPlayerWorld.fishing) {
-	zoom_level = 0.60;
-}
 //this is cahnges the zoom based on scolling but you can set it how ever you like
 zoom_level = clamp(zoom_level + (((keyboard_check_pressed(vk_pageup) - keyboard_check_pressed(vk_pagedown))) * 0.1), 0.5, 2);
 

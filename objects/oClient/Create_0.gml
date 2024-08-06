@@ -4,8 +4,9 @@ global.playerid = ini_read_real("Settings", "playerid", -1);
 global.username = ini_read_string("Settings", "Username", "Player");
 ini_close();
 
+playerSpawn = [1895, 1880];
 showinfo = false;
-infoOffset = [GH/2 + 50, GH/2 + 50];
+infoOffset = [1000, 1000];
 loggedin = false;
 reason = "";
 
@@ -15,6 +16,8 @@ keepalive = time_source_create(time_source_game, 5, time_source_units_seconds,fu
 				//sendMessage(0, {command : Network.KeepAlive, roomname : global.roomname})
 			});
 
+if (room == rStage1 and !instance_exists(oPlayer))
+connected = -1;
 try {
 	connected = network_connect_raw(client, global.serverip, global.port);
 	if (connected >= 0) {
@@ -25,7 +28,8 @@ try {
 	}
 }
 catch(error){
-	show_message_async(error);
+	reason = lexicon_text("Network.Unreachable");
+	//show_message_async(error);
 }
 
 //if (room == rLobby) { instance_create_depth(x,y,depth,oLobby); }

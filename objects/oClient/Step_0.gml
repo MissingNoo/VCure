@@ -5,7 +5,7 @@ if (keyboard_check_pressed(vk_f4)) {
 		infoOffset[1] = 0;
 	}
 	else {
-		infoOffset[1] = GH/2 + 50;
+		infoOffset[1] = GH/2 + 200;
 	}
 }
 if (!global.singleplayer and time_source_exists(keepalive)) {
@@ -14,10 +14,11 @@ if (!global.singleplayer and time_source_exists(keepalive)) {
 		time_source_start(keepalive);
 	}
 }
-/*
+
 if (!instance_exists(oPlayer) and instance_exists(oClient) and room == rStage1) {
-	    instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer,{socket : oClient.connected});
-	}
+	instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer,{socket : oClient.connected});
+}
+/*
 if (inRoom != room and room == rStage1) {
 	inRoom = room;
 	sendMessage(0, {command : Network.PlayerConnect});	
