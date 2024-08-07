@@ -1,3 +1,4 @@
+opentimer = clamp(opentimer - 1, 0, infinity);
 if (plot.planted) {
     plot.growthtimer = clamp(plot.growthtimer - (1 * Delta), 0, infinity);
     //if (plot.growthtimer[1] <= 0) {

@@ -265,6 +265,7 @@
     {"id":{"name":"oEldritchFX","path":"objects/oEldritchFX/oEldritchFX.yy",},},
     {"id":{"name":"oEnemy","path":"objects/oEnemy/oEnemy.yy",},},
     {"id":{"name":"oEvents","path":"objects/oEvents/oEvents.yy",},},
+    {"id":{"name":"oFarmHarvest","path":"objects/oFarmHarvest/oFarmHarvest.yy",},},
     {"id":{"name":"oFarmingPlot","path":"objects/oFarmingPlot/oFarmingPlot.yy",},},
     {"id":{"name":"oFishingMinigame","path":"objects/oFishingMinigame/oFishingMinigame.yy",},},
     {"id":{"name":"oFishPrize","path":"objects/oFishPrize/oFishPrize.yy",},},

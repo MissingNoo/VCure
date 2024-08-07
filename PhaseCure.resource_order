@@ -217,6 +217,7 @@
     {"name":"oEldritchFX","order":8,"path":"objects/oEldritchFX/oEldritchFX.yy",},
     {"name":"oEnemy","order":1,"path":"objects/oEnemy/oEnemy.yy",},
     {"name":"oEvents","order":3,"path":"objects/oEvents/oEvents.yy",},
+    {"name":"oFarmHarvest","order":6,"path":"objects/oFarmHarvest/oFarmHarvest.yy",},
     {"name":"oFarmingPlot","order":5,"path":"objects/oFarmingPlot/oFarmingPlot.yy",},
     {"name":"oFishingMinigame","order":3,"path":"objects/oFishingMinigame/oFishingMinigame.yy",},
     {"name":"oFishPrize","order":4,"path":"objects/oFishPrize/oFishPrize.yy",},

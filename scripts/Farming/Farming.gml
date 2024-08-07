@@ -6,6 +6,7 @@ function Crop(_name, _seed, _sprite, _wsprite, _cost, _sell, _growthtime) constr
     cost = _cost;
     sell = _sell;
     growthtime = _growthtime;
+    seedamount = 1;
     amount = 0;
 }
 function Plot() constructor {
@@ -16,10 +17,19 @@ function Plot() constructor {
     crop = -1;
     growthtimer = 0;
     stage = 0;
+    static reset = function() {
+        planted = false;
+        soil = "";
+        watered = false;
+        wateredcooldown = 0;
+        crop = -1;
+        growthtimer = 0;
+        stage = 0;
+    }
 }
 function Soil(_name, _subimg, _yield, _rate) constructor {
     name = _name;
-    amount = 0;
+    amount = 1;
     subimg = _subimg;
     yield = _yield;
     rate = _rate;

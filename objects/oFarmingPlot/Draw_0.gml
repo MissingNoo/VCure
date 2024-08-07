@@ -15,9 +15,9 @@ if(plot.planted) {
     draw_sprite_ext(plot.crop.worldsprite, plot.stage, x, y, 1, 1, 0, c_white, 1);
     var offset = 0;
     for (var i = 2; i <= 4; i += 1) {
-        scribble($"[fa_bottom][fa_center]{i}:{plot.growthtimer < timer * i}").draw(x, y - 40 - offset);
+        //scribble($"[fa_bottom][fa_center]{i}:{plot.growthtimer < timer * i}").draw(x, y - 40 - offset);
         offset += 10;
     }
     var _text2 = $"[fa_bottom][fa_center]G {plot.growthtimer} T {timer} S {plot.stage}";
-    scribble(_text2).draw(x, y - 20);
+    //scribble(_text2).draw(x, y - 20);
 }
