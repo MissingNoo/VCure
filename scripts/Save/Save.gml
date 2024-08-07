@@ -1,7 +1,7 @@
 // Feather disable GM2017
 global.Data = [
-    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdataJSON", "guiScale", "fishamount", "sand", "equippedrod", "rodsowned"
-    ];
+    "holocoins","musicVolume","soundVolume", "damageNumbers", "shopUpgradesJSON", "showhpui", "gamePad", "houseinventory", "unlockableItems", "unlockableWeapons", "unlockableAchievements", "showOtherNames", "initialConfigDone", "sendMyName", "characterdataJSON", "guiScale", "fishamount", "sand", "equippedrod", "rodsowned", "cropamounts", "soilamounts", "farmplots"
+];
 
 #macro DATA (working_directory + "Save_Data.bin")
 #macro Reserve (working_directory + "Reserve_Data.bin")
@@ -11,6 +11,8 @@ function Save_Data_Structs () {
 	global.characterdataJSON = json_stringify(global.characterdata);
 	global.fishamount = json_stringify(Fishes.data);
 	global.rodsowned = json_stringify(Rods);
+	global.cropamounts = json_stringify(global.crops);
+	global.soilamounts = json_stringify(global.farmsoils);
 	var Data = {};
     for(var i = 0; i < array_length(global.Data); i++){
         var Key = global.Data[i];
@@ -29,8 +31,9 @@ function Load_Data_Structs () {
             for(var i = 0; i < array_length(global.Data); i++){
                 var Key = global.Data[i];
                 //if(variable_global_exists(Key)){
+				if(Json[$ Key] != undefined){
                     variable_global_set(Key, Json[$ Key] );
-				//}
+				}
 			}
           ds_map_destroy(Map);} 
 		  if (is_string(global.shopUpgradesJSON)) {

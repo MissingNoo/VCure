@@ -17,14 +17,25 @@ function Plot() constructor {
     crop = -1;
     growthtimer = 0;
     stage = 0;
-    static reset = function() {
-        planted = false;
-        soil = "";
-        watered = false;
-        wateredcooldown = 0;
-        crop = -1;
-        growthtimer = 0;
-        stage = 0;
+}
+function plot_reset(plot) {
+    plot = global.farmplots[plot];
+    plot.planted = false;
+    plot.soil = "";
+    plot.watered = false;
+    plot.wateredcooldown = 0;
+    plot.crop = -1;
+    plot.growthtimer = 0;
+    plot.stage = 0;
+}
+function updatecropinfo(plot) {
+    for (var i = 0; i < array_length(global.crops); i += 1) {
+        if (plot.crop != -1 and global.crops[i].name == plot.crop.name) {
+            plot.crop.worldsprite = global.crops[i].worldsprite;
+            plot.crop.sprite = global.crops[i].sprite;
+            plot.crop.seedsprite = global.crops[i].seedsprite;
+            break;
+        }
     }
 }
 function Soil(_name, _subimg, _yield, _rate) constructor {

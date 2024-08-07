@@ -2,6 +2,8 @@ randomize();
 global.characterdataJSON = undefined;
 global.fishamount = undefined;
 global.rodsowned = undefined;
+global.cropamounts = undefined;
+global.soilamounts = undefined;
 #region ShopUpgrades
 if (!variable_global_exists("ShopUpgrades")) {
     global.shopUpgrades = {
@@ -239,6 +241,22 @@ if (is_string(global.rodsowned)) {
 	for (var i = 0; i < array_length(arr); ++i) {
 		Rods[i].owned = arr[i].owned;
 	}
+}
+if (is_string(global.cropamounts)) {
+	var arr = json_parse(global.cropamounts);
+	for (var i = 0; i < array_length(arr); ++i) {
+		global.crops[i].seedamount = arr[i].seedamount;
+		global.crops[i].amount = arr[i].amount;
+	}
+}
+if (is_string(global.soilamounts)) {
+	var arr = json_parse(global.soilamounts);
+	for (var i = 0; i < array_length(arr); ++i) {
+		global.farmsoils[i].amount = arr[i].amount;
+	}
+}
+for (var i = 0; i < array_length(global.farmplots); i += 1) {
+	updatecropinfo(global.farmplots[i]);
 }
 #region lower arrays
 //for (var i = 0; i < Characters.Lenght; ++i) {

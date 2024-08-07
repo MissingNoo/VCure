@@ -64,7 +64,7 @@ state.add("Menu", {
                     state.change("Plant");
                     break;
                 case "Remove Plant":
-                    plot.reset();
+                    plot_reset(plotnum);
                     break;
                 case "Quit":
                     state.change("Main");
@@ -75,7 +75,7 @@ state.add("Menu", {
                         if (global.crops[i].name == plot.crop.name) {
                             global.crops[i].amount += _yield;
                             instance_create_depth(0, 0, oPlayerWorld.depth, oFarmHarvest, {prize : global.crops[i], amount : _yield});
-                            plot.reset();
+                            plot_reset(plotnum);
                             state.change("Main", function(){
                                                     oPlayerWorld.canMove = false;
                                                     oCamWorld.zoom_level = 1;
