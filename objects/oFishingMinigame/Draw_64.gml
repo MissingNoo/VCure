@@ -26,7 +26,7 @@ if (caught) {
 	draw_rectangle_color(0, GH, GW, GH - bars[0], c_black, c_black, c_black, c_black, false);
 	draw_set_alpha(1);
 	scribble($"CHAIN: {combo}").scale(3).draw(_x + _sw + 70, _y + 15);
-	scribble($"Bonus Fish: {bonusFish}").scale(2).draw(_x + _sw + 80, _y + 58);
+	scribble($"Bonus Fish: {bonusYield}").scale(2).draw(_x + _sw + 80, _y + 58);
 	if (comboval > 0) {
 		scribble($"[c_red]Speed LV:{comboval}").scale(2).draw(_x + _sw + 80, _y + 90);
 	}

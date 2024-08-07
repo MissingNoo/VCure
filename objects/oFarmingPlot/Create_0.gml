@@ -54,6 +54,7 @@ state.add("Menu", {
             switch (menuoptions[selectedoption]) {
                 case "Water":
                     if (plot.wateredcooldown == 0) {
+                        instance_create_depth(x, y, depth - 1, oVFX, {sprite_index : sWateringCan});
                         plot.watered = true;
                         plot.wateredcooldown = 60;
                         plot.growthtimer -= 60 * 60;
