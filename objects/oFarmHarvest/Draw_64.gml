@@ -10,7 +10,7 @@ else {
 }
 for (var i = array_length(_off) - 1; i >= 0 ; --i) {
     scribble($"[c_black][fa_middle][fa_center]{_text}").scale(2).draw(GW/2 + _off[i][0], offset + 85 + _off[i][1]);
-	scribble($"[c_black][fa_middle][fa_center]{prize.name != "Nothing" ? "CAUGHT!" : "FAIL!"}").scale(4).draw(GW/2 + _off[i][0], offset - 85 + _off[i][1]);
+	scribble($"[c_black][fa_middle][fa_center]{prize.name != "Nothing" ? "PICKED!" : "FAIL!"}").scale(4).draw(GW/2 + _off[i][0], offset - 85 + _off[i][1]);
 }
 scribble($"[fa_middle][fa_center]{_text}").scale(2).draw(GW/2, offset + 85);
 scribble($"[fa_middle][fa_center]{prize.name != "Nothing" ? "PICKED!" : "FAIL!"}").scale(4).draw(GW/2, offset - 85);

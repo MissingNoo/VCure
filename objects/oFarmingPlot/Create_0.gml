@@ -10,7 +10,7 @@ selectedseed = 0;
 recalpha = sine_wave(current_time  / 1250, 1, 0.15, 0.15);
 confirm = true;
 firstcrop = 0;
-lastcrop = 0;
+lastcrop = 8;
 opentimer = 0;
 #endregion
 state = new SnowState("Main");
@@ -141,10 +141,21 @@ state.add_child("Plant", "Seed", {
     enter: function() {
         seedwindowx = [GW, 850];
         selectedseed = 0;
+        firstcrop = 0;
+        lastcrop = 8;
+        selectedseed = 0;
     },
     step : function() {
         seedwindowx[0] = lerp(seedwindowx[0], seedwindowx[1], 0.35);
         selectedseed = clamp(selectedseed - input_check_pressed("up") + input_check_pressed("down"), 0, array_length(global.crops) - 1);
+        if (selectedseed > lastcrop) {
+            lastcrop++;
+            firstcrop++;
+        }
+        if (selectedseed < firstcrop) {
+            lastcrop--;
+            firstcrop--;
+        }
         if (input_check_pressed("accept") and global.crops[selectedseed].seedamount > 0) { 
             state.change("Confirm");
         }
@@ -161,7 +172,7 @@ state.add_child("Plant", "Seed", {
         scribble($"[fa_center][fa_top]{lexicon_text("Farm.SeedsSelect")}").scale(5).draw(_x + (_w / 2), _y - ((sprite_get_height(sFarmListWindow) * 2.50) / 2) + 30);
         _y -= 200;
         var offset = 0;
-        for (var i = 0; i < array_length(global.crops); i++) {
+        for (var i = firstcrop; i <= lastcrop; i++) {
             var alpha = global.crops[i].seedamount > 0 ? 1 : 0.5;
             if (selectedseed == i) {
                 draw_set_alpha(recalpha);

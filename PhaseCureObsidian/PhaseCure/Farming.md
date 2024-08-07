@@ -1,17 +1,18 @@
 - Farming
 	-  Plots
 		- [x] Growth
-		- [ ] Harvest
+		- [x] Harvest
+		- [x] Save amounts
 	- Soil types
-		- [ ] ![[Pasted image 20240802212342.png]] Standard (200)
+		- [x] ![[Pasted image 20240802212342.png]] Standard (200)
 			- [x] Normal growing time
-			- [ ] Normal crop yield (1-3 items)
-		- [ ] ![[Pasted image 20240802212351.png]] Enhanced (750)
+			- [x] Normal crop yield (1-3 items)
+		- [x] ![[Pasted image 20240802212351.png]] Enhanced (750)
 			- [x] Normal growing time
-			- [ ] Triple yield (2-9 items)
-		- [ ] ![[Pasted image 20240802212357.png]] Expedited (1500)
+			- [x] Triple yield (2-9 items)
+		- [x] ![[Pasted image 20240802212357.png]] Expedited (1500)
 			- [x] Starting grow time will be reduced by 40%.
-			- [ ] Normal yield
+			- [x] Normal yield
 	- [ ] Watering
 		- [x] Speed up growth (-60 seconds)
 		- [ ] Rainy weather water plants
