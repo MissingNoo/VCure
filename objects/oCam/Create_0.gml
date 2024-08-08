@@ -20,6 +20,7 @@ view_camera[0] = camera_create_view(0, 0, wport, hport, 0, oCam, -1, -1, 400, 25
 //target_view = 0;
 //rate = 0.4;
 //dis = 40;
+/*
 if (!done) {
 	var aspect = display_get_width() / display_get_height();
 	var h = view_hport[0];

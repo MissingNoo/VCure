@@ -15,8 +15,8 @@ spawnCloud = function(){
 	if (global.gamePaused) { return; }
 	var _size = irandom_range(0, 9);
 	var _speed = random_range(0.2, 0.5);
-	var _x = oPlayer.x - 500;
-	var _y = oPlayer.y + random_range(-100, 100);
+	var _x = oPlayer.x - view_wport[0];
+	var _y = oPlayer.y + random_range(-view_hport[0], view_hport[0]);
 	array_push(clouds, [_x, _y, _speed, _size]);
 }
 //feather disable GM2017

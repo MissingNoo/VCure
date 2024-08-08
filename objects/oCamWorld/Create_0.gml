@@ -12,7 +12,7 @@ if (os_type == os_android) {
 	hport = display_get_height()/3;
 	//show_message_async(string(view_wport[0]) + ":" + string(view_hport[0]));
 }
-view_camera[0] = camera_create_view(0, 0, wport, hport, 0, oCamWorld, -1, -1, 400, 250);
+view_camera[0] = camera_create_view(0, 0, wport, hport, 0, oCamWorld, -1, -1, infinity, infinity);
 //target_view = 0;
 //rate = 0.4;
 //dis = 40;

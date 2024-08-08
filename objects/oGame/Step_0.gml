@@ -337,20 +337,20 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	var _y = oPlayer.y;
 	switch (place) {
 	    case 1:
-	        _y -= 300;
-			_x += random_range(0, view_wport[0]);
+	        _y -= view_hport[0] - 16;
+			_x += random_range(0, view_wport[0] + 16);
 	        break;
 	    case 2:
-	        _y += 300;
-			_x += random_range(0, view_wport[0]);
+	        _y += view_hport[0] + 16;
+			_x += random_range(0, view_wport[0] + 16);
 	        break;
 	    case 3:
-	        _x -= 400;
-			_y += random_range(0, view_hport[0]);
+	        _x -= view_wport[0] - 16;
+			_y += random_range(0, view_hport[0] + 16);
 	        break;
 	    case 4:
-	        _x += 400;
-			_y += random_range(0, view_hport[0]);
+	        _x += view_wport[0] + 16;
+			_y += random_range(0, view_hport[0] + 16);
 	        break;
 	}
     canspawn=false;
