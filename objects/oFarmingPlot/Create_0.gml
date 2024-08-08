@@ -1,7 +1,7 @@
 plot = global.farmplots[plotnum];
 #region Variables
 timer = 0;
-menuoptions = ["Plant Seed", "Remove Plant", "Quit", "Grow"];
+menuoptions = ["Plant Seed", "Remove Plant", "Quit"];
 selectedoption = 0;
 soilwindowx = [GW, GW];
 selectedsoil = 0;
@@ -64,7 +64,9 @@ state.add("Menu", {
                     state.change("Plant");
                     break;
                 case "Remove Plant":
-                    plot_reset(plotnum);
+                    if (plot.planted) {
+                        plot_reset(plotnum);
+                    }
                     break;
                 case "Quit":
                     state.change("Main");

@@ -229,3 +229,11 @@ function slider(icon, iconoffset, x, y, length, height, r, variable, backcolor =
 		}
 	}
 }
+
+function scribble_outline(text, x, y, outcolor = "c_black", scale = 1) {
+    var _off = [[-2, 0], [2, 0], [0, -2], [0, 2]];
+    for (var i = array_length(_off) - 1; i >= 0 ; --i) {
+        scribble($"[{outcolor}]{text}").scale(scale).draw(x + _off[i][0], y + _off[i][1]);
+    }
+    scribble(text).scale(scale).draw(x, y);
+}
