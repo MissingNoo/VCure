@@ -29,6 +29,10 @@
 	draw_set_valign(fa_middle);
 	var offset = 0, isSelected, xScale, textcolor;
 	for (var i = 0; i < array_length(options); ++i) {
+		var alpha = 1;
+		if (options[i] == "Submit Highscore" and !cansubmit) {
+			alpha = 0.5;
+		}
 		if (i == selectedOption) {
 		    isSelected = 1;
 			xScale = 2.10;
@@ -41,10 +45,12 @@
 		}
 		var _x = GW/2;
 		var _y = round(GH/1.79 + offset);
-	    draw_sprite_ext(sHudButton, isSelected, _x, _y, xScale, 2, 0, c_white, 1);
+	    draw_sprite_ext(sHudButton, isSelected, _x, _y, xScale, 2, 0, c_white, alpha);
 		mouse_on_button(_x, _y, sHudButton, i, xScale, 2, "selectedOption");
 		draw_set_color(textcolor);
+		draw_set_alpha(alpha);
 		draw_text_transformed(_x, _y, options[i], 2, 2, 0);
+		draw_set_alpha(1);
 		draw_set_color(c_white);
 		offset += 75;
 }

@@ -7,6 +7,7 @@ enum Network {
 	Null,
 	Register,
 	Login,
+	SubmitScore,
 
 	Move,
 	Message,

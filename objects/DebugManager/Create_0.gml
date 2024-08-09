@@ -118,6 +118,13 @@ DebugManager.debug_add_config(self, {
 	page : "Stage"
 });
 DebugManager.debug_add_config(self, {
+	text : "Kill",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){ HP = 0; },
+	page : "Stage"
+});
+DebugManager.debug_add_config(self, {
 	text : "Bubba",
 	type : DebugTypes.Button,
 	//variable : "checkboxtest",
