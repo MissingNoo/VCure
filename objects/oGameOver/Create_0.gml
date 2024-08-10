@@ -1,4 +1,4 @@
-cansubmit = true;
+cansubmit = oClient.connected == 0; //TODO: false if not connected
 image_alpha = 0;
 selectedOption = 0;
 options = ["Retry", "Character Select", "Submit Highscore", "Main Menu"];

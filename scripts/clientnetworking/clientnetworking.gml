@@ -8,6 +8,9 @@ enum Network {
 	Register,
 	Login,
 	SubmitScore,
+	CreateLobby,
+	JoinLobby,
+	ListLobbies,
 
 	Move,
 	Message,
@@ -60,6 +63,13 @@ function clientReceivedPacket2(_response)
 				oClient.loggedin = false;
 				oClient.reason = r[$ "reason"];
 			}
+			break;
+		case Network.JoinLobby:
+			show_debug_message(json_stringify(json_parse(r[$ "players"]), true));
+			break;
+		case Network.ListLobbies:
+			show_debug_message($"###\n{r[$ "lobbies"]}");
+			oLobby.rooms = json_parse(r[$ "lobbies"]);
 			break;
 	}
 }
@@ -310,7 +320,7 @@ function sendMessage(type, data){}
 /// @function                //sendMessage(data)
 /// @description             Data to send server
 /// @param {any}     data data to send
-function sendMessageNew(type, data){
+function sendMessageNew(type, data = {}){
 	if (oClient.connected != 0) { exit; }
 	buffer_seek(oClient.clientBuffer, buffer_seek_start, 0);
 	data.playerid = global.playerid;

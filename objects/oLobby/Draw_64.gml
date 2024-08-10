@@ -1,4 +1,4 @@
-
+scribble(string_replace_all(rooms, "[", "[[")).draw(10, 10);
 if (!joinedRoom) {//wrong client secret
 	var x1;
 	var y1;

@@ -3,7 +3,7 @@ clicked = false;
 joinedRoom = false;
 roomname = "";
 rooms = [];
-sendMessage(0, { command : Network.ListRooms });
+sendMessageNew(Network.ListLobbies);
 selectedroom = 0;
 sprites=0;
 ishost = 0;

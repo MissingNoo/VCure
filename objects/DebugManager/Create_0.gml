@@ -109,6 +109,32 @@ DebugManager.debug_add_config(self, {
 	page : "Start"
 });
 DebugManager.same_line();
+//Network
+DebugManager.debug_add_config(self, {
+	text : "Create Lobby",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){sendMessageNew(Network.CreateLobby, {name : "testlobby", password : "idkbro"})},
+	page : "Network"
+});
+DebugManager.debug_add_config(self, {
+	text : "Join Lobby",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){sendMessageNew(Network.JoinLobby, {name : "testlobby", password : "idkbro"})},
+	page : "Network"
+});
+DebugManager.debug_add_config(self, {
+	text : "Second Login",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		global.playerid = 5;
+		global.username = "Airg";
+		sendMessageNew(Network.Login, {});
+	},
+	page : "Network"
+});
 //Stage
 DebugManager.debug_add_config(self, {
 	text : "Anvil",

@@ -43,7 +43,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 	}
 	
 	if (point_in_rectangle(mouse_x, mouse_y, reloadx1, createy1, reloadx2, createy2) and lobbyClick) {
-		sendMessage(0, { command : Network.ListRooms });
+		sendMessageNew(Network.ListLobbies);
 	}
 }
 

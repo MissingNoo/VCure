@@ -16,7 +16,6 @@ keepalive = time_source_create(time_source_game, 5, time_source_units_seconds,fu
 				//sendMessage(0, {command : Network.KeepAlive, roomname : global.roomname})
 			});
 
-if (room == rStage1 and !instance_exists(oPlayer))
 connected = -1;
 try {
 	connected = network_connect_raw(client, global.serverip, global.port);
