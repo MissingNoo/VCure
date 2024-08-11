@@ -4,9 +4,9 @@ function bounceball_create(obj){
 		obj.image_xscale = obj.image_xscale * 1.10;
 		obj.image_yscale = obj.image_xscale;
 	}
-	obj.y = oPlayer.y - 200;
+	obj.y = obj.owner.y - 200;
 	var _bx = irandom_range(-100, 100);
-	obj.x = oPlayer.x + _bx;
+	obj.x = obj.owner.x + _bx;
 }
 function bounceball_step(obj){
 	if (obj.vspeed < obj.upg[$ "speed"]) {

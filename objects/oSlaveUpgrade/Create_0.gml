@@ -1,6 +1,7 @@
 /// @instancevar {Any} upg 
 /// @instancevar {Any} owner 
 /// @instancevar {Any} updata 
+/// @instancevar {Any} oid 
 original_scale = [image_xscale, image_yscale];
 afterimage = [[0], [0], [0], [0]];
 alarm[0] = 700;

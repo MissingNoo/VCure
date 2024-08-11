@@ -1,6 +1,6 @@
 function spidercooking_create(obj){
-	obj.x = oPlayer.x;
-	obj.y = oPlayer.y - (sprite_get_height(global.player[?"sprite"]) / 3);
+	obj.x = obj.owner.x;
+	obj.y = obj.owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
 	obj.image_yscale = obj.image_xscale;
 	for (var i = 0; i < instance_number(oUpgradeNew); ++i) {
 		try{
@@ -13,8 +13,8 @@ function spidercooking_create(obj){
 	}
 }
 function spidercooking_step(obj){
-	obj.x = oPlayer.x;
-	obj.y = oPlayer.y - (sprite_get_height(global.player[?"sprite"]) / 3);
+	obj.x = obj.owner.x;
+	obj.y = obj.owner.y - (sprite_get_height(global.player[?"sprite"]) / 3);
 }
 function spidercooking_draw(obj){
 	draw_set_color(c_purple);

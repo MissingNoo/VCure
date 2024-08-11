@@ -1,7 +1,7 @@
 function amepistol_create(obj){
 	obj.direction = global.arrowDir;
 	obj.image_angle = global.arrowDir;
-	if (obj.shoots > 0 and oPlayer.slowTime) {
+	if (obj.shoots > 0 and oPlayer.slowTime) { //TODO: multiplayer
 		global.upgradeCooldown[Weapons.AmePistol] = global.upgradeCooldown[Weapons.AmePistol] / 2;
 	}
 	obj.amePistolLastHit = false;

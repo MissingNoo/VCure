@@ -1,1 +1,1 @@
-scribble($"Zoom:{zoom_level}").scale(2).draw(GW/2, GH/2);
+//scribble($"Zoom:{zoom_level}").scale(2).draw(GW/2, GH/2);

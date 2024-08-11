@@ -1,5 +1,6 @@
 /// @instancevar {any} owner 
 /// @instancevar {Any} upg 
+oid = irandom(999999);
 resetcooldown = false;
 cooldownwasreset = false;
 animate = true;
@@ -16,6 +17,9 @@ sprite_speed = sprite_get_speed(sprite_index);
 sprite_speed_type = sprite_get_speed_type(sprite_index);
 dAlarm = [];
 array_push(dAlarm, [upg.duration, function() {
+	if (!global.singleplayer) {
+		sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : oid, type : "upg"})});
+	}
 	instance_destroy();
 }]);
 reverseshoots = -1;
@@ -91,11 +95,10 @@ if (upg[$ "create"] != undefined) {
 if (!global.singleplayer and sendspawn) {
 	sendspawn = false;
 	var updata = {};
-	var names = ["direction", "image_xscale", "image_yscale"];
+	var names = ["direction", "image_xscale", "image_yscale", "image_angle", "sprite_index", "oid"];
 	for (var i = 0; i < array_length(names); i++) {
 		updata[$ names[i]] = self[$ names[i]];
 	}
-	show_debug_message(updata);
 	sendMessageNew(Network.SpawnUpgrade, {id : upg.id, level : upg.level, updata : json_stringify(updata)});
 }
 visible = true;

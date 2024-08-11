@@ -28,8 +28,8 @@ function glowstick_step(obj){
 		obj.speed = 0;
 	}
 	with (obj) {
-	    if (distance_to_object(oPlayer) > 200) {
-			direction = point_direction(x, y, oPlayer.x, oPlayer.y);
+	    if (distance_to_object(obj.owner) > 200) {
+			direction = point_direction(obj.x, obj.y, obj.owner.x, obj.owner.y);
 		}
 	}
 }

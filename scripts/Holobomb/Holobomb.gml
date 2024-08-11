@@ -1,7 +1,7 @@
 function holobomb_create(obj){
-	obj.x = oPlayer.x + irandom_range(-50,50);
-	obj.y = oPlayer.y + (irandom_range(-50,50));
-	obj.depth = oPlayer.depth;
+	obj.x = obj.owner.x + irandom_range(-50,50);
+	obj.y = obj.owner.y + (irandom_range(-50,50));
+	obj.depth = obj.owner.depth;
 }
 function holobomb_on_hit(obj){
 	obj.image_xscale = obj.original_scale[0];

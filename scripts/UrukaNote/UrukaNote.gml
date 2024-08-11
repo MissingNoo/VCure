@@ -17,20 +17,20 @@ function urukanote_create(obj){
 	}
 	if (obj.idolDir == 90) {
 		obj.idolDir = 270;
-		obj.idolStartX= oPlayer.x + 20;
+		obj.idolStartX= obj.owner.x + 20;
 		obj.direction = obj.idolDir;
 	}else{
 		obj.idolDir = 90;
-		obj.idolStartX= oPlayer.x - 20;
+		obj.idolStartX= obj.owner.x - 20;
 		obj.direction = obj.idolDir;
 	}			
-	if (oPlayer.image_xscale==1) {
+	if (obj.owner.image_xscale==1) {
 		obj.direction = point_direction(obj.x,obj.y,obj.x+100,obj.y);
 	}
 	else {
 		obj.direction = point_direction(obj.x,obj.y,obj.x-100,obj.y);
 	}
-	obj.image_xscale = oPlayer.image_xscale;
+	obj.image_xscale = obj.owner.image_xscale;
 	obj.sprite_index = choose(sFullNote, sHalfNote, sQuarterNote, sEightNote);
 	switch (obj.sprite_index) {
 		case sFullNote:

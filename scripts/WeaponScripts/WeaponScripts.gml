@@ -197,8 +197,8 @@ function eldritchhorror_step(o){
 	if (o == 0) {
 	    dAlarm[3] = irandom(100);
 		depth = layer_get_depth("Pools") + 1;
-		x = oPlayer.x + irandom_range(-200, 200);
-		y = oPlayer.y + irandom_range(-200, 200);
+		x = obj.owner.x + irandom_range(-200, 200);
+		y = obj.owner.y + irandom_range(-200, 200);
 		ps = part_system_create();
 		ps2 = part_system_create();
 		part_system_depth(ps, depth-1);

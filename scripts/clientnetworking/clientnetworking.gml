@@ -19,6 +19,8 @@ enum Network {
 	StartGame,
 	MovePlayer,
 	SpawnUpgrade,
+	SpawnEnemy,
+	DestroyInstance,
 
 	Message,
 	Move,
@@ -32,8 +34,7 @@ enum Network {
 	UpdateUpgrade,
 	Destroy,
 	HostDisconnected,
-	LobbyConnect,
-	
+	LobbyConnect,	
 	CreateRoom,
 	ListRooms,
 	JoinRoom,
@@ -104,6 +105,34 @@ function clientReceivedPacket2(_response)
 		case Network.SpawnUpgrade:
 			if (!instance_exists(oSlave)) { break; }
 			instance_create_depth(oSlave.x, oSlave.y, oSlave.depth, oSlaveUpgrade, {upg : global.upgradesAvaliable[r[$ "id"]][r[$"level"]], owner : oSlave, updata : json_parse(r[$ "updata"])});
+			break;
+		case Network.SpawnEnemy:
+			var info = json_parse(r[$ "enemydata"]);
+			var _enemy = instance_create_depth(info.x, info.y, 0, oEnemy, {
+				fromnetwork : true, 
+				thisEnemy : info.thisEnemy,
+				target : info.target,
+				enemyID : info.enemyID
+			});
+			break;
+		case Network.DestroyInstance:
+			var info = json_parse(r[$ "instancedata"]);
+			switch (info.type) {
+				case "upg":
+					with (oSlaveUpgrade) {
+						if (oid == info.id) {
+							instance_destroy();
+						}
+					}
+					break;
+				case "enemy":
+					with (oEnemy) {
+						if (enemyID == info.id) {
+							hp = -1;
+						}
+					}
+					break;
+			}
 			break;
 	}
 }
@@ -234,7 +263,7 @@ function clientReceivedPacket2(_response)
 				_enemy.target = _enemy.target == oPlayer ? oSlave : oPlayer;
 				//if (_enemy.target == oPlayer) {
 				    
-				//}33d74eef94
+				//}
 				
 				//_enemy.target = instance_nearest(x,y,oSlave);
 				with (_enemy) {
@@ -361,7 +390,7 @@ function sendMessageNew(type, data = {}){
 	data.playername = global.username;
 	data.type = type;
 	var _json = json_stringify(data);
-	show_debug_message($"Sending data: {json_stringify(data, true)}");
+	//show_debug_message($"Sending data: {json_stringify(data, true)}");
 	buffer_write(oClient.clientBuffer, buffer_text, _json);	
 	network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }

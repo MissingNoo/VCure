@@ -1,8 +1,8 @@
 function lavabucket_create(obj){
 	random_set_seed(current_time + global.currentFrame);
-	obj.x = oPlayer.x + irandom_range(-100,100);
+	obj.x = obj.owner.x + irandom_range(-100,100);
 	random_set_seed(current_time + global.currentFrame/ 2);
-	obj.y = oPlayer.y + irandom_range(-100,100);
+	obj.y = obj.owner.y + irandom_range(-100,100);
 	obj.depth = layer_get_depth("Pools");
 }
 

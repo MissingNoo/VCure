@@ -2,7 +2,6 @@ if (boss) {
     audio_play_sound(snd_bossdefeated,0,0, global.soundVolume);
 	instance_create_depth(x, y, depth, oChest);
 }
-
 //global.lastxp = xp;
 //layer_sequence_create("Instances", x, y, seq_xp);
 //random_set_seed(current_time);

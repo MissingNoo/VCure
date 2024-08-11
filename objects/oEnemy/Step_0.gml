@@ -1,3 +1,12 @@
+/*if (enemyinfo != -1 and setinfo) {
+	setinfo = false;
+	var names = variable_struct_get_names(enemyinfo);
+	for (var i = 0; i < array_length(names); i++) {
+		self[$ names[i]] = enemyinfo[$ names[i]];
+	}
+	initiate_enemy(EnemyList[thisEnemy]);
+	
+}*/
 updatedebuffs();
 if (!firstlook and instance_exists(target)) {
     firstlook = true;
@@ -179,10 +188,7 @@ if(_canmove and instance_exists(target)){
 		}		
 		if (!deathSent) {
 		    deathSent = true;
-			sendMessage(0, {
-				command : Network.Destroy,
-				enemyID,
-			});
+			sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : enemyID, type : "enemy"})});
 		}
 		
 		image_alpha-=.05 * Delta;
