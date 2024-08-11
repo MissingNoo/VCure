@@ -1081,6 +1081,7 @@
     {"name":"sLobster","order":19,"path":"sprites/sLobster/sLobster.yy",},
     {"name":"sLobsterIcon","order":20,"path":"sprites/sLobsterIcon/sLobsterIcon.yy",},
     {"name":"sLockIcon","order":13,"path":"sprites/sLockIcon/sLockIcon.yy",},
+    {"name":"sLockLobby","order":29,"path":"sprites/sLockLobby/sLockLobby.yy",},
     {"name":"sMantaRay","order":25,"path":"sprites/sMantaRay/sMantaRay.yy",},
     {"name":"sMantaRayIcon","order":26,"path":"sprites/sMantaRayIcon/sMantaRayIcon.yy",},
     {"name":"sMembership","order":19,"path":"sprites/sMembership/sMembership.yy",},

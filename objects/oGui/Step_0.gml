@@ -135,7 +135,7 @@ if (room == rInicio and !global.gamePaused) {
 				//instance_create_layer(0, 0, "Instances", oClient);
 				selected=0;
 				global.stageType = StageTypes.Stage;
-	            room_goto(rCharacterSelect);
+	            room_goto(rLobby);
 	            break;
 			//case MenuOptionsEnum.Settings:{
 			//	keyboard_clear(ord("Z"));

@@ -1236,6 +1236,7 @@
     {"id":{"name":"sLobster","path":"sprites/sLobster/sLobster.yy",},},
     {"id":{"name":"sLobsterIcon","path":"sprites/sLobsterIcon/sLobsterIcon.yy",},},
     {"id":{"name":"sLockIcon","path":"sprites/sLockIcon/sLockIcon.yy",},},
+    {"id":{"name":"sLockLobby","path":"sprites/sLockLobby/sLockLobby.yy",},},
     {"id":{"name":"sMantaRay","path":"sprites/sMantaRay/sMantaRay.yy",},},
     {"id":{"name":"sMantaRayIcon","path":"sprites/sMantaRayIcon/sMantaRayIcon.yy",},},
     {"id":{"name":"sMembership","path":"sprites/sMembership/sMembership.yy",},},
