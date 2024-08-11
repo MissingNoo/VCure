@@ -1,3 +1,8 @@
+wl[0] = lerp(wl[0], wl[1], 0.25);
+subimg += 1;
+if (subimg > 60) {
+	subimg = 0;
+}
 fsm.step();
 /*lobbyClick = input_check_pressed("click");
 if (os_type == os_android) {

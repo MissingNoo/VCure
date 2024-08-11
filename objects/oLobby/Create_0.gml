@@ -1,10 +1,11 @@
 #region Basic variables
+subimg = 0;
 lobbyname = "";
 rooms = [];
-sendMessageNew(Network.ListLobbies);
 selectedroom = 0;
 ishost = 0;
-players = undefined;
+players = ["", ""];
+wl = [-750, -750, -751];
 #endregion
 
 #region Room Options
@@ -38,6 +39,7 @@ chatmessages = [];
 fsm = new SnowState("Rooms");
 fsm.add("Rooms", {
 	enter : function() {
+		sendMessageNew(Network.ListLobbies);
 		selectedroom = 0;
 		reloadcooldown = 60 * 5;
 	},
@@ -88,7 +90,7 @@ fsm.add_child("Rooms", "CreateLobby", {
 		if (input_check_pressed("pause")) {
 			wl[1] = wl[2];
 		}
-		wl[0] = lerp(wl[0], wl[1], 0.25);
+		
 		if (wl[0] == wl[2]) {
 			fsm.change("Rooms");
 		}
@@ -156,6 +158,9 @@ fsm.add_child("Rooms", "JoiningLobby", {
 		lobbypass = "";
 		keyboard_string = "";
 		editing = 1;
+		if (!rooms[selectedroom].protected) {
+			sendMessageNew(Network.JoinLobby, {name : lobbyname, password : lobbypass});
+		}
 	},
 	step : function() {
 		if (input_check_pressed("pause")) {
@@ -219,10 +224,84 @@ fsm.add("OnLobby", {
 	step : function() {
 	},
 	draw : function() {
+		lobby_button(120, 40, "Leave", function(){
+			sendMessageNew(Network.LeaveLobby);
+		}, [0.65, 1.50, 2]);
+		lobby_button(GW - 120, 40, "Select Character", function(){
+			if (fsm.get_current_state() == "OnLobbyCharacter") {
+				wl[1] = wl[2];
+			}
+			else {
+				fsm.change("OnLobbyCharacter");
+			}
+		}, [1.20, 1.50, 2]);
+		var d = DebugManager;
+		#region Players
+		var poffset = 0;
+		var _px = GW/2 - 300;
+		var _py = 310;
+		for (var i = 0; i < array_length(players); i++) {
+			if (players[i] = "") { continue; }
+			draw_sprite_ext(sHudAreaNew, 0, _px + poffset, _py, 6, 9, 0, c_white, 1);
+			var char = global.characters[players[i].character];
+			var spr = char[? "sprite"];
+			var simg = sprite_get_number(spr);
+			draw_sprite_ext(sCharShadow, 0, _px + poffset, _py + 45, 5, 5, 0, c_white, 0.5);
+			draw_sprite_ext(spr, ((subimg / room_speed) * simg), _px + poffset, _py + 45, 5, 5, 0, c_white, 1);
+			scribble($"[fa_center][fa_middle]{char[? "name"]}").scale(3).draw(_px + poffset, _py + 78);
+			scribble($"[fa_center][fa_middle]{players[i].name}").scale(3).draw(_px + poffset, _py + 155);
+			poffset += 600;
+		}		
+		#endregion
 		var _text = string_replace(players, "[", "[[");
-		scribble(_text).scale(2).draw(10, 10);
+		scribble(_text).scale(2).draw(10, 60);
 	}
-})
+});
+
+fsm.add_child("OnLobby", "OnLobbyCharacter", {
+	enter : function() {
+		selectedcharacter = 0;
+		wl = [-750, 0, -751];
+	},
+	step : function() {
+		if (input_check_pressed("pause") or input_check_pressed("cancel")) {
+			wl[1] = wl[2];
+		}
+		var move = -input_check_pressed("left") + input_check_pressed("right") - (input_check_pressed("up") * 5) + (input_check_pressed("down") * 5);
+		selectedcharacter = clamp(selectedcharacter + move, 1, Characters.Lenght - 1);
+		if (input_check_pressed("accept")) {
+			sendMessageNew(Network.SelectCharacter, {character : selectedcharacter});
+			wl[1] = wl[2];
+		}
+		if (wl[0] == wl[2]) {
+			fsm.change("OnLobby");
+		}
+	},
+	draw : function() {
+		var d = DebugManager;
+		fsm.inherit();
+		var _x = GW/2;
+		var _y = GH/2 + wl[0];
+		draw_sprite_ext(sHudAreaNew, 0, _x, _y, 9, 11, 0, c_white, 1);
+		var offset = 0;
+		var yoffset = 0;
+
+		_y -= 215;
+		scribble("[fa_top][fa_center]Characters").scale(3).draw(_x, _y);
+		_y += 80;
+		for (var i = 1; i < Characters.Lenght; i++) {
+			if (selectedcharacter == i) {
+				draw_sprite_ext(sMenuCharSelectCursor, -1, _x - 160 + offset, _y + yoffset, 1.59, 1.59, 0, c_white, 1);
+			}
+			draw_sprite_ext(global.characters[i][? "portrait"], 0, _x - 160 + offset, _y + yoffset, 1.50, 1.50, 0, c_white, 1);
+			offset += 80;
+			if (i == 5) {
+				offset = 0;
+				yoffset += 70;
+			}
+		}
+	}
+});
 
 /*
 fsm.add_child("Rooms", "CreateLobby", {

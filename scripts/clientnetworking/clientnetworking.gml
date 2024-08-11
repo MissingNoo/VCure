@@ -13,6 +13,8 @@ enum Network {
 	ListLobbies,
 	Disconnect,
 	UpdatePlayers,
+	LeaveLobby,
+	SelectCharacter,
 
 	Move,
 	Message,
@@ -75,6 +77,9 @@ function clientReceivedPacket2(_response)
 			break;
 		case Network.UpdatePlayers:
 			oLobby.players = json_parse(r[$ "players"]);
+			break;
+		case Network.LeaveLobby:
+			oLobby.fsm.change("Rooms");
 			break;
 	}
 }
