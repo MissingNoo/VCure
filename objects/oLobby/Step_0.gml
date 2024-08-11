@@ -1,4 +1,5 @@
-lobbyClick = input_check_pressed("click");
+fsm.step();
+/*lobbyClick = input_check_pressed("click");
 if (os_type == os_android) {
     lobbyClick = global.mouseDown;
 }

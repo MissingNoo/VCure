@@ -6,5 +6,6 @@ ini_write_real("Debug", "b", b);
 ini_write_real("Debug", "c", c);
 ini_write_real("Debug", "d", d);
 ini_write_real("Debug", "e", e);
+ini_write_real("Debug", "f", f);
 ini_close();
-show_debug_message($"a:{a}\nb:{b}\nc:{c}\nd:{d}\ne:{e}");
+show_debug_message($"a:{a}\nb:{b}\nc:{c}\nd:{d}\ne:{e}\nf:{f}");

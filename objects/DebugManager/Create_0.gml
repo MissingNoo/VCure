@@ -52,7 +52,8 @@ b = ini_read_real("Debug", "b", 1);
 c = ini_read_real("Debug", "c", 1);
 d = ini_read_real("Debug", "d", 1);
 e = ini_read_real("Debug", "e", 1);
-arr = ["a", "b", "c", "d", "e"];
+f = ini_read_real("Debug", "f", 1);
+arr = ["a", "b", "c", "d", "e", "f"];
 for (var i = 0; i < array_length(arr); ++i) {
     DebugManager.debug_add_config(self, {
 	text : arr[i],
@@ -131,7 +132,8 @@ DebugManager.debug_add_config(self, {
 	func: function(){
 		global.playerid = 5;
 		global.username = "Airg";
-		sendMessageNew(Network.Login, {});
+		instance_destroy(oClient);
+		instance_create_depth(0, 0, 0, oClient);
 	},
 	page : "Network"
 });

@@ -1,14 +1,14 @@
 if (instance_number(oClient) > 1) { instance_destroy(); }
-ini_open("settings");
-global.playerid = ini_read_real("Settings", "playerid", -1);
-global.username = ini_read_string("Settings", "Username", "Player");
-ini_close();
-
 playerSpawn = [1895, 1880];
 showinfo = false;
 infoOffset = [1000, 1000];
 loggedin = false;
 reason = "";
+
+ini_open("settings");
+global.playerid = ini_read_real("Settings", "playerid", -1);
+global.username = ini_read_string("Settings", "Username", "Player");
+ini_close();
 
 client = network_create_socket(network_socket_tcp);
 clientBuffer = buffer_create(4098, buffer_fixed, 1);
@@ -21,14 +21,14 @@ try {
 	connected = network_connect_raw(client, global.serverip, global.port);
 	if (connected >= 0) {
 		sendMessageNew(Network.Login, {});
+		reason = lexicon_text("Network.Sucessful");
 	}
 	else {
 		reason = lexicon_text("Network.Unreachable");
 	}
 }
 catch(error){
-	reason = lexicon_text("Network.Unreachable");
-	//show_message_async(error);
+	reason = lexicon_text("Network.Error");
 }
 
 //if (room == rLobby) { instance_create_depth(x,y,depth,oLobby); }

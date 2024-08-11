@@ -30,8 +30,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Farming.md",
-                "mode": "preview",
+                "file": "Server.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -87,8 +87,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -104,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Farming.md",
+                "file": "Server.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Farming.md",
+                "file": "Server.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Farming.md"
+                "file": "Server.md"
               }
             }
           }
@@ -168,6 +167,7 @@
   },
   "active": "1493a1ad2e5af692",
   "lastOpenFiles": [
+    "Farming.md",
     "Weapons.md",
     "Systems/Weapons/Collabs.md",
     "Systems/Weapons/Collabs/Absolute Wall.md",
@@ -202,7 +202,6 @@
     "Systems/Holo House.md",
     "Systems/Weapons/MultiShot.md",
     "Fishing.md",
-    "Farming.md",
     "2023-10-26.md",
     "Systems/Stamps.md",
     "Systems/Weapons/Ranged.md",

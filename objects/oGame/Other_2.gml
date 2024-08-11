@@ -278,4 +278,8 @@ try{
 catch (err){
 	//ignore
 }
+ini_open("settings");
+global.playerid = ini_read_real("Settings", "playerid", -1);
+global.username = ini_read_string("Settings", "Username", "Player");
+ini_close();
 #endregion

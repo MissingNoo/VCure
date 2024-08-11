@@ -11,6 +11,7 @@ enum Network {
 	CreateLobby,
 	JoinLobby,
 	ListLobbies,
+	Disconnect,
 
 	Move,
 	Message,
@@ -65,7 +66,8 @@ function clientReceivedPacket2(_response)
 			}
 			break;
 		case Network.JoinLobby:
-			show_debug_message(json_stringify(json_parse(r[$ "players"]), true));
+			oLobby.players = json_parse(r[$ "players"]);
+			oLobby.fsm.change("OnLobby");
 			break;
 		case Network.ListLobbies:
 			show_debug_message($"###\n{r[$ "lobbies"]}");

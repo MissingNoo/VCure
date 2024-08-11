@@ -1,5 +1,5 @@
-scribble(string_replace_all(rooms, "[", "[[")).draw(10, 10);
-if (!joinedRoom) {//wrong client secret
+fsm.draw();
+/*if (!joinedRoom) {//wrong client secret
 	var x1;
 	var y1;
 	var x2;
@@ -9,26 +9,8 @@ if (!joinedRoom) {//wrong client secret
 	draw_text(40,20, string(selectedroom));
 
 	#region button squares
+	var dm = DebugManager;
 	
-	draw_set_alpha(.35);
-	draw_rectangle_color(createx1, createy1, createx2, createy2, c_black, c_black, c_black, c_black, false);
-	draw_set_alpha(1);
-	draw_rectangle_color(createx1, createy1, createx2, createy2, c_white, c_white, c_white, c_white, true);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	draw_text_transformed_color((createx1+createx2)/2, (createy1 + createy2) /2, "Create", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
-	
-	draw_set_alpha(.35);
-	draw_rectangle_color(joinx1, createy1, joinx2, createy2, c_black, c_black, c_black, c_black, false);
-	draw_set_alpha(1);
-	draw_rectangle_color(joinx1, createy1, joinx2, createy2, c_white, c_white, c_white, c_white, true);
-	draw_text_transformed_color((joinx1+joinx2)/2, (createy1 + createy2) /2, "Join", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
-	
-	draw_set_alpha(.35);
-	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_black, c_black, c_black, c_black, false);
-	draw_set_alpha(1);
-	draw_rectangle_color(reloadx1, createy1, reloadx2, createy2, c_white, c_white, c_white, c_white, true);
-	draw_text_transformed_color((reloadx1+reloadx2)/2, (createy1 + createy2) /2, "Reload", 2, 2, 0, c_white, c_white, c_white, c_white, 1);
 	#endregion
 	#region Button Text
 	var textx = GW/2;
