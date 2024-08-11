@@ -389,5 +389,5 @@ function sendMessageNew(type, data = {}){
 	var _json = json_stringify(data);
 	//show_debug_message($"Sending data: {json_stringify(data, true)}");
 	buffer_write(oClient.clientBuffer, buffer_text, _json);	
-	network_send_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
+	network_send_udp_raw(oClient.client, global.serverip, global.port, oClient.clientBuffer, buffer_tell(oClient.clientBuffer));
 }
