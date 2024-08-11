@@ -1,5 +1,6 @@
 event_inherited();
 enemyinfo = -1;
+/// @instancevar {Any} carryingBomb 
 /// @instancevar {Any} enemyinfo
 /// @instancevar {Any} enemyID 
 setinfo = true;

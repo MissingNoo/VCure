@@ -321,7 +321,9 @@ function copy_struct(struct){
     }
     return newCopy;
 }
-
+/// @function heal_player(amount)
+/// @description Heals the player.
+/// @param {integer} amount The unique instance ID value of the instance to check.
 function heal_player(amount){
 	if (Bonuses[BonusType.Healing][ItemIds.FullMeal] != 0) {
 	    HP += amount * Bonuses[BonusType.Healing][ItemIds.FullMeal];
