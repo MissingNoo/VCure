@@ -15,8 +15,11 @@ if (!global.singleplayer and time_source_exists(keepalive)) {
 	}
 }
 
-if (!instance_exists(oPlayer) and instance_exists(oClient) and room == rStage1) {
-	instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer,{socket : oClient.connected});
+if (!instance_exists(oPlayer) and room == rStage1) {
+	instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oPlayer, {socket : oClient.connected});
+}
+if (!instance_exists(oSlave) and room == rStage1) {
+	instance_create_layer(playerSpawn[0], playerSpawn[1], "Instances", oSlave, {socket : oClient.connected});
 }
 if (!instance_exists(oLobby) and room == rLobby) {
 	instance_create_depth(0, 0, 0, oLobby);

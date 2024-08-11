@@ -144,30 +144,20 @@ switch (state) {
 				global.player=CHARACTERS[selectedCharacter];
 				audio_stop_sound(global.musicPlaying);
 				audio_play_sound(snd_char_selected,0,0, global.soundVolume);
-				switch (global.singleplayer) {
-					case true:{
-						global.mode = "stage";
-						//room_goto(Room1);
-						//characterSelected = true;
-						nextvar = [false, "characterSelected", true];
-						characterlerp[1] = characterlerp[2];
-						maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
-						var _unlockedOutfits = 0;
-						for (var i = 0; i < maxOutfits; ++i) {
-							if (CHARACTERS[selectedCharacter][?"outfits"][i][$ "unlocked"]) {
-								_unlockedOutfits += 1;
-							}
-						}
-						if (maxOutfits > 0 and _unlockedOutfits > 1) {
-							selectingOutfit = true;
-						}
-						else{outfitSelected = true;}
-						break;}
-					case false:{
-						global.mode = "menu";
-						room_goto(rLobby);
-						break;}
+				//global.mode = "stage";
+				nextvar = [false, "characterSelected", true];
+				characterlerp[1] = characterlerp[2];
+				maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
+				var _unlockedOutfits = 0;
+				for (var i = 0; i < maxOutfits; ++i) {
+					if (CHARACTERS[selectedCharacter][?"outfits"][i][$ "unlocked"]) {
+						_unlockedOutfits += 1;
+					}
 				}
+				if (maxOutfits > 0 and _unlockedOutfits > 1) {
+					selectingOutfit = true;
+				}
+				else{outfitSelected = true;}
 				return;
 			}
 		}

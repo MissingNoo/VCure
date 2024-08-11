@@ -1,4 +1,5 @@
 randomize();
+global.IsHost = false;
 global.characterdataJSON = undefined;
 global.fishamount = undefined;
 global.rodsowned = undefined;

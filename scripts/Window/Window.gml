@@ -238,13 +238,18 @@ function scribble_outline(text, x, y, outcolor = "c_black", scale = 1) {
     scribble(text).scale(scale).draw(x, y);
 }
 /// @mixin lobby_button
-function lobby_button(_x, _y, text, func, scale = [1, 1.50, 2]) {
+function lobby_button(_x, _y, text, func, scale = [1, 1.50, 2], enabled = true) {
+	alpha = 1;
 	var _w = (sprite_get_width(sHudButton) * scale[0]) / 2;
 	var _h = (sprite_get_height(sHudButton) * scale[1]) / 2;
 	var mouse_on = point_in_rectangle(MX, MY, _x - _w, _y - _h, _x + _w, _y + _h);
+	if (!enabled) {
+		mouse_on = false;
+		alpha = 0.5;
+	}
 	var color = mouse_on ? "c_black" : "c_white";
-	draw_sprite_ext(sHudButton, mouse_on, _x, _y, scale[0], scale[1], 0, c_white, 1);
-	scribble($"[fa_center][fa_middle][{color}]{text}").scale(scale[2]).draw(_x, _y);
+	draw_sprite_ext(sHudButton, mouse_on, _x, _y, scale[0], scale[1], 0, c_white, alpha);
+	scribble($"[alpha,{alpha}][fa_center][fa_middle][{color}]{text}").scale(scale[2]).draw(_x, _y);
 	if (mouse_on and device_mouse_check_button_pressed(0, mb_left)) {
 		func();
 	}

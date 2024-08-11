@@ -1,3 +1,4 @@
+if (room == rInicio) { instance_destroy(); }
 #region Basic variables
 subimg = 0;
 lobbyname = "";
@@ -236,6 +237,10 @@ fsm.add("OnLobby", {
 			}
 		}, [1.20, 1.50, 2]);
 		var d = DebugManager;
+		lobby_button(GW - 120, 95, "Start Game", function(){
+			sendMessageNew(Network.StartGame);
+		}, [1.20, 1.50, 2], global.IsHost and players[0].character != 0 and players[array_length(players) - 1].character != 0);
+		
 		#region Players
 		var poffset = 0;
 		var _px = GW/2 - 300;
@@ -271,6 +276,8 @@ fsm.add_child("OnLobby", "OnLobbyCharacter", {
 		selectedcharacter = clamp(selectedcharacter + move, 1, Characters.Lenght - 1);
 		if (input_check_pressed("accept")) {
 			sendMessageNew(Network.SelectCharacter, {character : selectedcharacter});
+			global.player = CHARACTERS[selectedcharacter];
+			global.selectedOutfit = 0;
 			wl[1] = wl[2];
 		}
 		if (wl[0] == wl[2]) {
@@ -300,6 +307,15 @@ fsm.add_child("OnLobby", "OnLobbyCharacter", {
 				yoffset += 70;
 			}
 		}
+	}
+});
+
+fsm.add("OnStage",{
+	enter : function() {
+	},
+	step : function() {
+	},
+	draw : function() {
 	}
 });
 

@@ -1,11 +1,6 @@
-socket = 0;
-var selfsocket = socket;
-var selfid = id;
-with (oSlave)
-{
-    if(socket == selfsocket and id != selfid){
-        instance_destroy();
-    }
-}
+spd = 1;
 xx = x;
 yy = y;
+character = 0;
+sprite = sBlank;
+runsprite = sBlank;

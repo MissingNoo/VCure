@@ -1,5 +1,5 @@
 //global.serverip = "140.238.187.191";
-global.serverip = "127.0.0.1";
+global.serverip = "192.168.0.107";
 global.port = 21319;
 // Feather disable GM2044
 // Feather disable GM2017
@@ -15,9 +15,12 @@ enum Network {
 	UpdatePlayers,
 	LeaveLobby,
 	SelectCharacter,
-
-	Move,
+	IsHost,
+	StartGame,
+	MovePlayer,
+	
 	Message,
+	Move,
 	PlayerMoved,
 	PlayerConnect,
 	PlayerJoined,
@@ -29,12 +32,10 @@ enum Network {
 	Destroy,
 	HostDisconnected,
 	LobbyConnect,
-	IsHost,
-	StartGame,
+	
 	CreateRoom,
 	ListRooms,
 	JoinRoom,
-	Disconnect,
 	Connection,
 	UpdateRoom,
 	KeepAlive,
@@ -80,6 +81,24 @@ function clientReceivedPacket2(_response)
 			break;
 		case Network.LeaveLobby:
 			oLobby.fsm.change("Rooms");
+			break;
+		case Network.IsHost:
+			global.IsHost = r[$ "isHost"];
+			break;
+		case Network.StartGame:
+			oLobby.fsm.change("OnStage");
+			room_goto(rStage1);
+			break;
+		case Network.MovePlayer:
+			oSlave.xx = r[$ "x"];
+			oSlave.yy = r[$ "y"];
+			if (oSlave.character == 0) {
+				oSlave.character = r[$ "character"];
+				oSlave.spd = global.characters[oSlave.character][? "speed"];
+				oSlave.sprite = global.characters[oSlave.character][? "sprite"];
+				oSlave.runsprite = global.characters[oSlave.character][? "runningsprite"];
+			}
+			
 			break;
 	}
 }
