@@ -5,6 +5,10 @@
     "Debug":{
       "option_android_minimum_sdk":"21",
       "option_android_arch_x86_64":"true",
+      "option_android_build_tools":"",
+      "option_android_support_lib":"34.0.0",
+      "option_android_target_sdk":"34",
+      "option_android_compile_sdk":"34",
     },
   },
   "name":"Android",

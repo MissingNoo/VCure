@@ -1,66 +1,43 @@
-afterimage_step();
-var _names = variable_struct_get_names(extraInfo);
-for (var i = 0; i < array_length(_names); ++i) {
-	if (_names[i] == "orbitPlace" and orbitPlace != 1) { continue; }
-	if (_names[i] == "orbitLength" and orbitLength != 1) { continue; }
-	if (_names[i] == "coscounter") { continue; }
-	if (_names[i] == "sincounter") { continue; }
-    if (variable_instance_get(self, _names[i]) != extraInfo[$ _names[i]]) {
-	    variable_instance_set(self, _names[i], extraInfo[$ _names[i]]);
-	}
-    if (!variable_instance_exists(self, _names[i])) {
-	    variable_instance_set(self, _names[i], extraInfo[$ _names[i]]); //lavabucket xy, idolsolg, absolutewall wrong place
-	}
+if (upg[$ "step"] != undefined) {
+	upg.step(self.id);
 }
-owner = oSlave;
-switch (extraInfo.uid) {
-	case Weapons.EliteLavaBucket:{
-		if (extraInfo[$ "lx"] != undefined) {
-		    x = extraInfo.lx;
-			y = extraInfo.ly;
+afterimage_step();
+#region Delta alarms
+for (var i = 0; i < array_length(dAlarm); ++i) {
+	if (dAlarm[i][0] > 0) {
+		dAlarm[i][0] -= 1 * Delta;
+	}
+	if (dAlarm[i][0] < 0 and dAlarm[i][0] != -1) {
+		dAlarm[i][0] = -1;
+		if (array_length(dAlarm[i]) == 2){
+			dAlarm[i][1]();
 		}
-		break;}
-	case Weapons.LiaBolt:{
-		if (extraInfo[$ "lx"] != undefined) {
-			x = extraInfo.lx;
-			y = extraInfo.ly;
-		}		
-		break;}
-	case Weapons.PlugAsaCoco:{
-		if (speed == 0 and extraInfo[$ "asay"] != undefined) {
-		    y = extraInfo.asay;
-		}		
-		break;}
-    case Weapons.PsychoAxe:{
-        //psycho_axe_step();
-        break;}
-	case Weapons.UrukaNote:{
-		if (!variable_instance_exists(self, "coscounter")) {
-			if (extraInfo[$ "coscounter"] != undefined) {
-			    variable_instance_set(self, "coscounter", extraInfo.coscounter);
+		if (array_length(dAlarm[i]) == 3){
+			switch(dAlarm[i][2]){
+				default:
+					dAlarm[i][1]();
+					break;
+				case "variable":
+					variable_instance_set(self, dAlarm[i][1][0], dAlarm[i][1][1]);
+					break;
+				case "ex_func":
+					dAlarm[i][1][0](dAlarm[i][1][1]);
+					break;
 			}
 		}
-		else{
-			y = cose_wave(coscounter / 1000, 1 * extraInfo.upDown, extraInfo.travelWidth, extraInfo.noteStartY);
-		}
-		break;}
-	case Weapons.BLFujoshiAxe:{
-		//blfujoshiaxe_step();
-		break;}
-	case Weapons.BLFujoshiBook:{
-		//blfujoshibook_step();
-		break;}
-	case Weapons.BlBook:
-		//blbook_step();
-		break;
-	case Weapons.SpiderCooking:{
-		x= owner.x;
-		y = owner.y - (sprite_get_height(owner.sprite_index) / 3);
-		break;}
-	case Weapons.StreamOfTears:{
-		stream_of_tears();
-		break;}
-    default:
-        // code here
-        break;
+	}
+}
+#endregion
+
+if (ceil(current_frame) >= last_frame) {
+	if (upg[$ "animation_end"] != undefined) {
+		animate = false;
+	    upg.animation_end(self.id);
+	}
+	else {
+		current_frame = 0;
+	}
+}
+if (animate) {
+	current_frame += sprite_speed / game_get_speed(sprite_speed_type) * Delta;
 }

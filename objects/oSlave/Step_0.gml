@@ -5,7 +5,7 @@ else {
     image_xscale = 1;
 }
 
-if (point_distance(x, y, xx, yy) > 3) {
+if (point_distance(x, y, xx, yy) > 1) {
     move_towards_point(xx, yy, spd);
     speed = spd;
     sprite_index = runsprite;

@@ -18,7 +18,8 @@ enum Network {
 	IsHost,
 	StartGame,
 	MovePlayer,
-	
+	SpawnUpgrade,
+
 	Message,
 	Move,
 	PlayerMoved,
@@ -26,7 +27,7 @@ enum Network {
 	PlayerJoined,
 	PlayerDisconnect,
 	Spawn,
-	SpawnUpgrade,
+	
 	DestroyUpgrade,
 	UpdateUpgrade,
 	Destroy,
@@ -90,6 +91,7 @@ function clientReceivedPacket2(_response)
 			room_goto(rStage1);
 			break;
 		case Network.MovePlayer:
+			if (!instance_exists(oSlave)) { break; }
 			oSlave.xx = r[$ "x"];
 			oSlave.yy = r[$ "y"];
 			if (oSlave.character == 0) {
@@ -98,7 +100,10 @@ function clientReceivedPacket2(_response)
 				oSlave.sprite = global.characters[oSlave.character][? "sprite"];
 				oSlave.runsprite = global.characters[oSlave.character][? "runningsprite"];
 			}
-			
+			break;
+		case Network.SpawnUpgrade:
+			if (!instance_exists(oSlave)) { break; }
+			instance_create_depth(oSlave.x, oSlave.y, oSlave.depth, oSlaveUpgrade, {upg : global.upgradesAvaliable[r[$ "id"]][r[$"level"]], owner : oSlave, updata : json_parse(r[$ "updata"])});
 			break;
 	}
 }

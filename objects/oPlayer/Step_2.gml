@@ -12,5 +12,5 @@ if (instance_exists(oCamWorld)) {
 sendpostimer = clamp(sendpostimer - 1, 0, 60);
 if(!global.singleplayer and sendpostimer == 0) {
     sendpostimer = 6;
-    sendMessageNew(Network.MovePlayer, {x, y});
+    sendMessageNew(Network.MovePlayer, {x : round(x), y : round(y)});
 }

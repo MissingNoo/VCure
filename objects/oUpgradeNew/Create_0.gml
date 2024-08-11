@@ -1,3 +1,5 @@
+/// @instancevar {any} owner 
+/// @instancevar {Any} upg 
 resetcooldown = false;
 cooldownwasreset = false;
 animate = true;
@@ -24,7 +26,7 @@ atkdelayalarm = array_length(dAlarm);
 array_push(dAlarm, [upg.attackdelay, function() {
 	if (shoots > 1) {
 		shoots--;
-		instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : upg, arrowDir : arrowDir, shoots : -1, reverseshoots : reverseshoots, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
+		instance_create_layer(owner.x, owner.y-8, "Upgrades", oUpgradeNew, {upg : upg, arrowDir : arrowDir, shoots : -1, reverseshoots : reverseshoots, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
 		reverseshoots -= 1;
 		dAlarm[atkdelayalarm][0] = upg.attackdelay;
 	}}]);
@@ -85,5 +87,15 @@ for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
 
 if (upg[$ "create"] != undefined) {
 	upg.create(self.id);
+}
+if (!global.singleplayer and sendspawn) {
+	sendspawn = false;
+	var updata = {};
+	var names = ["direction", "image_xscale", "image_yscale"];
+	for (var i = 0; i < array_length(names); i++) {
+		updata[$ names[i]] = self[$ names[i]];
+	}
+	show_debug_message(updata);
+	sendMessageNew(Network.SpawnUpgrade, {id : upg.id, level : upg.level, updata : json_stringify(updata)});
 }
 visible = true;
