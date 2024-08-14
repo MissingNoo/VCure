@@ -28,12 +28,8 @@
             "id": "1493a1ad2e5af692",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Server.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ],
@@ -103,7 +99,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Server.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +115,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Server.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,9 +136,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Server.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -167,15 +159,19 @@
   },
   "active": "1493a1ad2e5af692",
   "lastOpenFiles": [
-    "Farming.md",
+    "Server.md",
+    "Systems/Characters/Phase Connect.md",
+    "Systems/Characters/Characters.md",
+    "Systems/HoloHouse/Holo House.md",
+    "Systems/HoloHouse",
+    "Canvas.canvas",
+    "Systems/HoloHouse/Farming.md",
     "Weapons.md",
     "Systems/Weapons/Collabs.md",
     "Systems/Weapons/Collabs/Absolute Wall.md",
     "Systems/Character Selection.md",
-    "Systems/Characters/Characters.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
-    "Canvas.canvas",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks",
@@ -198,10 +194,8 @@
     "Systems/Weapons/Ranged/Cutting Board.md",
     "z_attachments/Pasted image 20240805214525.png",
     "Systems/Weapons/Collabs",
-    "Server.md",
-    "Systems/Holo House.md",
     "Systems/Weapons/MultiShot.md",
-    "Fishing.md",
+    "Systems/HoloHouse/Fishing.md",
     "2023-10-26.md",
     "Systems/Stamps.md",
     "Systems/Weapons/Ranged.md",
@@ -210,10 +204,8 @@
     "z_attachments/Pasted image 20240802212754.png",
     "Systems/Fandom.md",
     "Systems/Weapons/Multishot/BL Book.md",
-    "Systems/Weapons/Melee/Wamy Water.md",
     "Systems/Weapons/Ranged",
     "Systems/Weapons/Multishot",
-    "Systems/Weapons/Melee",
     "PhaseCure/Canvas.canvas"
   ]
 }

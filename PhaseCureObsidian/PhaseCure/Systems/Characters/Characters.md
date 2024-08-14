@@ -1,3 +1,1 @@
-## Phase Connect:
-- [[Uruka]]
-- 
+[[Phase Connect]]

@@ -6,17 +6,67 @@
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "path:Systems/HoloHouse  ",
+      "color": {
+        "a": 1,
+        "rgb": 4038295
+      }
+    },
+    {
+      "query": "path:Systems/Weapons/Collabs  ",
+      "color": {
+        "a": 1,
+        "rgb": 549701
+      }
+    },
+    {
+      "query": "path:Systems/Weapons/Melee  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084188
+      }
+    },
+    {
+      "query": "path:Systems/Weapons/Multishot  ",
+      "color": {
+        "a": 1,
+        "rgb": 6084269
+      }
+    },
+    {
+      "query": "path:Systems/Weapons/Multishot  ",
+      "color": {
+        "a": 1,
+        "rgb": 6073814
+      }
+    },
+    {
+      "query": "path:Systems/Weapons/Ranged  ",
+      "color": {
+        "a": 1,
+        "rgb": 6053078
+      }
+    },
+    {
+      "query": "path:Systems/Characters/PhaseConnect  ",
+      "color": {
+        "a": 1,
+        "rgb": 11361494
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": false,
+  "collapse-forces": true,
   "centerStrength": 0.518713248970312,
   "repelStrength": 15,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.6666666666666666,
+  "scale": 0.4444444444444444,
   "close": true
 }
