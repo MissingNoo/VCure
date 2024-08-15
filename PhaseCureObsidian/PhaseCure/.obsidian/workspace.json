@@ -18,12 +18,12 @@
             }
           },
           {
-            "id": "9890f8108b0b2255",
+            "id": "16bab6130be82514",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Weapons/Melee/Wamy Water.md",
+                "file": "Systems/Weapons/Multishot/Glowstick.md",
                 "mode": "preview",
                 "source": false
               }
@@ -80,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -96,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Weapons/Melee/Wamy Water.md",
+                "file": "Systems/Weapons/Multishot/Glowstick.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Weapons/Melee/Wamy Water.md",
+                "file": "Systems/Weapons/Multishot/Glowstick.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Weapons/Melee/Wamy Water.md"
+                "file": "Systems/Weapons/Multishot/Glowstick.md"
               }
             }
           }
@@ -158,8 +159,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9890f8108b0b2255",
+  "active": "16bab6130be82514",
   "lastOpenFiles": [
+    "Systems/Weapons/Melee/Wamy Water.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
     "Systems/Weapons/Melee/Spider Cooking.md",
     "Systems/Characters/Hololive.md",
@@ -195,7 +197,6 @@
     "Systems/Characters/Hololive/ID/Area 15/Ayunda Risu",
     "Systems/Characters/Hololive/JP.md",
     "Systems/Characters/Hololive/JP/JP2.md",
-    "Systems/Characters/Hololive/JP/JP2/Minato Aqua/Minato Aqua.md",
     "Canvas.canvas",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",

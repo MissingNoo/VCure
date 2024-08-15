@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![Glowstick Icon.png|50](https://holocure.wiki.gg/images/c/c1/Glowstick_Icon.png)
 
@@ -10,7 +10,7 @@ tags:
 ### Unlocked by
 - Available by default.
 ### Custom mechanic
-- [ ] Explosion damage value
+- [x] Explosion damage value
 ---
 - Level 1
 	- [x] Throw a glowstick to a nearby target and then spins back to player.

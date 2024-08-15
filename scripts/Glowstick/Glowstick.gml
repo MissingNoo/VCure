@@ -18,6 +18,11 @@ function glowstick_animation_end(obj){
 	}
 }
 function glowstick_step(obj){
+	if (!instance_exists(obj)) { exit; }
+	if (obj.sprite_index == sGlowstickThumbExplosion) {
+		obj.mindmg = obj.upg.explosionMinDmg;
+		obj.maxdmg = obj.upg.explosionMaxDmg;
+	}
 	if (obj.hits <= 0) {
 		obj.dAlarm[0][0] = 999;
 		obj.sprite_index = sGlowstickThumbExplosion;
