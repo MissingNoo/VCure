@@ -10,10 +10,11 @@ if (!gotknocked and !infected) {
 	var _hspd = lengthdir_x(_push, _dir);
 	//feather disable once GM1041
 	var _vspd = lengthdir_y(_push, _dir);
-	//x+=_hspd;
-	x = x + _hspd;
-	//y+=_vspd;
-	y = y + _vspd;
-	show_debug_message($"push:{_push}, hs: {_hspd}, vs: {_vspd}");
+	x+=_hspd;
+	y+=_vspd;
 	alarm[2] = other.upg[$ "knockbackDuration"] * 2;
+	if (other.upg[$ "stuntimer"] != undefined) { 
+		stuntimer = other.upg[$ "stuntimer"];
+		stunned = true;
+	}
 }

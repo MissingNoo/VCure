@@ -906,8 +906,10 @@ function populate_upgrades(){
 				weight : 3,
 				sprite : sWamyWater,
 				thumb : sWamyWaterThumb,
-				mindmg : [9, 9, 9, 9, 9, 15, 15],
-				maxdmg : [13, 13, 13, 13, 13, 19, 19],
+				//mindmg : [9, 9, 9, 9, 9, 15, 15],
+				mindmg : 0,
+				maxdmg : 0,
+				//maxdmg : [13, 13, 13, 13, 13, 19, 19],
 				cooldown : [120, 120, 120, 120, 96, 96, 96],
 				duration : 999,
 				hitCooldown : 30, 
@@ -919,6 +921,7 @@ function populate_upgrades(){
 				shotType : ShotTypes.Melee,
 				knockbackSpeed : [5, 5, 5, 8, 8, 8 ,8],
 				knockbackDuration : 10,
+				stuntimer : 30,
 				perk : false,
 				unlocked : false,
 			});
@@ -1986,9 +1989,9 @@ function random_upgrades(){
 	//if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$ "unlocked"]) {
 	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
 	//}
-	global.upgradeOptions[0] = PERK_LIST[PerkIds.Bubba][0];
+	//global.upgradeOptions[0] = PERK_LIST[PerkIds.Bubba][0];
 	//cti
-	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.XPotato][1];
+	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
 }	
 #endregion
 #region Random Enchantments

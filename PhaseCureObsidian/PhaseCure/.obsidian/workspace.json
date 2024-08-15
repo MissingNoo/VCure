@@ -8,23 +8,25 @@
         "type": "tabs",
         "children": [
           {
-            "id": "20910f31e7088327",
+            "id": "73dc2aa9c6e63fca",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true
+            }
+          },
+          {
+            "id": "9890f8108b0b2255",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Characters/Hololive.md",
-                "mode": "source",
+                "file": "Systems/Weapons/Melee/Wamy Water.md",
+                "mode": "preview",
                 "source": false
               }
-            }
-          },
-          {
-            "id": "3d7e76498b985a67",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           }
         ],
@@ -94,6 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Systems/Weapons/Melee/Wamy Water.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,6 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Systems/Weapons/Melee/Wamy Water.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +135,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Systems/Weapons/Melee/Wamy Water.md"
+              }
             }
           }
         ],
@@ -152,9 +158,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3d7e76498b985a67",
+  "active": "9890f8108b0b2255",
   "lastOpenFiles": [
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
+    "Systems/Weapons/Melee/Spider Cooking.md",
     "Systems/Characters/Hololive.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
+    "Systems/Characters/Hololive/EN/Myth.md",
+    "Systems/Characters/Hololive/EN.md",
+    "Systems/Character Selection.md",
+    "Systems.md",
     "Systems/Characters/Hololive/ID.md",
     "Systems/Characters/Hololive/ID/HoloH3ro.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta/Vestia Zeta.md",
@@ -181,15 +196,6 @@
     "Systems/Characters/Hololive/JP.md",
     "Systems/Characters/Hololive/JP/JP2.md",
     "Systems/Characters/Hololive/JP/JP2/Minato Aqua/Minato Aqua.md",
-    "Systems/Characters/Hololive/JP/JP2/Nakiri Ayame/Nakiri Ayame.md",
-    "Systems/Characters/Hololive/JP/JP2/Murasaki Shion/Murasaki Shion.md",
-    "Systems/Characters/Hololive/JP/JP2/Yuzuki Choco/Yuzuki Choco.md",
-    "Systems/Characters/Hololive/JP/JP2/Oozora Subaru/Oozora Subaru.md",
-    "Systems/Characters/Hololive/JP/JP1.md",
-    "Systems/Characters/Hololive/JP/JP0.md",
-    "Systems/Characters/Hololive/EN.md",
-    "Systems/Characters/Hololive/JP/JP1/Aki Rosenthal/Aki Rosenthal.md",
-    "Systems/Characters/Hololive/JP/JP1/Natsuiro Matsuri/Natsuiro Matsuri.md",
     "Canvas.canvas",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",

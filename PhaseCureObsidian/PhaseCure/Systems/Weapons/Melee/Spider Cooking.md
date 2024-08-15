@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![[Pasted image 20240720205318.png|50]]
 
@@ -23,7 +23,7 @@ tags:
 - Level 6
 	- [x] Increase damage by 60%.
 - Level MAX
-	- [ ] Add small knockback on hit
+	- [x] Add small knockback on hit
 
 ---
 ### Enchantments

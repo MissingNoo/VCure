@@ -55,6 +55,13 @@ if (global.gamePaused and !global.singleplayer) {
 if (global.gamePaused and global.singleplayer) {
     _canmove = false;
 }
+if (!global.gamePaused or !global.singleplayer) { 
+	stuntimer = clamp(stuntimer - 1/60, 0, 120); //NOTE: idk if the stun timer is correct, never used this
+	if (stuntimer == 0) { stunned = false; }
+}
+if (stunned) { 
+	_canmove = false;
+}
 if(_canmove and instance_exists(target)){
 	if (infected) {
 	    hp -= baseHP / 5000;

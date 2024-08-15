@@ -1,4 +1,6 @@
 event_inherited();
+stunned = false;
+stuntimer = 60;
 enemyinfo = -1;
 /// @instancevar {Any} carryingBomb 
 /// @instancevar {Any} enemyinfo
