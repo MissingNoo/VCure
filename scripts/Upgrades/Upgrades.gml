@@ -538,6 +538,7 @@ function populate_upgrades(){
 			speed : 6,
 			knockbackDuration : [0, 0, 5, 5, 5, 5, 5],
 			knockbackSpeed : [0, 0, 3, 3, 3, 3, 3],
+			knockbackSpeedBase : [0, 0, 3, 3, 3, 3, 3],
 			size : 0.6,
 			canBeHasted : true,
 			type : "white",
@@ -1991,7 +1992,7 @@ function random_upgrades(){
 	//}
 	//global.upgradeOptions[0] = PERK_LIST[PerkIds.Bubba][0];
 	//cti
-	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.WamyWater][1];
+	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
 }	
 #endregion
 #region Random Enchantments

@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![[Pasted image 20240720204006.png|50]]
 
@@ -18,8 +18,8 @@ tags:
 - Level 3:
 	- [x] Drop 2 balls.
 - Level 4:
-	- [ ] Gain knockback effect. 
-	- [ ] The strength of knockback varies from character.
+	- [x] Gain knockback effect. 
+	- [x] The strength of knockback varies from character.
 - Level 5:
 	- [x] Drop 3 balls.
 - Level 6:

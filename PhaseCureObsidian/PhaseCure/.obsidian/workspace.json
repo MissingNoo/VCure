@@ -18,12 +18,12 @@
             }
           },
           {
-            "id": "16bab6130be82514",
+            "id": "76df648c1fd3e74b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Weapons/Multishot/Glowstick.md",
+                "file": "Systems/Weapons/Multishot/Bounce Ball.md",
                 "mode": "preview",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Weapons/Multishot/Glowstick.md",
+                "file": "Systems/Weapons/Multishot/Bounce Ball.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Weapons/Multishot/Glowstick.md",
+                "file": "Systems/Weapons/Multishot/Bounce Ball.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Weapons/Multishot/Glowstick.md"
+                "file": "Systems/Weapons/Multishot/Bounce Ball.md"
               }
             }
           }
@@ -159,8 +159,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "16bab6130be82514",
+  "active": "76df648c1fd3e74b",
   "lastOpenFiles": [
+    "Systems/Weapons/Multishot/Glowstick.md",
     "Systems/Weapons/Melee/Wamy Water.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
     "Systems/Weapons/Melee/Spider Cooking.md",
@@ -196,7 +197,6 @@
     "Systems/Characters/Hololive/ID/Area 15/Moona Hoshinova/Moona Hoshinova.md",
     "Systems/Characters/Hololive/ID/Area 15/Ayunda Risu",
     "Systems/Characters/Hololive/JP.md",
-    "Systems/Characters/Hololive/JP/JP2.md",
     "Canvas.canvas",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",
