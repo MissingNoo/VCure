@@ -174,11 +174,12 @@ if (global.upgrade) {
 		}
 		if (helding) {
 			heldpos = selected;
+			helding = false;
 			global.held_item = {
 				item : global.upgradeOptions[heldpos],
 				position : heldpos,
 			}
-			show_debug_message(global.held_item.item);
+			return;
 		}
 		//TODO: Hold item via keyboard
 		for (var i = 0; i < 6; i++) {
@@ -258,7 +259,6 @@ if (global.upgrade) {
 		}
 		global.xp -= oPlayer.neededxp;
 		global.upgrade = 0;
-		helding = false;
 		pause_game();
 		upgradesSurface();
 	}
