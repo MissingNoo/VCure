@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![[Pasted image 20240720203809.png|50]]
 
 ---

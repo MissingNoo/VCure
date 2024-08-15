@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![Idol Song Icon.png|50](https://holocure.wiki.gg/images/e/ea/Idol_Song_Icon.png)
 
 ---

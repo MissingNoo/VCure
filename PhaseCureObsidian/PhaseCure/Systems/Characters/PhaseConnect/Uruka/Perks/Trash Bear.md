@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![[Trash Bear.png|64]]
 - ### Description:
 	- Chance to drop spaghetti from enemies killed.

@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![X-Potato Icon.png|50](https://holocure.wiki.gg/images/a/a7/X-Potato_Icon.png)
 
 ---

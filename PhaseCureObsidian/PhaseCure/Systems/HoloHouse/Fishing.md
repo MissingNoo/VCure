@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 - Fishing
 	- [x] Fish difficulty
 		- [ ] Show mark when caught

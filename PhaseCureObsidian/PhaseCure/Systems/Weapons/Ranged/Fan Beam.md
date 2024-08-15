@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![Fan Beam Icon.png|50](https://holocure.wiki.gg/images/1/17/Fan_Beam_Icon.png)
 
 ---

@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![Cutting Board Icon.png|50](https://holocure.wiki.gg/images/f/f1/Cutting_Board_Icon.png)
 
 ---

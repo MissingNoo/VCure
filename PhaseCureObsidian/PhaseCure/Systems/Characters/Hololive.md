@@ -1,1 +1,3 @@
-- [[Amelia Watson]]
+- [[EN]]
+- [[JP]]
+- [[ID]]

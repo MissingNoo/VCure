@@ -4,52 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "49d4882913db3d21",
+        "id": "409ed454263621d7",
         "type": "tabs",
         "children": [
           {
-            "id": "d1110596ed1b6ca2",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Canvas.canvas",
-                "viewState": {
-                  "x": -3736.225009776559,
-                  "y": -576.6626636994429,
-                  "zoom": -1.179567953745524
-                }
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "1493a1ad2e5af692",
+            "id": "20910f31e7088327",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
+                "file": "Systems/Characters/Hololive.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "9afe1ee347413696",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "d966b74d6319856e",
+            "id": "3d7e76498b985a67",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -107,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -124,7 +94,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +110,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,9 +131,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -186,55 +152,55 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1493a1ad2e5af692",
+  "active": "3d7e76498b985a67",
   "lastOpenFiles": [
-    "Systems/Characters/Hololive/Amelia Watson/Amelia Watson.md",
-    "Systems/Characters/Characters.md",
     "Systems/Characters/Hololive.md",
-    "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
-    "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
+    "Systems/Characters/Hololive/ID.md",
+    "Systems/Characters/Hololive/ID/HoloH3ro.md",
+    "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta/Vestia Zeta.md",
+    "Systems/Characters/Hololive/ID/HoloH3ro/Kaela Kovalskia/Kaela Kovalskia.md",
+    "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta",
+    "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru/Kobo Kanaeru.md",
+    "Systems/Characters/Hololive/ID/HoloH3ro/Kaela Kovalskia",
+    "Systems/Characters/Hololive/ID/Holoro.md",
+    "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru",
+    "Systems/Characters/Hololive/ID/HoloH3ro",
+    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Anya Melfissa.md",
+    "Systems/Characters/Hololive/ID/Holoro/Pavolia Reine/Pavolia Reine.md",
+    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa",
+    "Systems/Characters/Hololive/ID/Holoro/Kureiji Ollie/Kureiji Ollie.md",
+    "Systems/Characters/Hololive/ID/Holoro/Pavolia Reine",
+    "Systems/Characters/Hololive/ID/Area 15.md",
+    "Systems/Characters/Hololive/ID/Holoro/Kureiji Ollie",
+    "Systems/Characters/Hololive/ID/Holoro",
+    "Systems/Characters/Hololive/ID/Area 15/Airani Iofifteen/Airani Iofifteen.md",
+    "Systems/Characters/Hololive/ID/Area 15/Ayunda Risu/Ayunda Risu.md",
+    "Systems/Characters/Hololive/ID/Area 15/Airani Iofifteen",
+    "Systems/Characters/Hololive/ID/Area 15/Moona Hoshinova/Moona Hoshinova.md",
+    "Systems/Characters/Hololive/ID/Area 15/Ayunda Risu",
+    "Systems/Characters/Hololive/JP.md",
+    "Systems/Characters/Hololive/JP/JP2.md",
+    "Systems/Characters/Hololive/JP/JP2/Minato Aqua/Minato Aqua.md",
+    "Systems/Characters/Hololive/JP/JP2/Nakiri Ayame/Nakiri Ayame.md",
+    "Systems/Characters/Hololive/JP/JP2/Murasaki Shion/Murasaki Shion.md",
+    "Systems/Characters/Hololive/JP/JP2/Yuzuki Choco/Yuzuki Choco.md",
+    "Systems/Characters/Hololive/JP/JP2/Oozora Subaru/Oozora Subaru.md",
+    "Systems/Characters/Hololive/JP/JP1.md",
+    "Systems/Characters/Hololive/JP/JP0.md",
+    "Systems/Characters/Hololive/EN.md",
+    "Systems/Characters/Hololive/JP/JP1/Aki Rosenthal/Aki Rosenthal.md",
+    "Systems/Characters/Hololive/JP/JP1/Natsuiro Matsuri/Natsuiro Matsuri.md",
+    "Canvas.canvas",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",
-    "Systems/Characters/Hololive/Amelia Watson/Perks/Detective Eye.md",
     "z_attachments/spr_AmePerk2_0 1.png",
-    "Systems/Characters/Hololive/Amelia Watson/Perks/FPS Mastery.md",
-    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "z_attachments/spr_AmePerk1_0 1.png",
-    "Systems/Characters/Hololive/Amelia Watson/Pistol Shot.md",
-    "Systems/Characters/Hololive/Amelia Watson/Perks",
     "z_attachments/spr_Ameweapon_0 1.png",
     "z_attachments/Pasted image 20240814210827.png",
     "z_attachments/Pasted image 20240814210819.png",
     "z_attachments/Pasted image 20240814210753.png",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
-    "Systems/Characters/Hololive/Amelia Watson",
-    "Server.md",
-    "Systems/Characters/Phase Connect.md",
-    "Systems/HoloHouse/Holo House.md",
-    "Systems/HoloHouse",
-    "Canvas.canvas",
-    "Systems/HoloHouse/Farming.md",
-    "Weapons.md",
-    "Systems/Weapons/Collabs.md",
-    "Systems/Weapons/Collabs/Absolute Wall.md",
-    "Systems/Character Selection.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks",
     "Systems/Characters/PhaseConnect/Uruka/Images/Dirty Mind.png",
     "Systems/Characters/PhaseConnect/Uruka/Images/Music Note.png",
-    "Systems/Characters/PhaseConnect/Uruka/Images",
-    "Systems/Characters/PhaseConnect/Uruka",
-    "Systems/Characters/PhaseConnect",
-    "Systems/Characters/Hololive",
-    "Systems/Characters",
-    "Systems.md",
-    "Systems/Weapons/Melee.md",
-    "Systems/Weapons/Melee/Sausage.md",
-    "Systems/Weapons/Multishot/Bounce Ball.md",
-    "Systems/Weapons/Ranged/Cutting Board.md",
-    "Systems/Weapons/Collabs",
-    "Systems/Weapons/MultiShot.md",
     "PhaseCure/Canvas.canvas"
   ]
 }

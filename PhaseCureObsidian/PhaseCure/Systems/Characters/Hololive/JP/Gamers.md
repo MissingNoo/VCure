@@ -1,0 +1,4 @@
+- [[Inugami Korone]]
+- [[Nekomata Okayu]]
+- [[Ookami Mio]]
+- [[Shirakami Fubuki]]

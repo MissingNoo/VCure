@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 ### ![[Weak Bones.png|64]]
 - ### Description:
 	- Take more damage, spawn Rest Notes when taking damage

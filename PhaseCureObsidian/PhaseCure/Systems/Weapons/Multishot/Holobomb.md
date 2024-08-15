@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![Holo Bomb Icon.png|50](https://holocure.wiki.gg/images/0/0c/Holo_Bomb_Icon.png)
 
 ---

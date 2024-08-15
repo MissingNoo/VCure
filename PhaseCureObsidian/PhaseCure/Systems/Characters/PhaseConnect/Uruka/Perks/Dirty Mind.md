@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ### ![[Dirty Mind.png|64]] 
 - ### Description:
 	- Gives Uruka a ?% chance to negate received damage, and turns half of it into Healing.

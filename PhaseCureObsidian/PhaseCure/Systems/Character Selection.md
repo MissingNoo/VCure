@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 ## Animations
 - [x] Sidebar.
 - [x] Character animation.

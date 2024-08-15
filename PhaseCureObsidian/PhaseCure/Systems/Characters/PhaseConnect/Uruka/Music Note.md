@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ## Description
 - Throws notes which can be of four different lengths (4th, quarter, half, and full).
 ### Levels: 

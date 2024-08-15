@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 ![[Pasted image 20240805214525.png|50]]
 
 ---

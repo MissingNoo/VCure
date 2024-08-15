@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![[spr_AmePerk3_0 1.png|50]]
 - Level 1
 	- [x] Gain a dog companion that attacks random targets, dealing 100% of your base damage per hit.

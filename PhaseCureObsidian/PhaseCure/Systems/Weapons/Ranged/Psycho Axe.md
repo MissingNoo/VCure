@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![Psycho Axe Icon.png|50](https://holocure.wiki.gg/images/b/b6/Psycho_Axe_Icon.png)
 
 ---

@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 # ![[Pasted image 20240720231900.png|50]] ATK Up Stamp 
 ### Description
 - [ ] Increase damage of weapon by 15% and crit damage by 5%.

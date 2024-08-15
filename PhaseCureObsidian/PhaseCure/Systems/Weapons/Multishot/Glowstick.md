@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 ![Glowstick Icon.png|50](https://holocure.wiki.gg/images/c/c1/Glowstick_Icon.png)
 
 ---

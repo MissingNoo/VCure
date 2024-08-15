@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 ## Ranks
 - [ ] Completing certain tasks rewards Fandom EXP for that character. 
 - [x] Earning the required amount of Fandom EXP will increase the Fandom Rank for that character. 
