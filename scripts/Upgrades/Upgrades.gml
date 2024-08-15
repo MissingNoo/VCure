@@ -1992,7 +1992,16 @@ function random_upgrades(){
 	//}
 	//global.upgradeOptions[0] = PERK_LIST[PerkIds.Bubba][0];
 	//cti
-	global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	if (global.held_item.item != undefined) {
+		global.upgradeOptions[global.held_item.position] = global.held_item.item;
+		global.held_item.item = undefined;
+		oGui.heldpos = global.held_item.position;
+	}
+	else {
+		oGui.heldpos = -1;
+	}
+	show_debug_message($"###\n{global.held_item.item}");
 }	
 #endregion
 #region Random Enchantments

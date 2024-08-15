@@ -134,6 +134,15 @@ if (!variable_global_exists("ShopUpgrades")) {
 			tab : GlobalShopTabs.Enhancements,
 			costs : [2500, 5000, 7500, 10000, 12500 ]
 		},
+		Hold : {
+			name:"Hold",
+			desc : "Let you hold a option until the next level up",
+			sprite : sHudRerollIcon,
+			level : 0,
+			maxlevel : 5,
+			tab : GlobalShopTabs.Enhancements,
+			costs : [2500, 5000, 7500, 10000, 12500 ]
+		},
 		Enchantment : {
 			name : "Enchantments",
 			sprite : sHudHPIcon,

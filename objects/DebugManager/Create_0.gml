@@ -260,4 +260,14 @@ DebugManager.debug_add_config(self, {
 	},
 	page : "Stage"
 });
+//Shop
+DebugManager.debug_add_config(self, {
+	text : "Money",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		global.holocoins = 999999999;
+	},
+	page : "Shop"
+});
 ini_close();

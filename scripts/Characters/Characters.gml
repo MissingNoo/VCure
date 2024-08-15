@@ -4,6 +4,11 @@
 #macro MAXHP global.maxhp
 #macro NAME global.name
 function initializePlayer(_p){
+	global.held_item = {
+		item : undefined,
+		position : 0,
+	};
+	global.helds = global.shopUpgrades.Hold.level;
 	oGame.endlessminutemark = false;
 	mouseAim = false;
 	attacktick=true;

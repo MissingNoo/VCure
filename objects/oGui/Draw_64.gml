@@ -152,7 +152,7 @@ if (instance_exists(oPlayer)) {
 			var foundup = false;
 			var foundlv = 0;
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
-				case ItemTypes.Weapon:{
+				case ItemTypes.Weapon:
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
 						if (UPGRADES[j][$ "name"] == global.upgradeOptions[i][$ "name"]) {
 							foundup = true;
@@ -169,8 +169,8 @@ if (instance_exists(oPlayer)) {
 						draw_text_transformed(_xx + 365, _yy + 35 + offset, "> " + lexicon_text($"Enchantments.{_enchantment}.desc"), 2, 2, 0);
 						draw_set_halign(fa_left);
 					}
-					break;}
-				case ItemTypes.Item:{
+					break;
+				case ItemTypes.Item:
 					for (var j = 0; j < array_length(playerItems); ++j) {
 						if (playerItems[j][$ "id"] == global.upgradeOptions[i][$ "id"]) {
 							foundup = true;
@@ -179,8 +179,8 @@ if (instance_exists(oPlayer)) {
 					}
 					style = " >> Item";
 					uptype = "Items.";
-					break;}
-				case ItemTypes.Perk:{
+					break;
+				case ItemTypes.Perk:
 					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
 						if (PLAYER_PERKS[j][$ "id"] == global.upgradeOptions[i][$ "id"]) {
 							foundup = true;
@@ -189,10 +189,13 @@ if (instance_exists(oPlayer)) {
 					}
 					style = " >> Skill";
 					uptype = "Perks.";
-					break;}
+					break;
 			}
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
 			draw_text_transformed(_xx - 348, _yy - 57 + offset, _name, 2, 2, 0);
+			if (i == heldpos) { 
+				draw_circle(_xx - 360, _yy - 57 + offset, 10, false);
+			}
 			draw_set_color(c_white);
 			draw_set_halign(fa_right);
 			draw_text_transformed(_xx + 340, _yy - 57 + offset, string(style), 2, 2, 0);
@@ -212,6 +215,7 @@ if (instance_exists(oPlayer)) {
 			offset += 138;
 			draw_set_color(c_white);
 		}//feather disable once GM2017
+		#region Reroll
 		if (global.shopUpgrades.Reroll.level > 0) {
 			var _rerollX = GW/2;
 			var _rerollY = GH/1.05;
@@ -229,6 +233,18 @@ if (instance_exists(oPlayer)) {
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
 		}
+		#endregion
+		#region Hold
+		var dm = DebugManager;
+		if (global.shopUpgrades.Hold.level > 0) {
+			var _holdx = GW/2 + 500;
+			var _holdy = GH/1.05;
+			lobby_button(_holdx, _holdy, $"Hold ({global.helds})", function () {
+				helding = true;
+				global.helds--;
+			}, [1.17, 2, 2.50], !helding);
+		}
+		#endregion
 		#endregion
 		drawStats();
 	}

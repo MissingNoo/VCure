@@ -172,8 +172,17 @@ if (global.upgrade) {
 			}
 			return;
 		}
-		for (var i = 0; i < 6; i++) 
-		{	
+		if (helding) {
+			heldpos = selected;
+			global.held_item = {
+				item : global.upgradeOptions[heldpos],
+				position : heldpos,
+			}
+			show_debug_message(global.held_item.item);
+		}
+		//TODO: Hold item via keyboard
+		for (var i = 0; i < 6; i++) {
+			if (helding) { break; }
 			if (global.upgradeOptions[selected][$ "name"] == "null") { break; }
 			if (global.upgradeOptions[selected][$ "id"] == ItemIds.Holocoin){ 
 				var coins = 50;//feather disable once GM2017
@@ -249,6 +258,7 @@ if (global.upgrade) {
 		}
 		global.xp -= oPlayer.neededxp;
 		global.upgrade = 0;
+		helding = false;
 		pause_game();
 		upgradesSurface();
 	}

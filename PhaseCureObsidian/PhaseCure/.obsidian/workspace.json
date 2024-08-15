@@ -18,12 +18,12 @@
             }
           },
           {
-            "id": "76df648c1fd3e74b",
+            "id": "c396ceae7038b6fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Weapons/Multishot/Bounce Ball.md",
+                "file": "Systems/Weapons/Melee/Spider Cooking.md",
                 "mode": "preview",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Weapons/Multishot/Bounce Ball.md",
+                "file": "Systems/Weapons/Melee/Spider Cooking.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Weapons/Multishot/Bounce Ball.md",
+                "file": "Systems/Weapons/Melee/Spider Cooking.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Weapons/Multishot/Bounce Ball.md"
+                "file": "Systems/Weapons/Melee/Spider Cooking.md"
               }
             }
           }
@@ -159,8 +159,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "76df648c1fd3e74b",
+  "active": "c396ceae7038b6fa",
   "lastOpenFiles": [
+    "Systems/Weapons/Multishot/Bounce Ball.md",
+    "Systems/LevelUp.md",
+    "Weapons.md",
+    "Systems.md",
     "Systems/Weapons/Multishot/Glowstick.md",
     "Systems/Weapons/Melee/Wamy Water.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
@@ -172,7 +176,6 @@
     "Systems/Characters/Hololive/EN/Myth.md",
     "Systems/Characters/Hololive/EN.md",
     "Systems/Character Selection.md",
-    "Systems.md",
     "Systems/Characters/Hololive/ID.md",
     "Systems/Characters/Hololive/ID/HoloH3ro.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta/Vestia Zeta.md",
@@ -192,11 +195,8 @@
     "Systems/Characters/Hololive/ID/Holoro/Kureiji Ollie",
     "Systems/Characters/Hololive/ID/Holoro",
     "Systems/Characters/Hololive/ID/Area 15/Airani Iofifteen/Airani Iofifteen.md",
-    "Systems/Characters/Hololive/ID/Area 15/Ayunda Risu/Ayunda Risu.md",
     "Systems/Characters/Hololive/ID/Area 15/Airani Iofifteen",
-    "Systems/Characters/Hololive/ID/Area 15/Moona Hoshinova/Moona Hoshinova.md",
     "Systems/Characters/Hololive/ID/Area 15/Ayunda Risu",
-    "Systems/Characters/Hololive/JP.md",
     "Canvas.canvas",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",
