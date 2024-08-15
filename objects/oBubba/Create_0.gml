@@ -6,3 +6,4 @@ y = oPlayer.y;
 target = {x : oPlayer.x, y : oPlayer.y};
 barktimer = 100;
 basespeed = 1;
+level = 1;

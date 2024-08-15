@@ -1984,11 +1984,11 @@ function random_upgrades(){
 	#endregion
 	//first option
 	//if (variable_struct_exists(global.upgradesAvaliable[Weapons.BounceBall][1], "unlocked") and global.upgradesAvaliable[Weapons.BounceBall][1][$ "unlocked"]) {
-	    //global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
+	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1]; //first up
 	//}
-	 //global.upgradeOptions[0] = PERK_LIST[PerkIds.LivingWeapon][0];
-	 //cti
-	 global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.XPotato][1];
+	global.upgradeOptions[0] = PERK_LIST[PerkIds.Bubba][0];
+	//cti
+	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.XPotato][1];
 }	
 #endregion
 #region Random Enchantments

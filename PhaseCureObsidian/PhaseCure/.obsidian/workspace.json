@@ -28,6 +28,30 @@
             "id": "1493a1ad2e5af692",
             "type": "leaf",
             "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9afe1ee347413696",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d966b74d6319856e",
+            "type": "leaf",
+            "state": {
               "type": "graph",
               "state": {}
             }
@@ -83,7 +107,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -99,6 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,6 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +163,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md"
+              }
             }
           }
         ],
@@ -159,9 +188,28 @@
   },
   "active": "1493a1ad2e5af692",
   "lastOpenFiles": [
+    "Systems/Characters/Hololive/Amelia Watson/Amelia Watson.md",
+    "Systems/Characters/Characters.md",
+    "Systems/Characters/Hololive.md",
+    "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
+    "Systems/Characters/Hololive/Amelia Watson/Perks/Bubba.md",
+    "z_attachments/spr_AmePerk3_0 2.png",
+    "z_attachments/spr_AmePerk3_0 1.png",
+    "Systems/Characters/Hololive/Amelia Watson/Perks/Detective Eye.md",
+    "z_attachments/spr_AmePerk2_0 1.png",
+    "Systems/Characters/Hololive/Amelia Watson/Perks/FPS Mastery.md",
+    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
+    "z_attachments/spr_AmePerk1_0 1.png",
+    "Systems/Characters/Hololive/Amelia Watson/Pistol Shot.md",
+    "Systems/Characters/Hololive/Amelia Watson/Perks",
+    "z_attachments/spr_Ameweapon_0 1.png",
+    "z_attachments/Pasted image 20240814210827.png",
+    "z_attachments/Pasted image 20240814210819.png",
+    "z_attachments/Pasted image 20240814210753.png",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+    "Systems/Characters/Hololive/Amelia Watson",
     "Server.md",
     "Systems/Characters/Phase Connect.md",
-    "Systems/Characters/Characters.md",
     "Systems/HoloHouse/Holo House.md",
     "Systems/HoloHouse",
     "Canvas.canvas",
@@ -170,19 +218,12 @@
     "Systems/Weapons/Collabs.md",
     "Systems/Weapons/Collabs/Absolute Wall.md",
     "Systems/Character Selection.md",
-    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks",
     "Systems/Characters/PhaseConnect/Uruka/Images/Dirty Mind.png",
     "Systems/Characters/PhaseConnect/Uruka/Images/Music Note.png",
-    "Systems/Characters/PhaseConnect/Uruka/Images/MONSTER.png",
-    "Systems/Characters/PhaseConnect/Uruka/Images/Weak Bones.png",
-    "z_attachments/Wallmart Form.png",
-    "Systems/Characters/PhaseConnect/Uruka/Images/Wave.png",
     "Systems/Characters/PhaseConnect/Uruka/Images",
-    "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
     "Systems/Characters/PhaseConnect/Uruka",
     "Systems/Characters/PhaseConnect",
     "Systems/Characters/Hololive",
@@ -192,20 +233,8 @@
     "Systems/Weapons/Melee/Sausage.md",
     "Systems/Weapons/Multishot/Bounce Ball.md",
     "Systems/Weapons/Ranged/Cutting Board.md",
-    "z_attachments/Pasted image 20240805214525.png",
     "Systems/Weapons/Collabs",
     "Systems/Weapons/MultiShot.md",
-    "Systems/HoloHouse/Fishing.md",
-    "2023-10-26.md",
-    "Systems/Stamps.md",
-    "Systems/Weapons/Ranged.md",
-    "z_attachments/Pasted image 20240802212803.png",
-    "z_attachments/Pasted image 20240802212758.png",
-    "z_attachments/Pasted image 20240802212754.png",
-    "Systems/Fandom.md",
-    "Systems/Weapons/Multishot/BL Book.md",
-    "Systems/Weapons/Ranged",
-    "Systems/Weapons/Multishot",
     "PhaseCure/Canvas.canvas"
   ]
 }

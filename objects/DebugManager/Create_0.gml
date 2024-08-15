@@ -166,6 +166,13 @@ DebugManager.debug_add_config(self, {
 	func: function(){global.xp = oPlayer.neededxp;},
 	page : "Stage"
 });
+DebugManager.debug_add_config(self, {
+	text : "Rerrol",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){random_upgrades();},
+	page : "Stage"
+});
 ws = 0;
 DebugManager.debug_add_config(self, {
 	text : "Weapon",

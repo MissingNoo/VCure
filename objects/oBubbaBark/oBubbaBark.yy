@@ -20,8 +20,8 @@
     "path":"folders/Objects/Player/Specials.yy",
   },
   "parentObjectId":{
-    "name":"oUpgrade",
-    "path":"objects/oUpgrade/oUpgrade.yy",
+    "name":"oUpgradeNew",
+    "path":"objects/oUpgradeNew/oUpgradeNew.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -36,7 +36,9 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"level","filters":[],"listItems":[],"multiselect":false,"name":"level","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

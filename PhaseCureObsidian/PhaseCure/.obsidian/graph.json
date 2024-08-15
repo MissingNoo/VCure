@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "path:Systems/HoloHouse  ",
@@ -50,6 +50,13 @@
       }
     },
     {
+      "query": "path:Systems/Characters/Hololive  ",
+      "color": {
+        "a": 1,
+        "rgb": 2667735
+      }
+    },
+    {
       "query": "path:Systems/Characters/PhaseConnect  ",
       "color": {
         "a": 1,
@@ -67,6 +74,6 @@
   "repelStrength": 15,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.4444444444444444,
+  "scale": 0.6666666666666666,
   "close": true
 }

@@ -1,3 +1,4 @@
+onBubbaArea = false;
 onArea = false;
 otherxp = 0;
 oY = y;

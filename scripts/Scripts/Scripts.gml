@@ -722,6 +722,31 @@ function damage_number_spawn(instance, damage, critical, infected = false){
 		_inst.infected = infected;
 	}
 }
+
+function add_xp(inst) {
+	var newxp = inst.xp;
+	audio_play_sound(snd_get_exp,0,0, global.soundVolume);
+	instance_destroy(inst);
+	for (var i = 0; i < array_length(Bonuses[BonusType.XPBonus]); ++i) {
+		if (Bonuses[BonusType.XPBonus][i] != 0) {
+			//show_message("old:" + string(newxp) + " new:" + string(newxp * Bonuses[BonusType.XPBonus][i]));
+			newxp = newxp * Bonuses[BonusType.XPBonus][i];
+		}
+	}
+	//feather disable once GM2017
+	for (var i = 0; i < global.shopUpgrades[$ "ExpGain"][$ "level"]; ++i) {
+		newxp = newxp + ((newxp * 4) / 100);
+	}
+	
+	/*if (!global.singleplayer and global.shareXP) {
+		//sendMessage(0, {command : Network.ShareXP, xp : newxp / 2});
+		global.xp += newxp / 2;
+	}
+	else{
+		
+	}*/
+	global.xp += newxp;
+}
 	
 credits = @"Thanks to these awesome people
 Kay Yu: original Holocure

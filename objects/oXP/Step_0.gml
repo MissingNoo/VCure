@@ -4,14 +4,18 @@ if (!global.gamePaused) {
 	}
 	if (gotRainbow) {
 		direction = point_direction(x, y, oPlayer.x, oPlayer.y);
-		speed = oPlayer.spd * oGui.a * Delta;
+		speed = oPlayer.spd * 1.5 * Delta;
 		exit;
 	}
 	if (onArea) {
 		direction = point_direction(x,y,oPlayer.x,oPlayer.y);
-		speed = oPlayer.spd*1.3 * Delta;
+		speed = oPlayer.spd * 1.3 * Delta;
 	}
-	else{
+	else if (onBubbaArea) {
+		direction = point_direction(x,y, oBubba.x, oBubba.y);
+		speed = oBubba.basespeed * 1.3 * Delta;
+	}
+	else {
 		speed = 0;
 		//y = sine_wave(current_time / 1000, 1, .5, y);
 		var nearestxp = instance_nearest(x,y, oXP);

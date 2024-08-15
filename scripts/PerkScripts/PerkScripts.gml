@@ -5,12 +5,15 @@ function perk_bubba(level, event = WeaponEvent.Null){
 			    instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oBubba);
 			}
 	        oBubba.basespeed = 1;
+			oBubba.level = 1;
 	        break;
 	    case 2:
 	        oBubba.basespeed = 1.15;
+			oBubba.level = 2;
 	        break;
 	    case 3:
 	        oBubba.basespeed = 1.30;
+			oBubba.level = 3;
 	        break;
 	}
 }
