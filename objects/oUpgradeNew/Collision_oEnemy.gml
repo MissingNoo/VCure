@@ -85,18 +85,6 @@ for (var i = 0; i < global.shopUpgrades[$ "Atk"][$ "level"]; ++i) {
 }
 #endregion
 dmg = dmg + bdmg;
-#region Character Bonuses
-if (global.player == CHARACTERS[Characters.Uruka]) {
-	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		if (PLAYER_PERKS[i][$ "id"] == PerkIds.TrashBear and PLAYER_PERKS[i][$ "level"] == 3) {
-			randomize();
-			if (irandom_range(0, 100) <= 2) {
-				dmg = dmg * 999;
-			}			    
-		}
-	}
-}
-#endregion
 var _rnd = irandom_range(0, 100);
 var _critChance = oPlayer.critChance;
 var _critMultiplier = 1;

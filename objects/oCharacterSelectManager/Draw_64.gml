@@ -244,7 +244,7 @@ switch (state) {
 		#endregion
         break;
     case "showinfo":
-        scribble($"{state},{info},{infolevel}").scale(2).draw(MX, MY + 10);
+        //scribble($"{state},{info},{infolevel}").scale(2).draw(MX, MY + 10);
 		draw_set_alpha(0.5);
 		draw_rectangle_color(0, 0, GW, GH, #19181D, #19181D, #19181D, #19181D, false);
 		draw_set_alpha(0.75);

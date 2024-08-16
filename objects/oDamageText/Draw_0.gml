@@ -1,21 +1,25 @@
 /// @instancevar {Any} critical
 /// @instancevar {Any} dmg
-//if (os_type != os_android) {
-    //draw_set_font(global.Font); //draw_set_font(fnt_font1);
-//}
+var scale = 0.50;
 draw_set_alpha(image_alpha);
-draw_set_color(critical ? c_yellow : c_white);
+var color = critical ? "c_yellow" : "c_white";
 var _str = "";
 if (dmg != 0) {
     _str = string(dmg);
 }
 else{
-	draw_set_color(c_white);
+	color = "c_white";
 	_str = "MISS";
 }
 if (infected) {
-	draw_set_color(c_red);
+	color = "c_purple";
     _str = "INFECTED";
 }
-draw_text_transformed(x,y, _str, 1.25, 1.25, 0);
-draw_set_color(c_white);
+if (dmg > 9999) {
+    _str = "KO!!!"
+    scale = 0.75;
+    color = "c_red";
+}
+//draw_text_transformed(x,y, _str, 1.25, 1.25, 0);
+//draw_set_color(c_white);
+scribble($"[fa_center][fa_middle][alpha,{image_alpha}][fDmg][{color}]{_str}").scale(scale).draw(x - (oPlayer.image_xscale == -1 ? 8 : 0), y - 8);

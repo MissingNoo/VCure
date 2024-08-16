@@ -941,6 +941,8 @@
     {"name":"sDiaboo","order":4,"path":"sprites/sDiaboo/sDiaboo.yy",},
     {"name":"sDirtyMind","order":3,"path":"sprites/sDirtyMind/sDirtyMind.yy",},
     {"name":"sDisgruntledEmployee","order":4,"path":"sprites/sDisgruntledEmployee/sDisgruntledEmployee.yy",},
+    {"name":"sDmgFont_1","order":6,"path":"sprites/sDmgFont_1/sDmgFont_1.yy",},
+    {"name":"sDmgFont","order":5,"path":"sprites/sDmgFont/sDmgFont.yy",},
     {"name":"sEel","order":21,"path":"sprites/sEel/sEel.yy",},
     {"name":"sEelIcon","order":22,"path":"sprites/sEelIcon/sEelIcon.yy",},
     {"name":"sEightNote","order":5,"path":"sprites/sEightNote/sEightNote.yy",},

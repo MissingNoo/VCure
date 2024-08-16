@@ -1079,6 +1079,8 @@
     {"id":{"name":"sDiaboo","path":"sprites/sDiaboo/sDiaboo.yy",},},
     {"id":{"name":"sDirtyMind","path":"sprites/sDirtyMind/sDirtyMind.yy",},},
     {"id":{"name":"sDisgruntledEmployee","path":"sprites/sDisgruntledEmployee/sDisgruntledEmployee.yy",},},
+    {"id":{"name":"sDmgFont_1","path":"sprites/sDmgFont_1/sDmgFont_1.yy",},},
+    {"id":{"name":"sDmgFont","path":"sprites/sDmgFont/sDmgFont.yy",},},
     {"id":{"name":"sDokibirdIdle","path":"sprites/sDokibirdIdle/sDokibirdIdle.yy",},},
     {"id":{"name":"sDouglasShoot","path":"sprites/sDouglasShoot/sDouglasShoot.yy",},},
     {"id":{"name":"sEel","path":"sprites/sEel/sEel.yy",},},

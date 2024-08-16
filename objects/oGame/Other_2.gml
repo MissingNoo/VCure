@@ -205,7 +205,10 @@ global.holocoins ??= 0;
 //var fstr = "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^~`abcdefghijklmnopqrstuvwxyz{|}~";
 var fstr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXWYZ[]{}()<>=?*:!%0123456789./, \"";
 //if (os_type != os_android) {
+global.fonts = [-1, -1];
 global.newFont[1] = font_add_sprite_ext(sHFont, fstr, true, 1);
+global.fonts[1] = font_add_sprite_ext(sDmgFont, "0123456789KO!", true, 1);
+scribble_font_bake_outline_4dir("sDmgFont", "fDmg", c_black, true);
 scribble_font_set_default("sHFont");
 scribble_font_bake_outline_4dir("sHFont", "sHFontOutline", c_black, true);
 //global.newFont[2] = font_add_sprite_ext(sPixelFont, fstr, true, 2);

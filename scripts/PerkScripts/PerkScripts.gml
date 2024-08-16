@@ -34,7 +34,6 @@ function detective_eye(level, event = WeaponEvent.Null){
 				}
 			}
 	        break;
-			//TODO: A red "KO" appears on the screen when the Skill triggers.
 	}
 }
 function belly_dancing(level, event = WeaponEvent.Null){
