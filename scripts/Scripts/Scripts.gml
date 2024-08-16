@@ -168,7 +168,7 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 	    exit;
 	}
 	switch (type) {
-		case Patterns.WallLeftRight:{
+		case Patterns.WallLeftRight:
 			var _wh = view_wport[0] / 2 + offset;
 			aa = oPlayer.x + _wh;
 			var ab = oPlayer.x - _wh;
@@ -198,8 +198,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				bb += wallSprOffset;
 			}
-		    break;}
-		case Patterns.WallTopBottom:{
+		    break;
+		case Patterns.WallTopBottom:
 			var _vh = view_hport[0] / 2 + offset;
 			aa = oPlayer.x;
 			var ba = oPlayer.y - _vh;
@@ -224,8 +224,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
 				aa += wallSprOffset;
 			}
-		    break;}
-		case Patterns.Ring:{
+		    break;
+		case Patterns.Ring:
 			var circle = irandom_range(0, 360);
 			repeat(quantity) {
 				var _x = oPlayer.x + lengthdir_x(r, circle);
@@ -233,8 +233,8 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				instance_create_layer(_x, _y, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
 				circle += quantity / offset;
 			}
-			break;}
-		case Patterns.StampedeRight:{
+			break;
+		case Patterns.StampedeRight:
 			var _y = oPlayer.y;
 			var _h = (sprite_get_height(monster[?"sprite"]) * monster[?"yscale"]) * 2;
 			if (offset == 2) {
@@ -248,8 +248,7 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_y += _h;
 			}
 			break;
-		}
-		case Patterns.StampedeLeft:{
+		case Patterns.StampedeLeft:
 			var _y = oPlayer.y;
 			var _h = (sprite_get_height(monster[?"sprite"]) * monster[?"yscale"]) * 2;
 			if (offset == 2) {
@@ -263,8 +262,7 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_y += _h;
 			}
 			break;
-		}
-		case Patterns.StampedeTop:{
+		case Patterns.StampedeTop:
 			var _x = oPlayer.x;
 			var _w = (sprite_get_width(monster[?"sprite"]) * monster[?"xscale"]) * 2;
 			if (offset == 2) {
@@ -278,8 +276,7 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_x += _w;
 			}
 			break;
-		}
-		case Patterns.StampedeDown:{
+		case Patterns.StampedeDown:
 			var _x = oPlayer.x;
 			var _w = (sprite_get_width(monster[?"sprite"]) * monster[?"xscale"]) * 2;
 			if (offset == 2) {
@@ -293,7 +290,6 @@ function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 40
 				_x += _w;
 			}
 			break;
-		}		
 		default:
 			var a = oPlayer.x + choose(-400, 400);
 			var b = oPlayer.y + choose(-400, 400);
@@ -522,7 +518,7 @@ function prop_start(){
 	}
 	part_system_position(part, x, y - _y);
 }
-	
+
 function prize_box_roll(boxnumber = 0){
 	//There is a 7/10 chance for the reward to be a weapon and 3/10 chance for an item.
 	//If the player cannot be offered a weapon (no available slots and fully leveled), the reward will be replaced by an item.

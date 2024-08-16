@@ -96,7 +96,7 @@ if (instance_exists(oPlayer)) {
 		if (oPlayer.skilltimer > oPlayer.specialcooldown) { chargeColor = c_red; }
 		draw_sprite_part_ext(sHudSpecial,2, 0, 0, ((oPlayer.skilltimer / oPlayer.specialcooldown) * sprite_get_width(sHudSpecial)), sprite_get_height(sHudSpecial), _sx + casesize, _sy, 1, 2, chargeColor, 1);
 		draw_sprite_ext(sHudSpecial,1, _sx + casesize, _sy, 1, 2, 0, c_white, 1);
-		if (oPlayer.skilltimer > oPlayer.specialcooldown) { draw_text(_sx+oGui.a, _sy + casesize, "READY"); }
+		if (oPlayer.skilltimer > oPlayer.specialcooldown) { draw_text(_sx, _sy + casesize, "READY"); }
 		//draw_sprite_ext(sHudSpecialCase, 0, _sx, _sy, 2.1, 2.1, 0, c_white, 1);
 		draw_sprite_ext(special[$ "thumb"], 0, _sx + 4, _sy, 2, 2, 0, c_white, .5);
 		DEBUG 
@@ -293,6 +293,7 @@ if (instance_exists(oPlayer)) {
 			draw_set_halign(fa_left);
 			draw_set_valign(fa_top);
 			if (click_on_area([_x - (w/2), _y - (h/2), _x + (w/2), _y + (h/2)]) or zKey) {
+				
 				temp = prize_box_roll();
 			    boxaccept = true;
 				//feather disable GM2017

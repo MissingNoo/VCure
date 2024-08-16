@@ -1,4 +1,5 @@
 // Feather disable GM1041
+/// @instancevar {Any} shopItemsSell
 tabItems = [];
 firstitem = 0;
 maxitem = 3;
@@ -25,6 +26,7 @@ function draw_simple_items(arr){
 		draw_sprite_ext(sItemSquare, 0, GW/3.23 + 100, GH/13.97 + 170 + _yoff, 2, 2, 0, c_white, 1);
 		draw_sprite_ext(arr[i][$ "sprite"], 0, GW/3.23 + 100, GH/13.97 + 170 + _yoff, 2, 2, 0, c_white, 1);
 		draw_set_color(c_yellow);
+		/// @instancevar {Any} lexiconIdentifier
 		draw_text_transformed(GW/3.23 + 140, GH/13.97 + 130 + _yoff, lexicon_text(string(lexiconIdentifier) + "." +  arr[i][$ "name"] + ".name"), 3, 3, 0);
 		draw_set_color(c_white);
 		draw_text_ext_transformed(GW/3.23 + 140, GH/13.97 + 160 + _yoff, lexicon_text(string(lexiconIdentifier) + "." +  arr[i][$ "name"] + ".desc"),10, 220, 3, 3, 0);
@@ -33,20 +35,23 @@ function draw_simple_items(arr){
 }
 
 function updateTabItems(){
-var totalTabItems = 0;
-tabItems = [];
-for (var i = 0; i < array_length(shopItemsBuy); ++i) {
-	if (shopItemsBuy[i][$ "category"] == shopTabs[selectedTab][$ "category"]) {
-		totalTabItems += 1;
-		array_push(tabItems, shopItemsBuy[i]);
+	/// @instancevar {Any} shopItemsBuy
+	/// @instancevar {Any} shopTabs 
+	var totalTabItems = 0;
+	tabItems = [];
+
+	for (var i = 0; i < array_length(shopItemsBuy); ++i) {
+		if (shopItemsBuy[i][$ "category"] == shopTabs[selectedTab][$ "category"]) {
+			totalTabItems += 1;
+			array_push(tabItems, shopItemsBuy[i]);
+		}
 	}
-}
-//draw_text(TouchX1, TouchY1, tabItems);
-maxitem = 5;
-firstitem= 0;
-if (maxitem > totalTabItems) {
-	maxitem = totalTabItems;
-}
+	//draw_text(TouchX1, TouchY1, tabItems);
+	maxitem = 5;
+	firstitem= 0;
+	if (maxitem > totalTabItems) {
+		maxitem = totalTabItems;
+	}
 }
 
 if (is_array(shopItemsSell)) {

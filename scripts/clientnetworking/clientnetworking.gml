@@ -76,7 +76,6 @@ function clientReceivedPacket2(_response)
 			oLobby.fsm.change("OnLobby");
 			break;
 		case Network.ListLobbies:
-			//show_debug_message($"###\n{r[$ "lobbies"]}");
 			oLobby.rooms = json_parse(r[$ "lobbies"]);
 			break;
 		case Network.UpdatePlayers:

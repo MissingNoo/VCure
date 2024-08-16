@@ -1,14 +1,26 @@
 event_inherited();
-stunned = false;
-stuntimer = 60;
-enemyinfo = -1;
+#region Stitch
+/// @instancevar {Any} selectedEnemy
+/// @instancevar {Any} customHP
+/// @instancevar {Any} customSPD
+/// @instancevar {Any} customXP
+/// @instancevar {Any} lifetime
+/// @instancevar {Any} enemyID
+/// @instancevar {Any} xscale
+/// @instancevar {Any} yscale
+/// @instancevar {Any} infected
+/// @instancevar {Any} dieX
 /// @instancevar {Any} carryingBomb 
 /// @instancevar {Any} enemyinfo
 /// @instancevar {Any} enemyID 
-setinfo = true;
 /// @instancevar {Any} fromnetwork 
 /// @instancevar {Any} customSpawn 
 /// @instancevar {Any} thisEnemy 
+#endregion
+stunned = false;
+stuntimer = 60;
+enemyinfo = -1;
+setinfo = true;
 depth = layer_get_depth("Enemies");
 canattackAlarm = 0;
 damagedAlarm = 0;

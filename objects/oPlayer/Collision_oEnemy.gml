@@ -1,3 +1,4 @@
+/// @instancevar {Any}  pimanBonus
 #region Specials
 #region Anya
 var cooldownOver = false;
@@ -37,7 +38,7 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 	var _dirtyChance = 0;
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		switch (PLAYER_PERKS[i].id) {
-			case (PerkIds.WeakBones):{
+			case (PerkIds.WeakBones):
 				switch (PLAYER_PERKS[i].level) {
 					case 0:
 						bonusdmg = 0;
@@ -70,10 +71,10 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 							});
 						}
 					}
-					break;}
-			case (PerkIds.DirtyMind):{
+					break;
+			case (PerkIds.DirtyMind):
 				_dirtyChance = PLAYER_PERKS[i].dodgeChance;
-				break;}
+				break;
 			}
 		}
 		//show_debug_message(string($"d:{damage} + {bonusdmg} = {damage+bonusdmg}"));

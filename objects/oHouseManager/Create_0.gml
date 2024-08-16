@@ -25,7 +25,7 @@ houseInfo = {
 	ignore : true
 	}
 enum HouseOptions {
-
+	Test
 }
 #macro HOUSE (working_directory + "Save_House.bin")
 //feather disable once GM2017
@@ -34,6 +34,7 @@ function Save_House() {
 	Data[$ "houseInfo"] = json_stringify(houseInfo);
 	for (var i = 0; i < instance_number(oHouseItem); ++i) {
 		var inst = instance_find(oHouseItem, i);
+		/// @localvar {Any} inst 
 		Data[$ i] = {
 			itemId : inst.itemId,
 			x : inst.x,

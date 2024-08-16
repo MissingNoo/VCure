@@ -1,7 +1,7 @@
 var _updown = - input_check_pressed("up") + input_check_pressed("down");
 var _leftright = - input_check_pressed("left") + input_check_pressed("right");
 switch (state) {
-	case "stage":{
+	case "stage":
 		if (!stageSelected) {
 			selected += _updown;
 			if (selected < 0) { selected = array_length(stageModes) - 1; }
@@ -15,7 +15,7 @@ switch (state) {
 			selectedStage = clamp(selectedStage, _min, _max);
 			stageselectlerp[1] = selectedStage * -550;
 		}
-		break;}
+		break;
     case "base":
         if (!characterSelected) {
 			if (_updown != 0) {

@@ -1,3 +1,5 @@
+/// @instancevar {Any} critical
+/// @instancevar {Any} dmg
 //if (os_type != os_android) {
     //draw_set_font(global.Font); //draw_set_font(fnt_font1);
 //}

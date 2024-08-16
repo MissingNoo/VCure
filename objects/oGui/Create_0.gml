@@ -161,6 +161,7 @@ minute = 19;
 second = 58;
 #endregion
 #region PauseMenu
+pauseMenu = array_create(PMenus.Lenght);
 activeMenu = PMenus.Pause;
 lastOptionType = 0;
 enum PM{	
@@ -442,18 +443,18 @@ function upgradesSurface(){
 			draw_sprite_ext(UPGRADES[i][$ "thumb"],awakened,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw weapon sprite
 			DEBUG draw_text(_itemsx+offset, _itemsy-15,string(global.upgradeCooldown[UPGRADES[i].id])); ENDDEBUG
 			switch (UPGRADES[i][$ "type"]){ //detect the type of upgrade
-				case "red":{
+				case "red":
 					header = sUiLevelHeaderPink;
 					digit = sUiDigitPink;
-					break;}
-				case "yellow":{
+					break;
+				case "yellow":
 					header = sUiLevelHeaderYellow;
 					digit = sUiDigitYellow;
-					break;}
-				case "white":{
+					break;
+				case "white":
 					header = sUiLevelHeaderWhite;
 					digit = sUiDigitWhite;
-					break;}
+					break;
 			}
 			draw_sprite_ext(header,0,_itemsx+offset,_itemsy,2,2,0,c_white,1); //draw type sprite
 			draw_sprite_ext(digit,UPGRADES[i][$ "level"],_itemsx+5+offset,_itemsy,2,2,0,c_white,1); //draw level
@@ -472,18 +473,18 @@ function upgradesSurface(){
 			DEBUG draw_text(_itemsx+offset, _itemsy-15+yoffset,string(global.itemCooldown[playerItems[i][$ "id"]])); ENDDEBUG
 			switch (playerItems[i][$ "type"]) //detect the type of upgrade
 			{
-				case "red":{
+				case "red":
 					header = sUiLevelHeaderPink;
 					digit = sUiDigitPink;
-					break;}
-				case "yellow":{
+					break;
+				case "yellow":
 					header = sUiLevelHeaderYellow;
 					digit = sUiDigitYellow;
-					break;}
-				case "white":{
+					break;
+				case "white":
 					header = sUiLevelHeaderWhite;
 					digit = sUiDigitWhite;
-					break;}
+					break;
 			}
 			draw_sprite_ext(header,0,_itemsx+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw type sprite
 			draw_sprite_ext(digit,playerItems[i][$ "level"],_itemsx+5+offset,_itemsy+yoffset,2,2,0,c_white,1); //draw level
@@ -520,6 +521,7 @@ itemsize = 2.50;
 coinsAmount = -2;
 resultY = -30;
 resultSize = 3;
+/// @instancevar {Any} chestsize 
 chestsize = 1.5;
 chesttimer = 0;
 chestmaxtimer = 4;

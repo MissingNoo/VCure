@@ -1,4 +1,4 @@
-//switch (upg[?"name"]) {
+/*//switch (upg[?"name"]) {
 //draw_text(x + 20, y, $"{direction} : {angle_difference(direction, 270) * 0.1}");
 //default:
 if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlayer.wallMart) and (image_alpha == 1 or image_alpha == .999)) {
@@ -15,13 +15,13 @@ if ((variable_struct_exists(upg, "afterimage") and upg[$ "afterimage"] or oPlaye
 
 
 switch (upg[$ "id"]) {
-	case Weapons.LiaBolt:{
+	case Weapons.LiaBolt:
 		if (lightningTarget != noone and instance_exists(lightningTarget)) {
 			var _newowner = variable_instance_exists(self, "newowner");
 		    draw_lightning(!_newowner ? owner.x : startX, (!_newowner ? owner.y : startY) - (sprite_get_height(owner.sprite_index) / 2), lightningTarget.x, lightningTarget.y - (sprite_get_height(lightningTarget.sprite_index) / 2), false, lightningColor);
 			draw_rectangle(sprite_get_bbox_left(sprite_index), sprite_get_bbox_top(sprite_index), sprite_get_bbox_right(sprite_index), sprite_get_bbox_bottom(sprite_index), false);
 		}
-		break;}
+		break;
     case Weapons.SpiderCooking:
         draw_spider_cooking();
         break;

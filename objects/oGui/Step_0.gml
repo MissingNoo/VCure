@@ -306,23 +306,23 @@ if (global.gamePaused and !isBusy) {
 		
 		lastmenu = activeMenu;
 		switch (pauseMenu[activeMenu][PM.Options][selectedOption][0]) {
-			case "Skills":{
+			case "Skills":
 		        
-		        break;}
-			case "????":{
+		        break;
+			case "????":
 		        
-		        break;}
-			case "Resume":{
+		        break;
+			case "Resume":
 		        pause_game();
-		        break;}
-		    case "Settings":{
+		        break;
+		    case "Settings":
 		        activeMenu = PMenus.Settings;
-		        break;}
-			case "Quit":{
+		        break;
+			case "Quit":
 				global.mode = "menu";
 				pause_game();
 		        room_goto(rInicio);
-		        break;}
+		        break;
 		}
 		
 		#region settings controlaudio_sound_get_gain(global.musicPlaying));
@@ -414,10 +414,10 @@ if (keyboard_check(ord("N"))) {
 	//show_message(string(_xn));
 }
 
-if (keyboard_check_pressed(vk_end) and global.debug) {
-	debuglog = !debuglog;
-    show_debug_log(debuglog)
-}
+//if (keyboard_check_pressed(vk_end) and global.debug) {
+	//debuglog = !debuglog;
+    //show_debug_log(debuglog)
+//}
 if(input_check_pressed("gm")) {global.guiScale -= .05; if (os_type == os_android) { gui_set();}};
 if(input_check_pressed("gp")) {global.guiScale += .05; if (os_type == os_android) { gui_set();}};
 DEBUG

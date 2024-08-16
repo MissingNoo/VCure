@@ -1,4 +1,5 @@
 //event_inherited();
+/// @instancevar {Any} shoots
 lowest = 0;
 aikFollowTimer = 0.25;
 aikFollow = false;
@@ -76,7 +77,7 @@ afterimagecount = 0;
 //alarm[11] = 1;
 partSystem = part_system_create();
 part = part_type_create();
-part_type_life(part, oGui.a, oGui.b);
+part_type_life(part, 1, 1);
 upgID = irandom(9999);
 originalX = x;
 originalY = y;

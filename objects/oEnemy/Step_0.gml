@@ -1,3 +1,4 @@
+
 /*if (enemyinfo != -1 and setinfo) {
 	setinfo = false;
 	var names = variable_struct_get_names(enemyinfo);
@@ -30,7 +31,7 @@ if (infected and target == noone) { //TODO multiplayer
 	for (var i = 0; i < ds_list_size(_list); ++i) {
 		if (variable_instance_get(_list[| i], "infected") == false) {
 			target = _list[| i];
-			if (instance_exists(target)) {
+			if (!global.singleplayer and instance_exists(target)) {
 				sendMessage(0, {
 					command : Network.InfectMob,
 					id : enemyID,
@@ -193,7 +194,7 @@ if(_canmove and instance_exists(target)){
 			    instance_create_layer(x,y,"Instances",oXP, {xp : xp});
 			}
 		}		
-		if (!deathSent) {
+		if (!global.singleplayer and !deathSent) {
 		    deathSent = true;
 			sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : enemyID, type : "enemy"})});
 		}

@@ -46,10 +46,12 @@ fsm.add("Rooms", {
 	},
 	step : function() {
 		reloadcooldown = clamp(reloadcooldown - 1, 0, infinity);
+		/// @instancevar {Any} rooms 
 		selectedroom = clamp(selectedroom -input_check_pressed("up") + input_check_pressed("down"), 0, array_length(rooms) - 1);
 	},
 	draw : function() {
 		lobby_button(120, 40, "Create", function(){
+			/// @instancevar {Any} fsm 
 			if (fsm.get_current_state() != "CreateLobby") {
 				fsm.change("CreateLobby");
 			}
@@ -93,6 +95,7 @@ fsm.add_child("Rooms", "CreateLobby", {
 		}
 		
 		if (wl[0] == wl[2]) {
+			/// @instancevar {Any} fsm
 			fsm.change("Rooms");
 		}
 		if(string_length(keyboard_string) > 10) {
@@ -155,6 +158,8 @@ fsm.add_child("Rooms", "CreateLobby", {
 fsm.add_child("Rooms", "JoiningLobby", {
 	enter : function() {
 		wl = [-750, 0, -751];
+		/// @instancevar {Any} rooms
+		/// @instancevar {Any} selectedroom
 		lobbyname = rooms[selectedroom].name;
 		lobbypass = "";
 		keyboard_string = "";
@@ -169,6 +174,7 @@ fsm.add_child("Rooms", "JoiningLobby", {
 		}
 		wl[0] = lerp(wl[0], wl[1], 0.25);
 		if (wl[0] == wl[2]) {
+			/// @instancevar {Any} fsm
 			fsm.change("Rooms");
 		}
 		if(string_length(keyboard_string) > 10) {
@@ -225,10 +231,14 @@ fsm.add("OnLobby", {
 	step : function() {
 	},
 	draw : function() {
+		/// @instancevar {Any} players
+		/// @instancevar {Any} subimg
 		lobby_button(120, 40, "Leave", function(){
 			sendMessageNew(Network.LeaveLobby);
 		}, [0.65, 1.50, 2]);
 		lobby_button(GW - 120, 40, "Select Character", function(){
+			/// @instancevar {Any} fsm
+			/// @instancevar {Any} wl
 			if (fsm.get_current_state() == "OnLobbyCharacter") {
 				wl[1] = wl[2];
 			}
@@ -236,7 +246,6 @@ fsm.add("OnLobby", {
 				fsm.change("OnLobbyCharacter");
 			}
 		}, [1.20, 1.50, 2]);
-		var d = DebugManager;
 		lobby_button(GW - 120, 95, "Start Game", function(){
 			sendMessageNew(Network.StartGame);
 		}, [1.20, 1.50, 2], global.IsHost and players[0].character != 0 and players[array_length(players) - 1].character != 0);
@@ -269,6 +278,7 @@ fsm.add_child("OnLobby", "OnLobbyCharacter", {
 		wl = [-750, 0, -751];
 	},
 	step : function() {
+		/// @instancevar {Any} fsm
 		if (input_check_pressed("pause") or input_check_pressed("cancel")) {
 			wl[1] = wl[2];
 		}

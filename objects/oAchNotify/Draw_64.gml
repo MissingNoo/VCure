@@ -1,3 +1,4 @@
+/// @instancevar {Any} ach
 if (ach == -1) { exit; }
 draw_set_alpha(alpha);
 //ach = AchievementIds.DeckedOut;

@@ -166,7 +166,8 @@ if (instance_exists(oPlayer)) {
 	var px;
 	var py;
 	if (room == rStage1) {	
-		var insts = [oEnemy, oAnvil, oUpgrade, oDropParent, oBubba, oBubbaBark, oMascot, oChest, oUpgradeNew];
+		var insts = [oEnemy, oAnvil, oUpgradeNew, oDropParent, oBubba, oBubbaBark, oMascot, oChest];
+		//TODO: some upgrades not teleporting
 	    if (oPlayer.x < 610) {
 			xx = oCamWorld.x - oPlayer.x;
 			px = oPlayer.x;

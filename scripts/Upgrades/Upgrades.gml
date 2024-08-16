@@ -2001,7 +2001,6 @@ function random_upgrades(){
 	else {
 		oGui.heldpos = -1;
 	}
-	show_debug_message($"###\n{global.held_item.item}");
 }	
 #endregion
 #region Random Enchantments

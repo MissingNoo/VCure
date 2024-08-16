@@ -1,3 +1,5 @@
+/// @instancevar {Any} can_collab
+/// @instancevar {Any} tick_powers
 #region Debug
 //feather disable GM2017
 //DebugManager.debug_add_config("Anvil", DebugTypes.Button, undefined, undefined, function(){instance_create_depth(oPlayer.x,oPlayer.y + 20, depth, oAnvil);});

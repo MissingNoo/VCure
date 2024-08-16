@@ -1,3 +1,6 @@
+/// @instancevar {Any} selectedOption
+/// @instancevar {Any} shopName
+/// @instancevar {Any} type
 var _yoff = 0;
 for (var i = 0; i < array_length(shopOptions); ++i) {
 	var _spr = selectedOption == i ? 1 : 0;

@@ -85,15 +85,15 @@ if (ANVIL) {
 		}
 		draw_set_color(c_white);
 		switch (selectedThing[$ "style"]) { // type of upgrade
-			case ItemTypes.Weapon:{
+			case ItemTypes.Weapon:
 				style = " >> Weapon";
-				break;}
-			case ItemTypes.Item:{
+				break;
+			case ItemTypes.Item:
 				style = " >> Item";
-				break;}
-			case ItemTypes.Perk:{
+				break;
+			case ItemTypes.Perk:
 				style = " >> Skill";
-				break;}
+				break;
 		}
 		draw_set_halign(fa_right);
 		draw_text_transformed(_xx + 370, _yy - 59.50, string(style), 1, 1, 0);  // draw type of upgrade

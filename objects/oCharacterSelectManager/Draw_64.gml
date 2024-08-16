@@ -209,7 +209,7 @@ else {
 #endregion
 
 switch (state) {
-    case "base":{
+    case "base":
 		#region Outfit
 		if (selectingOutfit) {
 			draw_text(GW/2, GH/2, "Press Z");
@@ -242,8 +242,8 @@ switch (state) {
 		//	draw_sprite_ext(_spr, outfitIdleAnimation[0], _x, _y + sprite_get_height(_spr) * 3, 6, 6, 0, _isUnlocked, 1);
 		//}
 		#endregion
-        break;}
-    case "showinfo":{
+        break;
+    case "showinfo":
         scribble($"{state},{info},{infolevel}").scale(2).draw(MX, MY + 10);
 		draw_set_alpha(0.5);
 		draw_rectangle_color(0, 0, GW, GH, #19181D, #19181D, #19181D, #19181D, false);
@@ -298,8 +298,8 @@ switch (state) {
 				}
 				break;
 		}
-        break;}
-	case "stage":{
+        break;
+	case "stage":
 		draw_set_alpha(0.5);
 		draw_rectangle_color(0, 0, GW/2.75 + stagelerp[0], GH, c_black, c_black, c_black, c_black, false);
 		draw_set_alpha(1);
@@ -374,5 +374,5 @@ switch (state) {
 				}
 		        break;
 		}
-		break;}
+		break;
 }

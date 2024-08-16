@@ -1,3 +1,4 @@
+/// @instancevar {Any} dontsend
 onScreenArrow = sAnvilPointer;
 offScreenArrow = sAnvilPointer;
 used = false;

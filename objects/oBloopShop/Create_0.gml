@@ -1,3 +1,5 @@
+/// @instancevar {Any} options
+/// @instancevar {Any} state
 a = DebugManager.a;
 b = DebugManager.b;
 c = DebugManager.c;
@@ -29,12 +31,14 @@ state.add("Menu", {
 		lastitem = 2;
 	},
 	step: function() {
+		/// @instancevar {Any} options
 		menuoption = clamp(menuoption - input_check_pressed("up") + input_check_pressed("down"), 0, array_length(options) - 1);
 		if (input_check_pressed("cancel")) {
 			oBloop.alarm[0] = 60;
 		    instance_destroy();
 		}
 		if (input_check_pressed("accept")) {
+			/// @instancevar {Any} state
 			switch (options[menuoption]) {
 			    case "Buy":
 			        state.change("Buy");
@@ -60,6 +64,8 @@ state.add("Buy", {
 		lastitem = 2;
 	},
 	step: function() {
+		/// @instancevar {Any} state
+		/// @instancevar {Any} buylist
 		#region Item Selection
 		if (input_check_pressed("cancel")) {
 			if (buying) {
@@ -129,6 +135,7 @@ state.add("Buy", {
 		whitebg = sine_wave(current_time  / 1250, 1, 0.15, 0.15);
     },
     draw: function() {
+		/// @instancevar {Any} shopname
 	    draw_sprite_ext(sHudShopNew, 0, GW - 50, 100, 45, 36, 0, c_white, 1);
 		scribble($"[fa_middle][fa_center]{shopname}").scale(4).draw(GW - 50 - (sprite_get_width(sHudShopNew) * 45 / 2), 140);
 		var _x = GW - 50 - (sprite_get_width(sHudShopNew) * 45 / 2);
@@ -168,6 +175,10 @@ state.add("Sell", {
 		lastitem = 7;
 	},
 	step: function() {
+		/// @instancevar {Any} state
+		/// @instancevar {Any} sellamount
+		/// @instancevar {Any} selllist
+		/// @instancevar {Any} shopname
 		#region Item Selection
 		if (input_check_pressed("cancel")) {
 			if (selling) {
