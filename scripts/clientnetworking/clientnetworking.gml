@@ -21,6 +21,7 @@ enum Network {
 	SpawnUpgrade,
 	SpawnEnemy,
 	DestroyInstance,
+	GetScores,
 
 	Message,
 	Move,
@@ -133,6 +134,10 @@ function clientReceivedPacket2(_response)
 					}
 					break;
 			}
+			break;
+		case Network.GetScores:
+			show_debug_message(json_stringify(json_parse(r[$ "r0"]), true));
+			show_debug_message(json_stringify(json_parse(r[$ "r1"]), true));
 			break;
 	}
 }

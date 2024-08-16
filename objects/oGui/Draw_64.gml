@@ -235,7 +235,6 @@ if (instance_exists(oPlayer)) {
 		}
 		#endregion
 		#region Hold
-		var dm = DebugManager;
 		if (global.shopUpgrades.Hold.level > 0) {
 			var _holdx = GW/2 + 500;
 			var _holdy = GH/1.05;
@@ -432,6 +431,9 @@ if (instance_exists(oPlayer)) {
 	var _minutes = round(Minutes);
 	if (_seconds < 10) { _seconds = $"0{_seconds}"; }
 	if (_minutes < 10) { _minutes = $"0{_minutes}"; }
+	if (!instance_exists(oGameOver)) {
+		global.timelast = $"{_minutes}:{_seconds}";
+	}
 	var _text = "";
 	switch (global.stageType) {
 	    case StageTypes.Stage:

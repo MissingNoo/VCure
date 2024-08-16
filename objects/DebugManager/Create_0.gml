@@ -270,4 +270,14 @@ DebugManager.debug_add_config(self, {
 	},
 	page : "Shop"
 });
+//Scores
+DebugManager.debug_add_config(self, {
+	text : "Load Scores",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){
+		sendMessageNew(Network.GetScores, {character : "Amelia Watson", page : 0});
+	},
+	page : "Shop"
+});
 ini_close();

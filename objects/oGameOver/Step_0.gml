@@ -59,9 +59,11 @@ if (zKey) {
 			var month = $"{current_month < 10 ? "0" : ""}{current_month}";
 			var day = $"{current_day < 10 ? "0" : ""}{current_day}";
 			var scoredata = {
+				ch : NAME,
 				score : global.score,
 				build : json_stringify(build),
-				date : $"{year}{month}{day}"
+				date : $"{year}{month}{day}",
+				time : global.timelast
 			}
 			if (cansubmit) {
 				cansubmit = false;
