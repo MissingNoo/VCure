@@ -18,22 +18,30 @@ function create_perk(_data){
 		var keys = variable_struct_get_names(_data);
 		for (var j = array_length(keys)-1; j >= 0; --j) {
 		    var k = keys[j];
-		    var v = _data[$ k];
-			if (is_array(v)) {
-			    if (array_length(v) > 1) {
-				    variable_struct_set(m, k, v[i]);
+			if (k == "bonusType") { 
+				variable_struct_set(m, "bonusType", _data.bonusType);
+			}
+			else if (k == "bonusValue"){
+				variable_struct_set(m, "bonusValue", _data.bonusValue);
+			}
+			else{
+				var v = _data[$ k];
+				if (is_array(v)) {
+					if (array_length(v) > 1) {
+						variable_struct_set(m, k, v[i]);
+					}
+					else
+					{
+						variable_struct_set(m, k, v[0]);
+					}   
+				}else{
+					variable_struct_set(m, k, v);
 				}
-				else
-				{
-					variable_struct_set(m, k, v[0]);
-				}   
-			}else{
-				variable_struct_set(m, k, v);
 			}
 		}
 		variable_struct_set(m, "perk", 1);
 		variable_struct_set(m, "style", ItemTypes.Perk);
-		//show_message(_data.cooldown);
+		
 		global.perkCooldown[_data.id] = 0;
 		//show_message(global.perkCooldown[_data.id]);
 	}
@@ -203,11 +211,8 @@ function populate_perks(){
 			thumb : sAmeliaFpsMastery,
 			cooldown : [3, 3, 2.01, 2.01],
 			bonus : true,
-			//bonusType : [BonusType.Damage, BonusType.Haste],
-			bonusType : BonusType.Damage,
-			//bonusValue : [[0, 1.20, 1.40, 1.60], [0, 0, 0, 1.10]],
-			bonusValue : [0, 1.20, 1.40, 1.60],
-			//TODO: attack 10% faster
+			bonusType : [BonusType.Damage, BonusType.Haste],
+			bonusValue : [[0, 1.20, 1.40, 1.60], [0, 0, 0, 1.10]],
 			characterid : Characters.Amelia
 		});
 		create_perk({
@@ -310,7 +315,18 @@ function populate_perks(){
 function tick_perks()
 {
 	//feather disable once GM2041
-	//for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+	/*for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		if (variable_struct_exists(PLAYER_PERKS[i], "bonusType")) {
+			if (is_array(PLAYER_PERKS[i][$ "bonusType"])) {
+				for (var j = 0; j < array_length(PLAYER_PERKS[i][$ "bonusType"]); ++j) {
+					PerkBonuses[PLAYER_PERKS[i][$ "bonusType"][j]][PLAYER_PERKS[i][$ "id"]] = PLAYER_PERKS[i][$ "bonusValue"][j][PLAYER_PERKS[i][$ "level"] -1];
+				}
+			}
+			else{
+				PerkBonuses[PLAYER_PERKS[i][$ "bonusType"]][PLAYER_PERKS[i][$ "id"]] = PLAYER_PERKS[i][$ "bonusValue"][PLAYER_PERKS[i][$ "level"] -1];
+			}
+		}
+	}*/
 	//	if (PLAYER_PERKS[i][$ "level"] != 0 and global.perkCooldown[PLAYER_PERKS[i][$ "id"]] <= 0) {
 	//		//default_perk_behaviour(PLAYER_PERKS[i][$ "id"], PLAYER_PERKS[i][$ "cooldown"]);
 			

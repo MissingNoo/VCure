@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![[spr_AmePerk2_0 1.png|50]]
 - Level 1

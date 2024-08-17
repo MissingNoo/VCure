@@ -44,8 +44,12 @@
                 "id": "e5e7634f6e3b8346",
                 "type": "leaf",
                 "state": {
-                  "type": "graph",
-                  "state": {}
+                  "type": "markdown",
+                  "state": {
+                    "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
+                    "mode": "preview",
+                    "source": false
+                  }
                 }
               }
             ]
@@ -118,6 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,6 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,7 +161,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md"
+              }
             }
           }
         ],
@@ -178,10 +186,10 @@
   },
   "active": "e5e7634f6e3b8346",
   "lastOpenFiles": [
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
     "Systems/Fandom.md",
     "Systems/Score.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/Phase Connect.md",
     "Systems/Character Selection.md",

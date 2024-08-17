@@ -57,15 +57,8 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 					    var _angles = [0, 45, 315, 135, 180, 225];
 						for (var j = 0; j < array_length(_angles); ++j) {
 							var _w = WEAPONS_LIST[Weapons.RestNote][1];
-							var instancecreated = instance_create_layer(self.x, self.y-8,"Upgrades",oUpgrade,{
+							var instancecreated = instance_create_layer(self.x, self.y-8,"Upgrades",oUpgradeNew,{
 								upg : _w,
-								speed : _w.speed,
-								hits : _w.hits,
-								shoots : _w.shoots,
-								mindmg : _w.mindmg,
-								maxdmg : _w.maxdmg,
-								sprite_index : _w.sprite,
-								a : 0,
 								owner : self,
 								direction : _angles[j]
 							});
