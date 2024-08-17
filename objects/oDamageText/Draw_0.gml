@@ -22,4 +22,9 @@ if (dmg > 9999) {
 }
 //draw_text_transformed(x,y, _str, 1.25, 1.25, 0);
 //draw_set_color(c_white);
-scribble($"[fa_center][fa_middle][alpha,{image_alpha}][fDmg][{color}]{_str}").scale(scale).draw(x - (oPlayer.image_xscale == -1 ? 8 : 0), y - 8);
+try{
+    scribble($"[fa_center][fa_middle][alpha,{image_alpha}][fDmg][{color}]{_str}").scale(scale).draw(x - (oPlayer.image_xscale == -1 ? 8 : 0), y - 8);
+}
+catch (err) {
+    //sometimes it errors out
+}

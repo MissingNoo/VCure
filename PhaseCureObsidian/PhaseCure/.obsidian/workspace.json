@@ -27,8 +27,8 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
-                    "mode": "preview",
+                    "file": "Systems/Fandom.md",
+                    "mode": "source",
                     "source": false
                   }
                 }
@@ -178,8 +178,10 @@
   },
   "active": "e5e7634f6e3b8346",
   "lastOpenFiles": [
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
+    "Systems/Fandom.md",
+    "Systems/Score.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/Phase Connect.md",
     "Systems/Character Selection.md",
@@ -204,10 +206,8 @@
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru/Kobo Kanaeru.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kaela Kovalskia",
-    "Systems/Characters/Hololive/ID/Holoro.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru",
     "Systems/Characters/Hololive/ID/HoloH3ro",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Anya Melfissa.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa",
     "Systems/Characters/Hololive/ID/Holoro/Pavolia Reine",
     "Systems/Characters/Hololive/ID/Holoro/Kureiji Ollie",

@@ -191,6 +191,9 @@ if(_canmove and instance_exists(target)){
 			}
 			if (dropxp) {
 				global.defeatedEnemies += 1;
+				if (boss) {
+					global.bossDefeated += 1;
+				}
 			    instance_create_layer(x,y,"Instances",oXP, {xp : xp});
 			}
 		}		

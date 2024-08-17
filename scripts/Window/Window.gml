@@ -24,6 +24,8 @@ function gui_set() {
 // Feather disable GM2017
 // Feather disable GM1044
 // Feather disable GM1041
+/// @globalvar {Any} gw 
+/// @globalvar {Any} gh 
 #macro GW global.gw
 
 #macro GH global.gh
@@ -77,6 +79,7 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 	//if (os_type != os_android) {
 	    //draw_set_font(global.Font); //draw_set_font(fnt_font1);
 	//}
+	/// @localvar {Any} _originalSize 
 	_originalSize = font_get_size(draw_get_font()); 	
 	draw_set_halign(fa_center);
 	var xt=0;
@@ -93,6 +96,7 @@ function drawDesc(_xx, _yy, _string, maxX, _size = 1){
 		if (char == " ") { //if word wont fit jump line
 			var totalx = 0;
 			for (var j = i+1; j <= string_length(_string); ++j) {
+				/// @localvar {Any} char2 
 				char2 = string_copy(_string, j, 1);
 				if (char2 != " ") {
 					totalx += 10.5;

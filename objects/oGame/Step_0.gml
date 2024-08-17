@@ -362,7 +362,9 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	}
 	#endregion
 	alarm[0] = _spawnTimer;
-	instance_create_layer(_x, _y, "Instances", oEnemy);
+	if (instance_number(oEnemy) < 50) {
+		instance_create_layer(_x, _y, "Instances", oEnemy);
+	}
 }
 #endregion
 #region Time

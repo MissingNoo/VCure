@@ -4,3 +4,4 @@ selectedOption = 0;
 options = ["Retry", "Character Select", "Submit Highscore", "Main Menu"];
 mousein = false;
 if (!variable_global_exists("newcoins")) { variable_global_set("newcoins", 0); }
+//haluBonusCoins = (floor(((global.enemyDefeated - global.preHaluDefeated) / global.haluLevel)) * global.stageCoinBonus)
