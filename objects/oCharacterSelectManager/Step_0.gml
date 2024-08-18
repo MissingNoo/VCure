@@ -5,12 +5,6 @@ for (var i = array_length(fandom_current_frame) - 1; i > 0; i -= 1) {
 	}
 	fandom_current_frame[i][0] += fandom_frame_speed / game_get_speed(fandom_frame_speed_type) * Delta;
 }
-
-var a = DebugManager.a;
-var b = DebugManager.b;
-var c = DebugManager.c;
-var d = DebugManager.d;
-var e = DebugManager.e;
 sidebar[2] = lerp(sidebar[2], sidebar[3], 0.25);
 sidebar[0] = lerp(sidebar[0], sidebarOpen ? sidebar[1] : 65, 0.1);
 #region Character sprite

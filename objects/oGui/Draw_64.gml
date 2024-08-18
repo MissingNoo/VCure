@@ -130,27 +130,46 @@ if (instance_exists(oPlayer)) {
 	#endregion
 	#region LevelUP
 	if (global.upgrade) {
+		var dm = DebugManager;
+		if (array_length(upglines) < 50) {
+			array_push(upglines, 
+				[
+					irandom(GW),
+					GH + irandom_range(100, 500),
+					irandom_range(30, 220),
+					irandom_range(5, 15)
+				]);
+		}
+		draw_set_alpha(0.75);
+		for (var i = array_length(upglines) - 1; i > 0; i--) {
+			upglines[i][1] -= upglines[i][3] * Delta;
+			var lx = upglines[i][0];
+			var ly = upglines[i][1];
+			var ls = upglines[i][2] / 2;
+			if (ly + ls < 0) {
+				array_delete(upglines, i, 1);
+			}
+			draw_rectangle_color(lx, ly - ls, lx + 0.50, ly + ls, c_white, c_white, c_aqua, c_aqua, false);
+		}
+		draw_set_alpha(1);
 		#region UpgradeList
 		offset = 0;
-		var _xx = round(GW/1.55);
-		var _yy = round(GH/4.16);
-		var _xscale = 2.06;
-		var _yscale = 1.32;
+		var _xx = GW - 546;
+		var _yy = 210;
+		var _xscale = 2.35;
+		var _yscale = 1.45;
+		var uptype = "";
+		var style = "";
+		var foundup = false;
+		var foundlv = 0;
 		for (var i = 0; i < array_length(global.upgradeOptions); i++) {			
 			draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);
-			draw_rectangle(_xx - 365, _yy + offset - 35, _xx + 365, _yy + offset - 34, false);
-			if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2, "selected", i)) {
-			    menuClick = true;
-			}
+			draw_rectangle(_xx - 437, _yy + offset - 43, _xx + 437, _yy + offset - 41.75, false);
+			if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2, "selected", i)) { menuClick = true; }
 			if (i == selected) {
 				draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, _xscale, _yscale, 0, c_white, 1);
-				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 415, _yy + 2 + offset, 2, 2, 0, c_white, 1);
+				draw_sprite_ext(sHoloCursor, holoarrowspr, _xx - 500, _yy + 6 + offset, 2.50, 2.50, 0, c_white, 1);
 			}
-			draw_set_halign(fa_left);
-			var uptype = "";
-			var style = "";
-			var foundup = false;
-			var foundlv = 0;
 			switch (global.upgradeOptions[i][$ "style"]) { // type of upgrade
 				case ItemTypes.Weapon:
 					for (var j = 0; j < array_length(UPGRADES); ++j) {
@@ -192,46 +211,34 @@ if (instance_exists(oPlayer)) {
 					break;
 			}
 			var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
-			draw_text_transformed(_xx - 348, _yy - 57 + offset, _name, 2, 2, 0);
+			scribble($"[fa_left]{_name}").scale(2.50).draw(_xx - 416, _yy - 72 + offset);
 			if (i == heldpos) { 
 				draw_circle(_xx - 360, _yy - 57 + offset, 10, false);
 			}
-			draw_set_color(c_white);
-			draw_set_halign(fa_right);
-			draw_text_transformed(_xx + 340, _yy - 57 + offset, string(style), 2, 2, 0);
-			draw_set_halign(fa_left);
-			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 322, _yy + 8 + offset,2, 2,0,c_white,1);
-			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 322, _yy + 8 + offset,2, 2,0,c_white,1);
-			var maxx = 600;
+			scribble($"[fa_right]{string(style)}").scale(2.5).draw(_xx + 410, _yy - 72 + offset);
+			draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 383, _yy + 10 + offset, 2.40, 2.40, 0, c_white, 1);
+			draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 383, _yy + 10 + offset, 2.40, 2.40, 0, c_white, 1);
 			var desc = "";
 			if (foundup) {
-				var idd = global.upgradeOptions[i][$ "id"];
-				desc = lexicon_text(uptype + global.upgradeOptions[i][$ "name"] + "." + string(foundlv));
+				desc = lexicon_text($"{uptype}{global.upgradeOptions[i][$ "name"]}.{foundlv}");
+			} else {
+				desc = lexicon_text($"{uptype}{global.upgradeOptions[i][$ "name"]}.1");
 			}
-			else{
-				desc = lexicon_text(uptype + global.upgradeOptions[i][$ "name"] + ".1");
-			}
-			drawDesc(_xx- 230, _yy - 28 + offset, desc , maxx, 2);
-			offset += 138;
-			draw_set_color(c_white);
+			scribble(desc).scale(2.50).wrap(750, 85).draw(_xx - 287, _yy - 30 + offset);
+			offset += 164;
 		}//feather disable once GM2017
 		#region Reroll
 		if (global.shopUpgrades.Reroll.level > 0) {
-			var _rerollX = GW/2;
-			var _rerollY = GH/1.05;
+			var _rerollX = GW - 695;
+			var _rerollY = GH - 42;
 			var _sprW = sprite_get_width(sHudButton);
 			var _sprH = sprite_get_height(sHudButton);
-			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH) and selected == 4 and mouse_click) { menuClick = true; }
-			if (global.rerolls > 0 and point_in_rectangle(x, y, _rerollX - _sprW, _rerollY - _sprH, _rerollX + _sprW, _rerollY + _sprH)) {
-				selected = 4;
-			}
-			draw_sprite_ext(sHudButton, selected == 4 ? 1 : 0, _rerollX, _rerollY, 1.15, 2, 0, c_white, 1);			
-			var color = selected == 4 ? c_black : c_white;
-			draw_set_halign(fa_center);
-			draw_set_valign(fa_middle);
-			draw_text_transformed_color(_rerollX, _rerollY, $"Reroll ({global.rerolls})",2,2,0,color, color, color, color, 1);
-			draw_set_halign(fa_left);
-			draw_set_valign(fa_top);
+			lobby_button(_rerollX, _rerollY, $"Reroll ({global.rerolls})", function(){
+				if (global.rerolls > 0) {
+					random_upgrades();
+					global.rerolls--;
+				}				
+			},[1.50, 2.10, 2.50], global.rerolls > 0, selected == 4, function(){ selected = 4;});
 		}
 		#endregion
 		#region Hold

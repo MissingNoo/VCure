@@ -16,7 +16,7 @@ tags:
 - [ ] Pages to big item descriptions
 
 ## VFX
-- [ ] Lines
+- [x] Lines
 
 ## Holding a item
 - [x] Button to hold
