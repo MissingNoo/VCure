@@ -104,8 +104,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Icons",
-    "path":"texturegroups/Icons",
+    "name":"Thumbs",
+    "path":"texturegroups/Thumbs",
   },
   "type":0,
   "VTile":false,

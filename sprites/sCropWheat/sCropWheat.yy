@@ -93,8 +93,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"FarmingGame",
+    "path":"texturegroups/FarmingGame",
   },
   "type":0,
   "VTile":false,

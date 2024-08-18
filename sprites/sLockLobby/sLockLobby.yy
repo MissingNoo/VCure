@@ -86,8 +86,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Icons",
-    "path":"texturegroups/Icons",
+    "name":"Hud",
+    "path":"texturegroups/Hud",
   },
   "type":0,
   "VTile":false,

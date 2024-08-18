@@ -1194,7 +1194,7 @@
     {"name":"sSuperChattoTime","order":25,"path":"sprites/sSuperChattoTime/sSuperChattoTime.yy",},
     {"name":"sTakodachi","order":11,"path":"sprites/sTakodachi/sTakodachi.yy",},
     {"name":"sTakoViking","order":29,"path":"sprites/sTakoViking/sTakoViking.yy",},
-    {"name":"sTenmaArt","order":5,"path":"sprites/sTenmaArt/sTenmaArt.yy",},
+    {"name":"sTenmaArt","order":13,"path":"sprites/sTenmaArt/sTenmaArt.yy",},
     {"name":"sTenmaBig","order":12,"path":"sprites/sTenmaBig/sTenmaBig.yy",},
     {"name":"sTenmaIdle2","order":7,"path":"sprites/sTenmaIdle2/sTenmaIdle2.yy",},
     {"name":"sTenmaIdleNew","order":10,"path":"sprites/sTenmaIdleNew/sTenmaIdleNew.yy",},

@@ -109,8 +109,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"HoloHouse",
+    "path":"texturegroups/HoloHouse",
   },
   "type":0,
   "VTile":false,

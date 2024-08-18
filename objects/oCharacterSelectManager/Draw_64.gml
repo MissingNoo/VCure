@@ -317,24 +317,23 @@ switch (state) {
 				var _pw = sprite_get_width(stages[selectedStage].port) / 2 * 3.25;
 				var _ph = sprite_get_height(stages[selectedStage].port) / 2 * 3.25;
 				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw, _yy + _ph, c_black, c_black, c_black, c_black, false);
-				var _stagesurf = surface_create(sprite_get_width(stages[selectedStage].port) * 3.25, 600);
 				var _sx = _pw;
 				var _sy = 300;
-				surface_set_target(_stagesurf);
-				var _soffset = 0
-				for (var i = 0; i < array_length(stages); ++i) {
-					draw_sprite_ext(stages[i].port, 0, _sx + stageselectlerp[0] + _soffset, _sy, 3.25, 3.25, 0 ,c_white, 0.65);
-					draw_sprite_ext(stages[i].back, 0, _sx + stageselectlerp[0] + _soffset, _sy, 1.25, 1.25, 0 ,c_white, 0.75);
-					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0] - 2 + _soffset, _sy);
-					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0] + 2  + _soffset, _sy);
-					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0]  + _soffset, _sy - 2);
-					scribble($"[fa_center][fa_middle][c_black]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0]  + _soffset, _sy + 2);
-					scribble($"[fa_center][fa_middle]{stages[i].name}").scale(8).draw(_sx + stageselectlerp[0]  + _soffset, _sy);
-					_soffset += 550;
+				if (surface_exists(stagesurf)) {
+					surface_set_target(stagesurf);
+					var _soffset = 0
+					for (var i = 0; i < array_length(stages); ++i) {
+						draw_sprite_ext(stages[i].port, 0, _sx + stageselectlerp[0] + _soffset, _sy, 3.25, 3.25, 0 ,c_white, 0.65);
+						draw_sprite_ext(stages[i].back, 0, _sx + stageselectlerp[0] + _soffset, _sy, 1.25, 1.25, 0 ,c_white, 0.75);
+						scribble_outline($"[fa_center][fa_middle]{stages[i].name}", _sx + stageselectlerp[0]  + _soffset, _sy, "c_black", 8);
+						_soffset += 550;
+					}
+					surface_reset_target();
 				}
-				surface_reset_target();
-				draw_surface(_stagesurf, _x-_sx, _yy-_sy);
-				surface_free(_stagesurf);
+				else {
+					stagesurf = surface_create(sprite_get_width(stages[selectedStage].port) * 3.25, 600);
+				}
+				draw_surface(stagesurf, _x-_sx, _yy-_sy);
 				var _xoff = _pw + 15;
 				triangleSR = [[_x + _xoff, _yy - 40], [_x + _xoff, _yy + 40], [_x + _xoff + 20, _yy]];
 				triangleSL = [[_x - _xoff, _yy - 40], [_x - _xoff, _yy + 40], [_x - _xoff - 20, _yy]];

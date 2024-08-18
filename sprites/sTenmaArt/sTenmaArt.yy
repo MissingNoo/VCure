@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Menu",
-    "path":"folders/Sprites/Menu.yy",
+    "name":"Tenma",
+    "path":"folders/Sprites/Characters/PhaseConnect/Tenma.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -81,8 +81,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"Menu",
+    "path":"texturegroups/Menu",
   },
   "type":0,
   "VTile":false,

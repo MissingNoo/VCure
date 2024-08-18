@@ -101,8 +101,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Fans",
-    "path":"texturegroups/Fans",
+    "name":"Drops",
+    "path":"texturegroups/Drops",
   },
   "type":0,
   "VTile":false,

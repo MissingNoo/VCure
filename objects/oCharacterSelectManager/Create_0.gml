@@ -1,3 +1,4 @@
+stagesurf = -1;
 nextvar = [false, "", false];
 stagelerp = [-GW/2.75, -GW/2.75, -GW/2.75];
 nextvar = [false, "", false];

@@ -593,7 +593,7 @@ function SnowState(_initState, _execEnter = true) constructor {
 	/// @param {struct} [state_struct]
 	/// @returns {SnowState} self
 	add = function(_name, _struct = {}) {
-		if (!__assert_state_name_valid(_name)) return undefined;
+		//if (!__assert_state_name_valid(_name)) return undefined;
 	
 		if (!is_struct(_struct)) {
 			__snowstate_error("State struct should be a struct.");
@@ -638,8 +638,8 @@ function SnowState(_initState, _execEnter = true) constructor {
 	state_is = function(_target, _source = get_current_state()) {
 		var _state = _source;
 		
-		if (!__assert_state_name_valid(_target)) return false;
-		if (!__assert_state_name_valid(_source)) return false;
+		//if (!__assert_state_name_valid(_target)) return false;
+		//if (!__assert_state_name_valid(_source)) return false;
 		
 		while (_state != undefined) {
 			if (_state == _target) return true;
@@ -724,8 +724,8 @@ function SnowState(_initState, _execEnter = true) constructor {
 	/// @param {struct} [state_struct]
 	/// @return {SnowState} self
 	add_child = function(_parent, _name, _struct = {}) {
-		if (!__assert_state_name_valid(_name)) return undefined;
-		if (!__assert_state_name_valid(_parent)) return undefined;
+		//if (!__assert_state_name_valid(_name)) return undefined;
+		//if (!__assert_state_name_valid(_parent)) return undefined;
 			
 		if (!__is_state_defined(_parent)) {
 			__snowstate_error("State \"", _parent, "\" is not defined.");

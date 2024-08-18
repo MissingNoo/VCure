@@ -81,8 +81,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"Drops",
+    "path":"texturegroups/Drops",
   },
   "type":0,
   "VTile":false,

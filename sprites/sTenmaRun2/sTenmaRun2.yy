@@ -106,8 +106,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"Chars",
+    "path":"texturegroups/Chars",
   },
   "type":0,
   "VTile":false,

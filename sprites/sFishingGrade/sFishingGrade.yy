@@ -89,8 +89,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"FishingGame",
+    "path":"texturegroups/FishingGame",
   },
   "type":0,
   "VTile":false,

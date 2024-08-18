@@ -149,8 +149,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"Fans",
+    "path":"texturegroups/Fans",
   },
   "type":0,
   "VTile":false,

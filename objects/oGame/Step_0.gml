@@ -10,42 +10,10 @@ if (!global.gamePaused){
 		}
 	}
 }
-//Feather disable GM2064
-if (keyboard_check_pressed(vk_f8)) {
-    show_message("Game data cleared! Reload the game!");
-	file_delete("settings");
-	
-	file_delete("sava_data.bin");
-	Granks = array_create(Characters.Lenght, 0);
-	UnlockableItems = array_create(ItemIds.Length, false);
-	UnlockableWeapons = array_create(Weapons.Length, false);
-	UnlockableAchievements = array_create(AchievementIds.Length, false);
-	for (var i = 0; i < Characters.Lenght; ++i) {
-	    global.characterdata[i] = {
-			unlocked : false,
-			outfits : [],
-			grank : 0,
-		};
-	}
-	global.holocoins = 0;
-	Save_Data_Structs();
-	global.initialConfigDone = false;
-}
 
-if (RELEASE) { 
-    global.debug = false;
-	//Feather disable once GM2017
-	DebugManager.show = false;
-}
 if (keyboard_check_pressed(vk_f11)) {
     window_set_fullscreen(not window_get_fullscreen());
 }
-DEBUG
-//if (keyboard_check_pressed(vk_home)) {
-//    Minutes = 6;
-//	Seconds = 55;
-//}
-ENDDEBUG
 //if (global.debug and keyboard_check_pressed(vk_home)) {
 //    var importedSave = {};
 //	importedSave.unlockedWeapons = [];
@@ -67,11 +35,6 @@ ENDDEBUG
 //	show_message(_unlockedItems);
 //	#endregion
 //}
-
-//if (keyboard_check_pressed(vk_alt)) {
-//    window_set_size(1280/1.5, 720/1.5);
-//	window_center();
-//}
 #region Gamepad detection
 if (input_profile_get(0) == "gamepad") {
     global.gamePad = true;
@@ -81,21 +44,19 @@ else{
 }
 #endregion
 #region Unused
-//if (keyboard_check(vk_home)) {
-//	for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
-//	    UnlockableWeapons[i] = true;
-//	}
-//	for (var i = 0; i < array_length(UnlockableItems); ++i) {
-//	    UnlockableItems[i] = true;
-//	}
-//	for (var i = 0; i < array_length(Achievements); ++i) {
-//	    Achievements[i][$"unlocked"] = true;
-//	}
-//	load_unlocked();
-//	UnlockableOutfits[Outfits.AmeliaO1] = true;
-//	UnlockableOutfits[Outfits.AmeliaO2] = true;
-//	unlocked_outfits_load();
-//}
+if (keyboard_check(vk_home)) {
+	for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
+	    UnlockableWeapons[i] = true;
+	}
+	for (var i = 0; i < array_length(UnlockableItems); ++i) {
+	    UnlockableItems[i] = true;
+	}
+	for (var i = 0; i < array_length(Achievements); ++i) {
+	    Achievements[i][$"unlocked"] = true;
+	}
+	load_unlocked();
+	unlocked_outfits_load();
+}
 //if (keyboard_check_pressed(vk_end)) {
 	//Minutes = 19;
 	//Seconds = 58;	
@@ -355,7 +316,7 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	        break;
 	}
     canspawn=false;
-	var _spawnTimer = 60;
+	var _spawnTimer = 30;
 	#region Spawn Timer modifiers
 	if (oPlayer.menhera) {
 	    _spawnTimer = 10;
@@ -408,13 +369,11 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 			if (oPlayer.wallMart) {
 			    _bonus = 7;
 			}
-			global.upgradeCooldown[UPGRADES[i].id] -= (1 * _bonus) * Delta;
+			global.upgradeCooldown[UPGRADES[i].id] = clamp(global.upgradeCooldown[UPGRADES[i].id] - ((1 * _bonus) * Delta), 0, infinity);
 		}
 	}
 	for (var i = 0; i < array_length(global.itemCooldown); ++i) {
-		if (global.itemCooldown[i] > 0) {
-			global.itemCooldown[i] -= (1/60) * Delta;
-		}   
+		global.itemCooldown[i] = clamp(global.itemCooldown[i] - ((1/60) * Delta), 0, infinity);
 	}
 	#endregion
 	#region buff coldown

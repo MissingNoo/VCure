@@ -81,8 +81,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Weapons",
-    "path":"texturegroups/Weapons",
+    "name":"Thumbs",
+    "path":"texturegroups/Thumbs",
   },
   "type":0,
   "VTile":false,
