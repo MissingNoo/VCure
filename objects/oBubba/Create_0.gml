@@ -1,4 +1,5 @@
 event_inherited();
+/// @instancevar {Any} level 
 onScreenArrow = sBlank;
 offScreenArrow = sBubbaPointer;
 x = oPlayer.x;

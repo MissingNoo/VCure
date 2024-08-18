@@ -87,8 +87,7 @@ function perk_aromateraphy(o, event = WeaponEvent.Null){
 		var _list = ds_list_create();
 		var _num = collision_circle_list(oPlayer.x, oPlayer.y, oPlayer.aromateraphy[2], oEnemy, false, true, _list, false);
 		if (_num > 0) {
-		    for (var i = 0; i < _num; ++i;)
-		    {
+		    for (var i = 0; i < _num; ++i) {
 				var _enemy = _list[| i];
 				var _chance = irandom_range(0, 100);
 				if (_chance <= oPlayer.aromateraphy[3]) {
@@ -102,7 +101,8 @@ function perk_aromateraphy(o, event = WeaponEvent.Null){
 						}
 					}
 					if (!_exist) {
-					    var _struc = copy_struct(Buffs[_debuff]);
+						var _struc = { baseCooldown : 0 };
+					    _struc = copy_struct(Buffs[_debuff]);						
 						_struc.cooldown = _struc.baseCooldown;
 						_struc.count = 1;
 						array_push(_enemy.debuffs, _struc);
@@ -171,7 +171,7 @@ function cutting_deep(level, event = WeaponEvent.Null, upg = global.null){
 	}
 	if (event == WeaponEvent.PerkOnHit and upg[$ "shotType"] != undefined) {
 		var _rnd = irandom_range(0, 100);
-		if (_rnd <= _chance and upg.shotType == ShotTypes.Melee) {
+		if (_rnd <= _chance and upg[$ "shotType"] == ShotTypes.Melee) {
 			resetcooldown = true;
 		}
 	}

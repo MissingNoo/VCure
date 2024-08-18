@@ -380,20 +380,17 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 			}
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
 				if (variable_struct_exists(PLAYER_PERKS[i], "bonusType")) {
+					var perkid = PLAYER_PERKS[i][$ "id"];
+					var level = PLAYER_PERKS[i][$ "level"];
 					if (is_array(PLAYER_PERKS[i][$ "bonusType"])) {
-						//show_message($"{PLAYER_PERKS[i].name}\ncom array");
 						for (var j = 0; j < array_length(PLAYER_PERKS[i][$ "bonusType"]); ++j) {
-							var perkid = PLAYER_PERKS[i][$ "id"];
 							var typebonus = PLAYER_PERKS[i][$ "bonusType"][j];
-							var level = PLAYER_PERKS[i][$ "level"];
 							var bonusvalue = PLAYER_PERKS[i][$ "bonusValue"][j][level];
 							PerkBonuses[typebonus][perkid] = bonusvalue;
 						}
 					}
 					else{
-						var perkid = PLAYER_PERKS[i][$ "id"];
 						var typebonus = PLAYER_PERKS[i][$ "bonusType"];
-						var level = PLAYER_PERKS[i][$ "level"];
 						var bonusvalue = PLAYER_PERKS[i][$ "bonusValue"][level];
 						PerkBonuses[typebonus][perkid] = bonusvalue;
 					}

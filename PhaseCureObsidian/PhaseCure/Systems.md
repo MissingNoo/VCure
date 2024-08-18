@@ -4,3 +4,5 @@
 [[Character Selection]]
 [[Weapons]]
 [[Server]]
+[[Score]]
+[[LevelUp]]

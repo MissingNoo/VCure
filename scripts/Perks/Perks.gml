@@ -167,6 +167,7 @@ function populate_perks(){
 		global.characterPerks[Characters.Lia] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
 		#endregion
 		#region Pippa
+		#region Heavy Artillery
 		create_perk({
 			func : heavy_artillery,
 			id : PerkIds.HeavyArtillery,
@@ -179,6 +180,8 @@ function populate_perks(){
 			upgrade: true,
 			upgradeid : Weapons.HeavyArtillery
 		});
+		#endregion
+		#region Moldy Soul
 		create_perk({
 			id : PerkIds.MoldySoul,
 			name : "Moldy Soul",
@@ -190,6 +193,8 @@ function populate_perks(){
 			upgradeid : Weapons.Mold,
 			chance : 33
 		});
+		#endregion
+		#region Soda Fueled
 		create_perk({
 			id : PerkIds.SodaFueled,
 			name : "Soda Fueled",
@@ -199,10 +204,12 @@ function populate_perks(){
 			cooldown : 1,
 			characterid : Characters.Pippa
 		});
+		#endregion
 		global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
 		#endregion
 		#region Hololive
 		#region Amelia
+		#region FPS Mastery
 		create_perk({
 			id : PerkIds.FpsMastery,
 			name : "FPS Mastery",
@@ -215,6 +222,8 @@ function populate_perks(){
 			bonusValue : [[0, 1.20, 1.40, 1.60], [0, 0, 0, 1.10]],
 			characterid : Characters.Amelia
 		});
+		#endregion
+		#region Detective Eye
 		create_perk({
 			id : PerkIds.DetectiveEye,
 			func : detective_eye,
@@ -228,6 +237,8 @@ function populate_perks(){
 			bonusType : BonusType.Critical,
 			bonusValue : [0, 1.10, 1.20, 1.30]
 		});
+		#endregion
+		#region Bubba
 		create_perk({
 			id : PerkIds.Bubba,
 			func : perk_bubba,
@@ -238,9 +249,11 @@ function populate_perks(){
 			cooldown : [3, 3, 2.01, 2.01],
 			characterid : Characters.Amelia
 		});
+		#endregion
 		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
 		#endregion
 		#region Aki
+		#region Belly Dancing
 		create_perk({
 			id : PerkIds.BellyDancing,
 			func : belly_dancing,
@@ -251,6 +264,8 @@ function populate_perks(){
 			cooldown : 1,
 			characterid : Characters.Aki
 		});
+		#endregion
+		#region Mukirose
 		create_perk({
 			func : perk_mukirose,
 			id : PerkIds.Mukirose,
@@ -261,6 +276,8 @@ function populate_perks(){
 			cooldown : [3, 3, 2.01, 2.01],
 			characterid : Characters.Aki
 		});
+		#endregion
+		#region Aromatherapy
 		create_perk({
 			func : perk_aromateraphy,
 			id : PerkIds.Aromatherapy,
@@ -272,9 +289,11 @@ function populate_perks(){
 			characterid : Characters.Aki,
 			draw : true
 		});
+		#endregion
 		global.characterPerks[Characters.Aki] = [PERK_LIST[PerkIds.BellyDancing][0], PERK_LIST[PerkIds.Mukirose][0], PERK_LIST[PerkIds.Aromatherapy][0]];
 		#endregion
 		#region Anya
+		#region Cutting Deep
 		create_perk({
 			func : cutting_deep,
 			id : PerkIds.CuttingDeep,
@@ -288,13 +307,27 @@ function populate_perks(){
 			bonusType : BonusType.PickupRange,
 			bonusValue : [0, 1.20, 1.40, 1.60],
 		});
-		create_perk({ func : living_weapon, id : PerkIds.LivingWeapon, name : "Living Weapon", maxlevel : 3, weight : 3, thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
-		create_perk({ id : PerkIds.Slumber, name : "Slumber", maxlevel : 3, weight : 3, thumb : sAnyaPerk3, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		#endregion
+		#region Living Weapon
+		create_perk({ 
+			func : living_weapon, 
+			id : PerkIds.LivingWeapon, 
+			name : "Living Weapon", 
+			maxlevel : 3, 
+			weight : 3, 
+			thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		#endregion
+		#region Slumber
+		create_perk({ 
+			id : PerkIds.Slumber, 
+			name : "Slumber", maxlevel : 3, weight : 3, thumb : sAnyaPerk3, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
+		#endregion
 		global.characterPerks[Characters.Anya] = [PERK_LIST[PerkIds.CuttingDeep][0], PERK_LIST[PerkIds.LivingWeapon][0], PERK_LIST[PerkIds.Slumber][0]];
 		#endregion
 		#endregion
 		#region Indies
 		#region Trickywi
+		#region Ankh
 		create_perk({
 			id : PerkIds.Ankh,
 			func : perk_ankh,
@@ -305,6 +338,7 @@ function populate_perks(){
 			cooldown : 1,
 			characterid : Characters.Trickywi
 		});
+		#endregion
 		global.characterPerks[Characters.Trickywi] = [PERK_LIST[PerkIds.Ankh][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
 		#endregion
 		#endregion

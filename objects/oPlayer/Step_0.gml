@@ -175,7 +175,6 @@ if (bladeForm) {
 #endregion
 tick_powers();
 tick_items();
-tick_perks();
 var previousSprite = sprite_index;
 Movement();
 #region Multiplayer sync

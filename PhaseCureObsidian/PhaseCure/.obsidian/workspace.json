@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "ec262a8fe06b5ad5",
+        "id": "11ef88391c9f0049",
         "type": "split",
         "children": [
           {
@@ -12,44 +12,31 @@
             "type": "tabs",
             "children": [
               {
-                "id": "73dc2aa9c6e63fca",
+                "id": "55dd2e6797c6dc93",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Systems/LevelUp.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "8bc0fc64a891926c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c396ceae7038b6fa",
                 "type": "leaf",
                 "pinned": true,
                 "state": {
                   "type": "graph",
                   "state": {},
                   "pinned": true
-                }
-              },
-              {
-                "id": "c396ceae7038b6fa",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Systems/Fandom.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              }
-            ],
-            "currentTab": 1
-          },
-          {
-            "id": "f39c57e29ee7bb4e",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "e5e7634f6e3b8346",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
-                    "mode": "preview",
-                    "source": false
-                  }
                 }
               }
             ]
@@ -122,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
+                "file": "Systems/LevelUp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
+                "file": "Systems/LevelUp.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md"
+                "file": "Systems/LevelUp.md"
               }
             }
           }
@@ -184,26 +171,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e5e7634f6e3b8346",
+  "active": "55dd2e6797c6dc93",
   "lastOpenFiles": [
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
-    "Systems/Fandom.md",
+    "Systems/LevelUp.md",
     "Systems/Score.md",
+    "Systems.md",
+    "Systems/Fandom.md",
+    "Weapons.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/Phase Connect.md",
     "Systems/Character Selection.md",
-    "Systems.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
     "Systems/Weapons/Melee/Spider Cooking.md",
     "Systems/Weapons/Multishot/Bounce Ball.md",
-    "Systems/LevelUp.md",
-    "Weapons.md",
     "Systems/Weapons/Multishot/Glowstick.md",
     "Systems/Weapons/Melee/Wamy Water.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
     "Systems/Characters/Hololive.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
     "Systems/Characters/Hololive/EN/Myth.md",
     "Systems/Characters/Hololive/EN.md",
