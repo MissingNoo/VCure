@@ -18,14 +18,10 @@ if (sprev != selected and selected == 5 and global.helds == 0) { selected = 0; }
 if (input_check_pressed("accept")) {
     switch (selected) {
         case 4:
-            if (global.rerolls > 0) {
-                random_upgrades();
-                global.rerolls--;
-            }
+            rerollbutton();
             exit;
         case 5:
-            helding = true;
-            global.helds--;
+            heldbutton();
             exit;
     }
     if (helding) {

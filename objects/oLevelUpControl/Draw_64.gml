@@ -93,22 +93,14 @@ if (global.shopUpgrades.Reroll.level > 0) {
     var _rerollY = GH - 42;
     var _sprW = sprite_get_width(sHudButton);
     var _sprH = sprite_get_height(sHudButton);
-    lobby_button(_rerollX, _rerollY, $"Reroll ({global.rerolls})", function(){
-        if (global.rerolls > 0) {
-            random_upgrades();
-            global.rerolls--;
-        }				
-    },[1.50, 2.10, 2.50], global.rerolls > 0, selected == 4, function(){ selected = 4;});
+    lobby_button(_rerollX, _rerollY, $"Reroll ({global.rerolls})", rerollbutton(), [1.50, 2.10, 2.50], global.rerolls > 0, selected == 4, function(){ selected = 4; });
 }
 #endregion
 #region Hold
 if (global.shopUpgrades.Hold.level > 0) {
     var _holdx = GW/2 + 500;
     var _holdy = GH/1.05;
-    lobby_button(_holdx, _holdy, $"Hold ({global.helds})", function () {
-        helding = true;
-        global.helds--;
-    }, [1.17, 2, 2.50], !helding, selected == 5);
+    lobby_button(_holdx, _holdy, $"Hold ({global.helds})", heldbutton, [1.17, 2, 2.50], !helding, selected == 5, function(){ selected = 5; });
 }
 #endregion
 #endregion

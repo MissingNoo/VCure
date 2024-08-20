@@ -12,3 +12,15 @@ heldpos = -1;
 helding = false;
 selected = 0;
 random_upgrades();
+heldbutton = function () {
+	if (!helding) {
+		helding = true;
+		global.helds--;
+	}        
+}
+rerollbutton = function() {
+	if (global.rerolls > 0) {
+        random_upgrades();
+        global.rerolls--;
+    }
+}
