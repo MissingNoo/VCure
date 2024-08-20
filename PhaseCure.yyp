@@ -228,6 +228,9 @@
   "name":"PhaseCure",
   "resources":[
     {"id":{"name":"AnimationCurve1","path":"animcurves/AnimationCurve1/AnimationCurve1.yy",},},
+    {"id":{"name":"Rotation","path":"sequences/seq_SlowTime/seq_SlowTime.yy",},},
+    {"id":{"name":"seq_gearFade","path":"animcurves/seq_gearFade/seq_gearFade.yy",},},
+    {"id":{"name":"seq_gearScale","path":"animcurves/seq_gearScale/seq_gearScale.yy",},},
     {"id":{"name":"fnt_font1","path":"fonts/fnt_font1/fnt_font1.yy",},},
     {"id":{"name":"Font2","path":"fonts/Font2/Font2.yy",},},
     {"id":{"name":"Pixelade","path":"fonts/Pixelade/Pixelade.yy",},},

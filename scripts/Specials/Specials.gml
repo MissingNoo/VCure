@@ -2,91 +2,108 @@
 global.specialList=[0];
 global.specialBonuses[0] = 0;
 
-#region Item Functions
-
-	function create_special(_id, _name, _sprite, _cooldown, _character, _sequence)
-	{
-		SPECIAL_LIST[_id]={};
-		var item = SPECIAL_LIST[_id];
-		variable_struct_set(item, "id", _id);
-		variable_struct_set(item, "name", _name);
-		variable_struct_set(item, "thumb", _sprite);
-		variable_struct_set(item, "cooldown", _cooldown);
-		variable_struct_set(item, "characterid", _character);
-		variable_struct_set(item, "seq", _sequence);
-		ds_map_add(global.characters[_character], "special", _id);
+#region Special
+function Special(_id, _char, _name, _thumb, _cooldown) constructor {
+	name = _name;
+	thumb = _thumb;
+	cooldown = _cooldown;
+	sequence = undefined;
+	func = undefined;
+	ds_map_add(global.characters[_char], "special", _id);
+	static set_function = function (funct) {
+		func = funct;
+		return self;
 	}
-
-	enum SpecialIds
-	{
-		Uruka,
-		Lia,
-		WalmartForm,
-		BuffDude,
-		Shallys,
-		BladeForm,
-		SlowTime
+	static set_sequence = function (seq) {
+		sequence = seq;
+		return self;		
 	}
+	return self;
+}
+enum SpecialIds {
+	Uruka,
+	Lia,
+	WalmartForm,
+	Trickywi,
+	BuffDude,
+	Shallys,
+	BladeForm,
+	SlowTime
+}
 #endregion
 function populate_specials(){
-	create_special(SpecialIds.Uruka, "MONSTER", sUrukaSpecial, 60, Characters.Uruka, undefined);
-	create_special(SpecialIds.Lia, "Menhera", sMenhera, 60, Characters.Lia, undefined);
-	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Pippa, undefined);
-	create_special(SpecialIds.WalmartForm, "Walmart Form", sWalmart, 60, Characters.Trickywi, undefined);
-	create_special(SpecialIds.SlowTime, "Slow Time", sWalmart, 60, Characters.Amelia, seq_SlowTime);
-	create_special(SpecialIds.BuffDude, "Buffed Kanpainiki", sWalmart, 60, Characters.Tenma, undefined);
-	create_special(SpecialIds.Shallys, "Shallys", sAkiSpecial, 100, Characters.Aki, undefined);
-	create_special(SpecialIds.BladeForm, "Blade Form", sAnyaSpecial, 75, Characters.Anya, undefined);
+	var sp = new Special(SpecialIds.Uruka, Characters.Uruka, "Monster", sUrukaSpecial, 60)
+	.set_function(function() {
+		oPlayer.monsterUsed = true;
+		oPlayer.monsterTimer = 10;
+	});
+	SPECIAL_LIST[SpecialIds.Uruka] = sp;
+
+	sp = new Special(SpecialIds.Lia, Characters.Lia, "Menhera", sMenhera, 60)
+	.set_function(function(){
+		oPlayer.menhera = true;
+		oPlayer.menheraTimer = 30;
+	});
+	SPECIAL_LIST[SpecialIds.Lia] = sp;
+
+	sp = new Special(SpecialIds.WalmartForm, Characters.Pippa, "WalmartForm", sWalmart, 60)
+	.set_function(function(){
+		oPlayer.wallMart = true;
+		oPlayer.wallmartTimer = 10;
+		Buffs[BuffNames.WallmartDefense][$ "enabled"] = true;
+		instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oSpecialEffect);
+	});
+	SPECIAL_LIST[SpecialIds.WalmartForm] = sp;
+
+	sp = new Special(SpecialIds.Trickywi, Characters.Trickywi, "WalmartForm", sWalmart, 60);
+	SPECIAL_LIST[SpecialIds.Trickywi] = sp;
+	
+	sp = new Special(SpecialIds.SlowTime, Characters.Amelia, "Slow Time", sHudSpecialCooldownIcon, 60)
+	.set_function(function(){
+		oPlayer.slowTime = true;
+		oPlayer.slowTimeTimer = 10;
+		if (global.screenShake) {
+			oGame.shakeMagnitude=12;
+		}
+		if (!instance_exists(oEnemy)) { exit; }
+		with (oEnemy) {
+			var _struct = { baseCooldown : 0 };
+			_struct = copy_struct(Buffs[BuffNames.SpdDown]);
+			_struct.count = 8;
+			_struct.cooldown = _struct.baseCooldown;
+			array_push(debuffs, _struct);
+		}
+	})
+	.set_sequence(seq_SlowTime);
+	SPECIAL_LIST[SpecialIds.SlowTime] = sp;
+
+	sp = new Special(SpecialIds.BuffDude, Characters.Tenma, "Buffed Kanpainiki", sWalmart, 60)
+	.set_function(function(){
+		instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oTenmaDude);
+	});
+	SPECIAL_LIST[SpecialIds.BuffDude] = sp;
+
+	sp = new Special(SpecialIds.Shallys, Characters.Aki, "Shallys", sAkiSpecial, 60);
+	SPECIAL_LIST[SpecialIds.Shallys] = sp;
+
+	sp = new Special(SpecialIds.BladeForm, Characters.Anya, "Blade Form", sAnyaSpecial, 60)
+	.set_function(function(){
+		oPlayer.bladeForm = true;
+		oPlayer.bladeFormTimer = 8;
+	});
+	SPECIAL_LIST[SpecialIds.BladeForm] = sp;
 }
 
 function use_special(_special)
 {
+	/// @localvar {Any} skilltimer
+	/// @localvar {Any} x
+	/// @localvar {Any} y   
 	skilltimer = 0;
-	if (_special.seq != undefined) {
-	    global.lastsequence = layer_sequence_create("Specials", x, y, _special.seq);
-	}	
-	switch (_special.id) {
-	    case SpecialIds.Uruka:
-			oPlayer.monsterUsed = true;
-			oPlayer.monsterTimer = 10;
-	        break;
-		case SpecialIds.Lia:{
-			oPlayer.menhera = true;
-			oPlayer.menheraTimer = 30;
-			break;}
-		case SpecialIds.WalmartForm:
-			oPlayer.wallMart = true;
-			oPlayer.wallmartTimer = 10;
-			Buffs[BuffNames.WallmartDefense][$ "enabled"] = true;
-			instance_create_depth(x, y, depth, oSpecialEffect);
-			break;
-		case SpecialIds.BuffDude:
-			instance_create_depth(x, y, depth, oTenmaDude);
-			break;
-	    case SpecialIds.BladeForm:
-			oPlayer.bladeForm = true;
-			oPlayer.bladeFormTimer = 8;
-			break;
-		case SpecialIds.SlowTime: //TODO: fix enemies not going to normal speed
-			oPlayer.slowTime = true;
-			oPlayer.slowTimeTimer = 10;
-			if (global.screenShake == 1) {
-				oGame.shakeMagnitude=12;
-			}
-			if (!instance_exists(oEnemy)) { break; }
-	        with (oEnemy) {
-			    // Feather disable once GM1041
-				var _struct = copy_struct(Buffs[BuffNames.SpdDown]);
-				_struct.count = 8;
-				_struct.cooldown = _struct.baseCooldown;
-			    array_push(debuffs, _struct);
-			}
-			break;
-	    //case SpecialIds.Gura:
-	    //	redgura = true;
-	    //	break;
-	    default:
-	        // code here
-	        break;
+	if (_special[$ "sequence"] != undefined) {
+	    global.lastsequence = layer_sequence_create("Specials", x, y, _special[$ "sequence"]);
 	}
+	if (_special[$ "func"] != undefined) {
+	    _special[$ "func"]();
+	}	
 }

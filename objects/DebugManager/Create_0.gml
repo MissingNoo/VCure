@@ -146,6 +146,13 @@ DebugManager.debug_add_config(self, {
 	page : "Stage"
 });
 DebugManager.debug_add_config(self, {
+	text : "Skill",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){ oPlayer.skilltimer = 999; },
+	page : "Stage"
+});
+DebugManager.debug_add_config(self, {
 	text : "Kill",
 	type : DebugTypes.Button,
 	//variable : "checkboxtest",

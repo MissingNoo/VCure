@@ -182,6 +182,9 @@
   ],
   "ResourceOrderSettings":[
     {"name":"AnimationCurve1","order":1,"path":"animcurves/AnimationCurve1/AnimationCurve1.yy",},
+    {"name":"Rotation","order":5,"path":"animcurves/Rotation",},
+    {"name":"seq_gearFade","order":7,"path":"animcurves/seq_gearFade/seq_gearFade.yy",},
+    {"name":"seq_gearScale","order":6,"path":"animcurves/seq_gearScale/seq_gearScale.yy",},
     {"name":"Font2","order":1,"path":"fonts/Font2/Font2.yy",},
     {"name":"Pixelade","order":2,"path":"fonts/Pixelade/Pixelade.yy",},
     {"name":"scribble_fallback_font","order":13,"path":"fonts/scribble_fallback_font/scribble_fallback_font.yy",},
