@@ -9,7 +9,9 @@ function Special(_id, _char, _name, _thumb, _cooldown) constructor {
 	cooldown = _cooldown;
 	sequence = undefined;
 	func = undefined;
-	ds_map_add(global.characters[_char], "special", _id);
+	var pos = char_pos(_char, CHARACTERS);
+	if (pos == -1) { exit; }
+	ds_map_add(global.characters[pos], "special", _id);
 	static set_function = function (funct) {
 		func = funct;
 		return self;
@@ -32,21 +34,21 @@ enum SpecialIds {
 }
 #endregion
 function populate_specials(){
-	var sp = new Special(SpecialIds.Uruka, Characters.Uruka, "Monster", sUrukaSpecial, 60)
+	var sp = new Special(SpecialIds.Uruka, "Fujikura Uruka", "Monster", sUrukaSpecial, 60)
 	.set_function(function() {
 		oPlayer.monsterUsed = true;
 		oPlayer.monsterTimer = 10;
 	});
 	SPECIAL_LIST[SpecialIds.Uruka] = sp;
 
-	sp = new Special(SpecialIds.Lia, Characters.Lia, "Menhera", sMenhera, 60)
+	sp = new Special(SpecialIds.Lia, "Rinkou Ashelia", "Menhera", sMenhera, 60)
 	.set_function(function(){
 		oPlayer.menhera = true;
 		oPlayer.menheraTimer = 30;
 	});
 	SPECIAL_LIST[SpecialIds.Lia] = sp;
 
-	sp = new Special(SpecialIds.WalmartForm, Characters.Pippa, "WalmartForm", sWalmart, 60)
+	sp = new Special(SpecialIds.WalmartForm, "Pipkin Pippa", "WalmartForm", sWalmart, 60)
 	.set_function(function(){
 		oPlayer.wallMart = true;
 		oPlayer.wallmartTimer = 10;
@@ -55,10 +57,10 @@ function populate_specials(){
 	});
 	SPECIAL_LIST[SpecialIds.WalmartForm] = sp;
 
-	sp = new Special(SpecialIds.Trickywi, Characters.Trickywi, "WalmartForm", sWalmart, 60);
+	sp = new Special(SpecialIds.Trickywi, "Nephasis", "WalmartForm", sWalmart, 60);
 	SPECIAL_LIST[SpecialIds.Trickywi] = sp;
 	
-	sp = new Special(SpecialIds.SlowTime, Characters.Amelia, "Slow Time", sHudSpecialCooldownIcon, 60)
+	sp = new Special(SpecialIds.SlowTime, "Watson Amelia", "Slow Time", sHudSpecialCooldownIcon, 60)
 	.set_function(function(){
 		oPlayer.slowTime = true;
 		oPlayer.slowTimeTimer = 10;
@@ -67,6 +69,7 @@ function populate_specials(){
 		}
 		if (!instance_exists(oEnemy)) { exit; }
 		with (oEnemy) {
+			/// @localvar {Any} debuffs 
 			var _struct = { baseCooldown : 0 };
 			_struct = copy_struct(Buffs[BuffNames.SpdDown]);
 			_struct.count = 8;
@@ -74,24 +77,15 @@ function populate_specials(){
 			array_push(debuffs, _struct);
 		}
 	})
-	.set_sequence(seq_SlowTime);
+	.set_sequence(seq_AmeSpecial);
 	SPECIAL_LIST[SpecialIds.SlowTime] = sp;
 
-	sp = new Special(SpecialIds.BuffDude, Characters.Tenma, "Buffed Kanpainiki", sWalmart, 60)
+	sp = new Special(SpecialIds.BuffDude, "Tenma Maemi", "Buffed Kanpainiki", sWalmart, 60)
 	.set_function(function(){
 		instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oTenmaDude);
 	});
 	SPECIAL_LIST[SpecialIds.BuffDude] = sp;
 
-	sp = new Special(SpecialIds.Shallys, Characters.Aki, "Shallys", sAkiSpecial, 60);
-	SPECIAL_LIST[SpecialIds.Shallys] = sp;
-
-	sp = new Special(SpecialIds.BladeForm, Characters.Anya, "Blade Form", sAnyaSpecial, 60)
-	.set_function(function(){
-		oPlayer.bladeForm = true;
-		oPlayer.bladeFormTimer = 8;
-	});
-	SPECIAL_LIST[SpecialIds.BladeForm] = sp;
 }
 
 function use_special(_special)

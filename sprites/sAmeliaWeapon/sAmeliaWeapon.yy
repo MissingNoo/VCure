@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Amelia",
-    "path":"folders/Sprites/Characters/Hololive/Amelia.yy",
+    "name":"Weapon",
+    "path":"folders/Characters/Hololive/Amelia/Weapon.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

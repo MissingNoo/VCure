@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Aki",
-    "path":"folders/Sprites/Characters/Hololive/Aki.yy",
+    "path":"folders/Characters/Hololive/Aki.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

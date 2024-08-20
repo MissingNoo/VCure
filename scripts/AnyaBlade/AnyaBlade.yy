@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"AnyaBlade",
   "parent":{
-    "name":"WeaponScripts",
-    "path":"folders/Scripts/WeaponScripts.yy",
+    "name":"Weapon",
+    "path":"folders/Characters/Hololive/Anya/Weapon.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

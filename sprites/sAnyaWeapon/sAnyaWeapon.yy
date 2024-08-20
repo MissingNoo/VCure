@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Anya",
-    "path":"folders/Sprites/Characters/Hololive/Anya.yy",
+    "name":"Weapon",
+    "path":"folders/Characters/Hololive/Anya/Weapon.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

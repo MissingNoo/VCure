@@ -26,7 +26,7 @@
   "origin":9,
   "parent":{
     "name":"Nasa",
-    "path":"folders/Sprites/Characters/PhaseConnect/Nasa.yy",
+    "path":"folders/Characters/PhaseConnect/Nasa.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

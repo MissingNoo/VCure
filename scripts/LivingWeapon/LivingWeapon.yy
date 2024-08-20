@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"LivingWeapon",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"LivingWeapon",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Anya/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,6 +1,6 @@
 {
   "$GMSequence":"",
-  "%Name":"seq_SlowTime",
+  "%Name":"seq_AmeSpecial",
   "autoRecord":true,
   "backdropHeight":768,
   "backdropImageOpacity":0.5,
@@ -33,7 +33,7 @@
     "resourceType":"KeyframeStore<MomentsEventKeyframe>",
     "resourceVersion":"2.0",
   },
-  "name":"seq_SlowTime",
+  "name":"seq_AmeSpecial",
   "parent":{
     "name":"Sequences",
     "path":"folders/Sequences.yy",

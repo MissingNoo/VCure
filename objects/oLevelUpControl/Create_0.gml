@@ -3,13 +3,12 @@ if (global.level >= 50 and !Achievements[AchievementIds.DeckedOut].unlocked) {
 }
 global.xp -= oPlayer.neededxp;
 oPlayer.neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*2.1);
-random_upgrades();
 audio_play_sound(snd_lvl_up,0,0, global.soundVolume);
 global.upgrade = true;
 upglines = [];
 holoarrowspr=0;
 upgradeconfirm = false;
-global.helds = 0;
 heldpos = -1;
 helding = false;
 selected = 0;
+random_upgrades();

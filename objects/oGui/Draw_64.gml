@@ -67,7 +67,7 @@ draw_set_font(global.newFont[2]);
 #region Inside Stage
 if (instance_exists(oPlayer)) {
 	scribble($"[sHolocoin] {global.newcoins}").scale(3).draw(GW/1.25, GH/17);
-	var _defeated = string($"{global.defeatedEnemies} {global.player[?"id"] == Characters.Lia ? string(": " + string(oPlayer.menheraKills)) : string("")}");
+	var _defeated = string($"{global.defeatedEnemies} {global.player[? "name"] == "Rinkou Ashelia" ? string(": " + string(oPlayer.menheraKills)) : string("")}");
 	scribble($"[sHuddefeatedEnemies] {_defeated}").scale(3).draw(GW/1.25, GH/7.50);
 	#region Character Portrait
 	_x = GW/25.10

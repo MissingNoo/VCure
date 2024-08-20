@@ -25,7 +25,7 @@ soundplayedby = -1;
 menuClick = false;
 #region Selection screen
 characterSelected = false;
-selectedCharacter = 1;
+selectedCharacter = 0;
 #region Character Sprite
 characterSubImage = [0, 0, 0];
 spriteChangeTimer = 3;

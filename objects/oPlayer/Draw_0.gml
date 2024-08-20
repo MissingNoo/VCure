@@ -44,8 +44,8 @@ if (mouseAim) {
 }
 draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrowDir, _color, 1);
 #region Lia
-switch (global.player[?"id"]) {
-    case Characters.Lia:
+switch (global.player[? "name"]) {
+    case "Rinkou Ashelia":
         if (lickArea > 0) {
 			var _y = y - (sprite_get_height(sprite_index) / 3);
 		    draw_circle_color(x, _y, lickArea, c_white, c_white, true);

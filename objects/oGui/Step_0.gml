@@ -116,7 +116,7 @@ if (room == rInicio and !global.gamePaused) {
 	if (zKey) {
 	    switch (selected) {
 			case MenuOptionsEnum.Map:
-				global.player=CHARACTERS[Characters.Amelia];
+				global.player=CHARACTERS[0];
 				//room_goto(rDungeon);
 				room_goto(rHoloHouseEntrance);
 				audio_stop_sound(global.musicPlaying);

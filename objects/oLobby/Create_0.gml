@@ -283,7 +283,7 @@ fsm.add_child("OnLobby", "OnLobbyCharacter", {
 			wl[1] = wl[2];
 		}
 		var move = -input_check_pressed("left") + input_check_pressed("right") - (input_check_pressed("up") * 5) + (input_check_pressed("down") * 5);
-		selectedcharacter = clamp(selectedcharacter + move, 1, Characters.Lenght - 1);
+		selectedcharacter = clamp(selectedcharacter + move, 1, "NullChar" - 1);
 		if (input_check_pressed("accept")) {
 			sendMessageNew(Network.SelectCharacter, {character : selectedcharacter});
 			global.player = CHARACTERS[selectedcharacter];
@@ -306,7 +306,7 @@ fsm.add_child("OnLobby", "OnLobbyCharacter", {
 		_y -= 215;
 		scribble("[fa_top][fa_center]Characters").scale(3).draw(_x, _y);
 		_y += 80;
-		for (var i = 1; i < Characters.Lenght; i++) {
+		for (var i = 1; i < "NullChar"; i++) {
 			if (selectedcharacter == i) {
 				draw_sprite_ext(sMenuCharSelectCursor, -1, _x - 160 + offset, _y + yoffset, 1.59, 1.59, 0, c_white, 1);
 			}

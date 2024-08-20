@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Aromatherapy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Aromatherapy",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Aki/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

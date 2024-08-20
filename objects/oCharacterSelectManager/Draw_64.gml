@@ -1,23 +1,16 @@
 //feather disable GM2017
-
-//scribble(CharacterData[selectedCharacter]).scale(4).wrap(100).draw(MX, MY + 20);
-var a = DebugManager.a;
-var b = DebugManager.b;
-var c = DebugManager.c;
-var d = DebugManager.d;
-var e = DebugManager.e;
 var offset;
-NAME=CHARACTERS[selectedCharacter][?"name"];
-var _isUnlocked = CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked;
+NAME = CHARACTERS[selectedCharacter][? "name"];
+var _isUnlocked = CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].unlocked;
 var _x;
 var _y;
 var _offset;
 var _yy;
 var _max;
 if (_isUnlocked) {
-	scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][?"name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
+	scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][? "name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
 	draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
-	draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][?"sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
+	draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][? "sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
 	var _charInfo = CHARACTERS[selectedCharacter];
 	var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];
 	var _yoffset = 0;
@@ -37,7 +30,7 @@ if (_isUnlocked) {
 var fandom = [[sFollowingFan, sFollowingFanLocked, 33], [sFollowingOshi, sFollowingOshiLocked, 66], [sFollowingGachikoi, sFollowingGachikoiLocked, 100]];
 var foffset = 0;
 for (var i = array_length(fandom) - 1; i >= 0; --i) {
-	var unlocked = CharacterData[selectedCharacter].fandomxp < fandom[i][2];
+	var unlocked = CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].fandomxp < fandom[i][2];
 	draw_sprite_ext(fandom[i][unlocked], fandom_current_frame[i][0], GW/1.07 + foffset, GH/2, 3, 3, 0, c_white, 1);
     foffset -= 115;
 }
@@ -67,7 +60,7 @@ _offset = 0;
 for (var i = 0; i < 3; ++i) {
 	var _xx = GW/1.20 + _offset;
 	_yy = GH/1.43;
-	var _perk = global.characterPerks[selectedCharacter][i]
+	var _perk = CHARACTERS[selectedCharacter][? "perks"][i]
 	var _spr = _isUnlocked ? _perk.thumb : sCharacterLockedIcon;
 	var _sprW = sprite_get_width(_spr) * 3 / 2;
 	var _sprH = sprite_get_height(_spr) * 3 / 2;
@@ -78,7 +71,7 @@ _offset = 0;
 for (var i = 0; i < 3; ++i) {
 	var _xx = GW/1.20 + _offset;
 	_yy = GH/1.43;
-	var _perk = global.characterPerks[selectedCharacter][i]
+	var _perk = CHARACTERS[selectedCharacter][? "perks"][i]
 	var _spr = _perk.thumb;
 	var _sprW = sprite_get_width(_spr) * 3 / 2;
 	var _sprH = sprite_get_height(_spr) * 3 / 2;
@@ -128,7 +121,7 @@ if (!characterSelected) {
 	//if (_isUnlocked) {
 	//	draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
 	//}
-	for (var i=1; i < Characters.Lenght; i++) {
+	for (var i = 0; i < array_length(CHARACTERS); i++) {
 		if (CHARACTERS[i][?"agency"] != selectedAgency and selectedAgency != "All") {
 			continue;
 		}
@@ -154,7 +147,7 @@ if (!characterSelected) {
 		}
 		draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
 		draw_set_color(c_white);
-		draw_sprite_ext(CharacterData[i].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(CharacterData[char_pos(CHARACTERS[i][? "name"], CharacterData)].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
 		if (selectedCharacter == i) {
 			draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
 		}
@@ -286,7 +279,7 @@ switch (state) {
 		    case "skills":
 				_y = _y - 175
 				for (var i = 0; i < 3; ++i) {
-					var _perk = global.characterPerks[selectedCharacter][i];
+					var _perk = CHARACTERS[selectedCharacter][? "perks"][i];
 			        draw_sprite_ext(sUpgradeBackground, 0, _x + 40, _y, _xscale, _yscale, 0, c_black, .75);
 					draw_rectangle(_x - 365, _y - 35, _x + 440, _y - 34, false);
 					scribble(lexicon_text($"Perks.{_perk[$ "name"]}.name")).scale(2).draw(_x - 348, _y - 57);

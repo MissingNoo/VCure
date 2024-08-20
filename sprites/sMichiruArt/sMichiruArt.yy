@@ -26,7 +26,7 @@
   "origin":9,
   "parent":{
     "name":"Michiru",
-    "path":"folders/Sprites/Characters/PhaseConnect/Michiru.yy",
+    "path":"folders/Characters/PhaseConnect/Michiru.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

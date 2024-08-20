@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Aki",
-    "path":"folders/Sprites/Characters/Hololive/Aki.yy",
+    "name":"Outfits",
+    "path":"folders/Characters/Hololive/Aki/Outfits.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

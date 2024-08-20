@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Aki",
-    "path":"folders/Sprites/Characters/Hololive/Aki.yy",
+    "name":"Special",
+    "path":"folders/Characters/Hololive/Aki/Special.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

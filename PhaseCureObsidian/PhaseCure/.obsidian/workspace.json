@@ -11,11 +11,14 @@
             "id": "55dd2e6797c6dc93",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Systems/LevelUp.md",
-                "mode": "source",
-                "source": false
+                "file": "Canvas.canvas",
+                "viewState": {
+                  "x": -7585.292065960964,
+                  "y": -710.7721657381004,
+                  "zoom": -0.018747561689296477
+                }
               }
             }
           }
@@ -69,8 +72,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -86,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/LevelUp.md",
+                "file": "Canvas.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/LevelUp.md",
+                "file": "Canvas.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/LevelUp.md"
+                "file": "Canvas.canvas"
               }
             }
           }
@@ -150,9 +152,9 @@
   },
   "active": "55dd2e6797c6dc93",
   "lastOpenFiles": [
+    "Systems/LevelUp.md",
     "Systems/Buffs.md",
     "Systems/Buffs",
-    "Systems/LevelUp.md",
     "Systems/Score.md",
     "Systems.md",
     "Systems/Fandom.md",

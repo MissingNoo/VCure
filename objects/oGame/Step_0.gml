@@ -467,21 +467,21 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	
 	if (Minutes >= 30 and !endlessminutemark) {
 	    endlessminutemark = true;
-		if (!CharacterData[global.player[? "id"]][$ "stagefirstclear"][global.currentStage]) {
-		    CharacterData[global.player[? "id"]][$ "stagefirstclear"][global.currentStage] = true;
+		if (!CharacterData[char_pos(global.player[? "name"], CharacterData)][$ "stagefirstclear"][global.currentStage]) {
+		    CharacterData[char_pos(global.player[? "name"], CharacterData)][$ "stagefirstclear"][global.currentStage] = true;
 			if (global.stageHard) {
-			    CharacterData[global.player[? "id"]].fandomxp += 20;
+			    CharacterData[char_pos(global.player[? "name"], CharacterData)].fandomxp += 20;
 			}
 			else {
-			    CharacterData[global.player[? "id"]].fandomxp += 14;
+			    CharacterData[char_pos(global.player[? "name"], CharacterData)].fandomxp += 14;
 			}
 		}
 		else {
 			if (global.stageHard) {
-			    CharacterData[global.player[? "id"]].fandomxp += 10;
+			    CharacterData[char_pos(global.player[? "name"], CharacterData)].fandomxp += 10;
 			}
 			else {
-			    CharacterData[global.player[? "id"]].fandomxp += 7;
+			    CharacterData[char_pos(global.player[? "name"], CharacterData)].fandomxp += 7;
 			}
 		}
 	}

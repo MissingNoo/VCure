@@ -236,7 +236,7 @@ function populate_upgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
-				characterid : Characters.Uruka,
+				characterid : "Fujikura Uruka",
 				travelWidth : 32,
 				weight : 3
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
@@ -262,7 +262,7 @@ function populate_upgrades(){
 				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
-				characterid : Characters.Null,
+				characterid : "NullChar",
 			});
 			#endregion
 		#endregion	
@@ -289,7 +289,7 @@ function populate_upgrades(){
 			knockbackSpeed : 0,
 			knockbackDuration : 0,
 			perk : true,
-			characterid : Characters.Lia,
+			characterid : "Rinkou Ashelia",
 			weight : 3
 		});
 		new_create_upgrade({
@@ -314,7 +314,7 @@ function populate_upgrades(){
 				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 				perk : true,
 				size : 0.5,
-				characterid : Characters.Null,
+				characterid : "NullChar",
 			});
 		#endregion
 		#region Tenma
@@ -340,7 +340,7 @@ function populate_upgrades(){
 			knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 			knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 			perk : true,
-			characterid : Characters.Tenma,
+			characterid : "Tenma Maemi",
 			weight : 3
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
@@ -368,7 +368,7 @@ function populate_upgrades(){
 			type : "red",
 			shoots : [3, 5, 5, 5, 5, 5, 5],
 			perk : true,
-			characterid : Characters.Amelia,
+			characterid : "Watson Amelia",
 			weight : 3
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
 		#endregion
@@ -393,7 +393,7 @@ function populate_upgrades(){
 			type : "red",
 			shoots : [2, 2, 2, 3, 3, 4, 4],
 			perk : true,
-			characterid : Characters.Aki,
+			characterid : "Aki Rosenthal",
 			weight : 3,
 			range : 250,
 			chance : [0, 0, 0, 0, 0, 0, 30],
@@ -423,7 +423,7 @@ function populate_upgrades(){
 			type : "red", 
 			shoots : 1, 
 			perk : true, 
-			characterid : Characters.Anya, 
+			characterid : "Anya Melfissa", 
 			weight : 3, 
 			range : [120, 120, 120, 120, 120, 150, 150],
 			shotType : ShotTypes.Melee
@@ -448,7 +448,7 @@ function populate_upgrades(){
 			type : "red", 
 			shoots : 1, 
 			perk : true, 
-			characterid : Characters.Anya, 
+			characterid : "Anya Melfissa", 
 			weight : 0,
 			shotType : ShotTypes.Melee
 		},[snd_bullet, snd_bullet2, snd_bullet3]);
@@ -479,7 +479,7 @@ function populate_upgrades(){
 				type : "white",
 				shotType : ShotTypes.Melee,
 				perk : true,
-				characterid : Characters.Lenght
+				characterid : "NullChar"
 			});
 	#endregion
 	#region BLBook
@@ -981,7 +981,7 @@ function populate_upgrades(){
 				knockbackSpeed : 0,
 				knockbackDuration : 0,
 				perk : true,
-				characterid : Characters.Lenght
+				characterid : "NullChar"
 			});
 	#endregion
 	#region Collabs
@@ -1498,7 +1498,7 @@ function populate_upgrades(){
 		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 		perk : true,
-		characterid : Characters.Pippa,
+		characterid : "Pipkin Pippa",
 		weight : 3
 	},[snd_bullet, snd_bullet2, snd_bullet3]);
 	new_create_upgrade({
@@ -1523,7 +1523,7 @@ function populate_upgrades(){
 		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 		perk : true,
-		characterid : Characters.Null
+		characterid : "NullChar"
 	});
 	new_create_upgrade({
 		func : mold_step,
@@ -1546,7 +1546,7 @@ function populate_upgrades(){
 		knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
 		knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
 		perk : true,
-		characterid : Characters.Null
+		characterid : "NullChar"
 	});
 	#endregion
 	#endregion
@@ -1607,7 +1607,7 @@ function random_upgrades(){
 			_isCollab = variable_struct_exists(WEAPONS_LIST[i][1], "collab");
 			_belongsToCharacter = false;
 			_perkWeapon = variable_struct_exists(_currentWeaponOnList, "characterid");
-			if (_perkWeapon) { _belongsToCharacter = _currentWeaponOnList.characterid == global.player[? "id"]; }
+			if (_perkWeapon) { _belongsToCharacter = _currentWeaponOnList.characterid == global.player[? "name"]; }
 			_unlocked = false;
 			_canBeUnlocked = variable_struct_exists(_currentWeaponOnList, "unlocked");
 			if (_canBeUnlocked) { _unlocked = _currentWeaponOnList.unlocked; }
@@ -1677,7 +1677,7 @@ function random_upgrades(){
 	
 		#region Perks
 			for (var i = 0; i < array_length(PERK_LIST); ++i) {
-				if (PERK_LIST[i][0][$ "characterid"] == global.player[?"id"]) {
+				if (PERK_LIST[i][0][$ "characterid"] == global.player[? "name"]) {
 				    //	array_push(ups, PERK_LIST[i]);
 					var maxed = false;
 					var found = false;
@@ -1996,10 +1996,10 @@ function random_upgrades(){
 	if (global.held_item.item != undefined) {
 		global.upgradeOptions[global.held_item.position] = global.held_item.item;
 		global.held_item.item = undefined;
-		oGui.heldpos = global.held_item.position;
+		oLevelUpControl.heldpos = global.held_item.position;
 	}
 	else {
-		oGui.heldpos = -1;
+		oLevelUpControl.heldpos = -1;
 	}
 }	
 #endregion

@@ -83,7 +83,7 @@ depth = oGui.depth + 1;
 //		prizes : [
 //			{
 //				type : PrizeType.Character,
-//				character : Characters.Uruka
+//				character : "Fujikura Uruka"
 //			},
 //		]
 //	}

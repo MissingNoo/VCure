@@ -42,7 +42,7 @@ if (!joinedRoom and !creatingroom and !typepassword) {
 		    sendMessage(0, {
 				command : Network.JoinRoom,
 				username : global.username,
-				character : global.player[?"id"],			
+				character : global.player[? "name"],			
 			});
 		}
 		else{keyboard_string = ""; passwordselected = 0; typepassword = true; }
@@ -101,7 +101,7 @@ if (creatingroom) {
 				sendMessage(0, {
 					command : Network.JoinRoom,
 					username : global.username,
-					character : global.player[?"id"],
+					character : global.player[? "name"],
 					password
 				});
 			}
@@ -155,13 +155,13 @@ if (typepassword) {
 				    sendMessage(0, {
 						command : Network.JoinRoom,
 						username : global.username,
-						character : global.player[?"id"],			
+						character : global.player[? "name"],			
 					});
 				}				
 				//sendMessage(0, {
 				//	command : Network.JoinRoom,
 				//	username : global.username,
-				//	character : global.player[?"id"],
+				//	character : global.player[? "name"],
 				//	password
 				//});
 			}

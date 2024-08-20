@@ -575,7 +575,7 @@ function prize_box_roll_weapon(boxnumber){
 	}
 	for (var i = 0; i < array_length(WEAPONS_LIST); ++i) {
 		var _weapon = WEAPONS_LIST[i][1];
-		if (_weapon[$ "collab"] == true or (_weapon[$ "perk"] and _weapon[$ "characterid"] != global.player[? "id"]) or (_weapon[$ "unlocked"] != undefined and !_weapon[$ "unlocked"])) {
+		if (_weapon[$ "collab"] == true or (_weapon[$ "perk"] and _weapon[$ "characterid"] != global.player[? "name"]) or (_weapon[$ "unlocked"] != undefined and !_weapon[$ "unlocked"])) {
 			continue;
 		}
 		else{

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"AkiRosenthal",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"AkiRosenthal",
+  "parent":{
+    "name":"Aki",
+    "path":"folders/Characters/Hololive/Aki.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

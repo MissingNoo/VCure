@@ -103,7 +103,7 @@ if (_rnd <= _critChance) {
 	}
 	_critMultiplier += _critCalc;
 	_wasCrit = true;
-	if (global.player[?"id"] == Characters.Lia) {
+	if (global.player[? "name"] == "Rinkou Ashelia") {
 		for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			if (PLAYER_PERKS[i].id == PerkIds.Viral) {
 				var _infectChance = PLAYER_PERKS[i].chance;
@@ -121,7 +121,7 @@ if (_rnd <= _critChance) {
 		}
 	}
 		
-	if (global.player[?"id"] == Characters.Pippa) {
+	if (global.player[? "name"] == "Pipkin Pippa") {
 		for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level >= 2) {
 				_rnd = irandom_range(1, 100);

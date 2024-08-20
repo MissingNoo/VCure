@@ -30,7 +30,7 @@
   "origin":7,
   "parent":{
     "name":"Ghosts",
-    "path":"folders/Sprites/Characters/Guests/Trickywi/Ghosts.yy",
+    "path":"folders/Characters/Guests/Trickywi/Ghosts.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -134,7 +134,7 @@ switch (state) {
 		if (input_check_pressed("accept")) {
 			if (!characterSelected) {
 				if (sidebarOpenByButton) { sidebarOpenByButton = false; return; }
-				if (!CharacterData[CHARACTERS[selectedCharacter][?"id"]].unlocked) { return; }
+				if (!CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].unlocked) { return; }
 				global.player=CHARACTERS[selectedCharacter];
 				audio_stop_sound(global.musicPlaying);
 				audio_play_sound(snd_char_selected,0,0, global.soundVolume);

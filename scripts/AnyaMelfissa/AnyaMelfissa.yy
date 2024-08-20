@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"AnyaMelfissa",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"AnyaMelfissa",
+  "parent":{
+    "name":"Anya",
+    "path":"folders/Characters/Hololive/Anya.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

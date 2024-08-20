@@ -1,12 +1,9 @@
 #macro UnlockableItems global.unlockableItems
 #macro UnlockableWeapons global.unlockableWeapons
-#macro UnlockableOutfits global.unlockableOutfits
 #macro UnlockableAchievements global.unlockableAchievements
-#macro Granks global.gRanks
 UnlockableItems = array_create(ItemIds.Length, false);
 UnlockableWeapons = array_create(Weapons.Length, false);
 UnlockableAchievements = array_create(AchievementIds.Length, false);
-Granks = array_create(Characters.Lenght, 0);
 #macro CharacterData global.characterdata
 
 function load_unlocked(){

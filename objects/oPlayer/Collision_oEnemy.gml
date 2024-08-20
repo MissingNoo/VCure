@@ -72,7 +72,7 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 		}
 		//show_debug_message(string($"d:{damage} + {bonusdmg} = {damage+bonusdmg}"));
 		damage += bonusdmg;
-		if (_dirtyDodge <= _dirtyChance and global.player[?"id"] == Characters.Uruka) {
+		if (_dirtyDodge <= _dirtyChance and global.player[? "name"] == "Fujikura Uruka") {
 			heal_player(damage/2);
 		    damage = 0;
 		}

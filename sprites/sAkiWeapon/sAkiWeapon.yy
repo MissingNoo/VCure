@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Aki",
-    "path":"folders/Sprites/Characters/Hololive/Aki.yy",
+    "name":"Weapon",
+    "path":"folders/Characters/Hololive/Aki/Weapon.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

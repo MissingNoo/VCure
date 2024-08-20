@@ -1,5 +1,7 @@
 // Feather disable all
 // Feather disable GM2017
+CharacterData = [];
+global.perks = [0];
 #macro HP global.hp
 #macro MAXHP global.maxhp
 #macro NAME global.name
@@ -34,12 +36,12 @@ function initializePlayer(_p){
 	for (var i=0; i<6; i++) {
 		playerItems[i]=global.nullitem;
 	}
-	PLAYER_PERKS = global.characterPerks[global.player[? "id"]];
+	PLAYER_PERKS = variable_clone(CHARACTERS[char_pos(global.player[? "name"], CHARACTERS)][? "perks"]);
 	for (var i=0; i<3; i++) {
 		PLAYER_PERKS[i] = PERK_LIST[PLAYER_PERKS[i].id][0];
 	}
-	global.upgrade=0;
-	global.xp=0;
+	global.upgrade = false;
+	global.xp = 0;
 	global.level = 1;
 	damaged=false;
 	spddefault=_p[?"speed"];
@@ -48,10 +50,10 @@ function initializePlayer(_p){
 	canShoot = 1;
 	arrowDir=0;
 	// Feather enable GM2017
-	atk=_p[?"atk"];
-	sprite=_p[?"outfits"][global.selectedOutfit][$ "sprite"];
-	runningsprite=_p[?"outfits"][global.selectedOutfit][$ "runningSprite"];
-	sprite_index=sprite;
+	atk = _p[?"atk"];
+	sprite = _p[?"outfits"][global.selectedOutfit][$ "sprite"];
+	runningsprite = _p[?"outfits"][global.selectedOutfit][$ "runningSprite"];
+	sprite_index = sprite;
 	global.upgrades[0] = _p[?"weapon"][1];
 	Shield = 0;
 	MaxShield = 0;
@@ -109,7 +111,7 @@ function initializePlayer(_p){
 	oGui.upgradesSurface();
 	//UPGRADES[0] = WEAPONS_LIST[Weapons.Aik][7];
 	if (true) { //TODO: Shop fandom
-		var fxp = CharacterData[global.player[? "id"]][$ "fandomxp"];
+		var fxp = CharacterData[char_pos(NAME, CharacterData)][$ "fandomxp"];
 		var flvl = 0;
 	    if (fxp >= 33) { flvl = 1; }
 	    if (fxp >= 66) { flvl = 2; }
@@ -142,84 +144,33 @@ function initializePlayer(_p){
 }
 global.characters=[];
 #macro CHARACTERS global.characters
-enum Characters {
-	Null,
-	Pippa,
-	Uruka,
-	Lia,
-	Tenma,
-	Trickywi,
-	Amelia,
-	Aki,
-	Anya,
-	//Aqua,
-	//Ayame,
-	//Azki,
-	//Baelz,
-	//Mori,
-	//Choco,
-	//Fauna,
-	//Gura,
-	//Haachama,
-	//Iofi,
-	//Irys,
-	//Kaela,
-	//Kobo,
-	//Korone,
-	//Matsuri,
-	//Mel,
-	//Mio,
-	//Moona,
-	//Mumei,
-	//Ina,
-	//Okayu,
-	//Ollie,
-	//Kronii,
-	//Reine,
-	//Risu,
-	//Roboco,
-	//Sana,
-	//Shion,
-	//Fubuki,
-	//Sora,
-	//Subaru,
-	//Suisei,
-	//Kiara,
-	//Zeta,
-	Lenght
-}
-function createCharacter(_id, _agency, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
+function createCharacter(_agency, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
 {
-	if (_unlocked) {
-	    CharacterData[_id].unlocked = _unlocked;
-	}	
-	global.characters[_id]=ds_map_create();
-	m = global.characters[_id];
-	ds_map_add(m, "id", _id);
-	ds_map_add(m, "agency", _agency);
-	ds_map_add(m, "name", _name);
-	ds_map_add(m, "portrait", _portrait);
-	ds_map_add(m, "bigArt", _bigArt);
-	ds_map_add(m, "sprite", _sprite);
-	ds_map_add(m, "runningsprite", _runningsprite);
-	ds_map_add(m, "hp", _hp);
-	ds_map_add(m, "speed", _speed);
-	ds_map_add(m, "atk", _atk);
-	ds_map_add(m, "weapon", _weapon);
-	ds_map_add(m, "ballsize", _ballsize);
-	ds_map_add(m, "flat", _flat);
-	ds_map_add(m, "crit", _crt);
-	ds_map_add(m, "outfits", []);
-	ds_map_add(m, "chooseText", lexicon_text($"Characters.{_name}.chooseText"));
+	//if (_unlocked) {
+	//    CharacterData[_id].unlocked = _unlocked;
+	//}	
+	//global.characters[_id]=ds_map_create();
+	//m = global.characters[_id];
+	//ds_map_add(m, "id", _id);
+	//ds_map_add(m, "agency", _agency);
+	//ds_map_add(m, "name", _name);
+	//ds_map_add(m, "portrait", _portrait);
+	//ds_map_add(m, "bigArt", _bigArt);
+	//ds_map_add(m, "sprite", _sprite);
+	//ds_map_add(m, "runningsprite", _runningsprite);
+	//ds_map_add(m, "hp", _hp);
+	//ds_map_add(m, "speed", _speed);
+	//ds_map_add(m, "atk", _atk);
+	//ds_map_add(m, "weapon", _weapon);
+	//ds_map_add(m, "ballsize", _ballsize);
+	//ds_map_add(m, "flat", _flat);
+	//ds_map_add(m, "crit", _crt);
+	//ds_map_add(m, "outfits", []);
+	//ds_map_add(m, "chooseText", lexicon_text($"Characters.{_name}.chooseText"));
 }
 function createCharacterNew(_data)
 {
-	if (_data.unlocked) {
-	    CharacterData[_data.id].unlocked = _data.unlocked;
-	}	
-	global.characters[_data.id]=ds_map_create();
-	m = global.characters[_data.id];
-	ds_map_add(m, "id", _data.id);
+	m = ds_map_create();
 	ds_map_add(m, "agency", _data.agency);
 	ds_map_add(m, "name", _data.name);
 	ds_map_add(m, "portrait", _data.portrait);
@@ -235,6 +186,12 @@ function createCharacterNew(_data)
 	ds_map_add(m, "crit", _data.crit);
 	ds_map_add(m, "finished", _data.finished);
 	ds_map_add(m, "outfits", []);
+	ds_map_add(m, "perks", []);
+	array_push(CHARACTERS, m);
+	generate_character_data(_data.name);
+	if (_data[$ "unlockedbydefault"]) {
+	    CharacterData[char_pos(_data.name, CharacterData)][$ "unlocked"] = true;
+	}
 }
 enum BuffNames{
 	//ShortHeight,
@@ -253,70 +210,6 @@ enum BuffNames{
 	BellyDance,
 	Sharpen
 }
-function populate_characters(){
-	createCharacter(Characters.Null, "Phase-Connect","",sBlank,sBlank, sBlank,sBlank,0,0,0, 0, 0,u[Weapons.PipiPilstol], false, false);
-	createCharacter(Characters.Uruka, "Phase-Connect","Fujikura Uruka",sUrukaPortrait, sUrukaArt, sUrukaIdle,sUrukaRunning,75,1.35,1.30, 1.10, 3,u[Weapons.UrukaNote], false, true);
-	createCharacter(Characters.Pippa, "Phase-Connect","Pipkin Pippa",sPippaPortrait, sPippaArt, sPippaIdle,sPippaRun,60,1.50,0.95, 1.10, 1,u[Weapons.PipiPilstol], true, true);
-	createCharacter(Characters.Lia, "Phase-Connect","Rinkou Ashelia",sLiaPortrait, sLiaArt, sLiaIdle,sLiaRunningOld, 70, 1.30, 1.25, 0.75, 1,u[Weapons.LiaBolt], true, true);
-	createCharacter(Characters.Tenma, "Phase-Connect","Tenma Maemi",sTenmaPortrait, sTenmaBig, sTenmaIdleNew, sTenmaRunNew, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
-	createCharacter(Characters.Trickywi, "Indies","Nephasis",sTrickyPortrait, sTrickyArt, sTrickyIdle, sTrickyRun, 65, 1.40, 1.35, 1, 1, u[Weapons.Brick], true, true);
-	createCharacter(Characters.Amelia, "Hololive", "Amelia Watson", sAmeliaPortrait, sAmeliaArt, sAmeliaIdle, sAmeliaRun, 75, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
-	createCharacter(Characters.Aki, "Hololive", "Aki Rosenthal", sAkiPortrait, sPlaceholderArt, sAkiIdle, sAkiRun, 80, 1.35, 1.30, 1.10, 3, u[Weapons.AmePistol], false, true);
-	CHARACTERS[Characters.Trickywi][? "finished"] = false;
-	CHARACTERS[Characters.Tenma][? "finished"] = 3;
-	//CHARACTERS[Characters.Amelia][? "finished"] = 3;
-	//createCharacterNew({
-	//	id : Characters.,
-	//	name : "",
-	//	agency : "",
-	//	portrait : s,
-	//	bigArt : s,
-	//	sprite : s,
-	//	runningsprite : s,
-	//	hp : ,
-	//	speed : ,
-	//	atk : ,
-	//	crit : ,
-	//	weapon : ,
-	//	ballsize : ,
-	//	flat : ,
-	//});
-	createCharacterNew({ //TODO: Special, belly dance fade when close to screen border, 
-		id : Characters.Aki,
-		name : "Aki Rosenthal",
-		agency : "Hololive",
-		portrait : sAkiPortrait,
-		bigArt : sPlaceholderArt,
-		sprite : sAkiIdle,
-		runningsprite : sAkiRun,
-		hp : 80,
-		atk : 1.1,
-		speed : 1.5,
-		crit : 1,
-		weapon : Weapons.Aik,
-		ballsize : 3,
-		flat : false,
-		unlocked : false,
-		finished : 3
-	});
-	createCharacterNew({
-		id : Characters.Anya,
-		name : "Anya Melfissa",
-		agency : "Hololive",
-		portrait : sAnyaPortrait,
-		bigArt : sPlaceholderArt,
-		sprite : sAnyaIdle,
-		runningsprite : sAnyaRun,
-		hp : 60,
-		atk : 1.50,
-		speed : 1.20,
-		crit : 5,
-		weapon : Weapons.Keris,
-		ballsize : 2,
-		flat : true,
-		unlocked : true,
-		finished : false
-	});
 	//Buffs[BuffNames.ShortHeight] = {
 	//	id : BuffNames.ShortHeight,
 	//	name : "Short Height",
@@ -327,6 +220,7 @@ function populate_characters(){
 	//	chance : [0,15,25,35],
 	//	bonus : [0,1.3,1.4,1.5]
 	//}
+function populate_buffs() {
 	Buffs[BuffNames.testbuff] = {
 		id : BuffNames.testbuff,
 		name : "Test Buff",
@@ -464,7 +358,42 @@ function populate_characters(){
 	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
 	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
-	NAME=CHARACTERS[Characters.Uruka][?"name"];
+	
+}
+function generate_character_data(charname) {
+	if (!is_array(CharacterData)) { CharacterData = []; }
+	var pos = char_pos(charname, CharacterData);
+	if (pos == -1) {
+		data = {
+			name : charname,
+			unlocked : false,
+			outfits : [],
+			grank : 0,
+			fandomxp : 0,
+			stagefirstclear : []
+		};
+		for (var j = 0; j < StageID.Length; ++j) {
+			data[$ "stagefirstclear"][j] = false;
+		}
+		array_push(CharacterData, data);
+	}
+}
+function char_pos(name, array) {
+	var pos = -1;
+	if (is_undefined(array) or !is_array(array) or array_length(array) == 0) {
+	    return -1;
+	}
+	for (var i = 0; i < array_length(array); ++i) {
+	    if (array == CHARACTERS and array[i][? "name"] == name) {
+		    pos = i;
+			break;
+		}
+		if (array == CharacterData and array[i][$ "name"] == name) {
+		    pos = i;
+			break;
+		}
+	}
+	return pos;
 }
 function add_buff_to_player(bid) {
 	var found = false;
@@ -478,7 +407,7 @@ function add_buff_to_player(bid) {
 	}
 	if (found) {
 		if (PlayerBuffs[pos][$ "count"] != undefined) {
-		    Buffs[pos].count++;
+		    PlayerBuffs[pos].count++;
 		}
 	}
 	else {

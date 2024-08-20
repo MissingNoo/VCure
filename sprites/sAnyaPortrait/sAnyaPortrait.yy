@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Anya",
-    "path":"folders/Sprites/Characters/Hololive/Anya.yy",
+    "path":"folders/Characters/Hololive/Anya.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

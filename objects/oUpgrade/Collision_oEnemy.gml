@@ -134,7 +134,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 	}
 	#endregion
 	dmg = dmg + bdmg;
-	if (global.player == CHARACTERS[Characters.Uruka]) {
+	if (global.player[? "name"] == "Fujikura Uruka") {
 	    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 		    if (PLAYER_PERKS[i][$ "id"] == PerkIds.TrashBear and PLAYER_PERKS[i][$ "level"] == 3) {
 				randomize();
@@ -163,7 +163,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 		}
 		_critMultiplier += _critCalc;
 		_wasCrit = true;
-		if (global.player[?"id"] == Characters.Lia) {
+		if (global.player[? "name"] == "Rinkou Ashelia") {
 		    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			    if (PLAYER_PERKS[i].id == PerkIds.Viral) {
 					var _infectChance = PLAYER_PERKS[i].chance;
@@ -181,7 +181,7 @@ if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alp
 			}
 		}
 		
-		if (global.player[?"id"] == Characters.Pippa) {
+		if (global.player[? "name"] == "Pipkin Pippa") {
 			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			    if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level >= 2) {
 				    _rnd = irandom_range(1, 100);

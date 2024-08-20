@@ -223,27 +223,15 @@ global.newFont[2] = font_add("Silver.ttf", 13, false, false, 32, 128);
 draw_set_font(global.newFont[1]);
 #endregion
 #region Populate Items
-for (var i = 0; i < Characters.Lenght; ++i) {
-    global.characterdata[i] = {
-		unlocked : false,
-		outfits : [],
-		grank : 0,
-		fandomxp : 0,
-		stagefirstclear : []
-	};
-	for (var j = 0; j < StageID.Length; ++j) {
-		global.characterdata[i][$ "stagefirstclear"][j] = false;
-	}
-}
-if (is_string(global.characterdataJSON)) {
-	var arr = json_parse(global.characterdataJSON);
-	for (var i = 0; i < array_length(arr); ++i) {
-		var _names = struct_get_names(arr[i]);
-		for (var j = 0; j < array_length(_names); ++j) {
-			global.characterdata[i][$ _names[j]] = arr[i][$ _names[j]];
-		}
-	}
-}
+//if (is_string(global.characterdataJSON)) {
+//	var arr = json_parse(global.characterdataJSON);
+//	for (var i = 0; i < array_length(arr); ++i) {
+//		var _names = struct_get_names(arr[i]);
+//		for (var j = 0; j < array_length(_names); ++j) {
+//			global.characterdata[i][$ _names[j]] = arr[i][$ _names[j]];
+//		}
+//	}
+//}
 if (is_string(global.fishamount)) {
 	var arr = json_parse(global.fishamount);
 	for (var i = 0; i < array_length(arr); ++i) {
@@ -273,7 +261,7 @@ for (var i = 0; i < array_length(global.farmplots); i += 1) {
 	updatecropinfo(global.farmplots[i]);
 }
 #region lower arrays
-//for (var i = 0; i < Characters.Lenght; ++i) {
+//for (var i = 0; i < "NullChar"; ++i) {
 //	global.characterdata[i][$ "stagefirstclear"][StageID.Length] = false;
 //}
 #endregion
@@ -281,6 +269,7 @@ populate_items();
 populate_upgrades();
 populate_collabs();
 populate_characters();
+populate_buffs()
 populate_perks();
 populate_specials();
 populate_outfits();

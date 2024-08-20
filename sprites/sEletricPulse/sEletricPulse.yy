@@ -49,7 +49,7 @@
   "origin":9,
   "parent":{
     "name":"Lia",
-    "path":"folders/Sprites/Characters/PhaseConnect/Lia.yy",
+    "path":"folders/Characters/PhaseConnect/Lia.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

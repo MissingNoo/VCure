@@ -108,7 +108,7 @@ if (global.shopUpgrades.Hold.level > 0) {
     lobby_button(_holdx, _holdy, $"Hold ({global.helds})", function () {
         helding = true;
         global.helds--;
-    }, [1.17, 2, 2.50], !helding);
+    }, [1.17, 2, 2.50], !helding, selected == 5);
 }
 #endregion
 #endregion

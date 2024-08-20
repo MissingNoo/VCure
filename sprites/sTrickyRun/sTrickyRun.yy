@@ -54,7 +54,7 @@
   "origin":9,
   "parent":{
     "name":"Trickywi",
-    "path":"folders/Sprites/Characters/Guests/Trickywi.yy",
+    "path":"folders/Characters/Guests/Trickywi.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

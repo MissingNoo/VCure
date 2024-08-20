@@ -29,7 +29,7 @@
   "origin":9,
   "parent":{
     "name":"Dokibird",
-    "path":"folders/Sprites/Characters/Guests/Dokibird.yy",
+    "path":"folders/Characters/Guests/Dokibird.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

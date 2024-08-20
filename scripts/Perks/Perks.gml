@@ -45,6 +45,10 @@ function create_perk(_data){
 		global.perkCooldown[_data.id] = 0;
 		//show_message(global.perkCooldown[_data.id]);
 	}
+	var owner = char_pos(_data.characterid, CHARACTERS);
+	if (owner != -1) {
+	    array_push(CHARACTERS[owner][? "perks"], PERK_LIST[_data.id][0]);
+	}
 }
 
 	enum PerkIds
@@ -81,9 +85,9 @@ function populate_perks(){
 			weight : 0,
 			thumb : sCharacterLockedIcon,
 			cooldown : 1,
-			characterid : Characters.Null,
+			characterid : "NullChar",
 		});
-		global.characterPerks[Characters.Tenma] = [PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
+		//CHARACTERS[char_pos("Tenma Maemi", CHARACTERS)][? "perks"] = [PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
 		#region Character Perks
 		#region Uruka Perks
 		#region Dirty Mind
@@ -94,7 +98,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sDirtyMind,
 			cooldown : 1,
-			characterid : Characters.Uruka,
+			characterid : "Fujikura Uruka",
 			dodgeChance: [0, 15, 20, 25]
 		});
 		#endregion
@@ -107,7 +111,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sTrashBear,
 			cooldown : 1,
-			characterid : Characters.Uruka,
+			characterid : "Fujikura Uruka",
 			//dropChance : [0, 10, 11, 12],
 			spdDebuff : [0, 0.85, 0.80, 0.75]
 		});
@@ -120,10 +124,11 @@ function populate_perks(){
 			weight : 1,
 			thumb : sWeakBones,
 			cooldown : 1,
-			characterid : Characters.Uruka,						
+			characterid : "Fujikura Uruka",						
 		});
 		#endregion
-		global.characterPerks[Characters.Uruka] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
+		//global.characterPerks[] = 
+		//CHARACTERS[char_pos("Fujikura Uruka", CHARACTERS)][? "perks"] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		#endregion
 		#region Lia
 		#region EletricPulse
@@ -134,7 +139,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sEletricPulseThumb,
 			cooldown : [0, 10, 8, 6],
-			characterid : Characters.Lia,
+			characterid : "Rinkou Ashelia",
 			upgrade : true,
 			upgradeid : Weapons.ElectricPulse,
 		});
@@ -147,7 +152,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sLick,
 			cooldown : [0, 5, 4, 3],
-			characterid : Characters.Lia,
+			characterid : "Rinkou Ashelia",
 			lickArea : [0, 60, 90, 120]
 		});
 		#endregion
@@ -159,12 +164,12 @@ function populate_perks(){
 			weight : 1,
 			thumb : sViral,
 			cooldown : 1,
-			characterid : Characters.Lia,
+			characterid : "Rinkou Ashelia",
 			chance : [0, 20, 27, 33],
 			maxInfected : [0, 5, 10, 15]
 		});
 		#endregion
-		global.characterPerks[Characters.Lia] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
+		//global.characterPerks["Rinkou Ashelia"] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
 		#endregion
 		#region Pippa
 		#region Heavy Artillery
@@ -176,7 +181,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sHeavyArtillery,
 			cooldown : [3, 3, 2.01, 2.01],
-			characterid : Characters.Pippa,
+			characterid : "Pipkin Pippa",
 			upgrade: true,
 			upgradeid : Weapons.HeavyArtillery
 		});
@@ -189,7 +194,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sMoldySoul,
 			cooldown : 1,
-			characterid : Characters.Pippa,
+			characterid : "Pipkin Pippa",
 			upgradeid : Weapons.Mold,
 			chance : 33
 		});
@@ -202,10 +207,10 @@ function populate_perks(){
 			weight : 1,
 			thumb : sSodaFueled,
 			cooldown : 1,
-			characterid : Characters.Pippa
+			characterid : "Pipkin Pippa"
 		});
 		#endregion
-		global.characterPerks[Characters.Pippa] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
+		//global.characterPerks["Pipkin Pippa"] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
 		#endregion
 		#region Hololive
 		#region Amelia
@@ -220,7 +225,7 @@ function populate_perks(){
 			bonus : true,
 			bonusType : [BonusType.Damage, BonusType.Haste],
 			bonusValue : [[0, 1.20, 1.40, 1.60], [0, 0, 0, 1.10]],
-			characterid : Characters.Amelia
+			characterid : "Watson Amelia"
 		});
 		#endregion
 		#region Detective Eye
@@ -232,7 +237,7 @@ function populate_perks(){
 			weight : 1,
 			thumb : sAmeliaDetectiveEye,
 			cooldown : [3, 3, 2.01, 2.01],
-			characterid : Characters.Amelia,
+			characterid : "Watson Amelia",
 			bonus : true,
 			bonusType : BonusType.Critical,
 			bonusValue : [0, 1.10, 1.20, 1.30]
@@ -247,82 +252,16 @@ function populate_perks(){
 			weight : 1,
 			thumb : sAmeliaBubba,
 			cooldown : [3, 3, 2.01, 2.01],
-			characterid : Characters.Amelia
+			characterid : "Watson Amelia"
 		});
 		#endregion
-		global.characterPerks[Characters.Amelia] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+		//global.characterPerks["Watson Amelia"] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
 		#endregion
 		#region Aki
-		#region Belly Dancing
-		create_perk({
-			id : PerkIds.BellyDancing,
-			func : belly_dancing,
-			name : "Belly Dancing",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sAkiPerk2,
-			cooldown : 1,
-			characterid : Characters.Aki
-		});
-		#endregion
-		#region Mukirose
-		create_perk({
-			func : perk_mukirose,
-			id : PerkIds.Mukirose,
-			name : "Mukirose",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sAkiPerk3,
-			cooldown : [3, 3, 2.01, 2.01],
-			characterid : Characters.Aki
-		});
-		#endregion
-		#region Aromatherapy
-		create_perk({
-			func : perk_aromateraphy,
-			id : PerkIds.Aromatherapy,
-			name : "Aromatherapy",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sAkiPerk1,
-			cooldown : 1.5,
-			characterid : Characters.Aki,
-			draw : true
-		});
-		#endregion
-		global.characterPerks[Characters.Aki] = [PERK_LIST[PerkIds.BellyDancing][0], PERK_LIST[PerkIds.Mukirose][0], PERK_LIST[PerkIds.Aromatherapy][0]];
+		
 		#endregion
 		#region Anya
-		#region Cutting Deep
-		create_perk({
-			func : cutting_deep,
-			id : PerkIds.CuttingDeep,
-			name : "Cutting Deep",
-			maxlevel : 3,
-			weight : 3,
-			thumb : sAnyaPerk1,
-			cooldown : [1, 1, 1, 1],
-			characterid : Characters.Anya,
-			bonus : true,
-			bonusType : BonusType.PickupRange,
-			bonusValue : [0, 1.20, 1.40, 1.60],
-		});
-		#endregion
-		#region Living Weapon
-		create_perk({ 
-			func : living_weapon, 
-			id : PerkIds.LivingWeapon, 
-			name : "Living Weapon", 
-			maxlevel : 3, 
-			weight : 3, 
-			thumb : sAnyaPerk2, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
-		#endregion
-		#region Slumber
-		create_perk({ 
-			id : PerkIds.Slumber, 
-			name : "Slumber", maxlevel : 3, weight : 3, thumb : sAnyaPerk3, cooldown : [1, 1, 1, 1], characterid : Characters.Anya});
-		#endregion
-		global.characterPerks[Characters.Anya] = [PERK_LIST[PerkIds.CuttingDeep][0], PERK_LIST[PerkIds.LivingWeapon][0], PERK_LIST[PerkIds.Slumber][0]];
+		
 		#endregion
 		#endregion
 		#region Indies
@@ -336,10 +275,10 @@ function populate_perks(){
 			weight : 1,
 			thumb : sTrickyAnkh,
 			cooldown : 1,
-			characterid : Characters.Trickywi
+			characterid : "Nephasis"
 		});
 		#endregion
-		global.characterPerks[Characters.Trickywi] = [PERK_LIST[PerkIds.Ankh][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
+		//global.characterPerks["Nephasis"] = [PERK_LIST[PerkIds.Ankh][0], PERK_LIST[PerkIds.Null][0], PERK_LIST[PerkIds.Null][0]];
 		#endregion
 		#endregion
 		#endregion

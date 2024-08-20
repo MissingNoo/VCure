@@ -31,10 +31,10 @@ switch (state) {
 				}
 				else {
 					var _nextCharacter = selectedCharacter + (5 * _updown);
-					if (_nextCharacter < 1 or _nextCharacter > Characters.Lenght - 1) {
+					if (_nextCharacter < 1 or _nextCharacter > "NullChar" - 1) {
 						return;
 					}
-					//if (selectedCharacter + _updown * 4 < Characters.Lenght - 1 or selectedCharacter + _updown * 4 < 0) {
+					//if (selectedCharacter + _updown * 4 < "NullChar" - 1 or selectedCharacter + _updown * 4 < 0) {
 					//    return;
 					//}
 					selectedCharacter = _nextCharacter;
@@ -42,10 +42,10 @@ switch (state) {
 			}
 			if (_leftright != 0 and !sidebarOpen) {
 				do {
-					selectedCharacter += _leftright;
-					if (selectedCharacter < 1) { selectedCharacter = Characters.Lenght - 1; }
-					if (selectedCharacter > Characters.Lenght - 1) { selectedCharacter = 1; }
-					NAME=CHARACTERS[selectedCharacter][?"name"];
+					selectedCharacter = clamp(selectedCharacter + _leftright, -1, array_length(CHARACTERS));
+					if (selectedCharacter == -1) { selectedCharacter = array_length(CHARACTERS) - 1; }
+					if (selectedCharacter == array_length(CHARACTERS)) { selectedCharacter = 0; }
+					NAME = CHARACTERS[selectedCharacter][?"name"];
 					audio_play_sound(snd_char_select_woosh,0,0, global.soundVolume);
 				} until (CHARACTERS[selectedCharacter][? "agency"] == selectedAgency or selectedAgency == "All");
 			}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Mukirose",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Mukirose",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Aki/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

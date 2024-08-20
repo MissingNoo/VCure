@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CuttingDeep",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CuttingDeep",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Anya/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

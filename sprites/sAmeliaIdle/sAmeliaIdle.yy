@@ -28,7 +28,7 @@
   "origin":9,
   "parent":{
     "name":"Amelia",
-    "path":"folders/Sprites/Characters/Hololive/Amelia.yy",
+    "path":"folders/Characters/Hololive/Amelia.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script555",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script555",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Anya/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

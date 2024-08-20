@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Amelia",
-    "path":"folders/Sprites/Characters/Hololive/Amelia.yy",
+    "name":"Special",
+    "path":"folders/Characters/Hololive/Amelia/Special.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

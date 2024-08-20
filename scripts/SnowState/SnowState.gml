@@ -87,6 +87,7 @@ function SnowState(_initState, _execEnter = true) constructor {
 		}
 				
 		// Update all the states
+		//feather disable GM1020
 		__update_states();
 				
 		// Execute "enter" event
@@ -826,6 +827,7 @@ function SnowState(_initState, _execEnter = true) constructor {
 		
 		__assert_event_name_valid(_event);
 		__set_default_event(_event, method(__owner, _function), SNOWSTATE_EVENT.DEFAULT);
+		//feather disable GM1020
 		__update_states();
 		
 		return self;
