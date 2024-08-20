@@ -209,16 +209,7 @@ if (global.xp<0) {
 }
 if (global.xp >= neededxp) {
 	global.level += 1;
-	if (global.level >= 50 and !Achievements[AchievementIds.DeckedOut].unlocked) {
-	    instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.DeckedOut})
-	}
-	global.xp-=neededxp;
-	neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*2.1);
-	random_upgrades();
-	keyboard_clear(ord("Z"));
-	audio_play_sound(snd_lvl_up,0,0, global.soundVolume);
-	global.upgrade=1;
-	oGui.selected=0;
+	instance_create_depth(0, 0, 0, oLevelUpControl);
 	pause_game();
 }
 #endregion

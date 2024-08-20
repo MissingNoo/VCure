@@ -1,3 +1,7 @@
+global.held_item = {
+	item : undefined,
+	position : 0,
+};
 dAlarm = [];
 endlessminutemark = false;
 HP = 0;

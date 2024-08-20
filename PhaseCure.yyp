@@ -280,6 +280,7 @@
     {"id":{"name":"oInitialConfig","path":"objects/oInitialConfig/oInitialConfig.yy",},},
     {"id":{"name":"oInteractableParent","path":"objects/oInteractableParent/oInteractableParent.yy",},},
     {"id":{"name":"oJoystick","path":"objects/oJoystick/oJoystick.yy",},},
+    {"id":{"name":"oLevelUpControl","path":"objects/oLevelUpControl/oLevelUpControl.yy",},},
     {"id":{"name":"oLobby","path":"objects/oLobby/oLobby.yy",},},
     {"id":{"name":"oMapItemParent","path":"objects/oMapItemParent/oMapItemParent.yy",},},
     {"id":{"name":"oMascot","path":"objects/oMascot/oMascot.yy",},},

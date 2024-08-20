@@ -1,9 +1,6 @@
 //UnlockableAchievements[AchievementIds.NoSound] = false;
 //instance_create_layer(x, y, "Instances", oAchNotify, {ach : AchievementIds.NoSound})
 #region Locals Initialization
-upglines = [];
-heldpos = -1;
-helding = false;
 isBusy = false;
 selected = 0;
 xpsurface = surface_create(sprite_get_width(sExpBarBG), 100);
@@ -26,21 +23,9 @@ unlockedAchievements = [];
 reset_timer();
 #endregion
 #region Globals Initialization
-global.held_item = {
-	item : undefined,
-	position : 0,
-};
-global.helds = 0;
 global.showhpui = true;
 #endregion
 #region Stage
-#region LevelUp
-upgradeconfirm = false;
-holoarrowspr=0;
-holdItem = function() {
-	
-}
-#endregion
 #endregion
 #region Screen
 GW = display_get_gui_width();

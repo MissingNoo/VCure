@@ -231,6 +231,7 @@
     {"name":"oInitialConfig","order":18,"path":"objects/oInitialConfig/oInitialConfig.yy",},
     {"name":"oInteractableParent","order":11,"path":"objects/oInteractableParent/oInteractableParent.yy",},
     {"name":"oJoystick","order":4,"path":"objects/oJoystick/oJoystick.yy",},
+    {"name":"oLevelUpControl","order":12,"path":"objects/oLevelUpControl/oLevelUpControl.yy",},
     {"name":"oLobby","order":9,"path":"objects/oLobby/oLobby.yy",},
     {"name":"oMapItemParent","order":7,"path":"objects/oMapItemParent/oMapItemParent.yy",},
     {"name":"oMascot","order":8,"path":"objects/oMascot/oMascot.yy",},

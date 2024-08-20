@@ -1,4 +1,3 @@
-show_debug_overlay(true);
 /// @instancevar {Integer} blacksmithLevel
 sendpostimer = 0;
 event_inherited();
