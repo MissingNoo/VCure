@@ -316,7 +316,8 @@ if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false
 	        break;
 	}
     canspawn=false;
-	var _spawnTimer = 30;
+	var _spawnTimer = global.spawnTimer;
+	global.spawnTimer = clamp(global.spawnTimer - 1/250, 10, infinity);
 	#region Spawn Timer modifiers
 	if (oPlayer.menhera) {
 	    _spawnTimer = 10;

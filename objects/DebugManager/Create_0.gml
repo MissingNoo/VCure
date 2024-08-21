@@ -149,7 +149,14 @@ DebugManager.debug_add_config(self, {
 	text : "Skill",
 	type : DebugTypes.Button,
 	//variable : "checkboxtest",
-	func: function(){ oPlayer.skilltimer = 999; },
+	func: function(){ oPlayer.skilltimer = 999; reset_timer();},
+	page : "Stage"
+});
+DebugManager.debug_add_config(self, {
+	text : "spawnTimer",
+	type : DebugTypes.Button,
+	//variable : "checkboxtest",
+	func: function(){ global.spawnTimer = 30; },
 	page : "Stage"
 });
 DebugManager.debug_add_config(self, {

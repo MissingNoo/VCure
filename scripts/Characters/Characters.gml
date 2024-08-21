@@ -6,6 +6,7 @@ global.perks = [0];
 #macro MAXHP global.maxhp
 #macro NAME global.name
 function initializePlayer(_p){
+	global.spawnTimer = 30;
 	global.held_item = {
 		item : undefined,
 		position : 0,
