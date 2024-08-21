@@ -1,3 +1,4 @@
+justopened = true;
 if (global.level >= 50 and !Achievements[AchievementIds.DeckedOut].unlocked) {
     instance_create_layer(0, 0, "Instances", oAchNotify, {ach : AchievementIds.DeckedOut})
 }

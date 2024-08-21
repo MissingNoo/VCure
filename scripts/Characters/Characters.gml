@@ -1,7 +1,14 @@
 // Feather disable all
 // Feather disable GM2017
+global.agencies = [
+	["All", sHudHomeIcon], 
+	["Phase-Connect", sPhaseIcon],
+	["Hololive", sHudHoloIcon],
+	["Indies", sHudIndiesIcon]
+];
 CharacterData = [];
 global.perks = [0];
+/// @globalvar {Any} maxhp 
 #macro HP global.hp
 #macro MAXHP global.maxhp
 #macro NAME global.name

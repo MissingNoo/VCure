@@ -56,12 +56,7 @@ resetSidebar = function(){
 	selectedAgency = "All";
 	selectedAgencyPos = 0;
 }
-agencies = [
-	["All", sHudHomeIcon], 
-	["Phase-Connect", sPhaseIcon],
-	["Hololive", sHudHoloIcon],
-	["Indies", sHudIndiesIcon]
-]
+agencies = global.agencies;
 selectAgency = function(i){
 	selectedCharacter = 0;
 	selectedAgency = agencies[i][0];

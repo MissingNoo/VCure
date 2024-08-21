@@ -13,18 +13,20 @@ for (var i = array_length(upglines) - 1; i > 0; i--) {
 draw_set_alpha(1);
 #endregion
 #region Options
+var dm = DebugManager;
 offset = 0;
 var _xx = GW - 546;
-var _yy = 210;
-var _xscale = 2.35;
-var _yscale = 1.45;
+var _yy = 203;
+var _xscale = 2.36;
+var _yscale = 1.40;
 var uptype = "";
 var style = "";
 var foundup = false;
 var foundlv = 0;
+draw_sprite_stretched(Sprite520, 0, 0, 0, GW, GH);
 for (var i = 0; i < array_length(global.upgradeOptions); i++) {			
     draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);
-    draw_rectangle(_xx - 437, _yy + offset - 43, _xx + 437, _yy + offset - 41.75, false);
+    draw_rectangle(_xx - 437, _yy + offset - 36, _xx + 437, _yy + offset - 34, false);
     if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2, "selected", i)) { menuClick = true; }
     if (i == selected) {
         draw_sprite_ext(sUpgradeBackground, 1, _xx, _yy + offset, _xscale, _yscale, 0, c_white, 1);
@@ -71,20 +73,20 @@ for (var i = 0; i < array_length(global.upgradeOptions); i++) {
             break;
     }
     var _name = lexicon_text(uptype + string(global.upgradeOptions[i][$ "name"]) + ".name");
-    scribble($"[fa_left]{_name}").scale(2.50).draw(_xx - 416, _yy - 72 + offset);
+    scribble($"[fa_left]{_name}").scale(2.50).draw(_xx - 416, _yy - 64 + offset);
     if (i == heldpos) { 
         draw_circle(_xx - 360, _yy - 57 + offset, 10, false);
     }
     scribble($"[fa_right]{string(style)}").scale(2.5).draw(_xx + 410, _yy - 72 + offset);
-    draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 383, _yy + 10 + offset, 2.40, 2.40, 0, c_white, 1);
-    draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 383, _yy + 10 + offset, 2.40, 2.40, 0, c_white, 1);
+    draw_sprite_ext(global.upgradeOptions[i][$ "thumb"],0,_xx - 384, _yy + 16 + offset, 2.25, 2.25, 0, c_white, 1);
+    draw_sprite_ext(sItemType, global.upgradeOptions[i][$ "style"], _xx - 384, _yy + 16 + offset, 2.25, 2.25, 0, c_white, 1);
     var desc = "";
     if (foundup) {
         desc = lexicon_text($"{uptype}{global.upgradeOptions[i][$ "name"]}.{foundlv}");
     } else {
         desc = lexicon_text($"{uptype}{global.upgradeOptions[i][$ "name"]}.1");
     }
-    scribble(desc).scale(2.50).wrap(750, 85).draw(_xx - 287, _yy - 30 + offset);
+    scribble(desc).scale(2.50).wrap(753, 90).draw(_xx - 286, _yy - 23 + offset);
     offset += 164;
 }//feather disable once GM2017
 #region Reroll
@@ -93,7 +95,7 @@ if (global.shopUpgrades.Reroll.level > 0) {
     var _rerollY = GH - 42;
     var _sprW = sprite_get_width(sHudButton);
     var _sprH = sprite_get_height(sHudButton);
-    lobby_button(_rerollX, _rerollY, $"Reroll ({global.rerolls})", rerollbutton(), [1.50, 2.10, 2.50], global.rerolls > 0, selected == 4, function(){ selected = 4; });
+    lobby_button(_rerollX, _rerollY, $"Reroll ({global.rerolls})", rerollbutton, [1.50, 2.10, 2.50], global.rerolls > 0, selected == 4, function(){ selected = 4; });
 }
 #endregion
 #region Hold

@@ -1,3 +1,7 @@
+if (!justopened) {
+    justopened = true;
+    exit;
+}
 #region Lines VFX
 if (array_length(upglines) < 50) {
     array_push(upglines, 
@@ -12,9 +16,25 @@ if (array_length(upglines) < 50) {
 #endregion
 if (holoarrowspr <= 8) { holoarrowspr+=.25; } else { holoarrowspr=0; }
 var sprev = selected;
-selected += -input_check_pressed("up") + input_check_pressed("down");
-if (sprev != selected and selected == 4 and global.rerolls == 0) { selected = 5; }
-if (sprev != selected and selected == 5 and global.helds == 0) { selected = 0; }
+var up = input_check_pressed("up");
+var down = input_check_pressed("down");
+selected = clamp(selected - up + down, 0, 5);
+if (sprev != selected and selected == 4 and global.rerolls == 0) {
+    if (down) {
+        selected = 5; 
+    }
+    else if (up) {
+        selected = 3;
+    }
+}
+if (sprev != selected and selected == 5 and global.helds == 0) { 
+    if (down) {
+        selected = 0;
+    }
+    else if (up) {
+        selected = 4;
+    }
+}
 if (input_check_pressed("accept")) {
     switch (selected) {
         case 4:
@@ -98,7 +118,6 @@ if (input_check_pressed("accept")) {
             #endregion
         }
     }
-    global.xp -= oPlayer.neededxp;
     oGui.upgradesSurface();
     instance_destroy();
 }
