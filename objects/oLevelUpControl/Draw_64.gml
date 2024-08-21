@@ -102,7 +102,7 @@ if (global.shopUpgrades.Reroll.level > 0) {
 if (global.shopUpgrades.Hold.level > 0) {
     var _holdx = GW/2 + 500;
     var _holdy = GH/1.05;
-    lobby_button(_holdx, _holdy, $"Hold ({global.helds})", heldbutton, [1.17, 2, 2.50], !helding, selected == 5, function(){ selected = 5; });
+    lobby_button(_holdx, _holdy, $"Hold ({global.helds})", heldbutton, [1.17, 2, 2.50], !helding and global.helds > 0, selected == 5, function(){ selected = 5; });
 }
 #endregion
 #endregion
