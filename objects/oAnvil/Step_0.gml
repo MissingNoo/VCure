@@ -1,4 +1,7 @@
 if (maxuses <= 0) {
+	if (dbg_view_exists(inspector)){
+		dbg_view_delete(inspector);
+	}
 	instance_destroy();
 }
 if (ANVIL) {

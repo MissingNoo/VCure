@@ -177,7 +177,7 @@ DebugManager.debug_add_config(self, {
 	text : "LevelUP",
 	type : DebugTypes.Button,
 	//variable : "checkboxtest",
-	func: function(){global.xp = oPlayer.neededxp;},
+	func: function(){},
 	page : "Stage"
 });
 DebugManager.debug_add_config(self, {

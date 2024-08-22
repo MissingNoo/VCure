@@ -1,3 +1,4 @@
+show_debug_overlay(true);
 global.held_item = {
 	item : undefined,
 	position : 0,

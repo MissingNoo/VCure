@@ -1,3 +1,10 @@
+if (is_mouse_over_debug_overlay())
+{
+    window_set_cursor(cr_default);
+}
+else {
+	window_set_cursor(cr_none);
+}
 if (!global.gamePaused){
 	for (var i = array_length(dAlarm) - 1; i >= 0 ; ++i) {
 		if (dAlarm[i][0] > 0) {
