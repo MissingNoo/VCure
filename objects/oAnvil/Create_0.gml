@@ -16,6 +16,13 @@ if (!dontsend) {
 		}
 	}
 }
+maxuses = 1;
+if (array_find_index(playerItems, function(element, index) {
+	return element.id == ItemIds.BlacksmithsGear;
+}) != -1) {
+	maxuses = 2;
+}
+show_message($"uses:{maxuses}");
 audio_play_sound(snd_anvildrop,0,0, global.soundVolume);
 if (global.shareAnvils and !dontsend) {
 	sendMessage(0, {

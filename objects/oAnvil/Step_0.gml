@@ -1,4 +1,4 @@
-if (maxuses == 0 and !ANVIL) {
+if (maxuses <= 0) {
 	instance_destroy();
 }
 if (ANVIL) {
@@ -65,6 +65,7 @@ if (ANVIL) {
 			}
 			if (_finishAnvil) {
 			    ANVIL = false;
+				maxuses--;
 				anvilconfirm = false;
 				upgradeconfirm = false;
 				pause_game();

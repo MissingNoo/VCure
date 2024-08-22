@@ -23,7 +23,6 @@ var uptype = "";
 var style = "";
 var foundup = false;
 var foundlv = 0;
-draw_sprite_stretched(Sprite520, 0, 0, 0, GW, GH);
 for (var i = 0; i < array_length(global.upgradeOptions); i++) {			
     draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);
     draw_rectangle(_xx - 437, _yy + offset - 36, _xx + 437, _yy + offset - 34, false);
