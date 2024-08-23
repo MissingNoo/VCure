@@ -209,6 +209,7 @@ enum BuffNames{
 	SakeFood,
 	Spaghetti,
 	Paralyzed,
+	RestNote,
 	Soda,
 	testbuff,
 	WallmartDefense,
@@ -274,6 +275,15 @@ function populate_buffs() {
 		enabled : false,
 		baseCooldown : 3,
 		cooldown : 0,
+	}
+	Buffs[BuffNames.RestNote] = {
+		id : BuffNames.RestNote,
+		name : "Resting",
+		icon : sBlank,
+		enabled : false,
+		baseCooldown : 3,
+		cooldown : 0,
+		draw : rest_buff_draw
 	}
 	Buffs[BuffNames.Soda] = {
 		id : BuffNames.Soda,

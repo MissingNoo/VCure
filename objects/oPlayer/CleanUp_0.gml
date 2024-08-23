@@ -1,0 +1,1 @@
+dbg_view_delete(inspector);

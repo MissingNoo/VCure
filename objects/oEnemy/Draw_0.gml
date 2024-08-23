@@ -69,6 +69,9 @@ ENDDEBUG
 //draw_text(x,y-32,string(atk));
 var offset = 0;
 for (var i = 0; i < array_length(debuffs); ++i) {
+	if (debuffs[i][$ "draw"] != undefined) {
+		debuffs[i][$ "draw"](x, y);
+	}
 	var iconsize = sprite_get_width(debuffs[i].icon);
     draw_sprite(debuffs[i].icon,0,x+offset,y+30);
 	if (variable_struct_exists(debuffs[i], "marks")) {

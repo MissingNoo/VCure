@@ -5,7 +5,7 @@ var cooldownOver = false;
 if (other.hittedcooldown[Weapons.AnyaBlade] < global.currentFrame) {
     cooldownOver = true;
 }
-if (cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and !other.infected) {
+if (NAME = "Anya Melfissa" and cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and !other.infected) {
 	other.hittedcooldown[Weapons.AnyaBlade] = global.currentFrame + BLADE_FORM_HIT_COOLDOWN;
 	other.damaged = true;
 	var _dmg = irandom_range(8, 12);
@@ -55,9 +55,9 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 					}
 					if (PLAYER_PERKS[i].level > 0) {
 					    var _angles = [0, 45, 315, 135, 180, 225];
+						var _w = WEAPONS_LIST[Weapons.RestNote][1];
 						for (var j = 0; j < array_length(_angles); ++j) {
-							var _w = WEAPONS_LIST[Weapons.RestNote][1];
-							var instancecreated = instance_create_layer(self.x, self.y-8,"Upgrades",oUpgradeNew,{
+							instance_create_layer(self.x, self.y-8,"Upgrades",oUpgradeNew,{
 								upg : _w,
 								owner : self,
 								direction : _angles[j]

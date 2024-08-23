@@ -243,6 +243,7 @@ function populate_upgrades(){
 			#endregion
 			#region UrukaNote 
 			new_create_upgrade({
+				on_hit : rest_note_on_hit,
 				id : Weapons.RestNote,
 				name : "Rest Note",
 				maxlevel : 1,

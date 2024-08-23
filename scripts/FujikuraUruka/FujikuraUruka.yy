@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"FujikuraUruka",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FujikuraUruka",
+  "parent":{
+    "name":"Uruka",
+    "path":"folders/Characters/PhaseConnect/Uruka.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

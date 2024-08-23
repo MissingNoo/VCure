@@ -230,7 +230,7 @@ if(_canmove and instance_exists(target)){
 		    
 		}
 		for (var i = 0; i < array_length(debuffs); ++i) {
-		    if (other.debuffs[i].id == BuffNames.Paralyzed) {
+		    if (debuffs[i].id == BuffNames.Paralyzed or debuffs[i].id == BuffNames.RestNote) {
 			    speed = 0;
 			}
 		}
@@ -239,20 +239,16 @@ if(_canmove and instance_exists(target)){
 		speed = 0;
 	}
 	
-	var debuffLenght = array_length(debuffs);	
 	#region debuff cooldown
-	if (debuffLenght > 0) {	
-		for (var i = 0; i < debuffLenght; ++i) {
-			if (!variable_struct_exists(debuffs[i], "cooldown")) { continue; }
-		    if (debuffs[i].cooldown > 0) {
-			    debuffs[i].cooldown -= 1/60 * Delta;
-				//show_message(debuffs[i].cooldown);
-			}
-			else {
-			    array_delete(debuffs, i, 1);
-				i--;
-				debuffLenght-=1;
-			}
+	for (var i = array_length(debuffs) - 1; i >= 0; --i) {
+		if (debuffs[i][$ "cooldown"] == undefined) { continue; }
+		if (debuffs[i].cooldown > 0) {
+			debuffs[i].cooldown -= 1/60 * Delta;
+			show_debug_message($"{debuffs[i].name}:{debuffs[i].cooldown}");
+			//show_message(debuffs[i].cooldown);
+		}
+		else {
+			array_delete(debuffs, i, 1);
 		}
 	}
 	#endregion
