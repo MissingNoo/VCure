@@ -14,6 +14,7 @@
 inspector = -1;
 weaponview = -1;
 itemview = -1;
+itemselected = 0;
 levelupweaponpos = 0;
 levelupweapon = function() {
 	var pos = oPlayer.levelupweaponpos;
@@ -63,12 +64,12 @@ openItemView = function() {
 		}
 	}
 }
-updateInspector = function() {
+updateInspector = function(show = false) {
 	if (dbg_view_exists(inspector)) {
 		dbg_view_delete(inspector);
 	}
 	if (!dbg_view_exists(inspector)) {
-		inspector = dbg_view($"Player", false, 500, 8 * 30);
+		inspector = dbg_view($"Player", show, 500, 8 * 30);
 		dbg_section("Player");
 		dbg_slider_int(ref_create(global, "hp"), 0, MAXHP, $"HP:", 1);
 		dbg_checkbox(ref_create(self.id, "immortal"), "Immortal:");
@@ -77,7 +78,9 @@ updateInspector = function() {
 		dbg_button("Reroll", function(){ random_upgrades(); });
 		dbg_button("Skill Cooldown", function(){ oPlayer.skilltimer = 999; });
 		dbg_button("Spawn Anvil", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 20, oPlayer.depth, oAnvil); });		
-		
+		dbg_button("Update", function() {
+			updateInspector(true);
+		});
 		#region Weapons
 		dbg_section("Weapons");
 		var n0 = UPGRADES[0].name;
@@ -144,7 +147,6 @@ updateInspector = function() {
 			openItemView();
 		});
 		#endregion
-		dbg_button("Update", updateInspector);
 	}
 }
 #endregion

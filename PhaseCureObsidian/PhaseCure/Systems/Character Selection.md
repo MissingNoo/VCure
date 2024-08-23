@@ -11,7 +11,7 @@ tags:
 - [x] Agency selection.
 - [x] Skill status and information.
 - [x] [[Characters]] status.
-- [ ] Stage selection.
+- [x] Stage selection.
 - [ ] Outfit selection.
 - [x] Fandom Icons
 

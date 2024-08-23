@@ -1,3 +1,5 @@
+/// @instancevar {Any} fpsArray
+/// @instancevar {Any} is_mouse_over_debug_overlay 
 if (is_mouse_over_debug_overlay())
 {
     window_set_cursor(cr_default);
@@ -64,60 +66,6 @@ if (keyboard_check(vk_home)) {
 	load_unlocked();
 	unlocked_outfits_load();
 }
-//if (keyboard_check_pressed(vk_end)) {
-	//Minutes = 19;
-	//Seconds = 58;	
-	//instance_create_depth(x,y,depth, oAchNotify);
-	//for (var i = 0; i < array_length(UnlockableWeapons); ++i) {
-	//    UnlockableWeapons[i] = false;
-	//}
-	//for (var i = 0; i < array_length(UnlockableItems); ++i) {
-	//    UnlockableItems[i] = false;
-	//}
-	//for (var i = 0; i < array_length(Achievements); ++i) {
-	//    Achievements[i][$"unlocked"] = false;
-	//}
-	//load_unlocked();
-	//UnlockableOutfits[Outfits.AmeliaO1] = false;
-	//UnlockableOutfits[Outfits.AmeliaO2] = false;
-	//unlocked_outfits_load();
-//}
-
-//if (instance_exists(oPlayer)) {
-    
-//}
-//if (keyboard_check_pressed(RIGHTKEY) or keyboard_check_pressed(LEFTKEY) or keyboard_check_pressed(UPKEY)  or keyboard_check_pressed(DOWNKEY) or device_mouse_check_button_pressed(0,mb_left)) {
-//	global.GamePad = false;
-//}
-//if (gamepad_button_check_pressed(global.gPnum, gp_start)) {
-//	global.GamePad = true;
-//}
-//if (!//global.padset) {
-//	global.GamePad = false;
-//    //global.padset = true;
-//}
-
-//for (var i = 0; i < gamepad_get_device_count(); i++) {
-//	if(gamepad_is_connected(i)){
-//		global.gPnum = i;
-//		gamepad_set_axis_deadzone(global.gPnum, 0.7);
-//	}
-//	if (os_type == os_android) {
-//		if (device_mouse_check_button(0,mb_left)) {
-//		    global.GamePad = false;
-//		}
-//	    if(global.GamePad){
-//			if (instance_exists(oJoystick)) {
-//				instance_destroy(oJoystick);
-//			}
-//		}
-//		else{
-//			if (!instance_exists(oJoystick)) {
-//				instance_create_depth(0,0,0,oJoystick);
-//			}
-//		}
-//	}
-//}
 #endregion
 #region fps mean
 var _idx = stepsPassed % fpsArraySize;
@@ -133,8 +81,9 @@ if (instance_exists(oPlayer)) {
 	var yy;
 	var px;
 	var py;
-	if (room == rStage1) {	
-		var insts = [oEnemy, oAnvil, oUpgradeNew, oDropParent, oBubba, oBubbaBark, oMascot, oChest];
+	var insts = [oEnemy, oAnvil, oUpgradeNew, oDropParent, oBubba, oBubbaBark, oMascot, oChest];
+	#region Stage1
+	if (room == rStage1) {
 		//TODO: some upgrades not teleporting
 	    if (oPlayer.x < 610) {
 			xx = oCamWorld.x - oPlayer.x;
@@ -244,8 +193,6 @@ if (instance_exists(oPlayer)) {
 		if (oPlayer.x > room_width / 2) {
 			with (oMapItemParent) {
 				if (x < 1100) {
-					//currentside = 1;
-					//lastside = 0;
 					x += 2560;
 				}
 			}
@@ -253,8 +200,6 @@ if (instance_exists(oPlayer)) {
 		if (oPlayer.x < room_width / 2) {
 			with (oMapItemParent) {
 				if (x >= 2655) {
-					//currentside = 0;
-					//lastside = 1;
 					x -= 2560;
 				}
 			}
@@ -262,8 +207,6 @@ if (instance_exists(oPlayer)) {
 		if (oPlayer.y > room_height / 2) {
 			with (oMapItemParent) {
 				if (y < 1100) {
-					//currentside = 1;
-					//lastside = 0;
 					y += 2560;
 				}
 			}
@@ -271,14 +214,14 @@ if (instance_exists(oPlayer)) {
 		if (oPlayer.y < room_height / 2) {
 			with (oMapItemParent) {
 				if (y >= 2655) {
-					//currentside = 0;
-					//lastside = 1;
 					y -= 2560;
 				}
 			}
 		}
 	}
+	#endregion
 }
+
 #endregion
 #region Screen Shake
 if (layer_exists("ShakeLayer")) {
@@ -300,7 +243,7 @@ global.strafe = pressed;
 #region Spawn
 if (!instance_exists(oEvents)) {instance_create_layer(0,0,"Instances",oEvents);}
 // Feather disable once GM2017
-if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and room == rStage1 and global.spawnEnemies == 1 and global.IsHost) {
+if (instance_exists(oPlayer) and canspawn == true and global.gamePaused == false and global.IsHost and room != rDebugStage) {
 	var place = irandom_range(1,4);
 	var _x = oPlayer.x;
 	var _y = oPlayer.y;

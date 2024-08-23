@@ -11,14 +11,11 @@
             "id": "55dd2e6797c6dc93",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Canvas.canvas",
-                "viewState": {
-                  "x": -7585.292065960964,
-                  "y": -710.7721657381004,
-                  "zoom": -0.018747561689296477
-                }
+                "file": "Systems/Stages/DebugStage.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -88,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Canvas.canvas",
+                "file": "Systems/Stages/DebugStage.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Canvas.canvas",
+                "file": "Systems/Stages/DebugStage.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Canvas.canvas"
+                "file": "Systems/Stages/DebugStage.md"
               }
             }
           }
@@ -152,19 +149,25 @@
   },
   "active": "55dd2e6797c6dc93",
   "lastOpenFiles": [
+    "Systems/Stages/Stage1.md",
+    "Systems/Stages/DebugStage.md",
+    "Systems/Stages/Stages.md",
+    "Systems.md",
+    "Systems/Character Selection.md",
+    "Systems/Stages",
+    "Systems/Score.md",
+    "Systems/Stamps.md",
     "Systems/LevelUp.md",
+    "Systems/Fandom.md",
+    "Canvas.canvas",
     "Systems/Buffs.md",
     "Systems/Buffs",
-    "Systems/Score.md",
-    "Systems.md",
-    "Systems/Fandom.md",
     "Weapons.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/Phase Connect.md",
-    "Systems/Character Selection.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
     "Systems/Weapons/Melee/Spider Cooking.md",
     "Systems/Weapons/Multishot/Bounce Ball.md",
@@ -175,9 +178,6 @@
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
     "Systems/Characters/Hololive/EN/Myth.md",
     "Systems/Characters/Hololive/EN.md",
-    "Systems/Characters/Hololive/ID.md",
-    "Systems/Characters/Hololive/ID/HoloH3ro.md",
-    "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta/Vestia Zeta.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kaela Kovalskia",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru",
@@ -186,8 +186,6 @@
     "Systems/Characters/Hololive/ID/Holoro/Pavolia Reine",
     "Systems/Characters/Hololive/ID/Holoro/Kureiji Ollie",
     "Systems/Characters/Hololive/ID/Holoro",
-    "Systems/Characters/Hololive/ID/Area 15/Airani Iofifteen",
-    "Canvas.canvas",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",
     "z_attachments/spr_AmePerk2_0 1.png",

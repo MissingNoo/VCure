@@ -1,11 +1,13 @@
 #macro StageData global.stagedata
 global.currentStage = 0;
 enum StageID {
+	Debug,
 	GrassPlains,
 	HoloOffice,
 	Length
 }
 StageData = [
+		{id : StageID.Debug, name: "[wave]DEBUG", port : sStage1Port, back : sAmeBack, roomname : rDebugStage, hard : false},
 		{id : StageID.GrassPlains, name: "[wave]GRASSY\nPLAINS", port : sStage1Port, back : sAmeBack, roomname : rStage1, hard : false},
 		{id : StageID.HoloOffice, name: "[wave]HOLOFFICE", port : sStage2Port, back : sGlasses, roomname : rStage1, hard : false},
 	]

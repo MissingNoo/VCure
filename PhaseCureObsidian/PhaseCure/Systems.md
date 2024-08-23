@@ -6,3 +6,4 @@
 [[Server]]
 [[Score]]
 [[LevelUp]]
+[[Stages]]

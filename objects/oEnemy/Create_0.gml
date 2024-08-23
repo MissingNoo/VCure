@@ -1,4 +1,5 @@
 event_inherited();
+/// @instancevar {Any} immortal
 #region Stitch
 /// @instancevar {Any} selectedEnemy
 /// @instancevar {Any} customHP

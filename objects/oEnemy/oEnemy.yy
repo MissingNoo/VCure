@@ -21,8 +21,8 @@
   "name":"oEnemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Enemies",
-    "path":"folders/Objects/Enemies.yy",
+    "name":"PhaseCure",
+    "path":"PhaseCure.yyp",
   },
   "parentObjectId":{
     "name":"oDepthParent",
@@ -68,6 +68,7 @@
     {"$GMObjectProperty":"v1","%Name":"enemyinfo","filters":[],"listItems":[],"multiselect":false,"name":"enemyinfo","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"thisEnemy","filters":[],"listItems":[],"multiselect":false,"name":"thisEnemy","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"enemyID","filters":[],"listItems":[],"multiselect":false,"name":"enemyID","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"irandom(99999)","varType":4,},
+    {"$GMObjectProperty":"v1","%Name":"immortal","filters":[],"listItems":[],"multiselect":false,"name":"immortal","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

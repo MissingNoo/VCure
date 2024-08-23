@@ -1,4 +1,4 @@
-
+if (immortal) { hp = 99999999; }
 /*if (enemyinfo != -1 and setinfo) {
 	setinfo = false;
 	var names = variable_struct_get_names(enemyinfo);

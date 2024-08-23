@@ -338,6 +338,7 @@
     {"id":{"name":"Path1","path":"paths/Path1/Path1.yy",},},
     {"id":{"name":"rAchievements","path":"rooms/rAchievements/rAchievements.yy",},},
     {"id":{"name":"rCharacterSelect","path":"rooms/rCharacterSelect/rCharacterSelect.yy",},},
+    {"id":{"name":"rDebugStage","path":"rooms/rDebugStage/rDebugStage.yy",},},
     {"id":{"name":"rHoloHouseEntrance","path":"rooms/rHoloHouseEntrance/rHoloHouseEntrance.yy",},},
     {"id":{"name":"rInicio","path":"rooms/rInicio/rInicio.yy",},},
     {"id":{"name":"rInitialConfig","path":"rooms/rInitialConfig/rInitialConfig.yy",},},
@@ -1485,6 +1486,7 @@
     {"roomId":{"name":"rStageCreator","path":"rooms/rStageCreator/rStageCreator.yy",},},
     {"roomId":{"name":"rStage1b","path":"rooms/rStage1b/rStage1b.yy",},},
     {"roomId":{"name":"rHoloHouseEntrance","path":"rooms/rHoloHouseEntrance/rHoloHouseEntrance.yy",},},
+    {"roomId":{"name":"rDebugStage","path":"rooms/rDebugStage/rDebugStage.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[
