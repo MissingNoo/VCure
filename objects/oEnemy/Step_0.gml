@@ -244,8 +244,6 @@ if(_canmove and instance_exists(target)){
 		if (debuffs[i][$ "cooldown"] == undefined) { continue; }
 		if (debuffs[i].cooldown > 0) {
 			debuffs[i].cooldown -= 1/60 * Delta;
-			show_debug_message($"{debuffs[i].name}:{debuffs[i].cooldown}");
-			//show_message(debuffs[i].cooldown);
 		}
 		else {
 			array_delete(debuffs, i, 1);

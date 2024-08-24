@@ -26,9 +26,13 @@ function food_spawn(){
 }
 function food_item(_healAmount = 0){
 	heal_player(_healAmount);
-	if (Buffs[BuffNames.Sake][$ "enabled"]) {
-	    Buffs[BuffNames.SakeFood][$ "enabled"] = true;
-	    Buffs[BuffNames.SakeFood][$ "cooldown"] = Buffs[BuffNames.SakeFood][$ "baseCooldown"];
+	if (player_have_buff(BuffNames.Sake)) {
+		if (player_have_buff(BuffNames.SakeFood)) {
+			player_buff_add_duration(BuffNames.SakeFood, Buffs[BuffNames.SakeFood][$ "baseCooldown"]);
+		}
+		else {
+			add_buff_to_player(BuffNames.SakeFood);
+		}
 	}
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	    if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level > 0) {

@@ -143,6 +143,8 @@
     {"name":"Quick Functions","order":8,"path":"folders/Scribble/Quick Functions.yy",},
     {"name":"Superfonts","order":9,"path":"folders/Scribble/Superfonts.yy",},
     {"name":"Scripts","order":3,"path":"folders/Scripts.yy",},
+    {"name":"BuffScripts","order":28,"path":"folders/Scripts/BuffScripts.yy",},
+    {"name":"ItemScripts","order":27,"path":"folders/Scripts/ItemScripts.yy",},
     {"name":"WeaponScripts","order":23,"path":"folders/Scripts/WeaponScripts.yy",},
     {"name":"Sequences","order":8,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":4,"path":"folders/Shaders.yy",},

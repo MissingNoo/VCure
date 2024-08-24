@@ -242,6 +242,7 @@ function populate_buffs() {
 		bonus : [0,1.3,1.4,1.5]
 	}
 	Buffs[BuffNames.Sake] = {
+		func : sake_buff_tick,
 		id : BuffNames.Sake,
 		name : "Sake",
 		icon : sSake,
@@ -253,11 +254,13 @@ function populate_buffs() {
 		maxCount : 10
 	}
 	Buffs[BuffNames.SakeFood] = {
+		enter : sakefood_buff_enter,
+		leave : sakefood_buff_end,
 		id : BuffNames.SakeFood,
 		name : "SakeFood",
 		icon : sSakeFood,
 		enabled : false,
-		baseCooldown : 5,
+		baseCooldown : 10,
 		cooldown : 0,
 	}
 	Buffs[BuffNames.Spaghetti] = {
@@ -413,6 +416,41 @@ function char_pos(name, array) {
 	}
 	return pos;
 }
+
+function player_buff_add_duration(bid, duration) {
+	var pos = player_get_buff_pos(bid);
+	if (player_have_buff(bid)) {
+		PlayerBuffs[pos][$ "cooldown"] += duration;
+	}
+}
+function player_reset_buff(bid, add = false) {
+	var pos = player_get_buff_pos(bid);
+	if (player_have_buff(bid)) {
+		PlayerBuffs[pos][$ "cooldown"] = PlayerBuffs[pos][$ "baseCooldown"];
+	}
+	else if (add) {
+		add_buff_to_player(bid);
+	}
+}
+
+function player_have_buff(bid) {
+	for (var i = array_length(PlayerBuffs) - 1; i >= 0; --i) {
+		if (PlayerBuffs[i].id == bid) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function player_get_buff_pos(bid) {
+	for (var i = array_length(PlayerBuffs) - 1; i >= 0; --i) {
+		if (PlayerBuffs[i].id == bid) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 function add_buff_to_player(bid) {
 	var found = false;
 	var pos = 0;
@@ -423,14 +461,22 @@ function add_buff_to_player(bid) {
 			break;
 		}
 	}
-	if (found) {
-		if (PlayerBuffs[pos][$ "count"] != undefined) {
-		    PlayerBuffs[pos].count++;
+	//if (found) {
+	//	if (PlayerBuffs[pos][$ "count"] != undefined) {
+	//	    PlayerBuffs[pos].count++;
+	//	}
+	//}
+	//else {
+	if (!found) {
+		array_push(PlayerBuffs, variable_clone(Buffs[bid]));
+		var pos = array_length(PlayerBuffs) - 1;
+		PlayerBuffs[pos][$ "enabled"] = true;
+		PlayerBuffs[pos][$ "cooldown"] = PlayerBuffs[pos][$ "baseCooldown"];
+		if (PlayerBuffs[pos][$ "enter"] != undefined) {
+			PlayerBuffs[pos][$ "enter"](i);
 		}
 	}
-	else {
-		array_push(PlayerBuffs, variable_clone(Buffs[bid]));
-	}
+	//}
 }
 function Movement() {
 if (canMove == true){

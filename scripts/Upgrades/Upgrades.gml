@@ -50,7 +50,7 @@ global.upgradeCooldown[0] = 0;
 	variable_struct_set(m, "desc", "");
 	variable_struct_set(m, "style", ItemTypes.Weapon);
 	global.upgradesAvaliable=[0];
-	for (i=0; i<4; i++) {
+	for (var i=0; i <4; i++) {
 	    global.upgradeOptions[i]=global.null;
 }
 #endregion
@@ -1767,7 +1767,7 @@ function random_upgrades(){
 				repeat (2) {
 				    slotRandomizer12();
 					switch (isWhat) {
-					    case ItemTypes.Weapon:{
+					    case ItemTypes.Weapon:
 							rdn = irandom_range(0,array_length(weaponsList)-1);
 					        global.upgradeOptions[m] = weaponsList[rdn][1];
 							var maxI = array_length(weaponsList);
@@ -1777,8 +1777,8 @@ function random_upgrades(){
 								    array_delete(weaponsList, i, 1);
 								}
 							}
-					        break;}
-						case ItemTypes.Item:{
+					        break;
+						case ItemTypes.Item:
 							rdn = irandom_range(0,array_length(itemsList)-1);
 					        global.upgradeOptions[m] = itemsList[rdn][1];
 							var item_name = itemsList[rdn][1][$ "id"];
@@ -1790,8 +1790,8 @@ function random_upgrades(){
 									i=0;
 								}
 							}
-					        break;}
-						case ItemTypes.Perk:{
+					        break;
+						case ItemTypes.Perk:
 							if (array_length(perksList) > 0) {
 							    rdn = irandom_range(0,array_length(perksList)-1);
 								global.upgradeOptions[m] = perksList[rdn][1];
@@ -1799,10 +1799,10 @@ function random_upgrades(){
 							}else{
 								global.upgradeOptions[m] = global.null; //TODO Change to statup
 							}
-					        break;}				
-						case "null":{
+					        break;		
+						case "null":
 					        global.upgradeOptions[m] = global.null;
-					        break;}
+					        break;
 						}
 						m++;
 					}				
@@ -1867,7 +1867,7 @@ function random_upgrades(){
 			//is_what = ItemTypes.Item;
 			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(is_what));
 				switch (isWhat) {
-				    case ItemTypes.Weapon:{
+				    case ItemTypes.Weapon:
 						rdn = irandom_range(0,array_length(weaponsList)-1);
 				        global.upgradeOptions[2] = weaponsList[rdn][1];
 						var maxI = array_length(weaponsList);
@@ -1877,8 +1877,8 @@ function random_upgrades(){
 								array_delete(weaponsList, i, 1);
 							}
 						}
-				        break;}
-					case ItemTypes.Item:{
+				        break;
+					case ItemTypes.Item:
 				        rdn = irandom_range(0,array_length(itemsList)-1);
 				        global.upgradeOptions[2] = itemsList[rdn][1];
 						var item_name = itemsList[rdn][1][$ "id"];
@@ -1890,8 +1890,8 @@ function random_upgrades(){
 									i=0;
 								}
 							}
-				        break;}
-					case ItemTypes.Perk:{
+				        break;
+					case ItemTypes.Perk:
 				        if (array_length(perksList) > 0) {
 							    rdn = irandom_range(0,array_length(perksList)-1);
 								global.upgradeOptions[2] = perksList[rdn][1];
@@ -1899,10 +1899,10 @@ function random_upgrades(){
 							}else{
 								global.upgradeOptions[2] = ItemList[ItemIds.Hamburguer][1];
 							}
-					        break;}				
-					case "food":{
+					        break;		
+					case "food":
 				        global.upgradeOptions[2] = ItemList[ItemIds.Hamburguer][1];
-				        break;}
+				        break;
 					}
 			#endregion		
 		#endregion
@@ -1954,7 +1954,7 @@ function random_upgrades(){
 			//is_what = ItemTypes.Item;
 			//show_message(string(can_be_item) + ":" + string(can_be_perk) + ":" + string(can_be_weapon) + ":" + string(is_what));
 				switch (isWhat) {
-				    case ItemTypes.Weapon:{
+				    case ItemTypes.Weapon:
 						rdn = irandom_range(0,array_length(weaponsList)-1);
 				        global.upgradeOptions[3] = weaponsList[rdn][1];
 						var maxI = array_length(weaponsList);
@@ -1964,8 +1964,8 @@ function random_upgrades(){
 								array_delete(weaponsList, i, 1);
 							}
 						}
-				        break;}
-					case ItemTypes.Item:{
+				        break;
+					case ItemTypes.Item:
 				        rdn = irandom_range(0,array_length(itemsList)-1);
 				        global.upgradeOptions[3] = itemsList[rdn][1];
 						var item_name = itemsList[rdn][1][$"id"];
@@ -1977,10 +1977,10 @@ function random_upgrades(){
 									i=0;
 								}
 							}
-				        break;}	
-					case "holocoin":{
+				        break;
+					case "holocoin":
 				        global.upgradeOptions[3] = ItemList[ItemIds.Holocoin][1];
-				        break;}
+				        break;
 					}
 			#endregion		
 		
@@ -1994,6 +1994,7 @@ function random_upgrades(){
 	//global.upgradeOptions[0] = PERK_LIST[PerkIds.Bubba][0];
 	//cti
 	//global.upgradeOptions[0] = global.upgradesAvaliable[Weapons.BounceBall][1];
+	global.upgradeOptions[0] = ItemList[ItemIds.Sake][1];
 	if (global.held_item.item != undefined) {
 		global.upgradeOptions[global.held_item.position] = global.held_item.item;
 		global.held_item.item = undefined;

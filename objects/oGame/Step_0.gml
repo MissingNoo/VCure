@@ -328,10 +328,12 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	}
 	#endregion
 	#region buff coldown
-	//for (var i = 0; i < array_length(PlayerBuffs); ++i) {
-	//	if (variable_struct_exists(PlayerBuffs[i], "cooldown")) {
-	//		if (PlayerBuffs[i].cooldown > 0) {
-	//			PlayerBuffs[i].cooldown -= 1/60 * Delta;
+	for (var i = array_length(PlayerBuffs) -1; i >= 0; --i) {
+		if (variable_struct_exists(PlayerBuffs[i], "cooldown")) {
+			if (PlayerBuffs[i].cooldown > 0) {
+				PlayerBuffs[i].cooldown -= 1/60 * Delta;
+			}
+			#region unused
 	//			switch (PlayerBuffs[i][$ "id"]) {
 	//				case BuffNames.SakeFood:{
 	//					Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
@@ -356,22 +358,22 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	//					break;}
 	//			}
 	//		}
-	//		if (PlayerBuffs[i].cooldown <= 0) {
-	//			if (!variable_struct_exists(PlayerBuffs[i], "permanent")) {
-	//				//PlayerBuffs[i].enabled = false;
-	//				if (variable_struct_exists(PlayerBuffs[i], "count")) {
-	//					PlayerBuffs[i][$ "count"] = 0;
-	//				}
-	//			}
+			#endregion
+			if (PlayerBuffs[i].cooldown <= 0) {
+				PlayerBuffs[i][$ "cooldown"] = PlayerBuffs[i][$ "baseCooldown"];
+				if (PlayerBuffs[i][$ "func"] != undefined) {
+					PlayerBuffs[i][$ "func"](i);
+				}
+				if (!variable_struct_exists(PlayerBuffs[i], "permanent")) {
+					if (PlayerBuffs[i][$ "leave"] != undefined) {
+						PlayerBuffs[i][$ "leave"](i);
+					}
+					array_delete(PlayerBuffs, i, 1);
+				}
+			}
+		}
+	}
 	//			switch (PlayerBuffs[i][$ "id"]) {
-	//				case BuffNames.Sake:{
-	//					if (PlayerBuffs[i][$ "count"] < PlayerBuffs[i][$ "maxCount"]) {
-	//						PlayerBuffs[i][$ "count"] += 1;
-	//					}
-	//					var _amount = (PlayerBuffs[BuffNames.Sake][$ "count"] < 10) ? "1.0{0}" : "1.{0}";
-	//					Bonuses[BonusType.Critical][ItemIds.Sake][0] = real(string(_amount, PlayerBuffs[BuffNames.Sake][$ "count"]));
-	//					Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
-	//					break;}
 	//				case BuffNames.SakeFood:{
 	//					Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
 	//					break;}

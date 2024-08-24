@@ -326,6 +326,7 @@ function populate_items(){
 		
 			#region Sake
 			new_create_item({
+				func : sake_tick,
 				id : ItemIds.Sake,
 				name : "Sake",
 				maxlevel : 3,
@@ -586,7 +587,10 @@ function tick_items(){
 					Bonuses[playerItems[i][$ "bonusType"]][playerItems[i][$ "id"]] = playerItems[i][$ "bonusValue"][playerItems[i][$ "level"] -1];
 				}			    
 			}
-		    switch (playerItems[i][$ "id"]) {
+			if (playerItems[i][$ "func"] != undefined) {
+				playerItems[i][$ "func"]();
+			}
+		    switch (playerItems[i][$ "id"]) { //TODO: separate in scripts
 				case ItemIds.Body_Pillow:
 					Shield = playerItems[i][$ "shield"];
 					MaxShield = playerItems[i][$ "shield"];
@@ -703,18 +707,6 @@ function tick_items(){
 					break;
 				case ItemIds.BlacksmithsGear:
 					oPlayer.blacksmithLevel = playerItems[i][$ "level"];
-					break;
-				case ItemIds.Sake:
-					if (!variable_instance_exists(self, "sakeLevel")) { sakeLevel = 0; }
-					if (sakeLevel < playerItems[i][$ "level"]) {
-					    sakeLevel = playerItems[i][$ "level"];
-						Buffs[BuffNames.Sake][$ "maxCount"] = playerItems[i][$ "bonus"];
-					}
-					if (!Buffs[BuffNames.Sake][$ "enabled"]) {
-						Buffs[BuffNames.Sake][$ "count"] = 0;
-					    Buffs[BuffNames.Sake][$ "enabled"] = true;
-					    Buffs[BuffNames.Sake][$ "cooldown"] = Buffs[BuffNames.Sake][$ "baseCooldown"];
-					}
 					break;
 			}
 		}
