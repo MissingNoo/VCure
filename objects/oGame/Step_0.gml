@@ -374,9 +374,6 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 		}
 	}
 	//			switch (PlayerBuffs[i][$ "id"]) {
-	//				case BuffNames.SakeFood:{
-	//					Bonuses[BonusType.Critical][ItemIds.Sake][1] = 0;
-	//					break;}
 	//				case BuffNames.Spaghetti:{
 	//					oPlayer.spaghettiEaten = false;
 	//					break;}

@@ -31,7 +31,7 @@ switch (state) {
 				}
 				else {
 					var _nextCharacter = selectedCharacter + (5 * _updown);
-					if (_nextCharacter < 1 or _nextCharacter > "NullChar" - 1) {
+					if (_nextCharacter < 0 or _nextCharacter > array_length(CHARACTERS) - 1) {
 						return;
 					}
 					//if (selectedCharacter + _updown * 4 < "NullChar" - 1 or selectedCharacter + _updown * 4 < 0) {
