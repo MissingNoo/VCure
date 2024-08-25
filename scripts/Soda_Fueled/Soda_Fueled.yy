@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"HeavyArtillery",
+  "%Name":"Soda_Fueled",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"HeavyArtillery",
+  "name":"Soda_Fueled",
   "parent":{
     "name":"Perks",
     "path":"folders/Characters/PhaseConnect/Pipkin Pippa/Perks.yy",

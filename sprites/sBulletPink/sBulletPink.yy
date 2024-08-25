@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Pipkin Pippa",
-    "path":"folders/Characters/PhaseConnect/Pipkin Pippa.yy",
+    "name":"Weapon",
+    "path":"folders/Characters/PhaseConnect/Pipkin Pippa/Weapon.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

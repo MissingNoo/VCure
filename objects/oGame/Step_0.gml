@@ -284,11 +284,13 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 	global.seconds+=(1/60) * Delta ;
 	#region Skills Cooldown
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		global.perkCooldown[PLAYER_PERKS[i].id] -= (1/60) * Delta;
-		if (global.perkCooldown[PLAYER_PERKS[i].id] <= 0) {
+		global.perkCooldown[PLAYER_PERKS[i].id] = clamp(global.perkCooldown[PLAYER_PERKS[i].id] - ((1/60) * Delta), 0, infinity);
+		if (global.perkCooldown[PLAYER_PERKS[i].id] <= 0 and PLAYER_PERKS[i][$ "level"] > 0) {
 			global.perkCooldown[PLAYER_PERKS[i].id] = PLAYER_PERKS[i].cooldown;
-		    if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
-				PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkCooldown);
+		    if (variable_struct_exists(PLAYER_PERKS[i], "on_cooldown")) {
+				PLAYER_PERKS[i][$ "on_cooldown"]({
+					level : PLAYER_PERKS[i][$ "level"]
+				});
 			}
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {
 				if (variable_struct_exists(PLAYER_PERKS[i], "bonusType")) {
@@ -307,9 +309,6 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 						PerkBonuses[typebonus][perkid] = bonusvalue;
 					}
 				}
-			}
-			if (variable_struct_exists(PLAYER_PERKS[i], "upgrade")) {
-				instance_create_layer(x,y-8,"Upgrades",oUpgradeNew,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][PLAYER_PERKS[i][$ "level"]]});
 			}
 		}
 	}

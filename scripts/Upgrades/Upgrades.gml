@@ -1550,7 +1550,8 @@ function populate_upgrades(){
 		characterid : "NullChar"
 	});
 	new_create_upgrade({
-		func : mold_step,
+		create : mold_create,
+		animation_end : mold_animation_end,
 		id : Weapons.Mold,
 		name : "mold",
 		maxlevel : 1,

@@ -13,3 +13,6 @@ function heavy_artillery_animation_end(obj){
 	    instance_destroy(obj);
 	}
 }
+function perk_heavy_artillery_on_cooldown(data = {level : 0, upg : -1, enemy : noone}){
+	instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : global.upgradesAvaliable[Weapons.HeavyArtillery][data.level], shoots : 0});
+}

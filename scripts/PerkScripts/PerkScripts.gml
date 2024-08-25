@@ -67,8 +67,3 @@ function trash_bear(level, event = WeaponEvent.Null, enemy = noone, xx = 0, yy =
 		}
 	}
 }
-function heavy_artillery(level, event = WeaponEvent.Null, enemy = noone, xx = 0, yy = 0){
-	if (event == WeaponEvent.PerkCooldown) {
-	    instance_create_layer(oPlayer.x, oPlayer.y-8, "Upgrades", oUpgradeNew, {upg : global.upgradesAvaliable[Weapons.HeavyArtillery][level], shoots : 0});
-	}
-}

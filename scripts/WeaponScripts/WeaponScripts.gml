@@ -9,6 +9,7 @@ enum WeaponEvent {
 	PerkDraw = 101,
 	PerkOnKill = 102,
 	PerkCooldown = 103,
+	PerkOnCrit = 104,
 	Null = 999,
 }
 function brick_step(o){
@@ -54,16 +55,6 @@ function absolutewall_step(o){
 		extra.image_angle = image_angle;
 		extra.image_xscale = image_xscale;
 		extra.image_yscale = image_yscale;
-	}
-}
-function mold_step(o){
-	if (o == 0) {
-	    default_behaviour();
-		mindmg = (UPGRADES[0].mindmg*33)/100;
-		maxdmg = (UPGRADES[0].maxdmg*33)/100;
-	}
-	else {
-		
 	}
 }
 function xpotato_step(o){

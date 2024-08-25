@@ -1,3 +1,14 @@
+/// @globalvar {Any} dbg_slider_int 
+/// @globalvar {Any} dbg_same_line 
+/// @globalvar {Any} dbg_sprite_button 
+/// @globalvar {Any} dbg_view_exists 
+/// @globalvar {Any} dbg_view
+/// @globalvar {Any} dbg_section
+/// @globalvar {Any} dbg_text_input
+/// @globalvar {Any} ref_create
+/// @globalvar {Any} dbg_checkbox    
+/// @globalvar {Any} dbg_view_delete
+/// @globalvar {Any} dbg_button 
 global.loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan velit a tellus dignissim condimentum. Nam sed lorem pulvinar, consequat justo nec, eleifend tellus. Donec id tempus arcu. Nam sem nisl, vehicula ut metus ut, efficitur malesuada tellus. Quisque ligula ligula, porttitor quis congue mollis, tempor at libero. Etiam vitae nulla luctus, porttitor augue et, aliquam arcu. Vestibulum vitae luctus metus. Nullam eu scelerisque dui. Praesent iaculis nisl dictum odio dictum, eget euismod tellus volutpat. Maecenas diam nisl, blandit ac elementum vel, sodales ac nulla. Morbi eget leo euismod, dapibus risus at, consequat dui. Donec ac tristique erat. Praesent cursus justo mi, at volutpat purus placerat sed. Integer viverra vitae sem malesuada molestie. Maecenas ornare auctor libero vitae rhoncus"
 global.sprites[0]=0;
 global.gamePaused = false;
@@ -26,6 +37,7 @@ function food_spawn(){
 }
 function food_item(_healAmount = 0){
 	heal_player(_healAmount);
+	#region Food Buffs
 	if (player_have_buff(BuffNames.Sake)) {
 		if (player_have_buff(BuffNames.SakeFood)) {
 			player_buff_add_duration(BuffNames.SakeFood, Buffs[BuffNames.SakeFood][$ "baseCooldown"]);
@@ -34,15 +46,16 @@ function food_item(_healAmount = 0){
 			add_buff_to_player(BuffNames.SakeFood);
 		}
 	}
-	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-	    if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level > 0) {
-			var _chance = 33;
-			var _rnd = irandom_range(1, 100);
-			if (_rnd <= _chance) {
-			    Bonuses[BonusType.Critical][ItemIds.MoldySoulBonus] += 0.03;
-			}
+	
+	if (player_have_buff(BuffNames.MoldySoul)) {
+		var _chance = 33;
+		var _rnd = irandom_range(1, 100);
+		if (_rnd <= _chance) {
+			var moldypos = player_get_buff_pos(BuffNames.MoldySoul);
+			PlayerBuffs[moldypos][$ "count"] += 1;
 		}
 	}
+	#endregion
 	instance_destroy();
 }
 

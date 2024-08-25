@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Pipkin Pippa",
-    "path":"folders/Characters/PhaseConnect/Pipkin Pippa.yy",
+    "name":"Special",
+    "path":"folders/Characters/PhaseConnect/Pipkin Pippa/Special.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

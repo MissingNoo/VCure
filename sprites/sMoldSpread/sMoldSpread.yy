@@ -33,8 +33,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Pipkin Pippa",
-    "path":"folders/Characters/PhaseConnect/Pipkin Pippa.yy",
+    "name":"Perks",
+    "path":"folders/Characters/PhaseConnect/Pipkin Pippa/Perks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

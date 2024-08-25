@@ -1,16 +1,5 @@
 /// @instancevar {Integer} blacksmithLevel
 #region debug overlay
-/// @instancevar {Any} dbg_slider_int 
-/// @instancevar {Any} dbg_same_line 
-/// @instancevar {Any} dbg_sprite_button 
-/// @instancevar {Any} dbg_view_exists 
-/// @instancevar {Any} dbg_view
-/// @instancevar {Any} dbg_section
-/// @instancevar {Any} dbg_text_input
-/// @instancevar {Any} ref_create
-/// @instancevar {Any} dbg_checkbox    
-/// @instancevar {Any} dbg_view_delete 
-/// @instancevar {Any} dbg_button 
 inspector = -1;
 weaponview = -1;
 itemview = -1;
@@ -80,6 +69,7 @@ updateInspector = function(show = false) {
 		dbg_button("Spawn Anvil", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 20, oPlayer.depth, oAnvil); });
 		dbg_same_line();
 		dbg_button("Spawn Food", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oBurguer); });
+		dbg_button("Spawn Spaghetti", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oSpaghetti); });
 		dbg_button("Buffs", function(){ show_message_async(PlayerBuffs); });
 		dbg_button("Update", function() {
 			updateInspector(true);

@@ -1,3 +1,2 @@
-Buffs[BuffNames.Spaghetti].cooldown = Buffs[BuffNames.Spaghetti].baseCooldown;
-Buffs[BuffNames.Spaghetti].enabled = true;
+add_buff_to_player(BuffNames.Spaghetti);
 food_item(3);

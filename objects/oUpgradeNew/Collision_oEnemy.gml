@@ -33,8 +33,12 @@ var _maxdmg = mindmg + _bonusDamage;
 var dmg = irandom_range(_mindmg, _maxdmg);
 audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, global.soundVolume);
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-	if (variable_struct_exists(PLAYER_PERKS[i], "func")) {
-		PLAYER_PERKS[i][$ "func"](PLAYER_PERKS[i][$ "level"], WeaponEvent.PerkOnHit, upg);
+	if (variable_struct_exists(PLAYER_PERKS[i], "on_hit")) {
+		PLAYER_PERKS[i][$ "on_hit"]({
+			level : PLAYER_PERKS[i][$ "level"],
+			upg,
+			enemy : other
+		});
 	}
 }
 if (perkBonusDmg == 99999 and other.boss) {
@@ -101,9 +105,24 @@ if (_rnd <= _critChance) {
 	if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.CritDamage) {
 		_critCalc += .1;
 	}
+	if (player_have_buff(BuffNames.MoldySoul)) {
+		var moldypos = player_get_buff_pos(BuffNames.MoldySoul);
+		var moldbonus = 1;
+		if (upg.id == Weapons.Mold) { moldbonus = 3; }
+		_critCalc += (0.03 * PlayerBuffs[moldypos][$ "count"]) * moldbonus;
+	}
 	_critMultiplier += _critCalc;
 	_wasCrit = true;
-	if (global.player[? "name"] == "Rinkou Ashelia") {
+	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		if (variable_struct_exists(PLAYER_PERKS[i], "on_crit")) {
+			PLAYER_PERKS[i][$ "on_crit"]({
+				level : PLAYER_PERKS[i][$ "level"],
+				upg,
+				enemy : other
+			});
+		}
+	}
+	if (global.player[? "name"] == "Rinkou Ashelia") { //TODO: move
 		for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			if (PLAYER_PERKS[i].id == PerkIds.Viral) {
 				var _infectChance = PLAYER_PERKS[i].chance;
@@ -120,18 +139,6 @@ if (_rnd <= _critChance) {
 				}				    
 			}
 		}
-	}
-		
-	if (global.player[? "name"] == "Pipkin Pippa") {
-		for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-			if (PLAYER_PERKS[i].id == PerkIds.MoldySoul and PLAYER_PERKS[i].level >= 2) {
-				_rnd = irandom_range(1, 100);
-				var _chance = PLAYER_PERKS[i].chance;
-				if (_rnd <= _chance) {
-					instance_create_layer(x,y-8,"Upgrades",oUpgradeNew,{upg : global.upgradesAvaliable[PLAYER_PERKS[i][$ "upgradeid"]][1]});
-				}
-			}
-		}			
 	}
 }
 dmg = dmg * global.player[?"atk"] * _critMultiplier;

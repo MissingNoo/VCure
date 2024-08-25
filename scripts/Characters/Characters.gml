@@ -152,8 +152,7 @@ function initializePlayer(_p){
 }
 global.characters=[];
 #macro CHARACTERS global.characters
-function createCharacter(_agency, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked)
-{
+//function createCharacter(_agency, _name, _portrait, _bigArt, _sprite, _runningsprite, _hp, _speed, _atk, _crt, _ballsize, _weapon, _flat, _unlocked){
 	//if (_unlocked) {
 	//    CharacterData[_id].unlocked = _unlocked;
 	//}	
@@ -175,7 +174,7 @@ function createCharacter(_agency, _name, _portrait, _bigArt, _sprite, _runningsp
 	//ds_map_add(m, "crit", _crt);
 	//ds_map_add(m, "outfits", []);
 	//ds_map_add(m, "chooseText", lexicon_text($"Characters.{_name}.chooseText"));
-}
+//}
 function createCharacterNew(_data)
 {
 	m = ds_map_create();
@@ -201,196 +200,7 @@ function createCharacterNew(_data)
 	    CharacterData[char_pos(_data.name, CharacterData)][$ "unlocked"] = true;
 	}
 }
-enum BuffNames{
-	//ShortHeight,
-	//SharkBite,
-	//Slowness,
-	Sake,
-	SakeFood,
-	Spaghetti,
-	Paralyzed,
-	RestNote,
-	Soda,
-	testbuff,
-	WallmartDefense,
-	AtkDown,
-	SpdDown,
-	DefDown,
-	BellyDance,
-	Sharpen,
-	RestNoteCooldown
-}
-	//Buffs[BuffNames.ShortHeight] = {
-	//	id : BuffNames.ShortHeight,
-	//	name : "Short Height",
-	//	icon : sShortHeight,
-	//	enabled : false,
-	//	baseCooldown : 2,
-	//	cooldown : 0,
-	//	chance : [0,15,25,35],
-	//	bonus : [0,1.3,1.4,1.5]
-	//}
-function populate_buffs() {
-	Buffs[BuffNames.testbuff] = {
-		id : BuffNames.testbuff,
-		name : "Test Buff",
-		icon : sBreastplate,
-		enabled : false,
-		baseCooldown : 10,
-		cooldown : 0,
-		count : 0,
-		chance : [0,15,25,35],
-		bonus : [0,1.3,1.4,1.5]
-	}
-	Buffs[BuffNames.Sake] = {
-		func : sake_buff_tick,
-		id : BuffNames.Sake,
-		name : "Sake",
-		icon : sSake,
-		enabled : false,
-		permanent : true,
-		baseCooldown : 1,
-		cooldown : 0,
-		count : 0,
-		maxCount : 10
-	}
-	Buffs[BuffNames.SakeFood] = {
-		enter : sakefood_buff_enter,
-		leave : sakefood_buff_end,
-		id : BuffNames.SakeFood,
-		name : "SakeFood",
-		icon : sSakeFood,
-		enabled : false,
-		baseCooldown : 10,
-		cooldown : 0,
-	}
-	Buffs[BuffNames.Spaghetti] = {
-		id : BuffNames.Spaghetti,
-		name : "Spaghetti",
-		icon : sSpaghetti,
-		enabled : false,
-		baseCooldown : 3,
-		cooldown : 0,
-	}
-	Buffs[BuffNames.Paralyzed] = {
-		id : BuffNames.Paralyzed,
-		name : "Paralyzed",
-		icon : sBlank,
-		enabled : false,
-		baseCooldown : 3,
-		cooldown : 0,
-	}
-	Buffs[BuffNames.RestNote] = {
-		id : BuffNames.RestNote,
-		name : "Resting",
-		icon : sBlank,
-		enabled : false,
-		baseCooldown : 3,
-		cooldown : 0,
-		draw : rest_buff_draw
-	}
-	Buffs[BuffNames.Soda] = {
-		id : BuffNames.Soda,
-		name : "Soda",
-		icon : sSodaFueled,
-		enabled : false,
-		baseCooldown : 3,
-		cooldown : 0,
-	}
-	Buffs[BuffNames.WallmartDefense] = {
-		id : BuffNames.WallmartDefense,
-		name : "Wallmart",
-		icon : sWalmart,
-		enabled : false,
-		permanent : true,
-		baseCooldown : 1,
-		cooldown : 0,
-	}
-	Buffs[BuffNames.BellyDance] = {
-		id : BuffNames.BellyDance,
-		name : "Belly Dance",
-		icon : sAkiPerk2,
-		enabled : false,
-		permanent : true,
-		count : 0,
-		maxCount : 999,
-		cooldown : 0,
-		baseCooldown : 1,
-		level : 0
-	}
-	Buffs[BuffNames.AtkDown] = {
-		id : BuffNames.AtkDown,
-		name : "atkdown",
-		icon : sHudAtkIcon,
-		enabled : false,
-		permanent : false,
-		count : 0,
-		maxCount : 3,
-		cooldown : 10,
-		baseCooldown : 10,
-		stat : "atkMult",
-		statAmount : [1, 0.9, 0.8, 0.7]
-	}
-	Buffs[BuffNames.SpdDown] = {
-		id : BuffNames.SpdDown,
-		name : "spddown",
-		icon : sHudSpdIcon,
-		enabled : false,
-		permanent : false,
-		count : 0,
-		maxCount : 3,
-		cooldown : 10,
-		baseCooldown : 10,
-		stat : "spdMult",
-		statAmount : [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
-	}
-	Buffs[BuffNames.DefDown] = {
-		id : BuffNames.DefDown,
-		name : "defdown",
-		icon : sHudDefenseIcon,
-		enabled : false,
-		permanent : false,
-		count : 0,
-		maxCount : 3,
-		cooldown : 10,
-		baseCooldown : 10,
-		stat : "damageMultFromDefDown",
-		statAmount : [1, 1,1, 1.2, 1.3]
-	}
-	Buffs[BuffNames.Sharpen] = {
-		id : BuffNames.Sharpen,
-		name : "sharpen",
-		icon : sAnyaPerk2,
-		enabled : false,
-		permanent : true,
-		count : 1,
-		maxCount : 50
-	}
-	Buffs[BuffNames.RestNoteCooldown] = {
-		id : BuffNames.RestNoteCooldown,
-		name : "Rest Note Cooldown",
-		icon : sRestNote,
-		enabled : false,
-		permanent : false,
-		cooldown : 3,
-		baseCooldown : 3
-	}
-		
-	//Buffs[BuffNames.SharkBite] = {
-	//	id : BuffNames.SharkBite,
-	//	name : "Shark Bite",
-	//	icon : sSharkBite,
-	//	maxMarks : 5,
-	//	marks : 1,
-	//	level : 1,
-	//	damage : [1,1.6,1.9,1.12],
-	//	chance : [0,10,15,20]
-	//}
-	//createCharacter(Characters.Ina,"Ninomae Ina'nis",sInaPortrait,sInaIdle,sInaRunning,75,1.50,0.90,u[Weapons.InaTentacle]);
-	//createCharacter(Characters.Kiara,"Takanashi Kiara",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
-	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
-	
-}
+
 function generate_character_data(charname) {
 	if (!is_array(CharacterData)) { CharacterData = []; }
 	var pos = char_pos(charname, CharacterData);

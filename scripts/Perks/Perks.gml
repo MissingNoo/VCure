@@ -136,44 +136,7 @@ function populate_perks(){
 		//global.characterPerks["Rinkou Ashelia"] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
 		#endregion
 		#region Pippa
-		#region Heavy Artillery
-		create_perk({
-			func : heavy_artillery,
-			id : PerkIds.HeavyArtillery,
-			name : "Heavy Artillery",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sHeavyArtillery,
-			cooldown : [3, 3, 2.01, 2.01],
-			characterid : "Pipkin Pippa",
-			upgrade: true,
-			upgradeid : Weapons.HeavyArtillery
-		});
-		#endregion
-		#region Moldy Soul
-		create_perk({
-			id : PerkIds.MoldySoul,
-			name : "Moldy Soul",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sMoldySoul,
-			cooldown : 1,
-			characterid : "Pipkin Pippa",
-			upgradeid : Weapons.Mold,
-			chance : 33
-		});
-		#endregion
-		#region Soda Fueled
-		create_perk({
-			id : PerkIds.SodaFueled,
-			name : "Soda Fueled",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sSodaFueled,
-			cooldown : 1,
-			characterid : "Pipkin Pippa"
-		});
-		#endregion
+		
 		//global.characterPerks["Pipkin Pippa"] = [PERK_LIST[PerkIds.HeavyArtillery][0], PERK_LIST[PerkIds.MoldySoul][0], PERK_LIST[PerkIds.SodaFueled][0]];
 		#endregion
 		#region Hololive

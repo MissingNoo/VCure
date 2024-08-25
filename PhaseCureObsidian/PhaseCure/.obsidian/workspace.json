@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
-                "mode": "source",
+                "file": "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+                "file": "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+                "file": "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md"
+                "file": "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md"
               }
             }
           }
@@ -149,9 +150,26 @@
   },
   "active": "55dd2e6797c6dc93",
   "lastOpenFiles": [
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
+    "Systems/Characters/PhaseConnect/Pippa/Pippa.md",
+    "Systems/Characters/PhaseConnect/Pippa/Perks/Heavy Artillery.md",
+    "Systems/Characters/PhaseConnect/Pippa/Perks/Moldy Soul.md",
+    "z_attachments/f1e82eb9-8053-4960-b869-84a2edab0e31.png",
+    "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
+    "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
+    "z_attachments/ea2f0f45-de7d-4010-8d43-3cc827403854.png",
+    "z_attachments/db813186-6352-482d-a2ac-93f3bbdab7a6.png",
+    "z_attachments/f7d69d91-0d4f-4ce2-b3f3-eb6a13c34e92 1.png",
+    "z_attachments/f7d69d91-0d4f-4ce2-b3f3-eb6a13c34e92.png",
+    "Systems/Characters/PhaseConnect/Pippa/Perks.md",
+    "Systems/Characters/PhaseConnect/Pippa/Perks",
+    "z_attachments/127e74ba-e843-45cf-9571-93e02c043ac2.png",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+    "Systems/Characters/Phase Connect.md",
+    "Systems/Characters/PhaseConnect/Pippa",
+    "Systems/Characters/Characters.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
+    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
     "Systems/Buffs/Sake.md",
     "Systems/Buffs.md",
@@ -168,34 +186,16 @@
     "Canvas.canvas",
     "Systems/Buffs",
     "Weapons.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
-    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
-    "Systems/Characters/Phase Connect.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
-    "Systems/Weapons/Melee/Spider Cooking.md",
-    "Systems/Weapons/Multishot/Bounce Ball.md",
-    "Systems/Weapons/Multishot/Glowstick.md",
-    "Systems/Weapons/Melee/Wamy Water.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kaela Kovalskia",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru",
     "Systems/Characters/Hololive/ID/HoloH3ro",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa",
     "Systems/Characters/Hololive/ID/Holoro/Pavolia Reine",
-    "Systems/Characters/Hololive/ID/Holoro/Kureiji Ollie",
-    "Systems/Characters/Hololive/ID/Holoro",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",
     "z_attachments/spr_AmePerk2_0 1.png",
     "z_attachments/spr_AmePerk1_0 1.png",
-    "z_attachments/spr_Ameweapon_0 1.png",
-    "z_attachments/Pasted image 20240814210827.png",
-    "z_attachments/Pasted image 20240814210819.png",
-    "z_attachments/Pasted image 20240814210753.png",
-    "Systems/Characters/PhaseConnect/Uruka/Images/Dirty Mind.png",
-    "Systems/Characters/PhaseConnect/Uruka/Images/Music Note.png",
     "PhaseCure/Canvas.canvas"
   ]
 }
