@@ -363,7 +363,7 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 				if (PlayerBuffs[i][$ "func"] != undefined) {
 					PlayerBuffs[i][$ "func"](i);
 				}
-				if (PlayerBuffs[i][$ "permanent"] == false) {
+				if (PlayerBuffs[i][$ "permanent"] == false or PlayerBuffs[i][$ "permanent"] == undefined) {
 					if (PlayerBuffs[i][$ "leave"] != undefined) {
 						PlayerBuffs[i][$ "leave"](i);
 					}

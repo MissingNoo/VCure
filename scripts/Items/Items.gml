@@ -115,6 +115,7 @@ function new_create_item(_data){
 		Hamburguer,
 		Length,
 		MoldySoulBonus,
+		Soda,
 		MaxLength
 	}
 	global.bonuses[0] = 0;
@@ -185,7 +186,7 @@ function populate_items(){
 				thumb : sBreastplate,
 				cooldown : 1,
 				bonusType : [BonusType.Defense, BonusType.Speed],
-				bonusValue : [[0.90, 0.85, 0.80],[0.80, 0.80, 0.80]],
+				bonusValue : [[0.75, 0.75, 0.75],[0.90, 0.90, 0.90]],
 				reflectChance : [50, 60, 70],
 				reflectDamage : [2, 2.5, 3],
 				perk : false});			

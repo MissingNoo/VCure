@@ -4,8 +4,8 @@ Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, 
 
 ### Levels
 - Level 1: 
-	- [ ] Any food item has 33% chance to turn into Soda. 
-	- [ ] Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.
+	- [x] Any food item has 33% chance to turn into Soda. 
+	- [x] Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.
 - Level 2:
 	- [ ] Soda lasts 3 times longer.
 - Level 3:

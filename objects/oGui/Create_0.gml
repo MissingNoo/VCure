@@ -330,6 +330,7 @@ function drawStats(){
 	draw_text_transformed(GW/8 - 15, GH/2.15 + stats_offset, "Haste", 1.5, 1.5, 0);
 	draw_line(GW/8.80, GH/2 + stats_offset, GW/3.40, GH/2 + stats_offset);
 	calc = oPlayer.weaponHaste;
+	/*
 	for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
 		if (Bonuses[BonusType.Haste][i] != 0) {
 			calc += real(string_replace(string(Bonuses[BonusType.Haste][i]), "1.", ""));
@@ -341,7 +342,7 @@ function drawStats(){
 		}
 	}
 	calc = string_replace(string(calc), "1.0", "");
-	calc = string_replace(string(calc), "1.", "");
+	calc = string_replace(string(calc), "1.", "");*/
 	str = ((calc > 0) ? "+" : "") + string(calc) + "%";
 	draw_set_halign(fa_right);
 	draw_text_transformed(GW/3.40, GH/2.15 + stats_offset, str, 1.5, 1.5, 0);

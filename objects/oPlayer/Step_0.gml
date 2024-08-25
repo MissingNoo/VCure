@@ -62,12 +62,26 @@ critChance = calc;
 #region Haste
 var down = 0;
 for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
-	if (Bonuses[BonusType.Haste][i] != 0) {
-		if (Bonuses[BonusType.Haste][i] > 0) {
-			down += real("." + string_replace(Bonuses[BonusType.Haste][i], "1.", ""));
+	if (!is_array(Bonuses[BonusType.Haste][i])) {
+		if (Bonuses[BonusType.Haste][i] != 0) {
+			if (Bonuses[BonusType.Haste][i] > 1) {
+				calc += (real(string_replace(string(Bonuses[BonusType.Haste][i]), "1.", "")));
+			}
+			else{
+				calc -= (1 - Bonuses[BonusType.Haste][i]) * 100;
+			}							
 		}
-		if (Bonuses[BonusType.Haste][i] < 0) {
-			down -= real("." + string_replace(Bonuses[BonusType.Haste][i], "0.", ""));
+	}
+	else{
+		for (var j = 0; j < array_length(Bonuses[BonusType.Haste][i]); ++j) {
+			if (Bonuses[BonusType.Haste][i][j] != 0) {
+				if (Bonuses[BonusType.Haste][i][j] > 1) {
+					calc += (real(string_replace(string(Bonuses[BonusType.Haste][i][j]), "1.", "")));
+				}
+				else{
+					calc -= (1 - Bonuses[BonusType.Haste][i][j]) * 100;
+				}
+			}
 		}
 	}
 }
@@ -277,36 +291,24 @@ if (haveBandage and justBandageHealing > 0) {
 #endregion
 #endregion
 #region spd calc
-	var newspd = ospd;
-	calc = 0;
-	for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
-		if (Bonuses[BonusType.Speed][i] != 0) {
-			newspd = newspd * Bonuses[BonusType.Speed][i];
-		}    
+var newspd = ospd;
+calc = 0;
+for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
+	if (Bonuses[BonusType.Speed][i] != 0) {
+		newspd = newspd * Bonuses[BonusType.Speed][i];
+	}    
+}
+for (var i = 0; i < array_length(PerkBonuses[BonusType.Speed]); ++i) {
+	if (PerkBonuses[BonusType.Speed][i] != 0) {
+		newspd = newspd * PerkBonuses[BonusType.Speed][i];
 	}
-	for (var i = 0; i < array_length(PerkBonuses[BonusType.Speed]); ++i) {
-		if (PerkBonuses[BonusType.Speed][i] != 0) {
-		    newspd = newspd * PerkBonuses[BonusType.Speed][i];
-		}
-	}
-	for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
-	    //newspd= newspd+ ((newspd* 6) / 100);
-	    newspd = newspd * 1.06;
-	}
-	//if (calc == 0) {
-	//    calc = 1;
-	//}
-	//var shopBonus = ospd;
-	//for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
-	//    shopBonus = shopBonus + ((shopBonus* 6) / 100);
-	//}
-	//shopBonus = shopBonus - ospd;
-	//if (calc != 0) {
-	    //spd = (ospd + shopBonus) * calc;
-		if (wallMart) { newspd = newspd * 0.25; }
-	    spd = newspd;
-		//show_message(shopBonus);
-	//}
+}
+for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
+	newspd = newspd * 1.06;
+}
+if (wallMart) { newspd = newspd * 0.25; }
+spd = newspd;
+
 #endregion
 #region pickup calc
 	//calc = 1;

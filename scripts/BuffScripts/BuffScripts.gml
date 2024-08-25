@@ -80,6 +80,8 @@ function populate_buffs() {
 		draw : rest_buff_draw
 	}
 	Buffs[BuffNames.Soda] = {
+        enter : buff_soda_enter,
+        leave : buff_soda_leave,
 		id : BuffNames.Soda,
 		name : "Soda",
 		icon : sSodaFueled,
