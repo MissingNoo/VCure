@@ -46,7 +46,7 @@ function food_item(_healAmount = 0){
 			add_buff_to_player(BuffNames.SakeFood);
 		}
 	}
-	
+
 	if (player_have_buff(BuffNames.MoldySoul)) {
 		var _chance = 33;
 		var _rnd = irandom_range(1, 100);
@@ -760,7 +760,30 @@ function add_xp(inst) {
 	}*/
 	global.xp += newxp;
 }
-	
+
+function get_bonus_percent(bonustype, shopname = "", shop_percent = 0) {
+	var percent = 0;
+	for (var i = 0; i < array_length(Bonuses[bonustype]); ++i) {
+		if (!is_array(Bonuses[bonustype][i])) {
+				percent += Bonuses[bonustype][i];
+		}
+		else{
+			for (var j = 0; j < array_length(Bonuses[bonustype][i]); ++j) {
+				percent += Bonuses[bonustype][i][j];
+			}
+		}
+	}
+	for (var i = 0; i < array_length(PerkBonuses[bonustype]); ++i) {
+		percent += PerkBonuses[bonustype][i];
+	}
+	if (shopname != "") {
+		for (var i = 0; i < global.shopUpgrades[$ shopname][$ "level"]; ++i) {
+			percent += shop_percent;
+		}
+	}
+	return percent;
+}
+
 credits = @"Thanks to these awesome people
 Kay Yu: original Holocure
 Naisho14 on Reddit for the character selection interface concept images

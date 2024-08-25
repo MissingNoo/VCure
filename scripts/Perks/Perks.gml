@@ -151,7 +151,7 @@ function populate_perks(){
 			cooldown : [3, 3, 2.01, 2.01],
 			bonus : true,
 			bonusType : [BonusType.Damage, BonusType.Haste],
-			bonusValue : [[0, 1.20, 1.40, 1.60], [0, 0, 0, 1.10]],
+			bonusValue : [[0, 20, 40, 60], [0, 0, 0, 10]],
 			characterid : "Watson Amelia"
 		});
 		#endregion

@@ -1,4 +1,4 @@
-if (!instance_exists(oEnemy)) { instance_destroy(); }
+/*if (!instance_exists(oEnemy)) { instance_destroy(); }
 if (global.gamePaused) { exit; }
 maxImg = sprite_get_number(sprite_index);
 sprSpeed = sprite_get_speed(sprite_index);
@@ -63,8 +63,10 @@ image_speed = 0;
 	}
 	#endregion
 	var cooldown = upg[$ "cooldown"];
-	if (upg[$ "canBeHasted"] == true and oPlayer.weaponHaste != 0) {
-	    cooldown -= (cooldown * oPlayer.weaponHaste) - cooldown;
+	if (upg[$ "canBeHasted"] == true) {
+		show_debug_message(cooldown);
+	    cooldown = cooldown + ((cooldown * oPlayer.weaponHaste) / 100);
+		show_debug_message($"after:{cooldown}");
 		//show_debug_message(string($ "{upg[$ "cooldown"]}/{cooldown}/{oPlayer.weaponHaste}"));
 	}
 	var minCooldown = upg[$ "minimumcooldown"];

@@ -172,11 +172,9 @@ function populate_items(){
 				cooldown : 15,
 				perk : false,
 				bonusType : BonusType.Defense,
-				bonusValue : [0.95, 0.90, 0.85, 0.80, 0.75],
+				bonusValue : [10, 10, 10, 10, 10],
 				shield : [15, 20, 25, 30, 35],
-			});			
-				//Bonuses[BonusType.Defense][ItemIds.Body_Pillow] = 0;
-				//super createItem(ItemIds.Body_Pillow, "Body Pillow", 6, 5, 3, sBodyPillow, 15, "Gain a shield that absorbs up to 35 damage. Every 15 seconds, this shield refreshes. Also reduces damage taken by 25%.")
+			});
 			#endregion
 			new_create_item({//Breasplate
 				id : ItemIds.Breastplate,
@@ -186,7 +184,7 @@ function populate_items(){
 				thumb : sBreastplate,
 				cooldown : 1,
 				bonusType : [BonusType.Defense, BonusType.Speed],
-				bonusValue : [[0.75, 0.75, 0.75],[0.90, 0.90, 0.90]],
+				bonusValue : [[25, 25, 25],[-10, -10, -10]],
 				reflectChance : [50, 60, 70],
 				reflectDamage : [2, 2.5, 3],
 				perk : false});			
@@ -270,7 +268,7 @@ function populate_items(){
 				weight : 2,
 				thumb : sGWSPill,
 				cooldown : 1,
-				crit : [1.15, 1.20, 1.25],
+				crit : [15, 20, 25],
 				perk : false});
 			#endregion
 			
@@ -294,7 +292,7 @@ function populate_items(){
 				thumb : sLimiter,
 				cooldown : 1,
 				bonusType : BonusType.PickupRange,
-				bonusValue : [2, 3, 4],
+				bonusValue : [100, 200, 300],
 				perk : false});
 				//Bonuses[BonusType.PickupRange][ItemIds.Limiter] = 0;
 			#endregion
@@ -370,8 +368,8 @@ function populate_items(){
 				weight : 3,
 				thumb : sMembership,
 				cooldown : 1,
-				bonusATK : [1.30, 1.40, 1.50],
-				bonusLessDamage : [0.90, 0.82, 0.75],
+				bonusATK : [30, 40, 50],
+				bonusLessDamage : [10, 18, 25],
 				perk : false});
 			#endregion
 			
@@ -428,10 +426,8 @@ function populate_items(){
 				thumb : sEnergyDrink,
 				cooldown : 1,
 				bonusType : [BonusType.Haste, BonusType.Speed],
-				bonusValue : [[1.10, 1.15, 1.20], [1.30, 1.40, 1.50]],
+				bonusValue : [[10, 15, 20], [30, 40, 50]],
 				perk : false});
-				//Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 0;
-				//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 0;
 				Bonuses[BonusType.EnergyDrinkHpMinus] = 0;
 			#endregion
 		
@@ -444,11 +440,8 @@ function populate_items(){
 				thumb : sFaceMask,
 				cooldown : 1,
 				bonusType : [BonusType.Damage, BonusType.Haste, BonusType.TakeDamage],
-				bonusValue : [[1.3],[1.1],[1.3]],
+				bonusValue : [[30],[10],[30]],
 				perk : false});
-				//Bonuses[BonusType.Damage][ItemIds.Face_Mask] = 0;
-				//Bonuses[BonusType.Haste][ItemIds.Face_Mask] = 0;
-				//Bonuses[BonusType.TakeDamage][ItemIds.Face_Mask] = 0;
 			#endregion
 		
 			#region Full Meal
@@ -473,16 +466,13 @@ function populate_items(){
 				cooldown : 1,				
 				perk : false,
 				bonusType : [BonusType.Damage, BonusType.Critical],
-				bonusValue : [[1.30, 1.40, 1.50], [0.8, 0.8, 0.8]],
+				bonusValue : [[20, 30, 40], [-2, -2, -2]],
 				unlocked : false,
 			});
-				//Bonuses[BonusType.Damage][ItemIds.Gorilla_Paw] = 0;
-				//Bonuses[BonusType.Critical][ItemIds.Gorilla_Paw] = 0;
 			#endregion
 			
 			#region Headphones
-			new_create_item(
-			{
+			new_create_item({
 				id : ItemIds.Headphones,
 				name : "Headphones",
 				maxlevel : 5,
@@ -504,9 +494,8 @@ function populate_items(){
 				cooldown : 1,
 				perk : false,
 				bonusType : BonusType.Damage,
-				bonusValue : [1.40, 1.60, 1.80],
+				bonusValue : [40, 60, 80],
 			});
-				//Bonuses[BonusType.Damage][ItemIds.Injection_Type_Asacoco] = 0;
 			#endregion
 		
 			#region Knightly Milk
@@ -519,7 +508,7 @@ function populate_items(){
 				cooldown : 1,
 				perk : false,
 				bonusType : [BonusType.WeaponSize, BonusType.PickupRange],
-				bonusValue : [[1.10, 1.15, 1.20], [1.30, 1.40, 1.50]],
+				bonusValue : [[10, 15, 20], [30, 40, 50]],
 			});				
 				//Bonuses[BonusType.WeaponSize][ItemIds.Knightly_Milk] = 1;
 				//Bonuses[BonusType.PickupRange][ItemIds.Knightly_Milk] = 0;
@@ -609,24 +598,18 @@ function tick_items(){
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 1;
 								MAXHP = MAXHP * 0.80;
 							}
-					        //Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.10;
-							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.30;
 					        break;
 					    case 2:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 1) {
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 2;
 								MAXHP = MAXHP * 0.80;
 							}
-					        //Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.15;
-							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.40;
 					        break;
 						case 3:
 							if (Bonuses[BonusType.EnergyDrinkHpMinus] == 2) {
 							    Bonuses[BonusType.EnergyDrinkHpMinus] = 3;
 								MAXHP = MAXHP * 0.80;
 							}
-							//Bonuses[BonusType.Haste][ItemIds.Energy_Drink] = 1.20;
-							//Bonuses[BonusType.Speed][ItemIds.Energy_Drink] = 1.50;
 							break;
 					}
 					break;

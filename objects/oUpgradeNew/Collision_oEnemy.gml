@@ -63,19 +63,7 @@ for (var i = 0; i < array_length(playerItems); ++i) {
 	}
 }
 	
-var bdmg = 0;
-for (var i = 0; i < array_length(Bonuses[BonusType.Damage]); ++i) {
-	if (Bonuses[BonusType.Damage][i] != 0) {
-		bdmg += (dmg * Bonuses[BonusType.Damage][i]) - dmg;
-	}
-}
-	
-for (var i = 0; i < array_length(PerkBonuses[BonusType.Damage]); ++i) {
-	if (PerkBonuses[BonusType.Damage][i] != 0) {
-		bdmg += (dmg * PerkBonuses[BonusType.Damage][i]) - dmg;
-	}
-}
-	
+var bdmg = get_bonus_percent(BonusType.Damage, "Atk", 6);
 for (var i = 0; i < array_length(other.debuffs); ++i) { //TODO: Debuffs
 	//if (other.debuffs[i].id == BuffNames.SharkBite) {
 	//	for (var j = 0; j < other.debuffs[i].marks; ++j) {
@@ -83,11 +71,6 @@ for (var i = 0; i < array_length(other.debuffs); ++i) { //TODO: Debuffs
 	//	}
 	//}
 }
-#region Shop atk bonus
-for (var i = 0; i < global.shopUpgrades[$ "Atk"][$ "level"]; ++i) {
-	bdmg = bdmg + ((bdmg * 6) / 100);
-}
-#endregion
 dmg = dmg + bdmg;
 var _rnd = irandom_range(0, 100);
 var _critChance = oPlayer.critChance;

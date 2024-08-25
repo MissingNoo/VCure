@@ -189,32 +189,15 @@ function reset_pool()
 function damage_calculation(baseDmg)
 {
 	var damage = baseDmg;
-	for (var i = 0; i < array_length(Bonuses[BonusType.Defense]); ++i) {
-		if (Bonuses[BonusType.Defense][i] != 0) {
-		    damage = damage * Bonuses[BonusType.Defense][i];
-		}
-	}
-	for (var i = 0; i < global.shopUpgrades[$ "Defense"][$ "level"]; ++i) {
-	    damage = damage - ((damage * 3) / 100);
-	}
-	//// perk bonuses
-	//for (var i = 0; i < array_length(PerkBonuses[BonusType.Defense]); ++i) {
-	//	if (PerkBonuses[BonusType.Defense][i] != 0) {
-	//	    damage = damage * PerkBonuses[BonusType.Defense][i];
-	//	}
-	//}
-	//
-	for (var i = 0; i < array_length(Bonuses[BonusType.TakeDamage]); ++i) {
-		if (Bonuses[BonusType.TakeDamage][i] != 0) {
-		    damage = damage * Bonuses[BonusType.TakeDamage][i];
-		}
-	}
+	var defbonus = get_bonus_percent(BonusType.Defense, "Defense", 3);
+	damage = damage - ((damage * defbonus) / 100);
+	var _takedamagep = get_bonus_percent(BonusType.TakeDamage);
+	damage = damage + ((damage * _takedamagep) / 100);
 	for (var i = 0; i < array_length(playerItems); ++i) {
 	    if (playerItems[i][$ "id"] == ItemIds.Headphones) {
-		    // randomize;
 			if (irandom_range(1, 100) <= playerItems[i][$ "dodgeChance"]) {
 			    damage = 0;
-				instance_create_depth(x,y,depth,oUpgrade,{upg : global.upgradesAvaliable[Weapons.Shockwave][1]});
+				instance_create_depth(x, y, depth, oUpgradeNew, {upg : global.upgradesAvaliable[Weapons.Shockwave][1]});
 			}
 		}
 	}

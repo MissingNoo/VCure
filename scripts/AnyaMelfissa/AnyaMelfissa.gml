@@ -30,7 +30,7 @@ function AnyaMelfissa(){
 			characterid : "Anya Melfissa",
 			bonus : true,
 			bonusType : BonusType.PickupRange,
-			bonusValue : [0, 1.20, 1.40, 1.60],
+			bonusValue : [0, 20, 40, 60],
 		});
 		#endregion
 		

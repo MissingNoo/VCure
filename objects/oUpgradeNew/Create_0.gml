@@ -31,6 +31,7 @@ atkdelayalarm = array_length(dAlarm);
 array_push(dAlarm, [upg.attackdelay, function() {
 	if (shoots > 1) {
 		shoots--;
+		/// @localvar {Any} orbitoffset 
 		instance_create_layer(owner.x, owner.y-8, "Upgrades", oUpgradeNew, {upg : upg, arrowDir : arrowDir, shoots : -1, reverseshoots : reverseshoots, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
 		reverseshoots -= 1;
 		dAlarm[atkdelayalarm][0] = upg.attackdelay;
@@ -38,9 +39,11 @@ array_push(dAlarm, [upg.attackdelay, function() {
 //else if (shoots > 0) { show_debug_message($"Weapon {upg.name} has multiple projectiles but no attackdelay entry") };
 
 #region Cooldown
-var cooldown = upg.cooldown;
-if (upg.canBeHasted == true and oPlayer.weaponHaste != 0) {
-	cooldown -= (cooldown * oPlayer.weaponHaste) - cooldown;
+var cooldown = upg[$ "cooldown"];
+if (upg[$ "canBeHasted"] == true) {
+	show_debug_message(cooldown);
+	cooldown = cooldown - ((cooldown * oPlayer.weaponHaste) / 100);
+	show_debug_message($"after:{cooldown}");
 }
 if (upg[$ "minimumcooldown"] != undefined and cooldown < upg.minimumcooldown) {
 	cooldown = upg.minimumcooldown;
@@ -77,17 +80,16 @@ if (WEAPONS_LIST[upg.id][1].enchantment == Enchantments.Size) {
 	image_yscale = image_yscale * 1.15;
 }
 original_scale = [image_xscale, image_yscale];
-for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
-	if (Bonuses[BonusType.WeaponSize][i] != 0 and upg[$ "id"] != Weapons.HoloBomb) {
-		if (image_xscale > 0) { 
-			image_xscale = image_xscale * Bonuses[BonusType.WeaponSize][i]; 
-		}
-		else {
-			image_xscale = image_xscale * (Bonuses[BonusType.WeaponSize][i] * -1); 
-		}
-		image_yscale = image_xscale;
-	}
+calc = get_bonus_percent(BonusType.WeaponSize);
+if (image_xscale > 0) { 
+	image_xscale = image_xscale + ((image_xscale * calc) / 100); 
 }
+else {
+	image_xscale = image_xscale * -1;
+	image_xscale = image_xscale + ((image_xscale * calc) / 100); 
+	image_xscale = image_xscale * -1; 
+}
+image_yscale = image_xscale;
 #endregion
 
 if (upg[$ "create"] != undefined) {

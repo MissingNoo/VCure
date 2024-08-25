@@ -23,84 +23,11 @@ global.score = floor(baseScore + hardcoreBonus);
 #region critChance
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));
-for (var i = 0; i < array_length(Bonuses[BonusType.Critical]); ++i) {
-	if (!is_array(Bonuses[BonusType.Critical][i])) {
-		if (Bonuses[BonusType.Critical][i] != 0) {
-			if (Bonuses[BonusType.Critical][i] > 1) {
-				calc += (real(string_replace(string(Bonuses[BonusType.Critical][i]), "1.", "")));
-			}
-			else{
-				calc -= (1 - Bonuses[BonusType.Critical][i]) * 100;
-			}							
-		}
-	}
-	else{
-		for (var j = 0; j < array_length(Bonuses[BonusType.Critical][i]); ++j) {
-			if (Bonuses[BonusType.Critical][i][j] != 0) {
-				if (Bonuses[BonusType.Critical][i][j] > 1) {
-					calc += (real(string_replace(string(Bonuses[BonusType.Critical][i][j]), "1.", "")));
-				}
-				else{
-					calc -= (1 - Bonuses[BonusType.Critical][i][j]) * 100;
-				}
-			}
-		}
-	}
-}
-for (var i = 0; i < array_length(PerkBonuses[BonusType.Critical]); ++i) {
-	if (PerkBonuses[BonusType.Critical][i] != 0) {
-		calc += real(string_replace(string(PerkBonuses[BonusType.Critical][i]), "1.", ""));
-	}
-}
-if (global.shopUpgrades[$ "Crit"].level > 0) {		
-	for (var i = 0; i < global.shopUpgrades[$ "Crit"].level; ++i) {
-		calc+=2;
-	}
-}
+calc += get_bonus_percent(BonusType.Critical, "Crit", 2)
 critChance = calc;
 #endregion
 #region Haste
-var down = 0;
-for (var i = 0; i < array_length(Bonuses[BonusType.Haste]); ++i) {
-	if (!is_array(Bonuses[BonusType.Haste][i])) {
-		if (Bonuses[BonusType.Haste][i] != 0) {
-			if (Bonuses[BonusType.Haste][i] > 1) {
-				calc += (real(string_replace(string(Bonuses[BonusType.Haste][i]), "1.", "")));
-			}
-			else{
-				calc -= (1 - Bonuses[BonusType.Haste][i]) * 100;
-			}							
-		}
-	}
-	else{
-		for (var j = 0; j < array_length(Bonuses[BonusType.Haste][i]); ++j) {
-			if (Bonuses[BonusType.Haste][i][j] != 0) {
-				if (Bonuses[BonusType.Haste][i][j] > 1) {
-					calc += (real(string_replace(string(Bonuses[BonusType.Haste][i][j]), "1.", "")));
-				}
-				else{
-					calc -= (1 - Bonuses[BonusType.Haste][i][j]) * 100;
-				}
-			}
-		}
-	}
-}
-for (var i = 0; i < array_length(PerkBonuses[BonusType.Haste]); ++i) {
-	if (PerkBonuses[BonusType.Haste][i] != 0) {
-		//down += real("." + string_replace(Bonuses[BonusType.Haste][i], "1.", ""));
-		down += real("." + string_replace(string(PerkBonuses[BonusType.Haste][i]), "1.", ""));
-	}
-}
-for (var i = 0; i < global.shopUpgrades[$ "Haste"][$ "level"]; ++i) {
-	down = down + ((down * 4) / 100);
-}
-if (down > 0 and string_starts_with(down, "0.")) {
-    down = real(string_replace(down, "0.", "1."));
-}
-if (down < 0) {
-    down = down * -1;
-}
-weaponHaste = down;
+weaponHaste = get_bonus_percent(BonusType.Haste, "Haste", 4);
 #endregion
 image_speed = global.gamePaused ? 0 : oImageSpeed * Delta;
 socket = global.socket;
@@ -291,43 +218,15 @@ if (haveBandage and justBandageHealing > 0) {
 #endregion
 #endregion
 #region spd calc
-var newspd = ospd;
-calc = 0;
-for (var i = 0; i < array_length(Bonuses[BonusType.Speed]); ++i) {
-	if (Bonuses[BonusType.Speed][i] != 0) {
-		newspd = newspd * Bonuses[BonusType.Speed][i];
-	}    
-}
-for (var i = 0; i < array_length(PerkBonuses[BonusType.Speed]); ++i) {
-	if (PerkBonuses[BonusType.Speed][i] != 0) {
-		newspd = newspd * PerkBonuses[BonusType.Speed][i];
-	}
-}
-for (var i = 0; i < global.shopUpgrades[$ "Spd"][$ "level"]; ++i) {
-	newspd = newspd * 1.06;
-}
-if (wallMart) { newspd = newspd * 0.25; }
-spd = newspd;
+calc = ospd;
+calc += get_bonus_percent(BonusType.Speed, "Spd", 6);
+if (wallMart) { calc = calc * 0.25; }
+spd = ospd + ((ospd * calc) / 100);
 
 #endregion
 #region pickup calc
 	//calc = 1;
 	var _newRange = originalPickupRadius;
-	for (var i = 0; i < array_length(Bonuses[BonusType.PickupRange]); ++i) {
-		if (Bonuses[BonusType.PickupRange][i] != 0) {
-		    //calc += Bonuses[BonusType.PickupRange][i];
-		     _newRange = _newRange * Bonuses[BonusType.PickupRange][i];
-		}
-	}
-	for (var i = 0; i < array_length(PerkBonuses[BonusType.PickupRange]); ++i) {
-		if (PerkBonuses[BonusType.PickupRange][i] != 0) {
-		    //calc += PerkBonuses[BonusType.PickupRange][i];
-		    _newRange = _newRange * PerkBonuses[BonusType.PickupRange][i];
-		}    
-	}
-	for (var i = 0; i < global.shopUpgrades[$ "PickUp"][$ "level"]; ++i) {
-	    _newRange = _newRange + ((_newRange* 10) / 100);
-	}
-	//pickupRadius = (originalPickupRadius + shopBonus) * calc;
+	_newRange += get_bonus_percent(BonusType.PickupRange, "PickUp", 10);
 	pickupRadius = _newRange;
 #endregion

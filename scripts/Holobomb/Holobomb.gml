@@ -10,12 +10,9 @@ function holobomb_on_hit(obj){
 	obj.level = obj.upg[$ "level"];
 	update_sprite_info(obj, 0);
 	obj.animate = true;
-	for (var i = 0; i < array_length(Bonuses[BonusType.WeaponSize]); ++i) {
-		if (Bonuses[BonusType.WeaponSize][i] != 0) {
-			obj.image_xscale = obj.image_xscale * Bonuses[BonusType.WeaponSize][i];
-			obj.image_yscale = obj.image_yscale * Bonuses[BonusType.WeaponSize][i];
-		}			    
-	}
+	var calc = get_bonus_percent(BonusType.WeaponSize);
+	obj.image_xscale = obj.image_xscale + ((obj.image_xscale * calc) / 100);
+	obj.image_yscale = obj.image_yscale + ((obj.image_yscale * calc) / 100);
 	if (obj.level >= 2) {
 		obj.image_xscale = obj.image_xscale * 1.15;
 		obj.image_yscale = obj.image_yscale * 1.15;
