@@ -307,7 +307,7 @@ function populate_items(){
 				cooldown : 1,
 				perk : false,
 				bonusType : BonusType.SuperChattoTime,
-				bonusValue : [1.20, 1.40, 1.60, 1.80, 2]
+				bonusValue : [20, 40, 60, 80, 100]
 			});
 			Bonuses[BonusType.SuperChattoTime][0] = 0;
 			#endregion
@@ -685,7 +685,7 @@ function tick_items(){
 					if (oPlayer.skilltimer < oPlayer.specialcooldown) {
 					    Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = playerItems[i][$ "crit"];
 					}
-					else{
+					else {
 						Bonuses[BonusType.Critical][ItemIds.GWS_Pill] = 0;
 					}
 					break;

@@ -50,12 +50,12 @@ if (random_range(0,200) <= _dropchance and dropxp) {
 // randomize;
 var _spawnCoin = true;
 if (irandom_range(1, 90) == 1 and dropxp) {
-	for (var i = 0; i < array_length(Bonuses[BonusType.SuperChattoTime]); ++i) {
-	    if(Bonuses[BonusType.SuperChattoTime][i] > 0){
-			_spawnCoin = false;
-			global.newcoins += round(10 * Bonuses[BonusType.SuperChattoTime][i]);
-		}
+	var b = get_bonus_percent(BonusType.SuperChattoTime);
+	if (b != 0) {
+		_spawnCoin = false;
+		global.newcoins = round(10 + ((10 * b) / 100));
 	}
+	
 	if (_spawnCoin) {
 	    instance_create_layer(x,y,"Instances", oHolocoin);
 	}
