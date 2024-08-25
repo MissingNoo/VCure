@@ -158,6 +158,7 @@ function create_upgrade_p2(_id, _level, _maxlevel, _knockbackSpeed, _knockbackDu
 
 enum Weapons{
 	UrukaNote,
+	UrukaNoteExplosion,
 	RestNote,
 	LiaBolt,
 	ElectricPulse,
@@ -240,6 +241,28 @@ function populate_upgrades(){
 				travelWidth : 32,
 				weight : 3
 			},[snd_bullet, snd_bullet2, snd_bullet3]);
+			new_create_upgrade({
+				animation_end : urukanote_explosion_animation_end,
+				id : Weapons.UrukaNoteExplosion,
+				name : "NoteExplosion",
+				maxlevel : 7,
+				sprite : sNoteExplosion,
+				attackdelay : 20,
+				thumb : sUrukaNote,
+				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
+				maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.20, 13*1.20*1.10, 13*1.20*1.10],
+				cooldown : 0,
+				duration : 200,
+				hitCooldown : 10,
+				canBeHasted : false,
+				speed : 0,
+				hits : 999,
+				type : "red",
+				shoots : 1,
+				perk : true,
+				characterid : "NullCharacter",
+				weight : 0
+			});
 			#endregion
 			#region UrukaNote 
 			new_create_upgrade({

@@ -1,0 +1,4 @@
+- Sake
+	-  [x] Add 1% crit each stack.
+	-  [x] Add 5% crit for 10 seconds when eating food
+	-  [ ] Lose half stacks when taking damage.

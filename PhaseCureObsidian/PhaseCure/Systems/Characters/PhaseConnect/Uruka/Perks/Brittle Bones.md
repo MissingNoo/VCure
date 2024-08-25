@@ -1,6 +1,5 @@
 ---
-tags:
-  - Unfinished
+tags: []
 ---
 ### ![[Weak Bones.png|64]]
 - ### Description:
@@ -8,7 +7,7 @@ tags:
 - ### On Damage:
 	- [x] Spawns Rest Notes in a circle around the player.
 	- [x] Each note paralyze the enemy hit by (skill level+2) seconds.
-	- [ ] Rest Note Cooldown.
+	- [x] Rest Note Cooldown.
 - ### Levels:
 	- [x] **Level 1:** Take +2 damage, spawn Rest Notes when taking damage
 	- [x] **Level 2:** Take +3 dmg

@@ -53,7 +53,8 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 						bonusdmg = 4;
 						break;
 					}
-					if (PLAYER_PERKS[i].level > 0) {
+					if (PLAYER_PERKS[i][$ "level"] > 0 and !player_have_buff(BuffNames.RestNoteCooldown)) {
+						add_buff_to_player(BuffNames.RestNoteCooldown);
 					    var _angles = [0, 45, 315, 135, 180, 225];
 						var _w = WEAPONS_LIST[Weapons.RestNote][1];
 						for (var j = 0; j < array_length(_angles); ++j) {
@@ -66,7 +67,7 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 					}
 					break;
 			case (PerkIds.DirtyMind):
-				_dirtyChance = PLAYER_PERKS[i].dodgeChance;
+				_dirtyChance = PLAYER_PERKS[i][$ "dodgeChance"];
 				break;
 			}
 		}
@@ -95,15 +96,16 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 			        break;
 			}		    
 		}
-		if (Buffs[BuffNames.Sake][$ "count"] > 1) {
-		    Buffs[BuffNames.Sake][$ "count"] = round(Buffs[BuffNames.Sake][$ "count"] / 2);
+		if (player_have_buff(BuffNames.Sake)) {
+			var buffpos = player_get_buff_pos(BuffNames.Sake);
+			PlayerBuffs[buffpos][$ "count"] = round(PlayerBuffs[buffpos][$ "count"] / 2);
 		}		
 	}
 	//alarm[1]=60;
 	var inst = instance_create_layer(x,y - sprite_get_height(sprite_index)/2,"DamageLayer",oDamageText);
-	with (inst)
-	{
-	    dmg=round(damage);
+	with (inst)	{
+		/// @localvar {Any} dmg 
+	    dmg = round(damage);
 		depth = oPlayer.depth-1;
 	}
 	

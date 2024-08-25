@@ -217,7 +217,8 @@ enum BuffNames{
 	SpdDown,
 	DefDown,
 	BellyDance,
-	Sharpen
+	Sharpen,
+	RestNoteCooldown
 }
 	//Buffs[BuffNames.ShortHeight] = {
 	//	id : BuffNames.ShortHeight,
@@ -364,6 +365,15 @@ function populate_buffs() {
 		permanent : true,
 		count : 1,
 		maxCount : 50
+	}
+	Buffs[BuffNames.RestNoteCooldown] = {
+		id : BuffNames.RestNoteCooldown,
+		name : "Rest Note Cooldown",
+		icon : sRestNote,
+		enabled : false,
+		permanent : false,
+		cooldown : 3,
+		baseCooldown : 3
 	}
 		
 	//Buffs[BuffNames.SharkBite] = {

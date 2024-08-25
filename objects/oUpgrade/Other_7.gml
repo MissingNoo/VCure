@@ -1,4 +1,4 @@
-var _oldsprite = sprite_index;
+/*var _oldsprite = sprite_index;
 var _oldsub = subImg;
 switch (upg[$ "id"]) {
 	case Weapons.UrukaNote:{

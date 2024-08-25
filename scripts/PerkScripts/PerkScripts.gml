@@ -52,13 +52,13 @@ function trash_bear(level, event = WeaponEvent.Null, enemy = noone, xx = 0, yy =
 	var dropChance = -1;
 	switch (level) {
 	    case 1:
-	        dropChance = 10;
+	        dropChance = 3;
 	        break;
 	    case 2:
-	        dropChance = 11;
+	        dropChance = 5;
 	        break;
 	    case 3:
-	        dropChance = 12;
+	        dropChance = 7;
 	        break;
 	}
 	if (_spaghettiChance <= dropChance) {

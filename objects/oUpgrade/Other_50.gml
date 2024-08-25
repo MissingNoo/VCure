@@ -1,4 +1,4 @@
-var _prevDirection = direction;
+/*var _prevDirection = direction;
 switch (upg[$ "id"]) {
     case Weapons.XPotato:
 		if (justBounced) { return; }

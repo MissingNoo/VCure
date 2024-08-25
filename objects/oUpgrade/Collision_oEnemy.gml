@@ -1,4 +1,4 @@
-var canhit = true;
+/*var canhit = true;
 if (upg.mindmg == -1) {
     canhit = false;
 }

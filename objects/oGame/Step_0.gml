@@ -364,7 +364,7 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 				if (PlayerBuffs[i][$ "func"] != undefined) {
 					PlayerBuffs[i][$ "func"](i);
 				}
-				if (!variable_struct_exists(PlayerBuffs[i], "permanent")) {
+				if (PlayerBuffs[i][$ "permanent"] == false) {
 					if (PlayerBuffs[i][$ "leave"] != undefined) {
 						PlayerBuffs[i][$ "leave"](i);
 					}

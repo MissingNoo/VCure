@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Stages/DebugStage.md",
+                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Stages/DebugStage.md",
+                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Stages/DebugStage.md",
+                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Stages/DebugStage.md"
+                "file": "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md"
               }
             }
           }
@@ -149,8 +149,14 @@
   },
   "active": "55dd2e6797c6dc93",
   "lastOpenFiles": [
-    "Systems/Stages/Stage1.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+    "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
+    "Systems/Buffs/Sake.md",
+    "Systems/Buffs.md",
     "Systems/Stages/DebugStage.md",
+    "Systems/Stages/Stage1.md",
     "Systems/Stages/Stages.md",
     "Systems.md",
     "Systems/Character Selection.md",
@@ -160,12 +166,10 @@
     "Systems/LevelUp.md",
     "Systems/Fandom.md",
     "Canvas.canvas",
-    "Systems/Buffs.md",
     "Systems/Buffs",
     "Weapons.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/Phase Connect.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
@@ -174,10 +178,6 @@
     "Systems/Weapons/Multishot/Glowstick.md",
     "Systems/Weapons/Melee/Wamy Water.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
-    "Systems/Characters/Hololive.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
-    "Systems/Characters/Hololive/EN/Myth.md",
-    "Systems/Characters/Hololive/EN.md",
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kaela Kovalskia",
     "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru",

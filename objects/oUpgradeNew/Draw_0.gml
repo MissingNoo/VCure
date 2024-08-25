@@ -1,3 +1,4 @@
+/// @localvar {Any} afterimage 
 //var _offset = 0;
 //for (var i = 0; i < array_length(dAlarm); ++i) {
 //    draw_text(x, y - 10 - _offset, $"{i}: {dAlarm[i][0]}");

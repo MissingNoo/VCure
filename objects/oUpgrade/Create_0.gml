@@ -1,4 +1,4 @@
-//event_inherited();
+/*//event_inherited();
 /// @instancevar {Any} shoots
 lowest = 0;
 aikFollowTimer = 0.25;

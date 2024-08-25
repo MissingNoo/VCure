@@ -108,6 +108,7 @@ if (_rnd <= _critChance) {
 			if (PLAYER_PERKS[i].id == PerkIds.Viral) {
 				var _infectChance = PLAYER_PERKS[i].chance;
 				_rnd = irandom_range(1, 100);
+				other.customSpawn = other.customSpawn;
 				if (_rnd <= _infectChance and oPlayer.liaLikers < PLAYER_PERKS[i].maxInfected and !other.boss and !other.customSpawn) {
 					other.infected = true;
 					_virusInfected = true;
@@ -152,9 +153,9 @@ switch (sprite_index) {
 	case sEightNote:
 		dmg = dmg / 8;
 	    break;
-	case sBombExplosion:{
+	case sBombExplosion:
 		dmg = (dmg * 2);// + (sizeGained / 10);
-		break;}
+		break;
 }
 #endregion
 other.hp -= dmg;

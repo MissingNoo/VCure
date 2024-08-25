@@ -1,4 +1,5 @@
 function rest_note_on_hit(obj){
+	/// @localvar {Any} hasbuff 
 	hasbuff = array_find_index(other.debuffs, function(e, i) {
 		return e.id == BuffNames.RestNote;
 	});
@@ -23,5 +24,5 @@ function rest_buff_draw(x, y){
 	if (mimg > 60) { mimg = 0; }
 	var spr = sMetronome;
 	var simg = sprite_get_number(spr);
-	draw_sprite_ext(sMetronome, ((mimg / room_speed) * simg), x, y - 8, DebugManager.a, DebugManager.a, 0, c_white, 1);
+	draw_sprite_ext(sMetronome, ((mimg / room_speed) * simg), x, y - 8, 1.50, 1.50, 0, c_white, 1);
 }

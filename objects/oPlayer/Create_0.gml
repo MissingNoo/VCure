@@ -75,7 +75,7 @@ updateInspector = function(show = false) {
 		dbg_checkbox(ref_create(self.id, "immortal"), "Immortal:");
 		dbg_button("Level UP", function(){ global.xp += oPlayer.neededxp; });
 		dbg_same_line();
-		dbg_button("Reroll", function(){ random_upgrades(); });
+		dbg_button("Reroll", function(){ if (instance_exists(oLevelUpControl)) { random_upgrades(); }});
 		dbg_button("Skill Cooldown", function(){ oPlayer.skilltimer = 999; });
 		dbg_button("Spawn Anvil", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 20, oPlayer.depth, oAnvil); });
 		dbg_same_line();

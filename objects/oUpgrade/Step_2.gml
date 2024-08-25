@@ -1,4 +1,4 @@
-if (global.pauseGame) { exit; }
+/*if (global.pauseGame) { exit; }
 if (instance_exists(enemyTarget) and direction - point_direction(x, y, enemyTarget.x, enemyTarget.y - 8) < -250) {
 	direction = point_direction(x, y, enemyTarget.x, enemyTarget.y - 8);
 }

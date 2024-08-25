@@ -52,7 +52,9 @@ function urukanote_create(obj){
 	//extrainfo.noteStartY = noteStartY;
 }
 function urukanote_step(obj){
-	if (obj.sprite_index == sMonsterPulse or obj.sprite_index == sNoteExplosion) {
+	if (obj.sprite_index == sMonsterPulse) {
+		obj.image_xscale += 0.10;
+		obj.image_yscale = obj.image_xscale;
 		exit;
 	}
 	obj.y = cose_wave(obj.coscounter / 1000, 1 * obj.upDown, obj.upg[$ "travelWidth"], obj.noteStartY);
@@ -68,7 +70,9 @@ function urukanote_step(obj){
 	}
 }
 function urukanote_outside_view(obj){
-	noteexplosion(obj);
+	if (obj.sprite_index != sMonsterPulse) {
+		noteexplosion(obj);
+	}
 }
 function urukanote_animation_end(obj){
 	if (!instance_exists(obj)) { exit; }
@@ -85,14 +89,14 @@ function urukanote_on_hit(obj){
 }
 function noteexplosion(obj){
 	if (obj.upg.level == 7) {
-		obj.hits = 9999;
-		obj.speed = 0;
-		if (!obj.explosionResized) {
-		    obj.explosionResized = true;
-			obj.image_xscale = obj.image_xscale / 1.5;
-			obj.image_yscale = obj.image_yscale / 1.5;
-		}	
-		obj.sprite_index = sNoteExplosion;
-		update_sprite_info(obj);
+		instance_create_depth(obj.x, obj.y, obj.depth, oUpgradeNew, {
+			upg : WEAPONS_LIST[Weapons.UrukaNoteExplosion][7], 
+			image_xscale : obj.image_xscale / 1.5,
+			image_yscale : obj.image_yscale / 1.5
+		});
+		if (instance_exists(obj)) { instance_destroy(obj); }
 	}
+}
+function urukanote_explosion_animation_end(obj) {
+	if (instance_exists(obj)) { instance_destroy(obj); }
 }
