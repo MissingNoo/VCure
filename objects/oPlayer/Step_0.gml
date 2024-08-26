@@ -1,3 +1,6 @@
+if (instance_number(oXP) > 150) {
+	instance_create_depth(x, y, depth, oRainbowXP);
+}
 /// @instancevar {Any} can_collab
 /// @instancevar {Any} tick_powers
 #region Debug
@@ -90,7 +93,7 @@ if (wallMart) {
 	wallmartTimer -= 1/60*Delta;
 	if (wallmartTimer <= 0) {
 		wallMart = false;
-		Buffs[BuffNames.WallmartDefense][$ "enabled"] = false;
+		//Buffs[BuffNames.WallmartDefense][$ "enabled"] = false;
 		instance_destroy(oSpecialEffect);
 	}
 }
@@ -220,9 +223,8 @@ if (haveBandage and justBandageHealing > 0) {
 #region spd calc
 calc = ospd;
 calc += get_bonus_percent(BonusType.Speed, "Spd", 6);
-if (wallMart) { calc = calc * 0.25; }
 spd = ospd + ((ospd * calc) / 100);
-
+if (wallMart) { spd = spd * 0.25; }
 #endregion
 #region pickup calc
 	//calc = 1;

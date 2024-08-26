@@ -201,7 +201,7 @@ function damage_calculation(baseDmg)
 			}
 		}
 	}
-	if (Buffs[BuffNames.WallmartDefense][$ "enabled"]) {
+	if (player_have_buff(BuffNames.WallmartDefense)) {
 	    damage = damage * 0.50;
 	}
 	

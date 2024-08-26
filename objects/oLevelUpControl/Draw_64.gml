@@ -21,9 +21,9 @@ var _xscale = 2.36;
 var _yscale = 1.40;
 var uptype = "";
 var style = "";
-var foundup = false;
-var foundlv = 0;
 for (var i = 0; i < array_length(global.upgradeOptions); i++) {			
+    var foundup = false;
+    var foundlv = 0;
     draw_sprite_ext(sUpgradeBackground, 0, _xx, _yy + offset, _xscale, _yscale, 0, c_black, .75);
     draw_rectangle(_xx - 437, _yy + offset - 36, _xx + 437, _yy + offset - 34, false);
     if (mouse_on_button(_xx, _yy + offset, sUpgradeBackground, i, _xscale / 1.32, _yscale / 2.2, "selected", i)) { menuClick = true; }

@@ -52,7 +52,7 @@ function populate_specials(){
 	.set_function(function(){
 		oPlayer.wallMart = true;
 		oPlayer.wallmartTimer = 10;
-		Buffs[BuffNames.WallmartDefense][$ "enabled"] = true;
+		add_buff_to_player(BuffNames.WallmartDefense);
 		instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oSpecialEffect);
 	});
 	SPECIAL_LIST[SpecialIds.WalmartForm] = sp;
