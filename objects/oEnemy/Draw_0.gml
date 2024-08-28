@@ -82,6 +82,6 @@ for (var i = 0; i < array_length(debuffs); ++i) {
 	}
 	offset += iconsize + 5;
 }
-if (oPlayer.spaghettiEaten) {
+if (player_have_buff(BuffNames.Spaghetti)) {
 	draw_sprite(sSpaghettiEffect, 0, x, y);
 }

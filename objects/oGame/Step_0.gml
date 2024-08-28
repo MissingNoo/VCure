@@ -332,32 +332,6 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 			if (PlayerBuffs[i].cooldown > 0) {
 				PlayerBuffs[i].cooldown -= 1/60 * Delta;
 			}
-			#region unused
-	//			switch (PlayerBuffs[i][$ "id"]) {
-	//				case BuffNames.SakeFood:{
-	//					Bonuses[BonusType.Critical][ItemIds.Sake][1] = 1.05;
-	//					break;}
-	//				case BuffNames.Spaghetti:{
-	//					oPlayer.spaghettiEaten = true;
-	//					break;}
-	//				case BuffNames.Soda:{
-	//					var _spd = 1.03;
-	//					var _crt = 1.03;
-	//					var _haste = 1.03;
-	//					for (var j = 0; j < array_length(PLAYER_PERKS); ++j) {
-	//					    if (PLAYER_PERKS[j].id == PerkIds.SodaFueled and PLAYER_PERKS[j].level == 3) {
-	//						    _spd = 1.09;
-	//							_crt = 1.09;
-	//							_haste = 1.09;
-	//						}
-	//					}
-	//					PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
-	//					PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
-	//					PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
-	//					break;}
-	//			}
-	//		}
-			#endregion
 			if (PlayerBuffs[i].cooldown <= 0) {
 				PlayerBuffs[i][$ "cooldown"] = PlayerBuffs[i][$ "baseCooldown"];
 				if (PlayerBuffs[i][$ "func"] != undefined) {
@@ -372,32 +346,6 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 			}
 		}
 	}
-	//			switch (PlayerBuffs[i][$ "id"]) {
-	//				case BuffNames.Spaghetti:{
-	//					oPlayer.spaghettiEaten = false;
-	//					break;}
-	//				case BuffNames.Soda:{
-	//					var _spd = 0;
-	//					var _crt = 0;
-	//					var _haste = 0;
-	//					PerkBonuses[BonusType.Critical][PerkIds.SodaFueled] = _crt;
-	//					PerkBonuses[BonusType.Speed][PerkIds.SodaFueled] = _spd;
-	//					PerkBonuses[BonusType.Haste][PerkIds.SodaFueled] = _haste;
-	//					break;}
-	//				case BuffNames.BellyDance:
-	//					Buffs[i][$ "cooldown"] = Buffs[i][$ "baseCooldown"];
-	//					if (oPlayer.moving) {
-	//						Buffs[BuffNames.BellyDance][$ "count"]++;
-	//					}
-	//					else if (Buffs[BuffNames.BellyDance][$ "count"] > 0) {
-	//						instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oUpgradeAttach, {upg : UPGRADES[0], mindmg : UPGRADES[0][$ "mindmg"], maxdmg : UPGRADES[0][$ "maxdmg"], sprite_index : sAkiCircle, step : bellydance_step, image_xscale : .1, image_yscale : .1, count : Buffs[BuffNames.BellyDance][$ "count"]})
-	//						Buffs[BuffNames.BellyDance][$ "count"] = 0;
-	//					}
-	//					break;
-	//				}
-	//			}
-	//		}	
-	//	}
 	#endregion
 }
 

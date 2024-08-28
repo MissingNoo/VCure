@@ -1,3 +1,3 @@
-if (upg[$ "func"] != undefined) {
-    upg[$ "func"](WeaponEvent.AnimationEnd);
+if (upg[$ "animation_end"] != undefined) {
+    upg[$ "animation_end"](self.id);
 }

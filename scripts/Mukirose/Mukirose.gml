@@ -1,5 +1,5 @@
-function perk_mukirose(o, event = WeaponEvent.Null){
-	switch (o) {
+function perk_mukirose_on_cooldown(data = {level : 0, upg : -1, enemy : noone}) {
+	switch (data.level) {
 	    case 1:
 			oPlayer.mukirose[0] = true;
 			oPlayer.mukirose[1] = 50;

@@ -398,7 +398,10 @@ function populate_upgrades(){
 		#endregion
 		#region Aki
 		new_create_upgrade({
-			func : aik_step,
+			create : aik_create,
+			step : aik_step,
+			animation_end : aik_animation_end,
+			on_destroy : aik_on_destroy,
 			id : Weapons.Aik,
 			name : "Aik",
 			maxlevel : 7,

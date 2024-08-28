@@ -223,7 +223,7 @@ if(_canmove and instance_exists(target)){
 		if (groundPounding) {
 		    speed = speed / 1.5;
 		}
-		if (oPlayer.spaghettiEaten) {
+		if (player_have_buff(BuffNames.Spaghetti)) {
 			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 			    if (PLAYER_PERKS[i].id == PerkIds.TrashBear) {
 				    speed = speed * PLAYER_PERKS[i].spdDebuff;

@@ -1,3 +1,3 @@
-if (variable_instance_exists(self, "step")) {
-    step(WeaponEvent.Step);
-}
+//if (upg[$ "step"] != undefined) {
+//    upg[$ "step"]();
+//}

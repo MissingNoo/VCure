@@ -125,7 +125,7 @@ if (_rnd <= _critChance) {
 	}
 }
 dmg = dmg * global.player[?"atk"] * _critMultiplier;
-if (oPlayer.spaghettiEaten) {
+if (player_have_buff(BuffNames.Spaghetti)) {
 	dmg = dmg * 1.25;
 }
 dmg = dmg * other.damageMultFromDefDown;

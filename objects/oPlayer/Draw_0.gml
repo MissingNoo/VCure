@@ -7,7 +7,7 @@ ENDDEBUG
 var lickArea = 0;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	if (variable_struct_exists(PLAYER_PERKS[i], "draw")) {
-	    PLAYER_PERKS[i].func(WeaponEvent.PerkDraw);
+	    PLAYER_PERKS[i][$ "draw"]();
 	}
 	if (PLAYER_PERKS[i].level > 0) { //TODO: CLEAN
 	    switch (PLAYER_PERKS[i].id) {

@@ -100,6 +100,7 @@ function populate_buffs() {
 		cooldown : 10,
 	}
 	Buffs[BuffNames.BellyDance] = {
+		func : buff_belly_dance_cooldown,
 		id : BuffNames.BellyDance,
 		name : "Belly Dance",
 		icon : sAkiPerk2,
@@ -168,8 +169,6 @@ function populate_buffs() {
 		baseCooldown : 3
 	}
     Buffs[BuffNames.Spaghetti] = {
-        enter : buff_spaghetti_enter,
-        leave : buff_spaghetti_leave,
 		id : BuffNames.Spaghetti,
 		name : "Spaghetti",
 		icon : sSpaghetti,
@@ -207,14 +206,6 @@ function player_buff_remove(bid) {
 		var pos = player_get_buff_pos(bid);
 		array_delete(PlayerBuffs, pos, 1);
 	}
-}
-
-
-function buff_spaghetti_enter() {
-    oPlayer.spaghettiEaten = true;
-}
-function buff_spaghetti_leave() {
-    oPlayer.spaghettiEaten = false;
 }
 
 function buff_wallmart_enter() {

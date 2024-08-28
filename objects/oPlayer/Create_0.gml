@@ -231,7 +231,6 @@ y2 = 0;
 global.lastsequence = undefined;
 invencibilityFrames = 0;
 #region Uruka
-spaghettiEaten = false;
 monsterUsed = false;
 monsterTimer = 0;
 #endregion

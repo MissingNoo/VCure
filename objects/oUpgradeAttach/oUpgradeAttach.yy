@@ -18,16 +18,14 @@
   ],
   "managed":true,
   "name":"oUpgradeAttach",
-  "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"oUpgrade","path":"objects/oUpgrade/oUpgrade.yy",},"propertyId":{"name":"upg","path":"objects/oUpgrade/oUpgrade.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0",},
-  ],
+  "overriddenProperties":[],
   "parent":{
     "name":"Upgrades",
     "path":"folders/Objects/Player/Upgrades.yy",
   },
   "parentObjectId":{
-    "name":"oUpgrade",
-    "path":"objects/oUpgrade/oUpgrade.yy",
+    "name":"oUpgradeNew",
+    "path":"objects/oUpgradeNew/oUpgradeNew.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

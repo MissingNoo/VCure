@@ -2,8 +2,6 @@
 /// @instancevar {Any} upg 
 /// @instancevar {Any} shotType 
 oid = irandom(999999);
-resetcooldown = false;
-cooldownwasreset = false;
 animate = true;
 sprite_index = upg.sprite;
 speed = upg.speed;
