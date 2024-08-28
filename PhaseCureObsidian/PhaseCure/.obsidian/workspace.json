@@ -11,12 +11,8 @@
             "id": "55dd2e6797c6dc93",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
         ]
@@ -69,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -86,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -150,9 +141,9 @@
   },
   "active": "55dd2e6797c6dc93",
   "lastOpenFiles": [
+    "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
     "Systems/Characters/PhaseConnect/Pippa/Pippa.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
-    "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Heavy Artillery.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Moldy Soul.md",
     "z_attachments/f1e82eb9-8053-4960-b869-84a2edab0e31.png",
