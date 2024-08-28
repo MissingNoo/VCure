@@ -88,16 +88,6 @@ if (monsterUsed) {
 	}
 }
 #endregion
-#region Wallmart
-if (wallMart) {
-	wallmartTimer -= 1/60*Delta;
-	if (wallmartTimer <= 0) {
-		wallMart = false;
-		//Buffs[BuffNames.WallmartDefense][$ "enabled"] = false;
-		instance_destroy(oSpecialEffect);
-	}
-}
-#endregion
 #region Anya
 if (bladeForm) {
 	image_xscale = 1;

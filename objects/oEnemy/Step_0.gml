@@ -151,7 +151,7 @@ if(_canmove and instance_exists(target)){
 			if (thisEnemy == Enemies.FubuZilla) {
 			    _bossoffset = 32;
 			}
-			direction=point_direction(x,y,target.x,target.y + _bossoffset);
+			direction = point_direction(x,y,target.x,target.y + _bossoffset);
 			if (boss) {
 				if(target.x < x) image_xscale = -2;
 				if(target.x > x) image_xscale = 2;
@@ -176,7 +176,7 @@ if(_canmove and instance_exists(target)){
 			//feather disable once GM2017
 			part_system_position(part, x, y - (sprite_get_height(sprite_index) /2));
 			if (carryingBomb) {
-			    instance_create_depth(x, y, depth, oUpgrade,{
+			    instance_create_depth(x, y, depth, oUpgradeNew,{
 					upg : WEAPONS_LIST[Weapons.ImDieExplosion][1],
 					speed : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "speed"],
 					hits : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "hits"],
@@ -213,7 +213,9 @@ if(_canmove and instance_exists(target)){
 	}
 	// Feather disable once GM2016
 	atk = ((baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25))) * atkMult;
-	if (canwalk) {
+	updateTargetInfo = clamp(updateTargetInfo - 1, 0, 30);
+	if (canwalk and updateTargetInfo == 0) {
+		updateTargetInfo = irandom(20);
 	    speed = ((baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * spdMult) * Delta;
 		if (distance_to_point(target.x, target.y - 8) < 3) {
 		    speed = 0;
@@ -227,7 +229,6 @@ if(_canmove and instance_exists(target)){
 				    speed = speed * PLAYER_PERKS[i].spdDebuff;
 				}
 			}
-		    
 		}
 		for (var i = 0; i < array_length(debuffs); ++i) {
 		    if (debuffs[i].id == BuffNames.Paralyzed or debuffs[i].id == BuffNames.RestNote) {
@@ -235,7 +236,7 @@ if(_canmove and instance_exists(target)){
 			}
 		}
 	}
-	else{
+	else if (!canwalk) {
 		speed = 0;
 	}
 	

@@ -50,10 +50,7 @@ function populate_specials(){
 
 	sp = new Special(SpecialIds.WalmartForm, "Pipkin Pippa", "WalmartForm", sWalmart, 60)
 	.set_function(function(){
-		oPlayer.wallMart = true;
-		oPlayer.wallmartTimer = 10;
 		add_buff_to_player(BuffNames.WallmartDefense);
-		instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oSpecialEffect);
 	});
 	SPECIAL_LIST[SpecialIds.WalmartForm] = sp;
 

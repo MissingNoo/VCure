@@ -90,13 +90,14 @@ function populate_buffs() {
 		cooldown : 0,
 	}
 	Buffs[BuffNames.WallmartDefense] = {
+		enter : buff_wallmart_enter,
+		leave : buff_wallmart_leave,
 		id : BuffNames.WallmartDefense,
 		name : "Wallmart",
 		icon : sWalmart,
 		enabled : false,
-		permanent : true,
-		baseCooldown : 1,
-		cooldown : 0,
+		baseCooldown : 10,
+		cooldown : 10,
 	}
 	Buffs[BuffNames.BellyDance] = {
 		id : BuffNames.BellyDance,
@@ -200,9 +201,28 @@ function populate_buffs() {
 	//createCharacter(Characters.Calli,"Mori Calliope",sAmePortrait,sAmeIdle,sAmeRunning,30,1.35,10,u[Weapons.UrukaNote]);
 	
 }
+
+function player_buff_remove(bid) {
+	if (player_have_buff(bid)) {
+		var pos = player_get_buff_pos(bid);
+		array_delete(PlayerBuffs, pos, 1);
+	}
+}
+
+
 function buff_spaghetti_enter() {
     oPlayer.spaghettiEaten = true;
 }
 function buff_spaghetti_leave() {
     oPlayer.spaghettiEaten = false;
+}
+
+function buff_wallmart_enter() {
+	instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth, oSpecialEffect);
+	oPlayer.wallMart = true;
+}
+
+function buff_wallmart_leave() {
+	instance_destroy(oSpecialEffect);
+	oPlayer.wallMart = false;
 }

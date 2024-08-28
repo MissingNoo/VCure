@@ -243,7 +243,6 @@ liaLikers = 0;
 #endregion
 #region Pippa
 wallMart = false;
-wallmartTimer = 0;
 #endregion
 #endregion
 #region Multiplayer

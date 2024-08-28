@@ -18,6 +18,7 @@ event_inherited();
 /// @instancevar {Any} customSpawn 
 /// @instancevar {Any} thisEnemy 
 #endregion
+updateTargetInfo = 0;
 stunned = false;
 stuntimer = 60;
 enemyinfo = -1;
