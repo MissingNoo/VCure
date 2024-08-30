@@ -6,15 +6,8 @@ ENDDEBUG
 #region Have perk
 var lickArea = 0;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-	if (variable_struct_exists(PLAYER_PERKS[i], "draw")) {
-	    PLAYER_PERKS[i][$ "draw"]();
-	}
-	if (PLAYER_PERKS[i].level > 0) { //TODO: CLEAN
-	    switch (PLAYER_PERKS[i].id) {
-		    case PerkIds.Lick:
-		        lickArea = PLAYER_PERKS[i].lickArea;
-		        break;
-		}
+	if (PLAYER_PERKS[i].level > 0 and variable_struct_exists(PLAYER_PERKS[i], "draw")) {
+	    PLAYER_PERKS[i][$ "draw"]({perk : PLAYER_PERKS[i]});
 	}
 }
 #endregion
@@ -43,16 +36,3 @@ if (mouseAim) {
 	draw_sprite_ext(sMouseAim, 0, mouse_x, mouse_y, 1, 1, 0, c_white, 1);
 }
 draw_sprite_ext(sArrow,strafing,x,y-16,1,1,global.arrowDir, _color, 1);
-#region Lia
-switch (global.player[? "name"]) {
-    case "Rinkou Ashelia":
-        if (lickArea > 0) {
-			var _y = y - (sprite_get_height(sprite_index) / 3);
-		    draw_circle_color(x, _y, lickArea, c_white, c_white, true);
-		}
-        break;
-    default:
-        // code here
-        break;
-}
-#endregion

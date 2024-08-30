@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"RinkouAshelia",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"RinkouAshelia",
+  "parent":{
+    "name":"Lia",
+    "path":"folders/Characters/PhaseConnect/Lia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

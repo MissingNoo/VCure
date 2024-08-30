@@ -367,15 +367,6 @@ function imdieexplosion_step(o){
 		
 	}
 }
-function eletricpulse_step(o){
-	if (o == 0) {
-	    
-	}
-	else {
-		x = owner.x;
-		y = owner.y;
-	}
-}
 function bellydance_step(o){ //TODO add animation
 	switch (o) {
 	    case WeaponEvent.BeginStep:

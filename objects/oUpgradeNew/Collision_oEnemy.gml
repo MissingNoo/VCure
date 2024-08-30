@@ -32,12 +32,14 @@ var _mindmg = maxdmg + _bonusDamage;
 var _maxdmg = mindmg + _bonusDamage;
 var dmg = irandom_range(_mindmg, _maxdmg);
 audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, global.soundVolume);
+var _enemyid = other.id;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-	if (variable_struct_exists(PLAYER_PERKS[i], "on_hit")) {
+	if (PLAYER_PERKS[i][$ "level"] > 0 and variable_struct_exists(PLAYER_PERKS[i], "on_hit")) {
 		PLAYER_PERKS[i][$ "on_hit"]({
 			level : PLAYER_PERKS[i][$ "level"],
 			upg,
-			enemy : other
+			enemy : _enemyid,
+			perk : PLAYER_PERKS[i]
 		});
 	}
 }
@@ -101,26 +103,9 @@ if (_rnd <= _critChance) {
 			PLAYER_PERKS[i][$ "on_crit"]({
 				level : PLAYER_PERKS[i][$ "level"],
 				upg,
-				enemy : other
+				enemy : _enemyid,
+				perk : PLAYER_PERKS[i]
 			});
-		}
-	}
-	if (global.player[? "name"] == "Rinkou Ashelia") { //TODO: move
-		for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-			if (PLAYER_PERKS[i].id == PerkIds.Viral) {
-				var _infectChance = PLAYER_PERKS[i].chance;
-				_rnd = irandom_range(1, 100);
-				other.customSpawn = other.customSpawn;
-				if (_rnd <= _infectChance and oPlayer.liaLikers < PLAYER_PERKS[i].maxInfected and !other.boss and !other.customSpawn) {
-					other.infected = true;
-					_virusInfected = true;
-					//other.speed = other.speed * global.player[?"speed"];
-					other.baseSPD = other.baseSPD* global.player[?"speed"];
-					other.hp = other.baseHP;
-					oPlayer.liaLikers += 1;
-					dmg = 0;
-				}				    
-			}
 		}
 	}
 }

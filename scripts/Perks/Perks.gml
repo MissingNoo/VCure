@@ -95,44 +95,7 @@ function populate_perks(){
 		//CHARACTERS[char_pos("Fujikura Uruka", CHARACTERS)][? "perks"] = [PERK_LIST[PerkIds.DirtyMind][0], PERK_LIST[PerkIds.TrashBear][0], PERK_LIST[PerkIds.WeakBones][0]];
 		#endregion
 		#region Lia
-		#region EletricPulse
-		create_perk({
-			id : PerkIds.EletricPulse,
-			name : "Power Strike",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sEletricPulseThumb,
-			cooldown : [0, 10, 8, 6],
-			characterid : "Rinkou Ashelia",
-			upgrade : true,
-			upgradeid : Weapons.ElectricPulse,
-		});
-		#endregion
-		#region Lick
-		create_perk({
-			id : PerkIds.Lick,
-			name : "Lick",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sLick,
-			cooldown : [0, 5, 4, 3],
-			characterid : "Rinkou Ashelia",
-			lickArea : [0, 60, 90, 120]
-		});
-		#endregion
-		#region EletricPulse
-		create_perk({
-			id : PerkIds.Viral,
-			name : "Viral",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sViral,
-			cooldown : 1,
-			characterid : "Rinkou Ashelia",
-			chance : [0, 20, 27, 33],
-			maxInfected : [0, 5, 10, 15]
-		});
-		#endregion
+		
 		//global.characterPerks["Rinkou Ashelia"] = [PERK_LIST[PerkIds.EletricPulse][0], PERK_LIST[PerkIds.Viral][0], PERK_LIST[PerkIds.Lick][0]];
 		#endregion
 		#region Pippa
@@ -192,15 +155,7 @@ function tick_perks()
 			
 	//		//switch (PLAYER_PERKS[i][$ "id"]) {
 	//		//	case PerkIds.Lick:{
-	//		//		var _list = ds_list_create();
-	//		//		var _y = oPlayer.y - (sprite_get_height(global.player[?"sprite"]) / 3);
-	//		//		var _num = collision_circle_list(oPlayer.x, _y, PLAYER_PERKS[i].lickArea, oEnemy, false, true, _list, false);
-	//		//		for (var j = 0; j < _num; ++j) {
-	//		//			var _heal = ceil(MAXHP/100);
-	//		//		    heal_player(_heal);
-	//		//			show_debug_message("healed:" + string(_heal));
-	//		//		}
-	//		//		ds_list_destroy(_list);
+
 	//		//		break;}
 	//		//}
 	//		//	case PerkIds.FpsMastery:{

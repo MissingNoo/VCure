@@ -48,8 +48,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Lia",
-    "path":"folders/Characters/PhaseConnect/Lia.yy",
+    "name":"Perks",
+    "path":"folders/Characters/PhaseConnect/Lia/Perks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

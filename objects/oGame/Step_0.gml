@@ -289,7 +289,8 @@ if (global.gamePaused == false and instance_exists(oPlayer)) {
 			global.perkCooldown[PLAYER_PERKS[i].id] = PLAYER_PERKS[i].cooldown;
 		    if (variable_struct_exists(PLAYER_PERKS[i], "on_cooldown")) {
 				PLAYER_PERKS[i][$ "on_cooldown"]({
-					level : PLAYER_PERKS[i][$ "level"]
+					level : PLAYER_PERKS[i][$ "level"],
+					perk : PLAYER_PERKS[i]
 				});
 			}
 			if (variable_struct_exists(PLAYER_PERKS[i], "bonus")) {

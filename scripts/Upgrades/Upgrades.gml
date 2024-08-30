@@ -291,55 +291,8 @@ function populate_upgrades(){
 			#endregion
 		#endregion	
 		#region Lia
-		new_create_upgrade({
-			func : liabolt_step,
-			id : Weapons.LiaBolt,
-			name : "Lightning Bolt",
-			maxlevel : 7,
-			sprite : sBolt,
-			attackdelay : 10,
-			thumb : sLiaBolt,
-			mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
-			maxdmg : [13, 13*1.20, 13*1.20, 13*1.20, 13*1.20, 13*1.20*1.10, 13*1.20*1.10],
-			cooldown : [80, 80, 80*0.85, 80*0.85, 80*0.85*0.90, 80*0.85*0.90, 80*0.85*0.90],
-			duration : 50, 
-			hitCooldown : 20,
-			canBeHasted : true,
-			speed : 0,
-			hits : 1,
-			type : "red",
-			shoots : 1,
-			bolts : [1, 2, 2, 3, 3, 3, 5],
-			knockbackSpeed : 0,
-			knockbackDuration : 0,
-			perk : true,
-			characterid : "Rinkou Ashelia",
-			weight : 3
-		});
-		new_create_upgrade({
-			func : eletricpulse_step,
-				id : Weapons.ElectricPulse,
-				name : "Electric Pulse",
-				maxlevel : 7,
-				sprite : sEletricPulse,
-				attackdelay : 10,
-				thumb : sBolt,
-				mindmg : [7, 7*1.20, 7*1.20, 7*1.20, 7*1.20, 7*1.20*1.10, 7*1.20*1.10],
-				maxdmg : [13, 13, 13*1.25, 13*1.25, 13*1.25, 13*1.20*1.40, 13*1.20*1.40],
-				cooldown : [80, 80, 80*0.90, 80*0.90, 80*0.90, 80*0.90, 80*0.90],
-				duration : 300, 
-				hitCooldown : 50,
-				canBeHasted : true,
-				speed : 0,
-				hits : 9999,
-				type : "red",
-				shoots : 1,
-				knockbackSpeed : [0, 0, 0, 0, 0, 0, 0],
-				knockbackDuration : [0, 0, 0, 0, 0, 0, 0],
-				perk : true,
-				size : 0.5,
-				characterid : "NullChar",
-			});
+		
+		
 		#endregion
 		#region Tenma
 		#region Brick
