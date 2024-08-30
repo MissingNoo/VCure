@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"DetectiveEye",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"DetectiveEye",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Amelia/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Bubba",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Bubba",
+  "parent":{
+    "name":"Perks",
+    "path":"folders/Characters/Hololive/Amelia/Perks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

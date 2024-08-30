@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"WatsonAmelia",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"WatsonAmelia",
+  "parent":{
+    "name":"Amelia",
+    "path":"folders/Characters/Hololive/Amelia.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

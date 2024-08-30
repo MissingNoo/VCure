@@ -141,48 +141,8 @@ function populate_perks(){
 		#endregion
 		#region Hololive
 		#region Amelia
-		#region FPS Mastery
-		create_perk({
-			id : PerkIds.FpsMastery,
-			name : "FPS Mastery",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sAmeliaFpsMastery,
-			cooldown : [3, 3, 2.01, 2.01],
-			bonus : true,
-			bonusType : [BonusType.Damage, BonusType.Haste],
-			bonusValue : [[0, 20, 40, 60], [0, 0, 0, 10]],
-			characterid : "Watson Amelia"
-		});
-		#endregion
-		#region Detective Eye
-		create_perk({
-			id : PerkIds.DetectiveEye,
-			func : detective_eye,
-			name : "Detective Eye",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sAmeliaDetectiveEye,
-			cooldown : [3, 3, 2.01, 2.01],
-			characterid : "Watson Amelia",
-			bonus : true,
-			bonusType : BonusType.Critical,
-			bonusValue : [0, 1.10, 1.20, 1.30]
-		});
-		#endregion
-		#region Bubba
-		create_perk({
-			id : PerkIds.Bubba,
-			func : perk_bubba,
-			name : "Bubba",
-			maxlevel : 3, 
-			weight : 1,
-			thumb : sAmeliaBubba,
-			cooldown : [3, 3, 2.01, 2.01],
-			characterid : "Watson Amelia"
-		});
-		#endregion
-		//global.characterPerks["Watson Amelia"] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
+		
+		//global.characterPerks["Amelia Watson"] = [PERK_LIST[PerkIds.FpsMastery][0], PERK_LIST[PerkIds.DetectiveEye][0], PERK_LIST[PerkIds.Bubba][0]];
 		#endregion
 		#region Aki
 		

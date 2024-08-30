@@ -7,6 +7,11 @@ function amepistol_create(obj){
 	obj.amePistolLastHit = false;
 }
 function amepistol_on_hit(obj){
+	if (obj.upg[$"level"] == obj.upg[$"maxlevel"]) {
+		if (other.helddamagetimer == 0) {
+			other.helddamagetimer = 2;
+		}
+	}
 	if (obj.hits == 1 and !obj.amePistolLastHit and obj.upg[$"level"] >= 4) {
 		obj.amePistolLastHit = true;
 		obj.hits += 5;

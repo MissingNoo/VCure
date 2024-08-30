@@ -1,9 +1,8 @@
 /// @description Insert description here
-// You can write your code in this editor
-// Feather disable once GM1041
-//for (var i = 0; i < array_length(hittedcooldown); ++i) {
-//for (var i = 0; i < Weapons.Length; ++i) {
-//	if (hittedcooldown[i] > 0) {
-//	    hittedcooldown[i] -= 1;
-//	}
-//}
+helddamagetimer = clamp(helddamagetimer - (1/60), 0, 2);
+if (helddamagetimer == 0 and round(helddamage) > 0) {
+    hp -= round(helddamage);
+    damage_number_spawn(self, round(helddamage), false, false);
+    show_debug_message($"Received {round(helddamage)} held damage");
+    helddamage = 0;
+}

@@ -71,7 +71,7 @@ for (var i = 0; i < array_length(other.debuffs); ++i) { //TODO: Debuffs
 	//	}
 	//}
 }
-dmg = dmg + bdmg;
+dmg = dmg + ((dmg * bdmg) / 100);
 var _rnd = irandom_range(0, 100);
 var _critChance = oPlayer.critChance;
 var _critMultiplier = 1;
@@ -148,6 +148,11 @@ switch (sprite_index) {
 		break;
 }
 #endregion
+if (other.helddamagetimer > 0) {
+	var held = (dmg * 15) / 100;
+	other.helddamage += held;
+	dmg = dmg - held;
+}
 other.hp -= dmg;
 damage_number_spawn(other, dmg, _wasCrit, _virusInfected);
 other.damagedAlarm=15;

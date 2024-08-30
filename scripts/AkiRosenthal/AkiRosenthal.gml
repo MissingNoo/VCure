@@ -15,7 +15,7 @@ function aki_rosenthal_initialize() {
 		ballsize : 3,
 		flat : false,
 		unlockedbydefault : true,
-		finished : 3
+		finished : true
 	});
 	
 	#region Belly Dancing

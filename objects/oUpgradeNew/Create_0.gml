@@ -39,9 +39,7 @@ array_push(dAlarm, [upg.attackdelay, function() {
 #region Cooldown
 var cooldown = upg[$ "cooldown"];
 if (upg[$ "canBeHasted"] == true) {
-	show_debug_message(cooldown);
 	cooldown = cooldown - ((cooldown * oPlayer.weaponHaste) / 100);
-	show_debug_message($"after:{cooldown}");
 }
 if (upg[$ "minimumcooldown"] != undefined and cooldown < upg.minimumcooldown) {
 	cooldown = upg.minimumcooldown;

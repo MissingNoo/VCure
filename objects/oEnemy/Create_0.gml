@@ -18,6 +18,9 @@ event_inherited();
 /// @instancevar {Any} customSpawn 
 /// @instancevar {Any} thisEnemy 
 #endregion
+holddamageintime = false;
+helddamage = 0;
+helddamagetimer = 0;
 updateTargetInfo = 0;
 stunned = false;
 stuntimer = 60;

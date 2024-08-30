@@ -1,5 +1,5 @@
 //feather disable GM2017
-var offset;
+var offset = 0;
 NAME = CHARACTERS[selectedCharacter][? "name"];
 var _isUnlocked = CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].unlocked;
 var _x;
@@ -129,7 +129,7 @@ if (!characterSelected) {
 		var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
 		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
 		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and state == "base") {
-			selectedCharacter = i; 
+			selectedCharacter = i;
 			if (soundplayedby != i) {
 				soundplayedby = i;
 				audio_play_sound(snd_char_select_woosh,0,0, global.soundVolume);

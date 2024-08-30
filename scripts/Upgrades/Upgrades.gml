@@ -371,30 +371,7 @@ function populate_upgrades(){
 		#endregion
 		#region Hololive
 		#region Amelia
-		new_create_upgrade({
-			create : amepistol_create,
-			on_hit : amepistol_on_hit,
-			id : Weapons.AmePistol,
-			name : "Pistol Shot",
-			maxlevel : 7,
-			sprite : sAmeliaWeaponProjectile,
-			thumb : sAmeliaWeapon,
-			mindmg : [8, 8, 10, 10, 10, 12, 12],
-			maxdmg : [12, 12, 14, 14, 14, 16, 16],
-			cooldown : [80, 80, 80, 80, 60, 60, 60],
-			minimumcooldown : 50,
-			duration : 120,
-			hitCooldown : 20,
-			canBeHasted : true,
-			attackdelay : 6,//
-			speed : 5,
-			hits : [1, 2, 2, 2, 3, 3, 3],
-			type : "red",
-			shoots : [3, 5, 5, 5, 5, 5, 5],
-			perk : true,
-			characterid : "Watson Amelia",
-			weight : 3
-		},[snd_bullet, snd_bullet2, snd_bullet3]);
+		
 		#endregion
 		#region Aki
 		new_create_upgrade({

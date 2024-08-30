@@ -34,7 +34,7 @@ function populate_outfits(){
 	//outfit_add("Tenma Maemi",		Outfits.TenmaAlternative,			sTenmaIdle,			sTenmaRun,				true);
 	outfit_add("Tenma Maemi",		Outfits.Tenma,			sTenmaIdleNew,			sTenmaRunNew,				true);
 	outfit_add("Nephasis",		Outfits.Trickywi,			sTrickyIdle,			sTrickyRun,				true);
-	outfit_add("Watson Amelia",		Outfits.Amelia,			sAmeliaIdle,			sAmeliaRun,				true);
+	outfit_add("Amelia Watson",		Outfits.Amelia,			sAmeliaIdle,			sAmeliaRun,				true);
 	outfit_add("Aki Rosenthal",		Outfits.Aki,			sAkiIdle,			sAkiRun,				true);
 	outfit_add("Aki Rosenthal",		Outfits.AkiO1,			sAkiO1Idle,			sAkiO1Run,				false);
 	outfit_add("Anya Melfissa",		Outfits.Anya,			sAnyaIdle,			sAnyaRun,				true);
