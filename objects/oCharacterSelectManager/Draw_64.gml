@@ -312,14 +312,23 @@ switch (state) {
 				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw, _yy + _ph, c_black, c_black, c_black, c_black, false);
 				var _sx = _pw;
 				var _sy = 300;
+				if (point_in_rectangle(MX, MY, _x - _pw, _yy - _ph, _x + _pw, _yy + _ph) and device_mouse_check_button_pressed(0, mb_left)) {
+					stageswiping = true;
+					swipestartoffset = MX;
+				}
+				if (stageswiping) {
+				    swipeoffset = swipestartoffset - MX;
+				}
+//				scribble($"offset: {swipeoffset}").scale(2).draw(MX, MY-20);
 				if (surface_exists(stagesurf)) {
 					surface_set_target(stagesurf);
+					draw_clear_alpha(c_black, 0);
 					var _soffset = 0
 					for (var i = 0; i < array_length(stages); ++i) {
-						draw_sprite_ext(stages[i].port, 0, _sx + stageselectlerp[0] + _soffset, _sy, 3.25, 3.25, 0 ,c_white, 0.65);
-						draw_sprite_ext(stages[i].back, 0, _sx + stageselectlerp[0] + _soffset, _sy, 1.25, 1.25, 0 ,c_white, 0.75);
-						scribble_outline($"[fa_center][fa_middle]{stages[i].name}", _sx + stageselectlerp[0]  + _soffset, _sy, "c_black", 8);
-						_soffset += 550;
+						draw_sprite_ext(stages[i].port, 0, _sx + stageselectlerp[0] + swipeoffset + _soffset, _sy, 3.25, 3.25, 0 ,c_white, 0.85);
+						draw_sprite_ext(stages[i].back, 0, _sx + stageselectlerp[0] + swipeoffset + _soffset, _sy, 1.25, 1.25, 0 ,c_white, 0.80);
+						scribble_outline($"[fa_center][fa_middle]{stages[i].name}", _sx + stageselectlerp[0] + swipeoffset  + _soffset, _sy, "c_black", 8);
+						_soffset += 490;
 					}
 					surface_reset_target();
 				}

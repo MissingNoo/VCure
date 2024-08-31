@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Aik",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Aik",
+  "parent":{
+    "name":"Weapon",
+    "path":"folders/Characters/Hololive/Aki/Weapon.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

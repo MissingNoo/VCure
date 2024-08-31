@@ -1,3 +1,3 @@
 if (upg[$ "step"] != undefined) {
-    upg[$ "step"]();
+    upg[$ "step"](self.id);
 }

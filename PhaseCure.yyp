@@ -515,6 +515,7 @@
     {"id":{"name":"__scribble_tick","path":"scripts/__scribble_tick/__scribble_tick.yy",},},
     {"id":{"name":"__snowstate_config","path":"scripts/__snowstate_config/__snowstate_config.yy",},},
     {"id":{"name":"Achievements","path":"scripts/Achievements/Achievements.yy",},},
+    {"id":{"name":"Aik","path":"scripts/Aik/Aik.yy",},},
     {"id":{"name":"AkiRosenthal","path":"scripts/AkiRosenthal/AkiRosenthal.yy",},},
     {"id":{"name":"AmePistol","path":"scripts/AmePistol/AmePistol.yy",},},
     {"id":{"name":"AnyaBlade","path":"scripts/AnyaBlade/AnyaBlade.yy",},},

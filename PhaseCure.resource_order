@@ -438,6 +438,7 @@
     {"name":"__scribble_system","order":10,"path":"scripts/__scribble_system/__scribble_system.yy",},
     {"name":"__scribble_tick","order":11,"path":"scripts/__scribble_tick/__scribble_tick.yy",},
     {"name":"Achievements","order":16,"path":"scripts/Achievements/Achievements.yy",},
+    {"name":"Aik","order":4,"path":"scripts/Aik/Aik.yy",},
     {"name":"AkiRosenthal","order":14,"path":"scripts/AkiRosenthal/AkiRosenthal.yy",},
     {"name":"AmePistol","order":1,"path":"scripts/AmePistol/AmePistol.yy",},
     {"name":"AnyaBlade","order":3,"path":"scripts/AnyaBlade/AnyaBlade.yy",},

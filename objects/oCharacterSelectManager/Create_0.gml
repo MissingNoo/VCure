@@ -1,4 +1,7 @@
 stagesurf = -1;
+stageswiping = false;
+swipestartoffset = 0;
+swipeoffset = 0;
 nextvar = [false, "", false];
 stagelerp = [-GW/2.75, -GW/2.75, -GW/2.75];
 nextvar = [false, "", false];
