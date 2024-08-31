@@ -1,4 +1,7 @@
 //feather disable GM2017
+quithold = clamp(quithold + (input_check("pause") * 3), 0, 100);
+if (input_check_released("pause")) { quithold = 0; }
+if (quithold == 100) { room_goto(rInicio); }
 for (var i = array_length(fandom_current_frame) - 1; i > 0; i -= 1) {
 	if (ceil(fandom_current_frame[i][0]) >= fandom_current_frame[i][1]) {
 			current_frame = 0;
@@ -68,6 +71,7 @@ switch (state) {
 			    case true:
 					global.currentStage = selectedStage;
 					global.stageHard = stages[selectedStage].hard;
+					global.selectedOutfit = selectedOutfit;
 			        room_goto(stages[selectedStage].roomname);
 			        break;
 			    case false:

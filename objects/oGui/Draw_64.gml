@@ -492,9 +492,13 @@ if (os_type == os_android) {
 #endregion
 #region Info on screen
 if (room == rCharacterSelect or room == rInicio) {
-	draw_set_halign(fa_right);
-	draw_text_transformed(GW - 10, GH/1.05, "CONFIRM: Z | CANCEL: X | Exit: ESC", 2.5, 2.5, 0);
-	draw_set_halign(fa_left);
+	//draw_set_halign(fa_right);
+	var bonusstring = "";
+	if (instance_exists(oCharacterSelectManager)) {
+	    bonusstring = "Change outfit: Q/E | ";
+	}
+	scribble($"[fa_right]{bonusstring}Confirm: Z | Cancel: X | Exit: hold ESC").scale(2.5).draw(GW - 10, GH/1.05);
+	//draw_set_halign(fa_left);
 }
 #endregion
 #region Draw Mouse

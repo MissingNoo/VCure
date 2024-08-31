@@ -5,9 +5,6 @@ if (input_check_pressed("pause") and !global.upgrade and !ANVIL and !GoldenANVIL
 	    pause_game();
 	}
 	switch (room) {
-	    case rCharacterSelect:
-	        room_goto(rInicio);
-	        break;
 		case rShop:
 			break;
 	    default:

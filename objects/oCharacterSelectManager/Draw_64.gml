@@ -10,7 +10,8 @@ var _max;
 if (_isUnlocked) {
 	scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][? "name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
 	draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
-	draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][? "sprite"] : CHARACTERS[selectedCharacter][?"runningsprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
+	selectedOutfit = clamp(selectedOutfit - keyboard_check_pressed(ord("Q")) + keyboard_check_pressed(ord("E")), 0, array_length(CHARACTERS[selectedCharacter][? "outfits"]) - 1);
+	draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][? "outfits"][selectedOutfit][$ "sprite"] : CHARACTERS[selectedCharacter][? "outfits"][selectedOutfit][$ "runningSprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
 	var _charInfo = CHARACTERS[selectedCharacter];
 	var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];
 	var _yoffset = 0;
@@ -71,7 +72,7 @@ _offset = 0;
 for (var i = 0; i < 3; ++i) {
 	var _xx = GW/1.20 + _offset;
 	_yy = GH/1.43;
-	var _perk = CHARACTERS[selectedCharacter][? "perks"][i]
+	var _perk = CHARACTERS[selectedCharacter][? "perks"][i];
 	var _spr = _perk.thumb;
 	var _sprW = sprite_get_width(_spr) * 3 / 2;
 	var _sprH = sprite_get_height(_spr) * 3 / 2;
@@ -317,7 +318,7 @@ switch (state) {
 					swipestartoffset = MX;
 				}
 				if (stageswiping) {
-				    swipeoffset = clamp(swipestartoffset - MX, -175, 175);
+				    swipeoffset = clamp(MX - swipestartoffset, -175, 175);
 				}
 				if (surface_exists(stagesurf)) {
 					surface_set_target(stagesurf);
@@ -375,4 +376,7 @@ switch (state) {
 		        break;
 		}
 		break;
+}
+if (quithold > 10) {
+    draw_healthbar(GW/2 - 30, GH/2 - 10, GW/2 + 30, GH/2 + 10, ((quithold / 100) * 100), c_black, c_aqua, c_aqua, 0, 1, 1);
 }

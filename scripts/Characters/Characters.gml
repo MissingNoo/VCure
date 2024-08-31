@@ -4,7 +4,7 @@ global.agencies = [
 	["All", sHudHomeIcon], 
 	["Phase-Connect", sPhaseIcon],
 	["Hololive", sHudHoloIcon],
-	["Indies", sHudIndiesIcon]
+	//["Indies", sHudIndiesIcon]
 ];
 CharacterData = [];
 global.perks = [0];

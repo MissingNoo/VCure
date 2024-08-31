@@ -1,3 +1,4 @@
+quithold = 0;
 stagesurf = -1;
 stageswiping = false;
 swipestartoffset = 0;

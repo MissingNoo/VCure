@@ -26,7 +26,7 @@
   ],
   "name":"sPippaIdleO2",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"Outfits",
     "path":"folders/Characters/PhaseConnect/Pipkin Pippa/Outfits.yy",
@@ -87,7 +87,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":14,
+    "xorigin":13,
     "yorigin":31,
   },
   "swatchColours":null,
