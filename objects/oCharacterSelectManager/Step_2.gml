@@ -12,10 +12,10 @@ switch (state) {
 	        if (input_check_pressed("left") or (mouse_click and point_in_triangle(MX, MY, triangleSL[0][0], triangleSL[0][1], triangleSL[1][0], triangleSL[1][1], triangleSL[2][0], triangleSL[2][1]))){ selectedStage--; }
 			if (device_mouse_check_button_released(0, mb_left)) {
 				stageswiping = false;
-				if (swipeoffset > 300) {
+				if (swipeoffset > 160) {
 					selectedStage--;
 				}
-				if (swipeoffset < -300) {
+				if (swipeoffset < -160) {
 					selectedStage++;
 				}
 				stageselectlerp[0] += swipeoffset;

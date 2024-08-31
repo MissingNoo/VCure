@@ -31,6 +31,7 @@ function populate_outfits(){
 	outfit_add("Fujikura Uruka",		Outfits.Uruka,			sUrukaIdle,				sUrukaRunning,		true);
 	outfit_add("Rinkou Ashelia",				Outfits.Lia,					sLiaIdle,					sLiaRunningOld,		true);
 	outfit_add("Pipkin Pippa",		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
+	outfit_add("Pipkin Pippa",		Outfits.Pippa,				sPippaIdle,				sPippaRun,					true);
 	//outfit_add("Tenma Maemi",		Outfits.TenmaAlternative,			sTenmaIdle,			sTenmaRun,				true);
 	outfit_add("Tenma Maemi",		Outfits.Tenma,			sTenmaIdleNew,			sTenmaRunNew,				true);
 	outfit_add("Nephasis",		Outfits.Trickywi,			sTrickyIdle,			sTrickyRun,				true);

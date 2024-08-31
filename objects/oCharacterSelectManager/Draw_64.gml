@@ -309,7 +309,7 @@ switch (state) {
 				_yy = GH/2.50;
 				var _pw = sprite_get_width(stages[selectedStage].port) / 2 * 3.25;
 				var _ph = sprite_get_height(stages[selectedStage].port) / 2 * 3.25;
-				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw, _yy + _ph, c_black, c_black, c_black, c_black, false);
+				draw_rectangle_color(_x - _pw, _yy - _ph, _x + _pw - 2, _yy + _ph - 1, c_black, c_black, c_black, c_black, false);
 				var _sx = _pw;
 				var _sy = 300;
 				if (point_in_rectangle(MX, MY, _x - _pw, _yy - _ph, _x + _pw, _yy + _ph) and device_mouse_check_button_pressed(0, mb_left)) {
@@ -317,9 +317,8 @@ switch (state) {
 					swipestartoffset = MX;
 				}
 				if (stageswiping) {
-				    swipeoffset = swipestartoffset - MX;
+				    swipeoffset = clamp(swipestartoffset - MX, -175, 175);
 				}
-//				scribble($"offset: {swipeoffset}").scale(2).draw(MX, MY-20);
 				if (surface_exists(stagesurf)) {
 					surface_set_target(stagesurf);
 					draw_clear_alpha(c_black, 0);
