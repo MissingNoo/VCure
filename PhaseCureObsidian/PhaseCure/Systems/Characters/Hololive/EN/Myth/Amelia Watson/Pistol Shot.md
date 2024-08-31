@@ -19,4 +19,4 @@ tags:
 - Level 6
 	- [x] Increase damage by 20%.
 - Level MAX
-	- [ ] For the next 2 seconds, 15% of all damage taken by target is stored in time. Then target takes total of stored damage.
+	- [x] For the next 2 seconds, 15% of all damage taken by target is stored in time. Then target takes total of stored damage.

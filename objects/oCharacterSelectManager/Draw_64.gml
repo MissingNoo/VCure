@@ -151,7 +151,7 @@ if (!characterSelected) {
 		if (selectedCharacter == i) {
 			draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
 		}
-		if (i == 5) {
+		if (i == 4) {
 			_yoffset += 85;
 			_offset = 0;
 		}
