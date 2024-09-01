@@ -211,6 +211,7 @@ global.fonts[1] = font_add_sprite_ext(sDmgFont, "0123456789KO!", true, 1);
 scribble_font_bake_outline_4dir("sDmgFont", "fDmg", c_black, true);
 scribble_font_set_default("sHFont");
 scribble_font_bake_outline_4dir("sHFont", "sHFontOutline", c_black, true);
+scribble_font_force_bilinear_filtering("sHFontOutline", false);
 //global.newFont[2] = font_add_sprite_ext(sPixelFont, fstr, true, 2);
 //global.newFont[1] = font_add("Silver.ttf", 13, false, false, 32, 128);
 global.newFont[2] = font_add("Silver.ttf", 13, false, false, 32, 128);

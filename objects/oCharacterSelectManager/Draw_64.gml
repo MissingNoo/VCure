@@ -10,7 +10,12 @@ var _max;
 if (_isUnlocked) {
 	scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][? "name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
 	draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
+	var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
+	if (CharacterData[datapos][$ "lastOutfit"] != undefined) {
+	    selectedOutfit = CharacterData[datapos][$ "lastOutfit"];
+	}
 	selectedOutfit = clamp(selectedOutfit - keyboard_check_pressed(ord("Q")) + keyboard_check_pressed(ord("E")), 0, array_length(CHARACTERS[selectedCharacter][? "outfits"]) - 1);
+	 CharacterData[datapos][$ "lastOutfit"] = selectedOutfit;
 	draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][? "outfits"][selectedOutfit][$ "sprite"] : CHARACTERS[selectedCharacter][? "outfits"][selectedOutfit][$ "runningSprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
 	var _charInfo = CHARACTERS[selectedCharacter];
 	var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];

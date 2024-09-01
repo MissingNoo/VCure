@@ -346,20 +346,18 @@ if (instance_exists(oPlayer)) {
 	var _yy = GH - 55;
 	for (var i = 0; i < array_length(PlayerBuffs); ++i) {
 		//if (variable_struct_exists(PlayerBuffs[i],"enabled") and PlayerBuffs[i].enabled == true) {
-		draw_set_alpha(.5);
-		draw_rectangle(_xx - 32, _yy - 32, _xx + 32, _yy + 32, false);
+		draw_set_alpha(0.55);
+		draw_roundrect_ext(_xx - 32, _yy - 32, _xx + 32, _yy + 32, 32, 32, false);
 		draw_set_alpha(1);
-		draw_sprite_stretched(PlayerBuffs[i].icon, 0, _xx - sprite_get_width(PlayerBuffs[i].icon), _yy - sprite_get_height(PlayerBuffs[i].icon), 35, 35);
-		draw_set_color(c_blue);
+		draw_sprite_ext(PlayerBuffs[i].icon, 0, _xx, _yy, 2.25, 2.25, 0, c_white, 1);
 		if (variable_struct_exists(PlayerBuffs[i], "cooldown") and !variable_struct_exists(PlayerBuffs[i], "permanent")) {
-			draw_text(_xx, _yy+10, string(round(PlayerBuffs[i].cooldown)));
+			scribble($"[sHFontOutline]{round(PlayerBuffs[i].cooldown)}").scale(2.50).draw(_xx + 9, _yy);
 		}
 		if (variable_struct_exists(PlayerBuffs[i], "count")) {
-			scribble($"[fa_right]{string(round(PlayerBuffs[i].count))}").scale(3).draw(_xx + 15, _yy);
+			scribble($"[sHFontOutline][fa_right]{round(PlayerBuffs[i].count)}").scale(2.50).draw(_xx - 9, _yy);
 		}					
-		draw_set_color(c_white);
 		draw_set_alpha(1);
-		_xx += 40;
+		_xx += 75;
 		//}
 	}
 	#endregion
