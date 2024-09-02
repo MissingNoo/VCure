@@ -2031,52 +2031,52 @@ function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 }
 #endregion
 function spawn_upgrade(xx, yy, upg, data = {}) {
-	var pop = ds_stack_pop(global.upinstances);
-	if (pop != undefined and instance_exists(pop)) {
-		show_debug_message("Using existing object");
-		if (data[$ "upg"] == undefined) {
-			pop.upg = upg;
-		} 
-		else {
-			pop.upg = data[$ "upg"];
-		}
-		pop.x = oPlayer.x;
-		pop.y = oPlayer.y;
-		if (data[$ "shoots"] == undefined) {
-		    pop.shoots = 0;
-		}
-		pop.image_angle = 0;
-		if (data[$ "orbitPlace"] == undefined) {
-			pop.orbitPlace = 0;
-		}
-		if (data[$ "orbitoffset"] == undefined) {
-			pop.orbitoffset = 0;
-		}
-		if (data[$ "diroffset"] == undefined) {
-			pop.diroffset= 0;
-		}
-		pop.arrowDir = global.arrowDir;
-		pop.afterimage = [[], [], [], []];
-		pop.afterimagecount = 0;
-		pop.image_xscale = 1;
-		pop.image_yscale = 1;
-		pop.hits = 0;
-		pop.image_alpha = 1;
-		with (pop) {
-			event_perform(ev_create, 0);
-			alpha = 1;
-		}
-	}
-	else {
-		show_debug_message("Adding extra upgrade to instance list");
-		if (data[$ "upg"] == undefined) {
-		    data.upg = upg;
-		}
+	//var pop = ds_stack_pop(global.upinstances);
+	//if (pop != undefined and instance_exists(pop)) {
+	//	show_debug_message("Using existing object");
+	//	if (data[$ "upg"] == undefined) {
+	//		pop.upg = upg;
+	//	} 
+	//	else {
+	//		pop.upg = data[$ "upg"];
+	//	}
+	//	pop.x = oPlayer.x;
+	//	pop.y = oPlayer.y;
+	//	if (data[$ "shoots"] == undefined) {
+	//	    pop.shoots = 0;
+	//	}
+	//	pop.image_angle = 0;
+	//	if (data[$ "orbitPlace"] == undefined) {
+	//		pop.orbitPlace = 0;
+	//	}
+	//	if (data[$ "orbitoffset"] == undefined) {
+	//		pop.orbitoffset = 0;
+	//	}
+	//	if (data[$ "diroffset"] == undefined) {
+	//		pop.diroffset= 0;
+	//	}
+	//	pop.arrowDir = global.arrowDir;
+	//	pop.afterimage = [[], [], [], []];
+	//	pop.afterimagecount = 0;
+	//	pop.image_xscale = 1;
+	//	pop.image_yscale = 1;
+	//	pop.hits = 0;
+	//	pop.image_alpha = 1;
+	//	with (pop) {
+	//		event_perform(ev_create, 0);
+	//		alpha = 1;
+	//	}
+	//}
+	//else {
+	//	show_debug_message("Adding extra upgrade to instance list");
+	//	if (data[$ "upg"] == undefined) {
+	//	    data.upg = upg;
+	//	}
 		instance_create_layer(xx, yy-8,"Upgrades",oUpgradeNew, data);
-	}
-	if (ds_stack_size(global.upinstances) > 60) {
-	    instance_destroy(ds_stack_pop(global.upinstances));
-	}
+	//}
+	//if (ds_stack_size(global.upinstances) > 60) {
+	//    instance_destroy(ds_stack_pop(global.upinstances));
+	//}
 }
 function tick_powers(){
 	if (attacktick == true and UPGRADES[0][$ "name"]!="") {

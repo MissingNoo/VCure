@@ -32,7 +32,7 @@ if (_isUnlocked) {
 	var runsprite = CHARACTERS[selectedCharacter][? "outfits"][sprdata][$ "runningSprite"];
 	#endregion
 	//draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
-	draw_sprite_ext(currentSprite == 0 ? idlesprite : runsprite, characterSubImage[0], GW - d.a, GH - d.b, 5, 5, 0, c_white, 1);
+	draw_sprite_ext(currentSprite == 0 ? idlesprite : runsprite, characterSubImage[0], GW - 460, GH - 280, 5, 5, 0, c_white, 1);
 	//draw_sprite_ext(CHARACTERS[selectedCharacter][? "bigArt"], 0, GW/2, GH/2, 56, 56, 0, c_white, 1);
 	var _charInfo = CHARACTERS[selectedCharacter];
 	var _info = [
@@ -72,8 +72,11 @@ if (fandomlevel != -1) {
 #endregion
 #region GRank
 draw_rectangle_color(GW - 232, GH/2 - 2 - 19, GW - 128, GH/2 - 2 + 19, c_white, c_white, c_white, c_white, false);
+draw_sprite_ext(sGRankArrow, 0, GW - 266, GH/2 - 8, 2.45, 2.45, 0, c_white, 1);
 scribble("[fa_center][fa_middle][c_orange]G. RANK").scale(2.75).draw(GW - 180, GH/2);
 draw_rectangle_color(GW - 128, GH/2 - 2 - 19, GW - 30, GH/2 - 2 + 19, c_orange, c_orange, c_orange, c_orange, false);
+draw_sprite_ext(sAchFirstback, 0, GW - 266, GH/2 + 55, 2.25, 2.25, 0, c_white, 1);
+draw_sprite_ext(sAchFirstWin, 0, GW - 266, GH/2 + 55, 2.25, 2.25, 0, c_white, 1);
 scribble("[fa_middle]99999").scale(2.75).draw(GW - 120, GH/2);
 #endregion
 #region Wins
@@ -163,7 +166,7 @@ if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*atksc
 if (!characterSelected) {
 	//Feather disable once GM1041
 	var _yoffset = 0 - characterlerp[0];	
-	scribble("[white][fa_middle][fa_center]Choose your vtuber").scale(4.30, 4.30).draw(GW/4, GH/8 + _yoffset);
+	scribble("[white][fa_middle][fa_center]CHOOSE YOUR VTUBER").scale(5).draw(410, 82 + _yoffset);
 	_offset = 0;
 	_x = 190;
 	_y = 216;
@@ -203,7 +206,7 @@ if (!characterSelected) {
 			draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, pscale, pscale, 0, c_white,1);
 		}
 		if (i == 4) {
-			_yoffset += 101;
+			_yoffset += 101 - characteroffsetlerp[0];
 			_offset = 0;
 		}
 		else {

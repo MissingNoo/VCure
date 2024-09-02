@@ -7,7 +7,7 @@ if (array_length(upglines) < 50) {
     array_push(upglines, 
         [
             irandom(GW),
-            GH + irandom_range(100, 500),
+            irandom_range(0, GH + irandom(300)),
             irandom_range(30, 220),
             irandom_range(5, 15)
         ]

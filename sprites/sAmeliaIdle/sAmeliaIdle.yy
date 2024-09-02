@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Amelia",
-    "path":"folders/Characters/Hololive/Amelia.yy",
+    "name":"Outfits",
+    "path":"folders/Characters/Hololive/Amelia/Outfits.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -21,12 +21,12 @@ array_push(dAlarm, [upg.duration, function() {
 	if (!global.singleplayer) {
 		sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : oid, type : "upg"})});
 	}
-	//instance_destroy();
-	x = 9999999;
-	y = 9999999;
-	visible = false;
-	paused = true;
-	ds_stack_push(global.upinstances, self.id);
+	instance_destroy();
+	//x = 9999999;
+	//y = 9999999;
+	//visible = false;
+	//paused = true;
+	//ds_stack_push(global.upinstances, self.id);
 }]);
 reverseshoots = -1;
 if (upg[$ "attackdelay"] == undefined) {

@@ -1,4 +1,4 @@
-show_debug_overlay(true);
+//show_debug_overlay(true);
 global.upinstances = ds_stack_create();
 global.held_item = {
 	item : undefined,

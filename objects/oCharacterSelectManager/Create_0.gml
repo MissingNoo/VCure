@@ -9,7 +9,7 @@ nextvar = [false, "", false];
 sidebarlerp = [-64, 0, -64];
 characterlerp = [345, 0, 345];
 stageselectlerp = [0, 0];
-
+characteroffsetlerp = [101, 0, 101];
 function nextVar(){
 	if (!nextvar[0] and nextvar[1] != "") {
 		nextvar[0] = true;

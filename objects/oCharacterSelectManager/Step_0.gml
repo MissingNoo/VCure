@@ -1,4 +1,7 @@
 //feather disable GM2017
+if (keyboard_check_pressed(vk_f2)) {
+    characteroffsetlerp = [101, 0, 101];
+}
 quithold = clamp(quithold + (input_check("pause") * 3), 0, 100);
 if (input_check_released("pause")) { quithold = 0; }
 if (quithold == 100) { room_goto(rInicio); }
@@ -43,6 +46,7 @@ if (sidebarlerp[0] != sidebarlerp[1]) {
 	}
 	exit;
 }
+characteroffsetlerp[0] = lerp(characteroffsetlerp[0], characteroffsetlerp[1], 0.10);
 if (characterlerp[0] != characterlerp[1]) {
 	characterlerp[0] = lerp(characterlerp[0], characterlerp[1], 0.30);
 	if (int64(round(characterlerp[0] - characterlerp[1])) == 0) {
@@ -106,10 +110,12 @@ switch (state) {
     case "base":
 		sidebarlerp[1] = 0;
 		characterlerp[1] = 0;
+		characteroffsetlerp[1] = 0;
 		if (characterSelected and outfitSelected) {
 		    state = "stage";
 			sidebarlerp[1] = -64;
 			characterlerp[1] = characterlerp[2];
+			characteroffsetlerp[1] = characteroffsetlerp[2];
 			stagelerp[1] = 0;
 			stagelerp[0] = stagelerp[2];
 			return;
@@ -145,6 +151,7 @@ switch (state) {
 				//global.mode = "stage";
 				nextvar = [false, "characterSelected", true];
 				characterlerp[1] = characterlerp[2];
+				characteroffsetlerp[1] = characteroffsetlerp[2];
 				maxOutfits = array_length(CHARACTERS[selectedCharacter][?"outfits"]) - 1;
 				var _unlockedOutfits = 0;
 				for (var i = 0; i < maxOutfits; ++i) {
@@ -153,7 +160,8 @@ switch (state) {
 					}
 				}
 				if (maxOutfits > 0 and _unlockedOutfits > 1) {
-					selectingOutfit = true;
+					//selectingOutfit = true;
+					outfitSelected = true;
 				}
 				else{outfitSelected = true;}
 				return;

@@ -30,6 +30,9 @@ function populate_outfits(){
 	outfit_add("Tenma Maemi",	"Default", sTenmaIdleNew,	sTenmaRunNew,		true);
 	outfit_add("Nephasis",			"Default", sTrickyIdle,				sTrickyRun,					true);
 	outfit_add("Amelia Watson","Default", sAmeliaIdle,			sAmeliaRun,				true);
+	outfit_add("Amelia Watson","O1", sAmeliaIdleO1,				sAmeliaRunO1,				true);
+	outfit_add("Amelia Watson","O2", sAmeliaIdleO2,				sAmeliaRunO2,				true);
+	outfit_add("Amelia Watson","O3", sAmeliaIdleO3,				sAmeliaRunO3,				true);
 	outfit_add("Aki Rosenthal",	"Default", sAkiIdle,					sAkiRun,						true);
 	outfit_add("Aki Rosenthal",	"O2", sAkiO1Idle,				sAkiO1Run,					true);
 	outfit_add("Anya Melfissa",	"Default", sAnyaIdle,				sAnyaRun,					true);

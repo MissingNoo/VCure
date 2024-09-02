@@ -60,8 +60,8 @@ function food_item(_healAmount = 0){
 }
 
 function pause_game(){
-	if (instance_exists(oGameOver)) {
-	    return;
+	if (instance_exists(oGameOver) or room == rCharacterSelect) {
+	    exit;
 	}
 		if (instance_exists(oPlayer)) {
 			if (!global.gamePaused) {
