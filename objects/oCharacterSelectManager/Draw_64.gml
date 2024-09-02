@@ -12,10 +12,9 @@ var _offset;
 var _yy;
 var _max;
 var charpos = char_pos(CHARACTERS[selectedCharacter][? "name"], CHARACTERS);
+var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
 if (_isUnlocked) {
 	scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][? "name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
-	
-	var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
 	#region Outfit save/select
 	if (CharacterData[datapos][$ "lastOutfit"] != undefined) {
 		selectedOutfit = CharacterData[datapos][$ "lastOutfit"];
@@ -69,6 +68,9 @@ if (fandomxp >= 100) { fandomlevel = 2; }
 if (fandomlevel != -1) {
     draw_sprite_ext(fandom[fandomlevel][0], fandom_current_frame[fandomlevel][0], GW - 65, GH/2 - 100, 2.50, 2.50, 0, c_white, 1);
 }
+else {
+	draw_sprite_ext(fandom[0][1], 0, GW - 65, GH/2 - 100, 2.50, 2.50, 0, c_white, 1);
+}
 #endregion
 #region GRank
 draw_rectangle_color(GW - 232, GH/2 - 2 - 19, GW - 128, GH/2 - 2 + 19, c_white, c_white, c_white, c_white, false);
@@ -77,13 +79,13 @@ scribble("[fa_center][fa_middle][c_orange]G. RANK").scale(2.75).draw(GW - 180, G
 draw_rectangle_color(GW - 128, GH/2 - 2 - 19, GW - 30, GH/2 - 2 + 19, c_orange, c_orange, c_orange, c_orange, false);
 draw_sprite_ext(sAchFirstback, 0, GW - 266, GH/2 + 55, 2.25, 2.25, 0, c_white, 1);
 draw_sprite_ext(sAchFirstWin, 0, GW - 266, GH/2 + 55, 2.25, 2.25, 0, c_white, 1);
-scribble("[fa_middle]99999").scale(2.75).draw(GW - 120, GH/2);
+scribble($"[fa_middle]{CharacterData[datapos][$ "grank"]}").scale(2.75).draw(GW - 120, GH/2);
 #endregion
 #region Wins
 draw_rectangle_color(GW - 232, GH/2 + 56 - 19, GW - 128, GH/2 + 56 + 19, c_white, c_white, c_white, c_white, false);
 scribble("[fa_middle][c_orange]WINS").scale(2.75).draw(GW - 226, GH/2 + 58);
 draw_rectangle_color(GW - 128, GH/2 + 56 - 19, GW - 30, GH/2 + 56 + 19, c_orange, c_orange, c_orange, c_orange, false);
-scribble("[fa_middle]99999").scale(2.75).draw(GW - 120, GH/2 + 58);
+scribble("[fa_middle]-1").scale(2.75).draw(GW - 120, GH/2 + 58);
 #endregion
 #region Special Window
 select_screen_window(GW - 155, GH - 196, GW - 30, GH - 57, "Special", 0.5, c_black);

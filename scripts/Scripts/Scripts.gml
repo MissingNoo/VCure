@@ -784,14 +784,15 @@ function get_bonus_percent(bonustype, shopname = "", shop_percent = 0) {
 	return percent;
 }
 
-credits = @"Thanks to these awesome people
-Kay Yu: original Holocure
-Naisho14 on Reddit for the character selection interface concept images
-Ajmoment: Uruka / Lia sprites and icons
-Cursed: Tenma character sprites
-SymbolsWriter: Pippa character sprites and icons
-Agn0sia: original Pippa mod
-Fans on the Phase discord for ideas
-Airgeadlamh: Trickywi sprites
-JujuAdams: Input library
-TabularElf: Lexicon library";
+global.credits = @"Thanks to these awesome people
+Kay Yu: original Holocure.
+Naisho14: Character selection concept images.
+Ajmoment: Uruka / Lia sprites and icons.
+Cursed: Tenma character sprites.
+SymbolsWriter: Pippa and Tenma character sprites and icons.
+Agnosia0: original Pippa mod.
+LostWolfCat: Pippa second outfit sprites.
+Fans on the Phase discord for ideas.
+Airgeadlamh: Trickywi sprites.
+JujuAdams: Input library.
+TabularElf: Lexicon library.";
