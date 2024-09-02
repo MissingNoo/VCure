@@ -2031,6 +2031,7 @@ function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 }
 #endregion
 function spawn_upgrade(xx, yy, upg, data = {}) {
+	data.upg = upg;
 	//var pop = ds_stack_pop(global.upinstances);
 	//if (pop != undefined and instance_exists(pop)) {
 	//	show_debug_message("Using existing object");
@@ -2083,7 +2084,8 @@ function tick_powers(){
 		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i].id] <= 0) {
-				spawn_upgrade(oPlayer.x, oPlayer.y, UPGRADES[i]);
+				//spawn_upgrade(oPlayer.x, oPlayer.y, UPGRADES[i]);
+				instance_create_layer(x,y-8,"Upgrades",oUpgradeNew,{upg : UPGRADES[i]});
 				//instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 				//	upg : UPGRADES[i],
 				//	speed : UPGRADES[i][$ "speed"],
