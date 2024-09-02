@@ -224,15 +224,6 @@ global.newFont[2] = font_add("Silver.ttf", 13, false, false, 32, 128);
 draw_set_font(global.newFont[1]);
 #endregion
 #region Populate Items
-//if (is_string(global.characterdataJSON)) {
-//	var arr = json_parse(global.characterdataJSON);
-//	for (var i = 0; i < array_length(arr); ++i) {
-//		var _names = struct_get_names(arr[i]);
-//		for (var j = 0; j < array_length(_names); ++j) {
-//			global.characterdata[i][$ _names[j]] = arr[i][$ _names[j]];
-//		}
-//	}
-//}
 if (is_string(global.fishamount)) {
 	var arr = json_parse(global.fishamount);
 	for (var i = 0; i < array_length(arr); ++i) {
@@ -274,7 +265,28 @@ populate_buffs()
 populate_perks();
 populate_specials();
 populate_outfits();
+//show_debug_message(json_stringify(global.characterdata, true));
 unlocked_outfits_load();
+if (is_string(global.characterdataJSON)) {
+	var arr = json_parse(global.characterdataJSON);
+	array_foreach(arr, function(e, i) {
+		var pos = char_pos(e[$ "name"], CharacterData);
+		if (pos != -1) {
+		    var _names = struct_get_names(e);
+			for (var j = 0; j < array_length(_names); ++j) {
+				if (is_array(e[$ _names[j]])) {
+				    for (var k = 0; k < array_length(e[$ _names[j]]); ++k) {
+					    array_push(global.characterdata[pos][$ _names[j]], e[$ _names[j]][k]);
+					}
+				}
+				else {
+					global.characterdata[pos][$ _names[j]] = e[$ _names[j]];
+				}
+			}
+		}
+	});
+}
+
 try{
 	load_unlocked();
 }

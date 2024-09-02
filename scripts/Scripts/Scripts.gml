@@ -506,7 +506,7 @@ function afterimage_step(){
 		afterimagecount = 0;
 		array_push(afterimage[0],x);
 		array_push(afterimage[1],y);
-		array_push(afterimage[2], round(object_index == oUpgrade ? subImg : image_index));
+		array_push(afterimage[2], round(image_index));
 		array_push(afterimage[3], image_angle);
 		if (array_length(afterimage[0]) > 4) {
 		    array_shift(afterimage[0]);

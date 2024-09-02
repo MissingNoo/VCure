@@ -1,16 +1,3 @@
-enum Outfits {
-	Uruka,
-	Lia,
-	Pippa,
-	Tenma,
-	//TenmaAlternative,
-	Trickywi,
-	Amelia,
-	Aki,
-	AkiO1,
-	Anya,
-	Length
-}
 //feather disable once GM2017
 function outfit_add(_character, _name, _sprite, _runningSprite, _unlocked)
 {
@@ -18,12 +5,20 @@ function outfit_add(_character, _name, _sprite, _runningSprite, _unlocked)
 	if (pos == -1) { exit; }
 	//if (_unlocked) { UnlockableOutfits[_id] = _unlocked; }
 	var _newNumber = array_length(CHARACTERS[pos][? "outfits"]);
-	CHARACTERS[pos][? "outfits"][_newNumber] = 
-	{
+	var data = {
 		name : _name,
 		sprite : _sprite,
 		runningSprite : _runningSprite,
 		unlocked : _unlocked,
+	}
+	CHARACTERS[pos][? "outfits"][_newNumber] = data;
+	
+	if (_unlocked) {
+		var datapos = char_pos(_character, CharacterData);
+		var have = array_get_index(CharacterData[datapos][$ "outfits"], _name);
+	    if (!have) {
+		    array_push(CharacterData[datapos][$ "outfits"], _name);
+		}
 	}
 }
 
@@ -36,7 +31,7 @@ function populate_outfits(){
 	outfit_add("Nephasis",			"Default", sTrickyIdle,				sTrickyRun,					true);
 	outfit_add("Amelia Watson","Default", sAmeliaIdle,			sAmeliaRun,				true);
 	outfit_add("Aki Rosenthal",	"Default", sAkiIdle,					sAkiRun,						true);
-	outfit_add("Aki Rosenthal",	"Default", sAkiO1Idle,				sAkiO1Run,					false);
+	outfit_add("Aki Rosenthal",	"O2", sAkiO1Idle,				sAkiO1Run,					true);
 	outfit_add("Anya Melfissa",	"Default", sAnyaIdle,				sAnyaRun,					true);
 }
 

@@ -2030,12 +2030,60 @@ function apply_enchantments(_specificWeapon = -1, _repeat = 5){
 	}
 }
 #endregion
+function spawn_upgrade(xx, yy, upg, data = {}) {
+	var pop = ds_stack_pop(global.upinstances);
+	if (pop != undefined and instance_exists(pop)) {
+		show_debug_message("Using existing object");
+		if (data[$ "upg"] == undefined) {
+			pop.upg = upg;
+		} 
+		else {
+			pop.upg = data[$ "upg"];
+		}
+		pop.x = oPlayer.x;
+		pop.y = oPlayer.y;
+		if (data[$ "shoots"] == undefined) {
+		    pop.shoots = 0;
+		}
+		pop.image_angle = 0;
+		if (data[$ "orbitPlace"] == undefined) {
+			pop.orbitPlace = 0;
+		}
+		if (data[$ "orbitoffset"] == undefined) {
+			pop.orbitoffset = 0;
+		}
+		if (data[$ "diroffset"] == undefined) {
+			pop.diroffset= 0;
+		}
+		pop.arrowDir = global.arrowDir;
+		pop.afterimage = [[], [], [], []];
+		pop.afterimagecount = 0;
+		pop.image_xscale = 1;
+		pop.image_yscale = 1;
+		pop.hits = 0;
+		pop.image_alpha = 1;
+		with (pop) {
+			event_perform(ev_create, 0);
+			alpha = 1;
+		}
+	}
+	else {
+		show_debug_message("Adding extra upgrade to instance list");
+		if (data[$ "upg"] == undefined) {
+		    data.upg = upg;
+		}
+		instance_create_layer(xx, yy-8,"Upgrades",oUpgradeNew, data);
+	}
+	if (ds_stack_size(global.upinstances) > 60) {
+	    instance_destroy(ds_stack_pop(global.upinstances));
+	}
+}
 function tick_powers(){
 	if (attacktick == true and UPGRADES[0][$ "name"]!="") {
 		// feather disable once GM1041
 		for (i=0; i < array_length(UPGRADES); i++) {
 			if (UPGRADES[i] != global.null and global.upgradeCooldown[UPGRADES[i].id] <= 0) {
-				instance_create_layer(x,y-8,"Upgrades",oUpgradeNew, {upg : UPGRADES[i]});
+				spawn_upgrade(oPlayer.x, oPlayer.y, UPGRADES[i]);
 				//instance_create_layer(x,y-8,"Upgrades",oUpgrade,{
 				//	upg : UPGRADES[i],
 				//	speed : UPGRADES[i][$ "speed"],
@@ -2065,22 +2113,22 @@ function default_behaviour(){
 	image_alpha=1;
 }
 
-function spawn_upgrade(_upg = upg, _speed = upg[$ "speed"], _hits = upg[$ "hits"], _shoots = shoots, _mindmg = upg[$ "mindmg"], _maxdmg = upg[$ "maxdmg"], _sprite = upg[$ "sprite"], _arrowDir = arrowDir){
-	if (_upg[$ "id"] != Weapons.PipiPilstol) { _shoots = -1; }
-	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
-					upg : _upg,
-					speed : _speed,
-					hits : _hits,
-					shoots : _shoots,
-					mindmg : _mindmg,
-					maxdmg : _maxdmg,
-					sprite_index : _sprite,
-					a : 0,
-					owner : owner,
-					arrowDir : _arrowDir
-				});
-		return instancecreated;
-}
+//function spawn_upgrade(_upg = upg, _speed = upg[$ "speed"], _hits = upg[$ "hits"], _shoots = shoots, _mindmg = upg[$ "mindmg"], _maxdmg = upg[$ "maxdmg"], _sprite = upg[$ "sprite"], _arrowDir = arrowDir){
+//	if (_upg[$ "id"] != Weapons.PipiPilstol) { _shoots = -1; }
+//	var instancecreated = instance_create_layer(owner.x,owner.y-8,"Upgrades",oUpgrade,{
+//					upg : _upg,
+//					speed : _speed,
+//					hits : _hits,
+//					shoots : _shoots,
+//					mindmg : _mindmg,
+//					maxdmg : _maxdmg,
+//					sprite_index : _sprite,
+//					a : 0,
+//					owner : owner,
+//					arrowDir : _arrowDir
+//				});
+//		return instancecreated;
+//}
 	
 function can_collab(){
 	totalWeapons = array_length(UPGRADES);

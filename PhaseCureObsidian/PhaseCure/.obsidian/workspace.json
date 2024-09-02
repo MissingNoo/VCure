@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
-                "mode": "preview",
+                "file": "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
+                "file": "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
+                "file": "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md"
+                "file": "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md"
               }
             }
           }
@@ -149,6 +149,10 @@
   },
   "active": "07c94852853a8b4a",
   "lastOpenFiles": [
+    "Systems/Stages/Stages.md",
+    "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
+    "Systems/Characters/PhaseConnect/Tenma",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
     "Systems/Characters/Hololive/ID/Holoro.md",
     "Systems/Characters/Hololive/JP/JP1/Aki Rosenthal/Aki Rosenthal.md",
@@ -177,13 +181,10 @@
     "Systems/Buffs.md",
     "Systems/Stages/DebugStage.md",
     "Systems/Stages/Stage1.md",
-    "Systems/Stages/Stages.md",
     "Systems.md",
     "Systems/Character Selection.md",
     "Systems/Stages",
     "Systems/Score.md",
-    "Systems/Stamps.md",
-    "Systems/LevelUp.md",
     "Canvas.canvas",
     "Systems/Buffs",
     "Systems/Characters/Hololive/ID/HoloH3ro/Vestia Zeta",
@@ -191,7 +192,6 @@
     "Systems/Characters/Hololive/ID/HoloH3ro/Kobo Kanaeru",
     "Systems/Characters/Hololive/ID/HoloH3ro",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa",
-    "Systems/Characters/Hololive/ID/Holoro/Pavolia Reine",
     "z_attachments/spr_AmePerk3_0 2.png",
     "z_attachments/spr_AmePerk3_0 1.png",
     "z_attachments/spr_AmePerk2_0 1.png",

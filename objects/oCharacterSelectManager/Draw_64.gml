@@ -1,4 +1,8 @@
 //feather disable GM2017
+var d = DebugManager;
+if (keyboard_check(vk_f1)) {
+    draw_sprite_stretched(ark, 0, 0, 0, GW, GH);
+}
 var offset = 0;
 NAME = CHARACTERS[selectedCharacter][? "name"];
 var _isUnlocked = CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].unlocked;
@@ -7,71 +11,111 @@ var _y;
 var _offset;
 var _yy;
 var _max;
+var charpos = char_pos(CHARACTERS[selectedCharacter][? "name"], CHARACTERS);
 if (_isUnlocked) {
 	scribble(string_replace(string_upper(CHARACTERS[selectedCharacter][? "name"]), " ", "\n")).scale(7, 7).draw(GW/1.48, GH/7.31);
-	draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
+	
 	var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
+	#region Outfit save/select
 	if (CharacterData[datapos][$ "lastOutfit"] != undefined) {
-	    selectedOutfit = CharacterData[datapos][$ "lastOutfit"];
+		selectedOutfit = CharacterData[datapos][$ "lastOutfit"];
 	}
-	selectedOutfit = clamp(selectedOutfit - keyboard_check_pressed(ord("Q")) + keyboard_check_pressed(ord("E")), 0, array_length(CHARACTERS[selectedCharacter][? "outfits"]) - 1);
-	 CharacterData[datapos][$ "lastOutfit"] = selectedOutfit;
-	draw_sprite_ext(currentSprite == 0 ? CHARACTERS[selectedCharacter][? "outfits"][selectedOutfit][$ "sprite"] : CHARACTERS[selectedCharacter][? "outfits"][selectedOutfit][$ "runningSprite"], characterSubImage[0], GW/2, GH/1.75, 8, 8, 0, c_white, 1);
+	if (keyboard_check_pressed(ord("Q")) or keyboard_check_pressed(ord("E"))) {
+	    selectedOutfit = clamp(selectedOutfit - keyboard_check_pressed(ord("Q")) + keyboard_check_pressed(ord("E")), 0, array_length(CHARACTERS[selectedCharacter][? "outfits"]) - 1);
+		CharacterData[datapos][$ "lastOutfit"] = selectedOutfit;
+	}
+	var sprdata = array_find_index(CHARACTERS[charpos][? "outfits"], function(e, i) {
+		var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
+		return e[$ "name"] == CharacterData[datapos][$ "outfits"][selectedOutfit];
+	});
+	var idlesprite = CHARACTERS[selectedCharacter][? "outfits"][sprdata][$ "sprite"];
+	var runsprite = CHARACTERS[selectedCharacter][? "outfits"][sprdata][$ "runningSprite"];
+	#endregion
+	//draw_sprite_ext(sCharShadow, 0, GW/2, GH/1.75, 8, 8, 0, c_white, 0.8);
+	draw_sprite_ext(currentSprite == 0 ? idlesprite : runsprite, characterSubImage[0], GW - d.a, GH - d.b, 5, 5, 0, c_white, 1);
+	//draw_sprite_ext(CHARACTERS[selectedCharacter][? "bigArt"], 0, GW/2, GH/2, 56, 56, 0, c_white, 1);
 	var _charInfo = CHARACTERS[selectedCharacter];
-	var _info = [["sHudHPIcon", _charInfo[?"hp"], ""], ["sHudAtkIcon", _charInfo[?"atk"], "x"], ["sHudSpdIcon",_charInfo[?"speed"], "x"], ["sHudCrtIcon",_charInfo[?"crit"], "%"]];
+	var _info = [
+		[sHudHPIcon, _charInfo[?"hp"], "", "HP"],
+		[sHudAtkIcon, _charInfo[?"atk"], "x", "ATK"], 
+		[sHudSpdIcon,_charInfo[?"speed"], "x", "SPD"], 
+		[sHudCrtIcon,_charInfo[?"crit"], "%", "CRT"]
+	];
 	var _yoffset = 0;
-	draw_set_alpha(0.5);
-	select_screen_window(GW/1.53, GH/1.68, GW/1.27, GH/1.07, "Status", 0.15);
+	//draw_set_alpha(0.5);
+	//select_screen_window(GW/1.53, GH/1.68, GW/1.27, GH/1.07, "Status", 0.15);
 	for (var i = 0; i < array_length(_info); ++i) {
 		var _val = string($"{_info[i][1]}{_info[i][2]}");
-		//draw_sprite_ext(, 0, GW/DebugManager.a, GH/DebugManager.b + _yoffset, DebugManager.c, DebugManager.c, 0, c_white, 1);
-		//draw_set_alpha(0.25);
-		//draw_rectangle_color(GW/2, GH/1.65 + _yoffset, GW/1.75, GH/1.52 + _yoffset, c_black, c_black, c_black, c_black, false);
-		//draw_set_alpha(1);
-		scribble($"[{_info[i][0]}] {_val}").scale(3).draw(GW/1.48, GH/1.52 + _yoffset);
-		_yoffset += 60;
+		var sx = GW - 586;
+		var sy = GH - 249 + _yoffset;
+		draw_sprite_ext(_info[i][0], 0, sx, sy, 3, 3, 0, c_white, 1);
+		draw_set_alpha(0.5);
+		draw_rectangle_color(sx + 34, sy - 20, sx + 244, sy + 19, c_black, c_black, c_black, c_black, false);
+		draw_set_alpha(1);
+		draw_rectangle_color(sx + 34, sy - 20, sx + 114, sy + 19, c_white, c_white, c_white, c_white, false);
+		scribble($"[#4abef9][fa_middle]{_info[i][3]}").scale(3).draw(sx + 45, sy + 3);
+		scribble($"[fa_middle]{_val}").scale(3).draw(sx + 125, sy + 3);
+		//scribble($"[{}] {_val}").scale(3).draw(GW/1.48, GH/1.52 + _yoffset);
+		_yoffset += 46;
 	}
 }
 #region Fandom
 var fandom = [[sFollowingFan, sFollowingFanLocked, 33], [sFollowingOshi, sFollowingOshiLocked, 66], [sFollowingGachikoi, sFollowingGachikoiLocked, 100]];
-var foffset = 0;
-for (var i = array_length(fandom) - 1; i >= 0; --i) {
-	var unlocked = CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].fandomxp < fandom[i][2];
-	draw_sprite_ext(fandom[i][unlocked], fandom_current_frame[i][0], GW/1.07 + foffset, GH/2, 3, 3, 0, c_white, 1);
-    foffset -= 115;
+var fandomlevel = -1;
+var fandomxp = CharacterData[char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData)].fandomxp;
+if (fandomxp >= 33) { fandomlevel = 0; }
+if (fandomxp >= 66) { fandomlevel = 1; }
+if (fandomxp >= 100) { fandomlevel = 2; }
+if (fandomlevel != -1) {
+    draw_sprite_ext(fandom[fandomlevel][0], fandom_current_frame[fandomlevel][0], GW - 65, GH/2 - 100, 2.50, 2.50, 0, c_white, 1);
 }
 #endregion
+#region GRank
+draw_rectangle_color(GW - 232, GH/2 - 2 - 19, GW - 128, GH/2 - 2 + 19, c_white, c_white, c_white, c_white, false);
+scribble("[fa_center][fa_middle][c_orange]G. RANK").scale(2.75).draw(GW - 180, GH/2);
+draw_rectangle_color(GW - 128, GH/2 - 2 - 19, GW - 30, GH/2 - 2 + 19, c_orange, c_orange, c_orange, c_orange, false);
+scribble("[fa_middle]99999").scale(2.75).draw(GW - 120, GH/2);
+#endregion
+#region Wins
+draw_rectangle_color(GW - 232, GH/2 + 56 - 19, GW - 128, GH/2 + 56 + 19, c_white, c_white, c_white, c_white, false);
+scribble("[fa_middle][c_orange]WINS").scale(2.75).draw(GW - 226, GH/2 + 58);
+draw_rectangle_color(GW - 128, GH/2 + 56 - 19, GW - 30, GH/2 + 56 + 19, c_orange, c_orange, c_orange, c_orange, false);
+scribble("[fa_middle]99999").scale(2.75).draw(GW - 120, GH/2 + 58);
+#endregion
 #region Special Window
-select_screen_window(GW/1.12, GH/1.31, GW/1.02, GH/1.07, "Special", 0.15);
-var _speX = GW/1.09;
-var _speY = GH/1.21;
+select_screen_window(GW - 155, GH - 196, GW - 30, GH - 57, "Special", 0.5, c_black);
+var _speX = GW - 118;
+var _speY = GH - 135;
 var _speSpr = _isUnlocked ? SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].thumb : sLockIcon;
 var _speSprW = sprite_get_width(_speSpr);
 var _speSprH = sprite_get_height(_speSpr);
+var specialscale = 2.5;
 var _specialsUnlocked = global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1;
-draw_sprite_ext(_specialsUnlocked ? _speSpr : sLockIcon, 0, _speX, _speY, 3, 3, 0, c_white, 1);
+draw_sprite_ext(_specialsUnlocked ? _speSpr : sLockIcon, 0, _speX, _speY, specialscale, specialscale, 0, c_white, 1);
 #endregion
 #region Atk Window
-select_screen_window(GW/1.26, GH/1.31, GW/1.13, GH/1.07, "Attack", 0.15);
+select_screen_window(GW - 289, GH - 196, GW - 164, GH - 57, "Attack", 0.5, c_black);
 var _atkSpr = _isUnlocked ? CHARACTERS[selectedCharacter][?"weapon"][1].thumb : sCharacterLockedIcon;
-var _atkX = GW/1.19;
-var _atkY = GH/1.14;
+var _atkX = GW - 230;
+var _atkY = GH - 110;
+var atkscale = 2.50;
 var _atkSprW = sprite_get_width(_atkSpr);
 var _atkSprH = sprite_get_height(_atkSpr);
-draw_sprite_ext(_atkSpr, 0, _atkX, _atkY, 3, 3, 0, c_white, 1);
+draw_sprite_ext(_atkSpr, 0, _atkX, _atkY, atkscale, atkscale, 0, c_white, 1);
 #endregion
 #region Skills Window
-select_screen_window(GW/1.26, GH/1.68, GW/1.02, GH/1.33, "Skills", 0.15);
+select_screen_window(GW - 289, GH - 336, GW - 28, GH - 212, "Skills", 0.5, c_black);
 _offset = 0;
 for (var i = 0; i < 3; ++i) {
-	var _xx = GW/1.20 + _offset;
-	_yy = GH/1.43;
+	var _xx = GW - 230 + _offset;
+	_yy = GH - 254;
 	var _perk = CHARACTERS[selectedCharacter][? "perks"][i]
+	var perkscale = 2.50;
 	var _spr = _isUnlocked ? _perk.thumb : sCharacterLockedIcon;
-	var _sprW = sprite_get_width(_spr) * 3 / 2;
-	var _sprH = sprite_get_height(_spr) * 3 / 2;
-	draw_sprite_ext(_spr, 0, _xx, _yy, 3, 3, 0, c_white, 1);
-	_offset += 75;
+	var _sprW = sprite_get_width(_spr) * perkscale / 2;
+	var _sprH = sprite_get_height(_spr) * perkscale / 2;
+	draw_sprite_ext(_spr, 0, _xx, _yy, perkscale, perkscale, 0, c_white, 1);
+	_offset += 69;
 }
 _offset = 0;
 for (var i = 0; i < 3; ++i) {
@@ -97,13 +141,13 @@ for (var i = 0; i < 3; ++i) {
 #endregion
 #region Open Window when mouse over
 if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _speX, _speY, _speX + (_speSprW*3), _speY + (_speSprH*3)) and global.shopUpgrades[$ "SpecialAtk"][$ "level"] == 1) {
-	select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Special", 0.75);
+	select_screen_window(GW/1.43, GH/1.80, GW/1.02-6, GH/1.08, "Special", 0.75, c_black);
 	draw_sprite_ext(_speSpr, 0, GW/1.36 - _speSprW, GH/1.51 - _speSprH, 3, 3, 0, c_white, 1);
 	scribble(lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name")).scale(2.5).draw(GW/1.29, GH/1.59);
 	//draw_text_transformed(GW/1.29, GH/1.59, lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".name"), 2.5, 2.5, 0);
 	scribble(lexicon_text("Specials." + SPECIAL_LIST[CHARACTERS[selectedCharacter][?"special"]].name + ".desc")).scale(2).wrap(190 * global.guiScale).draw(GW/1.40, GH/1.41);
 }
-if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*3/2), _atkY - (_atkSprH*3/2), _atkX + (_atkSprW*3/2), _atkY + (_atkSprH*3/2)) and mouse_click) {
+if (_isUnlocked and point_in_rectangle(TouchX1, TouchY1, _atkX - (_atkSprW*atkscale/2), _atkY - (_atkSprH*atkscale/2), _atkX + (_atkSprW*atkscale/2), _atkY + (_atkSprH*atkscale/2)) and mouse_click) {
 	infolevel = 1;
 	state = "showinfo";
 	info = "weapon"
@@ -121,8 +165,9 @@ if (!characterSelected) {
 	var _yoffset = 0 - characterlerp[0];	
 	scribble("[white][fa_middle][fa_center]Choose your vtuber").scale(4.30, 4.30).draw(GW/4, GH/8 + _yoffset);
 	_offset = 0;
-	_x = GW/10;
-	_y = GH/4;
+	_x = 190;
+	_y = 216;
+	var pscale = 2.30;
 	//draw_sprite_ext(sWhiteBack, 0, GW/2.30, GH/6, .65, .48, 0, c_white, 1);
 	//if (_isUnlocked) {
 	//	draw_sprite_ext(CHARACTERS[selectedCharacter][?"bigArt"], 0, GW/1.86, GH/2.11, .5, .5, 0, c_white, 1);
@@ -131,8 +176,8 @@ if (!characterSelected) {
 		if (CHARACTERS[i][?"agency"] != selectedAgency and selectedAgency != "All") {
 			continue;
 		}
-		var _pW = sprite_get_width(CHARACTERS[i][?"portrait"]);
-		var _pH = sprite_get_height(CHARACTERS[i][?"portrait"]);
+		var _pW = (sprite_get_width(CHARACTERS[i][?"portrait"]) * pscale) / 2;
+		var _pH = (sprite_get_height(CHARACTERS[i][?"portrait"]) * pscale) / 2;
 		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and selectedCharacter == i and mouse_click) { menuClick = true; }
 		if (!sidebarOpen and point_in_rectangle(MX, MY, _x - _pW + _offset, _y - _pH + _yoffset, _x + _pW + _offset, _y + _yoffset + _pH) and state == "base") {
 			selectedCharacter = i;
@@ -153,16 +198,16 @@ if (!characterSelected) {
 		}
 		draw_rectangle(_x - _pW - 2 + _offset, _y - _pH - 2 + _yoffset, _x + _pW + 2 + _offset, _y + _pH + 2 + _yoffset, false);
 		draw_set_color(c_white);
-		draw_sprite_ext(CharacterData[char_pos(CHARACTERS[i][? "name"], CharacterData)].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, 2, 2, 0, c_white, 1);
+		draw_sprite_ext(CharacterData[char_pos(CHARACTERS[i][? "name"], CharacterData)].unlocked ? CHARACTERS[i][?"portrait"] : sCharacterLockedIcon, 0, _x + _offset, _y + _yoffset, pscale, pscale, 0, c_white, 1);
 		if (selectedCharacter == i) {
-			draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, 2, 2, 0, c_white,1);
+			draw_sprite_ext(sMenuCharSelectCursor,-1,_x + _offset, _y + _yoffset, pscale, pscale, 0, c_white,1);
 		}
 		if (i == 4) {
-			_yoffset += 85;
+			_yoffset += 101;
 			_offset = 0;
 		}
 		else {
-			_offset += 95;
+			_offset += 110;
 		}
 	}
 }

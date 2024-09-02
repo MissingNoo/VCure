@@ -1,3 +1,4 @@
+if (paused) { exit; }
 /// @localvar {Any} afterimage 
 //var _offset = 0;
 //for (var i = 0; i < array_length(dAlarm); ++i) {

@@ -13,6 +13,7 @@ global.perks = [0];
 #macro MAXHP global.maxhp
 #macro NAME global.name
 function initializePlayer(_p){
+	ds_stack_clear(global.upinstances);
 	global.spawnTimer = 30;
 	global.held_item = {
 		item : undefined,
@@ -211,11 +212,9 @@ function generate_character_data(charname) {
 			outfits : [],
 			grank : 0,
 			fandomxp : 0,
-			stagefirstclear : []
+			stagefirstclear : [],
+			lastOutfit : 0
 		};
-		for (var j = 0; j < StageID.Length; ++j) {
-			data[$ "stagefirstclear"][j] = false;
-		}
 		array_push(CharacterData, data);
 	}
 }
@@ -229,7 +228,7 @@ function char_pos(name, array) {
 		    pos = i;
 			break;
 		}
-		if (array == CharacterData and array[i][$ "name"] == name) {
+		else if (array[i][$ "name"] == name) {
 		    pos = i;
 			break;
 		}

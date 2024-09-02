@@ -89,11 +89,12 @@ function urukanote_on_hit(obj){
 }
 function noteexplosion(obj){
 	if (obj.upg.level == 7) {
-		instance_create_depth(obj.x, obj.y, obj.depth, oUpgradeNew, {
+		var _data = {
 			upg : WEAPONS_LIST[Weapons.UrukaNoteExplosion][7], 
 			image_xscale : obj.image_xscale / 1.5,
 			image_yscale : obj.image_yscale / 1.5
-		});
+		};
+		spawn_upgrade(obj.x, obj.y, WEAPONS_LIST[Weapons.UrukaNoteExplosion][7], data);
 		if (instance_exists(obj)) { instance_destroy(obj); }
 	}
 }

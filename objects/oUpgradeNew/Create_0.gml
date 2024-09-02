@@ -2,6 +2,8 @@
 /// @instancevar {Any} upg 
 /// @instancevar {Any} shotType 
 oid = irandom(999999);
+paused = false;
+alpha = 1;
 animate = true;
 sprite_index = upg.sprite;
 speed = upg.speed;
@@ -19,7 +21,12 @@ array_push(dAlarm, [upg.duration, function() {
 	if (!global.singleplayer) {
 		sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : oid, type : "upg"})});
 	}
-	instance_destroy();
+	//instance_destroy();
+	x = 9999999;
+	y = 9999999;
+	visible = false;
+	paused = true;
+	ds_stack_push(global.upinstances, self.id);
 }]);
 reverseshoots = -1;
 if (upg[$ "attackdelay"] == undefined) {
@@ -30,7 +37,8 @@ array_push(dAlarm, [upg.attackdelay, function() {
 	if (shoots > 1) {
 		shoots--;
 		/// @localvar {Any} orbitoffset 
-		instance_create_layer(owner.x, owner.y-8, "Upgrades", oUpgradeNew, {upg : upg, arrowDir : arrowDir, shoots : -1, reverseshoots : reverseshoots, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
+		spawn_upgrade(owner.x, owner.y-8, upg, {upg : upg, arrowDir : arrowDir, shoots : -1, reverseshoots : reverseshoots, remaining_shoots : shoots, orbitPlace : (orbitoffset * shoots)});
+		//instance_create_layer(, "Upgrades", oUpgradeNew, );
 		reverseshoots -= 1;
 		dAlarm[atkdelayalarm][0] = upg.attackdelay;
 	}}]);

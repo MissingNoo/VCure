@@ -1,3 +1,4 @@
+if (paused) { exit; }
 var can_hit = true;
 var sprites_cant_hit = [sBreathAsacoco];
 if (global.gamePaused 

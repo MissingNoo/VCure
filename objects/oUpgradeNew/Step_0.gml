@@ -1,4 +1,4 @@
-if (global.gamePaused) { exit; }
+if (global.gamePaused or paused) { exit; }
 if (upg[$ "step"] != undefined) {
 	upg.step(self.id);
 }
