@@ -90,8 +90,9 @@ switch (state) {
 			switch (stageSelected) {
 			    case true:
 					global.currentStage = selectedStage;
-					global.stageHard = stages[selectedStage].hard;
+					global.stageHard = stages[selectedStage][$ "hard"];
 					global.selectedOutfit = selectedOutfit;
+					global.stage = stages[selectedStage][$ "events"];
 			        room_goto(stages[selectedStage].roomname);
 			        break;
 			    case false:
@@ -100,6 +101,7 @@ switch (state) {
 					stagelerp[1] = stagelerp[2];
 					if (selected == 0) { global.stageType = StageTypes.Stage; }
 					if (selected == 1) { global.stageType = StageTypes.Endless; }
+					if (selected == 2) { global.stageType = StageTypes.Endless; } //TODO: Time stage
 			        break;
 			}
 		}

@@ -20,7 +20,7 @@ if (instance_exists(oPlayer) and enable) {
 	if (real(_seconds) < 10) { _seconds = $"0{_seconds}"; }
 	var _minutes = string(round(Minutes));
 	if (real(_minutes) < 10) { _minutes= $"0{_minutes}"; }
-	var _time = global.stage[$ "Stage1"][$ string($"m{_minutes}s{_seconds}")];	
+	var _time = global.stage[$ string($"m{_minutes}s{_seconds}")];	
 	if (_time != undefined and event) {
 	    event = false;
 		lastsecond = round(Seconds);

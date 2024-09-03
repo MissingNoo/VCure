@@ -171,153 +171,157 @@ enum Patterns{
 	Length
 }
 global.patternNames = ["Null", "Cluster", "Horde", "Ring", "WallRight", "WallLeft", "WallLeftRight", "WallTop", "WallBottom", "WallTopBottom", "StampedeRight", "StampedeLeft", "StampedeTop", "StampedeDown", "Wave", "Airdrop", "Fastball", "Ambush"];
-
-function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
-	show_debug_message($"spawned {monster}, amount {quantity}");
-	if (!global.singleplayer) { return; }
-	var enemy = global.enemies[monster];
-	var wallSprOffset = sprite_get_height(enemy[?"sprite"]);
-	var aa, bb;
-	//if (xp == "-") {
-	//    xp = EnemyList[enemy][? "exp"];
-	//}
-	if (monster[?"sprite"] == undefined) {
-	    exit;
+function spawn_event_new(data = {
+	monster : undefined,
+	type : undefined,
+	customHP : undefined,
+	customATK : undefined,
+	customSPD : undefined,
+	customXP : undefined,
+	lifetime : undefined,
+	quantity : undefined,
+	radius : undefined,
+	distanceDie : undefined,
+	followPlayer : undefined,
+	offset : 2
+}) {
+	var enemy = global.enemies[data.monster];
+	data.enemy = enemy;
+	data.enemyheight = sprite_get_height(enemy[?"sprite"]);;
+	data.enemywidth = sprite_get_width(enemy[?"sprite"]);;
+	data.screen_center_x = view_wport[0] / 2;
+	data.screen_center_y = view_hport[0] / 2;
+	data.spawn_x = oPlayer.x;
+	data.spawn_y = oPlayer.y;
+	var spawndata = {
+		customSpawn : true,
+		selectedEnemy : data.enemy,
+		pattern : data.type
+	};
+	datanames = struct_get_names(data);
+	for (var i = 0; i < array_length(datanames); ++i) {
+	    if (data[$ datanames[i]] != undefined) {
+		    spawndata[$ datanames[i]] = data[$ datanames[i]];
+		}
 	}
-	switch (type) {
+	switch (data.type) {
 		case Patterns.WallLeftRight:
-			var _wh = view_wport[0] / 2 + offset;
-			aa = oPlayer.x + _wh;
-			var ab = oPlayer.x - _wh;
-			bb = oPlayer.y;
-			var part = quantity / 4;
-			var dieAtX = oPlayer.x + 999999;
-			//if (distanceDie != "-") {
-			//	dieAtX = oPlayer.x + distanceDie;
-			//}
-			
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
-				bb -= wallSprOffset;
-			}
-			bb = oPlayer.y;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
-				bb += wallSprOffset;
-			}
-			bb = oPlayer.y;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
-				bb -= wallSprOffset;
-			}
-			bb = oPlayer.y;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(ab,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
-				bb += wallSprOffset;
-			}
-		    break;
+			data.quantity = data.quantity / 2;
+			event_wall(variable_clone(spawndata), "left");
+			event_wall(variable_clone(spawndata), "right");
+			break;
 		case Patterns.WallTopBottom:
-			var _vh = view_hport[0] / 2 + offset;
-			aa = oPlayer.x;
-			var ba = oPlayer.y - _vh;
-			bb = oPlayer.y + _vh;
-			var part = quantity / 4;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,ba,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				aa -= wallSprOffset;
-			}
-			aa = oPlayer.x;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,ba,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				aa += wallSprOffset;
-			}
-			aa = oPlayer.x;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				aa -= wallSprOffset;
-			}
-			aa = oPlayer.x;
-			for (var i = 0; i < part; ++i) {
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				aa += wallSprOffset;
-			}
-		    break;
-		case Patterns.Ring:
-			var circle = irandom_range(0, 360);
-			repeat(quantity) {
-				var _x = oPlayer.x + lengthdir_x(r, circle);
-				var _y = oPlayer.y + lengthdir_y(r, circle);
-				instance_create_layer(_x, _y, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
-				circle += quantity / offset;
-			}
-			break;
-		case Patterns.StampedeRight:
-			var _y = oPlayer.y;
-			var _h = (sprite_get_height(monster[?"sprite"]) * monster[?"yscale"]) * 2;
-			if (offset == 2) {
-			    _y = oPlayer.y - (_h / 2); 
-			}
-			for (var i = 0; i < 5; ++i) {
-			    _y -= _h;
-			}
-			for (var i = 0; i < 10; ++i) {
-				instance_create_layer(oPlayer.x + 500, _y, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime});
-				_y += _h;
-			}
-			break;
-		case Patterns.StampedeLeft:
-			var _y = oPlayer.y;
-			var _h = (sprite_get_height(monster[?"sprite"]) * monster[?"yscale"]) * 2;
-			if (offset == 2) {
-			    _y = oPlayer.y - (_h / 2); 
-			}
-			for (var i = 0; i < quantity / 2; ++i) {
-			    _y -= _h;
-			}
-			for (var i = 0; i < quantity; ++i) {
-				instance_create_layer(oPlayer.x - 500, _y, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				_y += _h;
-			}
-			break;
-		case Patterns.StampedeTop:
-			var _x = oPlayer.x;
-			var _w = (sprite_get_width(monster[?"sprite"]) * monster[?"xscale"]) * 2;
-			if (offset == 2) {
-			    _x = oPlayer.x - (_w / 2); 
-			}
-			for (var i = 0; i < quantity / 2; ++i) {
-			    _x -= _w;
-			}			
-			for (var i = 0; i < quantity; ++i) {
-				instance_create_layer(_x, oPlayer.y - 500, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				_x += _w;
-			}
+			data.quantity = data.quantity / 2;
+			event_wall(variable_clone(spawndata), "up");
+			event_wall(variable_clone(spawndata), "down");
 			break;
 		case Patterns.StampedeDown:
-			var _x = oPlayer.x;
-			var _w = (sprite_get_width(monster[?"sprite"]) * monster[?"xscale"]) * 2;
-			if (offset == 2) {
-			    _x = oPlayer.x + (_w / 2); 
-			}
-			for (var i = 0; i < quantity / 2; ++i) {
-			    _x -= _w;
-			}			
-			for (var i = 0; i < quantity; ++i) {
-				instance_create_layer(_x, oPlayer.y + 500, "Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp, lifetime : lifetime, followPlayer});
-				_x += _w;
-			}
+			spawndata.stampede = true;
+			event_wall(variable_clone(spawndata), "down");
+			break;
+		case Patterns.StampedeTop:
+			spawndata.stampede = true;
+			event_wall(variable_clone(spawndata), "top");
+			break;
+		case Patterns.StampedeLeft:
+			spawndata.stampede = true;
+			event_wall(variable_clone(spawndata), "left");
+			break;
+		case Patterns.StampedeRight:
+			spawndata.stampede = true;
+			event_wall(variable_clone(spawndata), "right");
+			break;
+		case Patterns.Ring:
+			event_ring(variable_clone(spawndata));
 			break;
 		default:
-			var a = oPlayer.x + choose(-400, 400);
-			var b = oPlayer.y + choose(-400, 400);
-			for (var i = 0; i < quantity; ++i) {
-			    aa = a + irandom_range(-16,16);
-				bb = b + irandom_range(-16,16);
-				instance_create_layer(aa,bb,"Instances",oEnemy,{customSpawn : true, selectedEnemy : enemy, pattern : type, customHP : hp, customSPD : spd, customXP : xp});
-			}
-		    break;
-			
-	}		
+			event_default(variable_clone(spawndata));
+			break;
+		
+	}
+}
+
+function event_wall(data, side = "left") {
+	switch (side) {
+	    case "left":
+	        data.spawn_x -= data.screen_center_x;
+			data.spawn_y -= data.enemyheight * (data.quantity / 2);
+	        break;
+	    case "right":
+	        data.spawn_x += data.screen_center_x;
+			data.spawn_y -= data.enemyheight * (data.quantity / 2);
+	        break;
+		case "up":
+			data.spawn_y -= data.screen_center_y;
+			data.spawn_x -= data.enemywidth * (data.quantity / 2);
+			break;
+		case "down":
+			data.spawn_y += data.screen_center_y;
+			data.spawn_x -= data.enemywidth * (data.quantity / 2);
+			break;
+	}
+	if (data[$ "offset"] == 1) {
+	    data.spawn_x += data.enemywidth;
+		data.spawn_y += data.enemyheight;
+	}
+	var distance_offset = 1;
+	if (data[$ "stampede"] == true) {
+	    distance_offset = 2;
+	}
+	for (var i = 0; i < data.quantity; ++i) {
+		instance_create_layer(data.spawn_x, data.spawn_y, "Instances", oEnemy, data);
+		if (side == "left" or side == "right") {
+		    data.spawn_y += data.enemyheight * distance_offset;
+		}
+		if (side == "up" or side == "down") {
+		    data.spawn_x += data.enemywidth * distance_offset;
+		}		
+	}
+}
+
+function event_ring(data) {
+	var circle = irandom_range(0, 360);
+	repeat(data.quantity) {
+		var _x = oPlayer.x + lengthdir_x(data.radius, circle);
+		var _y = oPlayer.y + lengthdir_y(data.radius, circle);
+		instance_create_layer(_x, _y, "Instances", oEnemy, data);
+		circle += data.quantity / data.offset;
+	}
+}
+
+function event_default(data) {
+	var a = data.spawn_x + choose(-400, 400);
+	var b = data.spawn_y + choose(-400, 400);
+	for (var i = 0; i < data.quantity; ++i) {
+		var aa = a + irandom_range(-16,16);
+		var bb = b + irandom_range(-16,16);
+		instance_create_layer(aa, bb, "Instances", oEnemy, data);
+	}
+}
+
+function spawn_event(monster, type, hp, atk, spd, xp, lifetime, quantity, r = 400, distanceDie = "-", followPlayer = false, offset = 2){
+	var data = {
+		monster : monster,
+		type : type,
+		customHP : hp,
+		customATK : atk,
+		customSPD : spd,
+		customXP : xp,
+		lifetime : lifetime,
+		quantity : quantity,
+		radius : r,
+		distanceDie : distanceDie,
+		followPlayer : followPlayer,
+		offset : offset
+	}
+	var datanames = struct_get_names(data);
+	for (var i = 0; i < array_length(data); ++i) {
+	    if (data[$ datanames[i]] == "-") {
+		    data[$ datanames[i]] = undefined;
+		}
+	}
+	show_debug_message("Spawned event");
+	spawn_event_new(data);
 }
 
 
