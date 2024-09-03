@@ -19,10 +19,6 @@ if (_isUnlocked) {
 	if (CharacterData[datapos][$ "lastOutfit"] != undefined) {
 		selectedOutfit = CharacterData[datapos][$ "lastOutfit"];
 	}
-	if (keyboard_check_pressed(ord("Q")) or keyboard_check_pressed(ord("E"))) {
-	    selectedOutfit = clamp(selectedOutfit - keyboard_check_pressed(ord("Q")) + keyboard_check_pressed(ord("E")), 0, array_length(CHARACTERS[selectedCharacter][? "outfits"]) - 1);
-		CharacterData[datapos][$ "lastOutfit"] = selectedOutfit;
-	}
 	var sprdata = array_find_index(CHARACTERS[charpos][? "outfits"], function(e, i) {
 		var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
 		return e[$ "name"] == CharacterData[datapos][$ "outfits"][selectedOutfit];

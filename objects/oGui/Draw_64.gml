@@ -1,7 +1,3 @@
-//scribble($"{ds_stack_size(global.upinstances)}").scale(2).draw(GW/2, GH/2);
-//if (variable_global_exists("spawnTimer"))
-//scribble(global.spawnTimer).scale(3).draw(GW/2, GH/2);
-// Feather disable GM1041
 #region Start variables
 var offset;
 var str = "";

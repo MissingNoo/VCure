@@ -7,6 +7,16 @@ oPlayer.neededxp += round((4*(global.level + 1)) *2.1) - round((4*global.level)*
 audio_play_sound(snd_lvl_up,0,0, global.soundVolume);
 global.upgrade = true;
 upglines = [];
+if (array_length(upglines) < 50) {
+    array_push(upglines, 
+        [
+            irandom(GW),
+            irandom_range(0, GH + irandom(300)),
+            irandom_range(30, 220),
+            irandom_range(5, 15)
+        ]
+    );
+}
 holoarrowspr=0;
 upgradeconfirm = false;
 heldpos = -1;

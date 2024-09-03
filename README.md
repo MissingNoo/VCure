@@ -3,6 +3,7 @@ Rewrite of Holocure i'm making for fun
 [Video](https://youtu.be/Q1AM7PdVkB4)
 
 Credits:
+
 Kay Yu: original Holocure.
 
 [Naisho14](https://www.reddit.com/user/Naisho14/): Character selection concept images.
@@ -21,6 +22,8 @@ Fans on the Phase discord for ideas.
 
 Airgeadlamh(myself): Trickywi sprites.
 
-JujuAdams: Input library.
+JujuAdams: Input and Scribble libraries.
 
 TabularElf: Lexicon library.
+
+SohomSahaun: SnowState library.

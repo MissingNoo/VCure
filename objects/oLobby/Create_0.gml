@@ -248,7 +248,8 @@ fsm.add("OnLobby", {
 		}, [1.20, 1.50, 2]);
 		lobby_button(GW - 120, 95, "Start Game", function(){
 			sendMessageNew(Network.StartGame);
-		}, [1.20, 1.50, 2], global.IsHost and players[0].character != 0 and players[array_length(players) - 1].character != 0);
+		//}, [1.20, 1.50, 2], global.IsHost and players[0].character != 0 and players[array_length(players) - 1].character != 0);
+		}, [1.20, 1.50, 2], global.IsHost);
 		
 		#region Players
 		var poffset = 0;

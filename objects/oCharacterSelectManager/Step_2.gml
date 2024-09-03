@@ -1,5 +1,5 @@
 var _updown = - input_check_pressed("up") + input_check_pressed("down");
-var _leftright = - input_check_pressed("left") + input_check_pressed("right");
+var _leftright = - (input_check_pressed("left") or oGui.buttonClick(oGui.minusButton)) + (input_check_pressed("right") or oGui.buttonClick(oGui.plusButton));
 switch (state) {
 	case "stage":
 		if (!stageSelected) {
@@ -8,8 +8,8 @@ switch (state) {
 			if (selected > array_length(stageModes) - 1) { selected = 0; }
 		}
 		else {
-			if (input_check_pressed("right") or (mouse_click and point_in_triangle(MX, MY, triangleSR[0][0], triangleSR[0][1], triangleSR[1][0], triangleSR[1][1], triangleSR[2][0], triangleSR[2][1]))) { selectedStage++; }
-	        if (input_check_pressed("left") or (mouse_click and point_in_triangle(MX, MY, triangleSL[0][0], triangleSL[0][1], triangleSL[1][0], triangleSL[1][1], triangleSL[2][0], triangleSL[2][1]))){ selectedStage--; }
+			if (_leftright == 1 or (mouse_click and point_in_triangle(MX, MY, triangleSR[0][0], triangleSR[0][1], triangleSR[1][0], triangleSR[1][1], triangleSR[2][0], triangleSR[2][1]))) { selectedStage++; }
+	        if (_leftright == -1 or (mouse_click and point_in_triangle(MX, MY, triangleSL[0][0], triangleSL[0][1], triangleSL[1][0], triangleSL[1][1], triangleSL[2][0], triangleSL[2][1]))){ selectedStage--; }
 			if (device_mouse_check_button_released(0, mb_left)) {
 				stageswiping = false;
 				if (swipeoffset > 160) {

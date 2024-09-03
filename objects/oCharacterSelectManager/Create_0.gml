@@ -1,3 +1,7 @@
+startX = GW - 150;
+startY = 0 + 10;
+plusButton = [startX - 420,			startY, startX - 420 + 120, startY + 45, ">"];
+minusButton = [startX - 560,		startY, startX - 560 + 120, startY + 45, "<"];
 quithold = 0;
 stagesurf = -1;
 stageswiping = false;

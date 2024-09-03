@@ -1,3 +1,19 @@
+#region left
+var _leftb = false;
+if (point_in_rectangle(MX, MY, minusButton[0], minusButton[1], minusButton[2], minusButton[3]) and mouse_click) {
+    _leftb = true;
+}
+var _rightb = false;
+if (point_in_rectangle(MX, MY, plusButton[0], plusButton[1], plusButton[2], plusButton[3]) and mouse_click) {
+    _rightb = true;
+}
+#endregion
+var _outfitleftright = - (keyboard_check_pressed(ord("Q")) or _leftb) + (keyboard_check_pressed(ord("E")) or _rightb);
+if (_outfitleftright != 0) {
+    selectedOutfit = clamp(selectedOutfit + _outfitleftright, 0, array_length(CHARACTERS[selectedCharacter][? "outfits"]) - 1);
+	var datapos = char_pos(CHARACTERS[selectedCharacter][? "name"], CharacterData);
+	CharacterData[datapos][$ "lastOutfit"] = selectedOutfit;
+}
 //feather disable GM2017
 if (keyboard_check_pressed(vk_f2)) {
     characteroffsetlerp = [101, 0, 101];

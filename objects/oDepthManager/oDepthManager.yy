@@ -10,8 +10,8 @@
   "name":"oDepthManager",
   "overriddenProperties":[],
   "parent":{
-    "name":"PhaseCure",
-    "path":"PhaseCure.yyp",
+    "name":"Miscelaneous",
+    "path":"folders/Objects/Miscelaneous.yy",
   },
   "parentObjectId":null,
   "persistent":true,

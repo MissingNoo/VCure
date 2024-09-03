@@ -1,3 +1,4 @@
+bclick = clamp(bclick - 1, 0, infinity);
 #region Screen Size
 //GW = display_get_gui_width();
 //GH = display_get_gui_height();

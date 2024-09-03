@@ -213,10 +213,15 @@ function share_weapon(i){
 	}
 }
 #endregion
+bclick = 0;
 function buttonClick(pos, ignoreSystem = false){
+	if (oGui.bclick != 0) { exit; }
 	if (os_type != os_android and !ignoreSystem) { exit; }
 	var result = false;
-	if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
+	//if (point_in_rectangle(oGui.x, oGui.y, pos[0], pos[1], pos[2], pos[3])){
+	if (point_in_rectangle(MX, MY, pos[0], pos[1], pos[2], pos[3])){
+		show_debug_message("Click");
+		oGui.bclick = 60;
 		result = true;
 		oGui.x = 0;
 		oGui.y = 0;
