@@ -1,5 +1,11 @@
 function AnyaMelfissa(){
+	
+	function anya_vars(){
+		
+	}
+	
 	createCharacterNew({
+		startvars : anya_vars,
 		id : "Anya Melfissa",
 		name : "Anya Melfissa",
 		agency : "Hololive",
@@ -39,7 +45,7 @@ function AnyaMelfissa(){
 			func : living_weapon, 
 			id : PerkIds.LivingWeapon, 
 			name : "Living Weapon", 
-			maxlevel : 3, 
+			maxlevel : 3,
 			weight : 3, 
 			thumb : sAnyaPerk2, 
 			cooldown : [1, 1, 1, 1], 
@@ -49,12 +55,16 @@ function AnyaMelfissa(){
 		
 		#region Slumber
 		create_perk({ 
+			on_cooldown : perk_slumber_on_cooldown,
+			on_move : perk_slumber_on_move,
+			on_player_hit : perk_slumber_on_player_hit,
+			on_hit : perk_slumber_on_hit,
 			id : PerkIds.Slumber, 
-			name : "Slumber", 
+			name : "Slumber",
 			maxlevel : 3, 
 			weight : 3, 
 			thumb : sAnyaPerk3, 
-			cooldown : [1, 1, 1, 1], 
+			cooldown : [2, 2, 2, 2], 
 			characterid : "Anya Melfissa"
 		});
 		#endregion

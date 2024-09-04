@@ -167,6 +167,7 @@ aromateraphy = [false, 0, 0, 0, 0];
 mukirose = [false, 0, 0, 0, 0];
 #endregion
 #region Anya
+slumber = false;
 bladeForm = false;
 bladeFormTimer = 0;
 bladeFormEnd = function(){

@@ -350,7 +350,7 @@ if (instance_exists(oPlayer)) {
 		if (variable_struct_exists(PlayerBuffs[i], "cooldown") and !variable_struct_exists(PlayerBuffs[i], "permanent")) {
 			scribble($"[sHFontOutline]{round(PlayerBuffs[i].cooldown)}").scale(2.50).draw(_xx + 9, _yy);
 		}
-		if (variable_struct_exists(PlayerBuffs[i], "count")) {
+		if (variable_struct_exists(PlayerBuffs[i], "count") and PlayerBuffs[i][$ "count"] > 0) {
 			scribble($"[sHFontOutline][fa_right]{round(PlayerBuffs[i].count)}").scale(2.50).draw(_xx - 9, _yy);
 		}					
 		draw_set_alpha(1);

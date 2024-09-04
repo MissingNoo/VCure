@@ -36,15 +36,17 @@ audio_play_sound(choose(snd_hit1, snd_hit2, snd_hit3), 0, 0, global.soundVolume)
 var _enemyid = other.id;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	if (PLAYER_PERKS[i][$ "level"] > 0 and variable_struct_exists(PLAYER_PERKS[i], "on_hit")) {
-		PLAYER_PERKS[i][$ "on_hit"]({
+		var lastbonus = PLAYER_PERKS[i][$ "on_hit"]({
 			level : PLAYER_PERKS[i][$ "level"],
 			upg,
 			enemy : _enemyid,
-			perk : PLAYER_PERKS[i]
+			perk : PLAYER_PERKS[i],
+			damage : dmg
 		});
+		perkBonusDmg += lastbonus ?? 0;
 	}
 }
-if (perkBonusDmg == 99999 and other.boss) {
+if (perkBonusDmg >= 99999 and other.boss) {
 	perkBonusDmg = 0;
 }
 if (resetcooldown and !cooldownwasreset) {

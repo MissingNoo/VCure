@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
+                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
                 "mode": "preview",
                 "source": false
               }
@@ -102,7 +102,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -123,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
+                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
+                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md"
+                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md"
               }
             }
           }
@@ -187,12 +188,12 @@
   },
   "active": "63cae639a3087f60",
   "lastOpenFiles": [
+    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Anya Melfissa.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Cutting Deep.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Keris.md",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Anya Melfissa.md",
     "z_attachments/84eea146-65c8-4ba6-aa7b-bb07aaabe7d1.png",
     "z_attachments/abc9b217-7583-4040-a6dc-5f378b637a45.png",
     "z_attachments/f9bc8feb-74b1-493b-b14a-f4a06bd29aa2.png",

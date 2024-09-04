@@ -262,6 +262,7 @@ function player_have_buff(bid) {
 }
 
 function player_get_buff_pos(bid) {
+	if (array_length(PlayerBuffs) == 0) { return -1; }
 	for (var i = array_length(PlayerBuffs) - 1; i >= 0; --i) {
 		if (PlayerBuffs[i].id == bid) {
 			return i;
@@ -294,8 +295,9 @@ function add_buff_to_player(bid) {
 		if (PlayerBuffs[pos][$ "enter"] != undefined) {
 			PlayerBuffs[pos][$ "enter"](i);
 		}
+		return true;
 	}
-	//}
+	return false;
 }
 function Movement() {
 if (canMove == true){
@@ -488,6 +490,15 @@ if (canMove == true){
 	else if (os_type != os_android or global.gamePad) {
 		if (!lockSprite) {sprite_index=sprite;}
 		moving = false;
+	}
+	if (moving) {
+	    for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+		    if (PLAYER_PERKS[i][$ "on_move"] != undefined) {
+			    PLAYER_PERKS[i][$ "on_move"]({
+					
+				});
+			}
+		}
 	}
 	//oCam.x = round(oPlayer.x);
 	//oCam.y = round(oPlayer.y);

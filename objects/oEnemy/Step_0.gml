@@ -235,6 +235,9 @@ if(_canmove and instance_exists(target)){
 			    speed = 0;
 			}
 		}
+		if (oPlayer.slumber) {
+		    speed -= (speed * 75) / 100;
+		}
 	}
 	else if (!canwalk) {
 		speed = 0;

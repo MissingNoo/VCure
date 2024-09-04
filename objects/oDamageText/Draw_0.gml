@@ -20,6 +20,9 @@ if (dmg > 9999) {
     scale = 0.75;
     color = "c_red";
 }
+if (heal) {
+    color = "c_green";
+}
 //draw_text_transformed(x,y, _str, 1.25, 1.25, 0);
 //draw_set_color(c_white);
 try{

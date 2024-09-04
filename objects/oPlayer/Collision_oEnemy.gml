@@ -5,7 +5,7 @@ var cooldownOver = false;
 if (other.hittedcooldown[Weapons.AnyaBlade] < global.currentFrame) {
     cooldownOver = true;
 }
-if (NAME = "Anya Melfissa" and cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and !other.infected) {
+if (NAME = "Anya Melfissa" and cooldownOver and !global.gamePaused and other.image_alpha == 1 and image_alpha == 1 and !other.infected and bladeForm) {
 	other.hittedcooldown[Weapons.AnyaBlade] = global.currentFrame + BLADE_FORM_HIT_COOLDOWN;
 	other.damaged = true;
 	var _dmg = irandom_range(8, 12);
@@ -15,7 +15,7 @@ if (NAME = "Anya Melfissa" and cooldownOver and !global.gamePaused and other.ima
 }
 #endregion
 #endregion
-if (immortal) { exit; }
+if (immortal or bladeForm) { exit; }
 if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and image_alpha == 1 and !global.gamePaused and !other.infected) {
 	invencibilityFrames = 3;
 	other.canattack=false;
@@ -36,8 +36,16 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 	var bonusdmg = 0;
 	var _dirtyDodge = irandom_range(1, 100);
 	var _dirtyChance = 0;
-	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-		switch (PLAYER_PERKS[i].id) {
+	var hitby = other;
+	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) { 
+		if (PLAYER_PERKS[i][$ "level"] > 0 and PLAYER_PERKS[i][$ "on_player_hit"] != undefined) {
+		    bonusdmg += PLAYER_PERKS[i][$ "on_player_hit"]({
+				level : PLAYER_PERKS[i][$ "level"],
+				damage : damage,
+				enemy : hitby
+			});
+		}
+		switch (PLAYER_PERKS[i].id) {//TODO: change to "on_player_hit"
 			case (PerkIds.WeakBones):
 				switch (PLAYER_PERKS[i].level) {
 					case 0:
@@ -99,7 +107,7 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 		if (player_have_buff(BuffNames.Sake)) {
 			var buffpos = player_get_buff_pos(BuffNames.Sake);
 			PlayerBuffs[buffpos][$ "count"] = round(PlayerBuffs[buffpos][$ "count"] / 2);
-		}		
+		}
 	}
 	//alarm[1]=60;
 	var inst = instance_create_layer(x,y - sprite_get_height(sprite_index)/2,"DamageLayer",oDamageText);
@@ -139,10 +147,6 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 		        // code here
 		        break;
 		}
-	    if (playerItems[i][$ "id"] == ItemIds.Breastplate) {
-		    
-		}
-		
 	}
 	#endregion
 }

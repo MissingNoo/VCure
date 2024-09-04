@@ -34,7 +34,6 @@ weaponHaste = get_bonus_percent(BonusType.Haste, "Haste", 4);
 #endregion
 image_speed = global.gamePaused ? 0 : oImageSpeed * Delta;
 socket = global.socket;
-if (immortal) { HP = MAXHP; }
 if (global.gamePaused) { return; }
 if (invencibilityFrames > 0) { invencibilityFrames--; }
 

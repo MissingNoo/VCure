@@ -16,7 +16,8 @@ enum BuffNames{
 	BellyDance,
 	Sharpen,
 	RestNoteCooldown,
-    MoldySoul
+    MoldySoul,
+	Slumber
 }
 	//Buffs[BuffNames.ShortHeight] = {
 	//	id : BuffNames.ShortHeight,
@@ -181,6 +182,15 @@ function populate_buffs() {
 		name : "MoldySoul",
 		icon : sMoldySoul,
 		permanent : true,
+        count : 0
+	}
+    Buffs[BuffNames.Slumber] = {
+		id : BuffNames.Slumber,
+		name : "Slumber",
+		icon : sAnyaPerk3,
+		permanent : true,
+		cooldown : 2,
+		baseCooldown : 2,
         count : 0
 	}
     

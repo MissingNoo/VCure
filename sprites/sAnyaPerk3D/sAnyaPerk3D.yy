@@ -1,18 +1,18 @@
 {
   "$GMSprite":"",
-  "%Name":"sAnyaPerk3",
+  "%Name":"sAnyaPerk3D",
   "bboxMode":0,
-  "bbox_bottom":21,
+  "bbox_bottom":24,
   "bbox_left":0,
   "bbox_right":24,
-  "bbox_top":6,
+  "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"84eea146-65c8-4ba6-aa7b-bb07aaabe7d1","name":"84eea146-65c8-4ba6-aa7b-bb07aaabe7d1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"b2ebd9d5-d2a9-47f7-ba78-e48f19fbb2f7","name":"b2ebd9d5-d2a9-47f7-ba78-e48f19fbb2f7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -21,7 +21,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"899846d2-0b17-47b5-bb9d-6e5007b525b8","blendMode":0,"displayName":"default","isLocked":false,"name":"899846d2-0b17-47b5-bb9d-6e5007b525b8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"sAnyaPerk3",
+  "name":"sAnyaPerk3D",
   "nineSlice":null,
   "origin":4,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"sAnyaPerk3",
+    "%Name":"sAnyaPerk3D",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sAnyaPerk3",
+    "name":"sAnyaPerk3D",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"84eea146-65c8-4ba6-aa7b-bb07aaabe7d1","path":"sprites/sAnyaPerk3/sAnyaPerk3.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"208ad9e7-3da4-4966-8f51-389a0352c085","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b2ebd9d5-d2a9-47f7-ba78-e48f19fbb2f7","path":"sprites/sAnyaPerk3D/sAnyaPerk3D.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6048d01a-fad8-4f56-907b-ae40c488426f","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

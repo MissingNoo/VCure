@@ -731,12 +731,13 @@ function prize_box_roll_item(boxnumber){
 	return _item;
 }
 
-function damage_number_spawn(instance, damage, critical, infected = false){
+function damage_number_spawn(instance, damage, critical, infected = false, heal = false){
 	if (global.damageNumbers) {
 		var _inst = instance_create_layer(instance.x, instance.y, "DamageLayer", oDamageText);
 		_inst.dmg = round(damage);
 		_inst.critical = critical;
 		_inst.infected = infected;
+		_inst.heal = heal;
 	}
 }
 

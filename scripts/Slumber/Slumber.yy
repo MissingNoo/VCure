@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Script555",
+  "%Name":"Slumber",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Script555",
+  "name":"Slumber",
   "parent":{
     "name":"Perks",
     "path":"folders/Characters/Hololive/Anya/Perks.yy",

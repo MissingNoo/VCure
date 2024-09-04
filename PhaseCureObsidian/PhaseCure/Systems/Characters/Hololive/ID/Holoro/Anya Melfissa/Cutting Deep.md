@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![[f9bc8feb-74b1-493b-b14a-f4a06bd29aa2.png|50]]
 ## Levels:
