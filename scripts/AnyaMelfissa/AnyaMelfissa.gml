@@ -20,7 +20,7 @@ function AnyaMelfissa(){
 	
 	#region Cutting Deep
 		create_perk({
-			func : cutting_deep,
+			on_hit : perk_cutting_deep_on_hit,
 			id : PerkIds.CuttingDeep,
 			name : "Cutting Deep",
 			maxlevel : 3,

@@ -15,8 +15,8 @@ leftKey = 0;
 rightKey = 0;
 upKey = 0;
 downKey = 0;
-isP=global.gamePaused;
-debug=false;
+isP = global.gamePaused;
+debug = false;
 revives = 0;
 event = 0;
 unlockedAchievements = [];
@@ -50,36 +50,8 @@ enum MenuOptionsEnum {
 	//Credits,
 	Quit
 }
-//menuOptions = ["Singleplayer", "Multiplayer", "Armory", "Achievements", "Shop", "Quit"];
+
 menuOptions = [lexicon_text("MainMenu.Map"), lexicon_text("MainMenu.Singleplayer"), lexicon_text("MainMenu.Multiplayer"), lexicon_text("MainMenu.Achievements"), lexicon_text("MainMenu.Shop"), lexicon_text("MainMenu.Quit")];
-#endregion
-#region Unused
-//guiOffset = 0;
-//HP = 1;
-//androidoffset = 0;
-//if (os_type == os_android) {
-	//androidoffset = 4;
-	//display_set_gui_size(display_get_width()/1.5, display_get_height()/1.5);
-	//window_set_size(display_get_width(),display_get_height());
-	//show_message_async(string(1366) + ":" + string(display_get_width()/1.5) + "=" + string(1366 - (display_get_width()/1.5)))
-	//guiOffset = round((display_get_width()/1.5) - 1366) / 6.50;
-	//guiOffset = 48;
-	//show_message_async(string(guiOffset));
-	//display_set_gui_size(2340/1.5, 1080/1.5);
-//}
-//lastinputs = array_create(10);
-//if (os_type == os_android) {
-//    //display_set_gui_size(1280,720);
-//	if (!instance_exists(oJoystick)) {
-//	    instance_create_depth(0,0,0,oJoystick);
-//	}	
-//}
-//global.upgrades=ds_map_create();
-//image_speed=5;
-//sprindex=0;
-//if (instance_number(oTitleRunning) < 15 and room == rInicio) {
-//    instance_create_layer(0,0, "Instances", oTitleRunning);
-//}
 #endregion
 #region Android Specific
 startX = GW - 150;

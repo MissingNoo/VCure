@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![[spr_AmePerk1_0 1.png|50]]
 ## Levels:
@@ -10,4 +10,4 @@ tags:
 	- [x] All weapons deal 40% more damage.
 - Level MAX
 	- [x] All weapons deal 60% more damage
-	- [ ] Fire 10% faster.
+	- [x] Fire 10% faster.

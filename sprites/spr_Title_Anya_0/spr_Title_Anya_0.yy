@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"TitleArtts",
-    "path":"folders/Characters/TitleArtts.yy",
+    "name":"Anya",
+    "path":"folders/Characters/Hololive/Anya.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
