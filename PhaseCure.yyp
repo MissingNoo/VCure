@@ -319,6 +319,7 @@
     {"id":{"name":"oPlayerWorld","path":"objects/oPlayerWorld/oPlayerWorld.yy",},},
     {"id":{"name":"oPond","path":"objects/oPond/oPond.yy",},},
     {"id":{"name":"oRainbowXP","path":"objects/oRainbowXP/oRainbowXP.yy",},},
+    {"id":{"name":"oSharpenAura","path":"objects/oSharpenAura/oSharpenAura.yy",},},
     {"id":{"name":"oShiranuiEmployee","path":"objects/oShiranuiEmployee/oShiranuiEmployee.yy",},},
     {"id":{"name":"oShop","path":"objects/oShop/oShop.yy",},},
     {"id":{"name":"oSlave","path":"objects/oSlave/oSlave.yy",},},

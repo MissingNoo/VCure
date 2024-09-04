@@ -1,15 +1,15 @@
 function perk_cutting_deep_on_hit(data = {level : 0, upg : -1, enemy : noone, shottype : undefined}) {
 	var _chance = -1;
 	switch (data.level) {
-	    case 1:
-	        _chance = 15;
-	        break;
-	    case 2:
-	        _chance = 20;
-	        break;
-	    case 3:
+		case 1:
+		    _chance = 15;
+		    break;
+		case 2:
+		    _chance = 20;
+		    break;
+		case 3:
 			_chance = 25;
-	        break;
+		    break;
 	}
 	var _list = ds_list_create();
 	var num = collision_circle_list(oPlayer.x, oPlayer.y, oPlayer.pickupRadius, oEnemy, false, true, _list, true);

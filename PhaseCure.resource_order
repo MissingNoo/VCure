@@ -266,6 +266,7 @@
     {"name":"oPlayerWorld","order":5,"path":"objects/oPlayerWorld/oPlayerWorld.yy",},
     {"name":"oPond","order":2,"path":"objects/oPond/oPond.yy",},
     {"name":"oRainbowXP","order":9,"path":"objects/oRainbowXP/oRainbowXP.yy",},
+    {"name":"oSharpenAura","order":8,"path":"objects/oSharpenAura/oSharpenAura.yy",},
     {"name":"oShop","order":5,"path":"objects/oShop/oShop.yy",},
     {"name":"oSlave","order":3,"path":"objects/oSlave/oSlave.yy",},
     {"name":"oSlaveUpgrade","order":6,"path":"objects/oSlaveUpgrade/oSlaveUpgrade.yy",},
