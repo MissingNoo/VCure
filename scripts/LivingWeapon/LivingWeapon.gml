@@ -57,5 +57,8 @@ function perk_living_weapon_on_player_hit(data = {level : 0, enemy : noone}) {
 }
 
 function perk_living_weapon_draw() {
-	draw_sprite_ext(sAnyaSharpAura, -1, oPlayer.x, oPlayer.y - 12, 0.60, 0.60, 0, c_white, 0.50);
+	var pos = player_get_buff_pos(BuffNames.Sharpen);
+	if (PlayerBuffs[pos][$ "count"] >= 10) {
+	    draw_sprite_ext(sAnyaSharpAura, -1, oPlayer.x, oPlayer.y - 12, 1.20, 1.20, 0, c_white, 0.35);
+	}
 }

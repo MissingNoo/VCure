@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Uruka",
-    "path":"folders/Characters/PhaseConnect/Uruka.yy",
+    "name":"Outfits",
+    "path":"folders/Characters/PhaseConnect/Uruka/Outfits.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

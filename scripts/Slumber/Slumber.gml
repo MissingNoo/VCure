@@ -63,3 +63,10 @@ function perk_slumber_on_hit(data = {enemy : noone}) {
 	}
 	return 0;
 }
+
+function perk_slumber_draw() {
+	var pos = player_get_buff_pos(BuffNames.Slumber);
+	if (PlayerBuffs[pos][$ "icon"] == sAnyaPerk3) {
+		draw_sprite_ext(sAnyaBubble, 0, oPlayer.x, oPlayer.y - (sprite_get_width(oPlayer.sprite_index) / 2), 1.25, 1.25, 0, c_white, 1);
+	}
+}

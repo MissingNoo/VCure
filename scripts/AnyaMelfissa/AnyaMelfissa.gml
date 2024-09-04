@@ -58,6 +58,7 @@ function AnyaMelfissa(){
 		
 		#region Slumber
 		create_perk({ 
+			draw : perk_slumber_draw,
 			on_cooldown : perk_slumber_on_cooldown,
 			on_move : perk_slumber_on_move,
 			on_player_hit : perk_slumber_on_player_hit,

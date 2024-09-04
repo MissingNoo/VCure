@@ -48,6 +48,7 @@ function FujikuraUruka(){
 			
 			#region WeakBones
 			create_perk({
+				on_player_hit : perk_weak_bones_on_player_hit,
 				id : PerkIds.WeakBones,
 				name : "Brittle Bones",
 				maxlevel : 3, 

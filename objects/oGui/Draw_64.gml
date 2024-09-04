@@ -347,11 +347,11 @@ if (instance_exists(oPlayer)) {
 		draw_roundrect_ext(_xx - 32, _yy - 32, _xx + 32, _yy + 32, 32, 32, false);
 		draw_set_alpha(1);
 		draw_sprite_ext(PlayerBuffs[i].icon, 0, _xx, _yy, 2.25, 2.25, 0, c_white, 1);
-		if (variable_struct_exists(PlayerBuffs[i], "cooldown") and !variable_struct_exists(PlayerBuffs[i], "permanent")) {
-			scribble($"[sHFontOutline]{round(PlayerBuffs[i].cooldown)}").scale(2.50).draw(_xx + 9, _yy);
+		if (variable_struct_exists(PlayerBuffs[i], "cooldown") and !PlayerBuffs[i][$ "permanent"]) {
+			scribble($"[fa_left][sHFontOutline]{round(PlayerBuffs[i].cooldown)}").scale(2.50).draw(_xx - 28, _yy);
 		}
 		if (variable_struct_exists(PlayerBuffs[i], "count") and PlayerBuffs[i][$ "count"] > 0) {
-			scribble($"[sHFontOutline][fa_right]{round(PlayerBuffs[i].count)}").scale(2.50).draw(_xx - 9, _yy);
+			scribble($"[sHFontOutline][fa_right]{round(PlayerBuffs[i].count)}").scale(2.50).draw(_xx + 28, _yy);
 		}					
 		draw_set_alpha(1);
 		_xx += 75;

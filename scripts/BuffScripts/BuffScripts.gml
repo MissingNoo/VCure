@@ -165,7 +165,6 @@ function populate_buffs() {
 		id : BuffNames.RestNoteCooldown,
 		name : "Rest Note Cooldown",
 		icon : sRestNote,
-		permanent : false,
 		cooldown : 3,
 		baseCooldown : 3
 	}

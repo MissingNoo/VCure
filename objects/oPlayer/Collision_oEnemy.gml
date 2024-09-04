@@ -11,6 +11,9 @@ if (NAME = "Anya Melfissa" and cooldownOver and !global.gamePaused and other.ima
 	var _dmg = irandom_range(8, 12);
 	other.hp -= _dmg;
 	other.damagedAlarm = 15;
+	if (global.screenShake) {
+		oGame.shakeMagnitude = 5;
+	}
 	damage_number_spawn(other, _dmg, false);
 }
 #endregion
@@ -48,32 +51,7 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 		}
 		switch (PLAYER_PERKS[i].id) {//TODO: change to "on_player_hit"
 			case (PerkIds.WeakBones):
-				switch (PLAYER_PERKS[i].level) {
-					case 0:
-						bonusdmg = 0;
-						break;
-					case 1:
-						bonusdmg = 2;
-						break;
-					case 2:
-						bonusdmg = 3;
-						break;
-					case 3:
-						bonusdmg = 4;
-						break;
-					}
-					if (PLAYER_PERKS[i][$ "level"] > 0 and !player_have_buff(BuffNames.RestNoteCooldown)) {
-						add_buff_to_player(BuffNames.RestNoteCooldown);
-					    var _angles = [0, 45, 315, 135, 180, 225];
-						var _w = WEAPONS_LIST[Weapons.RestNote][1];
-						for (var j = 0; j < array_length(_angles); ++j) {
-							instance_create_layer(self.x, self.y-8,"Upgrades",oUpgradeNew,{
-								upg : _w,
-								owner : self,
-								direction : _angles[j]
-							});
-						}
-					}
+				
 					break;
 			case (PerkIds.DirtyMind):
 				_dirtyChance = PLAYER_PERKS[i][$ "dodgeChance"];

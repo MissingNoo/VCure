@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Uruka",
-    "path":"folders/Characters/PhaseConnect/Uruka.yy",
+    "name":"Perks",
+    "path":"folders/Characters/PhaseConnect/Uruka/Perks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

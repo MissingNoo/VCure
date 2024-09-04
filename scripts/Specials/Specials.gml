@@ -58,11 +58,14 @@ function populate_specials(){
 
 }
 
-function use_special(_special)
-{
+function use_special(_special) {
 	/// @localvar {Any} skilltimer
 	/// @localvar {Any} x
 	/// @localvar {Any} y   
+	if (global.screenShake) {
+		oGame.shakeMagnitude = 7;
+	}
+	instance_create_depth(oPlayer.x, oPlayer.y, oPlayer.depth + 1, oVFX, {sprite_index : sUseSpecial});
 	skilltimer = 0;
 	if (_special[$ "sequence"] != undefined) {
 	    global.lastsequence = layer_sequence_create("Specials", x, y, _special[$ "sequence"]);
