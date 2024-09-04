@@ -39,11 +39,12 @@ if (invencibilityFrames == 0 and other.canattack and other.image_alpha == 1 and 
 	var hitby = other;
 	for (var i = 0; i < array_length(PLAYER_PERKS); ++i) { 
 		if (PLAYER_PERKS[i][$ "level"] > 0 and PLAYER_PERKS[i][$ "on_player_hit"] != undefined) {
-		    bonusdmg += PLAYER_PERKS[i][$ "on_player_hit"]({
+		    var lastbonus = PLAYER_PERKS[i][$ "on_player_hit"]({
 				level : PLAYER_PERKS[i][$ "level"],
 				damage : damage,
 				enemy : hitby
 			});
+			bonusdmg += lastbonus ?? 0;
 		}
 		switch (PLAYER_PERKS[i].id) {//TODO: change to "on_player_hit"
 			case (PerkIds.WeakBones):

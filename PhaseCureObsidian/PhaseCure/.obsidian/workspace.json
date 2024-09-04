@@ -50,7 +50,7 @@
               "type": "markdown",
               "state": {
                 "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -189,10 +189,12 @@
   "active": "63cae639a3087f60",
   "lastOpenFiles": [
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Anya Melfissa.md",
+    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Blade Form.md",
+    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
+    "z_attachments/Pasted image 20240904140804.png",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Cutting Deep.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
     "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
     "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Keris.md",
     "z_attachments/84eea146-65c8-4ba6-aa7b-bb07aaabe7d1.png",
     "z_attachments/abc9b217-7583-4040-a6dc-5f378b637a45.png",
@@ -215,7 +217,6 @@
     "z_attachments/ea2f0f45-de7d-4010-8d43-3cc827403854.png",
     "z_attachments/db813186-6352-482d-a2ac-93f3bbdab7a6.png",
     "z_attachments/f7d69d91-0d4f-4ce2-b3f3-eb6a13c34e92 1.png",
-    "z_attachments/f7d69d91-0d4f-4ce2-b3f3-eb6a13c34e92.png",
     "Systems/Characters/PhaseConnect/Pippa/Perks.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks",
     "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
@@ -226,7 +227,6 @@
     "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
     "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
     "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
-    "Systems/Buffs/Sake.md",
     "Systems/Stages",
     "Canvas.canvas",
     "Systems/Buffs",

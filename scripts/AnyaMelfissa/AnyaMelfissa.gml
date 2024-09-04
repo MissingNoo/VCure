@@ -41,8 +41,11 @@ function AnyaMelfissa(){
 		#endregion
 		
 		#region Living Weapon
-		create_perk({ 
-			func : living_weapon, 
+		create_perk({
+			draw : perk_living_weapon_draw,
+			on_cooldown : living_weapon_on_cooldown,
+			on_kill : perk_living_weapon_on_kill,
+			on_player_hit : perk_living_weapon_on_player_hit,
 			id : PerkIds.LivingWeapon, 
 			name : "Living Weapon", 
 			maxlevel : 3,

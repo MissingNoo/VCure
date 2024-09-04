@@ -158,7 +158,7 @@ function populate_buffs() {
 		icon : sAnyaPerk2,
 		enabled : false,
 		permanent : true,
-		count : 1,
+		count : 0,
 		maxCount : 50
 	}
 	Buffs[BuffNames.RestNoteCooldown] = {

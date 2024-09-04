@@ -8,9 +8,7 @@ function perk_slumber_on_cooldown(data = {level : 0}) {
 	if (player_have_buff(BuffNames.Slumber)) {
 		var pos = player_get_buff_pos(BuffNames.Slumber);
 		if (PlayerBuffs[pos][$ "icon"] == sAnyaPerk3){
-			if (PlayerBuffs[pos][$ "count"] < 10) {
-				PlayerBuffs[pos].count++;
-			}
+			player_buff_add_count(BuffNames.Slumber, 1, 10);
 			if (HP < MAXHP) {
 			    var healpercent = 0;
 				switch (data.level) {
@@ -35,9 +33,11 @@ function perk_slumber_on_cooldown(data = {level : 0}) {
 function perk_slumber_on_move(){
 	if (player_have_buff(BuffNames.Slumber)) {
 		var pos = player_get_buff_pos(BuffNames.Slumber);
-		PlayerBuffs[pos][$ "icon"] = sAnyaPerk3D;
-		PlayerBuffs[pos][$ "permanent"] = undefined;
-		PlayerBuffs[pos][$ "cooldown"] = 2;
+		if (PlayerBuffs[pos][$ "icon"] == sAnyaPerk3) {
+		    PlayerBuffs[pos][$ "icon"] = sAnyaPerk3D;
+			PlayerBuffs[pos][$ "permanent"] = undefined;
+			PlayerBuffs[pos][$ "cooldown"] = 2;
+		}
 		oPlayer.slumber = false;
 	}
 }

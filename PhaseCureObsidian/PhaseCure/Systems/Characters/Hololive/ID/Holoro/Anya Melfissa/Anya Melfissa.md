@@ -6,3 +6,6 @@
 - [[Cutting Deep]]
 - [[Living Weapon]]
 - [[Slumber]]
+## Special
+
+- [[Blade Form]]

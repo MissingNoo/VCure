@@ -3,6 +3,7 @@ draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8);
 DEBUG
     draw_circle(x, y, pickupRadius, true);
 ENDDEBUG
+draw_self();
 #region Have perk
 var lickArea = 0;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
@@ -22,7 +23,6 @@ if (bladeForm) {
 }
 #endregion
 #endregion
-draw_self();
 if (HP > 0 and HP < MAXHP) {
     draw_healthbar((x - 13), ((y - characterHeight) - 3), (x + 13), ((y - characterHeight) - 6), ((HP / MAXHP) * 100), c_red, c_lime, c_lime, 0, 1, 0);
 }

@@ -112,7 +112,8 @@ if (_rnd <= _critChance) {
 		}
 	}
 }
-dmg = dmg * global.player[?"atk"] * _critMultiplier;
+dmg = dmg * global.player[? "atk"] * _critMultiplier;
+dmg += (dmg * oPlayer.atkpercentage) / 100;
 if (player_have_buff(BuffNames.Spaghetti)) {
 	dmg = dmg * 1.25;
 }

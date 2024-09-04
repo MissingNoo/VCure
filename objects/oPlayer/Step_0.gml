@@ -23,6 +23,11 @@ if (global.shopUpgrades.Hardcore.level == 1) {
 }
 global.score = floor(baseScore + hardcoreBonus);
 //WEAPONS_LIST[Weapons.BlBook][1].enchantment = Enchantments.Size;
+#region ATK
+var calc = 0;
+calc += get_bonus_percent(BonusType.Damage, "Atk", 6)
+atkpercentage = clamp(calc, 1, infinity);
+#endregion
 #region critChance
 var calc = 0;
 calc += real(string_replace(string(global.player[?"crit"]), "1.", ""));

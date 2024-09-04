@@ -172,6 +172,13 @@ if(_canmove and instance_exists(target)){
 	if (hp<=0) {
 		if (!saved) {
 			saved = true;
+			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+			    if (PLAYER_PERKS[i][$ "on_kill"] != undefined) {
+				    PLAYER_PERKS[i][$ "on_kill"]({
+						
+					});
+				}
+			}
 		    var part = part_system_create(part_saved);
 			//feather disable once GM2017
 			part_system_position(part, x, y - (sprite_get_height(sprite_index) /2));

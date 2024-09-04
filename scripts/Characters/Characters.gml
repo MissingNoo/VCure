@@ -271,6 +271,14 @@ function player_get_buff_pos(bid) {
 	return -1;
 }
 
+function player_buff_add_count(bid, amount = 1, maximum = infinity) {
+	var pos = player_get_buff_pos(bid);
+	if (pos != -1) {
+		var current_count = PlayerBuffs[pos].count;
+	    PlayerBuffs[pos].count = clamp(current_count + amount, 0, maximum);
+	}
+}
+
 function add_buff_to_player(bid) {
 	var found = false;
 	var pos = 0;
