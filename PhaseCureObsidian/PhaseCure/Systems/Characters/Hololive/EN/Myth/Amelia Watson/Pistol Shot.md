@@ -1,6 +1,6 @@
 ---
 tags:
-  - Unfinished
+  - Finished
 ---
 ![[spr_Ameweapon_0 1.png|50]]
 ## Levels:

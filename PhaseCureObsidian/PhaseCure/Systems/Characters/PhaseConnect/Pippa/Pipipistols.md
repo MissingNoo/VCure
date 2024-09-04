@@ -1,3 +1,7 @@
+---
+tags:
+  - Unfinished
+---
 
 ![[f7d69d91-0d4f-4ce2-b3f3-eb6a13c34e92 1.png|50]]
 ## Description 

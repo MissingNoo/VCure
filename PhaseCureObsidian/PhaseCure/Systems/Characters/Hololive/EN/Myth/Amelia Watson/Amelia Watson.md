@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![[Pasted image 20240814210753.png]]
 ## Weapon: 
 [[Pistol Shot]]

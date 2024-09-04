@@ -1,6 +1,7 @@
 ---
 tags:
   - Finished
+aliases:
 ---
 
 ![[db813186-6352-482d-a2ac-93f3bbdab7a6.png|50]]

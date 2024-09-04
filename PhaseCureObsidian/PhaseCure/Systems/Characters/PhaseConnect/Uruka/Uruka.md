@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![[Uruka.png|100]]
 ## Main Weapon:
 ![[Music Note.png]][[Music Note]]

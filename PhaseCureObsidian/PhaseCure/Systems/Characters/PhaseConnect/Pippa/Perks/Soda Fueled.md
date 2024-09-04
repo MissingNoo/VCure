@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ![[127e74ba-e843-45cf-9571-93e02c043ac2.png|50]]
 ## Description
 Any food item has 33% chance to turn into Soda. Picking up Soda grants 3% Crit, SPD and Haste for 3 seconds.

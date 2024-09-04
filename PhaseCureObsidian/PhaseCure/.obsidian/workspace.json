@@ -4,59 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "89daa69c718a390a",
+        "id": "f0e9d1ee600c8a86",
         "type": "tabs",
         "children": [
           {
-            "id": "45e07a37094523b9",
+            "id": "1f4f1e882877241a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Keris.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a47dc266c760efc0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5493fda1030a18f7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "63cae639a3087f60",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,13 +61,11 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "67bcab6fd5feb8ca",
@@ -124,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -141,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -186,47 +139,47 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "63cae639a3087f60",
+  "active": "1f4f1e882877241a",
   "lastOpenFiles": [
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Anya Melfissa.md",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Blade Form.md",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Living Weapon.md",
-    "z_attachments/Pasted image 20240904140804.png",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Cutting Deep.md",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Slumber.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
-    "Systems/Characters/Hololive/ID/Holoro/Anya Melfissa/Keris.md",
-    "z_attachments/84eea146-65c8-4ba6-aa7b-bb07aaabe7d1.png",
-    "z_attachments/abc9b217-7583-4040-a6dc-5f378b637a45.png",
-    "z_attachments/f9bc8feb-74b1-493b-b14a-f4a06bd29aa2.png",
-    "z_attachments/e0baf04d-4294-46fd-b947-4e8b2c3e9d7c.png",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
-    "z_attachments/785c3eb5-c211-417b-bd46-79336fe19084.png",
-    "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
-    "Systems/Stages/Stages.md",
-    "Systems/Characters/PhaseConnect/Tenma",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
-    "Systems/Characters/Hololive/ID/Holoro.md",
-    "Systems/Characters/Hololive/JP/JP1/Aki Rosenthal/Aki Rosenthal.md",
+    "Systems/Characters/Phase Connect.md",
     "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
-    "Systems/Characters/PhaseConnect/Pippa/Pippa.md",
-    "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Heavy Artillery.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Moldy Soul.md",
-    "z_attachments/f1e82eb9-8053-4960-b869-84a2edab0e31.png",
-    "z_attachments/ea2f0f45-de7d-4010-8d43-3cc827403854.png",
-    "z_attachments/db813186-6352-482d-a2ac-93f3bbdab7a6.png",
-    "z_attachments/f7d69d91-0d4f-4ce2-b3f3-eb6a13c34e92 1.png",
-    "Systems/Characters/PhaseConnect/Pippa/Perks.md",
-    "Systems/Characters/PhaseConnect/Pippa/Perks",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
-    "Systems/Characters/Phase Connect.md",
-    "Systems/Characters/PhaseConnect/Pippa",
-    "Systems/Characters/Characters.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
-    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
-    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
+    "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
+    "Systems/Characters/PhaseConnect/Pippa/Pippa.md",
     "Systems/Characters/PhaseConnect/Uruka/Music Note.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Brittle Bones.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Dirty Mind.md",
+    "Systems/Characters/PhaseConnect/Uruka/Perks/Trash Bear.md",
+    "Systems/Characters/PhaseConnect/Uruka/Uruka.md",
+    "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
+    "Systems/Characters/Hololive/EN/CouncilHope/Tsukumo Sana/Tsukumo Sana.md",
+    "Systems/Characters/Hololive/EN/CouncilHope/Ouro Kronii/Ouro Kronii.md",
+    "Systems/Characters/Hololive/EN/CouncilHope/Nanashi Mumei/Nanashi Mumei.md",
+    "Systems/Characters/Hololive/EN/CouncilHope/IRyS/IRyS.md",
+    "Systems/Characters/Hololive/EN/CouncilHope/Hakos Baelz/Hakos Baelz.md",
+    "Systems/Characters/Hololive/EN/CouncilHope/Ceres Fauna/Ceres Fauna.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
+    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
+    "Systems/Characters/Hololive/EN/Myth/Takanashi Kiara/Takanashi Kiara.md",
+    "Systems/Characters/Hololive/EN/Myth/Gawr Gura/Gawr Gura.md",
+    "Systems/Characters/Hololive/EN/Myth/Mori Calliope/Mori Calliope.md",
+    "z_attachments/spr_ShionPerk1_0.png",
+    "z_attachments/spr_ShionPerk3_0.png",
+    "z_attachments/spr_ShionPerk2_0.png",
+    "z_attachments/spr_ShionSpecial_0.png",
+    "z_attachments/Pasted image 20240904185833.png",
+    "z_attachments/Pasted image 20240904185757.png",
+    "z_attachments/spr_AquaPerk1_0.png",
+    "z_attachments/spr_AquaPerk3_0.png",
+    "z_attachments/spr_AquaPerk2_0.png",
+    "z_attachments/spr_AquaSpecial_0.png",
+    "Systems/Characters/PhaseConnect/Tenma",
+    "Systems/Characters/PhaseConnect/Pippa/Perks",
+    "Systems/Characters/PhaseConnect/Pippa",
     "Systems/Stages",
     "Canvas.canvas",
     "Systems/Buffs",

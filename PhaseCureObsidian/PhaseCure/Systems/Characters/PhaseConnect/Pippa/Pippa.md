@@ -1,3 +1,7 @@
+---
+tags:
+  - Finished
+---
 ## Weapon
 [[Pipipistols]]
 
