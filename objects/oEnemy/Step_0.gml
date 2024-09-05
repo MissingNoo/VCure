@@ -220,9 +220,8 @@ if(_canmove and instance_exists(target)){
 	}
 	// Feather disable once GM2016
 	atk = ((baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25))) * atkMult;
-	updateTargetInfo = clamp(updateTargetInfo - 1, 0, 30);
-	if (canwalk and updateTargetInfo == 0) {
-		updateTargetInfo = irandom(20);
+	if (canwalk and updateTargetInfo < global.currentFrame) {
+		updateTargetInfo = global.currentFrame + 10;
 	    speed = ((baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * spdMult) * Delta;
 		if (distance_to_point(target.x, target.y - 8) < 3) {
 		    speed = 0;

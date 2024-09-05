@@ -221,7 +221,7 @@ function spawn_event_new(data = {
 			break;
 		case Patterns.StampedeTop:
 			spawndata.stampede = true;
-			event_wall(variable_clone(spawndata), "top");
+			event_wall(variable_clone(spawndata), "up");
 			break;
 		case Patterns.StampedeLeft:
 			spawndata.stampede = true;

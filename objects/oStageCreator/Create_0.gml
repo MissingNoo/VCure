@@ -3,7 +3,7 @@ file = game_save_id + "stage.json";
 savedFile = game_save_id + "stage.bin";
 stage = {};
 //feather disable once GM2017
-stage = global.stage.Stage1;
+stage = global.stageEvents.Stage1;
 filter = "";
 //if (file_exists(savedFile)) {
 //	fs = file_text_open_read(savedFile);
