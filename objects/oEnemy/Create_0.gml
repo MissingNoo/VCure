@@ -1,4 +1,6 @@
 event_inherited();
+updatepathtimer = 30;
+updated = true;
 /// @instancevar {Any} immortal
 #region Stitch
 /// @instancevar {Any} selectedEnemy

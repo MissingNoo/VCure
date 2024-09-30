@@ -1,5 +1,49 @@
 /// @instancevar {Any} fpsArray
 /// @instancevar {Any} is_mouse_over_debug_overlay 
+
+var en = ds_stack_pop(global.updatepath);
+if (instance_exists(en)) {
+    with (en) {
+	    if (!firstlook and instance_exists(target)) {
+		    firstlook = true;
+			if (boss) {
+				if(target.x < x) image_xscale = -2;
+				if(target.x > x) image_xscale = 2;
+				image_yscale = 2;
+			}
+			else{
+				if(target.x < x) image_xscale = xscale * -1;
+				if(target.x > x) image_xscale = xscale;
+				image_yscale = yscale;
+			}
+		}
+		if (!instance_exists(target)) { target = noone; }
+		if (infected and target == oPlayer) { target = noone; }
+		if (infected and variable_instance_exists(target, "infected") and target[$ "infected"]) { target = noone; }
+		if (infected and target == noone) { //TODO multiplayer
+			var _list = ds_list_create();
+			var _num = collision_circle_list(x,y, 1000, oEnemy, false, true, _list, true);
+			for (var i = 0; i < ds_list_size(_list); ++i) {
+				if (variable_instance_get(_list[| i], "infected") == false) {
+					target = _list[| i];
+					if (!global.singleplayer and instance_exists(target)) {
+						sendMessage(0, {
+							command : Network.InfectMob,
+							id : enemyID,
+							target : target[$ "enemyID"],
+							hp,
+							baseSPD,
+						});
+					}
+					break;
+				}
+			}
+			ds_list_destroy(_list);
+		}
+	}
+	updated = true;
+}
+
 if (is_mouse_over_debug_overlay())
 {
     window_set_cursor(cr_default);

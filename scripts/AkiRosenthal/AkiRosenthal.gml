@@ -61,3 +61,4 @@ function aki_rosenthal_initialize() {
 	var sp = new Special(SpecialIds.Shallys, "Aki Rosenthal", "Shallys", sAkiSpecial, 60);
 	SPECIAL_LIST[SpecialIds.Shallys] = sp;
 }
+
