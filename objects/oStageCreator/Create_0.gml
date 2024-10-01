@@ -1,3 +1,4 @@
+time = new gmib({ w: string_width("99:99") * 2, h: string_height("99:99") * 2, text: "00:00", c_text_unfocused: { c: c_white, a: 1 } });
 file = game_save_id + "stage.json";
 //f = file_text_open_write(file);
 savedFile = game_save_id + "stage.bin";

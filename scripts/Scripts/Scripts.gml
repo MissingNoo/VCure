@@ -732,7 +732,7 @@ function prize_box_roll_item(boxnumber){
 }
 
 function damage_number_spawn(instance, damage, critical, infected = false, heal = false){
-	if (global.damageNumbers) {
+	if (global.damageNumbers and instance_number(oDamageText) < 50) {
 		var _inst = instance_create_layer(instance.x, instance.y, "DamageLayer", oDamageText);
 		_inst.dmg = round(damage);
 		_inst.critical = critical;

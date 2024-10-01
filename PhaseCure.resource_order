@@ -469,6 +469,7 @@
     {"name":"Fishing","order":24,"path":"scripts/Fishing/Fishing.yy",},
     {"name":"FujikuraUruka","order":19,"path":"scripts/FujikuraUruka/FujikuraUruka.yy",},
     {"name":"Glowstick","order":13,"path":"scripts/Glowstick/Glowstick.yy",},
+    {"name":"gmtf","order":29,"path":"scripts/gmtf/gmtf.yy",},
     {"name":"HeavyArtillery","order":7,"path":"scripts/HeavyArtillery/HeavyArtillery.yy",},
     {"name":"Holobomb","order":11,"path":"scripts/Holobomb/Holobomb.yy",},
     {"name":"House","order":14,"path":"scripts/House/House.yy",},

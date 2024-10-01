@@ -5,7 +5,6 @@ DEBUG
 ENDDEBUG
 draw_self();
 #region Have perk
-var lickArea = 0;
 for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
 	if (PLAYER_PERKS[i].level > 0 and variable_struct_exists(PLAYER_PERKS[i], "draw")) {
 	    PLAYER_PERKS[i][$ "draw"]({perk : PLAYER_PERKS[i]});

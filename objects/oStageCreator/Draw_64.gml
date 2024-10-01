@@ -1,3 +1,4 @@
+time.draw(100, 50);
 draw_set_font(global.newFont[1]);
 var _events = variable_struct_get_names(stage);
 array_sort(_events, true);

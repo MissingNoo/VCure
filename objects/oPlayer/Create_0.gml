@@ -71,8 +71,8 @@ updateInspector = function(show = false) {
 		dbg_button("Spawn Food", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oBurguer); });
 		dbg_button("Spawn Spaghetti", function(){ instance_create_depth(oPlayer.x, oPlayer.y + 60, oPlayer.depth, oSpaghetti); });
 		dbg_button("Buffs", function(){ show_message_async(PlayerBuffs); });
-		dbg_button("Buffs", function(){ 
-			repeat(DebugManager.a) {
+		dbg_button("Spawn enemies", function(){ 
+			repeat(75) {
 				instance_create_depth(oPlayer.x + choose(-200, 200), oPlayer.y + choose(-200, 200), oPlayer.depth, oEnemy);
 			}
 		});

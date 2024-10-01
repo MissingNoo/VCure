@@ -551,6 +551,7 @@
     {"id":{"name":"Fishing","path":"scripts/Fishing/Fishing.yy",},},
     {"id":{"name":"FujikuraUruka","path":"scripts/FujikuraUruka/FujikuraUruka.yy",},},
     {"id":{"name":"Glowstick","path":"scripts/Glowstick/Glowstick.yy",},},
+    {"id":{"name":"gmtf","path":"scripts/gmtf/gmtf.yy",},},
     {"id":{"name":"HeavyArtillery","path":"scripts/HeavyArtillery/HeavyArtillery.yy",},},
     {"id":{"name":"Holobomb","path":"scripts/Holobomb/Holobomb.yy",},},
     {"id":{"name":"House","path":"scripts/House/House.yy",},},
