@@ -1,1 +1,2 @@
 - [x] Damage test dummy
+- [x] DPS counter

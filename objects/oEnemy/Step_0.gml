@@ -1,3 +1,8 @@
+dpstimer = clamp(dpstimer - 1, 0, 60);
+if (dpstimer == 0) {
+    array_pop(dps);
+	dpstimer = 60;
+}
 if (immortal) { hp = 99999999; }
 /*if (enemyinfo != -1 and setinfo) {
 	setinfo = false;

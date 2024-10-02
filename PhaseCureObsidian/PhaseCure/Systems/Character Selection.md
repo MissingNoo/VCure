@@ -12,6 +12,6 @@ tags:
 - [x] Skill status and information.
 - [x] [[Characters]] status.
 - [x] Stage selection.
-- [ ] Outfit selection.
+- [x] Outfit selection.
 - [x] Fandom Icons
 

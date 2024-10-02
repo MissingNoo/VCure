@@ -1,4 +1,6 @@
 event_inherited();
+dps = [];
+dpstimer = 60;
 updatepathtimer = 30;
 updated = true;
 /// @instancevar {Any} immortal

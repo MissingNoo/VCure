@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systems/HoloHouse/Fishing.md",
+                "file": "Systems/HoloHouse/Farming.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Systems/HoloHouse/Fishing.md",
+                "file": "Systems/HoloHouse/Farming.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Systems/HoloHouse/Fishing.md",
+                "file": "Systems/HoloHouse/Farming.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Systems/HoloHouse/Fishing.md"
+                "file": "Systems/HoloHouse/Farming.md"
               }
             }
           }
@@ -149,8 +149,20 @@
   },
   "active": "1f4f1e882877241a",
   "lastOpenFiles": [
-    "Systems/Characters/Phase Connect.md",
+    "Systems/HoloHouse/Fishing.md",
     "Systems/Characters/PhaseConnect/Pippa/Pipipistols.md",
+    "Systems/Stamps.md",
+    "Systems/Score.md",
+    "Systems/LevelUp.md",
+    "Systems/Fandom.md",
+    "Systems/Character Selection.md",
+    "Systems/Buffs.md",
+    "Systems/Stages/DebugStage.md",
+    "Systems/Stages/Stage1.md",
+    "Systems/HoloHouse/Holo House.md",
+    "Systems/HoloHouse/Farming.md",
+    "Systems/Buffs/Sake.md",
+    "Systems/Characters/Phase Connect.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Heavy Artillery.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Moldy Soul.md",
     "Systems/Characters/PhaseConnect/Pippa/Perks/Soda Fueled.md",
@@ -163,18 +175,6 @@
     "Systems/Characters/PhaseConnect/Tenma/Tenma Maemi.md",
     "Systems/Characters/Hololive/EN/CouncilHope/Tsukumo Sana/Tsukumo Sana.md",
     "Systems/Characters/Hololive/EN/CouncilHope/Ouro Kronii/Ouro Kronii.md",
-    "Systems/Characters/Hololive/EN/CouncilHope/Nanashi Mumei/Nanashi Mumei.md",
-    "Systems/Characters/Hololive/EN/CouncilHope/IRyS/IRyS.md",
-    "Systems/Characters/Hololive/EN/CouncilHope/Hakos Baelz/Hakos Baelz.md",
-    "Systems/Characters/Hololive/EN/CouncilHope/Ceres Fauna/Ceres Fauna.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Bubba.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/Detective Eye.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Perks/FPS Mastery.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Pistol Shot.md",
-    "Systems/Characters/Hololive/EN/Myth/Amelia Watson/Amelia Watson.md",
-    "Systems/Characters/Hololive/EN/Myth/Takanashi Kiara/Takanashi Kiara.md",
-    "Systems/Characters/Hololive/EN/Myth/Gawr Gura/Gawr Gura.md",
-    "Systems/Characters/Hololive/EN/Myth/Mori Calliope/Mori Calliope.md",
     "z_attachments/spr_ShionPerk1_0.png",
     "z_attachments/spr_ShionPerk3_0.png",
     "z_attachments/spr_ShionPerk2_0.png",

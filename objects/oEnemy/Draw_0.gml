@@ -85,3 +85,12 @@ for (var i = 0; i < array_length(debuffs); ++i) {
 if (player_have_buff(BuffNames.Spaghetti)) {
 	draw_sprite(sSpaghettiEffect, 0, x, y);
 }
+
+if (room == rDebugStage) {
+	var dpscalc = 0;
+	for (var i = 0; i < array_length(dps); ++i) {
+	    dpscalc += dps[i];
+	}
+	dpscalc = dpscalc / array_length(dps) - 1;
+	scribble($"[fa_center][fa_middle]DPS: {dpscalc}").draw(x, y - (sprite_height * image_yscale));
+}

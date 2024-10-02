@@ -143,6 +143,12 @@ if (other.helddamagetimer > 0) {
 	dmg = dmg - held;
 }
 other.hp -= dmg;
+if (room == rDebugStage) {
+    array_push(other.dps, dmg);
+	if (array_length(other.dps) > 10) {
+	    array_pop(other.dps);
+	}
+}
 damage_number_spawn(other, dmg, _wasCrit, _virusInfected);
 other.damagedAlarm=15;
 hits-=1;
