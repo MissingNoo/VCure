@@ -4,7 +4,7 @@ tags:
 ---
 - Fishing
 	- [x] Fish difficulty
-		- [ ] Show mark when caught
+		- [x] Show mark when caught
 		- [x] Speed adjust
 		- [x] HP gain/lose adjust
 	- [x] Combo
