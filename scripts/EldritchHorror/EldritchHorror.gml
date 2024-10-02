@@ -1,20 +1,20 @@
-function eldritch_horror_create (obj) {
-	fxfunc = function() {
-		var _size = sprite_get_width(sprite_index);
-		instance_create_depth(x + irandom_range(-_size, _size), y + irandom_range(-_size, _size), depth - 1, oEldritchFX);
-		array_push(dAlarm, [irandom(100), fxfunc]);
-	}
-	array_push(dAlarm, [irandom(100), fxfunc]);
-	x = obj.owner.x + irandom_range(-200, 200);
-	y = obj.owner.y + irandom_range(-200, 200);
-	ps = part_system_create();
-	ps2 = part_system_create();
-	part_system_depth(ps, depth-1);
-	part_system_depth(ps2, depth-1);
-	part_system_color(ps, c_white, .5);
-	part_system_color(ps2, c_white, .5);
-	part_system_draw_order( ps, false);
-	part_system_draw_order( ps2, false);
+function eldritch_horror_create(obj) {
+	//fxfunc = function() {
+	//	var _size = sprite_get_width(obj.sprite_index);
+	//	instance_create_depth(obj.x + irandom_range(-_size, _size), obj.y + irandom_range(-_size, _size), obj.depth - 1, oEldritchFX);
+	//	array_push(obj.dAlarm, [irandom(100), fxfunc]);
+	//}
+	//array_push(obj.dAlarm, [irandom(100), fxfunc]);
+	//obj.x = obj.owner.x + irandom_range(-200, 200);
+	//obj.y = obj.owner.y + irandom_range(-200, 200);
+	obj.ps = part_system_create();
+	obj.ps2 = part_system_create();
+	part_system_depth(obj.ps, obj.depth-1);
+	part_system_depth(obj.ps2, obj.depth-1);
+	part_system_color(obj.ps, c_white, .5);
+	part_system_color(obj.ps2, c_white, .5);
+	part_system_draw_order( obj.ps, false);
+	part_system_draw_order( obj.ps2, false);
 	var _scale = 0.75;
 	var _speed = 1;
 	var ptype1 = part_type_create();
@@ -42,40 +42,16 @@ function eldritch_horror_create (obj) {
 	part_type_blend( ptype2, false);
 	part_type_life( ptype2, 80, 80);
 
-	var pemit1 = part_emitter_create( ps );
-	var pemit2 = part_emitter_create( ps2 );
+	var pemit1 = part_emitter_create( obj.ps );
+	var pemit2 = part_emitter_create( obj.ps2 );
 	var _shape = ps_shape_ellipse;
 	var _size = sprite_get_width(sEldricthHorrorPool);
 	var _number = 1;
-	part_emitter_region(ps, pemit1, -_size, _size, -_size, _size, _shape, ps_distr_linear );
-	part_emitter_stream(ps, pemit1, ptype1, _number);
-	part_emitter_region(ps2, pemit2, -_size, _size, -_size, _size, _shape, ps_distr_linear );
-	part_emitter_stream(ps2, pemit2, ptype2, _number);
+	part_emitter_region(obj.ps, pemit1, -_size, _size, -_size, _size, _shape, ps_distr_linear );
+	part_emitter_stream(obj.ps, pemit1, ptype1, _number);
+	part_emitter_region(obj.ps2, pemit2, -_size, _size, -_size, _size, _shape, ps_distr_linear );
+	part_emitter_stream(obj.ps2, pemit2, ptype2, _number);
 
-	part_system_position(ps, x, y);
-	part_system_position(ps2, x, y);
-}
-function x_potato_step (obj) {
-    if(obj.sprite_index != sXPotatoExplosion){
-        obj.image_angle += 10;
-    }
-}
-function x_potato_outside_view (obj) {
-    if (obj.justBounced) { return; }
-    if (!obj.justBounced) {
-        obj.justBounced = true;
-        array_push(obj.dAlarm, [10, ["justBounced", false], "variable"]);
-    }
-    obj.direction += 180 + random_range(-30, 30);
-}
-function x_potato_post_draw(obj) {
-    //scribble($"[fa_bottom]animate:{obj.animate}\nframe:{obj.current_frame}/{obj.last_frame}").scale(2).draw(obj.x, obj.y - 20);
-}
-function x_potato_animation_end(obj) {
-    if(instance_exists(obj) and obj.sprite_index == sXPotatoExplosion){
-        instance_destroy(obj);
-    }
-    else{
-        obj.animate = true;
-    }
+	part_system_position(obj.ps, obj.x, obj.y);
+	part_system_position(obj.ps2, obj.x, obj.y);
 }

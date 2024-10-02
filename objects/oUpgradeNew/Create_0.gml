@@ -1,6 +1,8 @@
 /// @instancevar {any} owner 
 /// @instancevar {Any} upg 
 /// @instancevar {Any} shotType 
+ps = undefined;
+ps2 = undefined;
 oid = irandom(999999);
 paused = false;
 alpha = 1;
