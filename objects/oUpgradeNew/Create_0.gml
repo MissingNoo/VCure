@@ -108,4 +108,7 @@ if (!global.singleplayer and sendspawn) {
 	}
 	sendMessageNew(Network.SpawnUpgrade, {id : upg.id, level : upg.level, updata : json_stringify(updata)});
 }
+if (upg[$ "pool"]) {
+    layer_add_instance("Pools", self);
+}
 visible = true;

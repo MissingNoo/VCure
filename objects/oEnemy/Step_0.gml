@@ -227,7 +227,8 @@ if(_canmove and instance_exists(target)){
 	atk = ((baseATK + (2 * global.timeA)) * (1 + (global.timeB / 25))) * atkMult;
 	if (canwalk and updateTargetInfo < global.currentFrame) {
 		updateTargetInfo = global.currentFrame + 10;
-	    speed = ((baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * spdMult) * Delta;
+	    speed = ((baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * spdMult);
+	    //speed = ((baseSPD + (0.12 * global.timeA)) * (1 + (global.timeB / 25)) * spdMult) * Delta;
 		if (distance_to_point(target.x, target.y - 8) < 3) {
 		    speed = 0;
 		}
@@ -266,4 +267,3 @@ if(_canmove and instance_exists(target)){
 	}
 	#endregion
 }
-var pausedamaged = false;

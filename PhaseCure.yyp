@@ -542,6 +542,7 @@
     {"id":{"name":"DetectiveEye","path":"scripts/DetectiveEye/DetectiveEye.yy",},},
     {"id":{"name":"draw_text_scribble_ext","path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},},
     {"id":{"name":"draw_text_scribble","path":"scripts/draw_text_scribble/draw_text_scribble.yy",},},
+    {"id":{"name":"EldritchHorror","path":"scripts/EldritchHorror/EldritchHorror.yy",},},
     {"id":{"name":"EletricPulse","path":"scripts/EletricPulse/EletricPulse.yy",},},
     {"id":{"name":"EnCurse","path":"scripts/EnCurse/EnCurse.yy",},},
     {"id":{"name":"EnemyScripts","path":"scripts/EnemyScripts/EnemyScripts.yy",},},

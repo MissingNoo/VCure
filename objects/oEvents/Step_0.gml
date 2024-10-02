@@ -30,7 +30,7 @@ if (instance_exists(oPlayer) and enable) {
 				var _atk = _time[$ "event"][i][$ "atk"] == undefined ? "-" : _time[$ "event"][i][$ "atk"];
 				var _spd = _time[$ "event"][i][$ "spd"] == undefined ? "-" : _time[$ "event"][i][$ "spd"];
 				var _xp = _time[$ "event"][i][$ "xp"] == undefined ? "-" : _time[$ "event"][i][$ "xp"];
-				var _lifetime = _time[$ "event"][i][$ "lifetime"] == undefined ? "-" : _time[$ "event"][i][$ "lifetime"];
+				var _lifetime = _time[$ "event"][i][$ "lifetime"] == undefined ? 400 : _time[$ "event"][i][$ "lifetime"];
 				var _followplayer = _time[$ "event"][i][$ "followPlayer"] == undefined ? 0 : _time[$ "event"][i][$ "followPlayer"];
 				var _radius = _time[$ "event"][i][$ "radius"] == undefined ? 1 : _time[$ "event"][i][$ "radius"];
 				var _offset = _time[$ "event"][i][$ "offset"] == undefined ? 1 : _time[$ "event"][i][$ "offset"];				

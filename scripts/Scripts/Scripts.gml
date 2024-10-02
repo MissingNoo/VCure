@@ -187,8 +187,8 @@ function spawn_event_new(data = {
 }) {
 	var enemy = global.enemies[data.monster];
 	data.enemy = enemy;
-	data.enemyheight = sprite_get_height(enemy[?"sprite"]);;
-	data.enemywidth = sprite_get_width(enemy[?"sprite"]);;
+	data.enemyheight = sprite_get_height(enemy[?"sprite"]);
+	data.enemywidth = sprite_get_width(enemy[?"sprite"]) * 2;
 	data.screen_center_x = view_wport[0] / 2;
 	data.screen_center_y = view_hport[0] / 2;
 	data.spawn_x = oPlayer.x;

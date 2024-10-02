@@ -111,14 +111,6 @@ if (keyboard_check(vk_home)) {
 	unlocked_outfits_load();
 }
 #endregion
-#region fps mean
-var _idx = stepsPassed % fpsArraySize;
-var _fps_real = 1 / ( delta_time / 1000000 );
-movingSum -= fpsArray[_idx];
-fpsArray[_idx] = _fps_real;
-movingSum += _fps_real;
-fpsAverage = movingSum / fpsArraySize;
-#endregion
 #region room limit, TODO: redo all this crap
 if (instance_exists(oPlayer)) {
 	var xx;

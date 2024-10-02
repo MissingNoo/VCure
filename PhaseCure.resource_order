@@ -460,6 +460,7 @@
     {"name":"CuttingDeep","order":3,"path":"scripts/CuttingDeep/CuttingDeep.yy",},
     {"name":"DebugLib","order":2,"path":"scripts/DebugLib/DebugLib.yy",},
     {"name":"draw_text_scribble_ext","order":1,"path":"scripts/draw_text_scribble_ext/draw_text_scribble_ext.yy",},
+    {"name":"EldritchHorror","order":20,"path":"scripts/EldritchHorror/EldritchHorror.yy",},
     {"name":"EletricPulse","order":6,"path":"scripts/EletricPulse/EletricPulse.yy",},
     {"name":"EnCurse","order":19,"path":"scripts/EnCurse/EnCurse.yy",},
     {"name":"EnemyScripts","order":3,"path":"scripts/EnemyScripts/EnemyScripts.yy",},

@@ -10,17 +10,6 @@ dAlarm = [];
 endlessminutemark = false;
 HP = 0;
 global.currentFrame = 0;
-#region fps mean
-numSeconds = 3;
-stepsPassed = 0;
-fpsAverage = 0;
-movingSum = 0;
-fpsArraySize = 60 * numSeconds;
-fpsArray[fpsArraySize-1] = 0;
-for(var i=0;i<fpsArraySize;i++){
-    fpsArray[i] = 0;
-}
-#endregion
 //show_debug_overlay(true);
 if (os_type != os_android) {
     window_set_size(1280, 720);
@@ -104,5 +93,5 @@ lexicon_index_declare_from_json("ptbr.json");
 ini_open("Settings");
 var language = ini_read_string("Settings", "Language", "English");
 ini_close();
-lexicon_language_set("English");
+lexicon_language_set(language);
 #endregion
