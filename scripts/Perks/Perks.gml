@@ -73,6 +73,9 @@ function create_perk(_data){
 		CuttingDeep,
 		LivingWeapon,
 		Slumber,
+		LuminPerk1,
+		LuminPerk2,
+		LuminPerk3,
 		Lenght
 	}
 #endregion

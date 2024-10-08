@@ -1,4 +1,9 @@
 //event_inherited();
+//draw_text(x, y - 30, global.updatenow);
+//if (instance_exists(global.updatenow)) {
+//    draw_line(x, y, global.updatenow.x, global.updatenow.y);
+//}
+
 draw_sprite_ext(sCharShadow, 0, x, y, 1, 1, 0, c_white, 0.8);
 DEBUG
     draw_circle(x, y, pickupRadius, true);

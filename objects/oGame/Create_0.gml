@@ -1,4 +1,5 @@
 //show_debug_overlay(true);
+global.updatenow = noone;
 global.updatepath = ds_stack_create();
 sprite_prefetch(BG_newgrass_0);
 global.upinstances = ds_stack_create();

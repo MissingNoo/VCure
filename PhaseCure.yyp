@@ -17,6 +17,7 @@
     {"$GMFolder":"","%Name":"Characters","folderPath":"folders/Characters.yy","name":"Characters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Guests","folderPath":"folders/Characters/Guests.yy","name":"Guests","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Dokibird","folderPath":"folders/Characters/Guests/Dokibird.yy","name":"Dokibird","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"sLumin","folderPath":"folders/Characters/Guests/sLumin.yy","name":"sLumin","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Trickywi","folderPath":"folders/Characters/Guests/Trickywi.yy","name":"Trickywi","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Ghosts","folderPath":"folders/Characters/Guests/Trickywi/Ghosts.yy","name":"Ghosts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Hololive","folderPath":"folders/Characters/Hololive.yy","name":"Hololive","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -246,7 +247,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.1100.0.626",
+    "IDEVersion":"2024.1100.0.634",
   },
   "name":"PhaseCure",
   "resources":[
@@ -834,6 +835,7 @@
     {"id":{"name":"LiaBolt","path":"scripts/LiaBolt/LiaBolt.yy",},},
     {"id":{"name":"Lick","path":"scripts/Lick/Lick.yy",},},
     {"id":{"name":"LivingWeapon","path":"scripts/LivingWeapon/LivingWeapon.yy",},},
+    {"id":{"name":"Lumin","path":"scripts/Lumin/Lumin.yy",},},
     {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},},
     {"id":{"name":"Mascots","path":"scripts/Mascots/Mascots.yy",},},
     {"id":{"name":"MoldySoul","path":"scripts/MoldySoul/MoldySoul.yy",},},
@@ -1311,6 +1313,8 @@
     {"id":{"name":"sLobsterIcon","path":"sprites/sLobsterIcon/sLobsterIcon.yy",},},
     {"id":{"name":"sLockIcon","path":"sprites/sLockIcon/sLockIcon.yy",},},
     {"id":{"name":"sLockLobby","path":"sprites/sLockLobby/sLockLobby.yy",},},
+    {"id":{"name":"sLuminIdle","path":"sprites/sLuminIdle/sLuminIdle.yy",},},
+    {"id":{"name":"sLuminRun","path":"sprites/sLuminRun/sLuminRun.yy",},},
     {"id":{"name":"sMantaRay","path":"sprites/sMantaRay/sMantaRay.yy",},},
     {"id":{"name":"sMantaRayIcon","path":"sprites/sMantaRayIcon/sMantaRayIcon.yy",},},
     {"id":{"name":"sMembership","path":"sprites/sMembership/sMembership.yy",},},

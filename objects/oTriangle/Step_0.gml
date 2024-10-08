@@ -7,4 +7,4 @@ if (dir == 0) {
 if (dir == 1) {
     image_angle -= spd;
 }
-alpha = 1 - real(string("0.{0}", (((y / GH) * 18))));
+alpha = 1 - real((y / GH) * 18);

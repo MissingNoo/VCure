@@ -30,7 +30,8 @@ enum SpecialIds {
 	BuffDude,
 	Shallys,
 	BladeForm,
-	SlowTime
+	SlowTime,
+	LuminSpecial
 }
 #endregion
 function populate_specials(){

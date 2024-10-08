@@ -1670,7 +1670,7 @@ function random_upgrades(){
 		#region 1&2
 			function slotRandomizer12() {
 				// randomize;
-				isWhat = "";
+				isWhat = undefined;
 				canBeWeapon = false;
 				//feather disable once GM1041
 				for (var i = 0; i < array_length(UPGRADES); ++i) {
@@ -1695,16 +1695,20 @@ function random_upgrades(){
 				}
 				
 				do {
-					if (irandom_range(1,9) <= 4) {
+					var rnw = irandom_range(1,9);
+					var rni = irandom_range(1,9);
+					var rns = irandom_range(1,18);
+					var rnp = irandom_range(1,18);
+					if (rnw <= 4) {
 					    isWhat = ItemTypes.Weapon;
-					}else if (irandom_range(1,9) == 1) {
+					}else if (rni == 1) {
 					    isWhat = ItemTypes.Item;
-					}else if (irandom_range(1,18) == 1) {
+					}else if (rns == 1) {
 							     isWhat = ItemTypes.Item; //TODO: change to stat-up
-					}else if (irandom_range(1,18) <= 7) {
+					}else if (rnp <= 7) {
 							     isWhat = ItemTypes.Perk;
 					}
-				} until (isWhat != "");
+				} until (isWhat != undefined);
 				// show_debug_message("type: {0}, weapon : {1}, array : {2}", is_what, can_be_weapon, array_length(weapons_list));
 				if (isWhat == ItemTypes.Weapon and !canBeWeapon or isWhat == ItemTypes.Weapon and array_length(weaponsList) == 0) {
 				    isWhat = ItemTypes.Item;

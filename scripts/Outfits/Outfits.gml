@@ -36,6 +36,7 @@ function populate_outfits(){
 	outfit_add("Aki Rosenthal",	"Default", sAkiIdle,					sAkiRun,						true);
 	outfit_add("Aki Rosenthal",	"O2", sAkiO1Idle,				sAkiO1Run,					true);
 	outfit_add("Anya Melfissa",	"Default", sAnyaIdle,				sAnyaRun,					true);
+	outfit_add("Tsukiboshi Lumin","Default", sLuminIdle,		sLuminRun,		true);
 }
 
 function unlocked_outfits_load(){

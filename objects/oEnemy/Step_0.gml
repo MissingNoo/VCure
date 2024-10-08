@@ -14,47 +14,149 @@ if (immortal) { hp = 99999999; }
 	
 }*/
 updatedebuffs();
+
+#region timers
+if (infected) {
+	hp -= baseHP / 5000;
+	infectedAttackTimer--;
+}
+if (lightningTimer > 0) {
+	lightningTimer -= 1*Delta;
+}
+else{
+	lightningMarked = false;
+}
+if (damagedAlarm > 0) {
+	damagedAlarm-= 1*Delta;
+}
+if (damagedAlarm < 0) {
+	damagedAlarm= 0;
+	damaged=false;
+}
+if (canattackAlarm > 0) {
+	canattackAlarm -= 1*Delta;
+}
+if (canattackAlarm < 0) {
+	canattackAlarm = 0;
+	canattack=true;
+}
+if (lifetimeAlarm > 0) {
+	lifetimeAlarm -= 1*Delta;
+}
+if (lifetimeAlarm < 0) {
+	lifetimeAlarm = 0;
+	dropxp = false;
+	hp = 0;
+}
+if (lifetime != "-" and lifetime > 0 and lifetimeAlarm == 0) {
+	//alarm[3] = lifetime * 60;
+	lifetimeAlarm = lifetime * 60;
+}
+if (customSpawn and distance_to_point(dieX, y) < 10) {
+	dropxp = false;
+	hp = 0;
+}
+#endregion
+
+#region dead
+if (hp <= 0) {
+	if (!saved) {
+		saved = true;
+		for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
+			if (PLAYER_PERKS[i][$ "on_kill"] != undefined) {
+				PLAYER_PERKS[i][$ "on_kill"]({
+						
+				});
+			}
+		}
+		var part = part_system_create(part_saved);
+		//feather disable once GM2017
+		part_system_position(part, x, y - (sprite_get_height(sprite_index) /2));
+		if (carryingBomb) {
+			instance_create_depth(x, y, depth, oUpgradeNew,{
+				upg : WEAPONS_LIST[Weapons.ImDieExplosion][1],
+				speed : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "speed"],
+				hits : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "hits"],
+				shoots : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "shoots"],
+				sprite_index : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "sprite"],
+				level : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "level"],
+				mindmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "mindmg"],
+				maxdmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "maxdmg"],
+				image_xscale : 0,
+				image_yscale : 0,
+			});
+		}
+		if (dropxp) {
+			global.defeatedEnemies += 1;
+			if (boss) {
+				global.bossDefeated += 1;
+			}
+			instance_create_layer(x,y,"Instances",oXP, {xp : xp});
+		}
+	}		
+	if (!global.singleplayer and !deathSent) {
+		deathSent = true;
+		sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : enemyID, type : "enemy"})});
+	}
+		
+	image_alpha-=.05 * Delta;
+	x-=image_xscale;
+	if (boss and global.screenShake == 1) {
+		oGame.shakeMagnitude=6;
+	}
+	if (image_alpha <= 0) {
+		instance_destroy();
+	}
+}
+#endregion
+
 updatepathtimer = clamp(updatepathtimer - 1, 0, infinity);
 if (updatepathtimer == 0 and updated == true) {
+	updatepathtimer = irandom_range(1, 120);
     ds_stack_push(global.updatepath, id);
 	updated = false;
 }
-//if (!firstlook and instance_exists(target)) {
-//    firstlook = true;
-//	if (boss) {
-//		if(target.x < x) image_xscale = -2;
-//		if(target.x > x) image_xscale = 2;
-//		image_yscale = 2;
-//	}
-//	else{
-//		if(target.x < x) image_xscale = xscale * -1;
-//		if(target.x > x) image_xscale = xscale;
-//		image_yscale = yscale;
-//	}
-//}
-//if (!instance_exists(target)) { target = noone; }
-//if (infected and target == oPlayer) { target = noone; }
-//if (infected and variable_instance_exists(target, "infected") and target[$ "infected"]) { target = noone; }
-//if (infected and target == noone) { //TODO multiplayer
-//	var _list = ds_list_create();
-//	var _num = collision_circle_list(x,y, 1000, oEnemy, false, true, _list, true);
-//	for (var i = 0; i < ds_list_size(_list); ++i) {
-//		if (variable_instance_get(_list[| i], "infected") == false) {
-//			target = _list[| i];
-//			if (!global.singleplayer and instance_exists(target)) {
-//				sendMessage(0, {
-//					command : Network.InfectMob,
-//					id : enemyID,
-//					target : target[$ "enemyID"],
-//					hp,
-//					baseSPD,
-//				});
-//			}
-//			break;
-//		}
-//	}
-//	ds_list_destroy(_list);
-//}
+
+if (global.updatenow != id and !saved) {
+    exit;
+}
+
+if (!firstlook and instance_exists(target)) {
+    firstlook = true;
+	if (boss) {
+		if(target.x < x) image_xscale = -2;
+		if(target.x > x) image_xscale = 2;
+		image_yscale = 2;
+	}
+	else{
+		if(target.x < x) image_xscale = xscale * -1;
+		if(target.x > x) image_xscale = xscale;
+		image_yscale = yscale;
+	}
+}
+if (!instance_exists(target)) { target = noone; }
+if (infected and target == oPlayer) { target = noone; }
+if (infected and variable_instance_exists(target, "infected") and target[$ "infected"]) { target = noone; }
+if (infected and target == noone) { //TODO multiplayer
+	var _list = ds_list_create();
+	var _num = collision_circle_list(x,y, 1000, oEnemy, false, true, _list, true);
+	for (var i = 0; i < ds_list_size(_list); ++i) {
+		if (variable_instance_get(_list[| i], "infected") == false) {
+			target = _list[| i];
+			if (!global.singleplayer and instance_exists(target)) {
+				sendMessage(0, {
+					command : Network.InfectMob,
+					id : enemyID,
+					target : target[$ "enemyID"],
+					hp,
+					baseSPD,
+				});
+			}
+			break;
+		}
+	}
+	ds_list_destroy(_list);
+}
 if (justSpawned and thisEnemy == Enemies.FubuZilla) {
 	justSpawned = false;
     fanbeamAlarm = fanbeamCooldown;
@@ -74,38 +176,7 @@ if (stunned) {
 	_canmove = false;
 }
 if(_canmove and instance_exists(target)){
-	if (infected) {
-	    hp -= baseHP / 5000;
-		infectedAttackTimer--;
-	}
-	if (lightningTimer > 0) {
-		lightningTimer -= 1*Delta;
-	}
-	else{
-		lightningMarked = false;
-	}
-	if (damagedAlarm > 0) {
-	    damagedAlarm-= 1*Delta;
-	}
-	if (damagedAlarm < 0) {
-		damagedAlarm= 0;
-	    damaged=false;
-	}
-	if (canattackAlarm > 0) {
-	    canattackAlarm -= 1*Delta;
-	}
-	if (canattackAlarm < 0) {
-		canattackAlarm = 0;
-	    canattack=true;
-	}
-	if (lifetimeAlarm > 0) {
-	    lifetimeAlarm -= 1*Delta;
-	}
-	if (lifetimeAlarm < 0) {
-		lifetimeAlarm = 0;
-		dropxp = false;
-	    hp = 0;
-	}
+	
 	#region Fubuzilla
 	if (fanbeamAlarm > 0) {
 	    fanbeamAlarm -= 1*Delta;
@@ -150,10 +221,6 @@ if(_canmove and instance_exists(target)){
 	#endregion
 	image_speed = oImageSpeed * Delta;
 	//if (lifetime != "-" and lifetime > 0 and alarm[3] == -1) {
-	if (lifetime != "-" and lifetime > 0 and lifetimeAlarm == 0) {
-	    //alarm[3] = lifetime * 60;
-	    lifetimeAlarm = lifetime * 60;
-	}
 	if (instance_exists(target)) {
 		if (pattern == Patterns.Horde or pattern == Patterns.WallLeftRight or pattern == Patterns.StampedeRight) { followPlayer = false;}
 		if (followPlayer) {
@@ -172,60 +239,6 @@ if(_canmove and instance_exists(target)){
 				if(target.x > x) image_xscale = xscale;
 				image_yscale = yscale;
 			}
-		}
-	}
-	if (customSpawn and distance_to_point(dieX, y) < 10) {
-		dropxp = false;
-		hp = 0;
-	}
-	
-	if (hp<=0) {
-		if (!saved) {
-			saved = true;
-			for (var i = 0; i < array_length(PLAYER_PERKS); ++i) {
-			    if (PLAYER_PERKS[i][$ "on_kill"] != undefined) {
-				    PLAYER_PERKS[i][$ "on_kill"]({
-						
-					});
-				}
-			}
-		    var part = part_system_create(part_saved);
-			//feather disable once GM2017
-			part_system_position(part, x, y - (sprite_get_height(sprite_index) /2));
-			if (carryingBomb) {
-			    instance_create_depth(x, y, depth, oUpgradeNew,{
-					upg : WEAPONS_LIST[Weapons.ImDieExplosion][1],
-					speed : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "speed"],
-					hits : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "hits"],
-					shoots : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "shoots"],
-					sprite_index : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "sprite"],
-					level : WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "level"],
-					mindmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "mindmg"],
-					maxdmg: WEAPONS_LIST[Weapons.ImDieExplosion][1][$ "maxdmg"],
-					image_xscale : 0,
-					image_yscale : 0,
-				});
-			}
-			if (dropxp) {
-				global.defeatedEnemies += 1;
-				if (boss) {
-					global.bossDefeated += 1;
-				}
-			    instance_create_layer(x,y,"Instances",oXP, {xp : xp});
-			}
-		}		
-		if (!global.singleplayer and !deathSent) {
-		    deathSent = true;
-			sendMessageNew(Network.DestroyInstance, {instancedata : json_stringify({id : enemyID, type : "enemy"})});
-		}
-		
-		image_alpha-=.05 * Delta;
-		x-=image_xscale;
-		if (boss and global.screenShake == 1) {
-			oGame.shakeMagnitude=6;
-		}
-		if (image_alpha <= 0) {
-		    instance_destroy();
 		}
 	}
 	// Feather disable once GM2016

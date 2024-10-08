@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Lumin",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Lumin",
+  "parent":{
+    "name":"sLumin",
+    "path":"folders/Characters/Guests/sLumin.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

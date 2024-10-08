@@ -10,4 +10,5 @@ function populate_characters(){
 	PipkinPippa();
 	WatsonAmelia();
 	RinkouAshelia();
+	TsukiboshiLumin();
 }
