@@ -4,7 +4,7 @@
 //    show_debug_overlay(false);
 //}
 //else {
-	show_debug_overlay(true);
+	//show_debug_overlay(true);
 //}
 if (is_mouse_over_debug_overlay())
 {
