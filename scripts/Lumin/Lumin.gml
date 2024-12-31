@@ -2,7 +2,7 @@ function TsukiboshiLumin() {
 	createCharacterNew({ //TODO: Special, belly dance fade when close to screen border, 
 		id : "Tsukiboshi Lumin",
 		name : "Tsukiboshi Lumin",
-		agency : "Hololive",
+		agency : "Indies",
 		portrait : sLockIcon,
 		bigArt : sPlaceholderArt,
 		sprite : sLuminIdle,
@@ -15,7 +15,7 @@ function TsukiboshiLumin() {
 		ballsize : 3,
 		flat : false,
 		unlockedbydefault : true,
-		finished : true
+		finished : false
 	});
 	
 	#region Belly Dancing

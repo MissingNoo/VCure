@@ -17,7 +17,7 @@
     {"$GMFolder":"","%Name":"Characters","folderPath":"folders/Characters.yy","name":"Characters","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Guests","folderPath":"folders/Characters/Guests.yy","name":"Guests","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Dokibird","folderPath":"folders/Characters/Guests/Dokibird.yy","name":"Dokibird","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"sLumin","folderPath":"folders/Characters/Guests/sLumin.yy","name":"sLumin","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Lumin","folderPath":"folders/Characters/Guests/Lumin.yy","name":"Lumin","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Trickywi","folderPath":"folders/Characters/Guests/Trickywi.yy","name":"Trickywi","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Ghosts","folderPath":"folders/Characters/Guests/Trickywi/Ghosts.yy","name":"Ghosts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Hololive","folderPath":"folders/Characters/Hololive.yy","name":"Hololive","resourceType":"GMFolder","resourceVersion":"2.0",},

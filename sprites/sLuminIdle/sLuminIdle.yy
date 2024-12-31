@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"sLumin",
-    "path":"folders/Characters/Guests/sLumin.yy",
+    "name":"Lumin",
+    "path":"folders/Characters/Guests/Lumin.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Lumin",
   "parent":{
-    "name":"sLumin",
-    "path":"folders/Characters/Guests/sLumin.yy",
+    "name":"Lumin",
+    "path":"folders/Characters/Guests/Lumin.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

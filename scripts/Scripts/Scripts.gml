@@ -798,6 +798,6 @@ SymbolsWriter: Pippa and Tenma character sprites and icons.
 Agnosia0: original Pippa mod.
 LostWolfCat: Pippa second outfit sprites.
 Fans on the Phase discord for ideas.
-Airgeadlamh: Trickywi sprites.
+Airgeadlamh: Trickywi and Lumin sprites.
 JujuAdams: Input library.
 TabularElf: Lexicon library.";
